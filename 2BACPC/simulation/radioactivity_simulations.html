@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulations de Radioactivité</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+        }
+
+        .simulation {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .simulation.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .controls {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="number"], input[type="range"], select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="range"] {
+            padding: 0;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        canvas {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            display: block;
+            margin: 20px auto;
+            background: white;
+        }
+
+        .results {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .results h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .result-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .equation {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #ffc107;
+            font-size: 18px;
+        }
+
+        .reaction-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            min-height: 300px;
+            position: relative;
+        }
+
+        .nucleus-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nucleus {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #ee5a6f);
+            position: relative;
+        }
+
+        .nucleus.daughter {
+            background: radial-gradient(circle at 30% 30%, #51cf66, #37b24d);
+            animation: none;
+        }
+
+        .nucleus sup {
+            font-size: 16px;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+        }
+
+        .nucleus sub {
+            font-size: 16px;
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+        }
+
+        .nucleus-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .arrow {
+            font-size: 48px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .particle-emitted {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .particle-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .particle-circle.alpha {
+            background: radial-gradient(circle at 30% 30%, #ffd700, #ffb700);
+        }
+
+        .particle-circle.beta-minus {
+            background: radial-gradient(circle at 30% 30%, #00bcd4, #0097a7);
+        }
+
+        .particle-circle.beta-plus {
+            background: radial-gradient(circle at 30% 30%, #ff6b9d, #c9184a);
+        }
+
+        .particle-circle.gamma {
+            background: radial-gradient(circle at 30% 30%, #9c27b0, #7b1fa2);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 5px 15px rgba(156, 39, 176, 0.5); }
+            50% { box-shadow: 0 5px 30px rgba(156, 39, 176, 0.9); }
+        }
+
+        .particle-properties {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            min-width: 200px;
+        }
+
+        .property {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .property strong {
+            color: #667eea;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #0c5460;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .stability-canvas-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .point-info {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔬 Simulations de Radioactivité By Mohamed Ez-ziymy</h1>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showSimulation('decay')">Décroissance Radioactive</button>
+            <button class="tab" onclick="showSimulation('reactions')">Réactions Nucléaires</button>
+            <button class="tab" onclick="showSimulation('stability')">Courbe de Stabilité</button>
+            <button class="tab" onclick="showSimulation('halflife')">Demi-vie</button>
+            <button class="tab" onclick="showSimulation('activity')">Activité</button>
+        </div>
+
+        <!-- Simulation 1: Décroissance Radioactive -->
+        <div id="decay" class="simulation active">
+            <h2>📉 Décroissance Radioactive</h2>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label>Nombre initial de noyaux (N₀):</label>
+                    <input type="number" id="n0" value="1000" min="100" max="10000">
+                </div>
+                
+                <div class="control-group">
+                    <label>Constante radioactive λ (s⁻¹):</label>
+                    <input type="number" id="lambda" value="0.1" step="0.01" min="0.01" max="1">
+                </div>
+                
+                <div class="control-group">
+                    <label>Temps (s): <span id="timeValue">0</span></label>
+                    <input type="range" id="time" value="0" min="0" max="50" step="0.1" oninput="updateDecay()">
+                </div>
+                
+                <button onclick="animateDecay()">▶️ Animer</button>
+                <button onclick="resetDecay()">🔄 Réinitialiser</button>
+            </div>
+
+            <canvas id="decayCanvas" width="900" height="450"></canvas>
+
+            <div class="results">
+                <h3>Résultats</h3>
+                <div class="equation">
+                    N(t) = N₀ × e<sup>-λt</sup>
+                </div>
+                <div class="result-item">
+                    <strong>Nombre de noyaux restants:</strong> <span id="nRemaining">1000</span>
+                </div>
+                <div class="result-item">
+                    <strong>Nombre de noyaux désintégrés:</strong> <span id="nDecayed">0</span>
+                </div>
+                <div class="result-item">
+                    <strong>Pourcentage restant:</strong> <span id="percentRemaining">100</span>%
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulation 2: Réactions Nucléaires -->
+        <div id="reactions" class="simulation">
+            <h2>⚛️ Réactions Nucléaires Détaillées</h2>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label>Type de désintégration:</label>
+                    <select id="reactionType" onchange="updateReaction()">
+                        <option value="alpha">Désintégration α (Alpha)</option>
+                        <option value="beta-">Désintégration β⁻ (Bêta moins)</option>
+                        <option value="beta+">Désintégration β⁺ (Bêta plus)</option>
+                        <option value="gamma">Émission γ (Gamma)</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Élément prédéfini:</label>
+                    <select id="presetElement" onchange="loadPreset()">
+                        <option value="custom">Personnalisé</option>
+                        <option value="u238">Uranium-238 (α)</option>
+                        <option value="c14">Carbone-14 (β⁻)</option>
+                        <option value="n13">Azote-13 (β⁺)</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Nombre de masse (A):</label>
+                    <input type="number" id="massNumber" value="238" min="1" max="300" onchange="updateReaction()">
+                </div>
+                
+                <div class="control-group">
+                    <label>Numéro atomique (Z):</label>
+                    <input type="number" id="atomicNumber" value="92" min="1" max="120" onchange="updateReaction()">
+                </div>
+                
+                <div class="control-group">
+                    <label>Symbole de l'élément:</label>
+                    <input type="text" id="elementSymbol" value="U" maxlength="2" onchange="updateReaction()">
+                </div>
+            </div>
+
+            <div class="reaction-visual" id="reactionDisplay">
+                <!-- Parent nucleus -->
+                <div class="nucleus-container">
+                    <div class="nucleus" id="parentNucleus">
+                        <sup id="massA">238</sup>
+                        <sub id="atomicZ">92</sub>
+                        <span id="elemSymbol">U</span>
+                    </div>
+                    <div class="nucleus-label">Noyau parent</div>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <!-- Daughter nucleus -->
+                <div class="nucleus-container">
+                    <div class="nucleus daughter" id="daughterNucleus">
+                        <sup id="daughterA">234</sup>
+                        <sub id="daughterZ">90</sub>
+                        <span id="daughterSymbol">Th</span>
+                    </div>
+                    <div class="nucleus-label">Noyau fils</div>
+                </div>
+
+                <div style="font-size: 36px; color: #667eea;">+</div>
+
+                <!-- Emitted particle -->
+                <div class="particle-emitted">
+                    <div class="particle-circle alpha" id="particleCircle">
+                        <span id="particleSymbol">α</span>
+                    </div>
+                    <div class="nucleus-label">Particule émise</div>
+                </div>
+            </div>
+
+            <div class="results">
+                <h3>Détails de la particule émise</h3>
+                <div class="particle-properties" id="particleProps">
+                    <div class="property"><strong>Type:</strong> <span id="propType">Particule alpha (α)</span></div>
+                    <div class="property"><strong>Composition:</strong> <span id="propComposition">2 protons + 2 neutrons</span></div>
+                    <div class="property"><strong>Charge:</strong> <span id="propCharge">+2e</span></div>
+                    <div class="property"><strong>Masse:</strong> <span id="propMass">4 u</span></div>
+                    <div class="property"><strong>Symbole:</strong> <span id="propSymbol">⁴₂He ou α</span></div>
+                    <div class="property"><strong>Pouvoir ionisant:</strong> <span id="propIonizing">Très élevé</span></div>
+                    <div class="property"><strong>Pouvoir pénétrant:</strong> <span id="propPenetrating">Faible (arrêté par feuille de papier)</span></div>
+                </div>
+
+                <h3>Équation de la réaction</h3>
+                <div class="equation" id="reactionEquation"></div>
+                <div class="info-box" id="reactionInfo"></div>
+            </div>
+        </div>
+
+        <!-- Simulation 3: Courbe de Stabilité -->
+        <div id="stability" class="simulation">
+            <h2>📊 Courbe de Stabilité des Noyaux (Diagramme N-Z)</h2>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label>Ajouter un isotope:</label>
+                    <select id="isotopeSelect" onchange="addIsotope()">
+                        <option value="">-- Sélectionner --</option>
+                        <option value="1,1">¹H (Hydrogène)</option>
+                        <option value="6,6">¹²C (Carbone-12) - Stable</option>
+                        <option value="6,8">¹⁴C (Carbone-14) - β⁻</option>
+                        <option value="7,6">¹³N (Azote-13) - β⁺</option>
+                        <option value="7,7">¹⁴N (Azote-14) - Stable</option>
+                        <option value="8,8">¹⁶O (Oxygène-16) - Stable</option>
+                        <option value="88,138">²²⁶Ra (Radium-226) - α</option>
+                        <option value="92,146">²³⁸U (Uranium-238) - α</option>
+                        <option value="82,124">²⁰⁶Pb (Plomb-206) - Stable</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Z (Numéro atomique):</label>
+                    <input type="number" id="customZ" value="6" min="1" max="100">
+                </div>
+                
+                <div class="control-group">
+                    <label>N (Nombre de neutrons):</label>
+                    <input type="number" id="customN" value="6" min="1" max="150">
+                </div>
+                
+                <button onclick="addCustomPoint()">➕ Ajouter point personnalisé</button>
+                <button onclick="clearStabilityChart()">🗑️ Effacer points</button>
+                <button onclick="showStabilityTheory()">📚 Afficher théorie</button>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #51cf66;"></div>
+                    <span>Noyaux stables</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ff6b6b;"></div>
+                    <span>Désintégration β⁻</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ff6b9d;"></div>
+                    <span>Désintégration β⁺</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffd700;"></div>
+                    <span>Désintégration α</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #339af0;"></div>
+                    <span>Ligne N=Z</span>
+                </div>
+            </div>
+
+            <div class="stability-canvas-container">
+                <canvas id="stabilityCanvas" width="900" height="700"></canvas>
+            </div>
+
+            <div class="point-info" id="pointInfo">
+                <h3>Information sur le point sélectionné</h3>
+                <p>Cliquez sur un point du graphique pour voir ses détails.</p>
+            </div>
+
+            <div class="results" id="theoryBox" style="display: none;">
+                <h3>💡 Théorie de la stabilité nucléaire</h3>
+                <div class="info-box">
+                    <p><strong>Vallée de stabilité:</strong> Les noyaux stables se trouvent dans une région appelée "vallée de stabilité".</p>
+                    <br>
+                    <p><strong>Règles de stabilité:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Pour Z < 20: Les noyaux stables ont approximativement N ≈ Z</li>
+                        <li>Pour Z > 20: N > Z (la vallée de stabilité s'écarte de N=Z)</li>
+                        <li>Au-dessus de la vallée (excès de neutrons): désintégration β⁻</li>
+                        <li>En-dessous de la vallée (excès de protons): désintégration β⁺</li>
+                        <li>Pour Z > 83: tous les noyaux sont radioactifs (souvent α)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulation 4: Demi-vie -->
+        <div id="halflife" class="simulation">
+            <h2>⏱️ Calcul de la Demi-vie</h2>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label>Élément radioactif:</label>
+                    <select id="isotope" onchange="updateHalfLife()">
+                        <option value="custom">Personnalisé</option>
+                        <option value="c14">Carbone-14 (t₁/₂ = 5 600 ans)</option>
+                        <option value="u238">Uranium-238 (t₁/₂ = 4,5×10⁹ ans)</option>
+                        <option value="ra226">Radium-226 (t₁/₂ = 1 620 ans)</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Demi-vie t₁/₂ (années):</label>
+                    <input type="number" id="halfLifeValue" value="5600" step="0.1">
+                </div>
+                
+                <div class="control-group">
+                    <label>Temps écoulé (années):</label>
+                    <input type="number" id="elapsedTime" value="0" step="100" min="0">
+                </div>
+                
+                <button onclick="calculateHalfLife()">📊 Calculer</button>
+            </div>
+
+            <canvas id="halfLifeCanvas" width="900" height="450"></canvas>
+
+            <div class="grid">
+                <div class="stat-card">
+                    <div class="stat-label">Constante λ</div>
+                    <div class="stat-value" id="lambdaValue">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Demi-vies écoulées</div>
+                    <div class="stat-value" id="halfLivesElapsed">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Pourcentage restant</div>
+                    <div class="stat-value" id="percentLeft">-</div>
+                </div>
+            </div>
+
+            <div class="results">
+                <h3>Relations importantes</h3>
+                <div class="equation">
+                    t₁/₂ = ln(2) / λ = 0,693 / λ
+                </div>
+                <div class="equation">
+                    N(t) = N₀ × (1/2)<sup>t/t₁/₂</sup>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulation 5: Activité -->
+        <div id="activity" class="simulation">
+            <h2>📡 Activité Radioactive</h2>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label>Nombre de noyaux N:</label>
+                    <input type="number" id="nucleiCount" value="1000000" step="100000">
+                </div>
+                
+                <div class="control-group">
+                    <label>Constante radioactive λ (s⁻¹):</label>
+                    <input type="number" id="activityLambda" value="0.001" step="0.0001" min="0.0001">
+                </div>
+                
+                <div class="control-group">
+                    <label>Temps d'observation (s): <span id="obsTimeValue">0</span></label>
+                    <input type="range" id="obsTime" value="0" min="0" max="5000" step="10" oninput="updateActivity()">
+                </div>
+                
+                <button onclick="calculateActivity()">🔬 Calculer l'activité</button>
+                <button onclick="animateActivity()">▶️ Animer</button>
+            </div>
+
+            <canvas id="activityCanvas" width="900" height="450"></canvas>
+
+            <div class="grid">
+                <div class="stat-card">
+                    <div class="stat-label">Activité a (Bq)</div>
+                    <div class="stat-value" id="activityValue">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Noyaux restants</div>
+                    <div class="stat-value" id="nucleiLeft">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Désintégrations/s</div>
+                    <div class="stat-value" id="disintegrations">-</div>
+                </div>
+            </div>
+
+            <div class="results">
+                <h3>Formules</h3>
+                <div class="equation">
+                    a = λN (activité instantanée)
+                </div>
+                <div class="equation">
+                    a(t) = a₀ × e<sup>-λt</sup>
+                </div>
+                <div class="info-box">
+                    <strong>Unité:</strong> 1 Becquerel (Bq) = 1 désintégration par seconde
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let animationId = null;
+        let addedPoints = [];
+
+        const elements = {
+            1: 'H', 2: 'He', 6: 'C', 7: 'N', 8: 'O', 82: 'Pb', 88: 'Ra', 90: 'Th', 92: 'U'
+        };
+
+        function showSimulation(simId) {
+            document.querySelectorAll('.simulation').forEach(sim => sim.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(simId).classList.add('active');
+            event.target.classList.add('active');
+            
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+
+            if (simId === 'stability') {
+                drawStabilityChart();
+            }
+        }
+
+        // Simulation 1: Décroissance Radioactive
+        function updateDecay() {
+            const n0 = parseFloat(document.getElementById('n0').value);
+            const lambda = parseFloat(document.getElementById('lambda').value);
+            const t = parseFloat(document.getElementById('time').value);
+            
+            document.getElementById('timeValue').textContent = t.toFixed(1);
+            
+            const n = n0 * Math.exp(-lambda * t);
+            const nDecayed = n0 - n;
+            const percent = (n / n0) * 100;
+            
+            document.getElementById('nRemaining').textContent = Math.round(n);
+            document.getElementById('nDecayed').textContent = Math.round(nDecayed);
+            document.getElementById('percentRemaining').textContent = percent.toFixed(1);
+            
+            drawDecayGraph();
+        }
+
+        function drawDecayGraph() {
+            const canvas = document.getElementById('decayCanvas');
+            const ctx = canvas.getContext('2d');
+            const n0 = parseFloat(document.getElementById('n0').value);
+            const lambda = parseFloat(document.getElementById('lambda').value);
+            const currentTime = parseFloat(document.getElementById('time').value);
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(60, 400);
+            ctx.lineTo(850, 400);
+            ctx.moveTo(60, 400);
+            ctx.lineTo(60, 50);
+            ctx.stroke();
+            
+            ctx.fillStyle = '#333';
+            ctx.font = '16px Arial';
+            ctx.fillText('Temps (s)', 750, 435);
+            ctx.save();
+            ctx.translate(20, 225);
+            ctx.rotate(-Math.PI / 2);
+            ctx.fillText('Nombre de noyaux', 0, 0);
+            ctx.restore();
+            
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let t = 0; t <= 50; t += 0.1) {
+                const n = n0 * Math.exp(-lambda * t);
+                const x = 60 + (t / 50) * 790;
+                const y = 400 - (n / n0) * 350;
+                
+                if (t === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+            
+            const n = n0 * Math.exp(-lambda * currentTime);
+            const x = 60 + (currentTime / 50) * 790;
+            const y = 400 - (n / n0) * 350;
+            
+            ctx.fillStyle = '#ff6b6b';
+            ctx.beginPath();
+            ctx.arc(x, y, 8, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function resetDecay() {
+            document.getElementById('time').value = 0;
+            updateDecay();
+        }
+
+        function animateDecay() {
+            let time = 0;
+            const maxTime = 50;
+            
+            function animate() {
+                if (time > maxTime) {
+                    time = 0;
+                }
+                
+                document.getElementById('time').value = time;
+                updateDecay();
+                
+                time += 0.2;
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+
+        // Simulation 2: Réactions Nucléaires
+        function loadPreset() {
+            const preset = document.getElementById('presetElement').value;
+            
+            if (preset === 'u238') {
+                document.getElementById('massNumber').value = 238;
+                document.getElementById('atomicNumber').value = 92;
+                document.getElementById('elementSymbol').value = 'U';
+                document.getElementById('reactionType').value = 'alpha';
+            } else if (preset === 'c14') {
+                document.getElementById('massNumber').value = 14;
+                document.getElementById('atomicNumber').value = 6;
+                document.getElementById('elementSymbol').value = 'C';
+                document.getElementById('reactionType').value = 'beta-';
+            } else if (preset === 'n13') {
+                document.getElementById('massNumber').value = 13;
+                document.getElementById('atomicNumber').value = 7;
+                document.getElementById('elementSymbol').value = 'N';
+                document.getElementById('reactionType').value = 'beta+';
+            }
+            
+            updateReaction();
+        }
+
+        function updateReaction() {
+            const type = document.getElementById('reactionType').value;
+            const A = parseInt(document.getElementById('massNumber').value);
+            const Z = parseInt(document.getElementById('atomicNumber').value);
+            const symbol = document.getElementById('elementSymbol').value;
+            
+            document.getElementById('massA').textContent = A;
+            document.getElementById('atomicZ').textContent = Z;
+            document.getElementById('elemSymbol').textContent = symbol;
+            
+            let newA, newZ, newSymbol;
+            let equation = '';
+            let info = '';
+            let particleProps = {};
+            
+            const particleCircle = document.getElementById('particleCircle');
+            
+            if (type === 'alpha') {
+                newA = A - 4;
+                newZ = Z - 2;
+                newSymbol = elements[newZ] || 'Y';
+                equation = `<sup>${A}</sup><sub>${Z}</sub>${symbol} → <sup>${newA}</sup><sub>${newZ}</sub>${newSymbol} + <sup>4</sup><sub>2</sub>He`;
+                info = '⚛️ <strong>Désintégration α:</strong> Le noyau émet une particule alpha (noyau d\'hélium-4). Le nombre de masse diminue de 4 et le numéro atomique diminue de 2.';
+                
+                particleCircle.className = 'particle-circle alpha';
+                document.getElementById('particleSymbol').innerHTML = 'α';
+                
+                particleProps = {
+                    type: 'Particule alpha (α)',
+                    composition: '2 protons + 2 neutrons (noyau ⁴He)',
+                    charge: '+2e',
+                    mass: '4,001506 u ≈ 6,64 × 10⁻²⁷ kg',
+                    symbol: '⁴₂He ou α',
+                    ionizing: 'Très élevé (forte interaction avec matière)',
+                    penetrating: 'Très faible (arrêté par feuille de papier ou quelques cm d\'air)'
+                };
+            } else if (type === 'beta-') {
+                newA = A;
+                newZ = Z + 1;
+                newSymbol = elements[newZ] || 'Y';
+                equation = `<sup>${A}</sup><sub>${Z}</sub>${symbol} → <sup>${newA}</sup><sub>${newZ}</sub>${newSymbol} + <sup>0</sup><sub>-1</sub>e⁻`;
+                info = '⚛️ <strong>Désintégration β⁻:</strong> Un neutron se transforme en proton en émettant un électron. Le nombre de masse reste constant, le numéro atomique augmente de 1.';
+                
+                particleCircle.className = 'particle-circle beta-minus';
+                document.getElementById('particleSymbol').innerHTML = 'β⁻';
+                
+                particleProps = {
+                    type: 'Particule bêta moins (β⁻)',
+                    composition: 'Électron (particule fondamentale)',
+                    charge: '-e (-1,602 × 10⁻¹⁹ C)',
+                    mass: '0,000549 u ≈ 9,11 × 10⁻³¹ kg',
+                    symbol: '⁰₋₁e ou β⁻',
+                    ionizing: 'Moyen',
+                    penetrating: 'Moyen (arrêté par quelques mm d\'aluminium)'
+                };
+            } else if (type === 'beta+') {
+                newA = A;
+                newZ = Z - 1;
+                newSymbol = elements[newZ] || 'Y';
+                equation = `<sup>${A}</sup><sub>${Z}</sub>${symbol} → <sup>${newA}</sup><sub>${newZ}</sub>${newSymbol} + <sup>0</sup><sub>+1</sub>e⁺`;
+                info = '⚛️ <strong>Désintégration β⁺:</strong> Un proton se transforme en neutron en émettant un positron. Le nombre de masse reste constant, le numéro atomique diminue de 1.';
+                
+                particleCircle.className = 'particle-circle beta-plus';
+                document.getElementById('particleSymbol').innerHTML = 'β⁺';
+                
+                particleProps = {
+                    type: 'Particule bêta plus (β⁺)',
+                    composition: 'Positron (antiparticule de l\'électron)',
+                    charge: '+e (+1,602 × 10⁻¹⁹ C)',
+                    mass: '0,000549 u ≈ 9,11 × 10⁻³¹ kg',
+                    symbol: '⁰₊₁e ou β⁺',
+                    ionizing: 'Moyen',
+                    penetrating: 'Moyen (arrêté par quelques mm d\'aluminium)'
+                };
+            } else {
+                newA = A;
+                newZ = Z;
+                newSymbol = symbol;
+                equation = `<sup>${A}</sup><sub>${Z}</sub>${symbol}* → <sup>${A}</sup><sub>${Z}</sub>${symbol} + γ`;
+                info = '⚛️ <strong>Émission γ:</strong> Le noyau excité libère son surplus d\'énergie sous forme de rayonnement électromagnétique. A et Z restent constants.';
+                
+                particleCircle.className = 'particle-circle gamma';
+                document.getElementById('particleSymbol').innerHTML = 'γ';
+                
+                particleProps = {
+                    type: 'Rayonnement gamma (γ)',
+                    composition: 'Photon de haute énergie (onde électromagnétique)',
+                    charge: '0 (neutre)',
+                    mass: '0 (pas de masse au repos)',
+                    symbol: 'γ',
+                    ionizing: 'Faible (ionisation indirecte)',
+                    penetrating: 'Très élevé (nécessite plusieurs cm de plomb)'
+                };
+            }
+            
+            document.getElementById('daughterA').textContent = newA;
+            document.getElementById('daughterZ').textContent = newZ;
+            document.getElementById('daughterSymbol').textContent = newSymbol;
+            document.getElementById('reactionEquation').innerHTML = equation;
+            document.getElementById('reactionInfo').innerHTML = info;
+            
+            document.getElementById('propType').textContent = particleProps.type;
+            document.getElementById('propComposition').textContent = particleProps.composition;
+            document.getElementById('propCharge').textContent = particleProps.charge;
+            document.getElementById('propMass').textContent = particleProps.mass;
+            document.getElementById('propSymbol').textContent = particleProps.symbol;
+            document.getElementById('propIonizing').textContent = particleProps.ionizing;
+            document.getElementById('propPenetrating').textContent = particleProps.penetrating;
+        }
+
+        // Simulation 3: Courbe de Stabilité
+        function drawStabilityChart() {
+            const canvas = document.getElementById('stabilityCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const margin = 60;
+            const width = canvas.width - 2 * margin;
+            const height = canvas.height - 2 * margin;
+            const maxZ = 100;
+            const maxN = 150;
+            
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(margin, canvas.height - margin);
+            ctx.lineTo(canvas.width - margin, canvas.height - margin);
+            ctx.moveTo(margin, canvas.height - margin);
+            ctx.lineTo(margin, margin);
+            ctx.stroke();
+            
+            ctx.fillStyle = '#333';
+            ctx.font = '16px Arial';
+            ctx.fillText('N (Nombre de neutrons)', canvas.width / 2 - 80, canvas.height - 20);
+            ctx.save();
+            ctx.translate(20, canvas.height / 2 + 80);
+            ctx.rotate(-Math.PI / 2);
+            ctx.fillText('Z (Numéro atomique)', 0, 0);
+            ctx.restore();
+            
+            ctx.strokeStyle = '#ddd';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 10; i++) {
+                const x = margin + (i / 10) * width;
+                const y = canvas.height - margin - (i / 10) * height;
+                
+                ctx.beginPath();
+                ctx.moveTo(x, canvas.height - margin);
+                ctx.lineTo(x, canvas.height - margin + 5);
+                ctx.stroke();
+                
+                ctx.fillStyle = '#666';
+                ctx.font = '12px Arial';
+                ctx.fillText(Math.round((i / 10) * maxN), x - 10, canvas.height - margin + 20);
+                
+                ctx.beginPath();
+                ctx.moveTo(margin, y);
+                ctx.lineTo(margin - 5, y);
+                ctx.stroke();
+                
+                ctx.fillText(Math.round((i / 10) * maxZ), margin - 30, y + 5);
+            }
+            
+            ctx.strokeStyle = '#339af0';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            for (let val = 0; val <= 100; val++) {
+                const x = margin + (val / maxN) * width;
+                const y = canvas.height - margin - (val / maxZ) * height;
+                if (val === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            const stableNuclei = [
+                {Z: 1, N: 0, name: '¹H'},
+                {Z: 2, N: 2, name: '⁴He'},
+                {Z: 6, N: 6, name: '¹²C'},
+                {Z: 7, N: 7, name: '¹⁴N'},
+                {Z: 8, N: 8, name: '¹⁶O'},
+                {Z: 20, N: 20, name: '⁴⁰Ca'},
+                {Z: 26, N: 30, name: '⁵⁶Fe'},
+                {Z: 50, N: 69, name: '¹¹⁹Sn'},
+                {Z: 82, N: 124, name: '²⁰⁶Pb'}
+            ];
+            
+            ctx.fillStyle = '#51cf66';
+            stableNuclei.forEach(nucleus => {
+                const x = margin + (nucleus.N / maxN) * width;
+                const y = canvas.height - margin - (nucleus.Z / maxZ) * height;
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            addedPoints.forEach(point => {
+                let color = '#51cf66';
+                if (point.type === 'beta-') color = '#ff6b6b';
+                else if (point.type === 'beta+') color = '#ff6b9d';
+                else if (point.type === 'alpha') color = '#ffd700';
+                
+                const x = margin + (point.N / maxN) * width;
+                const y = canvas.height - margin - (point.Z / maxZ) * height;
+                
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(x, y, 6, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            });
+        }
+
+        function addIsotope() {
+            const selected = document.getElementById('isotopeSelect').value;
+            if (!selected) return;
+            
+            const [Z, N] = selected.split(',').map(Number);
+            const A = Z + N;
+            
+            let type = 'stable';
+            if (Z > 83) type = 'alpha';
+            else if (N > Z * 1.5) type = 'beta-';
+            else if (N < Z && Z > 20) type = 'beta+';
+            
+            addedPoints.push({Z, N, A, type});
+            drawStabilityChart();
+            
+            document.getElementById('isotopeSelect').value = '';
+        }
+
+        function addCustomPoint() {
+            const Z = parseInt(document.getElementById('customZ').value);
+            const N = parseInt(document.getElementById('customN').value);
+            const A = Z + N;
+            
+            let type = 'stable';
+            if (Z > 83) {
+                type = 'alpha';
+            } else if (N > Z + 10) {
+                type = 'beta-';
+            } else if (N < Z - 5 && Z > 20) {
+                type = 'beta+';
+            } else if (Math.abs(N - Z) <= 5 || (Z <= 20 && Math.abs(N - Z) <= 2)) {
+                type = 'stable';
+            }
+            
+            addedPoints.push({Z, N, A, type});
+            drawStabilityChart();
+            
+            const symbol = elements[Z] || 'X';
+            let typeText = '';
+            if (type === 'stable') typeText = 'Stable';
+            else if (type === 'alpha') typeText = 'Désintégration α';
+            else if (type === 'beta-') typeText = 'Désintégration β⁻';
+            else if (type === 'beta+') typeText = 'Désintégration β⁺';
+            
+            document.getElementById('pointInfo').innerHTML = `
+                <h3>Point ajouté</h3>
+                <p><strong>Isotope:</strong> <sup>${A}</sup><sub>${Z}</sub>${symbol}</p>
+                <p><strong>Protons (Z):</strong> ${Z}</p>
+                <p><strong>Neutrons (N):</strong> ${N}</p>
+                <p><strong>Nombre de masse (A):</strong> ${A}</p>
+                <p><strong>Type:</strong> ${typeText}</p>
+            `;
+        }
+
+        function clearStabilityChart() {
+            addedPoints = [];
+            drawStabilityChart();
+            document.getElementById('pointInfo').innerHTML = `
+                <h3>Information sur le point sélectionné</h3>
+                <p>Cliquez sur un point du graphique pour voir ses détails.</p>
+            `;
+        }
+
+        function showStabilityTheory() {
+            const theoryBox = document.getElementById('theoryBox');
+            theoryBox.style.display = theoryBox.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Simulation 4: Demi-vie
+        function updateHalfLife() {
+            const isotope = document.getElementById('isotope').value;
+            const halfLifeInput = document.getElementById('halfLifeValue');
+            
+            if (isotope === 'c14') {
+                halfLifeInput.value = 5600;
+            } else if (isotope === 'u238') {
+                halfLifeInput.value = 4500000000;
+            } else if (isotope === 'ra226') {
+                halfLifeInput.value = 1620;
+            }
+        }
+
+        function calculateHalfLife() {
+            const t_half = parseFloat(document.getElementById('halfLifeValue').value);
+            const t = parseFloat(document.getElementById('elapsedTime').value);
+            
+            const lambda = Math.log(2) / t_half;
+            const halfLives = t / t_half;
+            const percentLeft = Math.pow(0.5, halfLives) * 100;
+            
+            document.getElementById('lambdaValue').textContent = lambda.toExponential(3);
+            document.getElementById('halfLivesElapsed').textContent = halfLives.toFixed(2);
+            document.getElementById('percentLeft').textContent = percentLeft.toFixed(1) + '%';
+            
+            drawHalfLifeGraph();
+        }
+
+        function drawHalfLifeGraph() {
+            const canvas = document.getElementById('halfLifeCanvas');
+            const ctx = canvas.getContext('2d');
+            const t_half = parseFloat(document.getElementById('halfLifeValue').value);
+            const maxTime = t_half * 5;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(60, 400);
+            ctx.lineTo(850, 400);
+            ctx.moveTo(60, 400);
+            ctx.lineTo(60, 50);
+            ctx.stroke();
+            
+            ctx.fillStyle = '#333';
+            ctx.font = '16px Arial';
+            ctx.fillText('Temps', 750, 435);
+            ctx.fillText('N/N₀', 20, 40);
+            
+            ctx.strokeStyle = '#ddd';
+            ctx.setLineDash([5, 5]);
+            for (let i = 1; i <= 4; i++) {
+                const x = 60 + (i * t_half / maxTime) * 790;
+                ctx.beginPath();
+                ctx.moveTo(x, 50);
+                ctx.lineTo(x, 400);
+                ctx.stroke();
+                
+                const y = 400 - (Math.pow(0.5, i)) * 350;
+                ctx.beginPath();
+                ctx.moveTo(60, y);
+                ctx.lineTo(850, y);
+                ctx.stroke();
+                
+                ctx.fillStyle = '#666';
+                ctx.font = '12px Arial';
+                ctx.fillText(`${i}t₁/₂`, x - 15, 420);
+            }
+            ctx.setLineDash([]);
+            
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let t = 0; t <= maxTime; t += maxTime / 1000) {
+                const ratio = Math.pow(0.5, t / t_half);
+                const x = 60 + (t / maxTime) * 790;
+                const y = 400 - ratio * 350;
+                
+                if (t === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        }
+
+        // Simulation 5: Activité
+        function updateActivity() {
+            document.getElementById('obsTimeValue').textContent = document.getElementById('obsTime').value;
+            calculateActivity();
+        }
+
+        function calculateActivity() {
+            const N = parseFloat(document.getElementById('nucleiCount').value);
+            const lambda = parseFloat(document.getElementById('activityLambda').value);
+            const t = parseFloat(document.getElementById('obsTime').value);
+            
+            const a0 = lambda * N;
+            const a = a0 * Math.exp(-lambda * t);
+            const N_remaining = N * Math.exp(-lambda * t);
+            
+            document.getElementById('activityValue').textContent = a.toExponential(2);
+            document.getElementById('nucleiLeft').textContent = Math.round(N_remaining).toLocaleString();
+            document.getElementById('disintegrations').textContent = Math.round(a).toLocaleString();
+            
+            drawActivityGraph();
+        }
+
+        function drawActivityGraph() {
+            const canvas = document.getElementById('activityCanvas');
+            const ctx = canvas.getContext('2d');
+            const N = parseFloat(document.getElementById('nucleiCount').value);
+            const lambda = parseFloat(document.getElementById('activityLambda').value);
+            const currentTime = parseFloat(document.getElementById('obsTime').value);
+            const maxTime = 5000;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(60, 400);
+            ctx.lineTo(850, 400);
+            ctx.moveTo(60, 400);
+            ctx.lineTo(60, 50);
+            ctx.stroke();
+            
+            ctx.fillStyle = '#333';
+            ctx.font = '16px Arial';
+            ctx.fillText('Temps (s)', 750, 435);
+            ctx.fillText('Activité (Bq)', 10, 30);
+            
+            const a0 = lambda * N;
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let t = 0; t <= maxTime; t += 10) {
+                const a = a0 * Math.exp(-lambda * t);
+                const x = 60 + (t / maxTime) * 790;
+                const y = 400 - (a / a0) * 350;
+                
+                if (t === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+            
+            const a_current = a0 * Math.exp(-lambda * currentTime);
+            const x = 60 + (currentTime / maxTime) * 790;
+            const y = 400 - (a_current / a0) * 350;
+            
+            ctx.fillStyle = '#ff6b6b';
+            ctx.beginPath();
+            ctx.arc(x, y, 8, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function animateActivity() {
+            let time = 0;
+            const maxTime = 5000;
+            
+            function animate() {
+                if (time > maxTime) {
+                    time = 0;
+                }
+                
+                document.getElementById('obsTime').value = time;
+                updateActivity();
+                
+                time += 50;
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            
+            animate();
+        }
+
+        updateDecay();
+        updateReaction();
+        drawStabilityChart();
+    </script>
+</body>
+</html>

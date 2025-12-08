@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulations Chimiques 2D/3D</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#0d0e12;color:#f0f0f0;line-height:1.6}
+header{text-align:center;padding:30px;background:#1a1b20;border-bottom:2px solid #00d9ff}
+h1{color:#00d9ff;margin-bottom:10px}
+.container{max-width:1200px;margin:20px auto;padding:0 15px}
+.section{background:#15171f;margin-bottom:30px;border-radius:10px;overflow:hidden;border:1px solid #2a2e3d}
+.section-title{background:#1c1f2b;padding:15px 20px;border-bottom:1px solid #2a2e3d}
+.section-title h2{color:#00d9ff;font-size:1.2rem}
+.content{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.panel{padding:20px;border-right:1px solid #2a2e3d}
+.viz{display:flex;flex-direction:column}
+.scene3d{height:350px;background:#000;position:relative}
+.hint{position:absolute;bottom:5px;right:5px;background:rgba(0,0,0,.8);padding:3px 8px;font-size:.7rem;color:#888;border-radius:3px}
+.graph2d{height:180px;background:#0a0b0f;border-top:1px solid #2a2e3d}
+.control{margin-bottom:15px}
+.control label{display:block;margin-bottom:5px;font-size:.9rem;color:#ccc}
+.value{color:#00d9ff;font-weight:700}
+input[type="range"]{width:100%;height:6px;background:#2a2e3d;border-radius:5px;outline:none}
+select,button{width:100%;padding:10px;margin-top:5px;border:none;border-radius:5px;cursor:pointer}
+select{background:#2a2e3d;color:#fff}
+button{background:#00d9ff;color:#000;font-weight:700;text-transform:uppercase}
+button:hover{background:#4de4ff}
+.equation{background:#1c1f2b;padding:10px;border-radius:5px;text-align:center;margin:10px 0;border:1px solid #2a2e3d}
+.data{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:rgba(0,0,0,.3);padding:10px;border-radius:5px;font-size:.9rem}
+.data div{padding:5px}
+.data span{color:#888}
+.indicators{display:flex;gap:10px;margin:10px 0}
+.ind{flex:1;text-align:center;padding:8px;border:1px solid #2a2e3d;border-radius:5px}
+.ind-color{height:40px;border-radius:5px;margin-bottom:5px}
+.ph-bar{display:flex;height:25px;border-radius:5px;overflow:hidden;margin:10px 0}
+.ph-bar div{flex:1;font-size:.65rem;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+@media(max-width:900px){.content{grid-template-columns:1fr}.panel{border-right:none;border-bottom:1px solid #2a2e3d}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Simulations Chimiques 2D/3D By Mohamed Ez-ziymy</h1>
+  <p>pH • Indicateurs • Réactions • Équilibre dynamique</p>
+</header>
+
+<div class="container">
+
+  <!-- 1. pH -->
+  <div class="section">
+    <div class="section-title"><h2>1. pH et Indicateurs Colorés</h2></div>
+    <div class="content">
+      <div class="panel">
+        <p style="color:#888;font-size:.9rem">Ajustez le pH. Les ions H₃O⁺ (rouge) et OH⁻ (bleu) s'affichent en 3D. Utilisez la souris pour pivoter/zoomer.</p>
+        
+        <div class="equation">H₂O + H₂O ⇌ H₃O⁺ + HO⁻</div>
+        
+        <div class="control">
+          <label>pH : <span class="value" id="ph-val">7.0</span></label>
+          <input type="range" id="ph-slider" min="0" max="14" step="0.1" value="7">
+        </div>
+        
+        <div class="ph-bar">
+          <div style="background:#c62828">0</div>
+          <div style="background:#e53935">2</div>
+          <div style="background:#f44336">4</div>
+          <div style="background:#ffa726">6</div>
+          <div style="background:#4caf50">7</div>
+          <div style="background:#64b5f6">9</div>
+          <div style="background:#2196f3">11</div>
+          <div style="background:#1565c0">13</div>
+        </div>
+        
+        <div class="indicators">
+          <div class="ind">
+            <div class="ind-color" id="ind1"></div>
+            <div style="font-size:.8rem">Phénolphtaléine</div>
+          </div>
+          <div class="ind">
+            <div class="ind-color" id="ind2"></div>
+            <div style="font-size:.8rem">BBT</div>
+          </div>
+          <div class="ind">
+            <div class="ind-color" id="ind3"></div>
+            <div style="font-size:.8rem">Hélianthine</div>
+          </div>
+        </div>
+        
+        <div class="data">
+          <div><span>[H₃O⁺]:</span> <strong id="h3o-c">—</strong></div>
+          <div><span>[OH⁻]:</span> <strong id="oh-c">—</strong></div>
+          <div><span>Type:</span> <strong id="ph-type">Neutre</strong></div>
+          <div style="display: none;"><span>pOH:</span> <strong id="poh-v">—</strong></div>
+        </div>
+      </div>
+      <div class="viz">
+        <div class="scene3d" id="scene-ph">
+          <div class="hint">🖱️ Glisser pour pivoter</div>
+        </div>
+        <canvas class="graph2d" id="graph-ph"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Réactions -->
+  <div class="section">
+    <div class="section-title"><h2>2. Types de Réactions Chimiques</h2></div>
+    <div class="content">
+      <div class="panel">
+        <p style="color:#888;font-size:.9rem">Sélectionnez un type de réaction. Vert = réactifs, Orange = produits.</p>
+        
+        <div class="control">
+          <label>Type de réaction</label>
+          <select id="rxn-type">
+            <option value="ab">Acide-Base (Neutralisation)</option>
+            <option value="pp">Précipitation (AgCl)</option>
+            <option value="rd">Redox (Zn + Cu²⁺)</option>
+            <option value="cb">Combustion (CH₄)</option>
+          </select>
+        </div>
+        
+        <div class="equation" id="rxn-eq">HCl + NaOH → NaCl + H₂O</div>
+        
+        <div class="control">
+          <label>Avancement : <span class="value" id="adv-val">0</span>%</label>
+          <input type="range" id="adv-slider" min="0" max="100" value="0">
+        </div>
+        
+        <button id="rxn-run">Lancer la réaction</button>
+        
+        <div class="data" style="margin-top:15px">
+          <div><span>Réactifs:</span> <strong id="rxn-r">—</strong></div>
+          <div><span>Produits:</span> <strong id="rxn-p">—</strong></div>
+        </div>
+      </div>
+      <div class="viz">
+        <div class="scene3d" id="scene-rxn">
+          <div class="hint">🖱️ Zoom avec molette</div>
+        </div>
+        <canvas class="graph2d" id="graph-rxn"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Équilibre -->
+  <div class="section">
+    <div class="section-title"><h2>3. Équilibre Chimique Dynamique</h2></div>
+    <div class="content">
+      <div class="panel">
+        <p style="color:#888;font-size:.9rem">À l'équilibre : v→ = v←. Bleu = N₂, Vert = H₂, Orange = NH₃</p>
+        
+        <div class="equation">N₂ + 3H₂ ⇌ 2NH₃</div>
+        
+        <div class="control">
+          <label>Constante K : <span class="value" id="k-val">1.0</span></label>
+          <input type="range" id="k-slider" min="0.1" max="5" step="0.1" value="1">
+        </div>
+        
+        <div class="control">
+          <label>Vitesse : <span class="value" id="speed-val">1.0</span>x</label>
+          <input type="range" id="speed-slider" min="0.2" max="3" step="0.1" value="1">
+        </div>
+        
+        <button id="eq-start">Démarrer</button>
+        <button id="eq-reset" style="background:#2a2e3d;margin-top:5px">Réinitialiser</button>
+        
+        <div class="data" style="margin-top:15px">
+          <div><span>v→:</span> <strong id="vf">—</strong></div>
+          <div><span>v←:</span> <strong id="vr">—</strong></div>
+          <div><span>[N₂]:</span> <strong id="n2">—</strong></div>
+          <div><span>[H₂]:</span> <strong id="h2">—</strong></div>
+          <div><span>[NH₃]:</span> <strong id="nh3">—</strong></div>
+          <div><span>État:</span> <strong id="eq-state">—</strong></div>
+        </div>
+      </div>
+      <div class="viz">
+        <div class="scene3d" id="scene-eq">
+          <div class="hint">🖱️ Contrôles interactifs</div>
+        </div>
+        <canvas class="graph2d" id="graph-eq"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// Attendre que Three.js soit chargé
+setTimeout(function(){
+  if(typeof THREE === 'undefined'){
+    alert('Three.js n\'a pas pu être chargé. Vérifiez votre connexion Internet.');
+    return;
+  }
+  console.log('Three.js chargé, démarrage...');
+  
+  // Fonction de création de scène
+  function createScene(containerId){
+    const container = document.getElementById(containerId);
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x000000);
+    
+    const camera = new THREE.PerspectiveCamera(50, container.clientWidth/container.clientHeight, 0.1, 1000);
+    camera.position.set(0, 5, 20);
+    
+    const renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+    
+    const light1 = new THREE.AmbientLight(0xffffff, 0.6);
+    const light2 = new THREE.DirectionalLight(0xffffff, 0.8);
+    light2.position.set(10, 10, 10);
+    scene.add(light1, light2);
+    
+    // Variables de contrôle souris
+    let isDragging = false;
+    let previousX = 0, previousY = 0;
+    
+    renderer.domElement.addEventListener('mousedown', function(e){
+      isDragging = true;
+      previousX = e.clientX;
+      previousY = e.clientY;
+    });
+    
+    renderer.domElement.addEventListener('mousemove', function(e){
+      if(isDragging){
+        const dx = e.clientX - previousX;
+        const dy = e.clientY - previousY;
+        camera.position.x -= dx * 0.05;
+        camera.position.y += dy * 0.05;
+        previousX = e.clientX;
+        previousY = e.clientY;
+      }
+    });
+    
+    renderer.domElement.addEventListener('mouseup', function(){
+      isDragging = false;
+    });
+    
+    renderer.domElement.addEventListener('wheel', function(e){
+      e.preventDefault();
+      camera.position.z += e.deltaY * 0.01;
+      camera.position.z = Math.max(10, Math.min(50, camera.position.z));
+    });
+    
+    return {scene, camera, renderer, container};
+  }
+  
+  // Graphique 2D simple
+  function drawGraph(canvas, data1, data2, color1, color2){
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width = canvas.offsetWidth;
+    const h = canvas.height = canvas.offsetHeight;
+    
+    ctx.fillStyle = '#0a0b0f';
+    ctx.fillRect(0, 0, w, h);
+    
+    if(!data1 || data1.length < 2) return;
+    
+    const max = Math.max(...data1, ...(data2||[]), 1);
+    const step = w / (data1.length - 1);
+    
+    // Courbe 1
+    ctx.strokeStyle = color1 || '#00d9ff';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    data1.forEach((val, i) => {
+      const x = i * step;
+      const y = h - (val / max) * h * 0.9 - 10;
+      if(i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    
+    // Courbe 2
+    if(data2){
+      ctx.strokeStyle = color2 || '#ff9800';
+      ctx.beginPath();
+      data2.forEach((val, i) => {
+        const x = i * step;
+        const y = h - (val / max) * h * 0.9 - 10;
+        if(i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+    }
+  }
+  
+  const animations = [];
+  
+  // ========== 1. pH ==========
+  (function(){
+    const sim = createScene('scene-ph');
+    const slider = document.getElementById('ph-slider');
+    const valEl = document.getElementById('ph-val');
+    const h3oEl = document.getElementById('h3o-c');
+    const ohEl = document.getElementById('oh-c');
+    const typeEl = document.getElementById('ph-type');
+    const pohEl = document.getElementById('poh-v');
+    const ind1 = document.getElementById('ind1');
+    const ind2 = document.getElementById('ind2');
+    const ind3 = document.getElementById('ind3');
+    const canvas = document.getElementById('graph-ph');
+    
+    let particles = [];
+    let pH = 7;
+    
+    function update(){
+      pH = parseFloat(slider.value);
+      valEl.textContent = pH.toFixed(1);
+      
+      const h3o = Math.pow(10, -pH);
+      const oh = 1e-14 / h3o;
+      
+      h3oEl.textContent = h3o.toExponential(2);
+      ohEl.textContent = oh.toExponential(2);
+      pohEl.textContent = (14 - pH).toFixed(1);
+      
+      if(pH < 7) typeEl.textContent = 'Acide';
+      else if(pH > 7) typeEl.textContent = 'Basique';
+      else typeEl.textContent = 'Neutre';
+      
+      // Indicateurs
+      if(pH < 8.2) ind1.style.backgroundColor = '#ffffff';
+      else if(pH > 10) ind1.style.backgroundColor = '#ff00ff';
+      else {
+        const t = (pH - 8.2) / 1.8;
+        ind1.style.backgroundColor = `rgb(255, ${255-t*255}, 255)`;
+      }
+      
+      if(pH < 6) ind2.style.backgroundColor = '#ffff00';
+      else if(pH > 7.6) ind2.style.backgroundColor = '#0066cc';
+      else {
+        const t = (pH - 6) / 1.6;
+        ind2.style.backgroundColor = `rgb(${255-t*255}, ${255-t*100}, ${t*204})`;
+      }
+      
+      if(pH < 3.1) ind3.style.backgroundColor = '#ff0033';
+      else if(pH > 4.4) ind3.style.backgroundColor = '#ffee00';
+      else {
+        const t = (pH - 3.1) / 1.3;
+        ind3.style.backgroundColor = `rgb(255, ${t*238}, ${t*51})`;
+      }
+      
+      // Particules
+      particles.forEach(p => sim.scene.remove(p));
+      particles = [];
+      
+      const nH = Math.min(Math.floor((14 - pH) * 2), 25);
+      for(let i = 0; i < nH; i++){
+        const s = new THREE.Mesh(
+          new THREE.SphereGeometry(0.3, 12, 12),
+          new THREE.MeshStandardMaterial({color: 0xff4444})
+        );
+        s.position.set(
+          (Math.random() - 0.5) * 14,
+          (Math.random() - 0.5) * 8,
+          (Math.random() - 0.5) * 4
+        );
+        s.userData.vel = new THREE.Vector3(
+          (Math.random() - 0.5) * 2,
+          (Math.random() - 0.5) * 2,
+          (Math.random() - 0.5) * 2
+        );
+        sim.scene.add(s);
+        particles.push(s);
+      }
+      
+      const nO = Math.min(Math.floor(pH * 2), 25);
+      for(let i = 0; i < nO; i++){
+        const s = new THREE.Mesh(
+          new THREE.SphereGeometry(0.3, 12, 12),
+          new THREE.MeshStandardMaterial({color: 0x2196f3})
+        );
+        s.position.set(
+          (Math.random() - 0.5) * 14,
+          (Math.random() - 0.5) * 8,
+          (Math.random() - 0.5) * 4
+        );
+        s.userData.vel = new THREE.Vector3(
+          (Math.random() - 0.5) * 2,
+          (Math.random() - 0.5) * 2,
+          (Math.random() - 0.5) * 2
+        );
+        sim.scene.add(s);
+        particles.push(s);
+      }
+      
+      // Graph
+      const data = [];
+      for(let p = 0; p <= 14; p += 0.5){
+        data.push(-Math.log10(Math.pow(10, -p)));
+      }
+      drawGraph(canvas, data, null, '#ff4444');
+    }
+    
+    slider.addEventListener('input', update);
+    update();
+    
+    animations.push(function(dt){
+      particles.forEach(p => {
+        p.position.add(p.userData.vel.clone().multiplyScalar(dt));
+        if(Math.abs(p.position.x) > 7) p.userData.vel.x *= -1;
+        if(Math.abs(p.position.y) > 4) p.userData.vel.y *= -1;
+        if(Math.abs(p.position.z) > 2) p.userData.vel.z *= -1;
+      });
+      sim.renderer.render(sim.scene, sim.camera);
+    });
+  })();
+  
+  // ========== 2. Réactions ==========
+  (function(){
+    const sim = createScene('scene-rxn');
+    const typeSelect = document.getElementById('rxn-type');
+    const advSlider = document.getElementById('adv-slider');
+    const advVal = document.getElementById('adv-val');
+    const runBtn = document.getElementById('rxn-run');
+    const eqEl = document.getElementById('rxn-eq');
+    const rEl = document.getElementById('rxn-r');
+    const pEl = document.getElementById('rxn-p');
+    const canvas = document.getElementById('graph-rxn');
+    
+    const equations = {
+      ab: 'HCl + NaOH → NaCl + H₂O',
+      pp: 'AgNO₃ + NaCl → AgCl↓ + NaNO₃',
+      rd: 'Zn + Cu²⁺ → Zn²⁺ + Cu',
+      cb: 'CH₄ + 2O₂ → CO₂ + 2H₂O'
+    };
+    
+    let particles = [];
+    let running = false;
+    let progress = 0;
+    const total = 20;
+    let graphData1 = [];
+    let graphData2 = [];
+    
+    function reset(){
+      particles.forEach(p => sim.scene.remove(p));
+      particles = [];
+      progress = 0;
+      running = false;
+      graphData1 = [];
+      graphData2 = [];
+      
+      for(let i = 0; i < total; i++){
+        const s = new THREE.Mesh(
+          new THREE.SphereGeometry(0.35, 12, 12),
+          new THREE.MeshStandardMaterial({color: 0x4caf50})
+        );
+        s.position.set(
+          (Math.random() - 0.5) * 14,
+          (Math.random() - 0.5) * 8,
+          (Math.random() - 0.5) * 4
+        );
+        s.userData.vel = new THREE.Vector3(
+          (Math.random() - 0.5) * 3,
+          (Math.random() - 0.5) * 3,
+          (Math.random() - 0.5) * 3
+        );
+        s.userData.type = 'r';
+        sim.scene.add(s);
+        particles.push(s);
+      }
+      
+      rEl.textContent = total;
+      pEl.textContent = '0';
+    }
+    
+    typeSelect.addEventListener('change', function(){
+      eqEl.textContent = equations[this.value];
+      reset();
+    });
+    
+    advSlider.addEventListener('input', function(){
+      advVal.textContent = this.value;
+    });
+    
+    runBtn.addEventListener('click', function(){
+      running = true;
+    });
+    
+    reset();
+    
+    animations.push(function(dt){
+      particles.forEach(p => {
+        p.position.add(p.userData.vel.clone().multiplyScalar(dt));
+        if(Math.abs(p.position.x) > 7) p.userData.vel.x *= -1;
+        if(Math.abs(p.position.y) > 4) p.userData.vel.y *= -1;
+        if(Math.abs(p.position.z) > 2) p.userData.vel.z *= -1;
+        p.rotation.y += dt * 2;
+      });
+      
+      if(running){
+        const target = parseFloat(advSlider.value);
+        if(progress < target){
+          progress += dt * 20;
+          const targetP = Math.floor(total * progress / 100);
+          const currentP = particles.filter(p => p.userData.type === 'p').length;
+          
+          if(currentP < targetP){
+            const r = particles.find(p => p.userData.type === 'r');
+            if(r){
+              r.userData.type = 'p';
+              r.material.color.setHex(0xff9800);
+            }
+          }
+          
+          const nR = particles.filter(p => p.userData.type === 'r').length;
+          const nP = particles.filter(p => p.userData.type === 'p').length;
+          
+          rEl.textContent = nR;
+          pEl.textContent = nP;
+          
+          if(graphData1.length < 100){
+            graphData1.push(nR);
+            graphData2.push(nP);
+            drawGraph(canvas, graphData1, graphData2, '#4caf50', '#ff9800');
+          }
+        }
+      }
+      
+      sim.renderer.render(sim.scene, sim.camera);
+    });
+  })();
+  
+  // ========== 3. Équilibre ==========
+  (function(){
+    const sim = createScene('scene-eq');
+    const kSlider = document.getElementById('k-slider');
+    const speedSlider = document.getElementById('speed-slider');
+    const kVal = document.getElementById('k-val');
+    const speedVal = document.getElementById('speed-val');
+    const startBtn = document.getElementById('eq-start');
+    const resetBtn = document.getElementById('eq-reset');
+    const vfEl = document.getElementById('vf');
+    const vrEl = document.getElementById('vr');
+    const n2El = document.getElementById('n2');
+    const h2El = document.getElementById('h2');
+    const nh3El = document.getElementById('nh3');
+    const stateEl = document.getElementById('eq-state');
+    const canvas = document.getElementById('graph-eq');
+    
+    let K = 1.0;
+    let speed = 1.0;
+    let particles = [];
+    let running = false;
+    let graphN2 = [];
+    let graphH2 = [];
+    let graphNH3 = [];
+    
+    function reset(){
+      particles.forEach(p => sim.scene.remove(p));
+      particles = [];
+      running = false;
+      graphN2 = [];
+      graphH2 = [];
+      graphNH3 = [];
+      
+      // N2 (bleu)
+      for(let i = 0; i < 8; i++){
+        const s = new THREE.Mesh(
+          new THREE.SphereGeometry(0.4, 12, 12),
+          new THREE.MeshStandardMaterial({color: 0x2196f3})
+        );
+        s.position.set((Math.random() - 0.5) * 14, (Math.random() - 0.5) * 8, (Math.random() - 0.5) * 4);
+        s.userData.vel = new THREE.Vector3((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
+        s.userData.type = 'N2';
+        sim.scene.add(s);
+        particles.push(s);
+      }
+      
+      // H2 (vert)
+      for(let i = 0; i < 15; i++){
+        const s = new THREE.Mesh(
+          new THREE.SphereGeometry(0.3, 12, 12),
+          new THREE.MeshStandardMaterial({color: 0x4caf50})
+        );
+        s.position.set((Math.random() - 0.5) * 14, (Math.random() - 0.5) * 8, (Math.random() - 0.5) * 4);
+        s.userData.vel = new THREE.Vector3((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
+        s.userData.type = 'H2';
+        sim.scene.add(s);
+        particles.push(s);
+      }
+      
+      updateDisplay();
+    }
+    
+    function updateDisplay(){
+      const nN2 = particles.filter(p => p.userData.type === 'N2').length;
+      const nH2 = particles.filter(p => p.userData.type === 'H2').length;
+      const nNH3 = particles.filter(p => p.userData.type === 'NH3').length;
+      
+      n2El.textContent = nN2;
+      h2El.textContent = nH2;
+      nh3El.textContent = nNH3;
+      
+      const vf = (nN2 * Math.pow(nH2, 3) * 0.001).toFixed(3);
+      const vr = (Math.pow(nNH3, 2) / (K + 0.001) * 0.001).toFixed(3);
+      
+      vfEl.textContent = vf;
+      vrEl.textContent = vr;
+      
+      if(Math.abs(parseFloat(vf) - parseFloat(vr)) < 0.05){
+        stateEl.textContent = 'Équilibre';
+        stateEl.style.color = '#4caf50';
+      } else {
+        stateEl.textContent = 'Évolution';
+        stateEl.style.color = '#ff9800';
+      }
+    }
+    
+    kSlider.addEventListener('input', function(){
+      K = parseFloat(this.value);
+      kVal.textContent = K.toFixed(1);
+    });
+    
+    speedSlider.addEventListener('input', function(){
+      speed = parseFloat(this.value);
+      speedVal.textContent = speed.toFixed(1);
+    });
+    
+    startBtn.addEventListener('click', function(){
+      running = true;
+    });
+    
+    resetBtn.addEventListener('click', reset);
+    
+    reset();
+    
+    animations.push(function(dt){
+      dt *= speed;
+      
+      particles.forEach(p => {
+        p.position.add(p.userData.vel.clone().multiplyScalar(dt));
+        if(Math.abs(p.position.x) > 7) p.userData.vel.x *= -1;
+        if(Math.abs(p.position.y) > 4) p.userData.vel.y *= -1;
+        if(Math.abs(p.position.z) > 2) p.userData.vel.z *= -1;
+        p.rotation.y += dt * 2;
+      });
+      
+      if(running){
+        const nN2 = particles.filter(p => p.userData.type === 'N2').length;
+        const nH2 = particles.filter(p => p.userData.type === 'H2').length;
+        const nNH3 = particles.filter(p => p.userData.type === 'NH3').length;
+        
+        // Réaction directe
+        const vf = nN2 * Math.pow(nH2, 3) * dt * 0.002;
+        if(Math.random() < vf && nN2 > 0 && nH2 > 0){
+          const n2 = particles.find(p => p.userData.type === 'N2');
+          if(n2){
+            n2.userData.type = 'NH3';
+            n2.material.color.setHex(0xff9800);
+          }
+        }
+        
+        // Réaction inverse
+        const vr = Math.pow(nNH3, 2) / (K + 0.001) * dt * 0.002;
+        if(Math.random() < vr && nNH3 > 0){
+          const nh3 = particles.find(p => p.userData.type === 'NH3');
+          if(nh3){
+            nh3.userData.type = 'N2';
+            nh3.material.color.setHex(0x2196f3);
+          }
+        }
+        
+        if(graphN2.length < 80){
+          graphN2.push(particles.filter(p => p.userData.type === 'N2').length);
+          graphH2.push(particles.filter(p => p.userData.type === 'H2').length);
+          graphNH3.push(particles.filter(p => p.userData.type === 'NH3').length);
+          drawGraph(canvas, graphN2, graphNH3, '#2196f3', '#ff9800');
+        }
+        
+        updateDisplay();
+      }
+      
+      sim.renderer.render(sim.scene, sim.camera);
+    });
+  })();
+  
+  // Boucle d'animation
+  let lastTime = 0;
+  function animate(time){
+    time *= 0.001;
+    const dt = Math.min(0.05, time - lastTime || 0.016);
+    lastTime = time;
+    
+    animations.forEach(fn => fn(dt));
+    
+    requestAnimationFrame(animate);
+  }
+  
+  animate(0);
+  
+}, 500); // Délai pour s'assurer que Three.js est chargé
+</script>
+
+</body>
+</html>

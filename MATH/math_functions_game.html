@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étude des Fonctions - 2BACSP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .level-progress {
+            margin-bottom: 25px;
+        }
+
+        .level-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .difficulty-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .difficulty-facile { background: #4caf50; color: white; }
+        .difficulty-moyen { background: #ff9800; color: white; }
+        .difficulty-difficile { background: #f44336; color: white; }
+
+        .question-text {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .math-expression {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .option-btn {
+            background: white;
+            border: 2px solid #667eea;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1em;
+            text-align: left;
+        }
+
+        .option-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .option-btn.correct {
+            background: #4caf50;
+            border-color: #4caf50;
+            color: white;
+        }
+
+        .option-btn.incorrect {
+            background: #f44336;
+            border-color: #f44336;
+            color: white;
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .feedback.correct {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .feedback.incorrect {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            color: #1565c0;
+            line-height: 1.6;
+        }
+
+        .next-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .next-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .next-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .achievement {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: slideIn 0.5s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .achievement-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .final-score {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .final-score h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .score-details {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .grade {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .grade.excellent { color: #4caf50; }
+        .grade.good { color: #8bc34a; }
+        .grade.average { color: #ff9800; }
+        .grade.poor { color: #f44336; }
+
+        .restart-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Étude des Fonctions</h1>
+            <div class="subtitle">Programme 2BAC Sciences Physiques - Maroc</div>
+        </header>
+
+        <div id="game-area">
+            <div class="stats-bar">
+                <div class="stat-card">
+                    <div class="stat-label">Score</div>
+                    <div class="stat-value" id="score">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Niveau</div>
+                    <div class="stat-value" id="level">1</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Question</div>
+                    <div class="stat-value"><span id="current-question">1</span>/<span id="total-questions">10</span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Série</div>
+                    <div class="stat-value" id="streak">0</div>
+                </div>
+            </div>
+
+            <div class="level-progress">
+                <div class="level-info">
+                    <span id="level-name">Débutant</span>
+                    <span id="level-xp">0 / 100 XP</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%">
+                        <span id="progress-text">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card" id="question-card">
+                <div class="question-header">
+                    <span style="font-weight: bold; color: #667eea;">Question <span id="q-number">1</span></span>
+                    <span class="difficulty-badge" id="difficulty-badge">Facile</span>
+                </div>
+                <div class="question-text" id="question-text"></div>
+                <div class="options" id="options"></div>
+                <div id="feedback-area"></div>
+                <button class="next-btn" id="next-btn" style="display: none;">Question Suivante →</button>
+            </div>
+        </div>
+
+        <div id="final-screen" style="display: none;">
+            <!-- Final score will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            // Niveau 1: Débutant (Facile)
+            {
+                level: 1,
+                difficulty: 'facile',
+                question: "Quelle est la dérivée de f(x) = x³ ?",
+                options: ["3x²", "x²", "3x", "x³/3"],
+                correct: 0,
+                explanation: "La dérivée de xⁿ est n·xⁿ⁻¹. Donc pour x³, on obtient 3·x³⁻¹ = 3x²"
+            },
+            {
+                level: 1,
+                difficulty: 'facile',
+                question: "Pour quelle valeur de x la fonction f(x) = 2x + 5 s'annule-t-elle ?",
+                options: ["-5/2", "5/2", "-2/5", "2/5"],
+                correct: 0,
+                explanation: "Pour trouver le zéro, on résout 2x + 5 = 0, donc 2x = -5, d'où x = -5/2"
+            },
+            {
+                level: 1,
+                difficulty: 'facile',
+                question: "Quelle est la limite de f(x) = 3x + 2 quand x tend vers +∞ ?",
+                options: ["+∞", "-∞", "3", "2"],
+                correct: 0,
+                explanation: "Quand x → +∞, le terme 3x domine et tend vers +∞, donc lim f(x) = +∞"
+            },
+            // Niveau 2: Intermédiaire
+            {
+                level: 2,
+                difficulty: 'moyen',
+                question: "Soit f(x) = x² - 4x + 3. Sur quel intervalle f est-elle croissante ?",
+                options: ["[2, +∞[", "]-∞, 2]", "[3, +∞[", "]-∞, 3]"],
+                correct: 0,
+                explanation: "f'(x) = 2x - 4 = 0 ⟹ x = 2. f'(x) > 0 pour x > 2, donc f est croissante sur [2, +∞["
+            },
+            {
+                level: 2,
+                difficulty: 'moyen',
+                question: "Quelle est la dérivée de f(x) = (2x + 1)³ ?",
+                options: ["6(2x + 1)²", "3(2x + 1)²", "2(2x + 1)²", "(2x + 1)²"],
+                correct: 0,
+                explanation: "En utilisant la dérivée composée: f'(x) = 3(2x + 1)² × 2 = 6(2x + 1)²"
+            },
+            {
+                level: 2,
+                difficulty: 'moyen',
+                question: "Calculer lim(x→0) (sin(3x)/x)",
+                options: ["3", "1", "0", "∞"],
+                correct: 0,
+                explanation: "lim(x→0) sin(3x)/x = 3 × lim(x→0) sin(3x)/(3x) = 3 × 1 = 3"
+            },
+            // Niveau 3: Avancé
+            {
+                level: 3,
+                difficulty: 'difficile',
+                question: "Soit f(x) = x³ - 3x + 1. Combien de points d'inflexion possède f ?",
+                options: ["1", "0", "2", "3"],
+                correct: 0,
+                explanation: "f''(x) = 6x = 0 ⟹ x = 0. f'' change de signe en x = 0, donc il y a 1 point d'inflexion"
+            },
+            {
+                level: 3,
+                difficulty: 'difficile',
+                question: "Pour f(x) = x·ln(x), quelle est l'équation de la tangente en x = e ?",
+                options: ["y = 2x - e", "y = x", "y = 2x", "y = x + e"],
+                correct: 0,
+                explanation: "f'(x) = ln(x) + 1, f'(e) = 2, f(e) = e. Équation: y - e = 2(x - e) ⟹ y = 2x - e"
+            },
+            {
+                level: 3,
+                difficulty: 'difficile',
+                question: "Calculer lim(x→+∞) (√(x² + x) - x)",
+                options: ["1/2", "0", "+∞", "1"],
+                correct: 0,
+                explanation: "Multiplier par le conjugué: (x² + x - x²)/[√(x² + x) + x] = x/[√(x² + x) + x] → 1/2"
+            },
+            {
+                level: 3,
+                difficulty: 'difficile',
+                question: "Soit f(x) = x⁴ - 4x³. Quel est le nombre de extremums locaux ?",
+                options: ["2", "1", "3", "0"],
+                correct: 0,
+                explanation: "f'(x) = 4x³ - 12x² = 4x²(x - 3) = 0 pour x = 0 ou x = 3. Vérification avec f'' donne 2 extremums"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let xp = 0;
+        let level = 1;
+        let streak = 0;
+        let correctAnswers = 0;
+        let answered = false;
+        let answerHistory = [];
+
+        const xpPerLevel = 100;
+        const levelNames = ['Débutant', 'Intermédiaire', 'Avancé', 'Expert', 'Maître'];
+
+        function init() {
+            displayQuestion();
+            updateStats();
+        }
+
+        function displayQuestion() {
+            if (currentQuestion >= questions.length) {
+                showFinalScore();
+                return;
+            }
+
+            answered = false;
+            const q = questions[currentQuestion];
+            
+            document.getElementById('q-number').textContent = currentQuestion + 1;
+            document.getElementById('current-question').textContent = currentQuestion + 1;
+            document.getElementById('total-questions').textContent = questions.length;
+            
+            document.getElementById('question-text').textContent = q.question;
+            
+            const badge = document.getElementById('difficulty-badge');
+            badge.textContent = q.difficulty.charAt(0).toUpperCase() + q.difficulty.slice(1);
+            badge.className = 'difficulty-badge difficulty-' + q.difficulty;
+            
+            const optionsDiv = document.getElementById('options');
+            optionsDiv.innerHTML = '';
+            
+            q.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = option;
+                btn.onclick = () => selectAnswer(index);
+                optionsDiv.appendChild(btn);
+            });
+            
+            document.getElementById('feedback-area').innerHTML = '';
+            document.getElementById('next-btn').style.display = 'none';
+        }
+
+        function selectAnswer(selected) {
+            if (answered) return;
+            answered = true;
+
+            const q = questions[currentQuestion];
+            const buttons = document.querySelectorAll('.option-btn');
+            const isCorrect = selected === q.correct;
+            
+            buttons.forEach((btn, index) => {
+                btn.disabled = true;
+                if (index === q.correct) {
+                    btn.classList.add('correct');
+                } else if (index === selected && !isCorrect) {
+                    btn.classList.add('incorrect');
+                }
+            });
+
+            const feedbackDiv = document.getElementById('feedback-area');
+            const feedback = document.createElement('div');
+            feedback.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+            
+            if (isCorrect) {
+                const points = calculatePoints(q.difficulty);
+                score += points;
+                xp += points;
+                streak++;
+                correctAnswers++;
+                
+                feedback.innerHTML = `✅ Excellent ! +${points} points ${streak > 2 ? '🔥 Série: ' + streak : ''}`;
+                
+                checkLevelUp();
+                
+                if (streak === 3 || streak === 5) {
+                    showAchievement('Série de ' + streak + ' !', 'Continue comme ça ! 🎯');
+                }
+            } else {
+                streak = 0;
+                feedback.innerHTML = '❌ Incorrect. La bonne réponse était : ' + q.options[q.correct];
+            }
+            
+            feedbackDiv.appendChild(feedback);
+            
+            const explanation = document.createElement('div');
+            explanation.className = 'explanation';
+            explanation.innerHTML = '<strong>💡 Explication:</strong> ' + q.explanation;
+            feedbackDiv.appendChild(explanation);
+            
+            answerHistory.push({
+                question: q.question,
+                correct: isCorrect,
+                difficulty: q.difficulty
+            });
+            
+            updateStats();
+            document.getElementById('next-btn').style.display = 'block';
+        }
+
+        function calculatePoints(difficulty) {
+            const basePoints = {
+                'facile': 10,
+                'moyen': 20,
+                'difficile': 30
+            };
+            
+            const streakBonus = Math.min(streak * 5, 25);
+            return basePoints[difficulty] + streakBonus;
+        }
+
+        function checkLevelUp() {
+            while (xp >= xpPerLevel * level) {
+                level++;
+                showAchievement('Niveau ' + level + ' !', 'Nouveau niveau débloqué ! 🎉');
+            }
+            updateStats();
+        }
+
+        function updateStats() {
+            document.getElementById('score').textContent = score;
+            document.getElementById('level').textContent = level;
+            document.getElementById('streak').textContent = streak;
+            
+            const levelName = levelNames[Math.min(level - 1, levelNames.length - 1)];
+            document.getElementById('level-name').textContent = levelName;
+            
+            const xpInLevel = xp - (xpPerLevel * (level - 1));
+            const xpNeeded = xpPerLevel * level - (xpPerLevel * (level - 1));
+            const percentage = Math.min((xpInLevel / xpNeeded) * 100, 100);
+            
+            document.getElementById('level-xp').textContent = `${xpInLevel} / ${xpNeeded} XP`;
+            document.getElementById('progress-fill').style.width = percentage + '%';
+            document.getElementById('progress-text').textContent = Math.round(percentage) + '%';
+        }
+
+        function showAchievement(title, message) {
+            const achievement = document.createElement('div');
+            achievement.className = 'achievement';
+            achievement.innerHTML = `
+                <div class="achievement-title">${title}</div>
+                <div>${message}</div>
+            `;
+            document.body.appendChild(achievement);
+            
+            setTimeout(() => {
+                achievement.remove();
+            }, 3000);
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            displayQuestion();
+        }
+
+        function showFinalScore() {
+            const accuracy = (correctAnswers / questions.length) * 100;
+            const grade = getGrade(accuracy);
+            const gradeClass = getGradeClass(accuracy);
+            
+            const finalScreen = document.getElementById('final-screen');
+            finalScreen.style.display = 'block';
+            document.getElementById('game-area').style.display = 'none';
+            
+            finalScreen.innerHTML = `
+                <div class="final-score">
+                    <h2>🎊 Quiz Terminé !</h2>
+                    <div class="grade ${gradeClass}">${grade}</div>
+                    
+                    <div class="score-details">
+                        <div class="score-row">
+                            <span>Score Total:</span>
+                            <span><strong>${score} points</strong></span>
+                        </div>
+                        <div class="score-row">
+                            <span>Réponses Correctes:</span>
+                            <span><strong>${correctAnswers}/${questions.length}</strong></span>
+                        </div>
+                        <div class="score-row">
+                            <span>Précision:</span>
+                            <span><strong>${accuracy.toFixed(1)}%</strong></span>
+                        </div>
+                        <div class="score-row">
+                            <span>Niveau Atteint:</span>
+                            <span><strong>${level} - ${levelNames[Math.min(level - 1, levelNames.length - 1)]}</strong></span>
+                        </div>
+                        <div class="score-row">
+                            <span>Meilleure Série:</span>
+                            <span><strong>${Math.max(...answerHistory.map((_, i, arr) => {
+                                let max = 0, current = 0;
+                                for (let j = 0; j < i + 1; j++) {
+                                    if (arr[j].correct) {
+                                        current++;
+                                        max = Math.max(max, current);
+                                    } else {
+                                        current = 0;
+                                    }
+                                }
+                                return max;
+                            }), 0)} 🔥</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 20px 0; padding: 20px; background: #e3f2fd; border-radius: 10px;">
+                        <strong>📚 Évaluation:</strong><br>
+                        ${getFeedback(accuracy)}
+                    </div>
+                    
+                    <button class="restart-btn" onclick="location.reload()">🔄 Recommencer</button>
+                </div>
+            `;
+        }
+
+        function getGrade(accuracy) {
+            if (accuracy >= 90) return 'A+ Excellent';
+            if (accuracy >= 80) return 'A Très Bien';
+            if (accuracy >= 70) return 'B Bien';
+            if (accuracy >= 60) return 'C Assez Bien';
+            if (accuracy >= 50) return 'D Passable';
+            return 'E Insuffisant';
+        }
+
+        function getGradeClass(accuracy) {
+            if (accuracy >= 80) return 'excellent';
+            if (accuracy >= 60) return 'good';
+            if (accuracy >= 40) return 'average';
+            return 'poor';
+        }
+
+        function getFeedback(accuracy) {
+            if (accuracy >= 90) {
+                return 'Performance exceptionnelle ! Tu maîtrises parfaitement l\'étude des fonctions. Continue comme ça !';
+            } else if (accuracy >= 70) {
+                return 'Très bon travail ! Tu as une bonne compréhension du sujet. Révise les points difficiles pour atteindre l\'excellence.';
+            } else if (accuracy >= 50) {
+                return 'C\'est un bon début ! Révise les concepts de base et refais le quiz pour améliorer ton score.';
+            } else {
+                return 'Il faut revoir les notions fondamentales. N\'hésite pas à demander de l\'aide à ton professeur et à pratiquer davantage.';
+            }
+        }
+
+        document.getElementById('next-btn').addEventListener('click', nextQuestion);
+
+        init();
+    </script>
+</body>
+</html>

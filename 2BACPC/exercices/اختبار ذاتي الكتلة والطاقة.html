@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار ذاتي: الكتلة والطاقة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        .student-info {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #495057;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .quiz-content {
+            padding: 30px;
+        }
+        .question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-right: 5px solid #667eea;
+        }
+        .question h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .options {
+            margin-top: 15px;
+        }
+        .option {
+            display: block;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        .option input[type="radio"] {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.3em;
+            display: none;
+        }
+        .result.show {
+            display: block;
+        }
+        .result.excellent {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+        .result.good {
+            background: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffc107;
+        }
+        .result.needs-improvement {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e7f3ff;
+            border-right: 4px solid #2196F3;
+            border-radius: 8px;
+            display: none;
+            text-align: right;
+        }
+        .explanation.show {
+            display: block;
+        }
+        .explanation h4 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+        .explanation p {
+            color: #424242;
+            line-height: 1.6;
+        }
+        .success-message {
+            display: none;
+            padding: 20px;
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .success-message.show {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚛️ اختبار ذاتي: الكتلة والطاقة</h1>
+            <p>اختبر معلوماتك في درس الكتلة والطاقة النووية</p>
+        </div>
+        <div class="student-info">
+            <div class="form-group">
+                <label for="studentName">الاسم الكامل:</label>
+                <input type="text" id="studentName" placeholder="أدخل اسمك الكامل" required>
+            </div>
+            <div class="form-group">
+                <label for="studentClass">القسم:</label>
+                <input type="text" id="studentClass" placeholder="مثال: 2 باك علوم فيزيائية" required>
+            </div>
+        </div>
+        <div class="quiz-content">
+            <div class="question" data-question="1">
+                <h3>السؤال 1: ما هي العلاقة بين الطاقة والكتلة حسب آينشتاين؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="a">E = mc</label>
+                    <label class="option"><input type="radio" name="q1" value="b">E = mc²</label>
+                    <label class="option"><input type="radio" name="q1" value="c">E = m/c²</label>
+                    <label class="option"><input type="radio" name="q1" value="d">E = m + c²</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>علاقة آينشتاين الشهيرة هي: E = mc² حيث E الطاقة، m الكتلة، و c سرعة الضوء في الفراغ (3×10⁸ m/s)</p></div>
+            </div>
+            <div class="question" data-question="2">
+                <h3>السؤال 2: كم تساوي وحدة الكتلة الذرية (u) بالكيلوغرام؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="a">1.66054 × 10⁻²⁷ kg</label>
+                    <label class="option"><input type="radio" name="q2" value="b">1.66054 × 10⁻²⁴ kg</label>
+                    <label class="option"><input type="radio" name="q2" value="c">1.66054 × 10⁻³¹ kg</label>
+                    <label class="option"><input type="radio" name="q2" value="d">1.66054 × 10⁻¹⁹ kg</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>وحدة الكتلة الذرية: 1u = 1.66054 × 10⁻²⁷ kg، وهي مساوية لـ 1/12 من كتلة ذرة الكربون-12</p></div>
+            </div>
+            <div class="question" data-question="3">
+                <h3>السؤال 3: ما هو عيب الكتلة Δm؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="a">مجموع كتل النيوكليونات</label>
+                    <label class="option"><input type="radio" name="q3" value="b">كتلة النواة</label>
+                    <label class="option"><input type="radio" name="q3" value="c">الفرق بين مجموع كتل النيوكليونات وكتلة النواة</label>
+                    <label class="option"><input type="radio" name="q3" value="d">الفرق بين كتلة البروتون والنيوترون</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>عيب الكتلة هو: Δm = (Z·mₚ + (A-Z)·mₙ) - m(نواة)، أي الفرق بين مجموع كتل النيوكليونات المنفصلة وكتلة النواة المتشكلة.</p></div>
+            </div>
+            <div class="question" data-question="4">
+                <h3>السؤال 4: كم تساوي الطاقة المكافئة لوحدة الكتلة الذرية؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="a">931.5 MeV/c²</label>
+                    <label class="option"><input type="radio" name="q4" value="b">93.15 MeV/c²</label>
+                    <label class="option"><input type="radio" name="q4" value="c">9.315 MeV/c²</label>
+                    <label class="option"><input type="radio" name="q4" value="d">0.9315 MeV/c²</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>الطاقة المكافئة لوحدة الكتلة الذرية هي: 1u = 931.5 MeV/c²</p></div>
+            </div>
+            <div class="question" data-question="5">
+                <h3>السؤال 5: ما هي طاقة الربط النووي Eₗ؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="a">الطاقة اللازمة لتشكيل النواة</label>
+                    <label class="option"><input type="radio" name="q5" value="b">الطاقة المحررة عند تشكل النواة من نيوكليوناتها المنفصلة</label>
+                    <label class="option"><input type="radio" name="q5" value="c">الطاقة اللازمة لتفكيك النواة</label>
+                    <label class="option"><input type="radio" name="q5" value="d">كل الإجابات صحيحة</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>كل الإجابات صحيحة: طاقة الربط النووي Eₗ = Δm·c² هي الطاقة المحررة عند تشكل النواة، وهي أيضا الطاقة اللازمة لتفكيكها.</p></div>
+            </div>
+            <div class="question" data-question="6">
+                <h3>السؤال 6: ما هي طاقة الربط لكل نيوكليون؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="a">Eₗ/A</label>
+                    <label class="option"><input type="radio" name="q6" value="b">Eₗ × A</label>
+                    <label class="option"><input type="radio" name="q6" value="c">Eₗ + A</label>
+                    <label class="option"><input type="radio" name="q6" value="d">Eₗ - A</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>طاقة الربط لكل نيوكليون تساوي: Eₗ/A. كلما كانت أكبر كانت النواة أكثر استقرارا.</p></div>
+            </div>
+            <div class="question" data-question="7">
+                <h3>السؤال 7: أي العناصر التالية لديه أكبر طاقة ربط لكل نيوكليون؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="a">اليورانيوم-238</label>
+                    <label class="option"><input type="radio" name="q7" value="b">الحديد-56</label>
+                    <label class="option"><input type="radio" name="q7" value="c">الهيليوم-4</label>
+                    <label class="option"><input type="radio" name="q7" value="d">الهيدروجين-2</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>الحديد-56 لديه أكبر طاقة ربط لكل نيوكليون (حوالي 8.79 MeV)، مما يجعله أكثر الأنوية استقرارا.</p></div>
+            </div>
+            <div class="question" data-question="8">
+                <h3>السؤال 8: ما هو الانشطار النووي؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="a">اندماج نواتين خفيفتين</label>
+                    <label class="option"><input type="radio" name="q8" value="b">انقسام نواة ثقيلة إلى نواتين أخف</label>
+                    <label class="option"><input type="radio" name="q8" value="c">تفتت إشعاعي عادي</label>
+                    <label class="option"><input type="radio" name="q8" value="d">اكتساب النواة للإلكترونات</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>الانشطار النووي هو انقسام نواة ثقيلة (مثل اليورانيوم-235) إلى نواتين أخف عند قذفها بنيوترون.</p></div>
+            </div>
+            <div class="question" data-question="9">
+                <h3>السؤال 9: ما هو شرط حدوث التفاعل المتسلسل في الانشطار النووي؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q9" value="a">أن يكون عدد النيوترونات المحررة أقل من واحد</label>
+                    <label class="option"><input type="radio" name="q9" value="b">أن يكون عدد النيوترونات المحررة مساويا أو أكبر من واحد</label>
+                    <label class="option"><input type="radio" name="q9" value="c">أن تكون درجة الحرارة منخفضة جدا</label>
+                    <label class="option"><input type="radio" name="q9" value="d">أن يكون هناك غياب تام للنيوترونات</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>يحدث التفاعل المتسلسل عندما يكون عدد النيوترونات الناتجة مساويا أو أكبر من واحد.</p></div>
+            </div>
+            <div class="question" data-question="10">
+                <h3>السؤال 10: ما هو الاندماج النووي؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q10" value="a">انشطار نواة ثقيلة</label>
+                    <label class="option"><input type="radio" name="q10" value="b">اندماج نواتين خفيفتين لتكوين نواة أثقل</label>
+                    <label class="option"><input type="radio" name="q10" value="c">تفتت إشعاعي بيتا</label>
+                    <label class="option"><input type="radio" name="q10" value="d">امتصاص النيوترونات</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>الاندماج النووي هو اتحاد نواتين خفيفتين لتكوين نواة أثقل، مع تحرير طاقة هائلة. هذا هو مصدر طاقة الشمس.</p></div>
+            </div>
+            <div class="question" data-question="11">
+                <h3>السؤال 11: ما هي درجة الحرارة التقريبية اللازمة لحدوث الاندماج النووي؟</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q11" value="a">10³ K</label>
+                    <label class="option"><input type="radio" name="q11" value="b">10⁶ K</label>
+                    <label class="option"><input type="radio" name="q11" value="c">10⁸ K</label>
+                    <label class="option"><input type="radio" name="q11" value="d">10¹⁰ K</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>يتطلب الاندماج النووي درجة حرارة عالية جدا (حوالي 10⁸ K) للتغلب على قوة التنافر الكهربائي.</p></div>
+            </div>
+            <div class="question" data-question="12">
+                <h3>السؤال 12: في تفاعل اندماج نووي، إذا كانت ΔE سالبة، فهذا يعني:</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q12" value="a">التفاعل يمتص الطاقة</label>
+                    <label class="option"><input type="radio" name="q12" value="b">التفاعل يحرر الطاقة</label>
+                    <label class="option"><input type="radio" name="q12" value="c">التفاعل لا يحدث</label>
+                    <label class="option"><input type="radio" name="q12" value="d">الكتلة تزداد</label>
+                </div>
+                <div class="explanation"><h4>التوضيح:</h4><p>عندما تكون ΔE سالبة، فهذا يعني أن التفاعل يحرر طاقة (تفاعل ناشر للطاقة).</p></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-primary" onclick="checkAnswers()">تصحيح الإجابات</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()">إعادة المحاولة</button>
+                <button class="btn btn-primary" id="sendReportBtn" onclick="sendReport()" disabled>إرسال التقرير للأستاذ</button>
+            </div>
+            <div class="result" id="result"></div>
+            <div class="success-message" id="successMessage"></div>
+        </div>
+    </div>
+    <script>
+        const answers = {q1:'b',q2:'a',q3:'c',q4:'a',q5:'d',q6:'a',q7:'b',q8:'b',q9:'b',q10:'b',q11:'c',q12:'b'};
+        let score = 0;
+        let quizChecked = false;
+        
+        function checkAnswers() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentClass = document.getElementById('studentClass').value.trim();
+            if (!studentName || !studentClass) {
+                alert('الرجاء إدخال الاسم والقسم قبل البدء في الاختبار');
+                return;
+            }
+            score = 0;
+            let totalQuestions = Object.keys(answers).length;
+            for (let question in answers) {
+                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                const questionDiv = document.querySelector(`[data-question="${question.replace('q', '')}"]`);
+                const options = questionDiv.querySelectorAll('.option');
+                const explanation = questionDiv.querySelector('.explanation');
+                options.forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    const correctAnswer = answers[question];
+                    if (selectedValue === correctAnswer) {
+                        score++;
+                        selectedOption.parentElement.classList.add('correct');
+                    } else {
+                        selectedOption.parentElement.classList.add('incorrect');
+                        options.forEach(opt => {
+                            if (opt.querySelector('input').value === correctAnswer) {
+                                opt.classList.add('correct');
+                            }
+                        });
+                    }
+                    explanation.classList.add('show');
+                }
+            }
+            displayResult(score, totalQuestions);
+            quizChecked = true;
+            document.getElementById('sendReportBtn').disabled = false;
+        }
+        
+        function displayResult(score, total) {
+            const percentage = (score / total) * 100;
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.remove('excellent', 'good', 'needs-improvement');
+            let message = `لقد حصلت على ${score} من ${total} (${percentage.toFixed(0)}%)`;
+            if (percentage >= 80) {
+                resultDiv.classList.add('excellent');
+                message += '<br>ممتاز! 🎉 لديك فهم جيد جدا للدرس';
+            } else if (percentage >= 60) {
+                resultDiv.classList.add('good');
+                message += '<br>جيد! 👍 لكن يمكنك التحسن أكثر';
+            } else {
+                resultDiv.classList.add('needs-improvement');
+                message += '<br>يجب المراجعة! 📚 حاول مرة أخرى بعد مراجعة الدرس';
+            }
+            resultDiv.innerHTML = message;
+            resultDiv.classList.add('show');
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        function resetQuiz() {
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+            });
+            document.querySelectorAll('.explanation').forEach(exp => {
+                exp.classList.remove('show');
+            });
+            document.getElementById('result').classList.remove('show');
+            document.getElementById('successMessage').classList.remove('show');
+            score = 0;
+            quizChecked = false;
+            document.getElementById('sendReportBtn').disabled = true;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function sendReport() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentClass = document.getElementById('studentClass').value.trim();
+            if (!quizChecked) {
+                alert('الرجاء تصحيح الإجابات أولا قبل إرسال التقرير');
+                return;
+            }
+            if (!studentName || !studentClass) {
+                alert('الرجاء إدخال الاسم والقسم');
+                return;
+            }
+            const totalQuestions = Object.keys(answers).length;
+            const percentage = (score / totalQuestions) * 100;
+            let detailedReport = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const question = `q${i}`;
+                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                const correctAnswer = answers[question];
+                const isCorrect = selectedOption && selectedOption.value === correctAnswer;
+                detailedReport += `السؤال ${i}: ${isCorrect ? '✓ صحيح' : '✗ خطأ'}\n`;
+            }
+            const emailBody = `تقرير الاختبار الذاتي - الكتلة والطاقة\n\nالطالب: ${studentName}\nالقسم: ${studentClass}\nالتاريخ: ${new Date().toLocaleString('ar-MA')}\n\nالنتيجة: ${score}/${totalQuestions} (${percentage.toFixed(0)}%)\n\nتفاصيل الإجابات:\n${detailedReport}\n---\nتم الإرسال من صفحة الاختبار الذاتي`;
+            const mailtoLink = `mailto:mohamed.ezziymy@gmail.com?subject=${encodeURIComponent('تقرير اختبار الكتلة والطاقة: ' + studentName)}&body=${encodeURIComponent(emailBody)}`;
+            window.location.href = mailtoLink;
+            document.getElementById('successMessage').innerHTML = '✅ تم فتح تطبيق البريد الإلكتروني. الرجاء إرسال الرسالة.';
+            document.getElementById('successMessage').classList.add('show');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧬 ADN & Réplication - Laboratoire Virtuel SVT</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --adenine: #e74c3c;
+            --thymine: #3498db;
+            --guanine: #2ecc71;
+            --cytosine: #f39c12;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e1b4b 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 5px;
+        }
+
+        .nav-tab {
+            padding: 10px 25px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 25px;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Main Layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 320px 1fr 350px;
+            gap: 20px;
+            padding: 20px;
+            min-height: calc(100vh - 70px);
+        }
+
+        /* Panels */
+        .panel {
+            background: linear-gradient(180deg, rgba(30, 27, 75, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .panel-title {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 3D Viewer */
+        .viewer-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, #1a1a3e 0%, #0a0a1a 100%);
+        }
+
+        #dna-viewer {
+            width: 100%;
+            height: 600px;
+            display: block;
+        }
+
+        .viewer-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .viewer-info {
+            background: rgba(0,0,0,0.7);
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .viewer-info h3 {
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .viewer-info p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .viewer-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Controls */
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-group label {
+            display: block;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .control-group select,
+        .control-group input[type="range"] {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .control-group select option {
+            background: var(--dark);
+        }
+
+        .control-group input[type="range"] {
+            -webkit-appearance: none;
+            height: 8px;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .control-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+        }
+
+        .value-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, var(--warning), #d97706);
+            color: white;
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent), #0891b2);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-icon {
+            width: 45px;
+            height: 45px;
+            padding: 0;
+            border-radius: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Nucleotide Legend */
+        .nucleotide-legend {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .nucleotide-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .nucleotide-item:hover {
+            transform: scale(1.05);
+        }
+
+        .nucleotide-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px currentColor;
+        }
+
+        .nucleotide-info {
+            flex: 1;
+        }
+
+        .nucleotide-info strong {
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .nucleotide-info span {
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .info-card h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .info-card ul {
+            margin-left: 20px;
+            color: #cbd5e1;
+            font-size: 0.85rem;
+        }
+
+        .info-card li {
+            margin: 5px 0;
+        }
+
+        /* Replication Steps */
+        .replication-steps {
+            counter-reset: step;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .step-item:hover, .step-item.active {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: var(--primary);
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .step-content p {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        /* Tabs */
+        .tab-container {
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: transparent;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(99, 102, 241, 0.05));
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Enzyme Cards */
+        .enzyme-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .enzyme-card:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .enzyme-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .enzyme-info {
+            flex: 1;
+        }
+
+        .enzyme-info strong {
+            display: block;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .enzyme-info span {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* Download Section */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .download-card {
+            background: rgba(0,0,0,0.3);
+            border: 1px dashed rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .download-card:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-style: solid;
+            transform: translateY(-3px);
+        }
+
+        .download-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .download-card .title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .download-card .format {
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        /* Section Pages */
+        .section-page {
+            display: none;
+        }
+
+        .section-page.active {
+            display: block;
+        }
+
+        /* Keyboard Shortcuts */
+        .shortcuts {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .shortcut-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 0.85rem;
+        }
+
+        .shortcut-key {
+            background: rgba(255,255,255,0.1);
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+
+        /* Animations */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px currentColor; }
+            to { box-shadow: 0 0 30px currentColor; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            #dna-viewer {
+                height: 500px;
+            }
+        }
+
+        /* Speed Control */
+        .speed-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .speed-controls span {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .speed-btn {
+            padding: 5px 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: transparent;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .speed-btn:hover, .speed-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Quiz Section */
+        .quiz-question {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-question h4 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            padding: 12px 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .quiz-option.correct {
+            background: rgba(16, 185, 129, 0.3);
+            border-color: var(--success);
+        }
+
+        .quiz-option.wrong {
+            background: rgba(239, 68, 68, 0.3);
+            border-color: var(--danger);
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Full Width Panel */
+        .full-panel {
+            grid-column: 1 / -1;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .comparison-table th {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--accent);
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">🧬</span>
+            <div>
+                <h1>ADN & Réplication</h1>
+                <small style="color: #94a3b8;">Laboratoire Virtuel SVT</small>
+            </div>
+        </div>
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('structure')">🔬 Structure ADN</button>
+            <button class="nav-tab" onclick="showSection('replication')">🔄 Réplication</button>
+            <button class="nav-tab" onclick="showSection('quiz')">📝 Quiz</button>
+        </nav>
+    </header>
+
+    <!-- Section Structure ADN -->
+    <div id="structure-section" class="section-page active">
+        <div class="main-container">
+            <!-- Panneau Gauche - Contrôles -->
+            <div class="panel">
+                <h2 class="panel-title">🎛️ Contrôles du modèle</h2>
+
+                <div class="control-group">
+                    <label>Type de visualisation</label>
+                    <select id="viewMode" onchange="changeViewMode()">
+                        <option value="double-helix">Double hélice complète</option>
+                        <option value="unwound">ADN déroulé</option>
+                        <option value="nucleotide">Nucléotide isolé</option>
+                        <option value="base-pairs">Paires de bases</option>
+                        <option value="sugar-phosphate">Squelette sucre-phosphate</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Rotation automatique</label>
+                    <input type="range" id="rotationSpeed" min="0" max="2" step="0.1" value="0.5" oninput="updateRotation()">
+                    <span class="value-badge" id="rotationValue">0.5x</span>
+                </div>
+
+                <div class="control-group">
+                    <label>Zoom</label>
+                    <input type="range" id="zoomLevel" min="20" max="100" value="50" oninput="updateZoom()">
+                    <span class="value-badge" id="zoomValue">50%</span>
+                </div>
+
+                <div class="control-group">
+                    <label>Nombre de paires de bases</label>
+                    <input type="range" id="basePairs" min="5" max="30" value="15" oninput="updateBasePairs()">
+                    <span class="value-badge" id="basePairsValue">15 pb</span>
+                </div>
+
+                <h3 class="panel-title">🎨 Légende des nucléotides</h3>
+                <div class="nucleotide-legend">
+                    <div class="nucleotide-item">
+                        <div class="nucleotide-color" style="background: var(--adenine);"></div>
+                        <div class="nucleotide-info">
+                            <strong>Adénine (A)</strong>
+                            <span>Purine</span>
+                        </div>
+                    </div>
+                    <div class="nucleotide-item">
+                        <div class="nucleotide-color" style="background: var(--thymine);"></div>
+                        <div class="nucleotide-info">
+                            <strong>Thymine (T)</strong>
+                            <span>Pyrimidine</span>
+                        </div>
+                    </div>
+                    <div class="nucleotide-item">
+                        <div class="nucleotide-color" style="background: var(--guanine);"></div>
+                        <div class="nucleotide-info">
+                            <strong>Guanine (G)</strong>
+                            <span>Purine</span>
+                        </div>
+                    </div>
+                    <div class="nucleotide-item">
+                        <div class="nucleotide-color" style="background: var(--cytosine);"></div>
+                        <div class="nucleotide-info">
+                            <strong>Cytosine (C)</strong>
+                            <span>Pyrimidine</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 Règles de Chargaff</h4>
+                    <ul>
+                        <li>A = T (2 liaisons H)</li>
+                        <li>G ≡ C (3 liaisons H)</li>
+                        <li>Purines = Pyrimidines</li>
+                    </ul>
+                </div>
+
+                <div class="shortcuts">
+                    <h4 style="margin-bottom: 10px; color: var(--accent);">⌨️ Raccourcis</h4>
+                    <div class="shortcut-item">
+                        <span>Rotation</span>
+                        <span class="shortcut-key">Clic + Glisser</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>Zoom</span>
+                        <span class="shortcut-key">Molette</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>Déplacer</span>
+                        <span class="shortcut-key">Clic droit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zone Centrale - Visualisation 3D -->
+            <div class="panel viewer-container">
+                <canvas id="dna-viewer"></canvas>
+                <div class="viewer-overlay">
+                    <div class="viewer-info">
+                        <h3 id="viewTitle">Double Hélice d'ADN</h3>
+                        <p id="viewDescription">Modèle 3D interactif de la structure de l'ADN</p>
+                    </div>
+                </div>
+                <div class="viewer-controls">
+                    <button class="btn btn-icon btn-primary" onclick="resetCamera()" title="Réinitialiser vue">🏠</button>
+                    <button class="btn btn-icon btn-success" onclick="toggleRotation()" title="Rotation auto" id="rotateBtn">▶️</button>
+                    <button class="btn btn-icon btn-warning" onclick="toggleLabels()" title="Afficher labels">🏷️</button>
+                    <button class="btn btn-icon btn-accent" onclick="captureScreenshot()" title="Capture d'écran">📷</button>
+                    <button class="btn btn-icon btn-primary" onclick="toggleFullscreen()" title="Plein écran">⛶</button>
+                </div>
+            </div>
+
+            <!-- Panneau Droit - Informations -->
+            <div class="panel">
+                <h2 class="panel-title">📚 Structure de l'ADN</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">3.4</div>
+                        <div class="stat-label">nm/tour</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">10</div>
+                        <div class="stat-label">pb/tour</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">nm diamètre</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">0.34</div>
+                        <div class="stat-label">nm/pb</div>
+                    </div>
+                </div>
+
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" onclick="showTab('composition')">Composition</button>
+                        <button class="tab-btn" onclick="showTab('structure')">Structure</button>
+                        <button class="tab-btn" onclick="showTab('fonction')">Fonction</button>
+                    </div>
+
+                    <div id="compositionTab" class="tab-content active">
+                        <div class="info-card">
+                            <h4>🧪 Nucléotide</h4>
+                            <p>Chaque nucléotide est composé de:</p>
+                            <ul>
+                                <li><strong>Base azotée</strong> (A, T, G ou C)</li>
+                                <li><strong>Désoxyribose</strong> (sucre pentose)</li>
+                                <li><strong>Groupement phosphate</strong> (PO₄)</li>
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <h4>🔗 Liaisons</h4>
+                            <ul>
+                                <li><strong>Phosphodiester:</strong> Entre nucléotides (5'-3')</li>
+                                <li><strong>Hydrogène:</strong> Entre bases complémentaires</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="structureTab" class="tab-content">
+                        <div class="info-card">
+                            <h4>🌀 Double hélice</h4>
+                            <p>Découverte par Watson et Crick en 1953. L'ADN forme une double hélice droite avec:</p>
+                            <ul>
+                                <li>Deux brins antiparallèles</li>
+                                <li>Grand sillon et petit sillon</li>
+                                <li>Pas de l'hélice: 3.4 nm</li>
+                                <li>10 paires de bases par tour</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="fonctionTab" class="tab-content">
+                        <div class="info-card">
+                            <h4>🎯 Rôles de l'ADN</h4>
+                            <ul>
+                                <li><strong>Stockage:</strong> Information génétique</li>
+                                <li><strong>Transmission:</strong> Hérédité</li>
+                                <li><strong>Expression:</strong> Synthèse protéique</li>
+                                <li><strong>Réplication:</strong> Duplication fidèle</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="panel-title" style="margin-top: 20px;">📥 Téléchargements</h3>
+                <div class="download-grid">
+                    <div class="download-card" onclick="downloadImage('png')">
+                        <div class="icon">🖼️</div>
+                        <div class="title">Image HD</div>
+                        <div class="format">PNG - 1920x1080</div>
+                    </div>
+                    <div class="download-card" onclick="downloadImage('svg')">
+                        <div class="icon">📐</div>
+                        <div class="title">Schéma</div>
+                        <div class="format">SVG Vectoriel</div>
+                    </div>
+                    <div class="download-card" onclick="downloadPDF()">
+                        <div class="icon">📄</div>
+                        <div class="title">Fiche PDF</div>
+                        <div class="format">Cours complet</div>
+                    </div>
+                    <div class="download-card" onclick="downloadGIF()">
+                        <div class="icon">🎬</div>
+                        <div class="title">Animation</div>
+                        <div class="format">GIF animé</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Réplication -->
+    <div id="replication-section" class="section-page">
+        <div class="main-container">
+            <!-- Panneau Gauche - Contrôles Réplication -->
+            <div class="panel">
+                <h2 class="panel-title">🔄 Contrôles de la réplication</h2>
+
+                <div class="progress-container">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Progression</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="speed-controls">
+                    <span>Vitesse:</span>
+                    <button class="speed-btn" onclick="setSpeed(0.5)">0.5x</button>
+                    <button class="speed-btn active" onclick="setSpeed(1)">1x</button>
+                    <button class="speed-btn" onclick="setSpeed(2)">2x</button>
+                    <button class="speed-btn" onclick="setSpeed(4)">4x</button>
+                </div>
+
+                <div class="btn-group" style="margin-bottom: 20px;">
+                    <button class="btn btn-success" onclick="playReplication()" id="playBtn">▶️ Démarrer</button>
+                    <button class="btn btn-warning" onclick="pauseReplication()">⏸️ Pause</button>
+                    <button class="btn btn-primary" onclick="resetReplication()">🔄 Réinitialiser</button>
+                </div>
+
+                <div class="control-group">
+                    <label>Étape actuelle</label>
+                    <select id="stepSelect" onchange="goToStep()">
+                        <option value="0">1. Initiation</option>
+                        <option value="1">2. Ouverture (Hélicase)</option>
+                        <option value="2">3. Stabilisation (SSB)</option>
+                        <option value="3">4. Amorçage (Primase)</option>
+                        <option value="4">5. Élongation (ADN Polymérase)</option>
+                        <option value="5">6. Fragments d'Okazaki</option>
+                        <option value="6">7. Ligation (Ligase)</option>
+                        <option value="7">8. Terminaison</option>
+                    </select>
+                </div>
+
+                <h3 class="panel-title">🔧 Enzymes impliquées</h3>
+                
+                <div class="enzyme-card" onclick="highlightEnzyme('helicase')">
+                    <div class="enzyme-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">🔓</div>
+                    <div class="enzyme-info">
+                        <strong>Hélicase</strong>
+                        <span>Déroule la double hélice</span>
+                    </div>
+                </div>
+
+                <div class="enzyme-card" onclick="highlightEnzyme('ssb')">
+                    <div class="enzyme-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">🛡️</div>
+                    <div class="enzyme-info">
+                        <strong>Protéines SSB</strong>
+                        <span>Stabilise les brins simples</span>
+                    </div>
+                </div>
+
+                <div class="enzyme-card" onclick="highlightEnzyme('primase')">
+                    <div class="enzyme-icon" style="background: linear-gradient(135deg, #10b981, #059669);">🎯</div>
+                    <div class="enzyme-info">
+                        <strong>Primase</strong>
+                        <span>Synthétise les amorces ARN</span>
+                    </div>
+                </div>
+
+                <div class="enzyme-card" onclick="highlightEnzyme('polymerase')">
+                    <div class="enzyme-icon" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">⚙️</div>
+                    <div class="enzyme-info">
+                        <strong>ADN Polymérase III</strong>
+                        <span>Synthétise le nouveau brin (5'→3')</span>
+                    </div>
+                </div>
+
+                <div class="enzyme-card" onclick="highlightEnzyme('polymerase1')">
+                    <div class="enzyme-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">🔧</div>
+                    <div class="enzyme-info">
+                        <strong>ADN Polymérase I</strong>
+                        <span>Remplace les amorces ARN</span>
+                    </div>
+                </div>
+
+                <div class="enzyme-card" onclick="highlightEnzyme('ligase')">
+                    <div class="enzyme-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">🔗</div>
+                    <div class="enzyme-info">
+                        <strong>ADN Ligase</strong>
+                        <span>Lie les fragments d'Okazaki</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zone Centrale - Animation Réplication -->
+            <div class="panel viewer-container">
+                <canvas id="replication-viewer"></canvas>
+                <div class="viewer-overlay">
+                    <div class="viewer-info">
+                        <h3 id="replicationTitle">Réplication de l'ADN</h3>
+                        <p id="replicationDescription">Mécanisme semi-conservatif de duplication</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panneau Droit - Étapes -->
+            <div class="panel">
+                <h2 class="panel-title">📋 Étapes de la réplication</h2>
+
+                <div class="replication-steps" id="stepsContainer">
+                    <div class="step-item active" data-step="0">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Initiation</h4>
+                            <p>Reconnaissance de l'origine de réplication (ORI)</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="1">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Ouverture</h4>
+                            <p>L'hélicase sépare les deux brins en brisant les liaisons H</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="2">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Stabilisation</h4>
+                            <p>Les protéines SSB empêchent la reformation de la double hélice</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="3">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Amorçage</h4>
+                            <p>La primase synthétise des amorces ARN (~10 nucléotides)</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="4">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Élongation</h4>
+                            <p>L'ADN polymérase III synthétise le nouveau brin (5'→3')</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="5">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Fragments d'Okazaki</h4>
+                            <p>Synthèse discontinue sur le brin retardé (100-200 pb)</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="6">
+                        <div class="step-number">7</div>
+                        <div class="step-content">
+                            <h4>Maturation</h4>
+                            <p>ADN pol I remplace l'ARN, ligase lie les fragments</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="7">
+                        <div class="step-number">8</div>
+                        <div class="step-content">
+                            <h4>Terminaison</h4>
+                            <p>Deux molécules d'ADN identiques formées</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card" style="margin-top: 20px;">
+                    <h4>🧬 Réplication semi-conservative</h4>
+                    <p>Chaque nouvelle molécule d'ADN contient un brin parental et un brin nouvellement synthétisé (expérience de Meselson & Stahl, 1958).</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>⚡ Vitesse de réplication</h4>
+                    <ul>
+                        <li><strong>E. coli:</strong> ~1000 pb/seconde</li>
+                        <li><strong>Humain:</strong> ~50 pb/seconde</li>
+                        <li><strong>Durée totale:</strong> ~8h (humain)</li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="downloadReplicationDiagram()">📥 Télécharger schéma</button>
+                    <button class="btn btn-accent" onclick="downloadReplicationGIF()">🎬 GIF animé</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tableau comparatif -->
+        <div class="main-container" style="padding-top: 0;">
+            <div class="panel full-panel">
+                <h2 class="panel-title">📊 Comparaison brin précoce vs brin retardé</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Caractéristique</th>
+                            <th>Brin précoce (Leading)</th>
+                            <th>Brin retardé (Lagging)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Direction de synthèse</td>
+                            <td>5' → 3' (continue)</td>
+                            <td>5' → 3' (discontinue)</td>
+                        </tr>
+                        <tr>
+                            <td>Sens par rapport à la fourche</td>
+                            <td>Même sens</td>
+                            <td>Sens opposé</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre d'amorces</td>
+                            <td>1 seule</td>
+                            <td>Multiples</td>
+                        </tr>
+                        <tr>
+                            <td>Fragments d'Okazaki</td>
+                            <td>Non</td>
+                            <td>Oui (100-200 pb)</td>
+                        </tr>
+                        <tr>
+                            <td>Besoin de ligase</td>
+                            <td>Non</td>
+                            <td>Oui</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Quiz -->
+    <div id="quiz-section" class="section-page">
+        <div class="main-container" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="panel">
+                <h2 class="panel-title">📝 Quiz - Testez vos connaissances</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="scoreValue">0</div>
+                        <div class="stat-label">Score</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="questionNum">1/10</div>
+                        <div class="stat-label">Question</div>
+                    </div>
+                </div>
+
+                <div id="quizContainer">
+                    <!-- Questions générées dynamiquement -->
+                </div>
+
+                <div class="btn-group" style="margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="nextQuestion()">Question suivante ➡️</button>
+                    <button class="btn btn-warning" onclick="resetQuiz()">🔄 Recommencer</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">🎯 Objectifs pédagogiques</h2>
+                
+                <div class="info-card">
+                    <h4>✅ Connaissances attendues</h4>
+                    <ul>
+                        <li>Structure de l'ADN (nucléotides, double hélice)</li>
+                        <li>Complémentarité des bases</li>
+                        <li>Mécanisme de réplication</li>
+                        <li>Rôle des enzymes</li>
+                        <li>Différence brin précoce/retardé</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🎓 Compétences évaluées</h4>
+                    <ul>
+                        <li>Identifier les composants de l'ADN</li>
+                        <li>Expliquer le mécanisme de réplication</li>
+                        <li>Analyser un schéma de fourche de réplication</li>
+                        <li>Justifier le caractère semi-conservatif</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">📊 Résultats</h2>
+                
+                <div id="resultsContainer" style="display: none;">
+                    <div class="stat-card" style="margin-bottom: 20px;">
+                        <div class="stat-value" id="finalScore">0%</div>
+                        <div class="stat-label">Score final</div>
+                    </div>
+                    
+                    <div id="resultsFeedback"></div>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 Conseils</h4>
+                    <p>Prenez le temps de bien lire chaque question. Les animations 3D peuvent vous aider à visualiser les concepts.</p>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-success" onclick="downloadResults()">📥 Télécharger résultats</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let scene, camera, renderer, controls;
+        let dnaGroup, replicationScene, replicationRenderer, replicationCamera, replicationControls;
+        let isRotating = true;
+        let rotationSpeed = 0.005;
+        let currentStep = 0;
+        let isPlaying = false;
+        let animationSpeed = 1;
+        let basePairCount = 15;
+        
+        // Couleurs des nucléotides
+        const colors = {
+            adenine: 0xe74c3c,
+            thymine: 0x3498db,
+            guanine: 0x2ecc71,
+            cytosine: 0xf39c12,
+            phosphate: 0x9b59b6,
+            sugar: 0xecf0f1,
+            backbone: 0x7f8c8d
+        };
+
+        // Initialisation
+        function init() {
+            initDNAViewer();
+            initReplicationViewer();
+            initQuiz();
+            animate();
+        }
+
+        // Initialisation du visualiseur ADN
+        function initDNAViewer() {
+            const canvas = document.getElementById('dna-viewer');
+            const container = canvas.parentElement;
+            
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0a0a1a);
+
+            camera = new THREE.PerspectiveCamera(60, container.clientWidth / 600, 0.1, 1000);
+            camera.position.set(0, 0, 50);
+
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+            renderer.setSize(container.clientWidth, 600);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // Contrôles orbitaux
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 1;
+
+            // Lumières
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 10, 10);
+            scene.add(directionalLight);
+
+            const pointLight = new THREE.PointLight(0x6366f1, 0.5, 100);
+            pointLight.position.set(-10, -10, 10);
+            scene.add(pointLight);
+
+            // Créer l'ADN
+            createDNA();
+
+            // Gestion du redimensionnement
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / 600;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, 600);
+            });
+        }
+
+        // Création de la double hélice ADN
+        function createDNA() {
+            if (dnaGroup) {
+                scene.remove(dnaGroup);
+            }
+
+            dnaGroup = new THREE.Group();
+
+            const helixRadius = 5;
+            const verticalSpacing = 2;
+            const rotationsPerBase = Math.PI / 5;
+            const baseSequence = generateBaseSequence(basePairCount);
+
+            for (let i = 0; i < basePairCount; i++) {
+                const angle1 = i * rotationsPerBase;
+                const angle2 = angle1 + Math.PI;
+                const y = (i - basePairCount / 2) * verticalSpacing;
+
+                // Positions des nucléotides
+                const x1 = Math.cos(angle1) * helixRadius;
+                const z1 = Math.sin(angle1) * helixRadius;
+                const x2 = Math.cos(angle2) * helixRadius;
+                const z2 = Math.sin(angle2) * helixRadius;
+
+                // Nucléotides
+                const base1 = baseSequence[i].base1;
+                const base2 = baseSequence[i].base2;
+
+                // Sphères des bases
+                const sphereGeometry = new THREE.SphereGeometry(0.8, 32, 32);
+                
+                const material1 = new THREE.MeshPhongMaterial({ 
+                    color: colors[base1],
+                    emissive: colors[base1],
+                    emissiveIntensity: 0.2,
+                    shininess: 100
+                });
+                const sphere1 = new THREE.Mesh(sphereGeometry, material1);
+                sphere1.position.set(x1, y, z1);
+                dnaGroup.add(sphere1);
+
+                const material2 = new THREE.MeshPhongMaterial({ 
+                    color: colors[base2],
+                    emissive: colors[base2],
+                    emissiveIntensity: 0.2,
+                    shininess: 100
+                });
+                const sphere2 = new THREE.Mesh(sphereGeometry, material2);
+                sphere2.position.set(x2, y, z2);
+                dnaGroup.add(sphere2);
+
+                // Liaison hydrogène entre les bases
+                const bondGeometry = new THREE.CylinderGeometry(0.1, 0.1, helixRadius * 1.5, 8);
+                const bondMaterial = new THREE.MeshPhongMaterial({ 
+                    color: 0xffffff,
+                    transparent: true,
+                    opacity: 0.4
+                });
+                const bond = new THREE.Mesh(bondGeometry, bondMaterial);
+                bond.position.set(0, y, 0);
+                bond.rotation.z = Math.PI / 2;
+                bond.rotation.y = angle1;
+                dnaGroup.add(bond);
+
+                // Squelette sucre-phosphate
+                if (i > 0) {
+                    const prevAngle1 = (i - 1) * rotationsPerBase;
+                    const prevY = ((i - 1) - basePairCount / 2) * verticalSpacing;
+                    const prevX1 = Math.cos(prevAngle1) * helixRadius;
+                    const prevZ1 = Math.sin(prevAngle1) * helixRadius;
+
+                    // Brin 1
+                    const backboneGeometry1 = createCurvedTube(
+                        new THREE.Vector3(prevX1, prevY, prevZ1),
+                        new THREE.Vector3(x1, y, z1),
+                        0.15
+                    );
+                    const backboneMaterial = new THREE.MeshPhongMaterial({ 
+                        color: colors.backbone,
+                        shininess: 50
+                    });
+                    const backbone1 = new THREE.Mesh(backboneGeometry1, backboneMaterial);
+                    dnaGroup.add(backbone1);
+
+                    // Brin 2
+                    const prevAngle2 = prevAngle1 + Math.PI;
+                    const prevX2 = Math.cos(prevAngle2) * helixRadius;
+                    const prevZ2 = Math.sin(prevAngle2) * helixRadius;
+
+                    const backboneGeometry2 = createCurvedTube(
+                        new THREE.Vector3(prevX2, prevY, prevZ2),
+                        new THREE.Vector3(x2, y, z2),
+                        0.15
+                    );
+                    const backbone2 = new THREE.Mesh(backboneGeometry2, backboneMaterial);
+                    dnaGroup.add(backbone2);
+                }
+
+                // Phosphates (petites sphères sur le squelette)
+                const phosphateGeometry = new THREE.SphereGeometry(0.3, 16, 16);
+                const phosphateMaterial = new THREE.MeshPhongMaterial({ 
+                    color: colors.phosphate,
+                    emissive: colors.phosphate,
+                    emissiveIntensity: 0.3
+                });
+
+                const midX1 = Math.cos(angle1 + rotationsPerBase / 2) * (helixRadius + 0.5);
+                const midZ1 = Math.sin(angle1 + rotationsPerBase / 2) * (helixRadius + 0.5);
+                const phosphate1 = new THREE.Mesh(phosphateGeometry, phosphateMaterial);
+                phosphate1.position.set(midX1, y + verticalSpacing / 2, midZ1);
+                dnaGroup.add(phosphate1);
+
+                const midX2 = Math.cos(angle2 + rotationsPerBase / 2) * (helixRadius + 0.5);
+                const midZ2 = Math.sin(angle2 + rotationsPerBase / 2) * (helixRadius + 0.5);
+                const phosphate2 = new THREE.Mesh(phosphateGeometry, phosphateMaterial);
+                phosphate2.position.set(midX2, y + verticalSpacing / 2, midZ2);
+                dnaGroup.add(phosphate2);
+            }
+
+            scene.add(dnaGroup);
+        }
+
+        function createCurvedTube(start, end, radius) {
+            const curve = new THREE.LineCurve3(start, end);
+            return new THREE.TubeGeometry(curve, 8, radius, 8, false);
+        }
+
+        function generateBaseSequence(count) {
+            const pairs = [
+                { base1: 'adenine', base2: 'thymine' },
+                { base1: 'thymine', base2: 'adenine' },
+                { base1: 'guanine', base2: 'cytosine' },
+                { base1: 'cytosine', base2: 'guanine' }
+            ];
+            
+            const sequence = [];
+            for (let i = 0; i < count; i++) {
+                sequence.push(pairs[Math.floor(Math.random() * pairs.length)]);
+            }
+            return sequence;
+        }
+
+        // Initialisation du visualiseur de réplication
+        function initReplicationViewer() {
+            const canvas = document.getElementById('replication-viewer');
+            if (!canvas) return;
+            
+            const container = canvas.parentElement;
+            
+            replicationScene = new THREE.Scene();
+            replicationScene.background = new THREE.Color(0x0a0a1a);
+
+            replicationCamera = new THREE.PerspectiveCamera(60, container.clientWidth / 600, 0.1, 1000);
+            replicationCamera.position.set(0, 30, 60);
+
+            replicationRenderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+            replicationRenderer.setSize(container.clientWidth, 600);
+
+            replicationControls = new THREE.OrbitControls(replicationCamera, replicationRenderer.domElement);
+            replicationControls.enableDamping = true;
+
+            // Lumières
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            replicationScene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(20, 20, 20);
+            replicationScene.add(directionalLight);
+
+            createReplicationFork();
+        }
+
+        // Création de la fourche de réplication
+        function createReplicationFork() {
+            // Nettoyer la scène
+            while(replicationScene.children.length > 2) {
+                replicationScene.remove(replicationScene.children[2]);
+            }
+
+            const forkGroup = new THREE.Group();
+
+            // ADN parental (double hélice fermée)
+            for (let i = -20; i < -5; i++) {
+                const y = i * 2;
+                const angle = i * 0.3;
+                
+                // Brin 1
+                const sphere1 = createNucleotide(Math.cos(angle) * 3, y, Math.sin(angle) * 3, 'adenine');
+                forkGroup.add(sphere1);
+                
+                // Brin 2
+                const sphere2 = createNucleotide(Math.cos(angle + Math.PI) * 3, y, Math.sin(angle + Math.PI) * 3, 'thymine');
+                forkGroup.add(sphere2);
+
+                // Liaison
+                const bond = createBond(sphere1.position, sphere2.position);
+                forkGroup.add(bond);
+            }
+
+            // Zone d'ouverture (hélicase)
+            const helicaseGeometry = new THREE.TorusGeometry(4, 1.5, 16, 32);
+            const helicaseMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0xef4444,
+                emissive: 0xef4444,
+                emissiveIntensity: 0.3,
+                transparent: true,
+                opacity: 0.8
+            });
+            const helicase = new THREE.Mesh(helicaseGeometry, helicaseMaterial);
+            helicase.position.set(0, -10, 0);
+            helicase.rotation.x = Math.PI / 2;
+            forkGroup.add(helicase);
+
+            // Brins séparés
+            // Brin précoce (leading)
+            for (let i = 0; i < 15; i++) {
+                const y = -5 + i * 2;
+                const x = -3 - i * 0.5;
+                
+                // Brin matrice
+                const templateSphere = createNucleotide(x - 3, y, 0, 'guanine');
+                forkGroup.add(templateSphere);
+
+                // Nouveau brin (en cours de synthèse)
+                if (i < 12) {
+                    const newSphere = createNucleotide(x - 1, y, 0, 'cytosine');
+                    newSphere.material.emissiveIntensity = 0.5;
+                    forkGroup.add(newSphere);
+                }
+            }
+
+            // ADN Polymérase sur brin précoce
+            const polymeraseGeometry = new THREE.SphereGeometry(2.5, 32, 32);
+            const polymeraseMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x6366f1,
+                emissive: 0x6366f1,
+                emissiveIntensity: 0.4
+            });
+            const polymerase = new THREE.Mesh(polymeraseGeometry, polymeraseMaterial);
+            polymerase.position.set(-12, 19, 0);
+            forkGroup.add(polymerase);
+
+            // Brin retardé (lagging) avec fragments d'Okazaki
+            for (let i = 0; i < 15; i++) {
+                const y = -5 + i * 2;
+                const x = 3 + i * 0.5;
+                
+                // Brin matrice
+                const templateSphere = createNucleotide(x + 3, y, 0, 'cytosine');
+                forkGroup.add(templateSphere);
+
+                // Fragments d'Okazaki
+                if (i % 4 < 3 && i < 12) {
+                    const fragmentColor = i < 4 ? 'guanine' : (i < 8 ? 'adenine' : 'thymine');
+                    const fragmentSphere = createNucleotide(x + 1, y, 0, fragmentColor);
+                    fragmentSphere.material.emissiveIntensity = 0.5;
+                    forkGroup.add(fragmentSphere);
+                }
+            }
+
+            // Amorces ARN (en rouge/orange)
+            for (let j = 0; j < 3; j++) {
+                const primerY = 3 + j * 8;
+                const primerX = 3 + (primerY + 5) * 0.25;
+                const primerGeometry = new THREE.BoxGeometry(1, 2, 1);
+                const primerMaterial = new THREE.MeshPhongMaterial({ 
+                    color: 0xff6b6b,
+                    emissive: 0xff6b6b,
+                    emissiveIntensity: 0.5
+                });
+                const primer = new THREE.Mesh(primerGeometry, primerMaterial);
+                primer.position.set(primerX + 1, primerY, 0);
+                forkGroup.add(primer);
+            }
+
+            // Légendes 3D
+            addLabel3D(forkGroup, "Brin précoce\n(5'→3')", -15, 25, 5);
+            addLabel3D(forkGroup, "Brin retardé\n(5'→3')", 15, 25, 5);
+            addLabel3D(forkGroup, "Hélicase", 8, -10, 5);
+            addLabel3D(forkGroup, "ADN Pol III", -8, 22, 5);
+
+            replicationScene.add(forkGroup);
+        }
+
+        function createNucleotide(x, y, z, type) {
+            const geometry = new THREE.SphereGeometry(0.6, 16, 16);
+            const material = new THREE.MeshPhongMaterial({ 
+                color: colors[type],
+                emissive: colors[type],
+                emissiveIntensity: 0.2
+            });
+            const sphere = new THREE.Mesh(geometry, material);
+            sphere.position.set(x, y, z);
+            return sphere;
+        }
+
+        function createBond(pos1, pos2) {
+            const direction = new THREE.Vector3().subVectors(pos2, pos1);
+            const length = direction.length();
+            const geometry = new THREE.CylinderGeometry(0.05, 0.05, length, 8);
+            const material = new THREE.MeshPhongMaterial({ 
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.3
+            });
+            const bond = new THREE.Mesh(geometry, material);
+            bond.position.copy(pos1).add(direction.multiplyScalar(0.5));
+            bond.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.clone().normalize());
+            return bond;
+        }
+
+        function addLabel3D(group, text, x, y, z) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 256;
+            canvas.height = 128;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'rgba(0,0,0,0.7)';
+            ctx.fillRect(0, 0, 256, 128);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '20px Arial';
+            ctx.textAlign = 'center';
+            const lines = text.split('\n');
+            lines.forEach((line, i) => {
+                ctx.fillText(line, 128, 50 + i * 25);
+            });
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const material = new THREE.SpriteMaterial({ map: texture });
+            const sprite = new THREE.Sprite(material);
+            sprite.position.set(x, y, z);
+            sprite.scale.set(10, 5, 1);
+            group.add(sprite);
+        }
+
+        // Animation principale
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (controls) {
+                controls.update();
+            }
+
+            if (replicationControls) {
+                replicationControls.update();
+            }
+
+            if (dnaGroup && isRotating) {
+                dnaGroup.rotation.y += rotationSpeed;
+            }
+
+            if (renderer && scene && camera) {
+                renderer.render(scene, camera);
+            }
+
+            if (replicationRenderer && replicationScene && replicationCamera) {
+                replicationRenderer.render(replicationScene, replicationCamera);
+            }
+        }
+
+        // Contrôles
+        function changeViewMode() {
+            const mode = document.getElementById('viewMode').value;
+            const titles = {
+                'double-helix': { title: 'Double Hélice d\'ADN', desc: 'Structure complète de la molécule d\'ADN' },
+                'unwound': { title: 'ADN Déroulé', desc: 'Visualisation des deux brins séparés' },
+                'nucleotide': { title: 'Nucléotide', desc: 'Structure d\'un nucléotide isolé' },
+                'base-pairs': { title: 'Paires de Bases', desc: 'Complémentarité A-T et G-C' },
+                'sugar-phosphate': { title: 'Squelette Sucre-Phosphate', desc: 'Structure du backbone de l\'ADN' }
+            };
+
+            document.getElementById('viewTitle').textContent = titles[mode].title;
+            document.getElementById('viewDescription').textContent = titles[mode].desc;
+            
+            // Recréer l'ADN selon le mode
+            createDNA();
+        }
+
+        function updateRotation() {
+            const value = document.getElementById('rotationSpeed').value;
+            rotationSpeed = value * 0.01;
+            document.getElementById('rotationValue').textContent = value + 'x';
+            if (controls) {
+                controls.autoRotateSpeed = value * 2;
+            }
+        }
+
+        function updateZoom() {
+            const value = document.getElementById('zoomLevel').value;
+            document.getElementById('zoomValue').textContent = value + '%';
+            if (camera) {
+                camera.position.z = 100 - value;
+            }
+        }
+
+        function updateBasePairs() {
+            basePairCount = parseInt(document.getElementById('basePairs').value);
+            document.getElementById('basePairsValue').textContent = basePairCount + ' pb';
+            createDNA();
+        }
+
+        function toggleRotation() {
+            isRotating = !isRotating;
+            if (controls) {
+                controls.autoRotate = isRotating;
+            }
+            document.getElementById('rotateBtn').textContent = isRotating ? '⏸️' : '▶️';
+        }
+
+        function resetCamera() {
+            if (camera) {
+                camera.position.set(0, 0, 50);
+                controls.reset();
+            }
+        }
+
+        function toggleLabels() {
+            // Toggle labels visibility
+            alert('Fonctionnalité des labels activée');
+        }
+
+        function toggleFullscreen() {
+            const viewer = document.querySelector('.viewer-container');
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                viewer.requestFullscreen();
+            }
+        }
+
+        // Réplication controls
+        function playReplication() {
+            isPlaying = true;
+            document.getElementById('playBtn').textContent = '▶️ En cours...';
+            animateReplication();
+        }
+
+        function pauseReplication() {
+            isPlaying = false;
+            document.getElementById('playBtn').textContent = '▶️ Reprendre';
+        }
+
+        function resetReplication() {
+            isPlaying = false;
+            currentStep = 0;
+            updateStepHighlight();
+            document.getElementById('progressFill').style.width = '0%';
+            document.getElementById('progressPercent').textContent = '0%';
+            document.getElementById('playBtn').textContent = '▶️ Démarrer';
+            createReplicationFork();
+        }
+
+        function setSpeed(speed) {
+            animationSpeed = speed;
+            document.querySelectorAll('.speed-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function goToStep() {
+            currentStep = parseInt(document.getElementById('stepSelect').value);
+            updateStepHighlight();
+            const progress = ((currentStep + 1) / 8) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
+        }
+
+        function updateStepHighlight() {
+            document.querySelectorAll('.step-item').forEach((item, index) => {
+                item.classList.toggle('active', index === currentStep);
+            });
+            document.getElementById('stepSelect').value = currentStep;
+        }
+
+        function animateReplication() {
+            if (!isPlaying) return;
+
+            currentStep = (currentStep + 1) % 8;
+            updateStepHighlight();
+            
+            const progress = ((currentStep + 1) / 8) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
+
+            const descriptions = [
+                "Reconnaissance de l'origine de réplication...",
+                "L'hélicase ouvre la double hélice...",
+                "Les protéines SSB stabilisent les brins...",
+                "La primase synthétise les amorces ARN...",
+                "L'ADN polymérase III synthétise le nouveau brin...",
+                "Formation des fragments d'Okazaki...",
+                "L'ADN ligase lie les fragments...",
+                "Deux molécules d'ADN identiques formées!"
+            ];
+            
+            document.getElementById('replicationDescription').textContent = descriptions[currentStep];
+
+            setTimeout(() => animateReplication(), 2000 / animationSpeed);
+        }
+
+        function highlightEnzyme(enzyme) {
+            console.log('Highlight enzyme:', enzyme);
+        }
+
+        // Navigation entre sections
+        function showSection(sectionName) {
+            document.querySelectorAll('.section-page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(sectionName + '-section').classList.add('active');
+            event.target.classList.add('active');
+
+            if (sectionName === 'replication' && !replicationScene) {
+                setTimeout(initReplicationViewer, 100);
+            }
+        }
+
+        // Onglets
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Quiz
+        const quizQuestions = [
+            {
+                question: "Quelles bases azotées sont complémentaires?",
+                options: ["A-G et T-C", "A-T et G-C", "A-C et G-T", "A-A et T-T"],
+                correct: 1
+            },
+            {
+                question: "Combien de liaisons hydrogène entre G et C?",
+                options: ["1", "2", "3", "4"],
+                correct: 2
+            },
+            {
+                question: "Quelle enzyme déroule la double hélice?",
+                options: ["ADN polymérase", "Ligase", "Hélicase", "Primase"],
+                correct: 2
+            },
+            {
+                question: "Dans quel sens l'ADN polymérase synthétise-t-elle?",
+                options: ["3' → 5'", "5' → 3'", "N → C", "Les deux sens"],
+                correct: 1
+            },
+            {
+                question: "Qu'est-ce qu'un fragment d'Okazaki?",
+                options: [
+                    "Un type de nucléotide",
+                    "Un segment du brin retardé",
+                    "Une enzyme de réplication",
+                    "Une amorce ARN"
+                ],
+                correct: 1
+            },
+            {
+                question: "La réplication de l'ADN est dite:",
+                options: ["Conservative", "Dispersive", "Semi-conservative", "Non-conservative"],
+                correct: 2
+            },
+            {
+                question: "Quel sucre compose l'ADN?",
+                options: ["Ribose", "Glucose", "Désoxyribose", "Fructose"],
+                correct: 2
+            },
+            {
+                question: "Quelle enzyme lie les fragments d'Okazaki?",
+                options: ["Hélicase", "Primase", "ADN polymérase I", "ADN ligase"],
+                correct: 3
+            },
+            {
+                question: "Combien de paires de bases par tour d'hélice?",
+                options: ["5", "10", "15", "20"],
+                correct: 1
+            },
+            {
+                question: "Les amorces sont composées de:",
+                options: ["ADN", "ARN", "Protéines", "Lipides"],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function initQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            if (currentQuestion >= quizQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const q = quizQuestions[currentQuestion];
+            document.getElementById('questionNum').textContent = `${currentQuestion + 1}/${quizQuestions.length}`;
+            
+            let html = `
+                <div class="quiz-question">
+                    <h4>Question ${currentQuestion + 1}: ${q.question}</h4>
+                    <div class="quiz-options">
+            `;
+            
+            q.options.forEach((option, index) => {
+                html += `<div class="quiz-option" onclick="checkAnswer(${index})">${option}</div>`;
+            });
+            
+            html += '</div></div>';
+            document.getElementById('quizContainer').innerHTML = html;
+        }
+
+        function checkAnswer(index) {
+            const q = quizQuestions[currentQuestion];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            options.forEach((opt, i) => {
+                opt.style.pointerEvents = 'none';
+                if (i === q.correct) {
+                    opt.classList.add('correct');
+                } else if (i === index && index !== q.correct) {
+                    opt.classList.add('wrong');
+                }
+            });
+
+            if (index === q.correct) {
+                score++;
+                document.getElementById('scoreValue').textContent = score;
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            displayQuestion();
+        }
+
+        function resetQuiz() {
+            initQuiz();
+            document.getElementById('resultsContainer').style.display = 'none';
+        }
+
+        function showResults() {
+            const percentage = Math.round((score / quizQuestions.length) * 100);
+            document.getElementById('finalScore').textContent = percentage + '%';
+            document.getElementById('resultsContainer').style.display = 'block';
+            
+            let feedback = '';
+            if (percentage >= 80) {
+                feedback = '<div class="info-card" style="border-color: var(--success);"><h4>🎉 Excellent!</h4><p>Vous maîtrisez parfaitement ce chapitre!</p></div>';
+            } else if (percentage >= 60) {
+                feedback = '<div class="info-card" style="border-color: var(--warning);"><h4>👍 Bien!</h4><p>Quelques révisions et ce sera parfait.</p></div>';
+            } else {
+                feedback = '<div class="info-card" style="border-color: var(--danger);"><h4>📚 À revoir</h4><p>Reprenez les animations 3D pour mieux comprendre.</p></div>';
+            }
+            document.getElementById('resultsFeedback').innerHTML = feedback;
+            
+            document.getElementById('quizContainer').innerHTML = '<div class="info-card"><h4>Quiz terminé!</h4><p>Consultez vos résultats dans le panneau de droite.</p></div>';
+        }
+
+        // Téléchargements
+        function captureScreenshot() {
+            downloadImage('png');
+        }
+
+        function downloadImage(format) {
+            const canvas = document.getElementById('dna-viewer');
+            const link = document.createElement('a');
+            link.download = `ADN_structure.${format}`;
+            link.href = canvas.toDataURL(`image/${format}`);
+            link.click();
+        }
+
+        function downloadPDF() {
+            alert('Génération du PDF en cours...\nCette fonctionnalité nécessiterait une bibliothèque PDF comme jsPDF.');
+        }
+
+        function downloadGIF() {
+            alert('Génération du GIF animé en cours...\nCette fonctionnalité nécessiterait une bibliothèque GIF.');
+        }
+
+        function downloadReplicationDiagram() {
+            const canvas = document.getElementById('replication-viewer');
+            const link = document.createElement('a');
+            link.download = 'replication_ADN.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadReplicationGIF() {
+            alert('Génération du GIF de réplication...');
+        }
+
+        function downloadResults() {
+            const percentage = Math.round((score / quizQuestions.length) * 100);
+            const text = `Résultats Quiz ADN & Réplication\n\nScore: ${score}/${quizQuestions.length} (${percentage}%)\nDate: ${new Date().toLocaleDateString('fr-FR')}`;
+            
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.download = 'resultats_quiz_ADN.txt';
+            link.href = URL.createObjectURL(blob);
+            link.click();
+        }
+
+        // Initialisation au chargement
+        window.onload = init;
+    </script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>اختبار شامل — حالة التوازن لمجموعة كيميائية </title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <style>
+    body{font-family:'Segoe UI',sans-serif;background:#071a2b;color:#e6eef6;margin:0;padding:18px}
+    .container{max-width:1100px;margin:auto;background:#0b1220;padding:22px;border-radius:12px}
+    h1{text-align:center;margin:0 0 8px}
+    h2{color:#06b6d4;margin-top:18px}
+    .meta input{width:48%;display:inline-block;margin:6px 1%;padding:10px;border-radius:8px;background:#071726;border:1px solid #243049;color:white}
+    .question{margin-top:12px;background:#0f1728;padding:14px;border-radius:10px}
+    .choices label{display:block;padding:8px;margin:6px 0;border-radius:8px;border:1px solid #1f2937;cursor:pointer}
+    input[type='radio']{margin-left:8px}
+    textarea{width:100%;min-height:84px;padding:10px;border-radius:8px;background:#071726;border:1px solid #243049;color:white}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    button{padding:10px 14px;border-radius:8px;border:none;background:#06b6d4;color:#042;cursor:pointer;font-weight:700}
+    button.secondary{background:transparent;border:1px solid #06b6d4;color:#06b6d4}
+    .result{padding:12px;background:#063a47;border-radius:8px;margin-top:10px}
+    .note{color:#94a3b8;font-size:13px;margin-top:6px}
+    .svg-diagram{width:100%;max-height:220px;border-radius:8px;background:#071726;padding:8px;margin-top:8px}
+    .small{font-size:13px;color:#94a3b8}
+    footer{margin-top:16px;color:#94a3b8}
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>★ الاختبار الشامل : حالة التوازن لمجموعة كيميائية ★</h1>
+
+    <div class="meta">
+      <input id="studentName" placeholder="اسم التلميذ">
+      <input id="studentClass" placeholder="القسم">
+    </div>
+
+    <div class="actions">
+      <button id="setEndpoint" class="secondary">تعيين نقطة نهاية الإرسال</button>
+      <button id="downloadAll" class="secondary">تحميل نسخة من النموذج</button>
+    </div>
+
+    <form id="quiz" onsubmit="return false;">
+
+      <!-- محاور الاختبار: التعريف - التقدم - Qr/K - العوامل - الناقلية - تمارين تطبيقية -->
+      <h2>المحور 1 — تعريفات وأسئلة أساسية</h2>
+
+      <!-- 1..6 -->
+      <div class="question"><h3>1) التفاعل الذي يحدث في منحيين يسمى:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q1" value="a"> تفاعل عكسي</label>
+          <label><input type="radio" name="q1" value="b"> تفاعل بمسارين منفصلين</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>2) التوازن الكيميائي يصف حالة حيث:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q2" value="b"> سرعتي التفاعل المباشر والعكسي متساويتان</label>
+          <label><input type="radio" name="q2" value="a"> التراكيز متساوية دائماً</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>3) التوازن الديناميكي يعني:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q3" value="a"> استمرار التبادلات الجزيئية مع ثبات التراكيز</label>
+          <label><input type="radio" name="q3" value="b"> توقف كل تفاعل</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>4) عند التوازن، تتغير تراكيز الأنواع بسرعة:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q4" value="b"> لا، تبقى ثابتة عند المتوسط</label>
+          <label><input type="radio" name="q4" value="a"> نعم، بشكل كبير</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>5) متى يمكن استخدام جدول التقدم (ICE table)؟</h3>
+        <div class="choices">
+          <label><input type="radio" name="q5" value="a"> لحساب تراكيز التوازن من تراكيز ابتدائية</label>
+          <label><input type="radio" name="q5" value="b"> لحساب الكتل المولية</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>6) في جدول التقدم يُرمز للمتغير x عادةً كـ:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q6" value="b"> التقدم نحو التوازن</label>
+          <label><input type="radio" name="q6" value="a"> عدد المولات الكلي</label>
+        </div>
+      </div>
+
+      <h2>المحور 2 — Qr و K (ثوابت التوازن)</h2>
+
+      <div class="question"><h3>7) تعريف Qr للمعادلة العامة: \(aA + bB \rightleftharpoons cC + dD\) يُعطى بواسطة:</h3>
+        <div class="small">(اكتب المعادلة بالصيغة المناسبة — MathJax مدعوم)</div>
+        <textarea id="q7"></textarea>
+      </div>
+
+      <div class="question"><h3>8) إذا كانت قيمة Qr أقل من K فإن التوازن:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q8" value="a"> ينزاح نحو النواتج</label>
+          <label><input type="radio" name="q8" value="b"> ينزاح نحو المتفاعلات</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>9) العلاقة بين Qr و K تحدد اتجاه التفاعل. ضع جوابًا مختصرًا يشرح ذلك.</h3>
+        <textarea id="q9"></textarea>
+      </div>
+
+      <div class="question"><h3>10) ثابت التوازن K يعتمد بشكل أساسي على:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q10" value="a"> درجة الحرارة</label>
+          <label><input type="radio" name="q10" value="b"> التركيز والضغط دائمًا</label>
+        </div>
+      </div>
+
+      <h2>المحور 3 — تأثير العوامل الخارجية (Le Chatelier)</h2>
+
+      <div class="question"><h3>11) مبدأ لوشاتيليه يفسّر انزياح التوازن عندما يغير أحد العوامل. أي العوامل التالية لا يتأثر بها التوازن عادةً؟</h3>
+        <div class="choices">
+          <label><input type="radio" name="q11" value="b"> إضافة مادة صلبة نقية</label>
+          <label><input type="radio" name="q11" value="a"> تغيير التركيز في المحلول</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>12) رفع الضغط يؤثر بقوة على التفاعلات التي:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q12" value="a"> تحتوي على اختلاف في عدد مولات الغازات بين الطرفين</label>
+          <label><input type="radio" name="q12" value="b"> تحتوي على سوائل فقط</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>13) إذا أضفنا منتجًا إلى نظام في توازن، وفق لوشاتيليه، التوازن:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q13" value="a"> ينزاح نحو المتفاعلات</label>
+          <label><input type="radio" name="q13" value="b"> ينزاح نحو النواتج</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>14) رفع درجة الحرارة في تفاعل ناشر للحرارة يؤدي إلى:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q14" value="b"> انزياح التوازن نحو المتفاعلات</label>
+          <label><input type="radio" name="q14" value="a"> انزياح التوازن نحو النواتج</label>
+        </div>
+      </div>
+
+      <h2>المحور 4 — الناقلية المولية والتطبيقات التحليلية</h2>
+
+      <div class="question"><h3>15) الناقلية المولية λ للأيون تعتمد على:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q15" value="a"> النوع والشحنة والحركة الأيونية</label>
+          <label><input type="radio" name="q15" value="b"> الكتلة فقط</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>16) العلاقة التقريبية بين الناقلية σ وتراكيز الأيونات تعطى بـ:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q16" value="a"> σ = Σ λ_i · [i]</label>
+          <label><input type="radio" name="q16" value="b"> σ = Σ M_i · [i]</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>17) كيف يمكن استخدام قياس الناقلية لتحديد x_eq في تفاعل متوازن؟ اكتب إجابة قصيرة.</h3>
+        <textarea id="q17"></textarea>
+      </div>
+
+      <h2>المحور 5 — تمارين تطبيقية (مستوحاة من الامتحانات الوطنية)</h2>
+
+      <div class="question"><h3>18) تمرين: محلول يحتوي على حمض ضعيف HA بتركيز ابتدائي 0.10 mol·L⁻¹. عند التوازن يصبح تركيز H⁺ = 1.0×10⁻³ mol·L⁻¹. احسب ثابت التأين Ka (أظهر خطواتك).</h3>
+        <textarea id="q18"></textarea>
+      </div>
+
+      <div class="question"><h3>19) تمرين: ضع جدول تقدم للتفاعل: \( \; N_2O_4(g) \rightleftharpoons 2 NO_2(g) \;\) إذا كانت البداية 0.30 mol·L⁻¹ لـ N₂O₄ و0 لـ NO₂، وعند التوازن أصبح تركيز NO₂ = 0.20 mol·L⁻¹. أحسب Kc.</h3>
+        <textarea id="q19"></textarea>
+      </div>
+
+      <div class="question"><h3>20) تمرين وطني: في تجربة قياس الناقلية، أعطيت البيانات التالية... (أكتب خطواتك التحليلية، النتيجة النهائية، والتعليق الفيزيكي)</h3>
+        <textarea id="q20"></textarea>
+      </div>
+
+      <!-- أسئلة إضافية لبلوغ 30 -->
+      <h2>أسئلة إضافية (سريعة)</h2>
+      <!-- 21..30 -->
+      <div class="question"><h3>21) عند Qr = K فإن النظام:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q21" value="a"> في توازن</label>
+          <label><input type="radio" name="q21" value="b"> ينزاح نحو المتفاعلات</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>22) ماذا يعني أن K >> 1؟</h3>
+        <div class="choices">
+          <label><input type="radio" name="q22" value="a"> التفاعل يميل نحو النواتج</label>
+          <label><input type="radio" name="q22" value="b"> التفاعل لا يحدث</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>23) هل تؤثر المواد الصلبة النقية على قيمة K؟</h3>
+        <div class="choices">
+          <label><input type="radio" name="q23" value="a"> لا، لا تدخل في تعبير K</label>
+          <label><input type="radio" name="q23" value="b"> نعم، تغير K</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>24) تعريف x_eq هو:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q24" value="b"> قيمة x عند التوازن</label>
+          <label><input type="radio" name="q24" value="a"> أقصى تقدم ممكن</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>25) زيادة التركيز تؤدي إلى:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q25" value="a"> انزياح التوازن وفق لوشاتيليه</label>
+          <label><input type="radio" name="q25" value="b"> عدم تغيير التوازن</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>26) ما العلاقة بين ΔG° و K؟ اكتب الصيغة (LaTeX مدعوم).</h3>
+        <textarea id="q26">\(\Delta G^\circ = -RT \ln K\)</textarea>
+      </div>
+
+      <div class="question"><h3>27) في معايرة حمض-قاعدة، نقطة التكافؤ تشير إلى:</h3>
+        <div class="choices">
+          <label><input type="radio" name="q27" value="a"> استنفاد أحد المكونات وتشكّل مزيج ثابت</label>
+          <label><input type="radio" name="q27" value="b"> بداية التفاعل</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>28) ماذا يحدث لثابت التوازن إذا أزلنا أحد المذيبات؟</h3>
+        <div class="choices">
+          <label><input type="radio" name="q28" value="b"> لا يتغير إلا إذا تغيرت درجة الحرارة</label>
+          <label><input type="radio" name="q28" value="a"> يتغير دوماً</label>
+        </div>
+      </div>
+
+      <div class="question"><h3>29) هل يمكن قياس K بالناقلية؟ اجب نعم أو لا مع سبب مختصر.</h3>
+        <textarea id="q29"></textarea>
+      </div>
+
+      <div class="question"><h3>30) علّل لماذا يستعمل علماء الكيمياء معادلات التوازن لتوقع نتائج التفاعلات الصناعية.</h3>
+        <textarea id="q30"></textarea>
+      </div>
+
+      <div class="actions">
+        <button id="gradeBtn">تدقيق واحتساب النتيجة</button>
+        <button id="mailtoBtn" class="secondary">فتح البريد لإرسال التقرير</button>
+        <button id="postBtn" class="secondary">إرسال تلقائي إلى نقطة النهاية (إن وُجِدت)</button>
+        <button id="downloadReport" class="secondary">تحميل التقرير (.txt)</button>
+      </div>
+
+      <div id="resultBox" class="result" style="display:none"></div>
+
+      <h3>معاينة التقرير</h3>
+      <textarea id="reportPreview" readonly></textarea>
+
+      <footer>تم إعداد هذا الاختبار الذاتي من طرف الأستاذ محمد الزعيم من أجل مساعدتك على مراجعة درس توازن مجمعة كيميائية، إن وجدت صعوبات في فهم تصحيح الأسئلة، يمكننك التواصل مع الأستاذ.</footer>
+
+    </form>
+  </div>
+
+<script>
+  // مفتاح الإجابات المختصرة (للاختبارات الذاتية)
+  const mcqAnswers = {
+    q1:'a',q2:'b',q3:'a',q4:'b',q5:'a',q6:'b',q8:'a',q10:'a',q11:'b',q12:'a',q13:'a',q14:'b',q15:'a',q16:'a',q18:'',q19:'',q21:'a',q22:'a',q23:'a',q24:'b',q25:'a',q27:'a',q28:'b'
+  };
+
+  let endpoint = '';
+  document.getElementById('setEndpoint').onclick = ()=>{
+    const v = document.getElementById('endpoint').value.trim();
+    if(v){ endpoint = v; alert('تم تعيين نقطة النهاية. سيتم استخدام هذا الرابط عند الضغط على "إرسال تلقائي"'); }
+    else { endpoint = ''; alert('تم مسح نقطة النهاية.'); }
+  }
+
+  function grade(){
+    let score=0, mcqCount=0;
+    // evaluate MCQs
+    for(const k in mcqAnswers){
+      mcqCount++;
+      const el = document.querySelector(`input[name=${k}]:checked`);
+      if(el && el.value === mcqAnswers[k]) score++;
+    }
+    // evaluate remaining MCQs by checking if selected (partial credit)
+    const extras = ['q7','q9','q17','q26','q29']; // text or LaTeX answers: give points if non-empty
+    let textScore=0;
+    for(const id of ['q7','q9','q11','q17','q18','q19','q20','q26','q29','q30']){
+      const v = document.getElementById(id)?.value || '';
+      if(v.trim().length>20) textScore += 1; // 1 point per sufficiently long answer
+    }
+    // Count total possible: mcqCount + 10 (text points) => normalize to 30
+    const raw = score + textScore;
+    // determine mapping: mcqCount (23 defined) + up to 10 text = 33 -> map to 30
+    const total = Math.round((raw/33)*30);
+    return {raw, total, score, textScore};
+  }
+
+  function makeReport(){
+    const name = document.getElementById('studentName').value || 'غير محدد';
+    const klass = document.getElementById('studentClass').value || '-';
+    const g = grade();
+    const date = new Date().toLocaleString('ar-EG');
+    let body = `تقرير - اختبار: حالة التوازن لمجموعة كيميائية\nالاسم: ${name}\nالقسم: ${klass}\nالتاريخ: ${date}\nالنتيجة (من 30): ${g.total} / 30\n\nتفصيل:\nنقاط اختيار من متعدد: ${g.score}\nنقاط تحريرية: ${g.textScore}\n\nإجابات التلميذ:\n`;
+    // جمع الإجابات
+    for(let i=1;i<=30;i++){
+      const id = 'q'+i;
+      const r = document.querySelector(`input[name=${id}]:checked`);
+      let ans = r ? r.value : document.getElementById(id)?.value || '';
+      body += `${i}) ${ans}\n`;
+    }
+    return {subject:`تقرير الاختبار (${name})`, body};
+  }
+
+  document.getElementById('gradeBtn').onclick = ()=>{
+    const r = grade();
+    document.getElementById('resultBox').style.display = 'block';
+    document.getElementById('resultBox').textContent = `النتيجة: ${r.total} / 30  — (تفصيل: اختيارات=${r.score}, تحريرية=${r.textScore})`;
+    const rpt = makeReport();
+    document.getElementById('reportPreview').value = rpt.body;
+  }
+
+  document.getElementById('mailtoBtn').onclick = ()=>{
+    const rpt = makeReport();
+    const teacher = 'mohamed.ezziymy@gmail.com';
+    const mailto = `mailto:${teacher}?subject=${encodeURIComponent(rpt.subject)}&body=${encodeURIComponent(rpt.body)}`;
+    window.location.href = mailto;
+  }
+
+  document.getElementById('downloadReport').onclick = ()=>{
+    const rpt = makeReport();
+    const blob = new Blob([rpt.body], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = `report_${(document.getElementById('studentName').value||'student')}.txt`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  }
+
+  document.getElementById('downloadAll').onclick = ()=>{
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html;charset=utf-8'});
+    const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'اختبار_حالة_التوازن.html'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>
