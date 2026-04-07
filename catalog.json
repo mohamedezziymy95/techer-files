@@ -1,0 +1,278 @@
+{
+  "_version": "1.2.0",
+  "_generated": "2025-01-15T10:00:00.000Z",
+  "_repo": "mohamedezziymy95/techer-files",
+  "_branch": "main",
+  "_description": "كتالوج ملفات منصتي التعليمية",
+
+  "subjects": [
+
+    {
+      "id": "math",
+      "subject": "الرياضيات",
+      "icon": "calculate",
+      "color": "#FF6584",
+      "shadow": "rgba(255,101,132,0.35)",
+      "folders": [
+        {
+          "name": "دروس",
+          "icon": "menu_book",
+          "files": [
+            {
+              "id": "math_lesson_01",
+              "title": "درس التفاضل والتكامل",
+              "path": "math/lessons/تفاضل_وتكامل.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-01T00:00:00.000Z"
+            },
+            {
+              "id": "math_lesson_02",
+              "title": "درس الأعداد المركبة",
+              "path": "math/lessons/أعداد_مركبة.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-05T00:00:00.000Z"
+            },
+            {
+              "id": "math_lesson_03",
+              "title": "درس المتتاليات العددية",
+              "path": "math/lessons/متتاليات.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-08T00:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "name": "تمارين",
+          "icon": "edit_note",
+          "files": [
+            {
+              "id": "math_ex_01",
+              "title": "تمارين التفاضل والتكامل",
+              "path": "math/exercises/تمارين_تفاضل.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-02T00:00:00.000Z"
+            },
+            {
+              "id": "math_ex_02",
+              "title": "تمارين الأعداد المركبة",
+              "path": "math/exercises/تمارين_مركبة.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-06T00:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "name": "فروض",
+          "icon": "assignment",
+          "files": [
+            {
+              "id": "math_hw_01",
+              "title": "فرض محروس الفصل الأول",
+              "path": "math/homework/فرض1.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-10T00:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "name": "امتحانات",
+          "icon": "fact_check",
+          "files": [
+            {
+              "id": "math_exam_01",
+              "title": "امتحان جهوي 2023",
+              "path": "math/exams/جهوي_2023.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-12T00:00:00.000Z"
+            },
+            {
+              "id": "math_exam_02",
+              "title": "امتحان وطني 2023",
+              "path": "math/exams/وطني_2023.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-12T00:00:00.000Z"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "physics",
+      "subject": "الفيزياء والكيمياء",
+      "icon": "science",
+      "color": "#6C63FF",
+      "shadow": "rgba(108,99,255,0.35)",
+      "folders": [
+        {
+          "name": "دروس",
+          "icon": "menu_book",
+          "files": [
+            {
+              "id": "phy_lesson_01",
+              "title": "درس الميكانيك - قوانين نيوتن",
+              "path": "physics/lessons/ميكانيك_نيوتن.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-01T00:00:00.000Z"
+            },
+            {
+              "id": "phy_lesson_02",
+              "title": "درس الكهرباء والمغناطيس",
+              "path": "physics/lessons/كهرباء.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-03T00:00:00.000Z"
+            },
+            {
+              "id": "phy_video_01",
+              "title": "شرح فيديو - قوانين نيوتن",
+              "path": "physics/videos/نيوتن_شرح.mp4",
+              "type": "video",
+              "addedAt": "2025-01-07T00:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "name": "تمارين",
+          "icon": "edit_note",
+          "files": [
+            {
+              "id": "phy_ex_01",
+              "title": "تمارين الميكانيك",
+              "path": "physics/exercises/تمارين_ميكانيك.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-04T00:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "name": "امتحانات",
+          "icon": "fact_check",
+          "files": [
+            {
+              "id": "phy_exam_01",
+              "title": "امتحان جهوي الفيزياء 2023",
+              "path": "physics/exams/جهوي_فيزياء_2023.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-12T00:00:00.000Z"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "biology",
+      "subject": "علوم الحياة والأرض",
+      "icon": "biotech",
+      "color": "#26de81",
+      "shadow": "rgba(38,222,129,0.35)",
+      "folders": [
+        {
+          "name": "دروس",
+          "icon": "menu_book",
+          "files": [
+            {
+              "id": "bio_lesson_01",
+              "title": "درس الجهاز العصبي",
+              "path": "biology/lessons/جهاز_عصبي.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-01T00:00:00.000Z"
+            },
+            {
+              "id": "bio_lesson_02",
+              "title": "درس الوراثة والجينات",
+              "path": "biology/lessons/وراثة.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-05T00:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "name": "امتحانات",
+          "icon": "fact_check",
+          "files": [
+            {
+              "id": "bio_exam_01",
+              "title": "امتحان جهوي علوم الحياة 2023",
+              "path": "biology/exams/جهوي_احياء_2023.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-12T00:00:00.000Z"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "arabic",
+      "subject": "اللغة العربية",
+      "icon": "auto_stories",
+      "color": "#43C6AC",
+      "shadow": "rgba(67,198,172,0.35)",
+      "folders": [
+        {
+          "name": "دروس",
+          "icon": "menu_book",
+          "files": [
+            {
+              "id": "ar_lesson_01",
+              "title": "درس البلاغة والأساليب",
+              "path": "arabic/lessons/بلاغة.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-01T00:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "name": "امتحانات",
+          "icon": "fact_check",
+          "files": [
+            {
+              "id": "ar_exam_01",
+              "title": "امتحان جهوي عربية 2023",
+              "path": "arabic/exams/جهوي_عربية_2023.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-12T00:00:00.000Z"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "french",
+      "subject": "اللغة الفرنسية",
+      "icon": "language",
+      "color": "#FF4757",
+      "shadow": "rgba(255,71,87,0.35)",
+      "folders": [
+        {
+          "name": "دروس",
+          "icon": "menu_book",
+          "files": [
+            {
+              "id": "fr_lesson_01",
+              "title": "Grammaire - Les temps",
+              "path": "french/lessons/grammaire_temps.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-01T00:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "name": "امتحانات",
+          "icon": "fact_check",
+          "files": [
+            {
+              "id": "fr_exam_01",
+              "title": "Examen régional 2023",
+              "path": "french/exams/regional_2023.pdf",
+              "type": "pdf",
+              "addedAt": "2025-01-12T00:00:00.000Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
