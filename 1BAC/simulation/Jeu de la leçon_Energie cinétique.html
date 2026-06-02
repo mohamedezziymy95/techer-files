@@ -1,0 +1,3693 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergyLab 3D - Travail, Énergie Cinétique, Translation & Rotation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #00d4ff;
+            --primary-green: #00ff88;
+            --primary-orange: #ff9500;
+            --primary-red: #ff4757;
+            --primary-purple: #a855f7;
+            --bg-dark: #0a0a1a;
+            --bg-medium: #12122a;
+            --bg-light: #1a1a3a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        /* ==================== LOADING SCREEN ==================== */
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #050510 0%, #0a0a20 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .loading-animation {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .energy-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            animation: energyPulse 2s ease-in-out infinite;
+        }
+
+        .energy-ring:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            border-top-color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+            animation-delay: 0s;
+        }
+
+        .energy-ring:nth-child(2) {
+            width: 75%;
+            height: 75%;
+            top: 12.5%;
+            left: 12.5%;
+            border-left-color: var(--primary-green);
+            border-right-color: var(--primary-green);
+            animation-delay: 0.3s;
+            animation-direction: reverse;
+        }
+
+        .energy-ring:nth-child(3) {
+            width: 50%;
+            height: 50%;
+            top: 25%;
+            left: 25%;
+            border-top-color: var(--primary-orange);
+            border-bottom-color: var(--primary-orange);
+            animation-delay: 0.6s;
+        }
+
+        .energy-core {
+            position: absolute;
+            width: 30%;
+            height: 30%;
+            top: 35%;
+            left: 35%;
+            background: radial-gradient(circle, var(--primary-blue), var(--primary-purple));
+            border-radius: 50%;
+            box-shadow: 0 0 50px var(--primary-blue), 0 0 100px var(--primary-purple);
+            animation: corePulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes energyPulse {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        @keyframes corePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 50px var(--primary-blue); }
+            50% { transform: scale(1.2); box-shadow: 0 0 80px var(--primary-blue), 0 0 120px var(--primary-purple); }
+        }
+
+        .loading-text {
+            margin-top: 40px;
+            font-size: 28px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green), var(--primary-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 2s ease-in-out infinite;
+        }
+
+        .loading-subtitle {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 3px;
+        }
+
+        .loading-bar-container {
+            width: 300px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+            border-radius: 3px;
+            animation: loadProgress 2.5s ease-in-out forwards;
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes textGlow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        /* ==================== INTRO SCREEN ==================== */
+        #introScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #050510 0%, #0a0a20 100%);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .intro-container {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .robot-3d {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: robotFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes robotFloat {
+            0%, 100% { transform: translateY(0) rotateY(0deg); }
+            25% { transform: translateY(-15px) rotateY(5deg); }
+            50% { transform: translateY(0) rotateY(0deg); }
+            75% { transform: translateY(-10px) rotateY(-5deg); }
+        }
+
+        .robot-body-3d {
+            width: 100px;
+            height: 80px;
+            background: linear-gradient(180deg, #3498db 0%, #2980b9 50%, #1a5276 100%);
+            border-radius: 20px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 -10px 20px rgba(0,0,0,0.2);
+            transform: perspective(500px) rotateX(10deg);
+        }
+
+        .robot-screen {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 40px;
+            background: #001a2e;
+            border-radius: 8px;
+            border: 3px solid #00d4ff;
+            overflow: hidden;
+        }
+
+        .robot-face {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            padding: 5px;
+        }
+
+        .robot-eye-3d {
+            width: 15px;
+            height: 15px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary-green);
+            animation: eyeBlink 4s ease-in-out infinite;
+        }
+
+        @keyframes eyeBlink {
+            0%, 45%, 55%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.1); }
+        }
+
+        .robot-antenna-3d {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 25px;
+            background: linear-gradient(180deg, #3498db, #2980b9);
+        }
+
+        .robot-antenna-3d::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--primary-orange);
+            animation: antennaPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes antennaPulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.3); }
+        }
+
+        .robot-arms {
+            position: absolute;
+            top: 30px;
+            width: 100%;
+        }
+
+        .robot-arm {
+            position: absolute;
+            width: 12px;
+            height: 40px;
+            background: linear-gradient(180deg, #3498db, #2980b9);
+            border-radius: 6px;
+        }
+
+        .robot-arm.left {
+            left: -15px;
+            transform: rotate(15deg);
+            animation: armWave 2s ease-in-out infinite;
+        }
+
+        .robot-arm.right {
+            right: -15px;
+            transform: rotate(-15deg);
+            animation: armWave 2s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes armWave {
+            0%, 100% { transform: rotate(15deg); }
+            50% { transform: rotate(25deg); }
+        }
+
+        .intro-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green), var(--primary-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+        }
+
+        .intro-subtitle {
+            font-size: 20px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .intro-speech {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0,212,255,0.2);
+            position: relative;
+            text-align: left;
+        }
+
+        .intro-speech::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid rgba(255,255,255,0.05);
+        }
+
+        .intro-speech p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .intro-speech strong {
+            color: var(--primary-blue);
+        }
+
+        .intro-modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .intro-module {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .intro-module:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.2);
+        }
+
+        .module-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .module-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .start-btn {
+            padding: 20px 60px;
+            font-size: 22px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            border: none;
+            border-radius: 50px;
+            color: var(--bg-dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,212,255,0.4);
+            margin-top: 20px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,212,255,0.5);
+        }
+
+        /* ==================== MAIN GAME ==================== */
+        #gameContainer {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* ==================== HUD ==================== */
+        #hud {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 25px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hud-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hud-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .hud-icon {
+            font-size: 22px;
+        }
+
+        .hud-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hud-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .hud-label {
+            font-size: 10px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hud-btn {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            color: #fff;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hud-btn:hover {
+            background: rgba(0,212,255,0.2);
+            border-color: var(--primary-blue);
+        }
+
+        /* ==================== MODULE TABS ==================== */
+        #moduleTabs {
+            position: fixed;
+            top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 900;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .module-tab {
+            padding: 12px 25px;
+            background: rgba(255,255,255,0.08);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            color: #aaa;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .module-tab:hover {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+        .module-tab.active {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border-color: transparent;
+            color: var(--bg-dark);
+        }
+
+        .module-tab .tab-icon {
+            margin-right: 8px;
+        }
+
+        /* ==================== LAB CONTAINER ==================== */
+        #labContainer {
+            width: 100%;
+            min-height: calc(100vh - 250px);
+            margin-top: 130px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .module-content {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .module-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== TRANSLATION MODULE ==================== */
+        #translationModule {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .lab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .lab-panel {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .panel-title {
+            font-size: 16px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-title .icon {
+            font-size: 24px;
+        }
+
+        /* Track Visualization */
+        .track-container {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(180deg, #0a0a1a 0%, #151530 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .track {
+            position: absolute;
+            bottom: 40px;
+            left: 5%;
+            width: 90%;
+            height: 8px;
+            background: linear-gradient(90deg, #333, #555, #333);
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .track-markings {
+            position: absolute;
+            bottom: 25px;
+            left: 5%;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .track-mark {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .cart {
+            position: absolute;
+            bottom: 48px;
+            left: 5%;
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(180deg, #e74c3c, #c0392b);
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(231,76,60,0.4);
+            transition: left 0.05s linear;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .cart-wheels {
+            position: absolute;
+            bottom: -8px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .wheel {
+            width: 12px;
+            height: 12px;
+            background: #333;
+            border-radius: 50%;
+            border: 2px solid #555;
+        }
+
+        .energy-halo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,212,255,0.3) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .cart.moving .energy-halo {
+            opacity: 1;
+            animation: haloPulse 0.5s ease-in-out infinite;
+        }
+
+        @keyframes haloPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.3); }
+        }
+
+        .speed-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--primary-blue);
+        }
+
+        .speed-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .speed-unit {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Controls */
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .control-value {
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        .control-slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .control-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0,212,255,0.5);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-launch {
+            background: linear-gradient(135deg, var(--primary-green), #00cc6a);
+            color: var(--bg-dark);
+        }
+
+        .btn-stop {
+            background: linear-gradient(135deg, var(--primary-red), #ff6b6b);
+            color: #fff;
+        }
+
+        .btn-reset {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Energy Display */
+        .energy-display {
+            background: rgba(0,0,0,0.4);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .energy-title {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .energy-value {
+            font-size: 42px;
+            font-weight: bold;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .energy-unit {
+            font-size: 18px;
+            color: #888;
+        }
+
+        .energy-formula {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            font-family: 'Times New Roman', serif;
+            font-size: 20px;
+            color: var(--primary-orange);
+        }
+
+        .energy-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .energy-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green), var(--primary-orange), var(--primary-red));
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* Movement Types Display */
+        .movement-types {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .movement-type {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .movement-type:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .movement-type.active {
+            border-color: var(--primary-blue);
+            background: rgba(0,212,255,0.1);
+        }
+
+        .movement-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .movement-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--primary-green);
+            margin-bottom: 5px;
+        }
+
+        .movement-desc {
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* ==================== ROTATION MODULE ==================== */
+        #rotationModule {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .rotation-scene {
+            position: relative;
+            height: 300px;
+            background: linear-gradient(180deg, #0a0a1a 0%, #151530 100%);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .rotating-object {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .disc {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #3498db, #9b59b6, #e74c3c, #f39c12, #2ecc71, #3498db);
+            box-shadow: 0 0 30px rgba(52,152,219,0.5);
+            transition: transform 0.1s linear;
+        }
+
+        .disc-center {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+
+        .disc-marker {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 20px;
+            background: #fff;
+            border-radius: 2px;
+        }
+
+        .omega-display {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0,0,0,0.8);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--primary-purple);
+        }
+
+        .omega-label {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .omega-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-purple);
+        }
+
+        .omega-unit {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Object Selector */
+        .object-selector {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .object-option {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .object-option:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .object-option.selected {
+            border-color: var(--primary-purple);
+            background: rgba(168,85,247,0.1);
+        }
+
+        .object-shape {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .shape-disc {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+        }
+
+        .shape-ring {
+            width: 50px;
+            height: 50px;
+            border: 8px solid #e74c3c;
+            border-radius: 50%;
+        }
+
+        .shape-cylinder {
+            width: 40px;
+            height: 50px;
+            background: linear-gradient(90deg, #27ae60, #2ecc71, #27ae60);
+            border-radius: 5px;
+        }
+
+        .shape-bar {
+            width: 60px;
+            height: 10px;
+            background: linear-gradient(90deg, #f39c12, #e67e22);
+            border-radius: 5px;
+        }
+
+        .object-name {
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .object-inertia {
+            font-size: 11px;
+            color: var(--primary-orange);
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Moment of Inertia Table */
+        .inertia-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .inertia-table th,
+        .inertia-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .inertia-table th {
+            background: rgba(168,85,247,0.2);
+            color: var(--primary-purple);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .inertia-table td {
+            font-size: 14px;
+        }
+
+        /* ==================== THEOREM MODULE ==================== */
+        #theoremModule {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .incline-container {
+            position: relative;
+            height: 350px;
+            background: linear-gradient(180deg, #0a0a1a 0%, #151530 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .incline {
+            position: absolute;
+            bottom: 50px;
+            left: 10%;
+            width: 80%;
+            height: 200px;
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            clip-path: polygon(0 100%, 100% 60%, 100% 100%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .incline-surface {
+            position: absolute;
+            bottom: 50px;
+            left: 10%;
+            width: 80%;
+            height: 5px;
+            background: #7f8c8d;
+            transform-origin: right bottom;
+            transform: rotate(-15deg);
+        }
+
+        .position-markers {
+            position: absolute;
+            bottom: 50px;
+            left: 10%;
+            width: 80%;
+        }
+
+        .position-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+            box-shadow: 0 0 15px var(--primary-green);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .hovercraft {
+            position: absolute;
+            width: 50px;
+            height: 30px;
+            background: linear-gradient(180deg, #9b59b6, #8e44ad);
+            border-radius: 10px 10px 5px 5px;
+            box-shadow: 0 5px 20px rgba(155,89,182,0.5);
+            transition: all 0.05s linear;
+        }
+
+        .hovercraft-cushion {
+            position: absolute;
+            bottom: -5px;
+            left: 5px;
+            right: 5px;
+            height: 8px;
+            background: rgba(0,212,255,0.5);
+            border-radius: 0 0 5px 5px;
+            animation: cushionPulse 0.3s ease-in-out infinite;
+        }
+
+        @keyframes cushionPulse {
+            0%, 100% { opacity: 0.5; transform: scaleY(1); }
+            50% { opacity: 0.8; transform: scaleY(1.2); }
+        }
+
+        .force-vectors {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .force-vector {
+            position: absolute;
+            display: flex;
+            align-items: center;
+        }
+
+        .vector-line {
+            height: 3px;
+            background: var(--primary-red);
+            transform-origin: left center;
+        }
+
+        .vector-arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid var(--primary-red);
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+
+        .vector-label {
+            font-size: 12px;
+            color: var(--primary-red);
+            margin-left: 5px;
+        }
+
+        /* Data Table */
+        .data-table-container {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .data-table th {
+            background: rgba(0,212,255,0.2);
+            color: var(--primary-blue);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .data-table td {
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .data-table tr:hover td {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .data-highlight {
+            background: rgba(0,255,136,0.1) !important;
+            color: var(--primary-green);
+        }
+
+        /* Verification Panel */
+        .verification-panel {
+            background: rgba(0,0,0,0.4);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .verification-title {
+            font-size: 16px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .verification-equation {
+            font-size: 28px;
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 20px;
+        }
+
+        .verification-values {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .verification-item {
+            background: rgba(255,255,255,0.05);
+            padding: 15px 25px;
+            border-radius: 10px;
+        }
+
+        .verification-label {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .verification-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .verification-result {
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .verification-result.success {
+            background: rgba(0,255,136,0.2);
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .verification-result.pending {
+            background: rgba(255,149,0,0.2);
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+        }
+
+        /* ==================== CHALLENGES MODULE ==================== */
+        #challengesModule {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .challenge-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 20px 40px rgba(0,212,255,0.2);
+        }
+
+        .challenge-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .challenge-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .challenge-desc {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .challenge-difficulty {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .difficulty-star {
+            color: #333;
+            font-size: 18px;
+        }
+
+        .difficulty-star.active {
+            color: #ffd700;
+        }
+
+        .challenge-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .challenge-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,212,255,0.3);
+        }
+
+        /* ==================== CHALLENGE MODAL ==================== */
+        #challengeModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            padding: 20px;
+        }
+
+        #challengeModal.show {
+            display: flex;
+        }
+
+        .challenge-modal-content {
+            background: linear-gradient(135deg, var(--bg-medium), var(--bg-light));
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 2px solid rgba(0,212,255,0.3);
+        }
+
+        .challenge-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .challenge-modal-title {
+            font-size: 28px;
+            color: var(--primary-blue);
+        }
+
+        .challenge-close {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .challenge-close:hover {
+            color: #fff;
+        }
+
+        .challenge-question {
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .challenge-options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .challenge-option {
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .challenge-option:hover:not(.disabled) {
+            background: rgba(0,212,255,0.1);
+            border-color: var(--primary-blue);
+            transform: translateX(10px);
+        }
+
+        .challenge-option.correct {
+            background: rgba(0,255,136,0.2);
+            border-color: var(--primary-green);
+        }
+
+        .challenge-option.incorrect {
+            background: rgba(255,71,87,0.2);
+            border-color: var(--primary-red);
+        }
+
+        .challenge-feedback {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            display: none;
+        }
+
+        .challenge-feedback.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .challenge-feedback.correct {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .challenge-feedback.incorrect {
+            background: rgba(255,71,87,0.1);
+            border: 1px solid var(--primary-red);
+            color: var(--primary-red);
+        }
+
+        .challenge-next-btn {
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border: none;
+            border-radius: 25px;
+            color: var(--bg-dark);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+        }
+
+        .challenge-next-btn.show {
+            display: inline-block;
+        }
+
+        /* ==================== RESULTS SCREEN ==================== */
+        #resultsScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #050510 0%, #0a0a20 100%);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 4000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #resultsScreen.show {
+            display: flex;
+        }
+
+        .results-container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .results-title {
+            font-size: 48px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green), var(--primary-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .results-score {
+            font-size: 100px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 50px rgba(0,212,255,0.5);
+        }
+
+        .results-label {
+            font-size: 20px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .results-stars {
+            font-size: 60px;
+            margin-bottom: 30px;
+        }
+
+        .results-stars .star {
+            color: #333;
+            margin: 0 10px;
+            transition: all 0.5s ease;
+            display: inline-block;
+        }
+
+        .results-stars .star.active {
+            color: #ffd700;
+            text-shadow: 0 0 30px #ffd700;
+        }
+
+        .results-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .results-badge {
+            padding: 12px 25px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            font-size: 14px;
+            border: 2px solid var(--primary-purple);
+        }
+
+        .results-summary {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .summary-label {
+            color: #888;
+        }
+
+        .summary-value {
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        .results-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .results-btn {
+            padding: 18px 45px;
+            font-size: 18px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border: none;
+            border-radius: 30px;
+            color: var(--bg-dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .results-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,212,255,0.4);
+        }
+
+        .results-btn.secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        /* ==================== NOTIFICATION ==================== */
+        .notification {
+            position: fixed;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-150px);
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            padding: 18px 35px;
+            border-radius: 30px;
+            border: 2px solid var(--primary-blue);
+            z-index: 5000;
+            transition: transform 0.5s ease;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .notification.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .notification.success {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .notification.error {
+            border-color: var(--primary-red);
+            color: var(--primary-red);
+        }
+
+        .notification.info {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+        }
+
+        /* ==================== FORMULAS PANEL ==================== */
+        #formulasPanel {
+            position: fixed;
+            right: -400px;
+            top: 130px;
+            width: 380px;
+            max-height: calc(100vh - 150px);
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px 0 0 20px;
+            padding: 25px;
+            border: 1px solid rgba(0,212,255,0.3);
+            border-right: none;
+            z-index: 800;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+        }
+
+        #formulasPanel.open {
+            right: 0;
+        }
+
+        .formulas-toggle {
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 100px;
+            background: rgba(0,0,0,0.9);
+            border-radius: 15px 0 0 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 1px solid rgba(0,212,255,0.3);
+            border-right: none;
+            font-size: 24px;
+        }
+
+        .formulas-title {
+            font-size: 18px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .formula-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .formula-name {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .formula-equation {
+            font-size: 22px;
+            font-family: 'Times New Roman', serif;
+            color: var(--primary-green);
+            text-align: center;
+        }
+
+        .formula-desc {
+            font-size: 11px;
+            color: #666;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .lab-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .object-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .movement-types {
+                grid-template-columns: 1fr;
+            }
+            
+            #moduleTabs {
+                top: 70px;
+            }
+            
+            #labContainer {
+                margin-top: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .intro-title {
+                font-size: 32px;
+            }
+            
+            .module-tab {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+            
+            .results-score {
+                font-size: 60px;
+            }
+            
+            .results-stars {
+                font-size: 40px;
+            }
+            
+            #formulasPanel {
+                width: 100%;
+                right: -100%;
+                border-radius: 20px 20px 0 0;
+                top: auto;
+                bottom: 0;
+                max-height: 70vh;
+            }
+            
+            #formulasPanel.open {
+                right: 0;
+            }
+            
+            .formulas-toggle {
+                left: 50%;
+                transform: translateX(-50%);
+                top: -40px;
+                width: 80px;
+                height: 40px;
+                border-radius: 15px 15px 0 0;
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hud-item {
+                padding: 8px 12px;
+            }
+            
+            .hud-value {
+                font-size: 14px;
+            }
+            
+            .challenge-card {
+                padding: 20px;
+            }
+            
+            .action-btn {
+                padding: 12px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== LOADING SCREEN ==================== -->
+    <div id="loadingScreen">
+        <div class="loading-animation">
+            <div class="energy-ring"></div>
+            <div class="energy-ring"></div>
+            <div class="energy-ring"></div>
+            <div class="energy-core"></div>
+        </div>
+        <div class="loading-text">EnergyLab 3D</div>
+        <div class="loading-subtitle">CHARGEMENT DU LABORATOIRE</div>
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
+    <!-- ==================== INTRO SCREEN ==================== -->
+    <div id="introScreen">
+        <div class="intro-container">
+            <div class="robot-3d">
+                <div class="robot-body-3d">
+                    <div class="robot-antenna-3d"></div>
+                    <div class="robot-screen">
+                        <div class="robot-face">
+                            <div class="robot-eye-3d"></div>
+                            <div class="robot-eye-3d"></div>
+                        </div>
+                    </div>
+                    <div class="robot-arms">
+                        <div class="robot-arm left"></div>
+                        <div class="robot-arm right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="intro-title">⚡ EnergyLab 3D</h1>
+            <p class="intro-subtitle">Travail • Énergie Cinétique • Translation & Rotation</p>
+
+            <div class="intro-speech">
+                <p>Bienvenue, jeune physicien ! 🔬</p>
+                <p>Je suis <strong>NEWTON-X</strong>, ton assistant virtuel de physique.</p>
+                <p>Aujourd'hui, nous allons explorer ensemble les concepts fondamentaux de la mécanique :</p>
+                
+                <div class="intro-modules">
+                    <div class="intro-module">
+                        <div class="module-icon">🚗</div>
+                        <div class="module-title">Translation</div>
+                    </div>
+                    <div class="intro-module">
+                        <div class="module-icon">🔄</div>
+                        <div class="module-title">Rotation</div>
+                    </div>
+                    <div class="intro-module">
+                        <div class="module-icon">⚡</div>
+                        <div class="module-title">Énergie Cinétique</div>
+                    </div>
+                    <div class="intro-module">
+                        <div class="module-icon">📐</div>
+                        <div class="module-title">Théorème TEC</div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 20px;">Tu vas manipuler des chariots, faire tourner des disques, et vérifier le théorème de l'énergie cinétique avec un autoporteur sur plan incliné !</p>
+            </div>
+
+            <button class="start-btn" onclick="startGame()">🚀 Commencer l'exploration</button>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN GAME ==================== -->
+    <div id="gameContainer">
+        <!-- HUD -->
+        <div id="hud">
+            <div class="hud-section">
+                <div class="hud-item">
+                    <span class="hud-icon">⭐</span>
+                    <div class="hud-info">
+                        <div class="hud-value" id="scoreDisplay">0</div>
+                        <div class="hud-label">Score</div>
+                    </div>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-icon">🏆</span>
+                    <div class="hud-info">
+                        <div class="hud-value" id="levelDisplay">1</div>
+                        <div class="hud-label">Niveau</div>
+                    </div>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-icon">🪙</span>
+                    <div class="hud-info">
+                        <div class="hud-value" id="coinsDisplay">0</div>
+                        <div class="hud-label">Pièces</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hud-section">
+                <div class="hud-item">
+                    <span class="hud-icon">⏱️</span>
+                    <div class="hud-info">
+                        <div class="hud-value" id="timeDisplay">00:00</div>
+                        <div class="hud-label">Temps</div>
+                    </div>
+                </div>
+                <button class="hud-btn" onclick="toggleFormulas()">📚 Formules</button>
+                <button class="hud-btn" onclick="resetModule()">🔄 Reset</button>
+            </div>
+        </div>
+
+        <!-- Module Tabs -->
+        <div id="moduleTabs">
+            <div class="module-tab active" onclick="switchModule('translation')">
+                <span class="tab-icon">🚗</span>Translation
+            </div>
+            <div class="module-tab" onclick="switchModule('rotation')">
+                <span class="tab-icon">🔄</span>Rotation
+            </div>
+            <div class="module-tab" onclick="switchModule('theorem')">
+                <span class="tab-icon">📐</span>Théorème
+            </div>
+            <div class="module-tab" onclick="switchModule('challenges')">
+                <span class="tab-icon">🎯</span>Défis
+            </div>
+        </div>
+
+        <!-- Lab Container -->
+        <div id="labContainer">
+            <!-- ========== TRANSLATION MODULE ========== -->
+            <div id="translationModule" class="module-content active">
+                <div class="lab-grid">
+                    <!-- Track Panel -->
+                    <div class="lab-panel">
+                        <div class="panel-title">
+                            <span class="icon">🛤️</span>
+                            Piste de Translation
+                        </div>
+                        
+                        <div class="track-container">
+                            <div class="speed-indicator">
+                                <span class="speed-value" id="speedValue">0.00</span>
+                                <span class="speed-unit">m/s</span>
+                            </div>
+                            <div class="track"></div>
+                            <div class="track-markings">
+                                <span class="track-mark">0m</span>
+                                <span class="track-mark">1m</span>
+                                <span class="track-mark">2m</span>
+                                <span class="track-mark">3m</span>
+                                <span class="track-mark">4m</span>
+                            </div>
+                            <div class="cart" id="translationCart">
+                                <span id="cartMassLabel">1kg</span>
+                                <div class="energy-halo" id="energyHalo"></div>
+                                <div class="cart-wheels">
+                                    <div class="wheel"></div>
+                                    <div class="wheel"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Movement Types -->
+                        <div class="movement-types">
+                            <div class="movement-type active" onclick="selectMovementType('rectiligne')">
+                                <div class="movement-icon">➡️</div>
+                                <div class="movement-name">Rectiligne</div>
+                                <div class="movement-desc">Trajectoire droite</div>
+                            </div>
+                            <div class="movement-type" onclick="selectMovementType('curviligne')">
+                                <div class="movement-icon">〰️</div>
+                                <div class="movement-name">Curviligne</div>
+                                <div class="movement-desc">Trajectoire courbe</div>
+                            </div>
+                            <div class="movement-type" onclick="selectMovementType('circulaire')">
+                                <div class="movement-icon">⭕</div>
+                                <div class="movement-name">Circulaire</div>
+                                <div class="movement-desc">Trajectoire cercle</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls Panel -->
+                    <div class="lab-panel">
+                        <div class="panel-title">
+                            <span class="icon">⚙️</span>
+                            Contrôles
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <span>Masse (kg)</span>
+                                <span class="control-value" id="massValue">1.0</span>
+                            </div>
+                            <input type="range" class="control-slider" id="massSlider" 
+                                   min="0.5" max="5" step="0.1" value="1" 
+                                   oninput="updateTranslationParams()">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <span>Vitesse initiale (m/s)</span>
+                                <span class="control-value" id="velocityValue">2.0</span>
+                            </div>
+                            <input type="range" class="control-slider" id="velocitySlider" 
+                                   min="0.5" max="10" step="0.1" value="2" 
+                                   oninput="updateTranslationParams()">
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="action-btn btn-launch" id="launchBtn" onclick="launchCart()">
+                                ▶️ Lancer
+                            </button>
+                            <button class="action-btn btn-stop" id="stopBtn" onclick="stopCart()" disabled>
+                                ⏹️ Stop
+                            </button>
+                            <button class="action-btn btn-reset" onclick="resetTranslation()">
+                                🔄 Reset
+                            </button>
+                        </div>
+
+                        <!-- Energy Display -->
+                        <div class="energy-display" style="margin-top: 25px;">
+                            <div class="energy-title">Énergie Cinétique</div>
+                            <div class="energy-value" id="kineticEnergyValue">0.00</div>
+                            <div class="energy-unit">Joules (J)</div>
+                            <div class="energy-formula">E<sub>C</sub> = ½ m V²</div>
+                            <div class="energy-bar">
+                                <div class="energy-bar-fill" id="energyBarFill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== ROTATION MODULE ========== -->
+            <div id="rotationModule" class="module-content">
+                <div class="lab-grid">
+                    <!-- Rotation Scene -->
+                    <div class="lab-panel">
+                        <div class="panel-title">
+                            <span class="icon">🔄</span>
+                            Zone de Rotation
+                        </div>
+
+                        <div class="rotation-scene">
+                            <div class="omega-display">
+                                <div class="omega-label">Vitesse angulaire</div>
+                                <div>
+                                    <span class="omega-value" id="omegaValue">0.0</span>
+                                    <span class="omega-unit">rad/s</span>
+                                </div>
+                            </div>
+                            <div class="rotating-object" id="rotatingObject">
+                                <div class="disc" id="rotatingDisc">
+                                    <div class="disc-marker"></div>
+                                </div>
+                                <div class="disc-center"></div>
+                            </div>
+                        </div>
+
+                        <!-- Object Selector -->
+                        <div class="object-selector">
+                            <div class="object-option selected" onclick="selectObject('disc')">
+                                <div class="object-shape">
+                                    <div class="shape-disc"></div>
+                                </div>
+                                <div class="object-name">Disque plein</div>
+                                <div class="object-inertia">J = ½MR²</div>
+                            </div>
+                            <div class="object-option" onclick="selectObject('ring')">
+                                <div class="object-shape">
+                                    <div class="shape-ring"></div>
+                                </div>
+                                <div class="object-name">Anneau</div>
+                                <div class="object-inertia">J = MR²</div>
+                            </div>
+                            <div class="object-option" onclick="selectObject('cylinder')">
+                                <div class="object-shape">
+                                    <div class="shape-cylinder"></div>
+                                </div>
+                                <div class="object-name">Cylindre</div>
+                                <div class="object-inertia">J = ½MR²</div>
+                            </div>
+                            <div class="object-option" onclick="selectObject('bar')">
+                                <div class="object-shape">
+                                    <div class="shape-bar"></div>
+                                </div>
+                                <div class="object-name">Barre</div>
+                                <div class="object-inertia">J = ¹⁄₁₂ML²</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rotation Controls -->
+                    <div class="lab-panel">
+                        <div class="panel-title">
+                            <span class="icon">⚙️</span>
+                            Paramètres de Rotation
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <span>Masse M (kg)</span>
+                                <span class="control-value" id="rotMassValue">2.0</span>
+                            </div>
+                            <input type="range" class="control-slider" id="rotMassSlider" 
+                                   min="0.5" max="10" step="0.1" value="2" 
+                                   oninput="updateRotationParams()">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <span>Rayon R (m)</span>
+                                <span class="control-value" id="radiusValue">0.3</span>
+                            </div>
+                            <input type="range" class="control-slider" id="radiusSlider" 
+                                   min="0.1" max="1" step="0.05" value="0.3" 
+                                   oninput="updateRotationParams()">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <span>Vitesse angulaire ω (rad/s)</span>
+                                <span class="control-value" id="omegaSliderValue">5.0</span>
+                            </div>
+                            <input type="range" class="control-slider" id="omegaSlider" 
+                                   min="1" max="20" step="0.5" value="5" 
+                                   oninput="updateRotationParams()">
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="action-btn btn-launch" onclick="startRotation()">
+                                ▶️ Tourner
+                            </button>
+                            <button class="action-btn btn-stop" onclick="stopRotation()">
+                                ⏹️ Stop
+                            </button>
+                            <button class="action-btn btn-reset" onclick="resetRotation()">
+                                🔄 Reset
+                            </button>
+                        </div>
+
+                        <!-- Rotation Energy Display -->
+                        <div class="energy-display" style="margin-top: 25px;">
+                            <div class="energy-title">Énergie Cinétique de Rotation</div>
+                            <div class="energy-value" id="rotEnergyValue">0.00</div>
+                            <div class="energy-unit">Joules (J)</div>
+                            <div class="energy-formula">E<sub>C</sub> = ½ J ω²</div>
+                        </div>
+
+                        <!-- Moment of Inertia -->
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(168,85,247,0.1); border-radius: 10px;">
+                            <div style="font-size: 12px; color: #888; margin-bottom: 10px;">MOMENT D'INERTIE</div>
+                            <div style="font-size: 28px; color: var(--primary-purple); font-weight: bold;" id="inertiaValue">0.090</div>
+                            <div style="font-size: 14px; color: #888;">kg·m²</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== THEOREM MODULE ========== -->
+            <div id="theoremModule" class="module-content">
+                <div class="lab-grid">
+                    <!-- Incline Scene -->
+                    <div class="lab-panel" style="grid-column: 1 / -1;">
+                        <div class="panel-title">
+                            <span class="icon">📐</span>
+                            Expérience de l'Autoporteur sur Plan Incliné
+                        </div>
+
+                        <div class="incline-container" id="inclineContainer">
+                            <div class="incline"></div>
+                            <div class="incline-surface" id="inclineSurface"></div>
+                            
+                            <!-- Position Markers -->
+                            <div class="position-markers" id="positionMarkers">
+                                <div class="position-marker" style="left: 5%; bottom: 180px;">G₀</div>
+                                <div class="position-marker" style="left: 20%; bottom: 140px;">G₁</div>
+                                <div class="position-marker" style="left: 40%; bottom: 90px;">G₂</div>
+                                <div class="position-marker" style="left: 60%; bottom: 55px;">G₃</div>
+                                <div class="position-marker" style="left: 80%; bottom: 25px;">G₄</div>
+                                <div class="position-marker" style="left: 95%; bottom: 5px;">G₅</div>
+                            </div>
+
+                            <!-- Hovercraft -->
+                            <div class="hovercraft" id="hovercraft" style="left: 10%; bottom: 165px;">
+                                <div class="hovercraft-cushion"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-grid" style="margin-top: 20px;">
+                    <!-- Controls -->
+                    <div class="lab-panel">
+                        <div class="panel-title">
+                            <span class="icon">⚙️</span>
+                            Paramètres de l'Expérience
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <span>Masse de l'autoporteur (kg)</span>
+                                <span class="control-value" id="hoverMassValue">0.5</span>
+                            </div>
+                            <input type="range" class="control-slider" id="hoverMassSlider" 
+                                   min="0.2" max="2" step="0.1" value="0.5" 
+                                   oninput="updateTheoremParams()">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <span>Angle d'inclinaison (°)</span>
+                                <span class="control-value" id="angleValue">15</span>
+                            </div>
+                            <input type="range" class="control-slider" id="angleSlider" 
+                                   min="5" max="30" step="1" value="15" 
+                                   oninput="updateTheoremParams()">
+                        </div>
+
+                                                <div class="control-group">
+                            <div class="control-label">
+                                <span>Période d'impulsion τ (s)</span>
+                                <span class="control-value" id="tauValue">0.04</span>
+                            </div>
+                            <input type="range" class="control-slider" id="tauSlider" 
+                                   min="0.02" max="0.1" step="0.01" value="0.04" 
+                                   oninput="updateTheoremParams()">
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="action-btn btn-launch" id="launchHovercraftBtn" onclick="launchHovercraft()">
+                                ▶️ Lâcher l'autoporteur
+                            </button>
+                            <button class="action-btn btn-stop" id="stopHovercraftBtn" onclick="stopHovercraft()" disabled>
+                                ⏹️ Stop
+                            </button>
+                            <button class="action-btn btn-reset" onclick="resetTheorem()">
+                                🔄 Reset
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Data Table -->
+                    <div class="lab-panel">
+                        <div class="panel-title">
+                            <span class="icon">📊</span>
+                            Tableau de Mesures
+                        </div>
+
+                        <div class="data-table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Position</th>
+                                        <th>x (m)</th>
+                                        <th>V (m/s)</th>
+                                        <th>E<sub>C</sub> (J)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dataTableBody">
+                                    <tr>
+                                        <td>G₀</td>
+                                        <td id="x0">0.000</td>
+                                        <td id="v0">0.000</td>
+                                        <td id="ec0">0.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>G₁</td>
+                                        <td id="x1">0.050</td>
+                                        <td id="v1">-</td>
+                                        <td id="ec1">-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>G₂</td>
+                                        <td id="x2">0.120</td>
+                                        <td id="v2">-</td>
+                                        <td id="ec2">-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>G₃</td>
+                                        <td id="x3">0.210</td>
+                                        <td id="v3">-</td>
+                                        <td id="ec3">-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>G₄</td>
+                                        <td id="x4">0.320</td>
+                                        <td id="v4">-</td>
+                                        <td id="ec4">-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>G₅</td>
+                                        <td id="x5">0.450</td>
+                                        <td id="v5">-</td>
+                                        <td id="ec5">-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                            <div style="font-size: 12px; color: #888; margin-bottom: 8px;">FORMULE DE VITESSE</div>
+                            <div style="font-family: 'Times New Roman', serif; font-size: 18px; color: var(--primary-orange);">
+                                V<sub>i</sub> = (G<sub>i-1</sub>G<sub>i+1</sub>) / (2τ)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verification Panel -->
+                <div class="verification-panel">
+                    <div class="verification-title">🔬 Vérification du Théorème de l'Énergie Cinétique</div>
+                    
+                    <div class="verification-equation">
+                        ΔE<sub>C</sub> = W<sub>A→B</sub>(F<sub>ext</sub>)
+                    </div>
+
+                    <div class="verification-values">
+                        <div class="verification-item">
+                            <div class="verification-label">Variation d'énergie cinétique</div>
+                            <div class="verification-value" id="deltaEcValue">ΔE<sub>C</sub> = - J</div>
+                        </div>
+                        <div class="verification-item">
+                            <div class="verification-label">Travail du poids</div>
+                            <div class="verification-value" id="workValue">W(P) = - J</div>
+                        </div>
+                    </div>
+
+                    <div class="verification-result pending" id="verificationResult">
+                        ⏳ Lancez l'expérience pour vérifier le théorème
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== CHALLENGES MODULE ========== -->
+            <div id="challengesModule" class="module-content">
+                <div class="challenges-grid">
+                    <!-- Challenge 1: Movement Types -->
+                    <div class="challenge-card" onclick="startChallenge('movement')">
+                        <div class="challenge-icon">🎯</div>
+                        <div class="challenge-title">Trouve le Mouvement !</div>
+                        <div class="challenge-desc">
+                            Observe l'animation et identifie le type de mouvement : 
+                            translation rectiligne, curviligne ou circulaire.
+                        </div>
+                        <div class="challenge-difficulty">
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star">★</span>
+                            <span class="difficulty-star">★</span>
+                        </div>
+                        <button class="challenge-btn">Jouer</button>
+                    </div>
+
+                    <!-- Challenge 2: Energy Calculator -->
+                    <div class="challenge-card" onclick="startChallenge('energy')">
+                        <div class="challenge-icon">⚡</div>
+                        <div class="challenge-title">Calculateur d'Énergie</div>
+                        <div class="challenge-desc">
+                            Atteins l'énergie cinétique cible en choisissant la bonne 
+                            combinaison de masse et de vitesse.
+                        </div>
+                        <div class="challenge-difficulty">
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star">★</span>
+                        </div>
+                        <button class="challenge-btn">Jouer</button>
+                    </div>
+
+                    <!-- Challenge 3: Rotation Master -->
+                    <div class="challenge-card" onclick="startChallenge('rotation')">
+                        <div class="challenge-icon">🔄</div>
+                        <div class="challenge-title">Rotation Master</div>
+                        <div class="challenge-desc">
+                            Même vitesse angulaire, objets différents. Devine lequel 
+                            a le plus grand moment d'inertie !
+                        </div>
+                        <div class="challenge-difficulty">
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star">★</span>
+                        </div>
+                        <button class="challenge-btn">Jouer</button>
+                    </div>
+
+                    <!-- Challenge 4: Theorem Applied -->
+                    <div class="challenge-card" onclick="startChallenge('theorem')">
+                        <div class="challenge-icon">📐</div>
+                        <div class="challenge-title">Théorème Appliqué</div>
+                        <div class="challenge-desc">
+                            Prédis le travail du poids sur le plan incliné, puis 
+                            vérifie avec l'expérience !
+                        </div>
+                        <div class="challenge-difficulty">
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star active">★</span>
+                        </div>
+                        <button class="challenge-btn">Jouer</button>
+                    </div>
+
+                    <!-- Challenge 5: Quiz Final -->
+                    <div class="challenge-card" onclick="startChallenge('quiz')">
+                        <div class="challenge-icon">📝</div>
+                        <div class="challenge-title">Quiz Final</div>
+                        <div class="challenge-desc">
+                            Teste tes connaissances avec un quiz complet sur 
+                            l'énergie cinétique et le travail des forces.
+                        </div>
+                        <div class="challenge-difficulty">
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star active">★</span>
+                        </div>
+                        <button class="challenge-btn">Jouer</button>
+                    </div>
+
+                    <!-- Challenge 6: Speed Challenge -->
+                    <div class="challenge-card" onclick="startChallenge('speed')">
+                        <div class="challenge-icon">⏱️</div>
+                        <div class="challenge-title">Défi Chrono</div>
+                        <div class="challenge-desc">
+                            Réponds aux questions le plus vite possible ! 
+                            Chaque seconde compte pour ton score.
+                        </div>
+                        <div class="challenge-difficulty">
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star active">★</span>
+                            <span class="difficulty-star active">★</span>
+                        </div>
+                        <button class="challenge-btn">Jouer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulas Panel -->
+        <div id="formulasPanel">
+            <div class="formulas-toggle" onclick="toggleFormulas()">📚</div>
+            <div class="formulas-title">📖 Formules Clés</div>
+
+            <div class="formula-item">
+                <div class="formula-name">Énergie cinétique (translation)</div>
+                <div class="formula-equation">E<sub>C</sub> = ½ m V²</div>
+                <div class="formula-desc">m: masse (kg), V: vitesse (m/s)</div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-name">Énergie cinétique (rotation)</div>
+                <div class="formula-equation">E<sub>C</sub> = ½ J ω²</div>
+                <div class="formula-desc">J: moment d'inertie (kg·m²), ω: vitesse angulaire (rad/s)</div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-name">Moment d'inertie - Disque plein</div>
+                <div class="formula-equation">J = ½ M R²</div>
+                <div class="formula-desc">Autour de l'axe central</div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-name">Moment d'inertie - Anneau</div>
+                <div class="formula-equation">J = M R²</div>
+                <div class="formula-desc">Toute la masse à distance R</div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-name">Moment d'inertie - Barre</div>
+                <div class="formula-equation">J = ¹⁄₁₂ M L²</div>
+                <div class="formula-desc">Rotation autour du centre</div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-name">Travail du poids</div>
+                <div class="formula-equation">W(P) = m g Δh</div>
+                <div class="formula-desc">Δh: différence d'altitude (positif si descente)</div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-name">Théorème de l'énergie cinétique</div>
+                <div class="formula-equation">ΔE<sub>C</sub> = ΣW(F<sub>ext</sub>)</div>
+                <div class="formula-desc">La variation d'Ec égale le travail total</div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-name">Vitesse (méthode des positions)</div>
+                <div class="formula-equation">V<sub>i</sub> = (G<sub>i-1</sub>G<sub>i+1</sub>) / 2τ</div>
+                <div class="formula-desc">τ: période d'échantillonnage</div>
+            </div>
+        </div>
+
+        <!-- Notification -->
+        <div class="notification" id="notification">
+            <span id="notificationText"></span>
+        </div>
+    </div>
+
+    <!-- ==================== CHALLENGE MODAL ==================== -->
+    <div id="challengeModal">
+        <div class="challenge-modal-content">
+            <div class="challenge-modal-header">
+                <h2 class="challenge-modal-title" id="challengeModalTitle">Défi</h2>
+                <button class="challenge-close" onclick="closeChallenge()">×</button>
+            </div>
+            <div class="challenge-question" id="challengeQuestion"></div>
+            
+            <!-- Animation Container for Movement Challenge -->
+            <div id="challengeAnimation" style="display: none; height: 200px; background: rgba(0,0,0,0.3); border-radius: 15px; margin-bottom: 20px; position: relative; overflow: hidden;">
+                <div id="animatedObject" style="position: absolute; width: 30px; height: 30px; background: var(--primary-blue); border-radius: 50%;"></div>
+            </div>
+
+            <div class="challenge-options" id="challengeOptions"></div>
+            <div class="challenge-feedback" id="challengeFeedback"></div>
+            <button class="challenge-next-btn" id="challengeNextBtn" onclick="nextChallengeQuestion()">
+                Question suivante →
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== RESULTS SCREEN ==================== -->
+    <div id="resultsScreen">
+        <div class="results-container">
+            <h1 class="results-title">🎉 Félicitations !</h1>
+            <div class="results-score" id="finalScore">0</div>
+            <div class="results-label">points</div>
+
+            <div class="results-stars">
+                <span class="star" id="star1">★</span>
+                <span class="star" id="star2">★</span>
+                <span class="star" id="star3">★</span>
+            </div>
+
+            <div class="results-badges" id="resultsBadges"></div>
+
+            <div class="results-summary">
+                <div class="summary-row">
+                    <span class="summary-label">Questions correctes</span>
+                    <span class="summary-value" id="correctAnswersDisplay">0/0</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Temps total</span>
+                    <span class="summary-value" id="totalTimeDisplay">00:00</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Pièces gagnées</span>
+                    <span class="summary-value" id="coinsEarnedDisplay">0 🪙</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Précision</span>
+                    <span class="summary-value" id="accuracyDisplay">0%</span>
+                </div>
+            </div>
+
+            <div class="results-buttons">
+                <button class="results-btn" onclick="restartGame()">🔄 Rejouer</button>
+                <button class="results-btn secondary" onclick="backToLab()">🔬 Retour au Labo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ==================== GAME STATE ====================
+        const gameState = {
+            score: 0,
+            level: 1,
+            coins: 0,
+            startTime: null,
+            elapsedTime: 0,
+            timerInterval: null,
+            currentModule: 'translation',
+            
+            // Translation state
+            translation: {
+                mass: 1.0,
+                velocity: 2.0,
+                position: 0,
+                isMoving: false,
+                animationId: null,
+                movementType: 'rectiligne'
+            },
+            
+            // Rotation state
+            rotation: {
+                mass: 2.0,
+                radius: 0.3,
+                omega: 5.0,
+                angle: 0,
+                isRotating: false,
+                animationId: null,
+                objectType: 'disc',
+                inertiaFactor: 0.5 // For disc: 0.5, ring: 1, bar: 1/12
+            },
+            
+            // Theorem state
+            theorem: {
+                mass: 0.5,
+                angle: 15,
+                tau: 0.04,
+                positions: [0, 0.05, 0.12, 0.21, 0.32, 0.45],
+                velocities: [],
+                energies: [],
+                isRunning: false,
+                animationId: null,
+                currentPosition: 0
+            },
+            
+            // Challenge state
+            challenge: {
+                type: null,
+                currentQuestion: 0,
+                correctAnswers: 0,
+                totalQuestions: 5,
+                questions: []
+            }
+        };
+
+        // ==================== CONSTANTS ====================
+        const g = 9.81; // Gravity constant
+
+        // ==================== INITIALIZATION ====================
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                document.getElementById('loadingScreen').style.visibility = 'hidden';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                    document.getElementById('introScreen').style.display = 'flex';
+                }, 1000);
+            }, 3000);
+        };
+
+        function startGame() {
+            document.getElementById('introScreen').style.display = 'none';
+            document.getElementById('gameContainer').style.display = 'block';
+            
+            gameState.startTime = Date.now();
+            gameState.timerInterval = setInterval(updateTimer, 1000);
+            
+            updateTranslationParams();
+            updateRotationParams();
+            updateTheoremParams();
+            
+            showNotification('Bienvenue dans EnergyLab 3D ! Explorez les modules.', 'success');
+        }
+
+        // ==================== TIMER ====================
+        function updateTimer() {
+            const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+            gameState.elapsedTime = elapsed;
+            const minutes = Math.floor(elapsed / 60).toString().padStart(2, '0');
+            const seconds = (elapsed % 60).toString().padStart(2, '0');
+            document.getElementById('timeDisplay').textContent = `${minutes}:${seconds}`;
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const secs = (seconds % 60).toString().padStart(2, '0');
+            return `${mins}:${secs}`;
+        }
+
+        // ==================== SCORE & COINS ====================
+        function updateScore(points = 0) {
+            gameState.score += points;
+            document.getElementById('scoreDisplay').textContent = gameState.score;
+        }
+
+        function addCoins(amount) {
+            gameState.coins += amount;
+            document.getElementById('coinsDisplay').textContent = gameState.coins;
+        }
+
+        // ==================== NOTIFICATIONS ====================
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notification.className = 'notification ' + type;
+            notificationText.textContent = message;
+            
+            setTimeout(() => notification.classList.add('show'), 100);
+            setTimeout(() => notification.classList.remove('show'), 4000);
+        }
+
+        // ==================== MODULE SWITCHING ====================
+        function switchModule(moduleName) {
+            // Update tabs
+            document.querySelectorAll('.module-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.closest('.module-tab').classList.add('active');
+            
+            // Update content
+            document.querySelectorAll('.module-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(moduleName + 'Module').classList.add('active');
+            
+            gameState.currentModule = moduleName;
+            
+            // Stop any running animations
+            stopCart();
+            stopRotation();
+            stopHovercraft();
+        }
+
+        // ==================== FORMULAS PANEL ====================
+        function toggleFormulas() {
+            document.getElementById('formulasPanel').classList.toggle('open');
+        }
+
+        // ==================== TRANSLATION MODULE ====================
+        function updateTranslationParams() {
+            const mass = parseFloat(document.getElementById('massSlider').value);
+            const velocity = parseFloat(document.getElementById('velocitySlider').value);
+            
+            gameState.translation.mass = mass;
+            gameState.translation.velocity = velocity;
+            
+            document.getElementById('massValue').textContent = mass.toFixed(1);
+            document.getElementById('velocityValue').textContent = velocity.toFixed(1);
+            document.getElementById('cartMassLabel').textContent = mass.toFixed(1) + 'kg';
+            
+            updateKineticEnergy();
+        }
+
+        function updateKineticEnergy() {
+            const { mass, velocity } = gameState.translation;
+            const Ec = 0.5 * mass * velocity * velocity;
+            
+            document.getElementById('kineticEnergyValue').textContent = Ec.toFixed(2);
+            
+            // Update energy bar (max at 250J for visual)
+            const percentage = Math.min((Ec / 250) * 100, 100);
+            document.getElementById('energyBarFill').style.width = percentage + '%';
+            
+            // Update halo color based on energy
+            const halo = document.getElementById('energyHalo');
+            if (Ec < 10) {
+                halo.style.background = 'radial-gradient(circle, rgba(0,212,255,0.3) 0%, transparent 70%)';
+            } else if (Ec < 50) {
+                halo.style.background = 'radial-gradient(circle, rgba(0,255,136,0.4) 0%, transparent 70%)';
+            } else if (Ec < 100) {
+                halo.style.background = 'radial-gradient(circle, rgba(255,149,0,0.5) 0%, transparent 70%)';
+            } else {
+                halo.style.background = 'radial-gradient(circle, rgba(255,71,87,0.6) 0%, transparent 70%)';
+            }
+        }
+
+        function selectMovementType(type) {
+            gameState.translation.movementType = type;
+            
+            document.querySelectorAll('.movement-type').forEach(el => {
+                el.classList.remove('active');
+            });
+            event.target.closest('.movement-type').classList.add('active');
+            
+            updateScore(5);
+            showNotification(`Mouvement ${type} sélectionné !`, 'info');
+        }
+
+        function launchCart() {
+            if (gameState.translation.isMoving) return;
+            
+            gameState.translation.isMoving = true;
+            gameState.translation.position = 0;
+            
+            document.getElementById('launchBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            
+            const cart = document.getElementById('translationCart');
+            cart.classList.add('moving');
+            
+            const startTime = Date.now();
+            const velocity = gameState.translation.velocity;
+            const trackWidth = document.querySelector('.track').offsetWidth;
+            
+            function animate() {
+                if (!gameState.translation.isMoving) return;
+                
+                const elapsed = (Date.now() - startTime) / 1000;
+                let position;
+                
+                // Different movement types
+                if (gameState.translation.movementType === 'rectiligne') {
+                    position = velocity * elapsed * 20; // Scale for visual
+                } else if (gameState.translation.movementType === 'curviligne') {
+                    position = velocity * elapsed * 20 + Math.sin(elapsed * 3) * 10;
+                } else {
+                    position = velocity * elapsed * 20;
+                }
+                
+                const percentage = Math.min((position / trackWidth) * 100, 85);
+                cart.style.left = `calc(5% + ${percentage}%)`;
+                
+                // Update speed display
+                const currentSpeed = velocity * (1 - percentage / 100 * 0.3); // Deceleration simulation
+                document.getElementById('speedValue').textContent = currentSpeed.toFixed(2);
+                
+                if (percentage < 85) {
+                    gameState.translation.animationId = requestAnimationFrame(animate);
+                } else {
+                    stopCart();
+                    showNotification('Le chariot a atteint la fin de la piste !', 'success');
+                    updateScore(20);
+                    addCoins(5);
+                }
+            }
+            
+            animate();
+            showNotification('Chariot lancé !', 'info');
+        }
+
+        function stopCart() {
+            gameState.translation.isMoving = false;
+            
+            if (gameState.translation.animationId) {
+                cancelAnimationFrame(gameState.translation.animationId);
+            }
+            
+            document.getElementById('launchBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            
+            const cart = document.getElementById('translationCart');
+            cart.classList.remove('moving');
+        }
+
+        function resetTranslation() {
+            stopCart();
+            
+            document.getElementById('translationCart').style.left = '5%';
+            document.getElementById('speedValue').textContent = '0.00';
+            
+            document.getElementById('massSlider').value = 1;
+            document.getElementById('velocitySlider').value = 2;
+            
+            updateTranslationParams();
+            showNotification('Module Translation réinitialisé', 'info');
+        }
+
+        // ==================== ROTATION MODULE ====================
+        function updateRotationParams() {
+            const mass = parseFloat(document.getElementById('rotMassSlider').value);
+            const radius = parseFloat(document.getElementById('radiusSlider').value);
+            const omega = parseFloat(document.getElementById('omegaSlider').value);
+            
+            gameState.rotation.mass = mass;
+            gameState.rotation.radius = radius;
+            gameState.rotation.omega = omega;
+            
+            document.getElementById('rotMassValue').textContent = mass.toFixed(1);
+            document.getElementById('radiusValue').textContent = radius.toFixed(2);
+            document.getElementById('omegaSliderValue').textContent = omega.toFixed(1);
+            document.getElementById('omegaValue').textContent = omega.toFixed(1);
+            
+            updateRotationEnergy();
+        }
+
+        function updateRotationEnergy() {
+            const { mass, radius, omega, inertiaFactor } = gameState.rotation;
+            const J = inertiaFactor * mass * radius * radius;
+            const Ec = 0.5 * J * omega * omega;
+            
+            document.getElementById('inertiaValue').textContent = J.toFixed(4);
+            document.getElementById('rotEnergyValue').textContent = Ec.toFixed(2);
+        }
+
+        function selectObject(objectType) {
+            gameState.rotation.objectType = objectType;
+            
+            // Set inertia factor based on object type
+            switch(objectType) {
+                case 'disc':
+                    gameState.rotation.inertiaFactor = 0.5;
+                    break;
+                case 'ring':
+                    gameState.rotation.inertiaFactor = 1;
+                    break;
+                case 'cylinder':
+                    gameState.rotation.inertiaFactor = 0.5;
+                    break;
+                case 'bar':
+                    gameState.rotation.inertiaFactor = 1/12;
+                    break;
+            }
+            
+            document.querySelectorAll('.object-option').forEach(el => {
+                el.classList.remove('selected');
+            });
+            event.target.closest('.object-option').classList.add('selected');
+            
+            updateRotationEnergy();
+            updateScore(5);
+            
+            // Update visual
+            const disc = document.getElementById('rotatingDisc');
+            switch(objectType) {
+                case 'disc':
+                    disc.style.background = 'conic-gradient(from 0deg, #3498db, #9b59b6, #e74c3c, #f39c12, #2ecc71, #3498db)';
+                    break;
+                case 'ring':
+                    disc.style.background = 'transparent';
+                    disc.style.border = '15px solid #e74c3c';
+                    break;
+                case 'cylinder':
+                    disc.style.background = 'linear-gradient(90deg, #27ae60, #2ecc71, #27ae60)';
+                    disc.style.border = 'none';
+                    break;
+                case 'bar':
+                    disc.style.background = 'linear-gradient(90deg, #f39c12, #e67e22)';
+                    disc.style.borderRadius = '10px';
+                    disc.style.height = '20px';
+                    break;
+            }
+        }
+
+        function startRotation() {
+            if (gameState.rotation.isRotating) return;
+            
+            gameState.rotation.isRotating = true;
+            gameState.rotation.angle = 0;
+            
+            const disc = document.getElementById('rotatingDisc');
+            const omega = gameState.rotation.omega;
+            
+            function animate() {
+                if (!gameState.rotation.isRotating) return;
+                
+                gameState.rotation.angle += omega * 0.016; // ~60fps
+                disc.style.transform = `rotate(${gameState.rotation.angle}rad)`;
+                
+                gameState.rotation.animationId = requestAnimationFrame(animate);
+            }
+            
+            animate();
+            showNotification('Rotation démarrée !', 'info');
+            updateScore(10);
+        }
+
+        function stopRotation() {
+            gameState.rotation.isRotating = false;
+            
+            if (gameState.rotation.animationId) {
+                cancelAnimationFrame(gameState.rotation.animationId);
+            }
+        }
+
+        function resetRotation() {
+            stopRotation();
+            
+            document.getElementById('rotatingDisc').style.transform = 'rotate(0deg)';
+            document.getElementById('rotMassSlider').value = 2;
+            document.getElementById('radiusSlider').value = 0.3;
+            document.getElementById('omegaSlider').value = 5;
+            
+            // Reset disc visual
+            const disc = document.getElementById('rotatingDisc');
+            disc.style.background = 'conic-gradient(from 0deg, #3498db, #9b59b6, #e74c3c, #f39c12, #2ecc71, #3498db)';
+            disc.style.border = 'none';
+            disc.style.borderRadius = '50%';
+            disc.style.height = '100%';
+            
+            gameState.rotation.inertiaFactor = 0.5;
+            updateRotationParams();
+            
+            showNotification('Module Rotation réinitialisé', 'info');
+        }
+
+        // ==================== THEOREM MODULE ====================
+        function updateTheoremParams() {
+            const mass = parseFloat(document.getElementById('hoverMassSlider').value);
+            const angle = parseFloat(document.getElementById('angleSlider').value);
+            const tau = parseFloat(document.getElementById('tauSlider').value);
+            
+            gameState.theorem.mass = mass;
+            gameState.theorem.angle = angle;
+            gameState.theorem.tau = tau;
+            
+            document.getElementById('hoverMassValue').textContent = mass.toFixed(1);
+            document.getElementById('angleValue').textContent = angle;
+            document.getElementById('tauValue').textContent = tau.toFixed(2);
+            
+            // Update incline visual
+            const inclineSurface = document.getElementById('inclineSurface');
+            inclineSurface.style.transform = `rotate(-${angle}deg)`;
+        }
+
+        function launchHovercraft() {
+            if (gameState.theorem.isRunning) return;
+            
+            gameState.theorem.isRunning = true;
+            gameState.theorem.currentPosition = 0;
+            gameState.theorem.velocities = [];
+            gameState.theorem.energies = [];
+            
+            document.getElementById('launchHovercraftBtn').disabled = true;
+            document.getElementById('stopHovercraftBtn').disabled = false;
+            
+            const hovercraft = document.getElementById('hovercraft');
+            const { mass, angle, tau, positions } = gameState.theorem;
+            
+            // Calculate theoretical values
+            const angleRad = angle * Math.PI / 180;
+            const acceleration = g * Math.sin(angleRad);
+            
+            // Reset table
+            for (let i = 0; i < 6; i++) {
+                document.getElementById(`v${i}`).textContent = '-';
+                document.getElementById(`ec${i}`).textContent = '-';
+            }
+            
+            let positionIndex = 0;
+            const startTime = Date.now();
+            
+            function animate() {
+                if (!gameState.theorem.isRunning) return;
+                
+                const elapsed = (Date.now() - startTime) / 1000;
+                
+                // Calculate position using kinematics
+                const x = 0.5 * acceleration * elapsed * elapsed;
+                
+                // Visual position (scaled)
+                const visualProgress = Math.min(x / 0.5, 1);
+                const leftPercent = 10 + visualProgress * 80;
+                const bottomOffset = 165 - visualProgress * 160;
+                
+                hovercraft.style.left = leftPercent + '%';
+                hovercraft.style.bottom = bottomOffset + 'px';
+                
+                // Check if passed a position marker
+                if (positionIndex < positions.length && x >= positions[positionIndex]) {
+                    // Calculate velocity at this position
+                    const v = Math.sqrt(2 * acceleration * positions[positionIndex]);
+                    const Ec = 0.5 * mass * v * v;
+                    
+                    gameState.theorem.velocities.push(v);
+                    gameState.theorem.energies.push(Ec);
+                    
+                    document.getElementById(`x${positionIndex}`).textContent = positions[positionIndex].toFixed(3);
+                    document.getElementById(`v${positionIndex}`).textContent = v.toFixed(3);
+                    document.getElementById(`ec${positionIndex}`).textContent = Ec.toFixed(4);
+                    
+                    // Highlight row
+                    document.getElementById(`ec${positionIndex}`).parentElement.classList.add('data-highlight');
+                    setTimeout(() => {
+                        document.getElementById(`ec${positionIndex}`).parentElement.classList.remove('data-highlight');
+                    }, 500);
+                    
+                    positionIndex++;
+                }
+                
+                if (visualProgress < 1) {
+                    gameState.theorem.animationId = requestAnimationFrame(animate);
+                } else {
+                    finishTheoremExperiment();
+                }
+            }
+            
+            animate();
+            showNotification('Autoporteur lâché !', 'info');
+        }
+
+        function finishTheoremExperiment() {
+            gameState.theorem.isRunning = false;
+            
+            document.getElementById('launchHovercraftBtn').disabled = false;
+            document.getElementById('stopHovercraftBtn').disabled = true;
+            
+            const { mass, angle, positions, energies } = gameState.theorem;
+            const angleRad = angle * Math.PI / 180;
+            
+            // Calculate height difference
+            const deltaH = positions[5] * Math.sin(angleRad);
+            
+            // Calculate work of weight
+            const work = mass * g * deltaH;
+            
+            // Calculate delta Ec
+            const deltaEc = energies[5] - energies[0];
+            
+            // Update verification panel
+            document.getElementById('deltaEcValue').innerHTML = `ΔE<sub>C</sub> = ${deltaEc.toFixed(4)} J`;
+            document.getElementById('workValue').innerHTML = `W(P) = ${work.toFixed(4)} J`;
+            
+            // Check if theorem is verified (within 5% tolerance)
+            const error = Math.abs(deltaEc - work) / work * 100;
+            const verificationResult = document.getElementById('verificationResult');
+            
+            if (error < 5) {
+                verificationResult.className = 'verification-result success';
+                verificationResult.innerHTML = '✅ Théorème vérifié ! ΔE<sub>C</sub> ≈ W(P)';
+                updateScore(100);
+                addCoins(20);
+                showNotification('Excellent ! Le théorème est vérifié !', 'success');
+            } else {
+                verificationResult.className = 'verification-result pending';
+                verificationResult.innerHTML = `⚠️ Écart de ${error.toFixed(1)}% - Vérifiez les paramètres`;
+            }
+        }
+
+        function stopHovercraft() {
+            gameState.theorem.isRunning = false;
+            
+            if (gameState.theorem.animationId) {
+                cancelAnimationFrame(gameState.theorem.animationId);
+            }
+            
+            document.getElementById('launchHovercraftBtn').disabled = false;
+            document.getElementById('stopHovercraftBtn').disabled = true;
+        }
+
+        function resetTheorem() {
+            stopHovercraft();
+            
+            const hovercraft = document.getElementById('hovercraft');
+            hovercraft.style.left = '10%';
+            hovercraft.style.bottom = '165px';
+            
+            // Reset sliders
+            document.getElementById('hoverMassSlider').value = 0.5;
+            document.getElementById('angleSlider').value = 15;
+            document.getElementById('tauSlider').value = 0.04;
+            
+            // Reset table
+            for (let i = 0; i < 6; i++) {
+                document.getElementById(`v${i}`).textContent = '-';
+                document.getElementById(`ec${i}`).textContent = '-';
+            }
+            
+            // Reset verification
+            document.getElementById('deltaEcValue').innerHTML = 'ΔE<sub>C</sub> = - J';
+            document.getElementById('workValue').innerHTML = 'W(P) = - J';
+            document.getElementById('verificationResult').className = 'verification-result pending';
+            document.getElementById('verificationResult').innerHTML = '⏳ Lancez l\'expérience pour vérifier le théorème';
+            
+            updateTheoremParams();
+            showNotification('Module Théorème réinitialisé', 'info');
+        }
+
+        // ==================== CHALLENGES ====================
+        const challengeQuestions = {
+            movement: [
+                {
+                    question: "Un train se déplace en ligne droite sur des rails. Quel type de mouvement effectue-t-il ?",
+                    options: ["Translation rectiligne", "Translation curviligne", "Translation circulaire", "Rotation"],
+                    correct: 0,
+                    explanation: "Le train suit une trajectoire droite, c'est une translation rectiligne."
+                },
+                {
+                    question: "Une voiture prend un virage. Quel est le type de mouvement ?",
+                    options: ["Translation rectiligne", "Translation curviligne", "Rotation pure", "Aucun mouvement"],
+                    correct: 1,
+                    explanation: "La voiture suit une courbe, c'est une translation curviligne."
+                },
+                {
+                    question: "Un point sur le bord d'un CD qui tourne effectue quel mouvement ?",
+                    options: ["Translation rectiligne", "Translation curviligne", "Translation circulaire", "Translation quelconque"],
+                    correct: 2,
+                    explanation: "Le point décrit un cercle autour du centre, c'est une translation circulaire."
+                },
+                {
+                    question: "Une bille qui roule sans glisser sur un plan horizontal effectue :",
+                    options: ["Une translation pure", "Une rotation pure", "Une translation + rotation", "Aucun mouvement"],
+                    correct: 2,
+                    explanation: "La bille avance (translation) tout en tournant (rotation)."
+                },
+                {
+                    question: "Dans une translation, tous les points du solide ont :",
+                    options: ["Des vitesses différentes", "La même vitesse", "Une vitesse nulle", "Des accélérations différentes"],
+                    correct: 1,
+                    explanation: "En translation, tous les points ont le même vecteur vitesse à chaque instant."
+                }
+            ],
+            energy: [
+                {
+                    question: "Un objet de 2 kg se déplace à 3 m/s. Quelle est son énergie cinétique ?",
+                    options: ["3 J", "6 J", "9 J", "18 J"],
+                    correct: 2,
+                    explanation: "Ec = ½mv² = ½ × 2 × 3² = ½ × 2 × 9 = 9 J"
+                },
+                {
+                    question: "Si on double la vitesse d'un objet, son énergie cinétique est multipliée par :",
+                    options: ["2", "4", "8", "√2"],
+                    correct: 1,
+                    explanation: "Ec ∝ v², donc si v → 2v, alors Ec → 4Ec"
+                },
+                {
+                    question: "Quelle combinaison donne Ec = 50 J ?",
+                    options: ["m=2kg, v=5m/s", "m=4kg, v=5m/s", "m=2kg, v=10m/s", "m=1kg, v=5m/s"],
+                    correct: 1,
+                    explanation: "Ec = ½ × 4 × 5² = ½ × 4 × 25 = 50 J"
+                },
+                {
+                    question: "L'unité de l'énergie cinétique dans le SI est :",
+                    options: ["Newton (N)", "Watt (W)", "Joule (J)", "Pascal (Pa)"],
+                    correct: 2,
+                    explanation: "L'énergie s'exprime en Joules (J) = kg·m²/s²"
+                },
+                {
+                    question: "Un vélo de 15 kg roulant à 4 m/s a une énergie cinétique de :",
+                    options: ["60 J", "120 J", "240 J", "30 J"],
+                    correct: 1,
+                    explanation: "Ec = ½ × 15 × 4² = ½ × 15 × 16 = 120 J"
+                }
+            ],
+            rotation: [
+                {
+                    question: "Quel objet a le plus grand moment d'inertie à masse et rayon égaux ?",
+                    options: ["Disque plein", "Anneau", "Sphère pleine", "Cylindre plein"],
+                    correct: 1,
+                    explanation: "L'anneau a J = MR², le disque J = ½MR². L'anneau a toute sa masse à distance R."
+                },
+                {
+                    question: "Le moment d'inertie dépend de :",
+                    options: ["La masse seulement", "La répartition de la masse", "La vitesse", "La température"],
+                    correct: 1,
+                    explanation: "J dépend de la masse ET de sa répartition par rapport à l'axe de rotation."
+                },
+                {
+                    question: "L'énergie cinétique de rotation s'exprime par :",
+                    options: ["Ec = ½mv²", "Ec = ½Jω²", "Ec = Jω", "Ec = ½Jv²"],
+                    correct: 1,
+                    explanation: "Pour la rotation, Ec = ½Jω² avec J le moment d'inertie et ω la vitesse angulaire."
+                },
+                {
+                    question: "Un disque de 3 kg et rayon 0.2 m a un moment d'inertie de :",
+                    options: ["0.06 kg·m²", "0.12 kg·m²", "0.03 kg·m²", "0.24 kg·m²"],
+                    correct: 0,
+                    explanation: "J = ½MR² = ½ × 3 × 0.2² = ½ × 3 × 0.04 = 0.06 kg·m²"
+                },
+                {
+                    question: "Si ω = 10 rad/s et J = 0.5 kg·m², l'énergie cinétique vaut :",
+                    options: ["5 J", "25 J", "50 J", "100 J"],
+                    correct: 1,
+                    explanation: "Ec = ½Jω² = ½ × 0.5 × 10² = ½ × 0.5 × 100 = 25 J"
+                }
+            ],
+            theorem: [
+                {
+                    question: "Le théorème de l'énergie cinétique stipule que :",
+                    options: ["Ec est constante", "ΔEc = W(forces ext.)", "W = 0 toujours", "Ec = mgh"],
+                    correct: 1,
+                    explanation: "La variation d'énergie cinétique égale le travail des forces extérieures."
+                },
+                {
+                    question: "Sur un plan incliné sans frottement, le travail du poids est :",
+                    options: ["Nul", "Négatif (montée)", "Positif (descente)", "Les deux dernières réponses"],
+                    correct: 3,
+                    explanation: "W(P) = mgh est positif si l'objet descend, négatif s'il monte."
+                },
+                {
+                    question: "Si ΔEc = 20 J lors d'un mouvement, cela signifie que :",
+                    options: ["L'objet a ralenti", "W(forces ext.) = 20 J", "La masse a changé", "La vitesse est constante"],
+                    correct: 1,
+                    explanation: "D'après le TEC, ΔEc = W(Fext), donc W = 20 J."
+                },
+                {
+                    question: "Un objet glisse sur un plan incliné de 30° sur 2m. Le travail du poids (m=1kg) vaut :",
+                    options: ["9.81 J", "19.62 J", "4.9 J", "0 J"],
+                    correct: 0,
+                    explanation: "W = mgh = mg × L × sin(30°) = 1 × 9.81 × 2 × 0.5 = 9.81 J"
+                },
+                {
+                    question: "Le travail de la réaction normale sur un plan incliné est :",
+                    options: ["Positif", "Négatif", "Nul", "Variable"],
+                    correct: 2,
+                    explanation: "La réaction normale est perpendiculaire au déplacement, donc son travail est nul."
+                }
+            ],
+            quiz: [
+                {
+                    question: "L'énergie cinétique est une grandeur :",
+                    options: ["Vectorielle", "Scalaire positive", "Scalaire négative", "Sans dimension"],
+                    correct: 1,
+                    explanation: "L'énergie cinétique est un scalaire toujours positif ou nul."
+                },
+                {
+                    question: "La relation entre ω et la fréquence f est :",
+                    options: ["ω = f", "ω = 2πf", "ω = f/2π", "ω = πf"],
+                    correct: 1,
+                    explanation: "La vitesse angulaire ω = 2πf où f est la fréquence en Hz."
+                },
+                {
+                    question: "1 rad/s correspond à environ :",
+                    options: ["1 tr/min", "9.55 tr/min", "60 tr/min", "0.16 tr/min"],
+                    correct: 1,
+                    explanation: "1 rad/s = 60/(2π) tr/min ≈ 9.55 tr/min"
+                },
+                {
+                    question: "Le travail d'une force constante F sur un déplacement d est :",
+                    options: ["W = F/d", "W = F × d × cos(θ)", "W = F + d", "W = F × d × sin(θ)"],
+                    correct: 1,
+                    explanation: "W = F·d = F × d × cos(θ) où θ est l'angle entre F et d."
+                },
+                {
+                    question: "Si Ec finale > Ec initiale, le travail total est :",
+                    options: ["Nul", "Négatif", "Positif", "Indéterminé"],
+                    correct: 2,
+                    explanation: "ΔEc > 0 implique W > 0 d'après le TEC."
+                }
+            ],
+            speed: [
+                {
+                    question: "½ × 4 × 9 = ?",
+                    options: ["18", "36", "9", "13"],
+                    correct: 0,
+                    explanation: "½ × 4 × 9 = 2 × 9 = 18"
+                },
+                {
+                    question: "Un objet de 1 kg à 2 m/s a quelle Ec ?",
+                    options: ["1 J", "2 J", "4 J", "8 J"],
+                    correct: 1,
+                    explanation: "Ec = ½ × 1 × 2² = 2 J"
+                },
+                {
+                    question: "J × ω² a quelle unité ?",
+                    options: ["kg", "J", "N", "W"],
+                    correct: 1,
+                    explanation: "kg·m² × (rad/s)² = kg·m²/s² = J"
+                },
+                {
+                    question: "Le moment d'inertie d'un anneau est :",
+                    options: ["½MR²", "MR²", "⅔MR²", "¼MR²"],
+                    correct: 1,
+                    explanation: "Pour un anneau, J = MR²"
+                },
+                {
+                    question: "W = m × g × h. Si m=2, g=10, h=5, W=?",
+                    options: ["17 J", "50 J", "100 J", "25 J"],
+                    correct: 2,
+                    explanation: "W = 2 × 10 × 5 = 100 J"
+                }
+            ]
+        };
+
+        function startChallenge(type) {
+            gameState.challenge.type = type;
+            gameState.challenge.currentQuestion = 0;
+            gameState.challenge.correctAnswers = 0;
+            gameState.challenge.questions = [...challengeQuestions[type]];
+            
+            // Shuffle questions
+            gameState.challenge.questions.sort(() => Math.random() - 0.5);
+            gameState.challenge.questions = gameState.challenge.questions.slice(0, 5);
+            gameState.challenge.totalQuestions = gameState.challenge.questions.length;
+            
+            document.getElementById('challengeModal').classList.add('show');
+            displayChallengeQuestion();
+        }
+
+        function displayChallengeQuestion() {
+            const { currentQuestion, questions, type } = gameState.challenge;
+            const questionData = questions[currentQuestion];
+            
+            // Update title based on challenge type
+            const titles = {
+                movement: '🎯 Trouve le Mouvement !',
+                energy: '⚡ Calculateur d\'Énergie',
+                rotation: '🔄 Rotation Master',
+                theorem: '📐 Théorème Appliqué',
+                quiz: '📝 Quiz Final',
+                speed: '⏱️ Défi Chrono'
+            };
+            
+            document.getElementById('challengeModalTitle').textContent = 
+                `${titles[type]} (${currentQuestion + 1}/${gameState.challenge.totalQuestions})`;
+            
+            document.getElementById('challengeQuestion').textContent = questionData.question;
+            
+            // Hide animation container unless movement challenge
+            document.getElementById('challengeAnimation').style.display = 'none';
+            
+            // Generate options
+            const optionsContainer = document.getElementById('challengeOptions');
+            optionsContainer.innerHTML = '';
+            
+            questionData.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'challenge-option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectChallengeAnswer(index);
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Hide feedback and next button
+            document.getElementById('challengeFeedback').classList.remove('show');
+            document.getElementById('challengeFeedback').className = 'challenge-feedback';
+            document.getElementById('challengeNextBtn').classList.remove('show');
+        }
+
+        function selectChallengeAnswer(selectedIndex) {
+            const questionData = gameState.challenge.questions[gameState.challenge.currentQuestion];
+            const options = document.querySelectorAll('.challenge-option');
+            const feedback = document.getElementById('challengeFeedback');
+            
+            // Disable all options
+            options.forEach(opt => opt.classList.add('disabled'));
+            
+            // Mark answers
+            options[selectedIndex].classList.add(selectedIndex === questionData.correct ? 'correct' : 'incorrect');
+            
+            if (selectedIndex !== questionData.correct) {
+                options[questionData.correct].classList.add('correct');
+            }
+            
+            // Show feedback
+            const isCorrect = selectedIndex === questionData.correct;
+            feedback.className = `challenge-feedback ${isCorrect ? 'correct' : 'incorrect'} show`;
+            
+            if (isCorrect) {
+                feedback.innerHTML = `✓ Correct ! ${questionData.explanation}`;
+                gameState.challenge.correctAnswers++;
+                updateScore(50);
+                addCoins(10);
+            } else {
+                feedback.innerHTML = `✗ Incorrect. ${questionData.explanation}`;
+            }
+            
+            // Show next button
+            const nextBtn = document.getElementById('challengeNextBtn');
+            nextBtn.classList.add('show');
+            nextBtn.textContent = gameState.challenge.currentQuestion < gameState.challenge.totalQuestions - 1 
+                ? 'Question suivante →' 
+                : 'Voir les résultats →';
+        }
+
+        function nextChallengeQuestion() {
+            gameState.challenge.currentQuestion++;
+            
+            if (gameState.challenge.currentQuestion < gameState.challenge.totalQuestions) {
+                displayChallengeQuestion();
+            } else {
+                closeChallenge();
+                showResults();
+            }
+        }
+
+        function closeChallenge() {
+            document.getElementById('challengeModal').classList.remove('show');
+        }
+
+        // ==================== RESULTS ====================
+        function showResults() {
+            const resultsScreen = document.getElementById('resultsScreen');
+            
+            const { correctAnswers, totalQuestions } = gameState.challenge;
+            const accuracy = (correctAnswers / totalQuestions) * 100;
+            
+            // Calculate bonus
+            const accuracyBonus = Math.round(accuracy * 2);
+            const timeBonus = Math.max(0, 300 - gameState.elapsedTime);
+            const finalScore = gameState.score + accuracyBonus + timeBonus;
+            gameState.score = finalScore;
+            
+            const coinsEarned = Math.round(correctAnswers * 15);
+            addCoins(coinsEarned);
+            
+            // Update displays
+            document.getElementById('finalScore').textContent = finalScore;
+            document.getElementById('correctAnswersDisplay').textContent = `${correctAnswers}/${totalQuestions}`;
+            document.getElementById('totalTimeDisplay').textContent = formatTime(gameState.elapsedTime);
+            document.getElementById('coinsEarnedDisplay').textContent = `${coinsEarned} 🪙`;
+            document.getElementById('accuracyDisplay').textContent = `${accuracy.toFixed(0)}%`;
+            
+            // Stars
+            const stars = [
+                document.getElementById('star1'),
+                document.getElementById('star2'),
+                document.getElementById('star3')
+            ];
+            
+            stars.forEach(star => star.classList.remove('active'));
+            
+            const starsEarned = accuracy >= 80 ? 3 : accuracy >= 60 ? 2 : accuracy >= 40 ? 1 : 0;
+            
+            // Badges
+            const badgesContainer = document.getElementById('resultsBadges');
+            badgesContainer.innerHTML = '';
+            
+            const badges = [];
+            if (correctAnswers === totalQuestions) badges.push('🏆 Score Parfait');
+            if (accuracy >= 80) badges.push('⚡ Expert en Énergie');
+            if (gameState.elapsedTime < 120) badges.push('⏱️ Rapide comme l\'éclair');
+            badges.push('🔬 Physicien en herbe');
+            
+            badges.forEach((badge, index) => {
+                const badgeEl = document.createElement('div');
+                badgeEl.className = 'results-badge';
+                badgeEl.textContent = badge;
+                badgeEl.style.animationDelay = `${0.3 + index * 0.15}s`;
+                badgesContainer.appendChild(badgeEl);
+            });
+            
+            resultsScreen.classList.add('show');
+            
+            // Animate stars
+            setTimeout(() => {
+                for (let i = 0; i < starsEarned; i++) {
+                    setTimeout(() => {
+                        stars[i].classList.add('active');
+                    }, i * 400);
+                }
+            }, 500);
+        }
+
+        function restartGame() {
+            document.getElementById('resultsScreen').classList.remove('show');
+            
+            // Reset game state
+            gameState.score = 0;
+            gameState.coins = 0;
+            gameState.elapsedTime = 0;
+            gameState.challenge.currentQuestion = 0;
+            gameState.challenge.correctAnswers = 0;
+            
+            document.getElementById('scoreDisplay').textContent = '0';
+            document.getElementById('coinsDisplay').textContent = '0';
+            
+            // Restart timer
+            gameState.startTime = Date.now();
+            
+            resetTranslation();
+            resetRotation();
+            resetTheorem();
+            
+            showNotification('Nouvelle partie commencée !', 'success');
+        }
+
+        function backToLab() {
+            document.getElementById('resultsScreen').classList.remove('show');
+            switchModule('translation');
+            showNotification('Retour au laboratoire', 'info');
+        }
+
+        // ==================== RESET MODULE ====================
+        function resetModule() {
+            switch(gameState.currentModule) {
+                case 'translation':
+                    resetTranslation();
+                    break;
+                case 'rotation':
+                    resetRotation();
+                    break;
+                case 'theorem':
+                    resetTheorem();
+                    break;
+                case 'challenges':
+                    showNotification('Sélectionnez un défi pour commencer', 'info');
+                    break;
+            }
+        }
+
+        // ==================== KEYBOARD SHORTCUTS ====================
+        document.addEventListener('keydown', function(e) {
+            // Space to launch/stop current experiment
+            if (e.code === 'Space') {
+                e.preventDefault();
+                if (gameState.currentModule === 'translation') {
+                    if (gameState.translation.isMoving) {
+                        stopCart();
+                    } else {
+                        launchCart();
+                    }
+                } else if (gameState.currentModule === 'rotation') {
+                    if (gameState.rotation.isRotating) {
+                        stopRotation();
+                    } else {
+                        startRotation();
+                    }
+                } else if (gameState.currentModule === 'theorem') {
+                    if (gameState.theorem.isRunning) {
+                        stopHovercraft();
+                    } else {
+                        launchHovercraft();
+                    }
+                }
+            }
+            
+            // R to reset current module
+            if (e.code === 'KeyR') {
+                resetModule();
+            }
+            
+            // F to toggle formulas
+            if (e.code === 'KeyF') {
+                toggleFormulas();
+            }
+            
+            // Escape to close modals
+            if (e.code === 'Escape') {
+                closeChallenge();
+                document.getElementById('formulasPanel').classList.remove('open');
+            }
+            
+            // Number keys 1-4 to switch modules
+            if (e.code === 'Digit1') switchModuleByIndex(0);
+            if (e.code === 'Digit2') switchModuleByIndex(1);
+            if (e.code === 'Digit3') switchModuleByIndex(2);
+            if (e.code === 'Digit4') switchModuleByIndex(3);
+        });
+
+        function switchModuleByIndex(index) {
+            const modules = ['translation', 'rotation', 'theorem', 'challenges'];
+            const tabs = document.querySelectorAll('.module-tab');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabs[index].classList.add('active');
+            
+            document.querySelectorAll('.module-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(modules[index] + 'Module').classList.add('active');
+            
+            gameState.currentModule = modules[index];
+        }
+
+        // ==================== TOUCH SUPPORT ====================
+        document.querySelectorAll('.control-slider').forEach(slider => {
+            slider.addEventListener('touchmove', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+        // ==================== EASTER EGG ====================
+        let secretCode = [];
+        const secretSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown'];
+        
+        document.addEventListener('keydown', function(e) {
+            secretCode.push(e.code);
+            secretCode = secretCode.slice(-4);
+            
+            if (secretCode.join(',') === secretSequence.join(',')) {
+                gameState.score += 500;
+                addCoins(100);
+                updateScore(0);
+                showNotification('🎮 Code secret ! +500 points et +100 pièces !', 'success');
+                
+                // Rainbow effect
+                document.body.style.animation = 'rainbow 2s linear';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 2000);
+            }
+        });
+
+        // Add rainbow animation style
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

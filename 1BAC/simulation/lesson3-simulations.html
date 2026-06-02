@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulations - Solution électrolytique et concentration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .simulations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .simulation-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .simulation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .simulation-card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .simulation-area {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            min-height: 400px;
+            position: relative;
+        }
+
+        canvas {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .controls {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        button.secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            font-size: 1em;
+            cursor: pointer;
+            background: white;
+            width: 100%;
+        }
+
+        .value-display {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Simulations Interactives By Mohamed Ez-ziymy</h1>
+            <p class="subtitle">Leçon 3 : Solution électrolytique et concentration</p>
+        </header>
+
+        <div class="simulations-grid">
+            <!-- Simulation 1: Structure cristalline -->
+            <div class="simulation-card">
+                <h2>1. Structure Cristalline du NaCl</h2>
+                <div class="simulation-area">
+                    <canvas id="crystalCanvas" width="400" height="400"></canvas>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Rotation Horizontale: <span id="rotXValue">45°</span></label>
+                        <input type="range" id="rotXSlider" min="0" max="360" value="45" oninput="updateCrystalRotation()">
+                    </div>
+                    <div class="control-group">
+                        <label>Rotation Verticale: <span id="rotYValue">30°</span></label>
+                        <input type="range" id="rotYSlider" min="0" max="360" value="30" oninput="updateCrystalRotation()">
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Zoom: <span id="zoomValue">1.0x</span></label>
+                        <input type="range" id="zoomSlider" min="0.5" max="2" step="0.1" value="1" oninput="updateCrystalRotation()">
+                    </div>
+                </div>
+                <div class="controls">
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="showNa" checked onchange="updateCrystalRotation()">
+                        <span>Afficher Na⁺</span>
+                    </label>
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="showCl" checked onchange="updateCrystalRotation()">
+                        <span>Afficher Cl⁻</span>
+                    </label>
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="showBonds" checked onchange="updateCrystalRotation()">
+                        <span>Afficher liaisons</span>
+                    </label>
+                </div>
+                <div class="button-group">
+                    <button onclick="resetCrystalView()">Réinitialiser vue</button>
+                    <button class="secondary" onclick="autoRotateCrystal()">Rotation auto</button>
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4CAF50;"></div>
+                        <span>Na⁺ (Cation)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #FFC107;"></div>
+                        <span>Cl⁻ (Anion)</span>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <strong>Structure:</strong> Chaque Na⁺ est entouré de 6 Cl⁻ et vice-versa. La structure est électriquement neutre.
+                </div>
+            </div>
+
+            <!-- Simulation 2: Molécules polaires -->
+            <div class="simulation-card">
+                <h2>2. Polarité des Molécules</h2>
+                <div class="simulation-area">
+                    <canvas id="polarityCanvas" width="400" height="400"></canvas>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Choisir une molécule:</label>
+                        <select id="moleculeSelect" onchange="changeMolecule()">
+                            <option value="H2O">H₂O (Eau)</option>
+                            <option value="CO2">CO₂ (Dioxyde de carbone)</option>
+                            <option value="HCl">HCl (Chlorure d'hydrogène)</option>
+                            <option value="CH4">CH₄ (Méthane)</option>
+                            <option value="NH3">NH₃ (Ammoniac)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="controls">
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="showCharges" checked onchange="changeMolecule()">
+                        <span>Afficher charges partielles (δ)</span>
+                    </label>
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="showBarycenters" onchange="changeMolecule()">
+                        <span>Afficher barycentres</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Rotation: <span id="molRotValue">0°</span></label>
+                        <input type="range" id="molRotSlider" min="0" max="360" value="0" oninput="changeMolecule()">
+                    </div>
+                </div>
+                <div class="info-box" id="polarityInfo">
+                    <strong>H₂O:</strong> Molécule polaire - les barycentres des charges ne coïncident pas
+                </div>
+            </div>
+
+            <!-- Simulation 3: Dissolution -->
+            <div class="simulation-card">
+                <h2>3. Processus de Dissolution</h2>
+                <div class="simulation-area">
+                    <canvas id="dissolutionCanvas" width="400" height="400"></canvas>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Vitesse d'animation: <span id="speedValue">Normale</span></label>
+                        <input type="range" id="speedSlider" min="1" max="5" value="3" oninput="updateSpeed()">
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Progression: <span id="stepName">Cristal intact (0%)</span></label>
+                        <input type="range" id="dissolutionSlider" min="0" max="100" value="0" oninput="updateDissolutionStep()">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button onclick="playDissolution()">▶ Lecture auto</button>
+                    <button onclick="pauseDissolution()">⏸ Pause</button>
+                    <button onclick="resetDissolutionAnim()">⏮ Réinitialiser</button>
+                    <button class="secondary" onclick="nextStep()">Étape suivante ⏭</button>
+                </div>
+                <div class="controls">
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="showWaterMolecules" checked onchange="updateDissolutionStep()">
+                        <span>Afficher molécules d'eau (H₂O)</span>
+                    </label>
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="showLabels" checked onchange="updateDissolutionStep()">
+                        <span>Afficher les étiquettes</span>
+                    </label>
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="showHydrationShells" checked onchange="updateDissolutionStep()">
+                        <span>Afficher couches d'hydratation</span>
+                    </label>
+                </div>
+                <div class="info-box">
+                    <strong id="stepDescription">Cristal ionique NaCl solide - Structure organisée avec interactions électrostatiques fortes</strong>
+                </div>
+            </div>
+
+            <!-- Simulation 4: Concentration -->
+            <div class="simulation-card">
+                <h2>4. Concentration Molaire</h2>
+                <div class="simulation-area">
+                    <canvas id="concentrationCanvas" width="400" height="350"></canvas>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Volume de solution (L): <span class="value-display" id="volumeValue">1.0 L</span></label>
+                        <input type="range" id="volumeSlider" min="0.1" max="2" step="0.1" value="1" oninput="updateConcentration()">
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Quantité de matière n (mol): <span class="value-display" id="amountValue">1.0 mol</span></label>
+                        <input type="range" id="amountSlider" min="0.1" max="3" step="0.1" value="1" oninput="updateConcentration()">
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label>Type de soluté:</label>
+                        <select id="soluteSelect" onchange="updateConcentration()">
+                            <option value="NaCl">NaCl (Chlorure de sodium)</option>
+                            <option value="H2SO4">H₂SO₄ (Acide sulfurique)</option>
+                            <option value="CaCl2">CaCl₂ (Chlorure de calcium)</option>
+                            <option value="KOH">KOH (Hydroxyde de potassium)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="controls">
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="showIonCount" checked onchange="updateConcentration()">
+                        <span>Afficher nombre d'ions</span>
+                    </label>
+                    <label class="checkbox-control">
+                        <input type="checkbox" id="animateIons" onchange="toggleIonAnimation()">
+                        <span>Animer les ions</span>
+                    </label>
+                </div>
+                <div class="info-box">
+                    <div style="font-size: 1.1em; margin-bottom: 10px;">
+                        <strong>Formule: C = n / V</strong>
+                    </div>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <div><strong>Concentration C =</strong> <span style="font-size: 1.3em; color: #667eea; font-weight: bold;" id="concentrationResult">1.0 mol/L</span></div>
+                        <div id="ionConcentrations"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulation 1: Structure Cristalline avec contrôle complet
+        const crystalCanvas = document.getElementById('crystalCanvas');
+        const crystalCtx = crystalCanvas.getContext('2d');
+        let autoRotate = null;
+
+        function drawCrystal() {
+            const rotX = parseFloat(document.getElementById('rotXSlider').value) * Math.PI / 180;
+            const rotY = parseFloat(document.getElementById('rotYSlider').value) * Math.PI / 180;
+            const zoom = parseFloat(document.getElementById('zoomSlider').value);
+            const showNa = document.getElementById('showNa').checked;
+            const showCl = document.getElementById('showCl').checked;
+            const showBonds = document.getElementById('showBonds').checked;
+
+            crystalCtx.clearRect(0, 0, crystalCanvas.width, crystalCanvas.height);
+            const centerX = crystalCanvas.width / 2;
+            const centerY = crystalCanvas.height / 2;
+            const size = 60 * zoom;
+
+            // Structure cristalline 3x3x3 pour mieux voir la structure
+            const naPositions = [];
+            const clPositions = [];
+
+            // Na+ aux centres des faces et arêtes
+            for (let x = -1; x <= 1; x++) {
+                for (let y = -1; y <= 1; y++) {
+                    for (let z = -1; z <= 1; z++) {
+                        if ((x + y + z) % 2 === 0) {
+                            naPositions.push([x, y, z]);
+                        } else {
+                            clPositions.push([x, y, z]);
+                        }
+                    }
+                }
+            }
+
+            // Fonction de projection 3D vers 2D
+            function project3D(x, y, z) {
+                // Rotation Y
+                const x1 = x * Math.cos(rotX) - z * Math.sin(rotX);
+                const z1 = x * Math.sin(rotX) + z * Math.cos(rotX);
+                // Rotation X
+                const y1 = y * Math.cos(rotY) - z1 * Math.sin(rotY);
+                const z2 = y * Math.sin(rotY) + z1 * Math.cos(rotY);
+                
+                return {
+                    x: centerX + x1 * size,
+                    y: centerY + y1 * size,
+                    z: z2
+                };
+            }
+
+            // Dessiner les liaisons d'abord
+            if (showBonds) {
+                crystalCtx.strokeStyle = '#bbb';
+                crystalCtx.lineWidth = 1;
+                crystalCtx.setLineDash([3, 3]);
+                
+                if (showNa && showCl) {
+                    naPositions.forEach(naPos => {
+                        const na = project3D(naPos[0], naPos[1], naPos[2]);
+                        clPositions.forEach(clPos => {
+                            const dist = Math.sqrt(
+                                Math.pow(naPos[0] - clPos[0], 2) +
+                                Math.pow(naPos[1] - clPos[1], 2) +
+                                Math.pow(naPos[2] - clPos[2], 2)
+                            );
+                            if (dist < 1.5) {
+                                const cl = project3D(clPos[0], clPos[1], clPos[2]);
+                                crystalCtx.beginPath();
+                                crystalCtx.moveTo(na.x, na.y);
+                                crystalCtx.lineTo(cl.x, cl.y);
+                                crystalCtx.stroke();
+                            }
+                        });
+                    });
+                }
+                crystalCtx.setLineDash([]);
+            }
+
+            // Combiner et trier par profondeur pour l'effet 3D
+            const allIons = [];
+            if (showNa) {
+                naPositions.forEach(pos => {
+                    const projected = project3D(pos[0], pos[1], pos[2]);
+                    allIons.push({...projected, type: 'Na', color: '#4CAF50'});
+                });
+            }
+            if (showCl) {
+                clPositions.forEach(pos => {
+                    const projected = project3D(pos[0], pos[1], pos[2]);
+                    allIons.push({...projected, type: 'Cl', color: '#FFC107'});
+                });
+            }
+
+            // Trier par profondeur (z)
+            allIons.sort((a, b) => a.z - b.z);
+
+            // Dessiner les ions
+            allIons.forEach(ion => {
+                const radius = ion.type === 'Na' ? 18 * zoom : 22 * zoom;
+                
+                crystalCtx.beginPath();
+                crystalCtx.arc(ion.x, ion.y, radius, 0, Math.PI * 2);
+                crystalCtx.fillStyle = ion.color;
+                crystalCtx.fill();
+                crystalCtx.strokeStyle = '#333';
+                crystalCtx.lineWidth = 2;
+                crystalCtx.stroke();
+                
+                crystalCtx.fillStyle = 'white';
+                crystalCtx.font = `bold ${Math.floor(14 * zoom)}px Arial`;
+                crystalCtx.textAlign = 'center';
+                crystalCtx.textBaseline = 'middle';
+                crystalCtx.fillText(ion.type === 'Na' ? 'Na⁺' : 'Cl⁻', ion.x, ion.y);
+            });
+        }
+
+        function updateCrystalRotation() {
+            const rotX = document.getElementById('rotXSlider').value;
+            const rotY = document.getElementById('rotYSlider').value;
+            const zoom = document.getElementById('zoomSlider').value;
+            
+            document.getElementById('rotXValue').textContent = rotX + '°';
+            document.getElementById('rotYValue').textContent = rotY + '°';
+            document.getElementById('zoomValue').textContent = parseFloat(zoom).toFixed(1) + 'x';
+            
+            drawCrystal();
+        }
+
+        function resetCrystalView() {
+            document.getElementById('rotXSlider').value = 45;
+            document.getElementById('rotYSlider').value = 30;
+            document.getElementById('zoomSlider').value = 1;
+            updateCrystalRotation();
+        }
+
+        function autoRotateCrystal() {
+            if (autoRotate) {
+                clearInterval(autoRotate);
+                autoRotate = null;
+            } else {
+                autoRotate = setInterval(() => {
+                    const slider = document.getElementById('rotXSlider');
+                    slider.value = (parseFloat(slider.value) + 2) % 360;
+                    updateCrystalRotation();
+                }, 50);
+            }
+        }
+
+        // Simulation 2: Polarité des molécules
+        const polarityCanvas = document.getElementById('polarityCanvas');
+        const polarityCtx = polarityCanvas.getContext('2d');
+
+        function drawMolecule(type) {
+            polarityCtx.clearRect(0, 0, polarityCanvas.width, polarityCanvas.height);
+            const centerX = polarityCanvas.width / 2;
+            const centerY = polarityCanvas.height / 2;
+            const showCharges = document.getElementById('showCharges').checked;
+            const showBarycenters = document.getElementById('showBarycenters').checked;
+            const rotation = parseFloat(document.getElementById('molRotSlider').value) * Math.PI / 180;
+
+            function rotatePoint(x, y, cx, cy, angle) {
+                const cos = Math.cos(angle);
+                const sin = Math.sin(angle);
+                return {
+                    x: cos * (x - cx) - sin * (y - cy) + cx,
+                    y: sin * (x - cx) + cos * (y - cy) + cy
+                };
+            }
+
+            if (type === 'H2O') {
+                const oPos = {x: centerX, y: centerY};
+                const h1Pos = rotatePoint(centerX - 50, centerY + 40, centerX, centerY, rotation);
+                const h2Pos = rotatePoint(centerX + 50, centerY + 40, centerX, centerY, rotation);
+
+                // Liaisons
+                polarityCtx.strokeStyle = '#333';
+                polarityCtx.lineWidth = 3;
+                polarityCtx.beginPath();
+                polarityCtx.moveTo(oPos.x, oPos.y);
+                polarityCtx.lineTo(h1Pos.x, h1Pos.y);
+                polarityCtx.moveTo(oPos.x, oPos.y);
+                polarityCtx.lineTo(h2Pos.x, h2Pos.y);
+                polarityCtx.stroke();
+
+                // O
+                polarityCtx.beginPath();
+                polarityCtx.arc(oPos.x, oPos.y, 30, 0, Math.PI * 2);
+                polarityCtx.fillStyle = '#FF5252';
+                polarityCtx.fill();
+                polarityCtx.strokeStyle = '#333';
+                polarityCtx.lineWidth = 2;
+                polarityCtx.stroke();
+                polarityCtx.fillStyle = 'white';
+                polarityCtx.font = 'bold 18px Arial';
+                polarityCtx.textAlign = 'center';
+                polarityCtx.textBaseline = 'middle';
+                polarityCtx.fillText('O', oPos.x, oPos.y);
+
+                // H
+                [h1Pos, h2Pos].forEach(pos => {
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
+                    polarityCtx.fillStyle = '#64B5F6';
+                    polarityCtx.fill();
+                    polarityCtx.stroke();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.fillText('H', pos.x, pos.y);
+                });
+
+                if (showCharges) {
+                    polarityCtx.fillStyle = '#d32f2f';
+                    polarityCtx.font = 'bold 16px Arial';
+                    polarityCtx.fillText('δ⁻', oPos.x + 25, oPos.y - 25);
+                    polarityCtx.fillStyle = '#1976d2';
+                    polarityCtx.fillText('δ⁺', h1Pos.x, h1Pos.y - 30);
+                    polarityCtx.fillText('δ⁺', h2Pos.x, h2Pos.y - 30);
+                }
+
+                if (showBarycenters) {
+                    // Barycentre positif
+                    const posBarX = (h1Pos.x + h2Pos.x) / 2;
+                    const posBarY = (h1Pos.y + h2Pos.y) / 2;
+                    polarityCtx.fillStyle = '#1976d2';
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(posBarX, posBarY, 8, 0, Math.PI * 2);
+                    polarityCtx.fill();
+                    polarityCtx.fillText('+', posBarX, posBarY + 3);
+                    
+                    // Barycentre négatif
+                    polarityCtx.fillStyle = '#d32f2f';
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(oPos.x, oPos.y, 8, 0, Math.PI * 2);
+                    polarityCtx.fill();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.fillText('-', oPos.x, oPos.y + 3);
+                }
+
+                document.getElementById('polarityInfo').innerHTML = '<strong>H₂O (Eau):</strong> Molécule <span style="color: #d32f2f; font-weight: bold;">POLAIRE</span> - Les barycentres des charges ne coïncident pas. Géométrie coudée.';
+            } 
+            else if (type === 'CO2') {
+                const cPos = {x: centerX, y: centerY};
+                const o1Pos = rotatePoint(centerX - 80, centerY, centerX, centerY, rotation);
+                const o2Pos = rotatePoint(centerX + 80, centerY, centerX, centerY, rotation);
+
+                // Liaisons doubles
+                polarityCtx.strokeStyle = '#333';
+                polarityCtx.lineWidth = 3;
+                for (let offset = -3; offset <= 3; offset += 6) {
+                    polarityCtx.beginPath();
+                    polarityCtx.moveTo(o1Pos.x, o1Pos.y + offset);
+                    polarityCtx.lineTo(o2Pos.x, o2Pos.y + offset);
+                    polarityCtx.stroke();
+                }
+
+                // C
+                polarityCtx.beginPath();
+                polarityCtx.arc(cPos.x, cPos.y, 25, 0, Math.PI * 2);
+                polarityCtx.fillStyle = '#757575';
+                polarityCtx.fill();
+                polarityCtx.stroke();
+                polarityCtx.fillStyle = 'white';
+                polarityCtx.font = 'bold 18px Arial';
+                polarityCtx.textAlign = 'center';
+                polarityCtx.textBaseline = 'middle';
+                polarityCtx.fillText('C', cPos.x, cPos.y);
+
+                // O
+                [o1Pos, o2Pos].forEach(pos => {
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(pos.x, pos.y, 25, 0, Math.PI * 2);
+                    polarityCtx.fillStyle = '#FF5252';
+                    polarityCtx.fill();
+                    polarityCtx.stroke();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.fillText('O', pos.x, pos.y);
+                });
+
+                if (showCharges) {
+                    polarityCtx.fillStyle = '#d32f2f';
+                    polarityCtx.font = 'bold 16px Arial';
+                    polarityCtx.fillText('δ⁻', o1Pos.x, o1Pos.y - 35);
+                    polarityCtx.fillText('δ⁻', o2Pos.x, o2Pos.y - 35);
+                    polarityCtx.fillStyle = '#1976d2';
+                    polarityCtx.fillText('δ⁺', cPos.x, cPos.y - 35);
+                }
+
+                if (showBarycenters) {
+                    // Tous les barycentres au centre
+                    polarityCtx.fillStyle = '#4CAF50';
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(cPos.x, cPos.y, 10, 0, Math.PI * 2);
+                    polarityCtx.fill();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.font = 'bold 14px Arial';
+                    polarityCtx.fillText('±', cPos.x, cPos.y + 3);
+                }
+
+                document.getElementById('polarityInfo').innerHTML = '<strong>CO₂ (Dioxyde de carbone):</strong> Molécule <span style="color: #4CAF50; font-weight: bold;">APOLAIRE</span> - Les barycentres coïncident. Géométrie linéaire.';
+            }
+            else if (type === 'HCl') {
+                const hPos = rotatePoint(centerX - 60, centerY, centerX, centerY, rotation);
+                const clPos = rotatePoint(centerX + 60, centerY, centerX, centerY, rotation);
+
+                // Liaison
+                polarityCtx.strokeStyle = '#333';
+                polarityCtx.lineWidth = 3;
+                polarityCtx.beginPath();
+                polarityCtx.moveTo(hPos.x, hPos.y);
+                polarityCtx.lineTo(clPos.x, clPos.y);
+                polarityCtx.stroke();
+
+                // H
+                polarityCtx.beginPath();
+                polarityCtx.arc(hPos.x, hPos.y, 25, 0, Math.PI * 2);
+                polarityCtx.fillStyle = '#64B5F6';
+                polarityCtx.fill();
+                polarityCtx.strokeStyle = '#333';
+                polarityCtx.lineWidth = 2;
+                polarityCtx.stroke();
+                polarityCtx.fillStyle = 'white';
+                polarityCtx.font = 'bold 18px Arial';
+                polarityCtx.textAlign = 'center';
+                polarityCtx.textBaseline = 'middle';
+                polarityCtx.fillText('H', hPos.x, hPos.y);
+
+                // Cl
+                polarityCtx.beginPath();
+                polarityCtx.arc(clPos.x, clPos.y, 30, 0, Math.PI * 2);
+                polarityCtx.fillStyle = '#4CAF50';
+                polarityCtx.fill();
+                polarityCtx.stroke();
+                polarityCtx.fillStyle = 'white';
+                polarityCtx.fillText('Cl', clPos.x, clPos.y);
+
+                if (showCharges) {
+                    polarityCtx.fillStyle = '#1976d2';
+                    polarityCtx.font = 'bold 16px Arial';
+                    polarityCtx.fillText('δ⁺', hPos.x, hPos.y - 35);
+                    polarityCtx.fillStyle = '#d32f2f';
+                    polarityCtx.fillText('δ⁻', clPos.x, clPos.y - 40);
+                }
+
+                if (showBarycenters) {
+                    polarityCtx.fillStyle = '#1976d2';
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(hPos.x, hPos.y, 8, 0, Math.PI * 2);
+                    polarityCtx.fill();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.fillText('+', hPos.x, hPos.y + 3);
+                    
+                    polarityCtx.fillStyle = '#d32f2f';
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(clPos.x, clPos.y, 8, 0, Math.PI * 2);
+                    polarityCtx.fill();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.fillText('-', clPos.x, clPos.y + 3);
+                }
+
+                document.getElementById('polarityInfo').innerHTML = '<strong>HCl (Chlorure d\'hydrogène):</strong> Molécule <span style="color: #d32f2f; font-weight: bold;">POLAIRE</span> - Cl plus électronégatif que H. Liaison polarisée.';
+            }
+            else if (type === 'CH4') {
+                const cPos = {x: centerX, y: centerY};
+                const angles = [0, Math.PI/2, Math.PI, 3*Math.PI/2];
+                const radius = 70;
+                const hPositions = angles.map(angle => 
+                    rotatePoint(
+                        centerX + radius * Math.cos(angle),
+                        centerY + radius * Math.sin(angle),
+                        centerX, centerY, rotation
+                    )
+                );
+
+                // Liaisons
+                polarityCtx.strokeStyle = '#333';
+                polarityCtx.lineWidth = 2;
+                hPositions.forEach(pos => {
+                    polarityCtx.beginPath();
+                    polarityCtx.moveTo(cPos.x, cPos.y);
+                    polarityCtx.lineTo(pos.x, pos.y);
+                    polarityCtx.stroke();
+                });
+
+                // C
+                polarityCtx.beginPath();
+                polarityCtx.arc(cPos.x, cPos.y, 25, 0, Math.PI * 2);
+                polarityCtx.fillStyle = '#757575';
+                polarityCtx.fill();
+                polarityCtx.stroke();
+                polarityCtx.fillStyle = 'white';
+                polarityCtx.font = 'bold 18px Arial';
+                polarityCtx.textAlign = 'center';
+                polarityCtx.textBaseline = 'middle';
+                polarityCtx.fillText('C', cPos.x, cPos.y);
+
+                // H
+                hPositions.forEach(pos => {
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
+                    polarityCtx.fillStyle = '#64B5F6';
+                    polarityCtx.fill();
+                    polarityCtx.stroke();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.fillText('H', pos.x, pos.y);
+                });
+
+                if (showBarycenters) {
+                    polarityCtx.fillStyle = '#4CAF50';
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(cPos.x, cPos.y, 10, 0, Math.PI * 2);
+                    polarityCtx.fill();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.font = 'bold 14px Arial';
+                    polarityCtx.fillText('±', cPos.x, cPos.y + 3);
+                }
+
+                document.getElementById('polarityInfo').innerHTML = '<strong>CH₄ (Méthane):</strong> Molécule <span style="color: #4CAF50; font-weight: bold;">APOLAIRE</span> - Géométrie tétraédrique, barycentres coïncident.';
+            }
+            else if (type === 'NH3') {
+                const nPos = {x: centerX, y: centerY - 10};
+                const h1Pos = rotatePoint(centerX - 55, centerY + 45, centerX, centerY, rotation);
+                const h2Pos = rotatePoint(centerX + 55, centerY + 45, centerX, centerY, rotation);
+                const h3Pos = rotatePoint(centerX, centerY + 60, centerX, centerY, rotation);
+
+                // Liaisons
+                polarityCtx.strokeStyle = '#333';
+                polarityCtx.lineWidth = 3;
+                [h1Pos, h2Pos, h3Pos].forEach(pos => {
+                    polarityCtx.beginPath();
+                    polarityCtx.moveTo(nPos.x, nPos.y);
+                    polarityCtx.lineTo(pos.x, pos.y);
+                    polarityCtx.stroke();
+                });
+
+                // N
+                polarityCtx.beginPath();
+                polarityCtx.arc(nPos.x, nPos.y, 30, 0, Math.PI * 2);
+                polarityCtx.fillStyle = '#2196F3';
+                polarityCtx.fill();
+                polarityCtx.stroke();
+                polarityCtx.fillStyle = 'white';
+                polarityCtx.font = 'bold 18px Arial';
+                polarityCtx.textAlign = 'center';
+                polarityCtx.textBaseline = 'middle';
+                polarityCtx.fillText('N', nPos.x, nPos.y);
+
+                // H
+                [h1Pos, h2Pos, h3Pos].forEach(pos => {
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
+                    polarityCtx.fillStyle = '#64B5F6';
+                    polarityCtx.fill();
+                    polarityCtx.stroke();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.fillText('H', pos.x, pos.y);
+                });
+
+                if (showCharges) {
+                    polarityCtx.fillStyle = '#d32f2f';
+                    polarityCtx.font = 'bold 16px Arial';
+                    polarityCtx.fillText('δ⁻', nPos.x + 25, nPos.y - 25);
+                    polarityCtx.fillStyle = '#1976d2';
+                    polarityCtx.fillText('δ⁺', h1Pos.x, h1Pos.y + 30);
+                    polarityCtx.fillText('δ⁺', h2Pos.x, h2Pos.y + 30);
+                    polarityCtx.fillText('δ⁺', h3Pos.x, h3Pos.y + 30);
+                }
+
+                if (showBarycenters) {
+                    const posBarX = (h1Pos.x + h2Pos.x + h3Pos.x) / 3;
+                    const posBarY = (h1Pos.y + h2Pos.y + h3Pos.y) / 3;
+                    polarityCtx.fillStyle = '#1976d2';
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(posBarX, posBarY, 8, 0, Math.PI * 2);
+                    polarityCtx.fill();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.fillText('+', posBarX, posBarY + 3);
+                    
+                    polarityCtx.fillStyle = '#d32f2f';
+                    polarityCtx.beginPath();
+                    polarityCtx.arc(nPos.x, nPos.y, 8, 0, Math.PI * 2);
+                    polarityCtx.fill();
+                    polarityCtx.fillStyle = 'white';
+                    polarityCtx.fillText('-', nPos.x, nPos.y + 3);
+                }
+
+                document.getElementById('polarityInfo').innerHTML = '<strong>NH₃ (Ammoniac):</strong> Molécule <span style="color: #d32f2f; font-weight: bold;">POLAIRE</span> - Géométrie pyramidale, barycentres ne coïncident pas.';
+            }
+
+            document.getElementById('molRotValue').textContent = document.getElementById('molRotSlider').value + '°';
+        }
+
+        function changeMolecule() {
+            const select = document.getElementById('moleculeSelect');
+            drawMolecule(select.value);
+        }
+
+        // Simulation 3: Dissolution contrôlable
+        const dissolutionCanvas = document.getElementById('dissolutionCanvas');
+        const dissolutionCtx = dissolutionCanvas.getContext('2d');
+        let dissolutionAnimInterval = null;
+        let animationSpeed = 3;
+
+        const stepDescriptions = [
+            "Cristal ionique NaCl solide - Structure organisée avec interactions électrostatiques fortes",
+            "Dissociation: Les molécules d'eau polaires attirent les ions - rupture de la structure cristalline",
+            "Solvatation (Hydratation): Chaque ion s'entoure de molécules d'eau formant une couche protectrice",
+            "Dispersion: Les ions hydratés se dispersent uniformément dans toute la solution"
+        ];
+
+        function updateSpeed() {
+            const speed = document.getElementById('speedSlider').value;
+            animationSpeed = parseInt(speed);
+            const speedNames = ['Très lente', 'Lente', 'Normale', 'Rapide', 'Très rapide'];
+            document.getElementById('speedValue').textContent = speedNames[speed - 1];
+        }
+
+        function nextStep() {
+            const slider = document.getElementById('dissolutionSlider');
+            const currentValue = parseFloat(slider.value);
+            if (currentValue < 25) slider.value = 25;
+            else if (currentValue < 50) slider.value = 50;
+            else if (currentValue < 75) slider.value = 75;
+            else slider.value = 100;
+            updateDissolutionStep();
+        }
+
+        function drawWaterMolecule(ctx, x, y, size = 1) {
+            // Dessiner une molécule d'eau stylisée
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.scale(size, size);
+            
+            // O
+            ctx.beginPath();
+            ctx.arc(0, 0, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#2196F3';
+            ctx.fill();
+            
+            // H
+            ctx.beginPath();
+            ctx.arc(-4, -3, 2, 0, Math.PI * 2);
+            ctx.fillStyle = '#90CAF9';
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(4, -3, 2, 0, Math.PI * 2);
+            ctx.fillStyle = '#90CAF9';
+            ctx.fill();
+            
+            ctx.restore();
+        }
+
+        function drawDissolutionState(progress) {
+            dissolutionCtx.clearRect(0, 0, dissolutionCanvas.width, dissolutionCanvas.height);
+            const centerX = dissolutionCanvas.width / 2;
+            const centerY = dissolutionCanvas.height / 2;
+            const showWater = document.getElementById('showWaterMolecules').checked;
+            const showLabels = document.getElementById('showLabels').checked;
+            const showHydration = document.getElementById('showHydrationShells').checked;
+
+            // Définir l'étape actuelle
+            let stepName = '';
+            let stepIndex = 0;
+            if (progress < 25) {
+                stepName = `Cristal intact (${Math.floor(progress)}%)`;
+                stepIndex = 0;
+            } else if (progress < 50) {
+                stepName = `Dissociation (${Math.floor(progress)}%)`;
+                stepIndex = 1;
+            } else if (progress < 75) {
+                stepName = `Solvatation (${Math.floor(progress)}%)`;
+                stepIndex = 2;
+            } else {
+                stepName = `Dispersion (${Math.floor(progress)}%)`;
+                stepIndex = 3;
+            }
+            document.getElementById('stepName').textContent = stepName;
+            document.getElementById('stepDescription').textContent = stepDescriptions[stepIndex];
+
+            if (progress < 25) {
+                // Étape 1: Cristal intact
+                const fade = progress / 25;
+                
+                // Dessiner le cristal avec plus de détails
+                const crystalSize = 80;
+                dissolutionCtx.fillStyle = `rgba(240, 240, 240, ${1 - fade * 0.3})`;
+                dissolutionCtx.fillRect(centerX - crystalSize/2, centerY - crystalSize/2, crystalSize, crystalSize);
+                dissolutionCtx.strokeStyle = '#555';
+                dissolutionCtx.lineWidth = 3;
+                dissolutionCtx.strokeRect(centerX - crystalSize/2, centerY - crystalSize/2, crystalSize, crystalSize);
+                
+                // Grille interne
+                dissolutionCtx.strokeStyle = '#999';
+                dissolutionCtx.lineWidth = 1;
+                for (let i = 1; i < 4; i++) {
+                    dissolutionCtx.beginPath();
+                    dissolutionCtx.moveTo(centerX - crystalSize/2 + i * crystalSize/4, centerY - crystalSize/2);
+                    dissolutionCtx.lineTo(centerX - crystalSize/2 + i * crystalSize/4, centerY + crystalSize/2);
+                    dissolutionCtx.moveTo(centerX - crystalSize/2, centerY - crystalSize/2 + i * crystalSize/4);
+                    dissolutionCtx.lineTo(centerX + crystalSize/2, centerY - crystalSize/2 + i * crystalSize/4);
+                    dissolutionCtx.stroke();
+                }
+                
+                // Ions dans le cristal
+                const positions = [
+                    {x: -20, y: -20, type: 'Na', color: '#4CAF50'},
+                    {x: 20, y: -20, type: 'Cl', color: '#FFC107'},
+                    {x: -20, y: 20, type: 'Cl', color: '#FFC107'},
+                    {x: 20, y: 20, type: 'Na', color: '#4CAF50'},
+                    {x: 0, y: 0, type: 'Na', color: '#4CAF50'}
+                ];
+                
+                positions.forEach(ion => {
+                    dissolutionCtx.beginPath();
+                    dissolutionCtx.arc(centerX + ion.x, centerY + ion.y, 10, 0, Math.PI * 2);
+                    dissolutionCtx.fillStyle = ion.color;
+                    dissolutionCtx.fill();
+                    dissolutionCtx.strokeStyle = '#333';
+                    dissolutionCtx.lineWidth = 1.5;
+                    dissolutionCtx.stroke();
+                    
+                    if (showLabels) {
+                        dissolutionCtx.fillStyle = '#fff';
+                        dissolutionCtx.font = 'bold 8px Arial';
+                        dissolutionCtx.textAlign = 'center';
+                        dissolutionCtx.textBaseline = 'middle';
+                        dissolutionCtx.fillText(ion.type, centerX + ion.x, centerY + ion.y);
+                    }
+                });
+                
+                dissolutionCtx.fillStyle = '#333';
+                dissolutionCtx.font = 'bold 18px Arial';
+                dissolutionCtx.textAlign = 'center';
+                dissolutionCtx.fillText('NaCl(s)', centerX, centerY - 60);
+
+                if (showWater) {
+                    // Molécules d'eau qui s'approchent
+                    for (let i = 0; i < 16; i++) {
+                        const angle = (Math.PI / 8) * i;
+                        const dist = 110 - fade * 20 + Math.sin(Date.now() / 500 + i) * 5;
+                        const wx = centerX + dist * Math.cos(angle);
+                        const wy = centerY + dist * Math.sin(angle);
+                        drawWaterMolecule(dissolutionCtx, wx, wy, 1);
+                    }
+                }
+            } 
+            else if (progress < 50) {
+                // Étape 2: Dissociation
+                const subProgress = (progress - 25) / 25;
+                const ions = [
+                    {baseX: centerX, baseY: centerY, targetX: centerX - 80, targetY: centerY - 60, type: 'Na⁺', color: '#4CAF50'},
+                    {baseX: centerX, baseY: centerY, targetX: centerX + 80, targetY: centerY - 60, type: 'Cl⁻', color: '#FFC107'},
+                    {baseX: centerX, baseY: centerY, targetX: centerX - 80, targetY: centerY + 60, type: 'Cl⁻', color: '#FFC107'},
+                    {baseX: centerX, baseY: centerY, targetX: centerX + 80, targetY: centerY + 60, type: 'Na⁺', color: '#4CAF50'},
+                    {baseX: centerX, baseY: centerY, targetX: centerX - 110, targetY: centerY, type: 'Na⁺', color: '#4CAF50'},
+                    {baseX: centerX, baseY: centerY, targetX: centerX + 110, targetY: centerY, type: 'Cl⁻', color: '#FFC107'},
+                    {baseX: centerX, baseY: centerY, targetX: centerX, targetY: centerY - 90, type: 'Cl⁻', color: '#FFC107'},
+                    {baseX: centerX, baseY: centerY, targetX: centerX, targetY: centerY + 90, type: 'Na⁺', color: '#4CAF50'}
+                ];
+
+                ions.forEach((ion, idx) => {
+                    const x = ion.baseX + (ion.targetX - ion.baseX) * subProgress;
+                    const y = ion.baseY + (ion.targetY - ion.baseY) * subProgress;
+                    
+                    // Molécules d'eau qui attirent l'ion
+                    if (showWater) {
+                        const numWater = 3;
+                        for (let i = 0; i < numWater; i++) {
+                            const angle = (Math.PI * 2 / numWater) * i + idx;
+                            const dist = 25 + subProgress * 5;
+                            const wx = x + dist * Math.cos(angle);
+                            const wy = y + dist * Math.sin(angle);
+                            drawWaterMolecule(dissolutionCtx, wx, wy, 0.8);
+                            
+                            // Lignes d'attraction
+                            dissolutionCtx.strokeStyle = `rgba(33, 150, 243, ${0.3 * subProgress})`;
+                            dissolutionCtx.lineWidth = 1;
+                            dissolutionCtx.setLineDash([2, 2]);
+                            dissolutionCtx.beginPath();
+                            dissolutionCtx.moveTo(x, y);
+                            dissolutionCtx.lineTo(wx, wy);
+                            dissolutionCtx.stroke();
+                            dissolutionCtx.setLineDash([]);
+                        }
+                    }
+                    
+                    dissolutionCtx.beginPath();
+                    dissolutionCtx.arc(x, y, 16, 0, Math.PI * 2);
+                    dissolutionCtx.fillStyle = ion.color;
+                    dissolutionCtx.fill();
+                    dissolutionCtx.strokeStyle = '#333';
+                    dissolutionCtx.lineWidth = 2;
+                    dissolutionCtx.stroke();
+                    
+                    if (showLabels) {
+                        dissolutionCtx.fillStyle = '#333';
+                        dissolutionCtx.font = 'bold 11px Arial';
+                        dissolutionCtx.textAlign = 'center';
+                        dissolutionCtx.textBaseline = 'middle';
+                        dissolutionCtx.fillText(ion.type, x, y);
+                    }
+                });
+            }
+            else if (progress < 75) {
+                // Étape 3: Solvatation
+                const subProgress = (progress - 50) / 25;
+                const ions = [
+                    {x: centerX - 100, y: centerY - 80, type: 'Na⁺', color: '#4CAF50'},
+                    {x: centerX + 100, y: centerY - 80, type: 'Cl⁻', color: '#FFC107'},
+                    {x: centerX - 100, y: centerY + 80, type: 'Cl⁻', color: '#FFC107'},
+                    {x: centerX + 100, y: centerY + 80, type: 'Na⁺', color: '#4CAF50'},
+                    {x: centerX - 130, y: centerY, type: 'Na⁺', color: '#4CAF50'},
+                    {x: centerX + 130, y: centerY, type: 'Cl⁻', color: '#FFC107'},
+                    {x: centerX, y: centerY - 110, type: 'Cl⁻', color: '#FFC107'},
+                    {x: centerX, y: centerY + 110, type: 'Na⁺', color: '#4CAF50'}
+                ];
+
+                ions.forEach(ion => {
+                    if (showWater) {
+                        const numWater = Math.floor(4 + subProgress * 4);
+                        for (let i = 0; i < numWater; i++) {
+                            const angle = (Math.PI * 2 / numWater) * i + Date.now() / 2000;
+                            const dist = 28 - subProgress * 3;
+                            const wx = ion.x + dist * Math.cos(angle);
+                            const wy = ion.y + dist * Math.sin(angle);
+                            drawWaterMolecule(dissolutionCtx, wx, wy, 0.9);
+                        }
+                        
+                        // Couche d'hydratation
+                        if (showHydration) {
+                            dissolutionCtx.strokeStyle = `rgba(33, 150, 243, ${0.3 + subProgress * 0.4})`;
+                            dissolutionCtx.lineWidth = 2;
+                            dissolutionCtx.setLineDash([3, 3]);
+                            dissolutionCtx.beginPath();
+                            dissolutionCtx.arc(ion.x, ion.y, 28, 0, Math.PI * 2);
+                            dissolutionCtx.stroke();
+                            dissolutionCtx.setLineDash([]);
+                        }
+                    }
+                    
+                    dissolutionCtx.beginPath();
+                    dissolutionCtx.arc(ion.x, ion.y, 16, 0, Math.PI * 2);
+                    dissolutionCtx.fillStyle = ion.color;
+                    dissolutionCtx.fill();
+                    dissolutionCtx.strokeStyle = '#333';
+                    dissolutionCtx.lineWidth = 2;
+                    dissolutionCtx.stroke();
+                    
+                    if (showLabels) {
+                        dissolutionCtx.fillStyle = '#333';
+                        dissolutionCtx.font = 'bold 11px Arial';
+                        dissolutionCtx.textAlign = 'center';
+                        dissolutionCtx.textBaseline = 'middle';
+                        dissolutionCtx.fillText(ion.type, ion.x, ion.y);
+                    }
+                });
+            }
+            else {
+                // Étape 4: Dispersion
+                const subProgress = (progress - 75) / 25;
+                const numIons = 20;
+                
+                for (let i = 0; i < numIons; i++) {
+                    const seed = i * 137.5;
+                    const angle = seed * Math.PI / 180;
+                    const dist = 30 + subProgress * 160;
+                    const x = centerX + dist * Math.cos(angle);
+                    const y = centerY + dist * Math.sin(angle);
+                    
+                    if (x > 30 && x < dissolutionCanvas.width - 30 && y > 30 && y < dissolutionCanvas.height - 30) {
+                        const isNa = i % 2 === 0;
+                        
+                        if (showWater && showHydration) {
+                            const numWater = 4;
+                            for (let j = 0; j < numWater; j++) {
+                                const wAngle = (Math.PI * 2 / numWater) * j + Date.now() / 3000;
+                                const wDist = 22;
+                                const wx = x + wDist * Math.cos(wAngle);
+                                const wy = y + wDist * Math.sin(wAngle);
+                                drawWaterMolecule(dissolutionCtx, wx, wy, 0.7);
+                            }
+                            
+                            dissolutionCtx.strokeStyle = 'rgba(33, 150, 243, 0.2)';
+                            dissolutionCtx.lineWidth = 1;
+                            dissolutionCtx.setLineDash([2, 2]);
+                            dissolutionCtx.beginPath();
+                            dissolutionCtx.arc(x, y, 22, 0, Math.PI * 2);
+                            dissolutionCtx.stroke();
+                            dissolutionCtx.setLineDash([]);
+                        }
+                        
+                        dissolutionCtx.beginPath();
+                        dissolutionCtx.arc(x, y, 14, 0, Math.PI * 2);
+                        dissolutionCtx.fillStyle = isNa ? '#4CAF50' : '#FFC107';
+                        dissolutionCtx.fill();
+                        dissolutionCtx.strokeStyle = '#333';
+                        dissolutionCtx.lineWidth = 1.5;
+                        dissolutionCtx.stroke();
+                        
+                        if (showLabels) {
+                            dissolutionCtx.fillStyle = '#333';
+                            dissolutionCtx.font = 'bold 9px Arial';
+                            dissolutionCtx.textAlign = 'center';
+                            dissolutionCtx.textBaseline = 'middle';
+                            dissolutionCtx.fillText(isNa ? 'Na⁺' : 'Cl⁻', x, y);
+                        }
+                    }
+                }
+            }
+        }
+
+        function updateDissolutionStep() {
+            const progress = parseFloat(document.getElementById('dissolutionSlider').value);
+            drawDissolutionState(progress);
+        }
+
+        function playDissolution() {
+            if (dissolutionAnimInterval) return;
+            
+            dissolutionAnimInterval = setInterval(() => {
+                const slider = document.getElementById('dissolutionSlider');
+                let value = parseFloat(slider.value) + animationSpeed * 0.5;
+                if (value > 100) value = 0;
+                slider.value = value;
+                updateDissolutionStep();
+            }, 50);
+        }
+
+        function pauseDissolution() {
+            if (dissolutionAnimInterval) {
+                clearInterval(dissolutionAnimInterval);
+                dissolutionAnimInterval = null;
+            }
+        }
+
+        function resetDissolutionAnim() {
+            pauseDissolution();
+            document.getElementById('dissolutionSlider').value = 0;
+            updateDissolutionStep();
+        }
+
+        // Simulation 4: Concentration améliorée
+        const concentrationCanvas = document.getElementById('concentrationCanvas');
+        const concentrationCtx = concentrationCanvas.getContext('2d');
+        let ionAnimationInterval = null;
+        let ionPositions = [];
+
+        const soluteData = {
+            'NaCl': {
+                equation: 'NaCl(s) → Na⁺(aq) + Cl⁻(aq)',
+                ions: [
+                    {name: 'Na⁺', color: '#4CAF50', coef: 1},
+                    {name: 'Cl⁻', color: '#FFC107', coef: 1}
+                ]
+            },
+            'H2SO4': {
+                equation: 'H₂SO₄(l) → 2H⁺(aq) + SO₄²⁻(aq)',
+                ions: [
+                    {name: 'H⁺', color: '#FF5252', coef: 2},
+                    {name: 'SO₄²⁻', color: '#2196F3', coef: 1}
+                ]
+            },
+            'CaCl2': {
+                equation: 'CaCl₂(s) → Ca²⁺(aq) + 2Cl⁻(aq)',
+                ions: [
+                    {name: 'Ca²⁺', color: '#9C27B0', coef: 1},
+                    {name: 'Cl⁻', color: '#FFC107', coef: 2}
+                ]
+            },
+            'KOH': {
+                equation: 'KOH(s) → K⁺(aq) + OH⁻(aq)',
+                ions: [
+                    {name: 'K⁺', color: '#FF9800', coef: 1},
+                    {name: 'OH⁻', color: '#00BCD4', coef: 1}
+                ]
+            }
+        };
+
+        function initializeIonPositions(volume, amount, solute) {
+            ionPositions = [];
+            const beakerX = 100;
+            const beakerY = 30;
+            const beakerWidth = 200;
+            const beakerHeight = 280;
+            const fillHeight = (volume / 2) * beakerHeight;
+            
+            const concentration = amount / volume;
+            const soluteInfo = soluteData[solute];
+            const baseIonCount = Math.min(Math.floor(concentration * 15), 60);
+            
+            soluteInfo.ions.forEach(ionType => {
+                const count = baseIonCount * ionType.coef;
+                for (let i = 0; i < count; i++) {
+                    ionPositions.push({
+                        x: beakerX + 10 + Math.random() * (beakerWidth - 20),
+                        y: beakerY + beakerHeight - Math.random() * fillHeight,
+                        vx: (Math.random() - 0.5) * 2,
+                        vy: (Math.random() - 0.5) * 2,
+                        name: ionType.name,
+                        color: ionType.color,
+                        radius: 6
+                    });
+                }
+            });
+        }
+
+        function animateIons() {
+            const beakerX = 100;
+            const beakerY = 30;
+            const beakerWidth = 200;
+            const beakerHeight = 280;
+            const volume = parseFloat(document.getElementById('volumeSlider').value);
+            const fillHeight = (volume / 2) * beakerHeight;
+            
+            ionPositions.forEach(ion => {
+                ion.x += ion.vx;
+                ion.y += ion.vy;
+                
+                // Rebonds sur les bords
+                if (ion.x - ion.radius < beakerX + 5 || ion.x + ion.radius > beakerX + beakerWidth - 5) {
+                    ion.vx *= -1;
+                    ion.x = Math.max(beakerX + 5 + ion.radius, Math.min(ion.x, beakerX + beakerWidth - 5 - ion.radius));
+                }
+                if (ion.y - ion.radius < beakerY + beakerHeight - fillHeight || ion.y + ion.radius > beakerY + beakerHeight - 5) {
+                    ion.vy *= -1;
+                    ion.y = Math.max(beakerY + beakerHeight - fillHeight + ion.radius, Math.min(ion.y, beakerY + beakerHeight - 5 - ion.radius));
+                }
+            });
+        }
+
+        function drawConcentration(volume, amount) {
+            concentrationCtx.clearRect(0, 0, concentrationCanvas.width, concentrationCanvas.height);
+            
+            const beakerX = 100;
+            const beakerY = 30;
+            const beakerWidth = 200;
+            const beakerHeight = 280;
+            const fillHeight = (volume / 2) * beakerHeight;
+            
+            // Bécher
+            concentrationCtx.strokeStyle = '#333';
+            concentrationCtx.lineWidth = 4;
+            concentrationCtx.beginPath();
+            concentrationCtx.moveTo(beakerX, beakerY);
+            concentrationCtx.lineTo(beakerX, beakerY + beakerHeight);
+            concentrationCtx.lineTo(beakerX + beakerWidth, beakerY + beakerHeight);
+            concentrationCtx.lineTo(beakerX + beakerWidth, beakerY);
+            concentrationCtx.stroke();
+
+            // Solution
+            const concentration = amount / volume;
+            const alpha = Math.min(0.15 + concentration * 0.15, 0.6);
+            concentrationCtx.fillStyle = `rgba(33, 150, 243, ${alpha})`;
+            concentrationCtx.fillRect(beakerX, beakerY + beakerHeight - fillHeight, beakerWidth, fillHeight);
+
+            // Ions
+            const showCount = document.getElementById('showIonCount').checked;
+            const ionCounts = {};
+            
+            ionPositions.forEach(ion => {
+                concentrationCtx.beginPath();
+                concentrationCtx.arc(ion.x, ion.y, ion.radius, 0, Math.PI * 2);
+                concentrationCtx.fillStyle = ion.color;
+                concentrationCtx.fill();
+                concentrationCtx.strokeStyle = '#333';
+                concentrationCtx.lineWidth = 1.5;
+                concentrationCtx.stroke();
+                
+                concentrationCtx.fillStyle = '#fff';
+                concentrationCtx.font = 'bold 8px Arial';
+                concentrationCtx.textAlign = 'center';
+                concentrationCtx.textBaseline = 'middle';
+                concentrationCtx.fillText(ion.name.substring(0, 2), ion.x, ion.y);
+                
+                ionCounts[ion.name] = (ionCounts[ion.name] || 0) + 1;
+            });
+
+            // Graduations
+            concentrationCtx.fillStyle = '#333';
+            concentrationCtx.font = 'bold 14px Arial';
+            concentrationCtx.textAlign = 'right';
+            for (let i = 0; i <= 2; i += 0.5) {
+                const y = beakerY + beakerHeight - (i / 2) * beakerHeight;
+                concentrationCtx.fillText(i.toFixed(1) + ' L', beakerX - 10, y + 5);
+                concentrationCtx.beginPath();
+                concentrationCtx.moveTo(beakerX - 8, y);
+                concentrationCtx.lineTo(beakerX, y);
+                concentrationCtx.stroke();
+            }
+
+            // Label
+            concentrationCtx.font = 'bold 16px Arial';
+            concentrationCtx.textAlign = 'center';
+            concentrationCtx.fillText('Bécher gradué', beakerX + beakerWidth / 2, beakerY + beakerHeight + 25);
+            
+            // Légende des ions à droite
+            if (showCount) {
+                concentrationCtx.font = 'bold 12px Arial';
+                concentrationCtx.textAlign = 'left';
+                let yOffset = beakerY + 20;
+                concentrationCtx.fillText('Ions présents:', beakerX + beakerWidth + 20, yOffset);
+                yOffset += 20;
+                
+                Object.entries(ionCounts).forEach(([name, count]) => {
+                    const ionInfo = Object.values(soluteData).flatMap(s => s.ions).find(i => i.name === name);
+                    if (ionInfo) {
+                        concentrationCtx.beginPath();
+                        concentrationCtx.arc(beakerX + beakerWidth + 30, yOffset, 6, 0, Math.PI * 2);
+                        concentrationCtx.fillStyle = ionInfo.color;
+                        concentrationCtx.fill();
+                        concentrationCtx.strokeStyle = '#333';
+                        concentrationCtx.lineWidth = 1;
+                        concentrationCtx.stroke();
+                        
+                        concentrationCtx.fillStyle = '#333';
+                        concentrationCtx.fillText(`${name}: ${count}`, beakerX + beakerWidth + 45, yOffset + 4);
+                        yOffset += 20;
+                    }
+                });
+            }
+        }
+
+        function updateConcentration() {
+            const volume = parseFloat(document.getElementById('volumeSlider').value);
+            const amount = parseFloat(document.getElementById('amountSlider').value);
+            const solute = document.getElementById('soluteSelect').value;
+            const concentration = amount / volume;
+
+            document.getElementById('volumeValue').textContent = volume.toFixed(1) + ' L';
+            document.getElementById('amountValue').textContent = amount.toFixed(1) + ' mol';
+            document.getElementById('concentrationResult').textContent = concentration.toFixed(2) + ' mol/L';
+            
+            // Afficher les concentrations des ions
+            const soluteInfo = soluteData[solute];
+            let ionConcentrationsHTML = '<div><strong>Équation:</strong> ' + soluteInfo.equation + '</div><div style="margin-top: 5px;"><strong>Concentrations effectives:</strong> ';
+            soluteInfo.ions.forEach((ion, idx) => {
+                const ionConc = (concentration * ion.coef).toFixed(2);
+                ionConcentrationsHTML += `<span style="color: ${ion.color}; font-weight: bold;">[${ion.name}] = ${ionConc} mol/L</span>`;
+                if (idx < soluteInfo.ions.length - 1) ionConcentrationsHTML += ', ';
+            });
+            ionConcentrationsHTML += '</div>';
+            document.getElementById('ionConcentrations').innerHTML = ionConcentrationsHTML;
+            
+            initializeIonPositions(volume, amount, solute);
+            drawConcentration(volume, amount);
+        }
+
+        function toggleIonAnimation() {
+            const animate = document.getElementById('animateIons').checked;
+            if (animate) {
+                if (!ionAnimationInterval) {
+                    ionAnimationInterval = setInterval(() => {
+                        animateIons();
+                        const volume = parseFloat(document.getElementById('volumeSlider').value);
+                        const amount = parseFloat(document.getElementById('amountSlider').value);
+                        drawConcentration(volume, amount);
+                    }, 50);
+                }
+            } else {
+                if (ionAnimationInterval) {
+                    clearInterval(ionAnimationInterval);
+                    ionAnimationInterval = null;
+                }
+            }
+        }
+
+        // Initialisation
+        updateCrystalRotation();
+        changeMolecule();
+        updateDissolutionStep();
+        updateConcentration();
+    </script>
+</body>
+</html>
+            

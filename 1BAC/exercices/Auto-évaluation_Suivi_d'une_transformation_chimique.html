@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-évaluation Chimie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .section-title {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .question-text {
+            font-weight: 500;
+            color: #2d3748;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            padding: 12px 15px;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            background: #edf2f7;
+            border-color: #667eea;
+        }
+        
+        .option input {
+            margin-right: 10px;
+        }
+        
+        .btn-check {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .btn-check:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .feedback.correct {
+            background: #c6f6d5;
+            border: 2px solid #48bb78;
+            color: #22543d;
+        }
+        
+        .feedback.incorrect {
+            background: #fed7d7;
+            border: 2px solid #f56565;
+            color: #742a2a;
+        }
+        
+        .explanation {
+            margin-top: 10px;
+            padding: 12px;
+            background: #edf2f7;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .score-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .score-card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .score-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .btn-reset {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .btn-reset:hover {
+            transform: scale(1.05);
+        }
+        
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        input[type="text"]:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 Auto-évaluation</h1>
+            <p>Suivi d'une transformation chimique - Leçon 4</p>
+        </div>
+        
+        <div class="content">
+            <!-- Section 1: Concepts de base -->
+            <div class="section">
+                <h2 class="section-title">📚 Partie 1 : Concepts fondamentaux</h2>
+                
+                <div class="question" data-answer="b">
+                    <div class="question-text">
+                        <strong>Q1.</strong> Qu'est-ce qu'une transformation chimique ?
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="a">
+                            Un changement d'état physique (solide, liquide, gaz)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="b">
+                            Une transformation où des réactifs disparaissent et des produits apparaissent
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="c">
+                            Un mélange de substances sans réaction
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q1')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="c">
+                    <div class="question-text">
+                        <strong>Q2.</strong> L'avancement de la réaction (x) s'exprime en :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="a">
+                            Grammes (g)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="b">
+                            Litres (L)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="c">
+                            Moles (mol)
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q2')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="a">
+                    <div class="question-text">
+                        <strong>Q3.</strong> Le réactif limitant est :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="a">
+                            L'espèce chimique qui se consomme totalement à la fin de la réaction
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="b">
+                            L'espèce chimique présente en plus grande quantité
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="c">
+                            L'espèce chimique qui ralentit la réaction
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q3')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+            
+            <!-- Section 2: Équations chimiques -->
+            <div class="section">
+                <h2 class="section-title">⚗️ Partie 2 : Équilibrer les équations</h2>
+                
+                <div class="question" data-answer="b">
+                    <div class="question-text">
+                        <strong>Q4.</strong> Dans l'équation : Fe<sub>(s)</sub> + 2H<sup>+</sup><sub>(aq)</sub> → H<sub>2(g)</sub> + Fe<sup>2+</sup><sub>(aq)</sub><br>
+                        Combien de moles de H<sup>+</sup> sont nécessaires pour réagir avec 1 mole de Fe ?
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="a">
+                            1 mole
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="b">
+                            2 moles
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="c">
+                            3 moles
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q4')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="c">
+                    <div class="question-text">
+                        <strong>Q5.</strong> Quelle conservation doit-on respecter lors de l'écriture d'une équation chimique ?
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="a">
+                            Seulement la conservation des éléments chimiques
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="b">
+                            Seulement la conservation de la charge électrique
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="c">
+                            La conservation des éléments chimiques ET de la charge électrique
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q5')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+            
+            <!-- Section 3: Calculs pratiques -->
+            <div class="section">
+                <h2 class="section-title">🔢 Partie 3 : Applications numériques</h2>
+                
+                <div class="question" data-answer="1">
+                    <div class="question-text">
+                        <strong>Q6.</strong> On a la réaction : Fe<sub>(s)</sub> + 2Ag<sup>+</sup><sub>(aq)</sub> → Fe<sup>2+</sup><sub>(aq)</sub> + 2Ag<sub>(s)</sub><br>
+                        État initial : n<sub>i</sub>(Fe) = 1,5 mol ; n<sub>i</sub>(Ag<sup>+</sup>) = 2 mol<br>
+                        <br>
+                        Si Fe est limitant : x<sub>max1</sub> = 1,5 mol<br>
+                        Si Ag<sup>+</sup> est limitant : x<sub>max2</sub> = 1 mol<br>
+                        <br>
+                        Quelle est la valeur de x<sub>max</sub> réelle ?
+                    </div>
+                    <input type="number" id="q6-input" step="0.1" placeholder="Entrez la valeur en mol">
+                    <button class="btn-check" onclick="checkNumericAnswer(this, 'q6-input', 1)">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="b">
+                    <div class="question-text">
+                        <strong>Q7.</strong> Dans la question précédente, quel est le réactif limitant ?
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q7" value="a">
+                            Fe
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="b">
+                            Ag<sup>+</sup>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="c">
+                            Les deux en même temps
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q7')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="0.02">
+                    <div class="question-text">
+                        <strong>Q8.</strong> Pour la réaction : Zn<sub>(s)</sub> + 2H<sup>+</sup><sub>(aq)</sub> → Zn<sup>2+</sup><sub>(aq)</sub> + H<sub>2(g)</sub><br>
+                        État initial : n<sub>i</sub>(Zn) = 5×10<sup>-2</sup> mol ; n<sub>i</sub>(H<sup>+</sup>) = 4×10<sup>-2</sup> mol<br>
+                        <br>
+                        Calculer x<sub>max</sub> (réponse en mol, format : 0.02)
+                    </div>
+                    <input type="number" id="q8-input" step="0.01" placeholder="Entrez la valeur en mol">
+                    <button class="btn-check" onclick="checkNumericAnswer(this, 'q8-input', 0.02)">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+            
+            <!-- Section 4: Tableau d'avancement -->
+            <div class="section">
+                <h2 class="section-title">📊 Partie 4 : Tableau d'avancement</h2>
+                
+                <div class="question" data-answer="b">
+                    <div class="question-text">
+                        <strong>Q9.</strong> Dans un tableau d'avancement, à l'état intermédiaire, la quantité de matière d'un réactif A avec coefficient stœchiométrique a est :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q9" value="a">
+                            n<sub>i</sub>(A) + ax
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="b">
+                            n<sub>i</sub>(A) - ax
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="c">
+                            ax
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q9')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="a">
+                    <div class="question-text">
+                        <strong>Q10.</strong> Un mélange stœchiométrique signifie que :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q10" value="a">
+                            Tous les réactifs sont complètement consommés à l'état final
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="b">
+                            Il y a toujours un réactif en excès
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="c">
+                            La réaction ne se produit pas complètement
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q10')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+            
+            <div class="score-card" id="scoreCard">
+                <h2>🎉 Résultat final</h2>
+                <div class="score-number" id="scoreNumber">0/10</div>
+                <p id="scoreMessage"></p>
+                <button class="btn-reset" onclick="resetQuiz()">Recommencer</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let totalQuestions = 10;
+        let correctAnswers = 0;
+        let answeredQuestions = new Set();
+        
+        const explanations = {
+            q1: "Une transformation chimique implique la disparition de réactifs et l'apparition de produits avec formation de nouvelles liaisons chimiques.",
+            q2: "L'avancement x est une grandeur qui permet de suivre l'évolution de la réaction. Il s'exprime toujours en moles (mol).",
+            q3: "Le réactif limitant est celui qui disparaît complètement en premier, ce qui arrête la réaction même s'il reste d'autres réactifs.",
+            q4: "D'après l'équation, le coefficient stœchiométrique de H+ est 2, donc 2 moles de H+ réagissent avec 1 mole de Fe.",
+            q5: "Lors de l'écriture d'une équation chimique équilibrée, on doit conserver le nombre d'atomes de chaque élément ET la charge électrique totale.",
+            q6: "On choisit le x_max le plus petit. Ici x_max2 = 1 mol < x_max1 = 1,5 mol, donc x_max = 1 mol.",
+            q7: "Ag+ est le réactif limitant car il donne le plus petit x_max (1 mol < 1,5 mol).",
+            q8: "Si Zn limitant : x = 0,05 mol. Si H+ limitant : x = 0,04/2 = 0,02 mol. On prend le plus petit : x_max = 0,02 mol.",
+            q9: "Les réactifs se consomment, donc leur quantité diminue : n_i(A) - ax où a est le coefficient stœchiométrique.",
+            q10: "Dans un mélange stœchiométrique, les proportions des réactifs sont exactement celles des coefficients stœchiométriques, donc tous disparaissent en même temps."
+        };
+        
+        function checkAnswer(button, questionName) {
+            const question = button.parentElement;
+            const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+            const feedback = question.querySelector('.feedback');
+            const correctAnswer = question.dataset.answer;
+            
+            if (!selected) {
+                alert('Veuillez sélectionner une réponse !');
+                return;
+            }
+            
+            if (!answeredQuestions.has(questionName)) {
+                answeredQuestions.add(questionName);
+                
+                if (selected.value === correctAnswer) {
+                    correctAnswers++;
+                    feedback.className = 'feedback correct';
+                    feedback.innerHTML = `
+                        <strong>✅ Correct !</strong>
+                        <div class="explanation">${explanations[questionName]}</div>
+                    `;
+                } else {
+                    feedback.className = 'feedback incorrect';
+                    feedback.innerHTML = `
+                        <strong>❌ Incorrect</strong>
+                        <div class="explanation">${explanations[questionName]}</div>
+                    `;
+                }
+                
+                feedback.style.display = 'block';
+                button.disabled = true;
+                button.style.opacity = '0.5';
+                
+                // Disable all radio buttons for this question
+                document.querySelectorAll(`input[name="${questionName}"]`).forEach(input => {
+                    input.disabled = true;
+                });
+                
+                if (answeredQuestions.size === totalQuestions) {
+                    showFinalScore();
+                }
+            }
+        }
+        
+        function checkNumericAnswer(button, inputId, correctAnswer) {
+            const input = document.getElementById(inputId);
+            const question = button.parentElement;
+            const feedback = question.querySelector('.feedback');
+            const questionName = inputId.replace('-input', '');
+            const userAnswer = parseFloat(input.value);
+            
+            if (isNaN(userAnswer)) {
+                alert('Veuillez entrer une valeur numérique !');
+                return;
+            }
+            
+            if (!answeredQuestions.has(questionName)) {
+                answeredQuestions.add(questionName);
+                
+                if (Math.abs(userAnswer - correctAnswer) < 0.001) {
+                    correctAnswers++;
+                    feedback.className = 'feedback correct';
+                    feedback.innerHTML = `
+                        <strong>✅ Correct !</strong>
+                        <div class="explanation">${explanations[questionName]}</div>
+                    `;
+                } else {
+                    feedback.className = 'feedback incorrect';
+                    feedback.innerHTML = `
+                        <strong>❌ Incorrect - La bonne réponse est ${correctAnswer} mol</strong>
+                        <div class="explanation">${explanations[questionName]}</div>
+                    `;
+                }
+                
+                feedback.style.display = 'block';
+                button.disabled = true;
+                button.style.opacity = '0.5';
+                input.disabled = true;
+                
+                if (answeredQuestions.size === totalQuestions) {
+                    showFinalScore();
+                }
+            }
+        }
+        
+        function showFinalScore() {
+            const scoreCard = document.getElementById('scoreCard');
+            const scoreNumber = document.getElementById('scoreNumber');
+            const scoreMessage = document.getElementById('scoreMessage');
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            
+            scoreNumber.textContent = `${correctAnswers}/${totalQuestions}`;
+            
+            if (percentage >= 90) {
+                scoreMessage.textContent = "Excellent ! Vous maîtrisez parfaitement cette leçon ! 🌟";
+            } else if (percentage >= 70) {
+                scoreMessage.textContent = "Très bien ! Vous avez une bonne compréhension du sujet. 👍";
+            } else if (percentage >= 50) {
+                scoreMessage.textContent = "Pas mal ! Révisez les points faibles et réessayez. 📚";
+            } else {
+                scoreMessage.textContent = "Il faut revoir la leçon. Ne vous découragez pas ! 💪";
+            }
+            
+            scoreCard.style.display = 'block';
+            scoreCard.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function resetQuiz() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
