@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoévaluation 1 - Physique et Chimie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin: 5px 0;
+        }
+
+        .student-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .student-info h2 {
+            color: #2a5298;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .exercises {
+            padding: 30px;
+        }
+
+        .exercise {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .exercise h3 {
+            color: #2a5298;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .exercise p {
+            color: #495057;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .question {
+            margin: 15px 0;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 80px;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results {
+            display: none;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-card h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .score-card .score {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .correction {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .correction h3 {
+            color: #2a5298;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .answer-comparison {
+            margin-bottom: 15px;
+        }
+
+        .answer-label {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+
+        .student-answer {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .correct-answer {
+            background: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid #28a745;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .status.correct {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.partial {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .email-status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .email-status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .email-status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .submit-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>الأكاديمية الجهوية للتربية والتكوين</p>
+            <p>مراكش − أسفي المديرية الإقليمية مراكش</p>
+            <p>ثانوية الوفاق التأهيلية</p>
+            <h1>Autoévaluation 1 Semestre 1</h1>
+            <p>Physique et chimie - Niveau : 1BACSEF</p>
+            <p>Année scolaire : 2025-2026</p>
+            <p>Prof. : Mohamed Ez-ziymy</p>
+            <p><strong>Leçon 1 : Mouvement de rotation d'un solide autour d'un axe fixe</strong></p>
+        </div>
+
+        <div class="student-info">
+            <h2>Informations de l'élève</h2>
+            <div class="form-group">
+                <label for="studentName">Nom complet :</label>
+                <input type="text" id="studentName" required>
+            </div>
+            <div class="form-group">
+                <label for="studentClass">Classe :</label>
+                <input type="text" id="studentClass" value="1BACSEF" required>
+            </div>
+            <div class="form-group">
+                <label for="studentEmail">Email (optionnel) :</label>
+                <input type="email" id="studentEmail">
+            </div>
+        </div>
+
+        <div class="exercises" id="exercisesSection">
+            <!-- Exercice 1 -->
+            <div class="exercise">
+                <h3>Exercice 1 – Définition (Niveau 1)</h3>
+                <div class="question">
+                    <label>Explique ce qu'on entend par mouvement de rotation autour d'un axe fixe et donne un exemple concret.</label>
+                    <textarea id="ex1" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Exercice 2 -->
+            <div class="exercise">
+                <h3>Exercice 2 – Abscisse curviligne (s) (Niveau 1)</h3>
+                <p>Un point d'un solide décrit un cercle de rayon R = 25 cm.</p>
+                <div class="question">
+                    <label>1. Donne la relation entre s et θ.</label>
+                    <textarea id="ex2_1" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>2. Calcule s pour θ = π/3 rad.</label>
+                    <textarea id="ex2_2" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Exercice 3 -->
+            <div class="exercise">
+                <h3>Exercice 3 – Abscisse angulaire (θ) (Niveau 1)</h3>
+                <div class="question">
+                    <label>1. Convertis 60° en radians.</label>
+                    <textarea id="ex3_1" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>2. Convertir 5π/3 rad en degrés.</label>
+                    <textarea id="ex3_2" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Exercice 4 -->
+            <div class="exercise">
+                <h3>Exercice 4 – Application directe (Niveau 2)</h3>
+                <p>Une roue a un rayon de 12 cm. Elle tourne d'un angle θ = 2π/3 rad.</p>
+                <div class="question">
+                    <label>Calcule la longueur d'arc s.</label>
+                    <textarea id="ex4" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Exercice 5 -->
+            <div class="exercise">
+                <h3>Exercice 5 – Vitesse angulaire moyenne (Niveau 2)</h3>
+                <p>Un disque tourne de Δθ = 3π rad en 6 secondes.</p>
+                <div class="question">
+                    <label>Calcule la vitesse angulaire moyenne ω<sub>m</sub>.</label>
+                    <textarea id="ex5" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Exercice 6 -->
+            <div class="exercise">
+                <h3>Exercice 6 – Vitesse angulaire instantanée (fonction affine) (Niveau 2–3)</h3>
+                <p>La loi horaire du mouvement est : θ(t) = 1,5 + 4t (rad, s)</p>
+                <div class="question">
+                    <label>1. Détermine l'angle initial.</label>
+                    <textarea id="ex6_1" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>2. Détermine la vitesse angulaire.</label>
+                    <textarea id="ex6_2" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>3. Calcule l'angle à t = 4 s.</label>
+                    <textarea id="ex6_3" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Exercice 7 -->
+            <div class="exercise">
+                <h3>Exercice 7 – Vitesse linéaire instantanée (Niveau 3)</h3>
+                <p>Un point est situé à R = 15 cm de l'axe. La vitesse angulaire du solide vaut ω = 8 rad/s.</p>
+                <div class="question">
+                    <label>Calcule la vitesse linéaire v du point.</label>
+                    <textarea id="ex7" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Exercice 8 -->
+            <div class="exercise">
+                <h3>Exercice 8 – Rotation uniforme : caractéristiques (Niveau 3)</h3>
+                <div class="question">
+                    <label>1. Donne la définition du mouvement de rotation uniforme.</label>
+                    <textarea id="ex8_1" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>2. Cites-en deux grandeurs caractéristiques.</label>
+                    <textarea id="ex8_2" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>3. Explique ce que signifie : « la vitesse angulaire est constante ».</label>
+                    <textarea id="ex8_3" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Exercice 9 -->
+            <div class="exercise">
+                <h3>Exercice 9 – Équation horaire d'un MRU rotation (Niveau 4)</h3>
+                <p>Un disque tourne avec ω = 5 rad/s, θ₀ = 2 rad.</p>
+                <div class="question">
+                    <label>1. Écris l'équation horaire.</label>
+                    <textarea id="ex9_1" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>2. Trouve l'angle à t = 3 s.</label>
+                    <textarea id="ex9_2" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>3. Calcule la vitesse linéaire d'un point situé à R = 8 cm.</label>
+                    <textarea id="ex9_3" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Exercice 10 -->
+            <div class="exercise">
+                <h3>Exercice 10 – Problème intégral avec MRU rotation (Niveau 5)</h3>
+                <p>La loi horaire d'un solide en rotation uniforme est : θ(t) = 1 + 2,5t, avec θ en rad, t en s.</p>
+                <p>Le rayon du disque est R = 50 cm.</p>
+                <div class="question">
+                    <label>1. Détermine : a) l'angle initial b) la vitesse angulaire</label>
+                    <textarea id="ex10_1" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>2. Calcule : a) θ(5s) b) l'angle parcouru pendant ces 5 secondes</label>
+                    <textarea id="ex10_2" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+                <div class="question">
+                    <label>3. Déduis la vitesse linéaire du point situé à 40 cm de l'axe.</label>
+                    <textarea id="ex10_3" placeholder="Écris ta réponse ici..."></textarea>
+                </div>
+            </div>
+
+            <button class="submit-btn" onclick="submitTest()">Soumettre l'évaluation</button>
+        </div>
+
+        <div class="results" id="resultsSection">
+            <div class="score-card">
+                <h2>Votre résultat</h2>
+                <div class="score" id="finalScore">0/20</div>
+                <p id="scorePercentage"></p>
+            </div>
+
+            <div id="corrections"></div>
+
+            <div class="email-status" id="emailStatus" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        const corrections = {
+            ex1: "Un solide est en rotation autour d'un axe fixe lorsque tous les points du solide tournent autour d'une même droite immobile. Exemple : une porte qui tourne autour de ses gonds.",
+            ex2_1: "s = R × θ",
+            ex2_2: "s = 0,25 × π/3 ≈ 0,26 m ou 26 cm",
+            ex3_1: "θ = 60 × π/180 = π/3 rad ≈ 1,05 rad",
+            ex3_2: "α = (5π/3) × 180/π = 300°",
+            ex4: "s = R × θ = 0,12 × 2π/3 ≈ 0,25 m ou 25 cm",
+            ex5: "ω_m = Δθ/Δt = 3π/6 = π/2 rad/s ≈ 1,57 rad/s",
+            ex6_1: "θ₀ = 1,5 rad",
+            ex6_2: "ω = 4 rad/s",
+            ex6_3: "θ(4) = 1,5 + 4×4 = 17,5 rad",
+            ex7: "v = R × ω = 0,15 × 8 = 1,2 m/s",
+            ex8_1: "Mouvement où ω est constante.",
+            ex8_2: "Grandeurs : ω, période T, fréquence N.",
+            ex8_3: "La vitesse de rotation ne change pas au cours du temps.",
+            ex9_1: "θ(t) = 2 + 5t",
+            ex9_2: "θ(3) = 2 + 5×3 = 17 rad",
+            ex9_3: "v = R × ω = 0,08 × 5 = 0,4 m/s",
+            ex10_1: "a) θ₀ = 1 rad, b) ω = 2,5 rad/s",
+            ex10_2: "a) θ(5) = 1 + 2,5×5 = 13,5 rad, b) Δθ = 13,5 - 1 = 12,5 rad",
+            ex10_3: "v = R × ω = 0,4 × 2,5 = 1 m/s"
+        };
+
+        const points = {
+            ex1: 2,
+            ex2_1: 1,
+            ex2_2: 1,
+            ex3_1: 1,
+            ex3_2: 1,
+            ex4: 1.5,
+            ex5: 1.5,
+            ex6_1: 1,
+            ex6_2: 1,
+            ex6_3: 1,
+            ex7: 1.5,
+            ex8_1: 1,
+            ex8_2: 1,
+            ex8_3: 1,
+            ex9_1: 1,
+            ex9_2: 0.5,
+            ex9_3: 0.5,
+            ex10_1: 1,
+            ex10_2: 1,
+            ex10_3: 0.5
+        };
+
+        function submitTest() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentClass = document.getElementById('studentClass').value.trim();
+            const studentEmail = document.getElementById('studentEmail').value.trim();
+
+            if (!studentName || !studentClass) {
+                alert('Veuillez remplir votre nom et votre classe.');
+                return;
+            }
+
+            let totalScore = 0;
+            let studentAnswers = {};
+            let correctionsHTML = '';
+
+            for (let key in corrections) {
+                const answer = document.getElementById(key).value.trim();
+                studentAnswers[key] = answer;
+
+                const score = answer ? points[key] : 0;
+                totalScore += score;
+
+                correctionsHTML += `
+                    <div class="correction">
+                        <h3>Question: ${key.replace('_', ' partie ')}</h3>
+                        <span class="status ${score === points[key] ? 'correct' : 'partial'}">
+                            ${score}/${points[key]} points
+                        </span>
+                        <div class="answer-comparison">
+                            <div class="answer-label">Votre réponse :</div>
+                            <div class="student-answer">${answer || '<em>Pas de réponse</em>'}</div>
+                            <div class="answer-label">Réponse correcte :</div>
+                            <div class="correct-answer">${corrections[key]}</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const finalScore = totalScore.toFixed(1);
+            const percentage = ((totalScore / 20) * 100).toFixed(1);
+
+            document.getElementById('finalScore').textContent = `${finalScore}/20`;
+            document.getElementById('scorePercentage').textContent = `${percentage}% de réussite`;
+            document.getElementById('corrections').innerHTML = correctionsHTML;
+
+            document.getElementById('exercisesSection').style.display = 'none';
+            document.getElementById('resultsSection').classList.add('show');
+
+            sendEmailReport(studentName, studentClass, studentEmail, studentAnswers, finalScore);
+
+            window.scrollTo(0, 0);
+        }
+
+        function sendEmailReport(name, classe, email, answers, score) {
+            const emailStatus = document.getElementById('emailStatus');
+            
+            let reportText = `RAPPORT D'AUTOÉVALUATION
+            
+Nom: ${name}
+Classe: ${classe}
+Email: ${email || 'Non fourni'}
+Note finale: ${score}/20
+
+RÉPONSES DE L'ÉLÈVE:
+`;
+
+            for (let key in answers) {
+                reportText += `\n${key}: ${answers[key] || 'Pas de réponse'}\n`;
+            }
+
+            const mailtoLink = `mailto:mohamed.ezziymy@gmail.com?subject=Autoévaluation - ${name} (${classe})&body=${encodeURIComponent(reportText)}`;
+            
+            window.location.href = mailtoLink;
+            
+            emailStatus.style.display = 'block';
+            emailStatus.className = 'email-status success';
+            emailStatus.textContent = '✓ Votre client email a été ouvert. Veuillez envoyer le message pour soumettre votre évaluation au professeur.';
+        }
+    </script>
+</body>
+</html>

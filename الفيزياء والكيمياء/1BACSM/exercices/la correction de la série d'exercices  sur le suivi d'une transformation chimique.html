@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correction Série d'Exercices - Chimie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .exercise {
+            margin-bottom: 50px;
+            border-left: 5px solid #667eea;
+            padding-left: 25px;
+        }
+        
+        .exercise-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .question {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #764ba2;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: #764ba2;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .solution {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .solution-title {
+            font-weight: bold;
+            color: #2e7d32;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .solution-title::before {
+            content: "✓";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .equation {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            text-align: center;
+            border: 2px solid #ddd;
+        }
+        
+        .explanation {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .explanation-title {
+            font-weight: bold;
+            color: #e65100;
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .formula {
+            color: #1976d2;
+            font-weight: bold;
+        }
+        
+        .result {
+            background: #c8e6c9;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #1b5e20;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Correction Complète</h1>
+            <p>Série d'exercices 4 - Suivi d'une transformation chimique</p>
+        </header>
+        
+        <div class="content">
+            <!-- Exercice 1 -->
+            <div class="exercise">
+                <div class="exercise-title">Exercice 1 - Équilibrage d'équations chimiques</div>
+                
+                <div class="explanation">
+                    <div class="explanation-title">💡 Principe d'équilibrage :</div>
+                    Pour équilibrer une équation, on doit avoir le même nombre d'atomes de chaque élément des deux côtés de la flèche (conservation de la matière).
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">1) Cu²⁺ + HO⁻ → Cu(HO)₂</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">Cu²⁺ + 2HO⁻ → Cu(HO)₂</div>
+                    <div class="explanation">
+                        <strong>Vérification :</strong>
+                        <ul>
+                            <li>Cu : 1 à gauche, 1 à droite ✓</li>
+                            <li>HO : 2 à gauche, 2 à droite ✓</li>
+                            <li>Charges : +2-2=0 à gauche, 0 à droite ✓</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">2) C₄H₁₀ + O₂ → CO₂ + H₂O</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">2C₄H₁₀ + 13O₂ → 8CO₂ + 10H₂O</div>
+                    <div class="explanation">
+                        <strong>Méthode :</strong>
+                        <ul>
+                            <li>C : 4 atomes → besoin de 4 CO₂</li>
+                            <li>H : 10 atomes → besoin de 5 H₂O</li>
+                            <li>O : 4×2 + 5 = 13 atomes → besoin de 13/2 O₂</li>
+                            <li>On multiplie tout par 2 pour avoir des coefficients entiers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">3) H₂O₂ → O₂ + H₂O</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">2H₂O₂ → O₂ + 2H₂O</div>
+                    <div class="explanation">
+                        <strong>Vérification :</strong> H: 4 à gauche, 4 à droite ; O: 4 à gauche, 4 à droite ✓
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">4) H₂S + O₂ → SO₂ + S + H₂O</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">2H₂S + O₂ → SO₂ + S + 2H₂O</div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">5) MnO₂ + HCl → MnCl₂ + Cl₂ + H₂O</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">MnO₂ + 4HCl → MnCl₂ + Cl₂ + 2H₂O</div>
+                    <div class="explanation">
+                        <strong>Vérification :</strong> Mn: 1-1 ; O: 2-2 ; H: 4-4 ; Cl: 4-4 ✓
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">6) CaCO₃ + H₂O → HO⁻ + Ca²⁺ + CO₂</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">CaCO₃ + H₂O → 2HO⁻ + Ca²⁺ + CO₂</div>
+                </div>
+            </div>
+            
+            <!-- Exercice 2 -->
+            <div class="exercise">
+                <div class="exercise-title">Exercice 2 - Combustion du propane</div>
+                
+                <div class="question">
+                    <div class="question-number">1) Noms et formules des réactifs et produits</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <strong>Réactifs :</strong>
+                    <ul>
+                        <li>Propane : C₃H₈</li>
+                        <li>Dioxygène : O₂</li>
+                    </ul>
+                    <strong>Produits :</strong>
+                    <ul>
+                        <li>Dioxyde de carbone : CO₂</li>
+                        <li>Eau : H₂O</li>
+                    </ul>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">2) Quantité de matière initiale du propane</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="explanation">
+                        <strong>Calcul de la masse molaire du propane :</strong><br>
+                        M(C₃H₈) = 3×M(C) + 8×M(H) = 3×12 + 8×1 = 44 g/mol
+                    </div>
+                    <div class="formula">n = m/M = 7,8/44 = 0,177 mol</div>
+                    <div class="result">n₀(C₃H₈) = 0,177 mol ≈ 0,18 mol</div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">3) Tableau d'avancement</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>État</th>
+                                <th>Avancement (mol)</th>
+                                <th>C₃H₈</th>
+                                <th>O₂</th>
+                                <th>CO₂</th>
+                                <th>H₂O</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Initial</strong></td>
+                                <td>x = 0</td>
+                                <td>0,177</td>
+                                <td>Excès</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>En cours</strong></td>
+                                <td>x</td>
+                                <td>0,177 - x</td>
+                                <td>Excès - 5x</td>
+                                <td>3x</td>
+                                <td>4x</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Final</strong></td>
+                                <td>xₘₐₓ</td>
+                                <td>0,177 - xₘₐₓ</td>
+                                <td>Excès - 5xₘₐₓ</td>
+                                <td>3xₘₐₓ</td>
+                                <td>4xₘₐₓ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">4) Réactif limitant et avancement maximal</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="explanation">
+                        Le dioxygène est en excès (air), donc le <span class="highlight">propane est le réactif limitant</span>.
+                        <br><br>
+                        <strong>Calcul :</strong> 0,177 - xₘₐₓ = 0 → xₘₐₓ = 0,177 mol
+                    </div>
+                    <div class="result">xₘₐₓ = 0,177 mol</div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">5) Composition à l'état final</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <ul>
+                        <li><strong>n(C₃H₈) = 0 mol</strong> (réactif limitant totalement consommé)</li>
+                        <li><strong>n(O₂) = Excès - 5×0,177 = Excès - 0,885 mol</strong></li>
+                        <li><strong>n(CO₂) = 3×0,177 = 0,531 mol</strong></li>
+                        <li><strong>n(H₂O) = 4×0,177 = 0,708 mol</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">6) Volume du dioxyde de carbone</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="formula">V = n × Vₘ = 0,531 × 24 = 12,74 L</div>
+                    <div class="result">V(CO₂) = 12,74 L ≈ 12,7 L</div>
+                </div>
+            </div>
+            
+            <!-- Exercice 3 -->
+            <div class="exercise">
+                <div class="exercise-title">Exercice 3 - Précipitation de l'hydroxyde de cuivre</div>
+                
+                <div class="question">
+                    <div class="question-number">1) Réactifs et produits</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <strong>Réactifs :</strong>
+                    <ul>
+                        <li>Ions cuivre II : Cu²⁺</li>
+                        <li>Ions hydroxyde : HO⁻</li>
+                    </ul>
+                    <strong>Produits :</strong>
+                    <ul>
+                        <li>Hydroxyde de cuivre (précipité bleu) : Cu(HO)₂</li>
+                        <li>Ions sodium : Na⁺ (ions spectateurs)</li>
+                        <li>Ions sulfate : SO₄²⁻ (ions spectateurs)</li>
+                    </ul>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">2) Équation de la réaction</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">Cu²⁺ + 2HO⁻ → Cu(HO)₂</div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">3) Tableau d'avancement</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>État</th>
+                                <th>Avancement</th>
+                                <th>Cu²⁺</th>
+                                <th>HO⁻</th>
+                                <th>Cu(HO)₂</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Initial</strong></td>
+                                <td>0</td>
+                                <td>n₀</td>
+                                <td>Excès</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>En cours</strong></td>
+                                <td>x</td>
+                                <td>n₀ - x</td>
+                                <td>Excès - 2x</td>
+                                <td>x</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Final</strong></td>
+                                <td>xₘₐₓ</td>
+                                <td>0</td>
+                                <td>Excès - 2xₘₐₓ</td>
+                                <td>xₘₐₓ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">4a) Quantité de matière de Cu(HO)₂</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="explanation">
+                        <strong>Masse molaire de Cu(HO)₂ :</strong><br>
+                        M = M(Cu) + 2×M(O) + 2×M(H) = 63,5 + 2×16 + 2×1 = 97,5 g/mol
+                    </div>
+                    <div class="formula">n = m/M = 0,290/97,5 = 0,00297 mol</div>
+                    <div class="result">n[Cu(HO)₂] = 2,97×10⁻³ mol ≈ 3×10⁻³ mol</div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">4b) Avancement maximal</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="explanation">
+                        D'après le tableau d'avancement : n[Cu(HO)₂] = xₘₐₓ
+                    </div>
+                    <div class="result">xₘₐₓ = 2,97×10⁻³ mol</div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">4c) Quantité initiale de Cu²⁺ et concentration C</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="explanation">
+                        L'hydroxyde de sodium est en excès, donc Cu²⁺ est le réactif limitant.<br>
+                        D'après le tableau : n₀(Cu²⁺) - xₘₐₓ = 0
+                    </div>
+                    <div class="formula">n₀(Cu²⁺) = xₘₐₓ = 2,97×10⁻³ mol</div>
+                    <div class="explanation">
+                        <strong>Calcul de la concentration :</strong><br>
+                        C = n/V = 2,97×10⁻³ / (20×10⁻³) = 0,1485 mol/L
+                    </div>
+                    <div class="result">C = 0,15 mol/L</div>
+                </div>
+            </div>
+            
+            <!-- Exercice 4 -->
+            <div class="exercise">
+                <div class="exercise-title">Exercice 4 - Réaction entre diiode et thiosulfate</div>
+                
+                <div class="explanation">
+                    <div class="explanation-title">📝 Note importante :</div>
+                    Cet exercice contient d'abord des équations à équilibrer, puis une étude graphique de la réaction entre I₂ et S₂O₃²⁻.
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">Équations à équilibrer :</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solutions :</div>
+                    <div class="equation">2H₂ + O₂ → 2H₂O</div>
+                    <div class="equation">2KI + Cl₂ → I₂ + 2KCl</div>
+                    <div class="equation">2AgNO₃ + Cu → Cu(NO₃)₂ + 2Ag</div>
+                    <div class="equation">2Cl⁻ + 2H₂O → Cl₂ + H₂ + 2HO⁻</div>
+                    <div class="equation">2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O</div>
+                    <div class="equation">2NaI + Pb(NO₃)₂ → 2NaNO₃ + PbI₂</div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">Étude de la réaction I₂ + S₂O₃²⁻</div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">1) Réactifs et produits</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <strong>Réactifs :</strong>
+                    <ul>
+                        <li>Diiode : I₂</li>
+                        <li>Ions thiosulfate : S₂O₃²⁻</li>
+                    </ul>
+                    <strong>Produits :</strong>
+                    <ul>
+                        <li>Ions iodure : I⁻</li>
+                        <li>Ions tétrathionate : S₄O₆²⁻</li>
+                    </ul>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">2) Équation de la réaction</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻</div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">3) Tableau d'avancement</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>État</th>
+                                <th>Avancement</th>
+                                <th>I₂</th>
+                                <th>S₂O₃²⁻</th>
+                                <th>I⁻</th>
+                                <th>S₄O₆²⁻</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Initial</strong></td>
+                                <td>0</td>
+                                <td>n₁</td>
+                                <td>n₂</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>En cours</strong></td>
+                                <td>x</td>
+                                <td>n₁ - x</td>
+                                <td>n₂ - 2x</td>
+                                <td>2x</td>
+                                <td>x</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Final</strong></td>
+                                <td>xₘₐₓ</td>
+                                <td>n₁ - xₘₐₓ</td>
+                                <td>n₂ - 2xₘₐₓ</td>
+                                <td>2xₘₐₓ</td>
+                                <td>xₘₐₓ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="question">
+                    <div class="question-number">4) Exploitation de la courbe</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="explanation">
+                        <strong>a) Quantités de matière initiales :</strong><br>
+                        D'après la courbe à x = 0 :<br>
+                        • n₁(I₂) = 4×10⁻³ mol<br>
+                        • n₂(S₂O₃²⁻) = 6×10⁻³ mol
+                    </div>
+                    <div class="result">n₁ = 4×10⁻³ mol ; n₂ = 6×10⁻³ mol</div>
+                    
+                    <div class="explanation">
+                        <strong>b) Avancement maximal :</strong><br>
+                        C'est le point où l'un des réactifs est totalement consommé (atteint zéro).
+                    </div>
+                    <div class="result">xₘₐₓ = 3×10⁻³ mol (lorsque S₂O₃²⁻ atteint 0)</div>
+                    
+                    <div class="explanation">
+                        <strong>c) Réactif limitant :</strong><br>
+                        Pour I₂ : n₁ - xₘₐₓ = 4×10⁻³ - 3×10⁻³ = 1×10⁻³ mol (reste du I₂)<br>
+                        Pour S₂O₃²⁻ : n₂ - 2xₘₐₓ = 6×10⁻³ - 2×3×10⁻³ = 0 mol
+                    </div>
+                    <div class="result">Le réactif limitant est S₂O₃²⁻</div>
+                    
+                    <div class="explanation">
+                        <strong>d) Bilan à l'état final :</strong>
+                        <ul>
+                            <li>n(I₂) = 1×10⁻³ mol (en excès)</li>
+                            <li>n(S₂O₃²⁻) = 0 mol (totalement consommé)</li>
+                            <li>n(I⁻) = 2×3×10⁻³ = 6×10⁻³ mol</li>
+                            <li>n(S₄O₆²⁻) = 3×10⁻³ mol</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Exercice 5 -->
+            <div class="exercise">
+                <div class="exercise-title">Exercice 5 - Combustion d'un composé organique</div>
+                
+                <div class="question">
+                    <div class="question-number">1) Équation de combustion</div>
+                </div>
+                <div class="solution">
+                    <div class="solution-title">Solution :</div>
+                    <div class="equation">C<sub>n</sub>H<sub>2n+2</sub> + (3n+1)/2 O₂ → nCO₂ + (n+1)H₂O</div>
+                    <div class="explanation">
+                        Ou en multipliant par 2 pour avoir des coefficients entiers :<br>
+                        <strong>2C<sub>n</sub>H<sub>2n+2</sub> + (3n+1)O₂ → 2nCO₂ + 
