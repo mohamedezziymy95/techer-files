@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Physique Nucléaire 3D - Simulations Interactives</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Police -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#101114;
+      --panel:#171a20;
+      --panel-2:#1f2430;
+      --accent:#ffeb3b;
+      --accent-2:#fff176;
+      --text:#f1f3f5;
+      --muted:#9aa0a6;
+      --border:#2a2f3a;
+      --p:#ff5252;   /* proton */
+      --n:#bdbdbd;   /* neutron */
+      --e:#448aff;   /* electron */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial}
+    header{
+      padding:48px 16px;text-align:center;border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,#0b0c10 0%, #101114 100%);
+    }
+    header h1{margin:0 0 8px;font-size:2.2rem;color:var(--accent);font-family:"Roboto Mono",monospace;text-shadow:0 0 10px rgba(255,235,59,.2)}
+    header p{margin:0;color:var(--muted)}
+    main{display:flex;flex-direction:column;gap:40px;padding:28px 16px 60px;max-width:1280px;margin:0 auto;}
+    .section{
+      display:grid;grid-template-columns:1fr 1.3fr;gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--panel);box-shadow:0 20px 60px rgba(0,0,0,.35);
+    }
+    .panel{
+      padding:26px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:18px;background:var(--panel);
+    }
+    .panel h2{
+      font-family:"Roboto Mono",monospace;margin:0;color:var(--accent);font-size:1.4rem;border-bottom:1px dashed var(--border);padding-bottom:10px;
+    }
+    .panel p{color:var(--muted);margin:0 0 6px}
+    .controls{display:grid;gap:14px}
+    .control{
+      display:flex;flex-direction:column;gap:8px
+    }
+    .control label{font-size:.9rem;color:#e6e6e6;text-transform:uppercase;letter-spacing:.04em}
+    .control .value{color:var(--accent-2);font-weight:700}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    button{
+      background:var(--accent);color:#000;border:none;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;transition:.2s;
+      text-transform:uppercase;font-size:.85rem;letter-spacing:.05em;
+    }
+    button.secondary{background:var(--panel-2);color:var(--text)}
+    button:disabled{opacity:.45;cursor:not-allowed}
+    button:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 10px 24px rgba(255,235,59,.25)}
+    input[type="range"]{width:100%}
+    select{
+      background:var(--panel-2);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px
+    }
+    .scene{min-height:420px;background:#000}
+    .data{
+      margin-top:6px;border:1px solid var(--border);border-radius:10px;padding:12px;background:rgba(0,0,0,.25)
+    }
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:10px;font-size:.95rem}
+    .status{min-height:20px;color:var(--accent);font-family:"Roboto Mono",monospace}
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:99px;background:rgba(255,235,59,.12);border:1px solid rgba(255,235,59,.3);color:var(--accent)}
+    footer{padding:24px;text-align:center;color:var(--muted);border-top:1px solid var(--border)}
+    @media (max-width:992px){
+      .section{grid-template-columns:1fr}
+      .panel{border-right:none;border-bottom:1px solid var(--border)}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Physique Nucléaire 3D — Simulations Interactives</h1>
+  <p>Compose des atomes, observe des désintégrations explicites (α, β, γ), et déclenche des réactions de fission/fusion avec effets d’énergie.</p>
+</header>
+
+<main>
+
+  <!-- 1) Compositeur d'atomes -->
+  <section class="section">
+    <div class="panel">
+      <h2>Compositeur d’Atomes</h2>
+      <p>Ajoute des protons/neutrons pour former un noyau. Le nombre de protons (Z) détermine l’élément. Le rapport N/Z influence la stabilité.</p>
+      <div class="controls">
+        <div class="control">
+          <label>Protons (Z): <span class="value" id="atomZVal">1</span></label>
+          <input id="atomZ" type="range" min="1" max="10" value="1" step="1" />
+        </div>
+        <div class="control">
+          <label>Neutrons (N): <span class="value" id="atomNVal">0</span></label>
+          <input id="atomN" type="range" min="0" max="12" value="0" step="1" />
+        </div>
+      </div>
+      <div class="data">
+        <div class="grid">
+          <div><span>Élément</span><div id="elName" style="font-weight:700">Hydrogène</div></div>
+          <div><span>Symbole</span><div id="elSym" style="font-weight:700">H</div></div>
+          <div><span>Masse A=Z+N</span><div id="elMass" style="font-weight:700">1</div></div>
+          <div><span>Stabilité</span><div id="elStab" style="font-weight:700">Stable</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="scene" id="atomScene"></div>
+  </section>
+
+  <!-- 2) Désintégrations α, β, γ -->
+  <section class="section">
+    <div class="panel">
+      <h2>Désintégrations radioactives (α, β, γ)</h2>
+      <p>Visualisation explicite des processus: α éjecte un mini He‑4, β transforme un neutron en proton (clignotement + électron éjecté), γ libère une onde d’énergie depuis un état excité.</p>
+      <div class="controls">
+        <span class="badge">Noyau: U‑238 (92 p, 146 n)</span>
+        <div class="row">
+          <button id="btnAlpha">α — Ejection He‑4</button>
+          <button id="btnBeta">β — n → p + e⁻</button>
+          <button id="btnGamma">γ — Onde d’énergie</button>
+          <button class="secondary" id="btnDecayReset">Réinitialiser</button>
+        </div>
+        <div class="status" id="decayStatus"></div>
+      </div>
+    </div>
+    <div class="scene" id="decayScene"></div>
+  </section>
+
+  <!-- 3) Réactions nucléaires: Fission / Fusion -->
+  <section class="section">
+    <div class="panel">
+      <h2>Réactions Nucléaires (Fission / Fusion)</h2>
+      <p>Fission: absorption d’un neutron → instabilité (oscillations), rupture, onde d’énergie. Fusion: D + T se repoussent, puis fusionnent (flash + onde) → He‑4 + n.</p>
+      <div class="controls">
+        <div class="control">
+          <label>Type de réaction</label>
+          <select id="reactionType">
+            <option value="fission" selected>Fission (U‑235 + n)</option>
+            <option value="fusion">Fusion (D + T → He‑4 + n)</option>
+          </select>
+        </div>
+        <div class="row">
+          <button id="btnReactStart">Démarrer</button>
+          <button class="secondary" id="btnReactReset">Réinitialiser</button>
+        </div>
+        <div class="status" id="reactStatus"></div>
+      </div>
+    </div>
+    <div class="scene" id="reactScene"></div>
+  </section>
+
+</main>
+
+<footer>© 2025 — Simulations 3D By Mohamed Ez-ziymy</footer>
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+/* Utilitaires généraux */
+const ACCENT = 0xFFEB3B;
+const COLOR_P = 0xFF5252;  // proton
+const COLOR_N = 0xBDBDBD;  // neutron
+const COLOR_E = 0x448AFF;  // electron
+
+function makeRendererScene(containerId){
+  const container = document.getElementById(containerId);
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x000000);
+  const camera = new THREE.PerspectiveCamera(50, container.clientWidth/container.clientHeight, 0.1, 1000);
+  camera.position.set(0,0,22);
+
+  const renderer = new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  // Lumières
+  const amb = new THREE.AmbientLight(0xffffff, 0.6);
+  const dir = new THREE.DirectionalLight(0xffffff, 1);
+  dir.position.set(10,15,8);
+  scene.add(amb,dir);
+
+  return {container, scene, camera, renderer};
+}
+function onResize(sim){
+  const {container, camera, renderer} = sim;
+  const w = container.clientWidth, h = container.clientHeight;
+  camera.aspect = w/h; camera.updateProjectionMatrix();
+  renderer.setSize(w,h);
+}
+
+/* Matériaux de base (clonés ensuite par particule pour sécurité) */
+const matProtonBase  = new THREE.MeshStandardMaterial({color:COLOR_P, roughness:0.45});
+const matNeutronBase = new THREE.MeshStandardMaterial({color:COLOR_N, roughness:0.45});
+const matElectron    = new THREE.MeshStandardMaterial({color:COLOR_E, emissive:COLOR_E, emissiveIntensity:0.6, roughness:0.3});
+
+/* Fabrique un noyau (groupe) avec p protons et n neutrons, échelle scale */
+function createNucleus(p, n, scale=1){
+  const g = new THREE.Group();
+  const total = p+n;
+  const R = total>0 ? Math.cbrt(total)*0.15*scale : 0.001;
+  for(let i=0;i<p;i++){
+    const m = new THREE.Mesh(new THREE.SphereGeometry(0.1*scale, 16,16), matProtonBase.clone());
+    m.userData.type = 'p';
+    const phi = Math.acos(2*Math.random()-1);
+    const th  = 2*Math.PI*Math.random();
+    const r   = R * (0.6 + 0.4*Math.random());
+    const pos = new THREE.Spherical(r, phi, th);
+    m.position.setFromSpherical(pos);
+    g.add(m);
+  }
+  for(let i=0;i<n;i++){
+    const m = new THREE.Mesh(new THREE.SphereGeometry(0.1*scale, 16,16), matNeutronBase.clone());
+    m.userData.type = 'n';
+    const phi = Math.acos(2*Math.random()-1);
+    const th  = 2*Math.PI*Math.random();
+    const r   = R * (0.6 + 0.4*Math.random());
+    const pos = new THREE.Spherical(r, phi, th);
+    m.position.setFromSpherical(pos);
+    g.add(m);
+  }
+  return g;
+}
+
+/* Onde d’énergie (sphère brillante qui se dilate et s’évanouit) */
+function createEnergyBlast(color=ACCENT){
+  const mesh = new THREE.Mesh(
+    new THREE.SphereGeometry(1, 24, 24),
+    new THREE.MeshBasicMaterial({color, transparent:true, opacity:0.9})
+  );
+  mesh.userData.isWave = true;
+  mesh.scale.set(0.1,0.1,0.1);
+  return mesh;
+}
+/* Anneau (torus) gamma qui s’étend et s’estompe */
+function createGammaRing(color=ACCENT){
+  const mesh = new THREE.Mesh(
+    new THREE.TorusGeometry(1, 0.05, 10, 64),
+    new THREE.MeshBasicMaterial({color, transparent:true, opacity:1})
+  );
+  mesh.userData.isWave = true;
+  mesh.scale.set(0.1,0.1,0.1);
+  return mesh;
+}
+
+/* Liste des simulations pour l’animation globale */
+const sims = [];
+
+/* 1) SIM — Compositeur d’atomes */
+(function(){
+  const sim = makeRendererScene('atomScene');
+  sim.camera.position.set(0,0,18);
+
+  const nucleusHolder = new THREE.Group();
+  sim.scene.add(nucleusHolder);
+  const electronHolder = new THREE.Group();
+  sim.scene.add(electronHolder);
+
+  const Z = document.getElementById('atomZ');
+  const N = document.getElementById('atomN');
+  const ZVal = document.getElementById('atomZVal');
+  const NVal = document.getElementById('atomNVal');
+  const elName = document.getElementById('elName');
+  const elSym  = document.getElementById('elSym');
+  const elMass = document.getElementById('elMass');
+  const elStab = document.getElementById('elStab');
+
+  const elements = [
+    {sym:'H', name:'Hydrogène'},
+    {sym:'He',name:'Hélium'},
+    {sym:'Li',name:'Lithium'},
+    {sym:'Be',name:'Béryllium'},
+    {sym:'B', name:'Bore'},
+    {sym:'C', name:'Carbone'},
+    {sym:'N', name:'Azote'},
+    {sym:'O', name:'Oxygène'},
+    {sym:'F', name:'Fluor'},
+    {sym:'Ne',name:'Néon'},
+  ];
+
+  let state = {z:1, n:0};
+
+  function clearGroup(g){
+    while(g.children.length) g.remove(g.children[0]);
+  }
+
+  function updateInfo(){
+    ZVal.textContent = state.z;
+    NVal.textContent = state.n;
+    const e = elements[state.z-1] || {sym:'?',name:'(Élément inconnu)'};
+    elName.textContent = e.name;
+    elSym.textContent  = e.sym;
+    elMass.textContent = (state.z + state.n);
+
+    // règle simple de stabilité: ratio N/Z proche de 1 (sauf H spécial)
+    let stab = 'Stable';
+    if (state.z===1 && state.n>2) stab = 'Très instable';
+    else {
+      const ratio = state.n / state.z;
+      if (ratio<0.8 || ratio>1.8) stab = 'Instable';
+    }
+    elStab.textContent = stab;
+  }
+
+  function buildAtom(){
+    clearGroup(nucleusHolder);
+    clearGroup(electronHolder);
+    const nuc = createNucleus(state.z, state.n, 6);
+    nucleusHolder.add(nuc);
+
+    // Electrons sur orbites (2,8) — simple visualisation
+    const shells = [2,8];
+    let remaining = state.z;
+    let shellIndex = 0;
+    while(remaining>0 && shellIndex<shells.length){
+      const cap = shells[shellIndex];
+      const count = Math.min(cap, remaining);
+      const R = 4 + shellIndex*2;
+      // Anneau
+      const ringGeo = new THREE.RingGeometry(R-0.01, R+0.01, 64);
+      const ringMat = new THREE.MeshBasicMaterial({color:0x333333, side:THREE.DoubleSide});
+      const ring = new THREE.Mesh(ringGeo, ringMat);
+      ring.rotation.x = Math.random()*Math.PI;
+      ring.rotation.y = Math.random()*Math.PI;
+      electronHolder.add(ring);
+      // Electrons
+      for(let i=0;i<count;i++){
+        const theta = (i/count)*Math.PI*2;
+        const e = new THREE.Mesh(new THREE.SphereGeometry(0.15, 12,12), matElectron);
+        e.position.set(R*Math.cos(theta), R*Math.sin(theta), 0);
+        ring.add(e);
+      }
+      remaining -= count;
+      shellIndex++;
+    }
+    updateInfo();
+  }
+
+  Z.addEventListener('input', e=>{ state.z = parseInt(e.target.value); buildAtom(); });
+  N.addEventListener('input', e=>{ state.n = parseInt(e.target.value); buildAtom(); });
+
+  buildAtom();
+
+  sim.update = (t,dt)=>{
+    nucleusHolder.rotation.y += dt*0.4;
+    electronHolder.rotation.y += dt*0.8;
+    sim.renderer.render(sim.scene, sim.camera);
+  };
+  sims.push(sim);
+
+  window.addEventListener('resize', ()=>onResize(sim));
+})();
+
+/* 2) SIM — Désintégrations α, β, γ */
+(function(){
+  const sim = makeRendererScene('decayScene');
+  sim.camera.position.set(0,0,26);
+
+  const status = document.getElementById('decayStatus');
+  const btnAlpha = document.getElementById('btnAlpha');
+  const btnBeta  = document.getElementById('btnBeta');
+  const btnGamma = document.getElementById('btnGamma');
+  const btnReset = document.getElementById('btnDecayReset');
+
+  let state = {p:92, n:146, mode:'idle', t:0, effects:[], nucleus:null, blinking:null};
+
+  function setButtons(disabled){
+    btnAlpha.disabled = disabled;
+    btnBeta.disabled  = disabled;
+    btnGamma.disabled = disabled;
+  }
+
+  function resetDecay(){
+    // clear effects
+    state.effects.forEach(o=>sim.scene.remove(o));
+    state = {p:92, n:146, mode:'idle', t:0, effects:[], nucleus:null, blinking:null};
+    if (state.nucleus) sim.scene.remove(state.nucleus);
+    state.nucleus = createNucleus(state.p, state.n, 7);
+    sim.scene.add(state.nucleus);
+    status.textContent = '';
+    setButtons(false);
+  }
+
+  function spawnAlphaCluster(){
+    const he = new THREE.Group(); // 2p + 2n groupés
+    const p1 = new THREE.Mesh(new THREE.SphereGeometry(0.22,16,16), matProtonBase.clone());
+    const p2 = new THREE.Mesh(new THREE.SphereGeometry(0.22,16,16), matProtonBase.clone());
+    const n1 = new THREE.Mesh(new THREE.SphereGeometry(0.22,16,16), matNeutronBase.clone());
+    const n2 = new THREE.Mesh(new THREE.SphereGeometry(0.22,16,16), matNeutronBase.clone());
+    p1.position.set(-0.18, 0,   0);
+    p2.position.set( 0.18, 0,   0);
+    n1.position.set( 0,   0.18, 0);
+    n2.position.set( 0,  -0.18, 0);
+    he.add(p1,p2,n1,n2);
+    he.userData.vel = new THREE.Vector3(1,1,0).normalize().multiplyScalar(5.5);
+    return he;
+  }
+
+  btnAlpha.addEventListener('click', ()=>{
+    if (state.mode!=='idle') return;
+    if (state.p<2 || state.n<2){ status.textContent = "Pas assez de nucléons pour émettre α."; return; }
+    // Mise à jour du noyau
+    state.p -= 2; state.n -= 2;
+    sim.scene.remove(state.nucleus);
+    state.nucleus = createNucleus(state.p, state.n, 7);
+    sim.scene.add(state.nucleus);
+
+    // Particule alpha
+    const alpha = spawnAlphaCluster();
+    sim.scene.add(alpha);
+    state.effects.push(alpha);
+
+    status.textContent = "Émission α: He‑4 éjecté.";
+    state.mode = 'alpha';
+    state.t = 0;
+    setButtons(true);
+  });
+
+  btnBeta.addEventListener('click', ()=>{
+    if (state.mode!=='idle') return;
+    if (state.n<1){ status.textContent="Aucun neutron à transformer."; return; }
+
+    // Choisir un neutron de surface (le plus éloigné de l’origine)
+    let target=null, maxR=-1;
+    state.nucleus.children.forEach(m=>{
+      if (m.userData.type==='n'){
+        const r = m.position.lengthSq();
+        if (r>maxR){maxR=r; target=m;}
+      }
+    });
+    if (!target){ status.textContent="Neutron non trouvé."; return; }
+
+    // Clignotement + préparation de l'électron
+    target.material.emissive = new THREE.Color(COLOR_E);
+    target.material.emissiveIntensity = 0.0;
+    const dir = target.position.clone().normalize();
+    const electron = new THREE.Mesh(new THREE.SphereGeometry(0.12, 16,16), matElectron.clone());
+    electron.position.copy(target.position);
+    electron.userData.vel = dir.clone().multiplyScalar(10);
+    sim.scene.add(electron);
+    state.effects.push(electron);
+
+    state.blinking = target;
+    state.mode = 'beta';
+    state.t = 0;
+    status.textContent = "β: neutron clignote, électron éjecté...";
+    setButtons(true);
+  });
+
+  btnGamma.addEventListener('click', ()=>{
+    if (state.mode!=='idle') return;
+    // état excité "vibration" + onde γ
+    state.mode = 'gamma';
+    state.t = 0;
+    status.textContent = "État excité... émission γ imminente.";
+    setButtons(true);
+  });
+
+  btnReset.addEventListener('click', resetDecay);
+  resetDecay();
+
+  sim.update = (t,dt)=>{
+    // légères rotations
+    if (state.nucleus) state.nucleus.rotation.y += dt*0.4;
+
+    if (state.mode==='beta'){
+      state.t += dt;
+      // clignotement + transition n -> p
+      if (state.blinking){
+        const inten = 0.5 + 0.5*Math.sin(state.t*12);
+        state.blinking.material.emissiveIntensity = inten;
+        // interpolation vers la couleur proton (rouge)
+        const mix = Math.min(state.t/0.6, 1);
+        const c = new THREE.Color();
+        c.lerpColors(new THREE.Color(COLOR_N), new THREE.Color(COLOR_P), mix);
+        state.blinking.material.color.copy(c);
+      }
+      if (state.t>=0.6){
+        // finaliser la transmutation
+        state.p += 1; state.n -= 1;
+        // reconstruire proprement le noyau
+        sim.scene.remove(state.nucleus);
+        state.nucleus = createNucleus(state.p, state.n, 7);
+        sim.scene.add(state.nucleus);
+        state.mode='cooldown';
+        status.textContent = "β terminé: n → p + e⁻";
+        setTimeout(()=>{ state.mode='idle'; status.textContent=''; setButtons(false); }, 500);
+      }
+    }
+    else if(state.mode==='alpha'){
+      state.t += dt;
+      // l'alpha s'éloigne
+      state.effects.forEach(o=>{
+        if (o.userData.vel) o.position.addScaledVector(o.userData.vel, dt);
+      });
+      if (state.t>1.2){
+        state.mode='idle'; status.textContent=''; setButtons(false);
+      }
+    }
+    else if(state.mode==='gamma'){
+      state.t += dt;
+      // vibration + "glow"
+      const pulse = 1 + 0.06*Math.sin(state.t*32);
+      state.nucleus.scale.set(pulse,pulse,pulse);
+      state.nucleus.children.forEach(m=>{
+        if (!m.material.emissive) m.material.emissive = new THREE.Color(ACCENT);
+        m.material.emissive.setHex(ACCENT);
+        m.material.emissiveIntensity = 0.5 + 0.5*Math.sin(state.t*16);
+      });
+      if (state.t>0.8){
+        // émettre l’onde γ
+        const ring = createGammaRing(ACCENT);
+        sim.scene.add(ring);
+        state.effects.push(ring);
+        // retour stable
+        state.nucleus.scale.set(1,1,1);
+        state.nucleus.children.forEach(m=>{m.material.emissiveIntensity = 0;});
+        state.mode='cooldown';
+        status.textContent = "Émission γ !";
+        setTimeout(()=>{ state.mode='idle'; status.textContent=''; setButtons(false); }, 500);
+      }
+    }
+
+    // animer effets (onde, e-, alpha)
+    for(let i=state.effects.length-1;i>=0;i--){
+      const o = state.effects[i];
+      if (o.userData.isWave){
+        o.scale.multiplyScalar(1 + dt*3.5);
+        if (o.material && o.material.opacity!==undefined){
+          o.material.opacity *= (1 - dt*1.2);
+          if (o.material.opacity<0.05){ sim.scene.remove(o); state.effects.splice(i,1); }
+        }
+      } else if (o.userData.vel){
+        o.position.addScaledVector(o.userData.vel, dt);
+        if (o.position.length()>50){ sim.scene.remove(o); state.effects.splice(i,1); }
+      }
+    }
+
+    sim.renderer.render(sim.scene, sim.camera);
+  };
+  sims.push(sim);
+  window.addEventListener('resize', ()=>onResize(sim));
+})();
+
+/* 3) SIM — Réactions Nucléaires (Fission / Fusion) */
+(function(){
+  const sim = makeRendererScene('reactScene');
+  sim.camera.position.set(0,0,30);
+
+  const typeSel = document.getElementById('reactionType');
+  const btnStart = document.getElementById('btnReactStart');
+  const btnReset = document.getElementById('btnReactReset');
+  const status   = document.getElementById('reactStatus');
+
+  let state = {mode:'idle', t:0, objs:[], kind:'fission'};
+
+  function clearScene(){
+    state.objs.forEach(o=>sim.scene.remove(o));
+    state = {mode:'idle', t:0, objs:[], kind:typeSel.value};
+    status.textContent='';
+  }
+
+  function start(){
+    clearScene();
+    state.kind = typeSel.value;
+    if (state.kind==='fission'){
+      // U-235
+      const u = createNucleus(92,143, 9);
+      u.name = 'U';
+      sim.scene.add(u);
+      state.objs.push(u);
+      // neutron incident
+      const n = new THREE.Mesh(new THREE.SphereGeometry(0.22, 16,16), matNeutronBase.clone());
+      n.position.set(-24, 1.5, 0);
+      n.userData.vel = new THREE.Vector3(28, 0, 0);
+      n.name = 'n_incident';
+      sim.scene.add(n);
+      state.objs.push(n);
+      status.textContent='Fission: neutron incident → absorption...';
+      state.mode='approach';
+      state.t=0;
+    } else {
+      // Deutérium + Tritium
+      const d = createNucleus(1,1, 5); d.position.set(-12,0,0); d.userData.vel = new THREE.Vector3(12,0,0); d.name='D';
+      const t = createNucleus(1,2, 6); t.position.set( 12,0,0); t.userData.vel = new THREE.Vector3(-12,0,0); t.name='T';
+      sim.scene.add(d,t); state.objs.push(d,t);
+      status.textContent='Fusion: D et T s’approchent (répulsion électrostatique)...';
+      state.mode='approach';
+      state.t=0;
+    }
+  }
+
+  function energyBlastAt(pos){
+    const blast = createEnergyBlast(ACCENT);
+    blast.position.copy(pos);
+    sim.scene.add(blast);
+    state.objs.push(blast);
+  }
+
+  btnStart.addEventListener('click', start);
+  btnReset.addEventListener('click', clearScene);
+
+  // helpers
+  function findByName(name){ return state.objs.find(o=>o.name===name); }
+
+  sim.update = (t,dt)=>{
+    // déplacer objets
+    state.objs.forEach((o,i)=>{
+      if (o.userData && o.userData.vel){
+        o.position.addScaledVector(o.userData.vel, dt);
+      }
+      // effet onde d’énergie
+      if (o.userData && o.userData.isWave){
+        o.scale.multiplyScalar(1 + dt*3.2);
+        if (o.material && o.material.opacity!==undefined){
+          o.material.opacity *= (1 - dt*1.2);
+          if (o.material.opacity<0.05){ sim.scene.remove(o); state.objs.splice(i,1); }
+        }
+      }
+    });
+
+    if (state.mode==='approach'){
+      if (state.kind==='fission'){
+        const n = findByName('n_incident');
+        const u = findByName('U');
+        if (n && u){
+          // collision simple
+          if (n.position.distanceTo(u.position)<4){
+            // absorption → wobble (instabilité)
+            sim.scene.remove(n);
+            state.objs = state.objs.filter(o=>o!==n);
+            state.mode='wobble';
+            state.t=0; status.textContent='U-235 excité: oscillations avant rupture...';
+          }
+        }
+      } else {
+        const d = findByName('D');
+        const tN = findByName('T');
+        if (d && tN){
+          const r = d.position.distanceTo(tN.position);
+          // répulsion coulombienne grossière (ralentit l’approche)
+          if (r<6){
+            const dir = d.position.clone().sub(tN.position).normalize();
+            const rep = 30/(r*r+1); // force simple
+            d.userData.vel.addScaledVector(dir, rep*dt);
+            tN.userData.vel.addScaledVector(dir.clone().multiplyScalar(-1), rep*dt);
+          }
+          if (r<2.2){
+            // fusion: flash + onde, He-4 + neutron
+            const center = new THREE.Vector3().addVectors(d.position, tN.position).multiplyScalar(0.5);
+            energyBlastAt(center);
+            const he4 = createNucleus(2,2, 7); he4.position.copy(center); he4.userData.vel = new THREE.Vector3(-3,0,0);
+            const n = new THREE.Mesh(new THREE.SphereGeometry(0.22,16,16), matNeutronBase.clone()); n.position.copy(center); n.userData.vel = new THREE.Vector3(22,0,0);
+            sim.scene.remove(d); sim.scene.remove(tN);
+            state.objs = state.objs.filter(o=>o!==d && o!==tN);
+            sim.scene.add(he4,n); state.objs.push(he4,n);
+            state.mode='finished'; status.textContent='Fusion: He‑4 + n éjecté. Énergie libérée.';
+          }
+        }
+      }
+    }
+    else if (state.mode==='wobble'){
+      state.t += dt;
+      const u = findByName('U');
+      if (u){
+        u.scale.x = 1 + 0.25*Math.sin(state.t*18);
+        u.scale.y = 1 - 0.25*Math.sin(state.t*18);
+        u.rotation.z += dt*0.6;
+      }
+      if (state.t>1.5 && u){
+        // rupture en deux fragments + neutrons + onde
+        const pos = u.position.clone();
+        energyBlastAt(pos);
+        const frag1 = createNucleus(56,87, 6); frag1.position.copy(pos); frag1.userData.vel = new THREE.Vector3(-5, 2.2, 0);
+        const frag2 = createNucleus(36,56, 5); frag2.position.copy(pos); frag2.userData.vel = new THREE.Vector3( 6, -2.6,0);
+        const n1 = new THREE.Mesh(new THREE.SphereGeometry(0.22,16,16), matNeutronBase.clone()); n1.position.copy(pos); n1.userData.vel = new THREE.Vector3(11, 8, 0);
+        const n2 = new THREE.Mesh(new THREE.SphereGeometry(0.22,16,16), matNeutronBase.clone()); n2.position.copy(pos); n2.userData.vel = new THREE.Vector3(-9,-10,0);
+        sim.scene.remove(u);
+        state.objs = state.objs.filter(o=>o!==u);
+        sim.scene.add(frag1,frag2,n1,n2);
+        state.objs.push(frag1,frag2,n1,n2);
+        state.mode='finished'; status.textContent='Fission: fragments + neutrons. Onde d’énergie.';
+      }
+    }
+
+    // petite rotation des groupes
+    state.objs.forEach(o=>{
+      if (o.children && o.children.length>2 && !o.userData.isWave){
+        o.rotation.y += dt*0.4;
+      }
+    });
+
+    sim.renderer.render(sim.scene, sim.camera);
+  };
+  sims.push(sim);
+  window.addEventListener('resize', ()=>onResize(sim));
+})();
+
+/* Boucle d’animation globale */
+let last=0;
+function loop(t){
+  t *= 0.001;
+  const dt = Math.min(0.05, t-last || 0.016);
+  last = t;
+  sims.forEach(sim=>sim.update && sim.update(t,dt));
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
