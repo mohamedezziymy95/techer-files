@@ -1,0 +1,2980 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Lab 3D - Suivi d'une transformation chimique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        /* Loading Screen */
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 1s ease;
+        }
+
+        .loading-molecule {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            animation: rotate3d 3s linear infinite;
+        }
+
+        .atom {
+            position: absolute;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .atom-center {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle at 30% 30%, #00d4ff, #0066cc);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 30px #00d4ff;
+        }
+
+        .atom-orbit {
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #cc0000);
+            box-shadow: 0 0 20px #ff6b6b;
+        }
+
+        .atom-orbit:nth-child(2) { top: 0; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+        .atom-orbit:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); animation-delay: 0.5s; }
+        .atom-orbit:nth-child(4) { left: 0; top: 50%; transform: translateY(-50%); animation-delay: 1s; }
+        .atom-orbit:nth-child(5) { right: 0; top: 50%; transform: translateY(-50%); animation-delay: 1.5s; }
+
+        @keyframes rotate3d {
+            0% { transform: rotateY(0deg) rotateX(0deg); }
+            100% { transform: rotateY(360deg) rotateX(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .loading-text {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #00d4ff;
+            text-shadow: 0 0 20px #00d4ff;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .loading-bar {
+            width: 300px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            border-radius: 3px;
+            animation: load 2s ease-in-out forwards;
+        }
+
+        @keyframes load {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px #00d4ff; }
+            50% { text-shadow: 0 0 40px #00d4ff, 0 0 60px #00d4ff; }
+        }
+
+        /* Intro Screen */
+        #introScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .intro-container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .robot-assistant {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .robot-head {
+            width: 120px;
+            height: 100px;
+            background: linear-gradient(180deg, #4a90a4 0%, #2d5a6b 100%);
+            border-radius: 20px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .robot-eyes {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 25px;
+        }
+
+        .robot-eye {
+            width: 30px;
+            height: 30px;
+            background: #00d4ff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00d4ff;
+            animation: blink 4s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 45%, 55%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.1); }
+        }
+
+        .robot-antenna {
+            width: 10px;
+            height: 30px;
+            background: #4a90a4;
+            margin: 0 auto;
+            position: relative;
+            top: -10px;
+        }
+
+        .robot-antenna::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00ff88;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .robot-body {
+            width: 80px;
+            height: 60px;
+            background: linear-gradient(180deg, #3a7a8a 0%, #2d5a6b 100%);
+            margin: 10px auto 0;
+            border-radius: 10px;
+        }
+
+        .intro-title {
+            font-size: 42px;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .intro-subtitle {
+            font-size: 18px;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .speech-bubble {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0,212,255,0.3);
+            position: relative;
+        }
+
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid rgba(255,255,255,0.1);
+        }
+
+        .speech-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .start-btn {
+            padding: 20px 60px;
+            font-size: 22px;
+            background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+            border: none;
+            border-radius: 50px;
+            color: #1a1a2e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+        }
+
+        .start-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,212,255,0.5);
+        }
+
+        /* Main Game Container */
+        #gameContainer {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* HUD */
+        #hud {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 30px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hud-left, .hud-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hud-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hud-icon {
+            font-size: 24px;
+        }
+
+        .hud-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .hud-label {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* 3D Lab Container */
+        #labContainer {
+            width: 100%;
+            height: 55vh;
+            position: relative;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0d1b2a 100%);
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        /* Lab Scene CSS 3D */
+        .lab-scene {
+            width: 100%;
+            height: 100%;
+            perspective: 1500px;
+            position: relative;
+        }
+
+        .lab-room {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        /* Lab Bench */
+        .lab-bench {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%) rotateX(60deg);
+            width: 90%;
+            max-width: 1000px;
+            height: 180px;
+            background: linear-gradient(180deg, #3d3d3d 0%, #2a2a2a 50%, #1a1a1a 100%);
+            border-radius: 10px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        /* Interactive Elements Container */
+        .lab-elements {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+
+        /* Beaker */
+        .beaker {
+            width: 100px;
+            height: 160px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .beaker:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .beaker-glass {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0.1) 0%, 
+                rgba(255,255,255,0.2) 20%, 
+                rgba(255,255,255,0.1) 40%,
+                rgba(255,255,255,0.05) 100%);
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            overflow: hidden;
+        }
+
+        .beaker-liquid {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(180deg, 
+                rgba(0,212,255,0.6) 0%, 
+                rgba(0,150,200,0.8) 100%);
+            transition: height 0.5s ease, background 0.5s ease;
+        }
+
+        .beaker-spout {
+            position: absolute;
+            top: 0;
+            right: -12px;
+            width: 25px;
+            height: 18px;
+            background: rgba(255,255,255,0.2);
+            border: 3px solid rgba(255,255,255,0.3);
+            border-bottom: none;
+            border-radius: 0 12px 0 0;
+        }
+
+        .beaker-markings {
+            position: absolute;
+            left: 5px;
+            bottom: 15px;
+            height: 110px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .marking {
+            font-size: 8px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .beaker-label {
+            position: absolute;
+            bottom: -30px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        /* Bubbles */
+        .bubbles-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: 0;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.3));
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        .bubble.active {
+            animation: bubbleRise 1.5s ease-in-out forwards;
+        }
+
+        @keyframes bubbleRise {
+            0% { transform: translateY(0) scale(1); opacity: 0.8; }
+            100% { transform: translateY(-130px) scale(0.3); opacity: 0; }
+        }
+
+        /* Zinc Pieces */
+        .zinc-container {
+            width: 90px;
+            height: 70px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .zinc-piece {
+            position: absolute;
+            width: 28px;
+            height: 22px;
+            background: linear-gradient(135deg, #b8b8b8 0%, #7e7e7e 50%, #5a5a5a 100%);
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            cursor: grab;
+            transition: all 0.3s ease;
+        }
+
+        .zinc-piece:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .zinc-piece:nth-child(1) { left: 5px; bottom: 0; }
+        .zinc-piece:nth-child(2) { left: 30px; bottom: 8px; }
+        .zinc-piece:nth-child(3) { left: 55px; bottom: 3px; }
+
+        .zinc-label {
+            position: absolute;
+            bottom: -30px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+            font-weight: bold;
+        }
+
+        /* Balance */
+        .balance {
+            width: 130px;
+            height: 110px;
+            position: relative;
+        }
+
+        .balance-base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 18px;
+            background: linear-gradient(180deg, #4a4a4a, #2a2a2a);
+            border-radius: 5px;
+        }
+
+        .balance-pillar {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 50px;
+            background: linear-gradient(90deg, #3a3a3a, #5a5a5a, #3a3a3a);
+        }
+
+        .balance-plate {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 12px;
+            background: linear-gradient(180deg, #6a6a6a, #4a4a4a);
+            border-radius: 3px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .balance-display {
+            position: absolute;
+            top: 38px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #001a1a;
+            padding: 4px 12px;
+            border-radius: 5px;
+            border: 2px solid #00d4ff;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88;
+            white-space: nowrap;
+        }
+
+        .balance-label {
+            position: absolute;
+            bottom: -30px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+            font-weight: bold;
+        }
+
+        /* Gas Collector */
+        .gas-collector {
+            width: 70px;
+            height: 140px;
+            position: relative;
+        }
+
+        .gas-tube {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 110px;
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0.05) 0%, 
+                rgba(255,255,255,0.15) 50%, 
+                rgba(255,255,255,0.05) 100%);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 22px 22px 10px 10px;
+            overflow: hidden;
+        }
+
+        .gas-level {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(180deg, 
+                rgba(220,220,220,0.4) 0%, 
+                rgba(180,180,180,0.6) 100%);
+            transition: height 0.5s ease;
+        }
+
+        .gas-display {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 10px;
+            color: #00ff88;
+            white-space: nowrap;
+        }
+
+        .gas-label {
+            position: absolute;
+            bottom: -30px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* Control Panel */
+        #controlPanel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 20%);
+            padding: 25px 15px 15px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            gap: 15px;
+            align-items: end;
+            z-index: 100;
+        }
+
+        /* Parameter Controls */
+        .param-section {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .param-title {
+            font-size: 12px;
+            color: #00d4ff;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .param-group {
+            margin-bottom: 12px;
+        }
+
+        .param-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        .param-value {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .param-slider {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .param-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,212,255,0.5);
+        }
+
+        /* Advancement Section */
+        .advancement-section {
+            text-align: center;
+        }
+
+        .advancement-gauge {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .advancement-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00d4ff, #00ff88, #ffff00);
+            border-radius: 15px;
+            transition: width 0.3s ease;
+            position: relative;
+        }
+
+        .advancement-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.3) 50%, 
+                transparent 100%);
+            animation: shine 2s linear infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .advancement-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #aaa;
+        }
+
+        .x-display {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0,212,255,0.5);
+            margin: 8px 0;
+        }
+
+        .x-max-display {
+            font-size: 12px;
+            color: #00ff88;
+        }
+
+        .advancement-slider {
+            width: 90%;
+            height: 10px;
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            outline: none;
+            margin-top: 10px;
+        }
+
+        .advancement-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0,212,255,0.5);
+        }
+
+        .advancement-slider:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .advancement-slider:disabled::-webkit-slider-thumb {
+            cursor: not-allowed;
+        }
+
+        /* Action Buttons */
+        .action-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .action-btn {
+            padding: 12px 20px;
+            font-size: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            color: #1a1a2e;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: #fff;
+        }
+
+        .action-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Equation Panel */
+        #equationPanel {
+            position: fixed;
+            top: 75px;
+            left: 15px;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(0,212,255,0.3);
+            z-index: 500;
+            max-width: 320px;
+        }
+
+        .equation-title {
+            font-size: 11px;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .equation-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 18px;
+            padding: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+
+        .equation-species {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .species-formula {
+            font-weight: bold;
+        }
+
+        .species-coeff {
+            font-size: 12px;
+            color: #00ff88;
+        }
+
+        .species-amount {
+            font-size: 10px;
+            color: #aaa;
+            margin-top: 3px;
+        }
+
+        .equation-arrow {
+            font-size: 24px;
+            color: #00d4ff;
+            animation: arrowPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes arrowPulse {
+            0%, 100% { opacity: 1; transform: translateX(0); }
+            50% { opacity: 0.5; transform: translateX(3px); }
+        }
+
+        .equation-plus {
+            color: #aaa;
+        }
+
+        /* Advancement Table */
+        #advancementTable {
+            position: fixed;
+            top: 75px;
+            right: 15px;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(0,212,255,0.3);
+            z-index: 500;
+            max-width: 380px;
+            overflow-x: auto;
+        }
+
+        .table-title {
+            font-size: 11px;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .advancement-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .advancement-table th,
+        .advancement-table td {
+            padding: 8px 6px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .advancement-table th {
+            background: rgba(0,212,255,0.2);
+            color: #00d4ff;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .advancement-table td {
+            transition: all 0.3s ease;
+        }
+
+        .advancement-table tr:hover td {
+            background: rgba(0,212,255,0.1);
+        }
+
+        .table-highlight {
+            animation: highlightRow 0.8s ease;
+        }
+
+        @keyframes highlightRow {
+            0%, 100% { background: transparent; }
+            50% { background: rgba(0,255,136,0.3); }
+        }
+
+        /* Substance Tubes */
+        #substanceTubes {
+            position: fixed;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 400;
+        }
+
+        .substance-tube {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tube-visual {
+            width: 25px;
+            height: 80px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 0 0 12px 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tube-fill {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            transition: height 0.5s ease;
+        }
+
+        .tube-fill.zn { background: linear-gradient(180deg, #a8a8a8, #6e6e6e); }
+        .tube-fill.h-plus { background: linear-gradient(180deg, #00d4ff, #0088aa); }
+        .tube-fill.h2 { background: linear-gradient(180deg, #e0e0e0, #a0a0a0); }
+        .tube-fill.zn2-plus { background: linear-gradient(180deg, #00ff88, #00aa55); }
+
+        .tube-info {
+            font-size: 10px;
+        }
+
+        .tube-label {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .tube-value {
+            color: #00d4ff;
+            font-size: 9px;
+        }
+
+        /* Limiting Reagent Indicator */
+        #limitingIndicator {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            border: 2px solid #00d4ff;
+            z-index: 2000;
+            display: none;
+            text-align: center;
+            max-width: 90%;
+            width: 450px;
+        }
+
+        #limitingIndicator.show {
+            display: block;
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .limiting-title {
+            font-size: 20px;
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+
+        .limiting-result {
+            font-size: 42px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6b6b, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .limiting-explanation {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: left;
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .limiting-close {
+            padding: 12px 35px;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            border: none;
+            border-radius: 25px;
+            color: #1a1a2e;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .limiting-close:hover {
+            transform: scale(1.05);
+        }
+
+        /* Quiz Modal */
+        #quizModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #quizModal.show {
+            display: flex;
+        }
+
+        .quiz-container {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 25px;
+            padding: 30px;
+            max-width: 650px;
+            width: 100%;
+            border: 2px solid rgba(0,212,255,0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .quiz-title {
+            font-size: 24px;
+            color: #00d4ff;
+        }
+
+        .quiz-progress {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .quiz-question {
+            font-size: 18px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .quiz-option {
+            padding: 18px;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+
+        .quiz-option:hover:not(.disabled) {
+            background: rgba(0,212,255,0.1);
+            border-color: rgba(0,212,255,0.5);
+            transform: translateX(8px);
+        }
+
+        .quiz-option.correct {
+            background: rgba(0,255,136,0.2);
+            border-color: #00ff88;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(255,107,107,0.2);
+            border-color: #ff6b6b;
+        }
+
+        .quiz-option.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .quiz-feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            display: none;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .quiz-feedback.correct {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+        }
+
+        .quiz-feedback.incorrect {
+            background: rgba(255,107,107,0.1);
+            border: 1px solid #ff6b6b;
+            color: #ff6b6b;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .quiz-next {
+            margin-top: 20px;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            border: none;
+            border-radius: 25px;
+            color: #1a1a2e;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+        }
+
+        .quiz-next.show {
+            display: inline-block;
+        }
+
+        .quiz-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .quiz-close:hover {
+            color: #fff;
+        }
+
+        /* Results Screen */
+        #resultsScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 4000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #resultsScreen.show {
+            display: flex;
+        }
+
+        .results-container {
+            text-align: center;
+            max-width: 550px;
+            width: 100%;
+        }
+
+        .results-title {
+            font-size: 40px;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .results-score {
+            font-size: 80px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 40px rgba(0,212,255,0.5);
+            margin-bottom: 10px;
+        }
+
+        .results-label {
+            font-size: 18px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .results-stars {
+            font-size: 50px;
+            margin-bottom: 25px;
+        }
+
+        .star {
+            color: #333;
+            margin: 0 8px;
+            transition: all 0.5s ease;
+            display: inline-block;
+        }
+
+        .star.active {
+            color: #ffd700;
+            text-shadow: 0 0 20px #ffd700;
+        }
+
+        .star.animate {
+            animation: starPop 0.5s ease forwards;
+        }
+
+        @keyframes starPop {
+            0% { transform: scale(0) rotate(-180deg); }
+            50% { transform: scale(1.3) rotate(10deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .results-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            font-size: 13px;
+            border: 2px solid #00d4ff;
+            animation: badgeAppear 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes badgeAppear {
+            0% { opacity: 0; transform: scale(0); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .results-summary {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-value {
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .results-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .results-btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            border: none;
+            border-radius: 30px;
+            color: #1a1a2e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .results-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.4);
+        }
+
+        .results-btn.secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-150px);
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: 2px solid #00d4ff;
+            z-index: 5000;
+            transition: transform 0.5s ease;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .notification.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .notification.success {
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+
+        .notification.error {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+        }
+
+        /* Helper text */
+        .helper-text {
+            position: fixed;
+            bottom: 280px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.85);
+            padding: 12px 25px;
+            border-radius: 25px;
+            border: 1px solid rgba(0,212,255,0.3);
+            z-index: 600;
+            font-size: 13px;
+            color: #aaa;
+            text-align: center;
+            max-width: 90%;
+        }
+
+        .helper-text strong {
+            color: #00d4ff;
+        }
+
+        /* Learning Modal */
+        #learningModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 5000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #learningModal.show {
+            display: flex;
+        }
+
+        .learning-container {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 25px;
+            padding: 30px;
+            max-width: 700px;
+            width: 100%;
+            border: 2px solid rgba(0,212,255,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .learning-title {
+            font-size: 28px;
+            color: #00d4ff;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .learning-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .learning-section h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .learning-section p, .learning-section li {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .learning-section ul {
+            margin-left: 20px;
+        }
+
+        .learning-close {
+            display: block;
+            margin: 20px auto 0;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            border: none;
+            border-radius: 25px;
+            color: #1a1a2e;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            #equationPanel {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 10px;
+                max-width: none;
+            }
+            
+            #advancementTable {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 10px;
+                max-width: none;
+            }
+            
+            #substanceTubes {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            
+            #labContainer {
+                height: auto;
+                min-height: 350px;
+            }
+            
+            .helper-text {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin: 10px;
+            }
+            
+            #controlPanel {
+                position: relative;
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            #gameContainer {
+                padding-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .intro-title {
+                font-size: 28px;
+            }
+            
+            .speech-text {
+                font-size: 14px;
+            }
+            
+            .start-btn {
+                padding: 15px 40px;
+                font-size: 18px;
+            }
+            
+            .lab-elements {
+                gap: 15px;
+            }
+            
+            .beaker {
+                width: 70px;
+                height: 120px;
+            }
+            
+            .beaker-glass {
+                height: 100px;
+            }
+            
+            .results-score {
+                font-size: 50px;
+            }
+            
+            .results-stars {
+                font-size: 35px;
+            }
+            
+            .quiz-title {
+                font-size: 20px;
+            }
+            
+            .quiz-question {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <div class="loading-molecule">
+            <div class="atom atom-center"></div>
+            <div class="atom atom-orbit"></div>
+            <div class="atom atom-orbit"></div>
+            <div class="atom atom-orbit"></div>
+            <div class="atom atom-orbit"></div>
+        </div>
+        <div class="loading-text">Chargement du laboratoire...</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Intro Screen -->
+    <div id="introScreen">
+        <div class="intro-container">
+            <div class="robot-assistant">
+                <div class="robot-antenna"></div>
+                <div class="robot-head">
+                    <div class="robot-eyes">
+                        <div class="robot-eye"></div>
+                        <div class="robot-eye"></div>
+                    </div>
+                </div>
+                <div class="robot-body"></div>
+            </div>
+            
+            <h1 class="intro-title">🧪 Reaction Lab 3D</h1>
+            <p class="intro-subtitle">Suivi d'une transformation chimique</p>
+            
+            <div class="speech-bubble">
+                <p class="speech-text">
+                    Bienvenue, jeune chimiste ! 🔬<br><br>
+                    Je suis <strong>ATOM-X</strong>, ton assistant de laboratoire virtuel.<br><br>
+                    Aujourd'hui, nous allons étudier la réaction entre le <strong>zinc (Zn)</strong> et l'<strong>acide chlorhydrique (HCl)</strong>.<br><br>
+                    Tu vas apprendre à :<br>
+                    ✓ Identifier le <strong>réactif limitant</strong><br>
+                    ✓ Calculer l'<strong>avancement x</strong> et <strong>x<sub>max</sub></strong><br>
+                    ✓ Compléter un <strong>tableau d'avancement</strong><br>
+                    ✓ Prédire les quantités de produits formés<br><br>
+                    Es-tu prêt à relever le défi ? 🚀
+                </p>
+            </div>
+            
+            <button class="start-btn" onclick="startGame()">🎮 Commencer l'expérience</button>
+        </div>
+    </div>
+
+    <!-- Main Game Container -->
+    <div id="gameContainer">
+        <!-- HUD -->
+        <div id="hud">
+            <div class="hud-left">
+                <div class="hud-item">
+                    <span class="hud-icon">⭐</span>
+                    <div>
+                        <div class="hud-value" id="scoreDisplay">0</div>
+                        <div class="hud-label">Score</div>
+                    </div>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-icon">🎯</span>
+                    <div>
+                        <div class="hud-value" id="levelDisplay">1</div>
+                        <div class="hud-label">Niveau</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hud-right">
+                <div class="hud-item">
+                    <span class="hud-icon">⏱️</span>
+                    <div>
+                        <div class="hud-value" id="timeDisplay">00:00</div>
+                        <div class="hud-label">Temps</div>
+                    </div>
+                </div>
+                <button class="action-btn btn-secondary" onclick="showQuiz()">📝 Quiz</button>
+                <button class="action-btn btn-secondary" onclick="resetExperiment()">🔄 Reset</button>
+            </div>
+        </div>
+
+        <!-- Equation Panel -->
+        <div id="equationPanel">
+            <div class="equation-title">⚗️ Équation de la réaction</div>
+            <div class="equation-display">
+                <div class="equation-species" id="znSpecies">
+                    <span class="species-formula">Zn</span>
+                    <span class="species-amount" id="znAmount">0 mol</span>
+                </div>
+                <span class="equation-plus">+</span>
+                <div class="equation-species" id="hSpecies">
+                    <span class="species-coeff">2</span>
+                    <span class="species-formula">H⁺</span>
+                    <span class="species-amount" id="hAmount">0 mol</span>
+                </div>
+                <span class="equation-arrow">→</span>
+                <div class="equation-species" id="h2Species">
+                    <span class="species-formula">H₂</span>
+                    <span class="species-amount" id="h2Amount">0 mol</span>
+                </div>
+                <span class="equation-plus">+</span>
+                <div class="equation-species" id="zn2Species">
+                    <span class="species-formula">Zn²⁺</span>
+                    <span class="species-amount" id="zn2Amount">0 mol</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advancement Table -->
+        <div id="advancementTable">
+            <div class="table-title">📊 Tableau d'avancement</div>
+            <table class="advancement-table">
+                <thead>
+                    <tr>
+                        <th>Espèce</th>
+                        <th>État initial</th>
+                        <th>Variation</th>
+                        <th>État final</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="rowZn">
+                        <td>Zn</td>
+                        <td id="znInit">0</td>
+                        <td>−x</td>
+                        <td id="znFinal">0</td>
+                    </tr>
+                    <tr id="rowH">
+                        <td>H⁺</td>
+                        <td id="hInit">0</td>
+                        <td>−2x</td>
+                        <td id="hFinal">0</td>
+                    </tr>
+                    <tr id="rowH2">
+                        <td>H₂</td>
+                        <td>0</td>
+                        <td>+x</td>
+                        <td id="h2Final">0</td>
+                    </tr>
+                    <tr id="rowZn2">
+                        <td>Zn²⁺</td>
+                        <td>0</td>
+                        <td>+x</td>
+                        <td id="zn2Final">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Substance Tubes -->
+        <div id="substanceTubes">
+            <div class="substance-tube">
+                <div class="tube-visual">
+                    <div class="tube-fill zn" id="tubeFillZn" style="height: 0%"></div>
+                </div>
+                <div class="tube-info">
+                    <div class="tube-label">Zn</div>
+                    <div class="tube-value" id="tubeValueZn">0 mol</div>
+                </div>
+            </div>
+            <div class="substance-tube">
+                <div class="tube-visual">
+                    <div class="tube-fill h-plus" id="tubeFillH" style="height: 0%"></div>
+                </div>
+                <div class="tube-info">
+                    <div class="tube-label">H⁺</div>
+                    <div class="tube-value" id="tubeValueH">0 mol</div>
+                </div>
+            </div>
+            <div class="substance-tube">
+                <div class="tube-visual">
+                    <div class="tube-fill h2" id="tubeFillH2" style="height: 0%"></div>
+                </div>
+                <div class="tube-info">
+                    <div class="tube-label">H₂</div>
+                    <div class="tube-value" id="tubeValueH2">0 mol</div>
+                </div>
+            </div>
+            <div class="substance-tube">
+                <div class="tube-visual">
+                    <div class="tube-fill zn2-plus" id="tubeFillZn2" style="height: 0%"></div>
+                </div>
+                <div class="tube-info">
+                    <div class="tube-label">Zn²⁺</div>
+                    <div class="tube-value" id="tubeValueZn2">0 mol</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Lab Container -->
+        <div id="labContainer">
+            <div class="lab-scene">
+                <div class="lab-room">
+                    <div class="lab-bench"></div>
+                    <div class="lab-elements">
+                        <!-- Zinc Pieces -->
+                        <div class="zinc-container" id="zincContainer">
+                            <div class="zinc-piece" id="zn1"></div>
+                            <div class="zinc-piece" id="zn2"></div>
+                            <div class="zinc-piece" id="zn3"></div>
+                            <div class="zinc-label">Zinc (Zn)</div>
+                        </div>
+
+                        <!-- Balance -->
+                        <div class="balance" id="balance">
+                            <div class="balance-plate"></div>
+                            <div class="balance-pillar"></div>
+                            <div class="balance-base"></div>
+                            <div class="balance-display" id="balanceDisplay">0.00 g</div>
+                            <div class="balance-label">Balance</div>
+                        </div>
+
+                        <!-- Main Beaker (Reactor) -->
+                        <div class="beaker" id="reactor">
+                            <div class="beaker-spout"></div>
+                            <div class="beaker-glass">
+                                <div class="beaker-liquid" id="reactorLiquid"></div>
+                                <div class="bubbles-container" id="bubblesContainer"></div>
+                            </div>
+                            <div class="beaker-markings">
+                                <span class="marking">100</span>
+                                <span class="marking">75</span>
+                                <span class="marking">50</span>
+                                <span class="marking">25</span>
+                            </div>
+                            <div class="beaker-label">Réacteur</div>
+                        </div>
+
+                        <!-- HCl Beaker -->
+                        <div class="beaker" id="hclBeaker">
+                            <div class="beaker-spout"></div>
+                            <div class="beaker-glass">
+                                <div class="beaker-liquid" id="hclLiquid" style="height: 70%; background: linear-gradient(180deg, rgba(0,212,255,0.4), rgba(0,150,200,0.6));"></div>
+                            </div>
+                            <div class="beaker-label">HCl (aq)</div>
+                        </div>
+
+                        <!-- Gas Collector -->
+                        <div class="gas-collector" id="gasCollector">
+                            <div class="gas-display" id="gasDisplay">V(H₂) = 0 mL</div>
+                            <div class="gas-tube">
+                                <div class="gas-level" id="gasLevel"></div>
+                            </div>
+                            <div class="gas-label">Collecteur H₂</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Helper Text -->
+        <div class="helper-text" id="helperText">
+            <strong>Étape 1:</strong> Ajustez la masse de zinc et le volume d'HCl, puis cliquez sur "Préparer le mélange" pour commencer l'expérience.
+        </div>
+
+        <!-- Control Panel -->
+        <div id="controlPanel">
+            <!-- Parameter Controls -->
+            <div class="param-section">
+                <div class="param-title">⚙️ Paramètres des réactifs</div>
+                
+                <div class="param-group">
+                    <div class="param-label">
+                        <span>Masse de Zn (g)</span>
+                        <span class="param-value" id="znMassValue">3.27</span>
+                    </div>
+                    <input type="range" class="param-slider" id="znMassSlider" 
+                           min="0.5" max="10" step="0.01" value="3.27"
+                           oninput="updateParameters()">
+                </div>
+                
+                <div class="param-group">
+                    <div class="param-label">
+                        <span>Volume HCl (mL)</span>
+                        <span class="param-value" id="hclVolumeValue">100</span>
+                    </div>
+                    <input type="range" class="param-slider" id="hclVolumeSlider" 
+                           min="10" max="200" step="1" value="100"
+                           oninput="updateParameters()">
+                </div>
+                
+                <div class="param-group">
+                    <div class="param-label">
+                        <span>Concentration HCl (mol/L)</span>
+                        <span class="param-value" id="hclConcValue">1.0</span>
+                    </div>
+                    <input type="range" class="param-slider" id="hclConcSlider" 
+                           min="0.1" max="2" step="0.1" value="1.0"
+                           oninput="updateParameters()">
+                </div>
+            </div>
+
+            <!-- Advancement Control -->
+            <div class="param-section advancement-section">
+                <div class="param-title">📈 Contrôle de l'avancement</div>
+                
+                <div class="advancement-gauge">
+                    <div class="advancement-fill" id="advancementFill"></div>
+                </div>
+                <div class="advancement-labels">
+                    <span>x = 0</span>
+                    <span id="xMaxLabel">x = x<sub>max</sub></span>
+                </div>
+                
+                <div class="x-display">x = <span id="xValue">0.000</span> mol</div>
+                <div class="x-max-display">x<sub>max</sub> = <span id="xMaxValue">0.000</span> mol</div>
+                
+                <input type="range" class="advancement-slider" id="advancementSlider" 
+                       min="0" max="100" step="0.1" value="0"
+                       oninput="updateAdvancement()" disabled>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="param-section action-section">
+                <div class="param-title">🎮 Actions</div>
+                <button class="action-btn btn-primary" id="prepareBtn" onclick="prepareMixture()">
+                    🧪 Préparer le mélange
+                </button>
+                <button class="action-btn btn-secondary" id="limitingBtn" onclick="showLimitingReagent()" disabled>
+                    🔍 Réactif limitant
+                </button>
+                <button class="action-btn btn-secondary" id="maxAdvBtn" onclick="goToMaxAdvancement()" disabled>
+                    ⚡ Aller à x<sub>max</sub>
+                </button>
+                <button class="action-btn btn-danger" onclick="showQuiz()">
+                    📝 Passer au Quiz
+                </button>
+            </div>
+        </div>
+
+        <!-- Limiting Reagent Indicator -->
+        <div id="limitingIndicator">
+            <div class="limiting-title">🔬 Analyse du réactif limitant</div>
+            <div class="limiting-result" id="limitingResult">H⁺</div>
+            <div class="limiting-explanation" id="limitingExplanation"></div>
+            <button class="limiting-close" onclick="closeLimitingIndicator()">Compris ! ✓</button>
+        </div>
+
+        <!-- Notification -->
+        <div class="notification" id="notification">
+            <span id="notificationText"></span>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal">
+        <div class="quiz-container">
+            <button class="quiz-close" onclick="closeQuiz()">×</button>
+            <div class="quiz-header">
+                <h2 class="quiz-title">🎯 Quiz de validation</h2>
+                <span class="quiz-progress" id="quizProgress">Question 1/5</span>
+            </div>
+            <div class="quiz-question" id="quizQuestion"></div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="quiz-feedback" id="quizFeedback"></div>
+            <button class="quiz-next" id="quizNext" onclick="nextQuestion()">Question suivante →</button>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="resultsScreen">
+        <div class="results-container">
+            <h1 class="results-title">🎉 Félicitations !</h1>
+            <div class="results-score" id="finalScore">0</div>
+            <div class="results-label">points</div>
+            
+            <div class="results-stars" id="starsContainer">
+                <span class="star" id="star1">★</span>
+                <span class="star" id="star2">★</span>
+                <span class="star" id="star3">★</span>
+            </div>
+            
+            <div class="results-badges" id="badgesContainer"></div>
+            
+            <div class="results-summary">
+                <div class="summary-item">
+                    <span>Questions correctes</span>
+                    <span class="summary-value" id="correctAnswersDisplay">0/5</span>
+                </div>
+                <div class="summary-item">
+                    <span>Temps total</span>
+                    <span class="summary-value" id="totalTimeDisplay">00:00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Précision</span>
+                    <span class="summary-value" id="accuracyDisplay">0%</span>
+                </div>
+            </div>
+            
+            <div class="results-buttons">
+                <button class="results-btn" onclick="restartGame()">🔄 Rejouer</button>
+                <button class="results-btn secondary" onclick="showLearningReview()">📚 Réviser</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learning Modal -->
+    <div id="learningModal">
+        <div class="learning-container">
+            <h2 class="learning-title">📚 Ce qu'il faut retenir</h2>
+            
+            <div class="learning-section">
+                <h3>1. L'équation chimique</h3>
+                <p>La réaction entre le zinc et l'acide chlorhydrique s'écrit :</p>
+                <p style="text-align: center; font-size: 18px; margin: 15px 0;"><strong>Zn + 2H⁺ → H₂ + Zn²⁺</strong></p>
+                <p>Les coefficients stœchiométriques indiquent les proportions : 1 mole de Zn réagit avec 2 moles de H⁺.</p>
+            </div>
+            
+            <div class="learning-section">
+                <h3>2. L'avancement x</h3>
+                <p>L'avancement x mesure la progression de la réaction. Il s'exprime en moles.</p>
+                <ul>
+                    <li>À l'état initial : x = 0 (aucune réaction)</li>
+                    <li>Pendant la réaction : 0 < x < x<sub>max</sub></li>
+                    <li>À l'état final : x = x<sub>max</sub> (réaction terminée)</li>
+                </ul>
+            </div>
+            
+            <div class="learning-section">
+                <h3>3. Le réactif limitant</h3>
+                <p>C'est le réactif qui est entièrement consommé en premier. Il détermine x<sub>max</sub>.</p>
+                <p>Pour le trouver, on calcule x<sub>max</sub> pour chaque réactif :</p>
+                <ul>
+                    <li>Pour Zn : x<sub>max</sub> = n(Zn)/1</li>
+                    <li>Pour H⁺ : x<sub>max</sub> = n(H⁺)/2</li>
+                </ul>
+                <p>Le réactif limitant est celui qui donne le plus petit x<sub>max</sub>.</p>
+            </div>
+            
+            <div class="learning-section">
+                <h3>4. Le tableau d'avancement</h3>
+                <p>Il permet de suivre l'évolution des quantités de matière au cours de la réaction.</p>
+                <ul>
+                    <li>Réactifs : leur quantité diminue (−coefficient × x)</li>
+                    <li>Produits : leur quantité augmente (+coefficient × x)</li>
+                </ul>
+            </div>
+            
+            <button class="learning-close" onclick="closeLearningModal()">J'ai compris ! ✓</button>
+        </div>
+    </div>
+
+    <script>
+        // ==================== GAME STATE ====================
+        const gameState = {
+            score: 0,
+            level: 1,
+            startTime: null,
+            elapsedTime: 0,
+            timerInterval: null,
+            
+            // Chemistry parameters
+            znMass: 3.27,
+            hclVolume: 100,
+            hclConc: 1.0,
+            MZn: 65.4,
+            
+            // Calculated values
+            nZnInitial: 0,
+            nHInitial: 0,
+            xMax: 0,
+            x: 0,
+            limitingReagent: '',
+            xMaxZn: 0,
+            xMaxH: 0,
+            
+            // Current quantities
+            nZn: 0,
+            nH: 0,
+            nH2: 0,
+            nZn2: 0,
+            
+            // Game state flags
+            isPrepared: false,
+            reactionStarted: false,
+            bubbleInterval: null,
+            
+            // Quiz state
+            currentQuestion: 0,
+            correctAnswers: 0,
+            quizQuestions: []
+        };
+
+        // ==================== INITIALIZATION ====================
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                    document.getElementById('introScreen').style.display = 'flex';
+                }, 1000);
+            }, 2500);
+            
+            updateParameters();
+            generateQuizQuestions();
+        };
+
+        function startGame() {
+            document.getElementById('introScreen').style.display = 'none';
+            document.getElementById('gameContainer').style.display = 'block';
+            
+            gameState.startTime = Date.now();
+            gameState.timerInterval = setInterval(updateTimer, 1000);
+            
+            showNotification('Bienvenue dans le laboratoire ! Ajustez les paramètres et préparez le mélange.', 'success');
+        }
+
+        // ==================== TIMER ====================
+        function updateTimer() {
+            const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+            gameState.elapsedTime = elapsed;
+            const minutes = Math.floor(elapsed / 60).toString().padStart(2, '0');
+            const seconds = (elapsed % 60).toString().padStart(2, '0');
+            document.getElementById('timeDisplay').textContent = `${minutes}:${seconds}`;
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const secs = (seconds % 60).toString().padStart(2, '0');
+            return `${mins}:${secs}`;
+        }
+
+        // ==================== SCORE ====================
+        function updateScore() {
+            document.getElementById('scoreDisplay').textContent = gameState.score;
+        }
+
+        // ==================== NOTIFICATIONS ====================
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notification.className = 'notification ' + type;
+            notificationText.textContent = message;
+            
+            setTimeout(() => notification.classList.add('show'), 100);
+            setTimeout(() => notification.classList.remove('show'), 4000);
+        }
+        // ==================== PARAMETER UPDATES ====================
+        function updateParameters() {
+            gameState.znMass = parseFloat(document.getElementById('znMassSlider').value);
+            gameState.hclVolume = parseFloat(document.getElementById('hclVolumeSlider').value);
+            gameState.hclConc = parseFloat(document.getElementById('hclConcSlider').value);
+            
+            document.getElementById('znMassValue').textContent = gameState.znMass.toFixed(2);
+            document.getElementById('hclVolumeValue').textContent = gameState.hclVolume.toFixed(0);
+            document.getElementById('hclConcValue').textContent = gameState.hclConc.toFixed(1);
+            
+            // Calculate initial moles
+            gameState.nZnInitial = gameState.znMass / gameState.MZn;
+            gameState.nHInitial = gameState.hclConc * (gameState.hclVolume / 1000);
+            
+            // Update balance display
+            document.getElementById('balanceDisplay').textContent = `${gameState.znMass.toFixed(2)} g`;
+            
+            // Update visual elements
+            updateZincVisuals();
+            updateHClVisuals();
+            
+            // If already prepared, recalculate
+            if (gameState.isPrepared) {
+                recalculateReaction();
+            }
+        }
+
+        function updateZincVisuals() {
+            const pieces = document.querySelectorAll('.zinc-piece');
+            const massPerPiece = gameState.znMass / 3;
+            pieces.forEach((piece, index) => {
+                const scale = Math.min(1, massPerPiece / 1.5);
+                piece.style.transform = `scale(${0.5 + scale * 0.5})`;
+                piece.style.opacity = gameState.znMass > index * 2 ? '1' : '0.3';
+            });
+        }
+
+        function updateHClVisuals() {
+            const maxVolume = 200;
+            const percentage = (gameState.hclVolume / maxVolume) * 100;
+            document.getElementById('hclLiquid').style.height = `${Math.min(90, percentage)}%`;
+        }
+
+        // ==================== REACTION PREPARATION ====================
+        function prepareMixture() {
+            if (gameState.isPrepared) {
+                showNotification('Le mélange est déjà préparé ! Utilisez le curseur d\'avancement.', 'error');
+                return;
+            }
+            
+            // Calculate xMax for each reagent
+            gameState.xMaxZn = gameState.nZnInitial / 1;
+            gameState.xMaxH = gameState.nHInitial / 2;
+            
+            // Determine limiting reagent and xMax
+            if (gameState.xMaxZn < gameState.xMaxH) {
+                gameState.xMax = gameState.xMaxZn;
+                gameState.limitingReagent = 'Zn';
+            } else if (gameState.xMaxH < gameState.xMaxZn) {
+                gameState.xMax = gameState.xMaxH;
+                gameState.limitingReagent = 'H⁺';
+            } else {
+                gameState.xMax = gameState.xMaxZn;
+                gameState.limitingReagent = 'Les deux (proportions stœchiométriques)';
+            }
+            
+            // Initialize current quantities
+            gameState.nZn = gameState.nZnInitial;
+            gameState.nH = gameState.nHInitial;
+            gameState.nH2 = 0;
+            gameState.nZn2 = 0;
+            gameState.x = 0;
+            
+            // Update displays
+            document.getElementById('xMaxValue').textContent = gameState.xMax.toFixed(4);
+            document.getElementById('xMaxLabel').innerHTML = `x<sub>max</sub> = ${gameState.xMax.toFixed(3)} mol`;
+            
+            // Update table initial values
+            document.getElementById('znInit').textContent = gameState.nZnInitial.toFixed(4);
+            document.getElementById('hInit').textContent = gameState.nHInitial.toFixed(4);
+            
+            // Enable controls
+            document.getElementById('advancementSlider').disabled = false;
+            document.getElementById('limitingBtn').disabled = false;
+            document.getElementById('maxAdvBtn').disabled = false;
+            document.getElementById('prepareBtn').disabled = true;
+            document.getElementById('prepareBtn').textContent = '✓ Mélange préparé';
+            
+            // Update visuals
+            document.getElementById('reactorLiquid').style.height = '50%';
+            document.getElementById('reactorLiquid').style.background = 
+                'linear-gradient(180deg, rgba(0,212,255,0.5), rgba(0,150,200,0.7))';
+            
+            // Start bubble animation
+            startBubbleAnimation();
+            
+            gameState.isPrepared = true;
+            gameState.score += 50;
+            updateScore();
+            
+            // Update helper text
+            document.getElementById('helperText').innerHTML = 
+                '<strong>Étape 2:</strong> Le mélange est prêt ! Utilisez le curseur pour faire avancer la réaction et observez les changements.';
+            
+            showNotification('Mélange préparé ! La réaction peut commencer. 🧪', 'success');
+            
+            // Initial update
+            updateAllDisplays();
+        }
+
+        function recalculateReaction() {
+            // Recalculate xMax values
+            gameState.xMaxZn = gameState.nZnInitial / 1;
+            gameState.xMaxH = gameState.nHInitial / 2;
+            
+            if (gameState.xMaxZn < gameState.xMaxH) {
+                gameState.xMax = gameState.xMaxZn;
+                gameState.limitingReagent = 'Zn';
+            } else if (gameState.xMaxH < gameState.xMaxZn) {
+                gameState.xMax = gameState.xMaxH;
+                gameState.limitingReagent = 'H⁺';
+            } else {
+                gameState.xMax = gameState.xMaxZn;
+                gameState.limitingReagent = 'Les deux';
+            }
+            
+            // Update displays
+            document.getElementById('xMaxValue').textContent = gameState.xMax.toFixed(4);
+            document.getElementById('znInit').textContent = gameState.nZnInitial.toFixed(4);
+            document.getElementById('hInit').textContent = gameState.nHInitial.toFixed(4);
+            
+            // Recalculate current state
+            const sliderValue = parseFloat(document.getElementById('advancementSlider').value);
+            gameState.x = (sliderValue / 100) * gameState.xMax;
+            
+            updateAllDisplays();
+        }
+
+        // ==================== ADVANCEMENT CONTROL ====================
+        function updateAdvancement() {
+            if (!gameState.isPrepared) return;
+            
+            const sliderValue = parseFloat(document.getElementById('advancementSlider').value);
+            gameState.x = (sliderValue / 100) * gameState.xMax;
+            
+            // Calculate current quantities
+            gameState.nZn = Math.max(0, gameState.nZnInitial - gameState.x);
+            gameState.nH = Math.max(0, gameState.nHInitial - 2 * gameState.x);
+            gameState.nH2 = gameState.x;
+            gameState.nZn2 = gameState.x;
+            
+            // Update all displays
+            updateAllDisplays();
+            
+            // Update bubbles animation intensity
+            updateBubblesIntensity(sliderValue);
+        }
+
+        function goToMaxAdvancement() {
+            if (!gameState.isPrepared) return;
+            
+            // Animate the slider
+            let currentValue = parseFloat(document.getElementById('advancementSlider').value);
+            const targetValue = 100;
+            const step = 2;
+            
+            const animateSlider = setInterval(() => {
+                currentValue += step;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(animateSlider);
+                    showNotification('Réaction terminée ! x = x_max atteint. ⚡', 'success');
+                    
+                    // Update helper text
+                    document.getElementById('helperText').innerHTML = 
+                        '<strong>Étape 3:</strong> La réaction est terminée. Le réactif limitant a été entièrement consommé. Passez au quiz pour tester vos connaissances !';
+                }
+                document.getElementById('advancementSlider').value = currentValue;
+                updateAdvancement();
+            }, 30);
+            
+            gameState.score += 30;
+            updateScore();
+        }
+
+        function updateAllDisplays() {
+            // Update x display
+            document.getElementById('xValue').textContent = gameState.x.toFixed(4);
+            
+            // Update advancement gauge
+            const percentage = gameState.xMax > 0 ? (gameState.x / gameState.xMax) * 100 : 0;
+            document.getElementById('advancementFill').style.width = `${percentage}%`;
+            
+            // Update equation amounts
+            document.getElementById('znAmount').textContent = `${gameState.nZn.toFixed(3)} mol`;
+            document.getElementById('hAmount').textContent = `${gameState.nH.toFixed(3)} mol`;
+            document.getElementById('h2Amount').textContent = `${gameState.nH2.toFixed(3)} mol`;
+            document.getElementById('zn2Amount').textContent = `${gameState.nZn2.toFixed(3)} mol`;
+            
+            // Update table final values
+            document.getElementById('znFinal').textContent = gameState.nZn.toFixed(4);
+            document.getElementById('hFinal').textContent = gameState.nH.toFixed(4);
+            document.getElementById('h2Final').textContent = gameState.nH2.toFixed(4);
+            document.getElementById('zn2Final').textContent = gameState.nZn2.toFixed(4);
+            
+            // Highlight rows
+            highlightTableRows();
+            
+            // Update substance tubes
+            updateSubstanceTubes();
+            
+            // Update gas collector
+            updateGasCollector();
+            
+            // Update reactor liquid color
+            updateReactorLiquid();
+            
+            // Update equation species colors
+            updateEquationSpeciesColors();
+        }
+
+        function highlightTableRows() {
+            const rows = ['rowZn', 'rowH', 'rowH2', 'rowZn2'];
+            rows.forEach(rowId => {
+                const row = document.getElementById(rowId);
+                row.classList.remove('table-highlight');
+                void row.offsetWidth; // Trigger reflow
+                row.classList.add('table-highlight');
+            });
+        }
+
+        function updateSubstanceTubes() {
+            const znPercent = gameState.nZnInitial > 0 ? (gameState.nZn / gameState.nZnInitial) * 100 : 0;
+            const hPercent = gameState.nHInitial > 0 ? (gameState.nH / gameState.nHInitial) * 100 : 0;
+            const h2Percent = gameState.xMax > 0 ? (gameState.nH2 / gameState.xMax) * 100 : 0;
+            const zn2Percent = gameState.xMax > 0 ? (gameState.nZn2 / gameState.xMax) * 100 : 0;
+            
+            document.getElementById('tubeFillZn').style.height = `${znPercent}%`;
+            document.getElementById('tubeFillH').style.height = `${hPercent}%`;
+            document.getElementById('tubeFillH2').style.height = `${h2Percent}%`;
+            document.getElementById('tubeFillZn2').style.height = `${zn2Percent}%`;
+            
+            document.getElementById('tubeValueZn').textContent = `${gameState.nZn.toFixed(3)} mol`;
+            document.getElementById('tubeValueH').textContent = `${gameState.nH.toFixed(3)} mol`;
+            document.getElementById('tubeValueH2').textContent = `${gameState.nH2.toFixed(3)} mol`;
+            document.getElementById('tubeValueZn2').textContent = `${gameState.nZn2.toFixed(3)} mol`;
+        }
+
+        function updateGasCollector() {
+            // Volume of H2 at STP (22.4 L/mol = 22400 mL/mol)
+            const volumeH2_mL = gameState.nH2 * 22400;
+            const maxVolume = gameState.xMax * 22400;
+            
+            const percentage = maxVolume > 0 ? (volumeH2_mL / maxVolume) * 100 : 0;
+            document.getElementById('gasLevel').style.height = `${Math.min(95, percentage)}%`;
+            
+            // Format volume display
+            let displayVolume;
+            if (volumeH2_mL >= 1000) {
+                displayVolume = `${(volumeH2_mL / 1000).toFixed(2)} L`;
+            } else {
+                displayVolume = `${volumeH2_mL.toFixed(0)} mL`;
+            }
+            document.getElementById('gasDisplay').textContent = `V(H₂) = ${displayVolume}`;
+        }
+
+        function updateReactorLiquid() {
+            const liquid = document.getElementById('reactorLiquid');
+            const progress = gameState.xMax > 0 ? gameState.x / gameState.xMax : 0;
+            
+            // Change color based on progress (more Zn2+ = greenish tint)
+            const blueComponent = Math.round(212 - progress * 100);
+            const greenComponent = Math.round(150 + progress * 50);
+            
+            liquid.style.background = `linear-gradient(180deg, 
+                rgba(0,${blueComponent},255,${0.5 - progress * 0.2}), 
+                rgba(0,${greenComponent},200,${0.7 - progress * 0.3}))`;
+            
+            // Reduce liquid level slightly as reaction progresses
+            const height = 50 - progress * 10;
+            liquid.style.height = `${height}%`;
+        }
+
+        function updateEquationSpeciesColors() {
+            const progress = gameState.xMax > 0 ? gameState.x / gameState.xMax : 0;
+            
+            // Fade out reactants, highlight products
+            document.getElementById('znSpecies').style.opacity = 1 - progress * 0.5;
+            document.getElementById('hSpecies').style.opacity = 1 - progress * 0.5;
+            document.getElementById('h2Species').style.opacity = 0.5 + progress * 0.5;
+            document.getElementById('zn2Species').style.opacity = 0.5 + progress * 0.5;
+        }
+
+        // ==================== BUBBLE ANIMATION ====================
+        function startBubbleAnimation() {
+            const container = document.getElementById('bubblesContainer');
+            
+            gameState.bubbleInterval = setInterval(() => {
+                if (gameState.x > 0 && gameState.x < gameState.xMax) {
+                    createBubble(container);
+                }
+            }, 300);
+        }
+
+        function createBubble(container) {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble active';
+            bubble.style.left = `${20 + Math.random() * 60}%`;
+            bubble.style.width = `${4 + Math.random() * 6}px`;
+            bubble.style.height = bubble.style.width;
+            bubble.style.animationDuration = `${1 + Math.random() * 1}s`;
+            
+            container.appendChild(bubble);
+            
+            setTimeout(() => {
+                bubble.remove();
+            }, 2000);
+        }
+
+        function updateBubblesIntensity(sliderValue) {
+            // Create more bubbles when reaction is active (not at 0 or 100)
+            if (sliderValue > 0 && sliderValue < 100) {
+                const container = document.getElementById('bubblesContainer');
+                const intensity = Math.sin((sliderValue / 100) * Math.PI);
+                
+                for (let i = 0; i < Math.floor(intensity * 3); i++) {
+                    createBubble(container);
+                }
+            }
+        }
+
+        function stopBubbleAnimation() {
+            if (gameState.bubbleInterval) {
+                clearInterval(gameState.bubbleInterval);
+                gameState.bubbleInterval = null;
+            }
+        }
+
+        // ==================== LIMITING REAGENT ====================
+        function showLimitingReagent() {
+            if (!gameState.isPrepared) {
+                showNotification('Préparez d\'abord le mélange !', 'error');
+                return;
+            }
+            
+            const indicator = document.getElementById('limitingIndicator');
+            const result = document.getElementById('limitingResult');
+            const explanation = document.getElementById('limitingExplanation');
+            
+            result.textContent = gameState.limitingReagent;
+            
+            explanation.innerHTML = `
+                <strong>Calcul de x<sub>max</sub> pour chaque réactif :</strong><br><br>
+                • Pour Zn : x<sub>max</sub> = n(Zn)/1 = ${gameState.nZnInitial.toFixed(4)}/1 = <strong>${gameState.xMaxZn.toFixed(4)} mol</strong><br><br>
+                • Pour H⁺ : x<sub>max</sub> = n(H⁺)/2 = ${gameState.nHInitial.toFixed(4)}/2 = <strong>${gameState.xMaxH.toFixed(4)} mol</strong><br><br>
+                <hr style="border-color: rgba(255,255,255,0.2); margin: 15px 0;">
+                Le réactif limitant est celui qui donne le <strong>plus petit x<sub>max</sub></strong>.<br><br>
+                Ici, ${gameState.xMaxZn.toFixed(4)} ${gameState.xMaxZn < gameState.xMaxH ? '<' : gameState.xMaxZn > gameState.xMaxH ? '>' : '='} ${gameState.xMaxH.toFixed(4)}<br><br>
+                ➜ Le réactif limitant est : <strong style="color: #00ff88;">${gameState.limitingReagent}</strong>
+            `;
+            
+            indicator.classList.add('show');
+            
+            gameState.score += 25;
+            updateScore();
+        }
+
+        function closeLimitingIndicator() {
+            document.getElementById('limitingIndicator').classList.remove('show');
+        }
+
+        // ==================== RESET ====================
+        function resetExperiment() {
+            // Stop animations
+            stopBubbleAnimation();
+            
+            // Reset game state
+            gameState.isPrepared = false;
+            gameState.x = 0;
+            gameState.nZn = 0;
+            gameState.nH = 0;
+            gameState.nH2 = 0;
+            gameState.nZn2 = 0;
+            gameState.xMax = 0;
+            
+            // Reset sliders
+            document.getElementById('znMassSlider').value = 3.27;
+            document.getElementById('hclVolumeSlider').value = 100;
+            document.getElementById('hclConcSlider').value = 1.0;
+            document.getElementById('advancementSlider').value = 0;
+            document.getElementById('advancementSlider').disabled = true;
+            
+            // Reset buttons
+            document.getElementById('prepareBtn').disabled = false;
+            document.getElementById('prepareBtn').textContent = '🧪 Préparer le mélange';
+            document.getElementById('limitingBtn').disabled = true;
+            document.getElementById('maxAdvBtn').disabled = true;
+            
+            // Reset visuals
+            document.getElementById('reactorLiquid').style.height = '0%';
+            document.getElementById('gasLevel').style.height = '0%';
+            document.getElementById('advancementFill').style.width = '0%';
+            
+            // Clear bubbles
+            document.getElementById('bubblesContainer').innerHTML = '';
+            
+            // Reset displays
+            document.getElementById('xValue').textContent = '0.000';
+            document.getElementById('xMaxValue').textContent = '0.000';
+            document.getElementById('gasDisplay').textContent = 'V(H₂) = 0 mL';
+            
+            // Reset table
+            document.getElementById('znInit').textContent = '0';
+            document.getElementById('hInit').textContent = '0';
+            document.getElementById('znFinal').textContent = '0';
+            document.getElementById('hFinal').textContent = '0';
+            document.getElementById('h2Final').textContent = '0';
+            document.getElementById('zn2Final').textContent = '0';
+            
+            // Reset tubes
+            document.getElementById('tubeFillZn').style.height = '0%';
+            document.getElementById('tubeFillH').style.height = '0%';
+            document.getElementById('tubeFillH2').style.height = '0%';
+            document.getElementById('tubeFillZn2').style.height = '0%';
+            
+            // Reset equation amounts
+            document.getElementById('znAmount').textContent = '0 mol';
+            document.getElementById('hAmount').textContent = '0 mol';
+            document.getElementById('h2Amount').textContent = '0 mol';
+            document.getElementById('zn2Amount').textContent = '0 mol';
+            
+            // Reset helper text
+            document.getElementById('helperText').innerHTML = 
+                '<strong>Étape 1:</strong> Ajustez la masse de zinc et le volume d\'HCl, puis cliquez sur "Préparer le mélange" pour commencer l\'expérience.';
+            
+            // Update parameters
+            updateParameters();
+            
+            showNotification('Expérience réinitialisée ! 🔄', 'success');
+        }
+
+        // ==================== QUIZ SYSTEM ====================
+        function generateQuizQuestions() {
+            gameState.quizQuestions = [
+                {
+                    question: "Dans la réaction Zn + 2H⁺ → H₂ + Zn²⁺, quel est le coefficient stœchiométrique de H⁺ ?",
+                    options: ["1", "2", "3", "4"],
+                    correct: 1,
+                    explanation: "Le coefficient stœchiométrique de H⁺ est 2, ce qui signifie que 2 moles de H⁺ réagissent avec 1 mole de Zn."
+                },
+                {
+                    question: "Si n(Zn) = 0.05 mol et n(H⁺) = 0.08 mol, quel est le réactif limitant ?",
+                    options: ["Zn", "H⁺", "Les deux sont limitants", "Aucun"],
+                    correct: 1,
+                    explanation: "x_max(Zn) = 0.05/1 = 0.05 mol et x_max(H⁺) = 0.08/2 = 0.04 mol. Comme 0.04 < 0.05, H⁺ est le réactif limitant."
+                },
+                {
+                    question: "Que représente l'avancement x d'une réaction chimique ?",
+                    options: [
+                        "La masse des produits formés",
+                        "Le nombre de moles de réaction qui se sont produites",
+                        "La vitesse de la réaction",
+                        "La température du système"
+                    ],
+                    correct: 1,
+                    explanation: "L'avancement x représente le nombre de moles de réaction qui se sont produites. Il permet de suivre la progression de la réaction."
+                },
+                {
+                    question: "À l'état final d'une réaction totale, quelle affirmation est vraie ?",
+                    options: [
+                        "Tous les réactifs sont consommés",
+                        "Le réactif limitant est entièrement consommé",
+                        "Aucun produit n'est formé",
+                        "x = 0"
+                    ],
+                    correct: 1,
+                    explanation: "À l'état final, le réactif limitant est entièrement consommé (sa quantité finale est nulle). L'autre réactif peut être en excès."
+                },
+                {
+                    question: "Dans le tableau d'avancement, comment s'exprime la quantité de H⁺ en fonction de x ?",
+                    options: [
+                        "n(H⁺) - x",
+                        "n(H⁺) - 2x",
+                        "n(H⁺) + x",
+                        "n(H⁺) + 2x"
+                    ],
+                    correct: 1,
+                    explanation: "Comme le coefficient de H⁺ est 2 et que c'est un réactif, sa quantité diminue de 2x au cours de la réaction : n(H⁺)final = n(H⁺)initial - 2x"
+                },
+                {
+                    question: "Si x_max = 0.03 mol pour la réaction Zn + 2H⁺ → H₂ + Zn²⁺, quelle quantité de H₂ sera formée ?",
+                    options: ["0.015 mol", "0.03 mol", "0.06 mol", "0.09 mol"],
+                    correct: 1,
+                    explanation: "La quantité de H₂ formée est égale à x car son coefficient est 1. Donc n(H₂) = x_max = 0.03 mol."
+                },
+                {
+                    question: "Comment calcule-t-on x_max pour un réactif A de coefficient a ?",
+                    options: [
+                        "x_max = n(A) × a",
+                        "x_max = n(A) / a",
+                        "x_max = a / n(A)",
+                        "x_max = n(A) + a"
+                    ],
+                    correct: 1,
+                    explanation: "x_max pour un réactif A se calcule par x_max = n(A) / a, où a est le coefficient stœchiométrique de A dans l'équation."
+                },
+                {
+                    question: "Le réactif en excès est celui qui :",
+                    options: [
+                        "Est entièrement consommé à la fin",
+                        "Reste présent à la fin de la réaction",
+                        "A le plus grand coefficient stœchiométrique",
+                        "Est le plus cher"
+                    ],
+                    correct: 1,
+                    explanation: "Le réactif en excès est celui qui n'est pas entièrement consommé : il reste présent à la fin de la réaction."
+                }
+            ];
+            
+            // Shuffle questions
+            gameState.quizQuestions.sort(() => Math.random() - 0.5);
+            // Take first 5 questions
+            gameState.quizQuestions = gameState.quizQuestions.slice(0, 5);
+        }
+
+        function showQuiz() {
+            gameState.currentQuestion = 0;
+            gameState.correctAnswers = 0;
+            
+            document.getElementById('quizModal').classList.add('show');
+            displayQuestion();
+        }
+
+        function closeQuiz() {
+            document.getElementById('quizModal').classList.remove('show');
+        }
+
+        function displayQuestion() {
+            const questionData = gameState.quizQuestions[gameState.currentQuestion];
+            
+            document.getElementById('quizProgress').textContent = 
+                `Question ${gameState.currentQuestion + 1}/${gameState.quizQuestions.length}`;
+            
+            document.getElementById('quizQuestion').textContent = questionData.question;
+            
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+            
+            questionData.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Hide feedback and next button
+            document.getElementById('quizFeedback').classList.remove('show');
+            document.getElementById('quizFeedback').className = 'quiz-feedback';
+            document.getElementById('quizNext').classList.remove('show');
+        }
+
+        function selectAnswer(selectedIndex) {
+            const questionData = gameState.quizQuestions[gameState.currentQuestion];
+            const options = document.querySelectorAll('.quiz-option');
+            const feedback = document.getElementById('quizFeedback');
+            
+            // Disable all options
+            options.forEach(opt => opt.classList.add('disabled'));
+            
+            // Mark selected and correct answers
+            options[selectedIndex].classList.add(selectedIndex === questionData.correct ? 'correct' : 'incorrect');
+            
+            if (selectedIndex !== questionData.correct) {
+                options[questionData.correct].classList.add('correct');
+            }
+            
+            // Show feedback
+            const isCorrect = selectedIndex === questionData.correct;
+            feedback.className = `quiz-feedback ${isCorrect ? 'correct' : 'incorrect'} show`;
+            
+            if (isCorrect) {
+                feedback.innerHTML = `✓ Correct ! ${questionData.explanation}`;
+                gameState.correctAnswers++;
+                gameState.score += 100;
+            } else {
+                feedback.innerHTML = `✗ Incorrect. ${questionData.explanation}`;
+            }
+            
+            updateScore();
+            
+            // Show next button
+            document.getElementById('quizNext').classList.add('show');
+            document.getElementById('quizNext').textContent = 
+                gameState.currentQuestion < gameState.quizQuestions.length - 1 
+                    ? 'Question suivante →' 
+                    : 'Voir les résultats →';
+        }
+
+        function nextQuestion() {
+            gameState.currentQuestion++;
+            
+            if (gameState.currentQuestion < gameState.quizQuestions.length) {
+                displayQuestion();
+            } else {
+                // Quiz finished
+                closeQuiz();
+                showResults();
+            }
+        }
+
+        // ==================== RESULTS ====================
+        function showResults() {
+            // Stop timer
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+            
+            const resultsScreen = document.getElementById('resultsScreen');
+            
+            // Calculate final stats
+            const accuracy = (gameState.correctAnswers / gameState.quizQuestions.length) * 100;
+            
+            // Bonus points for time and accuracy
+            const timeBonus = Math.max(0, 500 - gameState.elapsedTime * 2);
+            const accuracyBonus = Math.round(accuracy * 3);
+            gameState.score += timeBonus + accuracyBonus;
+            
+            // Update displays
+            document.getElementById('finalScore').textContent = gameState.score;
+            document.getElementById('correctAnswersDisplay').textContent = 
+                `${gameState.correctAnswers}/${gameState.quizQuestions.length}`;
+            document.getElementById('totalTimeDisplay').textContent = formatTime(gameState.elapsedTime);
+            document.getElementById('accuracyDisplay').textContent = `${accuracy.toFixed(0)}%`;
+            
+            // Show stars based on score
+            const stars = [
+                document.getElementById('star1'),
+                document.getElementById('star2'),
+                document.getElementById('star3')
+            ];
+            
+            stars.forEach(star => {
+                star.classList.remove('active', 'animate');
+            });
+            
+            const starsEarned = accuracy >= 80 ? 3 : accuracy >= 60 ? 2 : accuracy >= 40 ? 1 : 0;
+            
+            // Show badges
+            const badgesContainer = document.getElementById('badgesContainer');
+            badgesContainer.innerHTML = '';
+            
+            const badges = [];
+            if (gameState.correctAnswers === gameState.quizQuestions.length) {
+                badges.push('🏆 Score Parfait');
+            }
+            if (accuracy >= 80) {
+                badges.push('🎯 Expert en avancement');
+            }
+            if (gameState.elapsedTime < 180) {
+                badges.push('⚡ Réaction rapide');
+            }
+            if (gameState.isPrepared) {
+                badges.push('🧪 Chimiste confirmé');
+            }
+            badges.push('🔬 Maître du réactif limitant');
+            
+            badges.forEach((badge, index) => {
+                const badgeEl = document.createElement('div');
+                badgeEl.className = 'badge';
+                badgeEl.textContent = badge;
+                badgeEl.style.animationDelay = `${0.2 + index * 0.15}s`;
+                badgesContainer.appendChild(badgeEl);
+            });
+            
+            // Show results screen
+            resultsScreen.classList.add('show');
+            
+            // Animate stars
+            setTimeout(() => {
+                for (let i = 0; i < starsEarned; i++) {
+                    setTimeout(() => {
+                        stars[i].classList.add('active', 'animate');
+                    }, i * 300);
+                }
+            }, 500);
+        }
+
+        function restartGame() {
+            // Hide results
+            document.getElementById('resultsScreen').classList.remove('show');
+            document.getElementById('gameContainer').style.display = 'none';
+            
+            // Reset all state
+            gameState.score = 0;
+            gameState.currentQuestion = 0;
+            gameState.correctAnswers = 0;
+            gameState.elapsedTime = 0;
+            
+            updateScore();
+            resetExperiment();
+            generateQuizQuestions();
+            
+            // Show intro
+            document.getElementById('introScreen').style.display = 'flex';
+        }
+
+        function showLearningReview() {
+            document.getElementById('learningModal').classList.add('show');
+        }
+
+        function closeLearningModal() {
+            document.getElementById('learningModal').classList.remove('show');
+        }
+
+        // ==================== KEYBOARD SHORTCUTS ====================
+        document.addEventListener('keydown', function(e) {
+            // Space to prepare mixture
+            if (e.code === 'Space' && !gameState.isPrepared) {
+                e.preventDefault();
+                prepareMixture();
+            }
+            
+            // R to reset
+            if (e.code === 'KeyR') {
+                resetExperiment();
+            }
+            
+            // Q to open quiz
+            if (e.code === 'KeyQ') {
+                showQuiz();
+            }
+            
+            // Escape to close modals
+            if (e.code === 'Escape') {
+                closeQuiz();
+                closeLimitingIndicator();
+                closeLearningModal();
+            }
+            
+            // M to go to max advancement
+            if (e.code === 'KeyM' && gameState.isPrepared) {
+                goToMaxAdvancement();
+            }
+            
+            // L to show limiting reagent
+            if (e.code === 'KeyL' && gameState.isPrepared) {
+                showLimitingReagent();
+            }
+        });
+
+        // ==================== TOUCH SUPPORT ====================
+        document.querySelectorAll('.param-slider, .advancement-slider').forEach(slider => {
+            slider.addEventListener('touchmove', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+        // ==================== EASTER EGG ====================
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.code);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                gameState.score += 1000;
+                updateScore();
+                showNotification('🎮 Code secret activé ! +1000 points bonus !', 'success');
+                
+                // Rainbow effect on lab
+                document.getElementById('labContainer').style.animation = 'rainbow 2s linear';
+                setTimeout(() => {
+                    document.getElementById('labContainer').style.animation = '';
+                }, 2000);
+            }
+        });
+
+        // Add rainbow animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

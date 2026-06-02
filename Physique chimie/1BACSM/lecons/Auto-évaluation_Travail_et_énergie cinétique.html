@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-évaluation Physique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .section-title {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .question-text {
+            font-weight: 500;
+            color: #2d3748;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .formula {
+            background: #edf2f7;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            padding: 12px 15px;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            background: #edf2f7;
+            border-color: #667eea;
+        }
+        
+        .option input {
+            margin-right: 10px;
+        }
+        
+        .btn-check {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .btn-check:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .feedback.correct {
+            background: #c6f6d5;
+            border: 2px solid #48bb78;
+            color: #22543d;
+        }
+        
+        .feedback.incorrect {
+            background: #fed7d7;
+            border: 2px solid #f56565;
+            color: #742a2a;
+        }
+        
+        .explanation {
+            margin-top: 10px;
+            padding: 12px;
+            background: #edf2f7;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .score-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .score-card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .score-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .btn-reset {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .btn-reset:hover {
+            transform: scale(1.05);
+        }
+        
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        input[type="text"]:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .unit-hint {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 5px;
+        }
+        
+        sub {
+            font-size: 0.8em;
+        }
+        
+        sup {
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ Auto-évaluation</h1>
+            <p>Travail et énergie cinétique - Leçon 3</p>
+        </div>
+        
+        <div class="content">
+            <!-- Section 1: Énergie cinétique de translation -->
+            <div class="section">
+                <h2 class="section-title">🚗 Partie 1 : Énergie cinétique de translation</h2>
+                
+                <div class="question" data-answer="c">
+                    <div class="question-text">
+                        <strong>Q1.</strong> Quelle est l'unité de l'énergie cinétique dans le système international ?
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="a">
+                            Watt (W)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="b">
+                            Newton (N)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="c">
+                            Joule (J)
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q1')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="b">
+                    <div class="question-text">
+                        <strong>Q2.</strong> Pour un corps en translation, l'énergie cinétique est donnée par :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="a">
+                            E<sub>C</sub> = mV
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="b">
+                            E<sub>C</sub> = ½mV²
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="c">
+                            E<sub>C</sub> = 2mV²
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q2')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="900">
+                    <div class="question-text">
+                        <strong>Q3.</strong> Un corps de masse m = 2 kg se déplace à la vitesse v = 30 m/s.<br>
+                        Calculer son énergie cinétique (en Joules).
+                    </div>
+                    <input type="number" id="q3-input" placeholder="Entrez la valeur en J">
+                    <div class="unit-hint">💡 Utilisez la formule : E<sub>C</sub> = ½mV²</div>
+                    <button class="btn-check" onclick="checkNumericAnswer(this, 'q3-input', 900, 10)">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="c">
+                    <div class="question-text">
+                        <strong>Q4.</strong> Si on double la vitesse d'un corps, son énergie cinétique :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="a">
+                            Double
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="b">
+                            Triple
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="c">
+                            Quadruple (×4)
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q4')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+            
+            <!-- Section 2: Énergie cinétique de rotation -->
+            <div class="section">
+                <h2 class="section-title">🌀 Partie 2 : Énergie cinétique de rotation</h2>
+                
+                <div class="question" data-answer="b">
+                    <div class="question-text">
+                        <strong>Q5.</strong> Pour un corps en rotation, l'énergie cinétique est :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="a">
+                            E<sub>C</sub> = ½mω²
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="b">
+                            E<sub>C</sub> = ½J<sub>Δ</sub>ω²
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="c">
+                            E<sub>C</sub> = J<sub>Δ</sub>ω
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q5')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="a">
+                    <div class="question-text">
+                        <strong>Q6.</strong> Le moment d'inertie J<sub>Δ</sub> exprime :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q6" value="a">
+                            La résistance du corps à la rotation
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="b">
+                            La vitesse de rotation du corps
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="c">
+                            L'énergie totale du corps
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q6')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="0.03">
+                    <div class="question-text">
+                        <strong>Q7.</strong> Un disque de masse m = 1,5 kg et de rayon R = 20 cm.<br>
+                        Calculer son moment d'inertie J<sub>Δ</sub> (en kg.m²).
+                    </div>
+                    <input type="number" id="q7-input" step="0.001" placeholder="Entrez la valeur">
+                    <div class="unit-hint">💡 Pour un disque : J<sub>Δ</sub> = ½mR² (Attention aux unités !)</div>
+                    <button class="btn-check" onclick="checkNumericAnswer(this, 'q7-input', 0.03, 0.001)">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="6.75">
+                    <div class="question-text">
+                        <strong>Q8.</strong> Le disque précédent tourne à ω = 30 rad/s.<br>
+                        Calculer son énergie cinétique (en Joules).
+                    </div>
+                    <input type="number" id="q8-input" step="0.01" placeholder="Entrez la valeur en J">
+                    <div class="unit-hint">💡 Utilisez J<sub>Δ</sub> = 0,03 kg.m² trouvé précédemment</div>
+                    <button class="btn-check" onclick="checkNumericAnswer(this, 'q8-input', 6.75, 0.1)">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+            
+            <!-- Section 3: Théorème de l'énergie cinétique -->
+            <div class="section">
+                <h2 class="section-title">📐 Partie 3 : Théorème de l'énergie cinétique</h2>
+                
+                <div class="question" data-answer="b">
+                    <div class="question-text">
+                        <strong>Q9.</strong> Le théorème de l'énergie cinétique énonce que :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q9" value="a">
+                            L'énergie cinétique est toujours constante
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="b">
+                            ΔE<sub>C</sub> = Σ W(F<sub>ext</sub>)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="c">
+                            Le travail est égal à la force
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q9')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="c">
+                    <div class="question-text">
+                        <strong>Q10.</strong> Si un corps descend un plan incliné, le travail du poids est :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q10" value="a">
+                            Négatif (freine le mouvement)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="b">
+                            Nul (perpendiculaire au déplacement)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="c">
+                            Positif (favorise le mouvement)
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q10')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="a">
+                    <div class="question-text">
+                        <strong>Q11.</strong> Sur un plan incliné, le travail de la réaction R est :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q11" value="a">
+                            Nul car R ⊥ déplacement
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q11" value="b">
+                            Positif
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q11" value="c">
+                            Négatif
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q11')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="question" data-answer="b">
+                    <div class="question-text">
+                        <strong>Q12.</strong> Pour un autoporteur descendant un plan incliné d'angle α sur une distance d, le travail du poids est :
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q12" value="a">
+                            W = mg·d·cos(α)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q12" value="b">
+                            W = mg·d·sin(α)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q12" value="c">
+                            W = mg·d·tan(α)
+                        </label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswer(this, 'q12')">Vérifier</button>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+            
+            <div class="score-card" id="scoreCard">
+                <h2>🎉 Résultat final</h2>
+                <div class="score-number" id="scoreNumber">0/12</div>
+                <p id="scoreMessage"></p>
+                <button class="btn-reset" onclick="resetQuiz()">Recommencer</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let totalQuestions = 12;
+        let correctAnswers = 0;
+        let answeredQuestions = new Set();
+        
+        const explanations = {
+            q1: "L'énergie cinétique, comme toute forme d'énergie, s'exprime en Joules (J) dans le système international.",
+            q2: "Pour un corps en translation, l'énergie cinétique est E_C = ½mV² où m est la masse et V la vitesse.",
+            q3: "E_C = ½ × 2 × (30)² = ½ × 2 × 900 = 900 J. N'oubliez pas de mettre la vitesse au carré !",
+            q4: "E_C est proportionnelle à V². Si V devient 2V, alors E_C devient ½m(2V)² = ½m×4V² = 4×(½mV²), donc l'énergie quadruple.",
+            q5: "Pour un corps en rotation, on utilise E_C = ½J_Δω² où J_Δ est le moment d'inertie et ω la vitesse angulaire.",
+            q6: "Le moment d'inertie caractérise la répartition de la masse autour de l'axe de rotation. Plus il est grand, plus il est difficile de faire tourner l'objet.",
+            q7: "Pour un disque : J_Δ = ½mR². Attention : R = 20 cm = 0,2 m. Donc J_Δ = ½ × 1,5 × (0,2)² = 0,03 kg.m²",
+            q8: "E_C = ½ × 0,03 × (30)² = ½ × 0,03 × 900 = 13,5/2 = 6,75 J",
+            q9: "Le théorème de l'énergie cinétique : la variation d'énergie cinétique est égale à la somme des travaux des forces extérieures.",
+            q10: "Quand le corps descend, le poids et le déplacement ont des composantes dans le même sens, donc le travail du poids est positif (il augmente l'énergie cinétique).",
+            q11: "La réaction R est perpendiculaire au plan incliné, donc perpendiculaire au déplacement. Son travail est donc nul.",
+            q12: "Le travail du poids est W = mgh où h = d×sin(α) est la hauteur de descente. Donc W = mg·d·sin(α)."
+        };
+        
+        function checkAnswer(button, questionName) {
+            const question = button.parentElement;
+            const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+            const feedback = question.querySelector('.feedback');
+            const correctAnswer = question.dataset.answer;
+            
+            if (!selected) {
+                alert('Veuillez sélectionner une réponse !');
+                return;
+            }
+            
+            if (!answeredQuestions.has(questionName)) {
+                answeredQuestions.add(questionName);
+                
+                if (selected.value === correctAnswer) {
+                    correctAnswers++;
+                    feedback.className = 'feedback correct';
+                    feedback.innerHTML = `
+                        <strong>✅ Correct !</strong>
+                        <div class="explanation">${explanations[questionName]}</div>
+                    `;
+                } else {
+                    feedback.className = 'feedback incorrect';
+                    feedback.innerHTML = `
+                        <strong>❌ Incorrect</strong>
+                        <div class="explanation">${explanations[questionName]}</div>
+                    `;
+                }
+                
+                feedback.style.display = 'block';
+                button.disabled = true;
+                button.style.opacity = '0.5';
+                
+                document.querySelectorAll(`input[name="${questionName}"]`).forEach(input => {
+                    input.disabled = true;
+                });
+                
+                if (answeredQuestions.size === totalQuestions) {
+                    showFinalScore();
+                }
+            }
+        }
+        
+        function checkNumericAnswer(button, inputId, correctAnswer, tolerance = 0.01) {
+            const input = document.getElementById(inputId);
+            const question = button.parentElement;
+            const feedback = question.querySelector('.feedback');
+            const questionName = inputId.replace('-input', '');
+            const userAnswer = parseFloat(input.value);
+            
+            if (isNaN(userAnswer)) {
+                alert('Veuillez entrer une valeur numérique !');
+                return;
+            }
+            
+            if (!answeredQuestions.has(questionName)) {
+                answeredQuestions.add(questionName);
+                
+                if (Math.abs(userAnswer - correctAnswer) <= tolerance) {
+                    correctAnswers++;
+                    feedback.className = 'feedback correct';
+                    feedback.innerHTML = `
+                        <strong>✅ Correct !</strong>
+                        <div class="explanation">${explanations[questionName]}</div>
+                    `;
+                } else {
+                    feedback.className = 'feedback incorrect';
+                    feedback.innerHTML = `
+                        <strong>❌ Incorrect - La bonne réponse est ${correctAnswer}</strong>
+                        <div class="explanation">${explanations[questionName]}</div>
+                    `;
+                }
+                
+                feedback.style.display = 'block';
+                button.disabled = true;
+                button.style.opacity = '0.5';
+                input.disabled = true;
+                
+                if (answeredQuestions.size === totalQuestions) {
+                    showFinalScore();
+                }
+            }
+        }
+        
+        function showFinalScore() {
+            const scoreCard = document.getElementById('scoreCard');
+            const scoreNumber = document.getElementById('scoreNumber');
+            const scoreMessage = document.getElementById('scoreMessage');
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            
+            scoreNumber.textContent = `${correctAnswers}/${totalQuestions}`;
+            
+            if (percentage >= 90) {
+                scoreMessage.textContent = "Excellent ! Vous maîtrisez parfaitement les concepts d'énergie cinétique ! 🌟";
+            } else if (percentage >= 75) {
+                scoreMessage.textContent = "Très bien ! Vous avez une bonne compréhension de la leçon. 👍";
+            } else if (percentage >= 60) {
+                scoreMessage.textContent = "Bien ! Révisez les formules et refaites quelques exercices. 📚";
+            } else if (percentage >= 50) {
+                scoreMessage.textContent = "Pas mal ! Concentrez-vous sur les calculs pratiques. 📝";
+            } else {
+                scoreMessage.textContent = "Il faut revoir la leçon. Courage, vous allez y arriver ! 💪";
+            }
+            
+            scoreCard.style.display = 'block';
+            scoreCard.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function resetQuiz() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>

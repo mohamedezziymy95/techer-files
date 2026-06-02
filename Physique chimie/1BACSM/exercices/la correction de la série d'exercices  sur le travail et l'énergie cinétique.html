@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correction - Travail et Énergie Cinétique</title>
+
+    <!-- Polyfill -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    <!-- Configuration MathJax (DOIT être déclarée avant le script MathJax) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ],
+                displayMath: [
+                    ['$$', '$$'],
+                    ['\\[', '\\]']
+                ],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+
+    <!-- Import de MathJax -->
+    <script id="MathJax-script" async 
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+               line-height: 1.6; margin: 20px; background-color: #f4f4f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 30px;
+                     border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h1, h2, h3 { color: #007BFF; border-bottom: 2px solid #007BFF; padding-bottom: 5px; margin-top: 25px; }
+        h1 { font-size: 2.2em; text-align: center; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; color: #28a745; border-bottom: 1px solid #28a745; }
+        .data { background-color: #e9ecef; padding: 10px; border-radius: 6px;
+                margin-bottom: 15px; border-left: 5px solid #007BFF; }
+        .formula {
+            background-color: #f8f9fa; padding: 15px; border-radius: 8px;
+            margin: 15px 0; border: 1px solid #dee2e6; overflow-x: auto; text-align: center;
+        }
+        .solution { margin-bottom: 20px; padding-left: 15px; border-left: 3px solid #28a745; }
+        .justification { font-style: italic; color: #6c757d; }
+        .conversion { color: #dc3545; font-weight: bold; }
+        p { margin-bottom: 10px; }
+        strong { color: #000; }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Correction Détaillée : Travail et Énergie Cinétique</h1>
+    <p class="data"><strong>Série d'exercices du leçon 3 : Travail et énergie cinétique</strong></p>
+
+    <hr>
+    <h2 id="exercice1">Exercice 1 : Mouvement de translation du véhicule</h2>
+    <div class="data">
+        <p><strong>Données :</strong> $m=1,24 \text{ tonne}$ (masse) $V=80 \text{ Km.h}^{-1}$ (vitesse constante)</p>
+    </div>
+
+    <div class="solution">
+        <h3>1. Expression de l'énergie cinétique ($E_c$)</h3>
+        <p>L'énergie cinétique d'un corps en translation est donnée par la formule :</p>
+        <div class="formula">
+            $$E_c = \frac{1}{2} m V^2$$
+        </div>
+        <p>Où $m$ est la masse du véhicule (en kg) et $V$ est sa vitesse (en m/s).</p>
+
+        <h3>2. Calcul de la valeur de l'énergie cinétique</h3>
+        <p>Conversion des unités :</p>
+        <ul>
+            <li>Masse: $m = 1,24 \text{ tonne} = \mathbf{1240 \text{ kg}}$.</li>
+            <li>Vitesse: $V = 80 \text{ Km.h}^{-1} = \frac{80}{3,6} \text{ m.s}^{-1} \approx \mathbf{22,22 \text{ m.s}^{-1}}$.</li>
+        </ul>
+        <p>Application numérique :</p>
+        <div class="formula">
+            $$E_c = \frac{1}{2} \times 1240 \times \left(\frac{80}{3,6}\right)^2 \approx \mathbf{306 174 \text{ J}}$$
+        </div>
+        <p>La valeur de l'énergie cinétique est d'environ $\mathbf{3,06 \times 10^5 \text{ J}}$.</p>
+
+        <h3>3. Somme des travaux des forces extérieures</h3>
+        <p>Le véhicule roule à une **vitesse constante** ($V = \text{constante}$).</p>
+        <p>D'après le **Théorème de l'Énergie Cinétique (TEC)**, $\sum W(\vec{F}_{ext}) = \Delta E_c$.</p>
+        <p>Puisque $V$ est constante, la variation de l'énergie cinétique est nulle : $\Delta E_c = 0 \text{ J}$.</p>
+        <div class="formula">
+            $$\sum W(\vec{F}_{ext}) = \mathbf{0 \text{ J}}$$
+        </div>
+        <p class="justification">Justification : Le mouvement est rectiligne uniforme, donc $\Delta E_c = 0$.</p>
+    </div>
+
+    <hr>
+    <h2 id="exercice2">Exercice 2 : Mouvement de rotation du cylindre</h2>
+    <div class="data">
+        <p><strong>Données :</strong> Équation horaire $\theta=40t+\frac{\pi}{4}$. $m=2,5 \text{ Kg}$. $R=30 \text{ cm} = \mathbf{0,30 \text{ m}}$. $J_{\Delta}=\frac{1}{2}mR^{2}$.</p>
+    </div>
+
+    <div class="solution">
+        <h3>1. Nature du mouvement du cylindre</h3>
+        <p>L'équation est de la forme $\theta(t) = \omega_0 t + \theta_0$, avec $\omega = 40 \text{ rad.s}^{-1}$ (constante). La nature du mouvement est un **mouvement de rotation uniforme**.</p>
+
+        <h3>2. Expression de l'énergie cinétique ($E_c$)</h3>
+        <p>L'énergie cinétique de rotation est $E_c = \frac{1}{2} J_{\Delta} \omega^2$. En remplaçant $J_{\Delta}$ :</p>
+        <div class="formula">
+            $$E_c = \frac{1}{2} \left(\frac{1}{2}mR^{2}\right) \omega^2 = \mathbf{\frac{1}{4} m R^2 \omega^2}$$
+        </div>
+
+        <h3>3. Calcul de la valeur de l'énergie cinétique</h3>
+        <p>Application numérique (avec $\omega=40 \text{ rad.s}^{-1}$) :</p>
+        <div class="formula">
+            $$E_c = \frac{1}{4} \times 2,5 \times (0,30)^2 \times (40)^2 = \mathbf{90 \text{ J}}$$
+        </div>
+        <p>La valeur de l'énergie cinétique est $\mathbf{90 \text{ J}}$.</p>
+
+        <h3>4. Somme des travaux des forces extérieures</h3>
+        <p>Le mouvement est **uniforme** ($\omega = \text{constante}$), donc $\Delta E_c = 0 \text{ J}$.</p>
+        <p>D'après le TEC :</p>
+        <div class="formula">
+            $$\sum W(\vec{F}_{ext}) = \Delta E_c = \mathbf{0 \text{ J}}$$
+        </div>
+        <p class="justification">Justification : Le mouvement est de rotation uniforme, donc $\Delta E_c = 0$.</p>
+    </div>
+
+    <hr>
+    <h2 id="exercice3">Exercice 3 : Corps en translation sur un plan horizontal</h2>
+    <div class="data">
+        <p><strong>Données :</strong> $F=10 \text{ N}$. $V_0=20 \text{ m.s}^{-1}$. $V_f = 0 \text{ m.s}^{-1}$. $d=120 \text{ m}$. (Masse $m$ manquante)</p>
+    </div>
+
+    <div class="solution">
+        <h3>1. Détermination des forces extérieures exercées sur (S)</h3>
+        <ol>
+            <li>Le **Poids** $\vec{P}$ (vertical, vers le bas).</li>
+            <li>La **Réaction du plan** $\vec{R} = \vec{R}_n + \vec{f}$ (force normale + force de frottement $\vec{f}$).</li>
+            <li>La **Force de traction** $\vec{F}$ (horizontale, dans le sens du mouvement).</li>
+        </ol>
+        
+
+        <h3>2. Calcul du travail de la force $\vec{F}$</h3>
+        <p>La force $\vec{F}$ est colinéaire et de même sens que le déplacement ($\cos(0^{\circ}) = 1$) :</p>
+        <div class="formula">
+            $$W(\vec{F}) = F \cdot d \cdot \cos(0^{\circ}) = 10 \text{ N} \times 120 \text{ m} \times 1 = \mathbf{1200 \text{ J}}$$
+        </div>
+
+        <h3>3. Calcul de la variation de l'énergie cinétique ($\Delta E_c$)</h3>
+        <p>Puisque le corps s'arrête ($V_f = 0$):</p>
+        <div class="formula">
+            $$\Delta E_c = E_{c, finale} - E_{c, initiale} = 0 - \frac{1}{2} m V_{0}^2 = \mathbf{-\frac{1}{2} m V_{0}^2}$$
+        </div>
+
+        <h3>4. Application du TEC et preuve de l'existence de frottement</h3>
+        <p>D'après le TEC : $\Delta E_c = W(\vec{F}) + W(\vec{f})$. (Car $W(\vec{P}) = W(\vec{R}_n) = 0$).</p>
+        <p>Si le mouvement était **sans frottement** ($W(\vec{f}) = 0$), on aurait $\Delta E_c = W(\vec{F}) = 1200 \text{ J}$.</p>
+        <p>Or, $\Delta E_c = -\frac{1}{2} m V_{0}^2$. Comme $m$ et $V_0$ sont positifs, $\mathbf{\Delta E_c}$ est **négative** ($\mathbf{\Delta E_c < 0}$).</p>
+        <p>Puisque $\Delta E_c$ doit être négative et $W(\vec{F})$ est positive, on doit avoir $W(\vec{f}) \neq 0$. Par conséquent, **il y a frottement**.</p>
+
+        <h3>5. Calcul de l'intensité de la force de frottement ($f$)</h3>
+        <p>Pour calculer $f$, la masse $m$ est indispensable. **Nous allons supposer $m = 1 \text{ kg}$** (valeur manquante).</p>
+        <div class="formula">
+            $$\Delta E_c = -\frac{1}{2} \times 1 \text{ kg} \times (20 \text{ m.s}^{-1})^2 = -200 \text{ J}$$
+        </div>
+        <p>Le travail de frottement est $W(\vec{f}) = \Delta E_c - W(\vec{F})$ :</p>
+        <div class="formula">
+            $$W(\vec{f}) = -200 \text{ J} - 1200 \text{ J} = -1400 \text{ J}$$
+        </div>
+        <p>L'intensité de $f$ est $f = -\frac{W(\vec{f})}{d}$ :</p>
+        <div class="formula">
+            $$f = -\frac{-1400 \text{ J}}{120 \text{ m}} \approx \mathbf{11,67 \text{ N}}$$
+        </div>
+        <p class="justification">**Note :** Cette valeur est calculée sous l'hypothèse $m=1 \text{ kg}$.</p>
+    </div>
+
+    <hr>
+    <h2 id="exercice4">Exercice 4 : Rotation d'un disque</h2>
+    <div class="data">
+        <p><strong>Données :</strong> $R=0,35 \text{ m}$. $M=4,5 \text{ Kg}$. $\omega_{0}=50 \text{ rad.s}^{-1}$. $\omega_f = 0 \text{ rad.s}^{-1}$. $N = 20 \text{ tours}$. $J_{\Delta}=\frac{1}{2}MR^{2}$.</p>
+    </div>
+
+    <div class="solution">
+        <h3>1. Calcul de la valeur du moment d'inertie ($J_{\Delta}$)</h3>
+        <div class="formula">
+            $$J_{\Delta} = \frac{1}{2} M R^2 = \frac{1}{2} \times 4,5 \times (0,35)^2 \approx \mathbf{0,276 \text{ kg.m}^2}$$
+        </div>
+
+        <h3>2. Détermination des forces exercées sur le disque</h3>
+        <ol>
+            <li>Le **Poids** $\vec{P}$ (appliqué au centre G).</li>
+            <li>La **Réaction de l'axe** $\vec{R}_{\Delta}$.</li>
+            <li>La **Force de freinage** $\vec{F}$ (tangentielle).</li>
+        </ol>
+
+        <h3>3. Détermination du travail de la force $\vec{F}$ (avec le TEC)</h3>
+        <p>TEC : $W(\vec{F}) = \Delta E_c$. Le disque s'arrête ($\omega_f = 0$) :</p>
+        <div class="formula">
+            $$W(\vec{F}) = E_{c, finale} - E_{c, initiale} = 0 - \frac{1}{2} J_{\Delta} \omega_{0}^2$$
+            $$W(\vec{F}) = \mathbf{- \frac{1}{2} J_{\Delta} \omega_{0}^2}$$
+        </div>
+
+        <h3>4. Calcul de la variation de l'énergie cinétique ($\Delta E_c$)</h3>
+        <div class="formula">
+            $$\Delta E_c = - \frac{1}{2} \times 0,275625 \times (50)^2 = \mathbf{-344,53 \text{ J}}$$
+        </div>
+        <p>Par conséquent, $W(\vec{F}) = \mathbf{-344,53 \text{ J}}$.</p>
+
+        <h3>5. Déduction de l'intensité de la force $\vec{F}$</h3>
+        <p>L'abscisse angulaire totale est $\Delta \theta = N \times 2\pi = 40\pi \text{ rad}$.</p>
+        <p>Le travail est $W(\vec{F}) = \tau(\vec{F}) \cdot \Delta \theta = -F \cdot R \cdot \Delta \theta$ :</p>
+        <div class="formula">
+            $$F = -\frac{W(\vec{F})}{R \cdot \Delta \theta} = -\frac{-344,53 \text{ J}}{0,35 \text{ m} \times 40\pi \text{ rad}} \approx \mathbf{7,83 \text{ N}}$$
+        </div>
+    </div>
+
+    <hr>
+    <h2 id="exercice5">Exercice 5 : Mouvement du skieur (Plan incliné et horizontal)</h2>
+    <div class="data">
+        <p><strong>Données :</strong> $m=80 \text{ kg}$. $g=10 \text{ N/Kg}$. Pente AB : $L=20 \text{ m}$, $\alpha=30^{\circ}$, $V_A = 0 \text{ m.s}^{-1}$. Piste BC : $d=30 \text{ m}$, $t_C = 6 \text{ s}$.</p>
+    </div>
+
+    <div class="solution">
+        <h3 id="partie1">I - Étude du mouvement sur la pente AB (Frottements négligeables)</h3>
+
+        <h4>1. Forces appliquées sur le skieur (AB)</h4>
+        <ol>
+            <li>Le **Poids** $\vec{P}$.</li>
+            <li>La **Réaction normale** $\vec{R}_n$ du plan incliné.</li>
+        </ol>
+        
+
+        <h4>2. Expression du travail du poids ($W(\vec{P})$)</h4>
+        <p>La dénivellation est $h = L \cdot \sin(\alpha)$. Le travail du poids est moteur ($W(\vec{P}) > 0$) :</p>
+        <div class="formula">
+            $$W(\vec{P})_{A \to B} = m \cdot g \cdot h = \mathbf{m \cdot g \cdot L \cdot \sin(\alpha)}$$
+        </div>
+
+        <h4>3. Expression de la vitesse $V_B$ (avec le TEC)</h4>
+        <p>TEC : $E_{c, B} - E_{c, A} = W(\vec{P}) + W(\vec{R}_n)$. Avec $E_{c, A} = 0$ et $W(\vec{R}_n) = 0$ :</p>
+        <div class="formula">
+            $$\frac{1}{2} m V_{B}^2 = m \cdot g \cdot L \cdot \sin(\alpha) \Rightarrow V_{B} = \mathbf{\sqrt{2 \cdot g \cdot L \cdot \sin(\alpha)}}$$
+        </div>
+
+        <h3 id="partie2">II - Étude du mouvement sur la piste BC (Horizontal)</h3>
+
+        <h4>1. Forces appliquées sur le skieur (BC)</h4>
+        <ol>
+            <li>Le **Poids** $\vec{P}$.</li>
+            <li>La **Réaction du plan** $\vec{R}$ (incluant $\vec{R}_n$ et la force de frottement cinétique $\vec{f}$).</li>
+        </ol>
+
+        <h4>2. Calcul de l'énergie cinétique du skieur au point B ($E_{c, B}$)</h4>
+        <p>Calcul de $V_B$ : $V_{B} = \sqrt{2 \cdot 10 \cdot 20 \cdot \sin(30^{\circ})} = \sqrt{200} \approx 14,14 \text{ m/s}$.</p>
+        <div class="formula">
+            $$E_{c, B} = \frac{1}{2} m V_{B}^2 = \frac{1}{2} \times 80 \times 200 = \mathbf{8000 \text{ J}}$$
+        </div>
+
+        <h4>3. Mouvement avec frottement sur BC</h4>
+        <p>a - Montrer que le mouvement sur BC se fait avec frottement en calculant son travail.</p>
+        <p>D'après le graphique (image 4), à $t_C = 6 \text{ s}$, la vitesse est $\mathbf{V_C = 7,5 \text{ m/s}}$.</p>
+        <p>Calcul de $E_{c, C}$ : $E_{c, C} = \frac{1}{2} \times 80 \times (7,5)^2 = \mathbf{2250 \text{ J}}$.</p>
+        <p>TEC entre B et C : $\sum W(\vec{F}_{ext})_{B \to C} = \Delta E_c = E_{c, C} - E_{c, B}$</p>
+        <div class="formula">
+            $$W(\vec{f}) = 2250 \text{ J} - 8000 \text{ J} = \mathbf{-5750 \text{ J}}$$
+        </div>
+        <p>Puisque le travail de frottement $W(\vec{f})$ est non nul ($\mathbf{-5750 \text{ J}}$), **le mouvement se fait avec frottement**.</p>
+
+        <h4>4. Déduction de l'intensité de la force de frottement ($f$)</h4>
+        <p>L'intensité $f$ est $f = -\frac{W(\vec{f})}{d}$ (avec $d = 30 \text{ m}$) :</p>
+        <div class="formula">
+            $$f = -\frac{-5750 \text{ J}}{30 \text{ m}} \approx \mathbf{191,67 \text{ N}}$$
+        </div>
+    </div>
+
+    <hr>
+    <p>Cette correction peut vous aidez à bien préparer pour le contrôle surveillé  2 du première semestre, crée par le Prof Mohamed Ez-ziymy.</p>
+</div>
+
+</body>
+</html>
