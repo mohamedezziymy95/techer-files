@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاكاة التفتت النووي ومنحنى سيغري</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 968px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #34495e;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .controls {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        select, input[type="range"], button {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #decayCanvas, #segreCanvas {
+            width: 100%;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .decay-info {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .decay-type-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .decay-type-buttons button {
+            flex: 1;
+        }
+
+        .alpha-btn {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .beta-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        .gamma-btn {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+
+        .info-panel {
+            background: #f0f3f7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-right: 4px solid #3498db;
+        }
+
+        .equation {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .particle {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .particle-alpha {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .particle-beta {
+            background: #3498db;
+            color: white;
+        }
+
+        .particle-gamma {
+            background: #f39c12;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .animating {
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔬 محاكاة التفتت النووي ومنحنى سيغري</h1>
+        
+        <div class="main-grid">
+            <!-- قسم التفتت النووي -->
+            <div class="section">
+                <h2>⚛️ محاكاة التفتت النووي</h2>
+                
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="element">اختر العنصر:</label>
+                        <select id="element">
+                            <option value="U-238">يورانيوم-238</option>
+                            <option value="Ra-226">راديوم-226</option>
+                            <option value="C-14">كربون-14</option>
+                            <option value="Co-60">كوبالت-60</option>
+                            <option value="Pu-239">بلوتونيوم-239</option>
+                        </select>
+                    </div>
+                    
+                    <div class="decay-type-buttons">
+                        <button class="alpha-btn" onclick="simulateDecay('alpha')">تفتت ألفا α</button>
+                        <button class="beta-btn" onclick="simulateDecay('beta')">تفتت بيتا β</button>
+                        <button class="gamma-btn" onclick="simulateDecay('gamma')">إشعاع غاما γ</button>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="speed">سرعة المحاكاة:</label>
+                        <input type="range" id="speed" min="1" max="10" value="5">
+                        <span id="speedValue">5</span>
+                    </div>
+                    
+                    <button onclick="startSimulation()">🚀 بدء المحاكاة</button>
+                    <button onclick="resetSimulation()">🔄 إعادة تعيين</button>
+                </div>
+                
+                <canvas id="decayCanvas" width="600" height="400"></canvas>
+                
+                <div class="equation" id="decayEquation">
+                    <!-- سيتم تحديث المعادلة ديناميكيًا -->
+                </div>
+                
+                <div class="decay-info">
+                    <h3>معلومات التفتت:</h3>
+                    <p id="decayDescription">اختر نوع التفتت لعرض المعلومات</p>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="halfLife">-</div>
+                        <div class="stat-label">عمر النصف</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="energy">-</div>
+                        <div class="stat-label">الطاقة المنبعثة</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="particles">0</div>
+                        <div class="stat-label">الجسيمات المنبعثة</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم منحنى سيغري -->
+            <div class="section">
+                <h2>📊 منحنى سيغري (مخطط النويدات)</h2>
+                
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="zRange">نطاق العدد الذري (Z):</label>
+                        <input type="range" id="zRange" min="1" max="20" value="10">
+                        <span id="zRangeValue">1-10</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="displayMode">وضع العرض:</label>
+                        <select id="displayMode">
+                            <option value="stability">الاستقرار</option>
+                            <option value="halflife">عمر النصف</option>
+                            <option value="decaymode">نوع التفتت</option>
+                        </select>
+                    </div>
+                    
+                    <button onclick="updateSegreChart()">📈 تحديث المخطط</button>
+                    <button onclick="zoomIn()">🔍 تكبير</button>
+                    <button onclick="zoomOut()">🔍 تصغير</button>
+                </div>
+                
+                <canvas id="segreCanvas" width="600" height="500"></canvas>
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #2ecc71;"></div>
+                        <span>نويدات مستقرة</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #e74c3c;"></div>
+                        <span>تفتت ألفا</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #3498db;"></div>
+                        <span>تفتت بيتا ناقص</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #9b59b6;"></div>
+                        <span>تفتت بيتا زائد</span>
+                    </div>
+                </div>
+                
+                <div class="info-panel">
+                    <h3>معلومات النويدة المحددة:</h3>
+                    <div id="nuclideInfo">
+                        <p>انقر على نويدة في المخطط لعرض معلوماتها</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- قسم المعلومات الإضافية -->
+        <div class="section">
+            <h2>📚 معلومات إضافية</h2>
+            
+            <div class="info-panel">
+                <h3>أنواع التفتت النووي:</h3>
+                
+                <h4>1. تفتت ألفا (α):</h4>
+                <p>انبعاث جسيم ألفا (نواة هيليوم-4) من النواة. يحدث في النوى الثقيلة (Z > 82).</p>
+                <div class="equation">
+                    <span>²³⁸U → ²³⁴Th + ⁴He</span>
+                </div>
+                
+                <h4>2. تفتت بيتا (β):</h4>
+                <p>تحول نيوترون إلى بروتون (β⁻) أو بروتون إلى نيوترون (β⁺).</p>
+                <div class="equation">
+                    <span>¹⁴C → ¹⁴N + e⁻ + ν̄ₑ</span>
+                </div>
+                
+                <h4>3. إشعاع غاما (γ):</h4>
+                <p>انبعاث فوتونات عالية الطاقة من النواة المثارة.</p>
+                <div class="equation">
+                    <span>⁶⁰Co* → ⁶⁰Co + γ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // البيانات النووية
+        const nuclearData = {
+            'U-238': { 
+                halfLife: '4.5 مليار سنة', 
+                energy: '4.27 MeV',
+                decayType: 'alpha',
+                product: 'Th-234'
+            },
+            'Ra-226': { 
+                halfLife: '1600 سنة', 
+                energy: '4.87 MeV',
+                decayType: 'alpha',
+                product: 'Rn-222'
+            },
+            'C-14': { 
+                halfLife: '5730 سنة', 
+                energy: '0.156 MeV',
+                decayType: 'beta',
+                product: 'N-14'
+            },
+            'Co-60': { 
+                halfLife: '5.27 سنة', 
+                energy: '2.82 MeV',
+                decayType: 'beta',
+                product: 'Ni-60'
+            },
+            'Pu-239': { 
+                halfLife: '24,110 سنة', 
+                energy: '5.24 MeV',
+                decayType: 'alpha',
+                product: 'U-235'
+            }
+        };
+
+        // متغيرات المحاكاة
+        let animationId;
+        let particles = [];
+        let nucleusPosition = { x: 300, y: 200 };
+        let particleCount = 0;
+        let simulationSpeed = 5;
+        let zoomLevel = 1;
+
+        // Canvas contexts
+        const decayCanvas = document.getElementById('decayCanvas');
+        const decayCtx = decayCanvas.getContext('2d');
+        const segreCanvas = document.getElementById('segreCanvas');
+        const segreCtx = segreCanvas.getContext('2d');
+
+        // تحديث قيمة السرعة
+        document.getElementById('speed').addEventListener('input', function(e) {
+            simulationSpeed = e.target.value;
+            document.getElementById('speedValue').textContent = e.target.value;
+        });
+
+        // تحديث نطاق Z
+        document.getElementById('zRange').addEventListener('input', function(e) {
+            document.getElementById('zRangeValue').textContent = `1-${e.target.value}`;
+        });
+
+        // فئة الجسيمات
+        class Particle {
+            constructor(type, x, y) {
+                this.type = type;
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * simulationSpeed;
+                this.vy = (Math.random() - 0.5) * simulationSpeed;
+                this.size = type === 'alpha' ? 8 : type === 'beta' ? 4 : 2;
+                this.color = type === 'alpha' ? '#e74c3c' : type === 'beta' ? '#3498db' : '#f39c12';
+                this.trail = [];
+                this.maxTrailLength = 20;
+            }
+
+            update() {
+                this.trail.push({ x: this.x, y: this.y });
+                if (this.trail.length > this.maxTrailLength) {
+                    this.trail.shift();
+                }
+                
+                this.x += this.vx;
+                this.y += this.vy;
+            }
+
+            draw(ctx) {
+                // رسم المسار
+                ctx.strokeStyle = this.color + '40';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                for (let i = 0; i < this.trail.length; i++) {
+                    if (i === 0) {
+                        ctx.moveTo(this.trail[i].x, this.trail[i].y);
+                    } else {
+                        ctx.lineTo(this.trail[i].x, this.trail[i].y);
+                    }
+                }
+                ctx.stroke();
+
+                // رسم الجسيم
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // إضافة توهج
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        // محاكاة التفتت
+        function simulateDecay(type) {
+            const element = document.getElementById('element').value;
+            const data = nuclearData[element];
+            
+            // تحديث المعلومات
+            updateDecayInfo(type, element, data);
+            
+            // إضافة جسيمات جديدة
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    particles.push(new Particle(type, nucleusPosition.x, nucleusPosition.y));
+                    particleCount++;
+                    document.getElementById('particles').textContent = particleCount;
+                }, i * 100);
+            }
+            
+            // تحديث المعادلة
+            updateEquation(element, type, data);
+        }
+
+        // تحديث معلومات التفتت
+        function updateDecayInfo(type, element, data) {
+            let description = '';
+            switch(type) {
+                case 'alpha':
+                    description = `تفتت ألفا: ${element} ← ${data.product} + ⁴He
+                    انبعاث جسيم ألفا (نواة هيليوم) بطاقة ${data.energy}`;
+                    break;
+                case 'beta':
+                    description = `تفتت بيتا: ${element} ← ${data.product} + e⁻ + ν̄ₑ
+                    انبعاث إلكترون ونيوترينو مضاد بطاقة ${data.energy}`;
+                    break;
+                case 'gamma':
+                    description = `إشعاع غاما: ${element}* ← ${element} + γ
+                    انبعاث فوتون عالي الطاقة من النواة المثارة`;
+                    break;
+            }
+            
+            document.getElementById('decayDescription').innerHTML = description;
+            document.getElementById('halfLife').textContent = data.halfLife;
+            document.getElementById('energy').textContent = data.energy;
+        }
+
+        // تحديث المعادلة
+        function updateEquation(element, type, data) {
+            let equation = '';
+            switch(type) {
+                case 'alpha':
+                    equation = `<span class="particle particle-alpha">${element}</span> → 
+                               <span class="particle">${data.product}</span> + 
+                               <span class="particle particle-alpha">⁴He (α)</span>`;
+                    break;
+                case 'beta':
+                    equation = `<span class="particle particle-beta">${element}</span> → 
+                               <span class="particle">${data.product}</span> + 
+                               <span class="particle particle-beta">e⁻ (β)</span> + ν̄ₑ`;
+                    break;
+                case 'gamma':
+                    equation = `<span class="particle particle-gamma">${element}*</span> → 
+                               <span class="particle">${element}</span> + 
+                               <span class="particle particle-gamma">γ</span>`;
+                    break;
+            }
+            document.getElementById('decayEquation').innerHTML = equation;
+        }
+
+        // بدء المحاكاة
+        function startSimulation() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+            animate();
+        }
+
+        // إعادة تعيين المحاكاة
+        function resetSimulation() {
+            cancelAnimationFrame(animationId);
+            particles = [];
+            particleCount = 0;
+            document.getElementById('particles').textContent = '0';
+            decayCtx.clearRect(0, 0, decayCanvas.width, decayCanvas.height);
+            drawNucleus();
+        }
+
+        // رسم النواة
+        function drawNucleus() {
+            const gradient = decayCtx.createRadialGradient(
+                nucleusPosition.x, nucleusPosition.y, 0,
+                nucleusPosition.x, nucleusPosition.y, 30
+            );
+            gradient.addColorStop(0, '#e74c3c');
+            gradient.addColorStop(1, '#c0392b');
+            
+            decayCtx.fillStyle = gradient;
+            decayCtx.beginPath();
+            decayCtx.arc(nucleusPosition.x, nucleusPosition.y, 30, 0, Math.PI * 2);
+            decayCtx.fill();
+            
+            decayCtx.fillStyle = 'white';
+            decayCtx.font = 'bold 16px Arial';
+            decayCtx.textAlign = 'center';
+            decayCtx.textBaseline = 'middle';
+            decayCtx.fillText('النواة', nucleusPosition.x, nucleusPosition.y);
+        }
+
+        // حلقة الرسم المتحركة
+        function animate() {
+            decayCtx.clearRect(0, 0, decayCanvas.width, decayCanvas.height);
+            
+            // رسم النواة
+            drawNucleus();
+            
+            // تحديث ورسم الجسيمات
+            particles = particles.filter(particle => {
+                particle.update();
+                particle.draw(decayCtx);
+                
+                // إزالة الجسيمات التي خرجت من الإطار
+                return particle.x > -10 && particle.x < decayCanvas.width + 10 &&
+                       particle.y > -10 && particle.y < decayCanvas.height + 10;
+            });
+            
+            animationId = requestAnimationFrame(animate);
+        }
+
+        // رسم منحنى سيغري
+        function drawSegreChart() {
+            segreCtx.clearRect(0, 0, segreCanvas.width, segreCanvas.height);
+            
+            const maxZ = parseInt(document.getElementById('zRange').value);
+            const cellSize = Math.min(30, 500 / maxZ) * zoomLevel;
+            const offsetX = 50;
+            const offsetY = 50;
+            
+            // رسم المحاور
+            segreCtx.strokeStyle = '#333';
+            segreCtx.lineWidth = 2;
+            segreCtx.beginPath();
+            segreCtx.moveTo(offsetX, offsetY);
+            segreCtx.lineTo(offsetX, segreCanvas.height - 20);
+            segreCtx.lineTo(segreCanvas.width - 20, segreCanvas.height - 20);
+            segreCtx.stroke();
+            
+            // تسميات المحاور
+            segreCtx.fillStyle = '#333';
+            segreCtx.font = 'bold 14px Arial';
+            segreCtx.textAlign = 'center';
+            segreCtx.fillText('عدد النيوترونات (N)', segreCanvas.width / 2, segreCanvas.height - 5);
+            
+            segreCtx.save();
+            segreCtx.translate(15, segreCanvas.height / 2);
+            segreCtx.rotate(-Math.PI / 2);
+            segreCtx.fillText('العدد الذري (Z)', 0, 0);
+            segreCtx.restore();
+            
+            // رسم النويدات
+            for (let z = 1; z <= maxZ; z++) {
+                for (let n = 1; n <= maxZ * 1.5; n++) {
+                    const x = offsetX + n * cellSize;
+                    const y = segreCanvas.height - offsetY - z * cellSize;
+                    
+                    // تحديد اللون حسب الاستقرار
+                    let color = '#e0e0e0';
+                    if (isStable(z, n)) {
+                        color = '#2ecc71';
+                    } else if (z > 82) {
+                        color = '#e74c3c'; // تفتت ألفا
+                    } else if (n > z * 1.5) {
+                        color = '#3498db'; // تفتت بيتا ناقص
+                    } else if (n < z * 0.8) {
+                        color = '#9b59b6'; // تفتت بيتا زائد
+                    }
+                    
+                    segreCtx.fillStyle = color;
+                    segreCtx.fillRect(x, y, cellSize - 2, cellSize - 2);
+                    
+                    // إضافة رقم الكتلة للنويدات المستقرة
+                    if (isStable(z, n) && cellSize > 20) {
+                        segreCtx.fillStyle = 'white';
+                        segreCtx.font = '10px Arial';
+                        segreCtx.textAlign = 'center';
+                        segreCtx.fillText(z + n, x + cellSize/2, y + cellSize/2);
+                    }
+                }
+                
+                // تسميات العدد الذري
+                if (z % 5 === 0) {
+                    segreCtx.fillStyle = '#333';
+                    segreCtx.font = '12px Arial';
+                    segreCtx.textAlign = 'right';
+                    segreCtx.fillText(z, offsetX - 10, segreCanvas.height - offsetY - z * cellSize + cellSize/2);
+                }
+            }
+            
+            // رسم خط الاستقرار
+            segreCtx.strokeStyle = '#2c3e50';
+            segreCtx.lineWidth = 3;
+            segreCtx.setLineDash([5, 5]);
+            segreCtx.beginPath();
+            for (let z = 1; z <= maxZ; z++) {
+                const n = Math.round(z * 1.2);
+                const x = offsetX + n * cellSize + cellSize/2;
+                const y = segreCanvas.height - offsetY - z * cellSize + cellSize/2;
+                if (z === 1) {
+                    segreCtx.moveTo(x, y);
+                } else {
+                    segreCtx.lineTo(x, y);
+                }
+            }
+            segreCtx.stroke();
+            segreCtx.setLineDash([]);
+        }
+
+        // تحديد النويدات المستقرة
+        function isStable(z, n) {
+            // نموذج مبسط للنويدات المستقرة
+            const ratio = n / z;
+            if (z <= 20) {
+                return Math.abs(ratio - 1) < 0.2;
+            } else if (z <= 40) {
+                return Math.abs(ratio - 1.2) < 0.2;
+            } else if (z <= 82) {
+                return Math.abs(ratio - 1.4) < 0.3;
+            }
+            return false;
+        }
+
+        // تحديث منحنى سيغري
+        function updateSegreChart() {
+            drawSegreChart();
+        }
+
+        // وظائف التكبير والتصغير
+        function zoomIn() {
+            zoomLevel = Math.min(zoomLevel * 1.2, 3);
+            drawSegreChart();
+        }
+
+        function zoomOut() {
+            zoomLevel = Math.max(zoomLevel / 1.2, 0.5);
+            drawSegreChart();
+        }
+
+        // معالج النقر على منحنى سيغري
+        segreCanvas.addEventListener('click', function(e) {
+            const rect = segreCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const maxZ = parseInt(document.getElementById('zRange').value);
+            const cellSize = Math.min(30, 500 / maxZ) * zoomLevel;
+            const offsetX = 50;
+            const offsetY = 50;
+            
+            const n = Math.floor((x - offsetX) / cellSize);
+            const z = Math.floor((segreCanvas.height - offsetY - y) / cellSize);
+            
+            if (n > 0 && z > 0 && z <= maxZ) {
+                displayNuclideInfo(z, n);
+            }
+        });
+
+        // عرض معلومات النويدة
+        function displayNuclideInfo(z, n) {
+            const a = z + n;
+            const element = getElementSymbol(z);
+            const stability = isStable(z, n) ? 'مستقرة' : 'غير مستقرة';
+            const decayType = getDecayType(z, n);
+            
+            const info = `
+                <p><strong>النويدة:</strong> ${element}-${a}</p>
+                <p><strong>العدد الذري (Z):</strong> ${z}</p>
+                <p><strong>عدد النيوترونات (N):</strong> ${n}</p>
+                <p><strong>العدد الكتلي (A):</strong> ${a}</p>
+                <p><strong>الحالة:</strong> ${stability}</p>
+                <p><strong>نوع التفتت المحتمل:</strong> ${decayType}</p>
+            `;
+            
+            document.getElementById('nuclideInfo').innerHTML = info;
+        }
+
+        // الحصول على رمز العنصر
+        function getElementSymbol(z) {
+            const symbols = ['H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne',
+                           'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca'];
+            return z <= 20 ? symbols[z - 1] : `العنصر ${z}`;
+        }
+
+        // تحديد نوع التفتت
+        function getDecayType(z, n) {
+            if (isStable(z, n)) return 'لا يوجد (مستقرة)';
+            if (z > 82) return 'تفتت ألفا';
+            if (n > z * 1.5) return 'تفتت بيتا ناقص';
+            if (n < z * 0.8) return 'تفتت بيتا زائد';
+            return 'تفتت بيتا أو التقاط إلكترون';
+        }
+
+        // التهيئة الأولية
+        window.onload = function() {
+            drawNucleus();
+            drawSegreChart();
+            
+            // إضافة رسالة ترحيب
+            document.getElementById('decayDescription').innerHTML = `
+                <strong>مرحباً بك في محاكاة التفتت النووي!</strong><br>
+                اختر عنصراً من القائمة واضغط على نوع التفتت المطلوب لبدء المحاكاة.
+                يمكنك أيضاً استكشاف منحنى سيغري لمعرفة خصائص النويدات المختلفة.
+            `;
+        };
+
+        // إضافة تأثير الحركة للأزرار
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('animating');
+                setTimeout(() => {
+                    this.classList.remove('animating');
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
