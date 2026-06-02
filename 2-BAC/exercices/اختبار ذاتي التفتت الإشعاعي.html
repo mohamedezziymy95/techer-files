@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار ذاتي: التفتت الإشعاعي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .student-info {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .quiz-content {
+            padding: 30px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-right: 5px solid #667eea;
+        }
+
+        .question h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .options {
+            margin-top: 15px;
+        }
+
+        .option {
+            display: block;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .option input[type="radio"] {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.3em;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.excellent {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        .result.good {
+            background: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffc107;
+        }
+
+        .result.needs-improvement {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e7f3ff;
+            border-right: 4px solid #2196F3;
+            border-radius: 8px;
+            display: none;
+            text-align: right;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .explanation h4 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+
+        .explanation p {
+            color: #424242;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        .success-message {
+            display: none;
+            padding: 20px;
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 اختبار ذاتي: التفتت الإشعاعي</h1>
+            <p>اختبر معلوماتك في درس التفتت الإشعاعي</p>
+        </div>
+
+        <div class="student-info">
+            <div class="form-group">
+                <label for="studentName">الاسم الكامل:</label>
+                <input type="text" id="studentName" placeholder="أدخل اسمك الكامل" required>
+            </div>
+            <div class="form-group">
+                <label for="studentClass">القسم:</label>
+                <input type="text" id="studentClass" placeholder="مثال: 2 باك علوم فيزيائية" required>
+            </div>
+        </div>
+
+        <div class="quiz-content">
+            <!-- Question 1 -->
+            <div class="question" data-question="1">
+                <h3>السؤال 1: ما هي النواة الأم في التفتت الإشعاعي؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="a">
+                        النواة الناتجة عن التفتت
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b">
+                        النواة غير المستقرة التي تتفتت تلقائيا
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c">
+                        النواة المستقرة
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="d">
+                        الجسيم المشع المنبعث
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>النواة الأم هي النواة غير المستقرة التي تتفتت تلقائيا لتعطي نواة أخرى تسمى النواة البنت وجسيم مشع.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question" data-question="2">
+                <h3>السؤال 2: ما هو رمز جسيم ألفا α؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="a">
+                        ⁴₂He
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b">
+                        ⁰₋₁e
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c">
+                        ⁰₊₁e
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="d">
+                        γ
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>جسيم ألفا α هو نواة ذرة الهيليوم ⁴₂He، ويحتوي على بروتونين ونيوترونين.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question" data-question="3">
+                <h3>السؤال 3: في التفتت β⁻، ماذا يحدث للعدد الذري Z؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="a">
+                        ينقص بمقدار 2
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b">
+                        يزداد بمقدار 1
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c">
+                        ينقص بمقدار 1
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="d">
+                        يبقى ثابتا
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>في التفتت β⁻، يتحول نيوترون إلى بروتون، لذلك يزداد العدد الذري Z بمقدار 1، بينما يبقى العدد الكتلي A ثابتا.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question" data-question="4">
+                <h3>السؤال 4: ما هو قانون التناقص الإشعاعي؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="a">
+                        N = N₀ + λt
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b">
+                        N = N₀e⁻λt
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c">
+                        N = N₀eλt
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="d">
+                        N = N₀ - λt
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>قانون التناقص الإشعاعي هو: N = N₀e⁻λt، حيث N هو عدد الأنوية المتبقية، N₀ هو العدد الابتدائي، λ ثابت النشاط الإشعاعي، و t الزمن.</p>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question" data-question="5">
+                <h3>السؤال 5: ما هو زمن نصف العمر t₁/₂؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="a">
+                        الزمن اللازم لتفتت جميع الأنوية
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b">
+                        الزمن اللازم لتفتت نصف الأنوية الموجودة ابتدائيا
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c">
+                        الزمن اللازم لتفتت ربع الأنوية
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="d">
+                        الزمن اللازم لتضاعف عدد الأنوية
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>زمن نصف العمر t₁/₂ هو المدة الزمنية اللازمة لكي يتفتت نصف عدد الأنوية الموجودة ابتدائيا، ويعطى بالعلاقة: t₁/₂ = ln(2)/λ</p>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question" data-question="6">
+                <h3>السؤال 6: ما هي وحدة النشاط الإشعاعي في النظام الدولي؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q6" value="a">
+                        Becquerel (Bq)
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="b">
+                        Curie (Ci)
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="c">
+                        Gray (Gy)
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="d">
+                        Sievert (Sv)
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>وحدة النشاط الإشعاعي في النظام الدولي هي Becquerel ورمزها Bq، حيث: 1 Bq = 1 تفتت/ثانية</p>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question" data-question="7">
+                <h3>السؤال 7: في التفتت α، بكم ينقص العدد الكتلي A؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q7" value="a">
+                        بمقدار 1
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="b">
+                        بمقدار 2
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="c">
+                        بمقدار 4
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="d">
+                        يبقى ثابتا
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>في التفتت α، ينقص العدد الكتلي A بمقدار 4 والعدد الذري Z بمقدار 2، لأن جسيم ألفا يحمل 4 نوكليونات (2 بروتون + 2 نيوترون).</p>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question" data-question="8">
+                <h3>السؤال 8: ما هي طبيعة إشعاع γ؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q8" value="a">
+                        جسيمات مادية مشحونة
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="b">
+                        موجات كهرومغناطيسية عالية الطاقة
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="c">
+                        إلكترونات سريعة
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="d">
+                        نوى ذرية صغيرة
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>إشعاع γ (غاما) هو إشعاع كهرومغناطيسي عالي الطاقة، ينبعث من نواة متهيجة لتصل إلى حالة أكثر استقرارا دون تغيير في A أو Z.</p>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question" data-question="9">
+                <h3>السؤال 9: أي من القوانين التالية يعبر عن النشاط الإشعاعي؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q9" value="a">
+                        a = N/λ
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="b">
+                        a = λN
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="c">
+                        a = N - λ
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="d">
+                        a = N + λ
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>النشاط الإشعاعي يعطى بالعلاقة: a = λN، حيث a هو النشاط، λ ثابت النشاط الإشعاعي، و N عدد الأنوية المشعة.</p>
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question" data-question="10">
+                <h3>السؤال 10: ماذا يحدث للعدد الذري Z في التفتت β⁺؟</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q10" value="a">
+                        يزداد بمقدار 1
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q10" value="b">
+                        ينقص بمقدار 1
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q10" value="c">
+                        ينقص بمقدار 2
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q10" value="d">
+                        يبقى ثابتا
+                    </label>
+                </div>
+                <div class="explanation">
+                    <h4>التوضيح:</h4>
+                    <p>في التفتت β⁺، يتحول بروتون إلى نيوترون، لذلك ينقص العدد الذري Z بمقدار 1، بينما يبقى العدد الكتلي A ثابتا.</p>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-primary" onclick="checkAnswers()">تصحيح الإجابات</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()">إعادة المحاولة</button>
+                <button class="btn btn-primary" id="sendReportBtn" onclick="sendReport()" disabled>إرسال التقرير للأستاذ</button>
+            </div>
+
+            <div class="result" id="result"></div>
+            <div class="success-message" id="successMessage"></div>
+        </div>
+    </div>
+
+    <script>
+        const answers = {
+            q1: 'b',
+            q2: 'a',
+            q3: 'b',
+            q4: 'b',
+            q5: 'b',
+            q6: 'a',
+            q7: 'c',
+            q8: 'b',
+            q9: 'b',
+            q10: 'b'
+        };
+
+        let score = 0;
+        let quizChecked = false;
+
+        function checkAnswers() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentClass = document.getElementById('studentClass').value.trim();
+
+            if (!studentName || !studentClass) {
+                alert('الرجاء إدخال الاسم والقسم قبل البدء في الاختبار');
+                return;
+            }
+
+            score = 0;
+            let totalQuestions = Object.keys(answers).length;
+
+            for (let question in answers) {
+                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                const questionDiv = document.querySelector(`[data-question="${question.replace('q', '')}"]`);
+                const options = questionDiv.querySelectorAll('.option');
+                const explanation = questionDiv.querySelector('.explanation');
+
+                // Reset previous styling
+                options.forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    const correctAnswer = answers[question];
+
+                    if (selectedValue === correctAnswer) {
+                        score++;
+                        selectedOption.parentElement.classList.add('correct');
+                    } else {
+                        selectedOption.parentElement.classList.add('incorrect');
+                        // Highlight correct answer
+                        options.forEach(opt => {
+                            if (opt.querySelector('input').value === correctAnswer) {
+                                opt.classList.add('correct');
+                            }
+                        });
+                    }
+                    explanation.classList.add('show');
+                }
+            }
+
+            displayResult(score, totalQuestions);
+            quizChecked = true;
+            document.getElementById('sendReportBtn').disabled = false;
+        }
+
+        function displayResult(score, total) {
+            const percentage = (score / total) * 100;
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.remove('excellent', 'good', 'needs-improvement');
+
+            let message = `لقد حصلت على ${score} من ${total} (${percentage.toFixed(0)}%)`;
+            
+            if (percentage >= 80) {
+                resultDiv.classList.add('excellent');
+                message += '<br>ممتاز! 🎉 لديك فهم جيد جدا للدرس';
+            } else if (percentage >= 60) {
+                resultDiv.classList.add('good');
+                message += '<br>جيد! 👍 لكن يمكنك التحسن أكثر';
+            } else {
+                resultDiv.classList.add('needs-improvement');
+                message += '<br>يجب المراجعة! 📚 حاول مرة أخرى بعد مراجعة الدرس';
+            }
+
+            resultDiv.innerHTML = message;
+            resultDiv.classList.add('show');
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function resetQuiz() {
+            // Reset all radio buttons
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+
+            // Reset all option styling
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+            });
+
+            // Hide all explanations
+            document.querySelectorAll('.explanation').forEach(exp => {
+                exp.classList.remove('show');
+            });
+
+            // Hide result
+            document.getElementById('result').classList.remove('show');
+            document.getElementById('successMessage').classList.remove('show');
+
+            // Reset score
+            score = 0;
+            quizChecked = false;
+            document.getElementById('sendReportBtn').disabled = true;
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        async function sendReport() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentClass = document.getElementById('studentClass').value.trim();
+
+            if (!quizChecked) {
+                alert('الرجاء تصحيح الإجابات أولا قبل إرسال التقرير');
+                return;
+            }
+
+            if (!studentName || !studentClass) {
+                alert('الرجاء إدخال الاسم والقسم');
+                return;
+            }
+
+            const totalQuestions = Object.keys(answers).length;
+            const percentage = (score / totalQuestions) * 100;
+
+            // Create detailed answers report
+            let detailedReport = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const question = `q${i}`;
+                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                const correctAnswer = answers[question];
+                const isCorrect = selectedOption && selectedOption.value === correctAnswer;
+                detailedReport += `السؤال ${i}: ${isCorrect ? '✓ صحيح' : '✗ خطأ'}\n`;
+            }
+
+            const emailBody = `
+تقرير الاختبار الذاتي - التفتت الإشعاعي
+
+الطالب: ${studentName}
+القسم: ${studentClass}
+التاريخ: ${new Date().toLocaleString('ar-MA')}
+
+النتيجة: ${score}/${totalQuestions} (${percentage.toFixed(0)}%)
+
+تفاصيل الإجابات:
+${detailedReport}
+
+---
+تم الإرسال من صفحة الاختبار الذاتي
+            `.trim();
+
+            const mailtoLink = `mailto:mohamed.ezziymy@gmail.com?subject=${encodeURIComponent('تقرير اختبار: ' + studentName)}&body=${encodeURIComponent(emailBody)}`;
+
+            window.location.href = mailtoLink;
+
+            document.getElementById('successMessage').innerHTML = '✅ تم فتح تطبيق البريد الإلكتروني. الرجاء إرسال الرسالة.';
+            document.getElementById('successMessage').classList.add('show');
+        }
+    </script>
+</body>
+</html>

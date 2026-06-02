@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation Réaction d'Oxydoréduction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        #equationPreview, #equationPreview * {
+            user-select: text !important;
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+            cursor: text !important;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        }
+        
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 min-h-screen p-4 md:p-8">
+    <div class="max-w-7xl mx-auto">
+        <!-- En-tête -->
+        <div class="glass-effect rounded-3xl shadow-2xl p-8 mb-8 animate-fade-in">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+                        Simulation Réaction Redox
+                    </h1>
+                    <p class="text-gray-600 text-lg">Suivez l'évolution cinétique en temps réel avec différentes grandeurs physiques</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Panneau de configuration -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Sélection d'équation -->
+                <div class="glass-effect rounded-2xl shadow-xl p-6 hover-lift animate-fade-in">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="w-2 h-8 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full mr-3"></span>
+                        Sélection de réaction
+                    </h2>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold text-gray-700 mb-3">📋 Choisir une réaction</label>
+                        <select id="exampleSelector" class="w-full border-2 border-indigo-200 rounded-lg p-3 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all bg-white font-medium">
+                            <option value="1">MnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺</option>
+                            <option value="2">Cr₂O₇²⁻ + I⁻ → Cr³⁺ + I₂</option>
+                            <option value="3">H₂O₂ + I⁻ → I₂ + H₂O</option>
+                            <option value="4">Cu²⁺ + Zn → Cu + Zn²⁺</option>
+                            <option value="5">ClO⁻ + Fe²⁺ → Cl⁻ + Fe³⁺</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-3">✏️ Équation (modifiable)</label>
+                        <textarea id="equationEditor" 
+                            class="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all duration-300 bg-white font-mono text-sm"
+                            rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- Prévisualisation -->
+                <div class="glass-effect rounded-2xl shadow-xl p-6 hover-lift animate-fade-in">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="w-2 h-8 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full mr-3"></span>
+                        Prévisualisation
+                    </h2>
+                    <div id="equationPreview" class="text-center text-lg p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl min-h-[80px] flex items-center justify-center border-2 border-blue-100" style="user-select: text; cursor: text;">
+                        <span class="text-gray-400 italic">Chargement...</span>
+                    </div>
+                </div>
+
+                <!-- Paramètres -->
+                <div class="glass-effect rounded-2xl shadow-xl p-6 hover-lift animate-fade-in">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <span class="w-2 h-8 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full mr-3"></span>
+                        Paramètres de simulation
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Grandeur de suivi -->
+                        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-4 rounded-xl border border-indigo-100">
+                            <label class="block text-sm font-bold text-gray-700 mb-3">📊 Grandeur de suivi</label>
+                            <select id="measurementType" class="w-full border-2 border-indigo-200 rounded-lg p-3 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all bg-white font-medium">
+                                <option value="concentration">Concentration (mol/L)</option>
+                                <option value="pression">Pression (bar)</option>
+                                <option value="volume">Volume gazeux (L)</option>
+                                <option value="conductivite">Conductivité (mS/cm)</option>
+                                <option value="avancement">Avancement (mol)</option>
+                            </select>
+                        </div>
+
+                        <!-- Espèce à suivre -->
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-xl border border-purple-100">
+                            <label class="block text-sm font-bold text-gray-700 mb-3">🧪 Espèce chimique</label>
+                            <select id="speciesSelect" class="w-full border-2 border-purple-200 rounded-lg p-3 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all bg-white font-medium">
+                            </select>
+                        </div>
+
+                        <!-- Température -->
+                        <div class="bg-gradient-to-br from-orange-50 to-red-50 p-4 rounded-xl border border-orange-100">
+                            <label class="block text-sm font-bold text-gray-700 mb-3">
+                                🌡️ Température: <span id="tempValue" class="text-orange-600 font-extrabold text-lg">25°C</span>
+                            </label>
+                            <input type="range" id="temperature" min="0" max="100" value="25" 
+                                class="w-full h-3 bg-gradient-to-r from-blue-200 to-red-200 rounded-full appearance-none cursor-pointer">
+                        </div>
+
+                        <!-- Quantité oxydant -->
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl border border-blue-100">
+                            <label class="block text-sm font-bold text-gray-700 mb-3">
+                                ⚗️ Quantité oxydant: <span id="oxValue" class="text-blue-600 font-extrabold text-lg">0.010 mol</span>
+                            </label>
+                            <input type="range" id="oxAmount" min="0.001" max="0.1" step="0.001" value="0.01" 
+                                class="w-full h-3 bg-gradient-to-r from-blue-100 to-blue-300 rounded-full appearance-none cursor-pointer">
+                        </div>
+
+                        <!-- Quantité réducteur -->
+                        <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl border border-green-100">
+                            <label class="block text-sm font-bold text-gray-700 mb-3">
+                                🧬 Quantité réducteur: <span id="redValue" class="text-green-600 font-extrabold text-lg">0.050 mol</span>
+                            </label>
+                            <input type="range" id="redAmount" min="0.001" max="0.1" step="0.001" value="0.05" 
+                                class="w-full h-3 bg-gradient-to-r from-green-100 to-green-300 rounded-full appearance-none cursor-pointer">
+                        </div>
+
+                        <!-- Option tangente -->
+                        <div class="bg-gradient-to-br from-yellow-50 to-amber-50 p-4 rounded-xl border border-yellow-100">
+                            <div class="flex items-center mb-3">
+                                <input type="checkbox" id="showTangent" class="w-5 h-5 text-indigo-600 rounded focus:ring-2 focus:ring-indigo-500">
+                                <label for="showTangent" class="ml-3 text-sm font-bold text-gray-700">📐 Afficher la tangente</label>
+                            </div>
+                            <div id="tangentControls" style="display: none;">
+                                <label class="block text-sm font-bold text-gray-700 mb-3">
+                                    ⏱️ Instant t: <span id="tangentTimeValue" class="text-amber-600 font-extrabold text-lg">5.0 s</span>
+                                </label>
+                                <input type="range" id="tangentTime" min="0" max="20" step="0.1" value="5" 
+                                    class="w-full h-3 bg-gradient-to-r from-yellow-100 to-amber-300 rounded-full appearance-none cursor-pointer">
+                                <p class="text-xs text-gray-500 mt-2">💡 Ajustez le curseur pour choisir l'instant de la tangente</p>
+                            </div>
+                        </div>
+
+                        <!-- Bouton de simulation -->
+                        <button onclick="runSimulation()" 
+                            class="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white px-8 py-5 rounded-xl transition-all duration-300 font-extrabold text-xl shadow-2xl hover:shadow-3xl transform hover:scale-105">
+                            <div class="flex items-center justify-center gap-3">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                Lancer la simulation
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graphique et informations -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Graphique principal -->
+                <div class="glass-effect rounded-2xl shadow-2xl p-8 hover-lift animate-fade-in">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <span class="w-2 h-8 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full mr-3"></span>
+                        Évolution temporelle
+                    </h2>
+                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                        <canvas id="reactionChart" class="w-full" style="max-height: 500px;"></canvas>
+                    </div>
+                </div>
+
+                <!-- Informations -->
+                <div class="glass-effect rounded-2xl shadow-2xl p-8 hover-lift animate-fade-in">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <span class="w-2 h-8 bg-gradient-to-b from-green-500 to-emerald-500 rounded-full mr-3"></span>
+                        Informations de la réaction
+                    </h2>
+                    <div id="reactionInfo" class="text-gray-700">
+                        <div class="flex items-center justify-center h-32 text-gray-400 italic">
+                            Lancez une simulation pour voir les informations
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let chart = null;
+        let currentReaction = null;
+        let simulationData = null;
+        const VOLUME = 1.0;
+
+        const exampleEquations = {
+            1: "MnO4- + 5Fe2+ + 8H+ = Mn2+ + 5Fe3+ + 4H2O",
+            2: "Cr2O72- + 6I- + 14H+ = 2Cr3+ + 3I2 + 7H2O",
+            3: "H2O2 + 2I- + 2H+ = I2 + 2H2O",
+            4: "Cu2+ + Zn = Cu + Zn2+",
+            5: "ClO- + 2Fe2+ + 2H+ = Cl- + 2Fe3+ + H2O"
+        };
+
+        const examples = {
+            1: {
+                equation: "MnO_4^- + 5Fe^{2+} + 8H^+ \\rightarrow Mn^{2+} + 5Fe^{3+} + 4H_2O",
+                oxidant: "MnO4-",
+                reductant: "Fe2+",
+                products: ["Mn2+", "Fe3+", "H2O"],
+                reactants: ["MnO4-", "Fe2+", "H+"],
+                stoich: {oxidant: 1, reductant: 5},
+                k: 0.3,
+                conductivity: {initial: 50, factor: 1.2}
+            },
+            2: {
+                equation: "Cr_2O_7^{2-} + 6I^- + 14H^+ \\rightarrow 2Cr^{3+} + 3I_2 + 7H_2O",
+                oxidant: "Cr2O72-",
+                reductant: "I-",
+                products: ["Cr3+", "I2", "H2O"],
+                reactants: ["Cr2O72-", "I-", "H+"],
+                stoich: {oxidant: 1, reductant: 6},
+                k: 0.25,
+                conductivity: {initial: 45, factor: 0.8}
+            },
+            3: {
+                equation: "H_2O_2 + 2I^- + 2H^+ \\rightarrow I_2 + 2H_2O",
+                oxidant: "H2O2",
+                reductant: "I-",
+                products: ["I2", "H2O"],
+                reactants: ["H2O2", "I-", "H+"],
+                stoich: {oxidant: 1, reductant: 2},
+                k: 0.35,
+                conductivity: {initial: 40, factor: 0.9}
+            },
+            4: {
+                equation: "Cu^{2+} + Zn \\rightarrow Cu + Zn^{2+}",
+                oxidant: "Cu2+",
+                reductant: "Zn",
+                products: ["Cu", "Zn2+"],
+                reactants: ["Cu2+", "Zn"],
+                stoich: {oxidant: 1, reductant: 1},
+                k: 0.4,
+                conductivity: {initial: 55, factor: 1.0}
+            },
+            5: {
+                equation: "ClO^- + 2Fe^{2+} + 2H^+ \\rightarrow Cl^- + 2Fe^{3+} + H_2O",
+                oxidant: "ClO-",
+                reductant: "Fe2+",
+                products: ["Cl-", "Fe3+", "H2O"],
+                reactants: ["ClO-", "Fe2+", "H+"],
+                stoich: {oxidant: 1, reductant: 2},
+                k: 0.28,
+                conductivity: {initial: 48, factor: 1.1}
+            }
+        };
+
+        function loadReaction(num) {
+            currentReaction = examples[num];
+            document.getElementById('equationEditor').value = exampleEquations[num];
+            updatePreview();
+            updateSpeciesSelect();
+        }
+
+        function updatePreview() {
+            if (currentReaction) {
+                const preview = document.getElementById('equationPreview');
+                preview.innerHTML = `$$${currentReaction.equation}$$`;
+                if (window.MathJax) {
+                    MathJax.typesetPromise();
+                }
+            }
+        }
+
+        function updateSpeciesSelect() {
+            const select = document.getElementById('speciesSelect');
+            select.innerHTML = '';
+            
+            if (currentReaction) {
+                const allSpecies = [...currentReaction.reactants, ...currentReaction.products];
+                allSpecies.forEach(species => {
+                    const option = document.createElement('option');
+                    option.value = species;
+                    option.textContent = species;
+                    select.appendChild(option);
+                });
+                select.value = currentReaction.oxidant;
+            }
+        }
+
+        function calculateValue(ox, red, oxAmount, measurementType, species) {
+            const advancement = oxAmount - ox;
+            
+            switch(measurementType) {
+                case 'concentration':
+                    if (species === currentReaction.oxidant) {
+                        return ox / VOLUME;
+                    } else if (species === currentReaction.reductant) {
+                        return red / VOLUME;
+                    } else if (currentReaction.products.includes(species)) {
+                        return advancement / VOLUME;
+                    }
+                    return ox / VOLUME;
+                
+                case 'pression':
+                    const totalMoles = ox + red;
+                    const R = 0.08314;
+                    const temp = parseFloat(document.getElementById('temperature').value) + 273.15;
+                    return (totalMoles * R * temp) / VOLUME;
+                
+                case 'volume':
+                    const gasMoles = advancement * 0.5;
+                    return gasMoles * 24.5;
+                
+                case 'conductivite':
+                    const ionConcentration = (ox + red) / VOLUME;
+                    return currentReaction.conductivity.initial * ionConcentration * currentReaction.conductivity.factor;
+                
+                case 'avancement':
+                    return advancement;
+                
+                default:
+                    return ox / VOLUME;
+            }
+        }
+
+        function getUnit(measurementType) {
+            const units = {
+                'concentration': 'mol/L',
+                'pression': 'bar',
+                'volume': 'L',
+                'conductivite': 'mS/cm',
+                'avancement': 'mol'
+            };
+            return units[measurementType] || '';
+        }
+
+        function runSimulation() {
+            if (!currentReaction) {
+                alert('Veuillez charger une réaction');
+                return;
+            }
+
+            const temp = parseFloat(document.getElementById('temperature').value);
+            const oxAmount = parseFloat(document.getElementById('oxAmount').value);
+            const redAmount = parseFloat(document.getElementById('redAmount').value);
+            const species = document.getElementById('speciesSelect').value;
+            const measurementType = document.getElementById('measurementType').value;
+
+            const k = currentReaction.k * Math.exp((temp - 25) * 0.05);
+            const timePoints = 100;
+            const maxTime = 20;
+            
+            const data = [];
+            const labels = [];
+
+            let ox = oxAmount;
+            let red = redAmount;
+
+            for (let i = 0; i <= timePoints; i++) {
+                const t = (i / timePoints) * maxTime;
+                labels.push(t.toFixed(2));
+
+                const rate = k * ox * red;
+                const dt = maxTime / timePoints;
+                
+                ox -= rate * dt * currentReaction.stoich.oxidant;
+                red -= rate * dt * currentReaction.stoich.reductant;
+                
+                ox = Math.max(0, ox);
+                red = Math.max(0, red);
+
+                const value = calculateValue(ox, red, oxAmount, measurementType, species);
+                data.push(value);
+            }
+
+            simulationData = {
+                labels: labels,
+                data: data,
+                species: species,
+                measurementType: measurementType
+            };
+
+            updateChart();
+            updateInfo(oxAmount, redAmount, temp, species, measurementType);
+        }
+
+        function calculateTangent(time) {
+            if (!simulationData) return null;
+
+            const labels = simulationData.labels.map(l => parseFloat(l));
+            const data = simulationData.data;
+            
+            // Trouver l'index le plus proche du temps demandé
+            let closestIndex = 0;
+            let minDiff = Math.abs(labels[0] - time);
+            
+            for (let i = 1; i < labels.length; i++) {
+                const diff = Math.abs(labels[i] - time);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    closestIndex = i;
+                }
+            }
+
+            // Calculer la pente (dérivée) par différence finie
+            let slope;
+            if (closestIndex === 0) {
+                slope = (data[1] - data[0]) / (labels[1] - labels[0]);
+            } else if (closestIndex === labels.length - 1) {
+                slope = (data[closestIndex] - data[closestIndex - 1]) / 
+                       (labels[closestIndex] - labels[closestIndex - 1]);
+            } else {
+                slope = (data[closestIndex + 1] - data[closestIndex - 1]) / 
+                       (labels[closestIndex + 1] - labels[closestIndex - 1]);
+            }
+
+            const y0 = data[closestIndex];
+            const x0 = labels[closestIndex];
+
+            // Créer les points de la tangente
+            const tangentData = labels.map(x => {
+                return y0 + slope * (x - x0);
+            });
+
+            return {
+                data: tangentData,
+                slope: slope,
+                point: { x: x0, y: y0 }
+            };
+        }
+
+        function updateChart() {
+            if (!simulationData) return;
+
+            const ctx = document.getElementById('reactionChart').getContext('2d');
+            
+            if (chart) {
+                chart.destroy();
+            }
+
+            const unit = getUnit(simulationData.measurementType);
+            const datasets = [{
+                label: `${simulationData.species} (${unit})`,
+                data: simulationData.data,
+                borderColor: 'rgb(99, 102, 241)',
+                backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                borderWidth: 3,
+                tension: 0.4,
+                fill: true,
+                pointRadius: 0,
+                pointHoverRadius: 6
+            }];
+
+            // Ajouter la tangente si demandée
+            const showTangent = document.getElementById('showTangent').checked;
+            if (showTangent) {
+                const tangentTime = parseFloat(document.getElementById('tangentTime').value);
+                const tangentInfo = calculateTangent(tangentTime);
+                
+                if (tangentInfo) {
+                    datasets.push({
+                        label: `Tangente à t=${tangentInfo.point.x.toFixed(1)}s`,
+                        data: tangentInfo.data,
+                        borderColor: 'rgb(234, 88, 12)',
+                        backgroundColor: 'transparent',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        tension: 0,
+                        fill: false,
+                        pointRadius: 0,
+                        pointHoverRadius: 0
+                    });
+
+                    // Ajouter le point de tangence
+                    datasets.push({
+                        label: `Point (${tangentInfo.point.x.toFixed(1)}, ${tangentInfo.point.y.toFixed(3)})`,
+                        data: simulationData.labels.map((label, i) => 
+                            parseFloat(label) === tangentInfo.point.x ? tangentInfo.point.y : null
+                        ),
+                        borderColor: 'rgb(220, 38, 38)',
+                        backgroundColor: 'rgb(220, 38, 38)',
+                        borderWidth: 2,
+                        pointRadius: 8,
+                        pointHoverRadius: 10,
+                        showLine: false
+                    });
+                }
+            }
+
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: simulationData.labels,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                afterLabel: function(context) {
+                                    if (showTangent && context.datasetIndex === 1) {
+                                        const tangentTime = parseFloat(document.getElementById('tangentTime').value);
+                                        const tangentInfo = calculateTangent(tangentTime);
+                                        return `Pente: ${tangentInfo.slope.toFixed(4)} ${unit}/s`;
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Temps (s)',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: `${simulationData.measurementType} (${unit})`,
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateInfo(ox, red, temp, species, measurementType) {
+            const info = document.getElementById('reactionInfo');
+            const unit = getUnit(measurementType);
+            const limitingReactant = (ox / currentReaction.stoich.oxidant) < (red / currentReaction.stoich.reductant) 
+                ? currentReaction.oxidant 
+                : currentReaction.reductant;
+            
+            info.innerHTML = `
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-5 rounded-xl border-2 border-indigo-200">
+                        <p class="text-sm text-gray-600 font-semibold mb-2">Oxydant initial</p>
+                        <p class="text-3xl font-extrabold text-indigo-600">${(ox * 1000).toFixed(2)}</p>
+                        <p class="text-xs text-gray-500 mt-1">mmol</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-xl border-2 border-purple-200">
+                        <p class="text-sm text-gray-600 font-semibold mb-2">Réducteur initial</p>
+                        <p class="text-3xl font-extrabold text-purple-600">${(red * 1000).toFixed(2)}</p>
+                        <p class="text-xs text-gray-500 mt-1">mmol</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-5 rounded-xl border-2 border-pink-200">
+                        <p class="text-sm text-gray-600 font-semibold mb-2">Température</p>
+                        <p class="text-3xl font-extrabold text-pink-600">${temp}°C</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border-2 border-blue-200">
+                        <p class="text-sm text-gray-600 font-semibold mb-2">Grandeur suivie</p>
+                        <p class="text-xl font-extrabold text-blue-600">${measurementType}</p>
+                        <p class="text-xs text-gray-500 mt-1">${species} (${unit})</p>
+                    </div>
+                </div>
+                <div class="mt-4 p-5 bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl border-2 border-green-200">
+                    <p class="text-sm text-gray-600 font-semibold mb-1">Réactif limitant</p>
+                    <p class="text-2xl font-extrabold text-green-600">${limitingReactant}</p>
+                </div>
+            `;
+        }
+
+        // Event listeners
+        document.getElementById('exampleSelector').addEventListener('change', (e) => {
+            if (e.target.value) {
+                loadReaction(e.target.value);
+            }
+        });
+
+        document.getElementById('temperature').addEventListener('input', (e) => {
+            document.getElementById('tempValue').textContent = e.target.value + '°C';
+        });
+
+        document.getElementById('oxAmount').addEventListener('input', (e) => {
+            document.getElementById('oxValue').textContent = parseFloat(e.target.value).toFixed(3) + ' mol';
+        });
+
+        document.getElementById('redAmount').addEventListener('input', (e) => {
+            document.getElementById('redValue').textContent = parseFloat(e.target.value).toFixed(3) + ' mol';
+        });
+
+        document.getElementById('showTangent').addEventListener('change', (e) => {
+            const controls = document.getElementById('tangentControls');
+            controls.style.display = e.target.checked ? 'block' : 'none';
+            if (simulationData) {
+                updateChart();
+            }
+        });
+
+        document.getElementById('tangentTime').addEventListener('input', (e) => {
+            document.getElementById('tangentTimeValue').textContent = parseFloat(e.target.value).toFixed(1) + ' s';
+            if (simulationData && document.getElementById('showTangent').checked) {
+                updateChart();
+            }
+        });
+
+        // Initialisation
+        window.addEventListener('DOMContentLoaded', () => {
+            loadReaction('1');
+        });
+    </script>
+</body>
+</html>

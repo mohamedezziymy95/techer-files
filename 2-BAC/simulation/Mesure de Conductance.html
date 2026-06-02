@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire Virtuel - Conductimétrie</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #159895;
+            --accent: #57c5b6;
+            --light: #f0f9ff;
+            --dark: #0c2d48;
+            --warning: #ffc107;
+            --success: #28a745;
+            --danger: #dc3545;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            padding: 20px 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header h1::before {
+            content: "⚗️";
+            font-size: 2rem;
+        }
+
+        .badge {
+            background: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--dark);
+            font-weight: bold;
+        }
+
+        .main-container {
+            display: grid;
+            grid-template-columns: 350px 1fr 380px;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .panel {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .panel-title {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .control-group select,
+        .control-group input[type="range"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .control-group select option {
+            background: var(--dark);
+        }
+
+        .control-group input[type="range"] {
+            -webkit-appearance: none;
+            height: 8px;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .control-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .value-display {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .experiment-canvas {
+            position: relative;
+            background: linear-gradient(180deg, #0a1628 0%, #162447 100%);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        #labCanvas {
+            width: 100%;
+            height: 500px;
+            display: block;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, rgba(21,152,149,0.2), rgba(87,197,182,0.1));
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(87,197,182,0.3);
+            text-align: center;
+        }
+
+        .result-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .result-label {
+            font-size: 0.75rem;
+            color: #888;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .result-value {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+
+        .result-unit {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 3px;
+        }
+
+        .ions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+
+        .ions-table th,
+        .ions-table td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .ions-table th {
+            background: rgba(21,152,149,0.3);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .ions-table tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .ion-symbol {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .cation {
+            color: #ff6b6b;
+        }
+
+        .anion {
+            color: #4ecdc4;
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+            padding: 0 20px 20px;
+        }
+
+        .chart-container {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .chart-container canvas {
+            max-height: 300px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(21,152,149,0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: #fff;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+            color: #000;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: rgba(40, 167, 69, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(40, 167, 69, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+        }
+
+        .formula-box {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid var(--accent);
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+        }
+
+        .formula-box .formula {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .protocol-steps {
+            counter-reset: step;
+        }
+
+        .protocol-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .protocol-step:hover {
+            background: rgba(255,255,255,0.08);
+        }
+
+        .protocol-step.active {
+            background: rgba(21,152,149,0.2);
+            border: 1px solid var(--accent);
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .protocol-step.active .step-number {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .step-content h4 {
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .step-content p {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .temperature-effect {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255,193,7,0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(255,193,7,0.3);
+            font-size: 0.85rem;
+        }
+
+        .legend-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .download-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tab-container {
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px 8px 0 0;
+            color: #aaa;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .tab-btn.active {
+            background: rgba(21,152,149,0.3);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .concentration-bar {
+            height: 10px;
+            background: linear-gradient(90deg, #e3f2fd, #1565c0);
+            border-radius: 5px;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .concentration-marker {
+            position: absolute;
+            top: -5px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: left 0.3s ease;
+        }
+
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .animated-value {
+            transition: all 0.5s ease;
+        }
+
+        @media (max-width: 1400px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation pour les bulles */
+        .bubble {
+            position: absolute;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: rise 2s ease-in infinite;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 0.6; }
+            100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+        }
+
+        .info-tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            color: var(--accent);
+        }
+
+        .info-tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Laboratoire Virtuel de Conductimétrie</h1>
+        <span class="badge">Version 2.0 Pro</span>
+    </header>
+
+    <div class="main-container">
+        <!-- Panneau de contrôle gauche -->
+        <div class="panel">
+            <h2 class="panel-title">🎛️ Paramètres de l'expérience</h2>
+            
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>Expérience en cours</span>
+            </div>
+
+            <div class="control-group">
+                <label>Solution électrolytique</label>
+                <select id="solutionSelect">
+                    <optgroup label="Acides forts">
+                        <option value="HCl">Acide chlorhydrique (HCl)</option>
+                        <option value="HNO3">Acide nitrique (HNO₃)</option>
+                        <option value="H2SO4">Acide sulfurique (H₂SO₄)</option>
+                    </optgroup>
+                    <optgroup label="Bases fortes">
+                        <option value="NaOH">Hydroxyde de sodium (NaOH)</option>
+                        <option value="KOH">Hydroxyde de potassium (KOH)</option>
+                    </optgroup>
+                    <optgroup label="Sels">
+                        <option value="NaCl" selected>Chlorure de sodium (NaCl)</option>
+                        <option value="KCl">Chlorure de potassium (KCl)</option>
+                        <option value="CaCl2">Chlorure de calcium (CaCl₂)</option>
+                        <option value="MgSO4">Sulfate de magnésium (MgSO₄)</option>
+                        <option value="Na2SO4">Sulfate de sodium (Na₂SO₄)</option>
+                    </optgroup>
+                    <optgroup label="Acides faibles">
+                        <option value="CH3COOH">Acide acétique (CH₃COOH)</option>
+                    </optgroup>
+                    <optgroup label="Bases faibles">
+                        <option value="NH3">Ammoniaque (NH₃)</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Concentration (mol/L)</label>
+                <input type="range" id="concentrationSlider" min="0.001" max="1" step="0.001" value="0.1">
+                <div class="value-display" id="concentrationValue">0.100 mol/L</div>
+                <div class="concentration-bar">
+                    <div class="concentration-marker" id="concMarker"></div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Température (°C)</label>
+                <input type="range" id="temperatureSlider" min="5" max="80" step="1" value="25">
+                <div class="value-display" id="temperatureValue">25 °C</div>
+                <div class="temperature-effect" id="tempEffect">
+                    📊 Condition standard (25°C)
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Surface des électrodes (cm²)</label>
+                <input type="range" id="surfaceSlider" min="0.5" max="5" step="0.1" value="1">
+                <div class="value-display" id="surfaceValue">1.0 cm²</div>
+            </div>
+
+            <div class="control-group">
+                <label>Distance entre électrodes (cm)</label>
+                <input type="range" id="distanceSlider" min="0.5" max="5" step="0.1" value="1">
+                <div class="value-display" id="distanceValue">1.0 cm</div>
+            </div>
+
+            <div class="formula-box">
+                <strong>Constante de cellule:</strong><br>
+                <span class="formula">K = L/S = <span id="cellConstant">1.00</span> cm⁻¹</span>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="resetExperiment()">🔄 Réinitialiser</button>
+                <button class="btn btn-success" onclick="startAnimation()">▶️ Animer</button>
+            </div>
+        </div>
+
+        <!-- Zone centrale - Visualisation 2D -->
+        <div class="panel experiment-canvas">
+            <canvas id="labCanvas"></canvas>
+            <div id="bubbleContainer"></div>
+        </div>
+
+        <!-- Panneau de résultats droite -->
+        <div class="panel">
+            <h2 class="panel-title">📊 Résultats de mesure</h2>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-label">Conductance</div>
+                    <div class="result-value animated-value" id="conductanceResult">0.00</div>
+                    <div class="result-unit">mS</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Résistance</div>
+                    <div class="result-value animated-value" id="resistanceResult">∞</div>
+                    <div class="result-unit">Ω</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Conductivité σ</div>
+                    <div class="result-value animated-value" id="conductivityResult">0.00</div>
+                    <div class="result-unit">mS/cm</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Conductivité mol. Λm</div>
+                    <div class="result-value animated-value" id="molarConductivityResult">0.00</div>
+                    <div class="result-unit">S·cm²/mol</div>
+                </div>
+                <div class="result-card full-width">
+                    <div class="result-label">Conductivité molaire limite Λ°m</div>
+                    <div class="result-value animated-value" id="limitConductivityResult">0.00</div>
+                    <div class="result-unit">S·cm²/mol</div>
+                </div>
+            </div>
+
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="showTab('ions')">🔬 Ions</button>
+                    <button class="tab-btn" onclick="showTab('protocol')">📋 Protocole</button>
+                    <button class="tab-btn" onclick="showTab('theory')">📚 Théorie</button>
+                </div>
+
+                <div id="ionsTab" class="tab-content active">
+                    <table class="ions-table">
+                        <thead>
+                            <tr>
+                                <th>Ion</th>
+                                <th>λ° (S·cm²/mol)</th>
+                                <th>Contribution</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ionsTableBody">
+                            <!-- Rempli dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="protocolTab" class="tab-content">
+                    <div class="protocol-steps">
+                        <div class="protocol-step active" id="step1">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Préparation</h4>
+                                <p>Préparer la solution à la concentration désirée</p>
+                            </div>
+                        </div>
+                        <div class="protocol-step" id="step2">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Étalonnage</h4>
+                                <p>Étalonner le conductimètre avec une solution de référence</p>
+                            </div>
+                        </div>
+                        <div class="protocol-step" id="step3">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Immersion</h4>
+                                <p>Plonger la cellule de mesure dans la solution</p>
+                            </div>
+                        </div>
+                        <div class="protocol-step" id="step4">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Lecture</h4>
+                                <p>Relever la valeur de conductance affichée</p>
+                            </div>
+                        </div>
+                        <div class="protocol-step" id="step5">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Calcul</h4>
+                                <p>Calculer la conductivité: σ = G × K</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="theoryTab" class="tab-content">
+                    <div class="formula-box">
+                        <strong>Conductance:</strong><br>
+                        <span class="formula">G = σ × S/L</span>
+                    </div>
+                    <div class="formula-box">
+                        <strong>Conductivité molaire:</strong><br>
+                        <span class="formula">Λm = σ/C × 1000</span>
+                    </div>
+                    <div class="formula-box">
+                        <strong>Loi de Kohlrausch:</strong><br>
+                        <span class="formula">Λm = Λ°m - K√C</span>
+                    </div>
+                    <div class="formula-box">
+                        <strong>Additivité:</strong><br>
+                        <span class="formula">Λ°m = Σνᵢλ°ᵢ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <h3 style="margin-bottom: 15px; color: var(--accent);">📥 Téléchargements</h3>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="downloadSchema()">📐 Schéma</button>
+                    <button class="btn btn-success" onclick="downloadCharts()">📈 Courbes</button>
+                    <button class="btn btn-warning" onclick="downloadData()">📄 Données</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section des graphiques -->
+    <div class="charts-section">
+        <div class="chart-container">
+            <h3 class="panel-title">📈 Conductivité vs Concentration</h3>
+            <canvas id="conductivityChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3 class="panel-title">📉 Conductivité molaire vs √C</h3>
+            <canvas id="molarChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3 class="panel-title">🌡️ Effet de la température</h3>
+            <canvas id="temperatureChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3 class="panel-title">📊 Comparaison des solutions</h3>
+            <canvas id="comparisonChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Données des conductivités ioniques molaires limites (S·cm²/mol) à 25°C
+        const ionicConductivities = {
+            'H+': { lambda: 349.8, charge: 1, name: 'H⁺', type: 'cation' },
+            'OH-': { lambda: 198.0, charge: 1, name: 'OH⁻', type: 'anion' },
+            'Na+': { lambda: 50.1, charge: 1, name: 'Na⁺', type: 'cation' },
+            'K+': { lambda: 73.5, charge: 1, name: 'K⁺', type: 'cation' },
+            'Cl-': { lambda: 76.3, charge: 1, name: 'Cl⁻', type: 'anion' },
+            'NO3-': { lambda: 71.4, charge: 1, name: 'NO₃⁻', type: 'anion' },
+            'SO4--': { lambda: 160.0, charge: 2, name: 'SO₄²⁻', type: 'anion' },
+            'Ca++': { lambda: 119.0, charge: 2, name: 'Ca²⁺', type: 'cation' },
+            'Mg++': { lambda: 106.0, charge: 2, name: 'Mg²⁺', type: 'cation' },
+            'CH3COO-': { lambda: 40.9, charge: 1, name: 'CH₃COO⁻', type: 'anion' },
+            'NH4+': { lambda: 73.5, charge: 1, name: 'NH₄⁺', type: 'cation' }
+        };
+
+        // Données des solutions
+        const solutions = {
+            'HCl': { 
+                cation: 'H+', anion: 'Cl-', 
+                nuCation: 1, nuAnion: 1,
+                name: 'Acide chlorhydrique',
+                color: '#ff6b6b',
+                strong: true,
+                type: 'acid'
+            },
+            'HNO3': { 
+                cation: 'H+', anion: 'NO3-', 
+                nuCation: 1, nuAnion: 1,
+                name: 'Acide nitrique',
+                color: '#ffa502',
+                strong: true,
+                type: 'acid'
+            },
+            'H2SO4': { 
+                cation: 'H+', anion: 'SO4--', 
+                nuCation: 2, nuAnion: 1,
+                name: 'Acide sulfurique',
+                color: '#ff4757',
+                strong: true,
+                type: 'acid'
+            },
+            'NaOH': { 
+                cation: 'Na+', anion: 'OH-', 
+                nuCation: 1, nuAnion: 1,
+                name: 'Hydroxyde de sodium',
+                color: '#3742fa',
+                strong: true,
+                type: 'base'
+            },
+            'KOH': { 
+                cation: 'K+', anion: 'OH-', 
+                nuCation: 1, nuAnion: 1,
+                name: 'Hydroxyde de potassium',
+                color: '#5352ed',
+                strong: true,
+                type: 'base'
+            },
+            'NaCl': { 
+                cation: 'Na+', anion: 'Cl-', 
+                nuCation: 1, nuAnion: 1,
+                name: 'Chlorure de sodium',
+                color: '#2ed573',
+                strong: true,
+                type: 'salt'
+            },
+            'KCl': { 
+                cation: 'K+', anion: 'Cl-', 
+                nuCation: 1, nuAnion: 1,
+                name: 'Chlorure de potassium',
+                color: '#1e90ff',
+                strong: true,
+                type: 'salt'
+            },
+            'CaCl2': { 
+                cation: 'Ca++', anion: 'Cl-', 
+                nuCation: 1, nuAnion: 2,
+                name: 'Chlorure de calcium',
+                color: '#ffa502',
+                strong: true,
+                type: 'salt'
+            },
+            'MgSO4': { 
+                cation: 'Mg++', anion: 'SO4--', 
+                nuCation: 1, nuAnion: 1,
+                name: 'Sulfate de magnésium',
+                color: '#ff6348',
+                strong: true,
+                type: 'salt'
+            },
+            'Na2SO4': { 
+                cation: 'Na+', anion: 'SO4--', 
+                nuCation: 2, nuAnion: 1,
+                name: 'Sulfate de sodium',
+                color: '#7bed9f',
+                strong: true,
+                type: 'salt'
+            },
+            'CH3COOH': { 
+                cation: 'H+', anion: 'CH3COO-', 
+                nuCation: 1, nuAnion: 1,
+                name: 'Acide acétique',
+                color: '#eccc68',
+                strong: false,
+                Ka: 1.8e-5,
+                type: 'acid'
+            },
+            'NH3': { 
+                cation: 'NH4+', anion: 'OH-', 
+                nuCation: 1, nuAnion: 1,
+                name: 'Ammoniaque',
+                color: '#a29bfe',
+                strong: false,
+                Kb: 1.8e-5,
+                type: 'base'
+            }
+        };
+
+        // Variables globales
+        let currentSolution = 'NaCl';
+        let concentration = 0.1;
+        let temperature = 25;
+        let surface = 1.0;
+        let distance = 1.0;
+        let animationId = null;
+        let dataHistory = [];
+
+        // Graphiques
+        let conductivityChart, molarChart, temperatureChart, comparisonChart;
+
+        // Canvas
+        const canvas = document.getElementById('labCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Initialisation
+        function init() {
+            resizeCanvas();
+            initCharts();
+            updateExperiment();
+            drawLab();
+            window.addEventListener('resize', resizeCanvas);
+        }
+
+        function resizeCanvas() {
+            const container = canvas.parentElement;
+            canvas.width = container.clientWidth;
+            canvas.height = 500;
+            drawLab();
+        }
+
+        // Calculs
+        function calculateConductivity() {
+            const sol = solutions[currentSolution];
+            const cation = ionicConductivities[sol.cation];
+            const anion = ionicConductivities[sol.anion];
+            
+            // Conductivité molaire limite
+            const lambdaLimit = sol.nuCation * cation.lambda + sol.nuAnion * anion.lambda;
+            
+            // Facteur de température (augmente d'environ 2% par °C)
+            const tempFactor = 1 + 0.02 * (temperature - 25);
+            
+            let effectiveConcentration = concentration;
+            let alpha = 1; // Degré de dissociation
+            
+            // Pour les électrolytes faibles
+            if (!sol.strong) {
+                if (sol.type === 'acid') {
+                    // Ka = alpha² * C / (1 - alpha)
+                    const Ka = sol.Ka;
+                    alpha = (-Ka + Math.sqrt(Ka * Ka + 4 * Ka * concentration)) / (2 * concentration);
+                    if (alpha > 1) alpha = 1;
+                } else if (sol.type === 'base') {
+                    const Kb = sol.Kb;
+                    alpha = (-Kb + Math.sqrt(Kb * Kb + 4 * Kb * concentration)) / (2 * concentration);
+                    if (alpha > 1) alpha = 1;
+                }
+                effectiveConcentration = concentration * alpha;
+            }
+            
+            // Loi de Kohlrausch pour électrolytes forts
+            // Λm = Λ°m - K√C (K dépend de la solution)
+            const kohlrauschK = sol.strong ? 90 : 0; // Coefficient de Kohlrausch
+            const lambdaMolar = lambdaLimit - kohlrauschK * Math.sqrt(effectiveConcentration);
+            
+            // Conductivité σ = Λm × C / 1000 (en mS/cm)
+            const conductivity = (lambdaMolar * effectiveConcentration / 1000) * tempFactor;
+            
+            // Constante de cellule K = L/S
+            const cellConstant = distance / surface;
+            
+            // Conductance G = σ / K
+            const conductance = conductivity / cellConstant;
+            
+            // Résistance R = 1/G
+            const resistance = conductance > 0 ? 1000 / conductance : Infinity;
+
+            return {
+                conductance: conductance,
+                resistance: resistance,
+                conductivity: conductivity,
+                lambdaMolar: lambdaMolar,
+                lambdaLimit: lambdaLimit,
+                cellConstant: cellConstant,
+                alpha: alpha,
+                effectiveConcentration: effectiveConcentration,
+                tempFactor: tempFactor,
+                cationContribution: sol.nuCation * cation.lambda * tempFactor,
+                anionContribution: sol.nuAnion * anion.lambda * tempFactor
+            };
+        }
+
+        function updateExperiment() {
+            const results = calculateConductivity();
+            const sol = solutions[currentSolution];
+            
+            // Mise à jour des affichages
+            document.getElementById('conductanceResult').textContent = results.conductance.toFixed(3);
+            document.getElementById('resistanceResult').textContent = results.resistance < 1e6 ? results.resistance.toFixed(1) : '∞';
+            document.getElementById('conductivityResult').textContent = results.conductivity.toFixed(3);
+            document.getElementById('molarConductivityResult').textContent = results.lambdaMolar.toFixed(2);
+            document.getElementById('limitConductivityResult').textContent = results.lambdaLimit.toFixed(2);
+            document.getElementById('cellConstant').textContent = results.cellConstant.toFixed(2);
+
+            // Mise à jour du tableau des ions
+            updateIonsTable(sol, results);
+            
+            // Mise à jour de l'effet température
+            updateTemperatureEffect(results.tempFactor);
+            
+            // Sauvegarder dans l'historique
+            dataHistory.push({
+                solution: currentSolution,
+                concentration: concentration,
+                temperature: temperature,
+                conductivity: results.conductivity,
+                conductance: results.conductance
+            });
+            
+            // Limiter l'historique
+            if (dataHistory.length > 100) dataHistory.shift();
+            
+            // Mettre à jour les graphiques
+            updateCharts();
+            
+            // Redessiner le laboratoire
+            drawLab();
+        }
+
+        function updateIonsTable(sol, results) {
+            const tbody = document.getElementById('ionsTableBody');
+            const cation = ionicConductivities[sol.cation];
+            const anion = ionicConductivities[sol.anion];
+            
+            const totalContribution = results.cationContribution + results.anionContribution;
+            const cationPercent = (results.cationContribution / totalContribution * 100).toFixed(1);
+            const anionPercent = (results.anionContribution / totalContribution * 100).toFixed(1);
+
+            tbody.innerHTML = `
+                <tr>
+                    <td><span class="ion-symbol cation">${cation.name}</span></td>
+                    <td>${cation.lambda.toFixed(1)}</td>
+                    <td>
+                        <div style="background: linear-gradient(90deg, #ff6b6b ${cationPercent}%, transparent ${cationPercent}%); padding: 5px; border-radius: 4px;">
+                            ${cationPercent}%
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="ion-symbol anion">${anion.name}</span></td>
+                    <td>${anion.lambda.toFixed(1)}</td>
+                    <td>
+                        <div style="background: linear-gradient(90deg, #4ecdc4 ${anionPercent}%, transparent ${anionPercent}%); padding: 5px; border-radius: 4px;">
+                            ${anionPercent}%
+                        </div>
+                    </td>
+                </tr>
+                ${!sol.strong ? `
+                <tr>
+                    <td colspan="3" style="color: #ffc107; font-size: 0.8rem;">
+                        ⚠️ Électrolyte faible - α = ${(results.alpha * 100).toFixed(2)}%
+                    </td>
+                </tr>
+                ` : ''}
+            `;
+        }
+
+        function updateTemperatureEffect(factor) {
+            const effectDiv = document.getElementById('tempEffect');
+            if (temperature < 20) {
+                effectDiv.innerHTML = `❄️ Conductivité réduite (×${factor.toFixed(2)})`;
+                effectDiv.style.borderColor = 'rgba(100, 180, 255, 0.5)';
+                effectDiv.style.background = 'rgba(100, 180, 255, 0.1)';
+            } else if (temperature > 30) {
+                effectDiv.innerHTML = `🔥 Conductivité augmentée (×${factor.toFixed(2)})`;
+                effectDiv.style.borderColor = 'rgba(255, 100, 100, 0.5)';
+                effectDiv.style.background = 'rgba(255, 100, 100, 0.1)';
+            } else {
+                effectDiv.innerHTML = `📊 Condition standard (×${factor.toFixed(2)})`;
+                effectDiv.style.borderColor = 'rgba(255, 193, 7, 0.3)';
+                effectDiv.style.background = 'rgba(255, 193, 7, 0.1)';
+            }
+        }
+
+        // Dessin du laboratoire 2D
+        function drawLab() {
+            const w = canvas.width;
+            const h = canvas.height;
+            const sol = solutions[currentSolution];
+            const results = calculateConductivity();
+
+            // Fond
+            ctx.fillStyle = '#0a1628';
+            ctx.fillRect(0, 0, w, h);
+
+            // Table de laboratoire
+            const tableY = h - 80;
+            ctx.fillStyle = '#3d3d3d';
+            ctx.fillRect(0, tableY, w, 80);
+            ctx.fillStyle = '#4a4a4a';
+            ctx.fillRect(0, tableY, w, 10);
+
+            // Bécher - position et dimensions
+            const becherX = w / 2 - 100;
+            const becherY = tableY - 220;
+            const becherW = 200;
+            const becherH = 200;
+
+            // Ombre du bécher
+            ctx.fillStyle = 'rgba(0,0,0,0.3)';
+            ctx.beginPath();
+            ctx.ellipse(becherX + becherW/2, tableY + 5, becherW/2 + 10, 15, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Corps du bécher (verre)
+            ctx.strokeStyle = 'rgba(200, 230, 255, 0.6)';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(becherX, becherY);
+            ctx.lineTo(becherX - 15, tableY);
+            ctx.lineTo(becherX + becherW + 15, tableY);
+            ctx.lineTo(becherX + becherW, becherY);
+            ctx.stroke();
+
+            // Reflet du verre
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(becherX + 10, becherY + 20);
+            ctx.lineTo(becherX, tableY - 20);
+            ctx.stroke();
+
+            // Solution dans le bécher
+            const solutionLevel = 0.75; // 75% rempli
+            const solutionY = becherY + becherH * (1 - solutionLevel);
+            
+            // Gradient de la solution basé sur la concentration
+            const alpha = Math.min(0.3 + concentration * 0.5, 0.8);
+            const gradient = ctx.createLinearGradient(0, solutionY, 0, tableY);
+            gradient.addColorStop(0, sol.color + Math.floor(alpha * 255).toString(16).padStart(2, '0'));
+            gradient.addColorStop(1, sol.color + Math.floor(alpha * 0.6 * 255).toString(16).padStart(2, '0'));
+
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.moveTo(becherX + 5, solutionY);
+            ctx.lineTo(becherX - 10, tableY - 5);
+            ctx.lineTo(becherX + becherW + 10, tableY - 5);
+            ctx.lineTo(becherX + becherW - 5, solutionY);
+            ctx.closePath();
+            ctx.fill();
+
+            // Surface de la solution (effet de réflexion)
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.beginPath();
+            ctx.ellipse(becherX + becherW/2, solutionY, becherW/2 - 10, 8, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Électrodes
+            const electrodeWidth = 8;
+            const electrodeHeight = 120;
+            const electrodeGap = surface * 30; // Distance proportionnelle
+            const electrodeY = solutionY - 30;
+
+            // Support des électrodes (barre horizontale)
+            ctx.fillStyle = '#555';
+            ctx.fillRect(becherX + 30, becherY - 40, becherW - 60, 15);
+            
+            // Câbles
+            ctx.strokeStyle = '#ff4444';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(becherX + becherW/2 - electrodeGap/2, becherY - 33);
+            ctx.lineTo(becherX + 30, becherY - 60);
+            ctx.lineTo(50, becherY - 60);
+            ctx.stroke();
+
+            ctx.strokeStyle = '#4444ff';
+            ctx.beginPath();
+            ctx.moveTo(becherX + becherW/2 + electrodeGap/2, becherY - 33);
+            ctx.lineTo(becherX + becherW - 30, becherY - 60);
+            ctx.lineTo(w - 50, becherY - 60);
+            ctx.stroke();
+
+            // Électrode gauche (anode +)
+            const leftElectrodeX = becherX + becherW/2 - electrodeGap/2 - electrodeWidth/2;
+            ctx.fillStyle = '#c0c0c0';
+            ctx.fillRect(leftElectrodeX, electrodeY, electrodeWidth, electrodeHeight);
+            ctx.fillStyle = '#a0a0a0';
+            ctx.fillRect(leftElectrodeX, electrodeY, 2, electrodeHeight);
+
+            // Électrode droite (cathode -)
+            const rightElectrodeX = becherX + becherW/2 + electrodeGap/2 - electrodeWidth/2;
+            ctx.fillStyle = '#c0c0c0';
+            ctx.fillRect(rightElectrodeX, electrodeY, electrodeWidth, electrodeHeight);
+            ctx.fillStyle = '#a0a0a0';
+            ctx.fillRect(rightElectrodeX, electrodeY, 2, electrodeHeight);
+
+            // Labels des électrodes
+            ctx.font = 'bold 16px Arial';
+            ctx.fillStyle = '#ff4444';
+            ctx.fillText('+', leftElectrodeX + 2, electrodeY - 10);
+            ctx.fillStyle = '#4444ff';
+            ctx.fillText('−', rightElectrodeX + 1, electrodeY - 10);
+
+            // Ions animés dans la solution
+            drawIons(becherX, solutionY, becherW, tableY - solutionY, sol, results);
+
+            // Conductimètre
+            drawConductmeter(w - 180, 50, results);
+
+            // Graduations sur le bécher
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.lineWidth = 1;
+            ctx.font = '10px Arial';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+            for (let i = 1; i <= 4; i++) {
+                const y = tableY - i * 40;
+                ctx.beginPath();
+                ctx.moveTo(becherX + becherW - 5, y);
+                ctx.lineTo(becherX + becherW + 5, y);
+                ctx.stroke();
+                ctx.fillText(`${i * 50}`, becherX + becherW + 10, y + 4);
+            }
+            ctx.fillText('mL', becherX + becherW + 10, tableY - 170);
+
+            // Thermomètre
+            drawThermometer(becherX - 60, solutionY + 20, temperature);
+
+            // Informations sur la solution
+            ctx.font = 'bold 14px Arial';
+            ctx.fillStyle = sol.color;
+            ctx.fillText(sol.name, becherX + becherW/2 - ctx.measureText(sol.name).width/2, tableY + 40);
+            
+            ctx.font = '12px Arial';
+            ctx.fillStyle = '#aaa';
+            const concText = `C = ${concentration.toFixed(3)} mol/L`;
+            ctx.fillText(concText, becherX + becherW/2 - ctx.measureText(concText).width/2, tableY + 60);
+
+            // Légende
+            drawLegend(20, h - 150);
+
+            // Bulles d'agitation (si animé)
+            if (animationId) {
+                drawBubbles(becherX, solutionY, becherW, tableY - solutionY);
+            }
+        }
+
+        function drawIons(x, y, w, h, sol, results) {
+            const cation = ionicConductivities[sol.cation];
+            const anion = ionicConductivities[sol.anion];
+            const time = Date.now() / 1000;
+            
+            // Nombre d'ions proportionnel à la concentration et au degré de dissociation
+            const ionCount = Math.floor(concentration * results.alpha * 30) + 5;
+            
+            for (let i = 0; i < ionCount; i++) {
+                // Position avec mouvement oscillant
+                const baseX = x + 20 + (i % 10) * (w - 40) / 10;
+                const baseY = y + 20 + Math.floor(i / 10) * (h - 40) / (ionCount / 10);
+                
+                const offsetX = Math.sin(time * 2 + i) * 10;
+                const offsetY = Math.cos(time * 1.5 + i * 0.7) * 5;
+                
+                const ionX = baseX + offsetX;
+                const ionY = baseY + offsetY;
+                
+                // Dessiner cation
+                if (i % 2 === 0) {
+                    ctx.beginPath();
+                    ctx.arc(ionX, ionY, 6, 0, Math.PI * 2);
+                    ctx.fillStyle = '#ff6b6b';
+                    ctx.fill();
+                    ctx.font = 'bold 8px Arial';
+                    ctx.fillStyle = '#fff';
+                    ctx.fillText('+', ionX - 3, ionY + 3);
+                } else {
+                    // Dessiner anion
+                    ctx.beginPath();
+                    ctx.arc(ionX + 15, ionY, 7, 0, Math.PI * 2);
+                    ctx.fillStyle = '#4ecdc4';
+                    ctx.fill();
+                    ctx.font = 'bold 8px Arial';
+                    ctx.fillStyle = '#fff';
+                    ctx.fillText('−', ionX + 12, ionY + 3);
+                }
+            }
+        }
+
+        function drawConductmeter(x, y, results) {
+            // Boîtier
+            ctx.fillStyle = '#2a2a2a';
+            ctx.strokeStyle = '#444';
+            ctx.lineWidth = 2;
+            
+            // Ombre
+            ctx.fillStyle = 'rgba(0,0,0,0.3)';
+            ctx.fillRect(x + 5, y + 5, 150, 180);
+            
+            // Corps
+            const gradient = ctx.createLinearGradient(x, y, x + 150, y);
+            gradient.addColorStop(0, '#3a3a3a');
+            gradient.addColorStop(0.5, '#4a4a4a');
+            gradient.addColorStop(1, '#3a3a3a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(x, y, 150, 180);
+            
+            ctx.strokeStyle = '#555';
+            ctx.strokeRect(x, y, 150, 180);
+
+            // Écran LCD
+            ctx.fillStyle = '#1a3a1a';
+            ctx.fillRect(x + 15, y + 20, 120, 50);
+            
+            // Affichage de la conductance
+            ctx.font = 'bold 22px "Courier New"';
+            ctx.fillStyle = '#00ff00';
+            const displayValue = results.conductance.toFixed(2);
+            ctx.fillText(displayValue, x + 25, y + 52);
+            
+            ctx.font = '12px Arial';
+            ctx.fillText('mS', x + 105, y + 52);
+
+            // Label
+            ctx.font = 'bold 12px Arial';
+            ctx.fillStyle = '#888';
+            ctx.fillText('CONDUCTIMÈTRE', x + 20, y + 90);
+
+            // Affichages secondaires
+            ctx.fillStyle = '#333';
+            ctx.fillRect(x + 15, y + 100, 120, 30);
+            ctx.font = '10px "Courier New"';
+            ctx.fillStyle = '#0088ff';
+            ctx.fillText(`σ: ${results.conductivity.toFixed(2)} mS/cm`, x + 20, y + 118);
+
+            ctx.fillStyle = '#333';
+            ctx.fillRect(x + 15, y + 135, 120, 30);
+            ctx.fillStyle = '#ff8800';
+            ctx.fillText(`T: ${temperature}°C`, x + 20, y + 153);
+
+            // LED d'état
+            ctx.beginPath();
+            ctx.arc(x + 135, y + 10, 5, 0, Math.PI * 2);
+            ctx.fillStyle = animationId ? '#00ff00' : '#004400';
+            ctx.fill();
+        }
+
+        function drawThermometer(x, y, temp) {
+            // Tube
+            ctx.fillStyle = '#ddd';
+            ctx.fillRect(x + 8, y, 10, 100);
+            
+            // Bulbe
+            ctx.beginPath();
+            ctx.arc(x + 13, y + 110, 15, 0, Math.PI * 2);
+            ctx.fillStyle = '#ddd';
+            ctx.fill();
+
+            // Mercure
+            const mercuryHeight = ((temp - 5) / 75) * 90;
+            ctx.fillStyle = '#ff3333';
+            ctx.fillRect(x + 10, y + 95 - mercuryHeight, 6, mercuryHeight + 5);
+            
+            ctx.beginPath();
+            ctx.arc(x + 13, y + 110, 12, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Graduations
+            ctx.strokeStyle = '#666';
+            ctx.lineWidth = 1;
+            ctx.font = '8px Arial';
+            ctx.fillStyle = '#888';
+            
+            for (let t = 10; t <= 80; t += 10) {
+                const ty = y + 95 - ((t - 5) / 75) * 90;
+                ctx.beginPath();
+                ctx.moveTo(x + 18, ty);
+                ctx.lineTo(x + 25, ty);
+                ctx.stroke();
+                ctx.fillText(`${t}°`, x + 27, ty + 3);
+            }
+        }
+
+        function drawLegend(x, y) {
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            ctx.fillRect(x, y, 180, 100);
+            
+            ctx.font = 'bold 12px Arial';
+            ctx.fillStyle = '#fff';
+            ctx.fillText('Légende:', x + 10, y + 20);
+
+            ctx.font = '11px Arial';
+            
+            // Cation
+            ctx.beginPath();
+            ctx.arc(x + 20, y + 40, 6, 0, Math.PI * 2);
+            ctx.fillStyle = '#ff6b6b';
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.fillText('Cation (+)', x + 35, y + 44);
+
+            // Anion
+            ctx.beginPath();
+            ctx.arc(x + 20, y + 60, 6, 0, Math.PI * 2);
+            ctx.fillStyle = '#4ecdc4';
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.fillText('Anion (−)', x + 35, y + 64);
+
+            // Électrodes
+            ctx.fillStyle = '#c0c0c0';
+            ctx.fillRect(x + 15, y + 75, 10, 15);
+            ctx.fillStyle = '#fff';
+            ctx.fillText('Électrodes Pt', x + 35, y + 86);
+        }
+
+        function drawBubbles(x, y, w, h) {
+            const time = Date.now();
+            for (let i = 0; i < 8; i++) {
+                const bubbleX = x + 30 + (i * w / 10);
+                const bubbleY = y + h - ((time / 20 + i * 50) % h);
+                const size = 3 + Math.sin(time / 200 + i) * 2;
+                
+                ctx.beginPath();
+                ctx.arc(bubbleX, bubbleY, size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx.fill();
+            }
+        }
+
+        // Initialisation des graphiques
+        function initCharts() {
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        labels: { color: '#fff' }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#aaa' }
+                    },
+                    y: {
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#aaa' }
+                    }
+                }
+            };
+
+            // Graphique conductivité vs concentration
+            conductivityChart = new Chart(document.getElementById('conductivityChart'), {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'σ (mS/cm)',
+                        data: [],
+                        borderColor: '#57c5b6',
+                        backgroundColor: 'rgba(87, 197, 182, 0.2)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    plugins: {
+                        ...chartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Conductivité en fonction de la concentration',
+                            color: '#fff'
+                        }
+                    }
+                }
+            });
+
+            // Graphique conductivité molaire vs √C
+            molarChart = new Chart(document.getElementById('molarChart'), {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Λm (S·cm²/mol)',
+                        data: [],
+                        borderColor: '#ffc107',
+                        backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    plugins: {
+                        ...chartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Loi de Kohlrausch: Λm vs √C',
+                            color: '#fff'
+                        }
+                    }
+                }
+            });
+
+            // Graphique effet température
+            temperatureChart = new Chart(document.getElementById('temperatureChart'), {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'σ (mS/cm)',
+                        data: [],
+                        borderColor: '#ff6b6b',
+                        backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    plugins: {
+                        ...chartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Effet de la température sur la conductivité',
+                            color: '#fff'
+                        }
+                    }
+                }
+            });
+
+            // Graphique comparaison
+            comparisonChart = new Chart(document.getElementById('comparisonChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['HCl', 'NaOH', 'NaCl', 'KCl', 'CH₃COOH'],
+                    datasets: [{
+                        label: 'Λ°m (S·cm²/mol)',
+                        data: [],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.8)',
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(153, 102, 255, 0.8)',
+                            'rgba(255, 206, 86, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(75, 192, 192)',
+                            'rgb(153, 102, 255)',
+                            'rgb(255, 206, 86)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    plugins: {
+                        ...chartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Comparaison des conductivités molaires limites',
+                            color: '#fff'
+                        }
+                    }
+                }
+            });
+
+            // Données initiales pour le graphique de comparaison
+            updateComparisonChart();
+        }
+
+        function updateCharts() {
+            const sol = solutions[currentSolution];
+            
+            // Générer des données pour différentes concentrations
+            const concentrations = [];
+            const conductivities = [];
+            const molarConductivities = [];
+            const sqrtC = [];
+            
+            for (let c = 0.001; c <= 1; c += 0.02) {
+                const tempConc = concentration;
+                concentration = c;
+                const results = calculateConductivity();
+                concentration = tempConc;
+                
+                concentrations.push(c.toFixed(3));
+                conductivities.push(results.conductivity);
+                sqrtC.push(Math.sqrt(c).toFixed(3));
+                molarConductivities.push(results.lambdaMolar);
+            }
+
+            // Mettre à jour le graphique conductivité vs concentration
+            conductivityChart.data.labels = concentrations;
+            conductivityChart.data.datasets[0].data = conductivities;
+            conductivityChart.data.datasets[0].borderColor = sol.color;
+            conductivityChart.data.datasets[0].backgroundColor = sol.color + '33';
+            conductivityChart.update('none');
+
+            // Mettre à jour le graphique Kohlrausch
+            molarChart.data.labels = sqrtC;
+            molarChart.data.datasets[0].data = molarConductivities;
+            molarChart.update('none');
+
+            // Graphique effet température
+            const temperatures = [];
+            const tempConductivities = [];
+            const tempTemp = temperature;
+            
+            for (let t = 5; t <= 80; t += 5) {
+                temperature = t;
+                const results = calculateConductivity();
+                temperatures.push(t + '°C');
+                tempConductivities.push(results.conductivity);
+            }
+            temperature = tempTemp;
+
+            temperatureChart.data.labels = temperatures;
+            temperatureChart.data.datasets[0].data = tempConductivities;
+            temperatureChart.update('none');
+        }
+
+        function updateComparisonChart() {
+            const solutionsList = ['HCl', 'NaOH', 'NaCl', 'KCl', 'CH3COOH'];
+            const lambdaLimits = solutionsList.map(solId => {
+                const sol = solutions[solId];
+                const cation = ionicConductivities[sol.cation];
+                const anion = ionicConductivities[sol.anion];
+                return sol.nuCation * cation.lambda + sol.nuAnion * anion.lambda;
+            });
+
+            comparisonChart.data.datasets[0].data = lambdaLimits;
+            comparisonChart.update('none');
+        }
+
+        // Event listeners
+        document.getElementById('solutionSelect').addEventListener('change', (e) => {
+            currentSolution = e.target.value;
+            updateExperiment();
+        });
+
+        document.getElementById('concentrationSlider').addEventListener('input', (e) => {
+            concentration = parseFloat(e.target.value);
+            document.getElementById('concentrationValue').textContent = concentration.toFixed(3) + ' mol/L';
+            document.getElementById('concMarker').style.left = ((concentration - 0.001) / 0.999 * 100) + '%';
+            updateExperiment();
+        });
+
+        document.getElementById('temperatureSlider').addEventListener('input', (e) => {
+            temperature = parseInt(e.target.value);
+            document.getElementById('temperatureValue').textContent = temperature + ' °C';
+            updateExperiment();
+        });
+
+        document.getElementById('surfaceSlider').addEventListener('input', (e) => {
+            surface = parseFloat(e.target.value);
+            document.getElementById('surfaceValue').textContent = surface.toFixed(1) + ' cm²';
+            updateExperiment();
+        });
+
+        document.getElementById('distanceSlider').addEventListener('input', (e) => {
+            distance = parseFloat(e.target.value);
+            document.getElementById('distanceValue').textContent = distance.toFixed(1) + ' cm';
+            updateExperiment();
+        });
+
+        // Fonctions d'interface
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function resetExperiment() {
+            concentration = 0.1;
+            temperature = 25;
+            surface = 1.0;
+            distance = 1.0;
+            currentSolution = 'NaCl';
+
+            document.getElementById('concentrationSlider').value = 0.1;
+            document.getElementById('temperatureSlider').value = 25;
+            document.getElementById('surfaceSlider').value = 1.0;
+            document.getElementById('distanceSlider').value = 1.0;
+            document.getElementById('solutionSelect').value = 'NaCl';
+
+            document.getElementById('concentrationValue').textContent = '0.100 mol/L';
+            document.getElementById('temperatureValue').textContent = '25 °C';
+            document.getElementById('surfaceValue').textContent = '1.0 cm²';
+            document.getElementById('distanceValue').textContent = '1.0 cm';
+            document.getElementById('concMarker').style.left = '10%';
+
+            dataHistory = [];
+            updateExperiment();
+        }
+
+        function startAnimation() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            } else {
+                function animate() {
+                    drawLab();
+                    animationId = requestAnimationFrame(animate);
+                }
+                animate();
+            }
+        }
+
+        // Téléchargements
+        function downloadSchema() {
+            const link = document.createElement('a');
+            link.download = 'schema_conductimetrie.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadCharts() {
+            // Créer un canvas temporaire pour combiner les graphiques
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = 1600;
+            tempCanvas.height = 800;
+            const tempCtx = tempCanvas.getContext('2d');
+            
+            tempCtx.fillStyle = '#1a1a2e';
+            tempCtx.fillRect(0, 0, 1600, 800);
+            
+            // Ajouter les graphiques
+            const charts = [conductivityChart, molarChart, temperatureChart, comparisonChart];
+            charts.forEach((chart, i) => {
+                const x = (i % 2) * 800;
+                const y = Math.floor(i / 2) * 400;
+                tempCtx.drawImage(chart.canvas, x, y, 800, 400);
+            });
+
+            const link = document.createElement('a');
+            link.download = 'courbes_conductimetrie.png';
+            link.href = tempCanvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadData() {
+            const results = calculateConductivity();
+            const sol = solutions[currentSolution];
+            
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "RAPPORT DE CONDUCTIMÉTRIE\n\n";
+            csvContent += "Solution," + sol.name + "\n";
+            csvContent += "Concentration (mol/L)," + concentration + "\n";
+            csvContent += "Température (°C)," + temperature + "\n";
+            csvContent += "Surface électrodes (cm²)," + surface + "\n";
+            csvContent += "Distance électrodes (cm)," + distance + "\n\n";
+            csvContent += "RÉSULTATS\n";
+            csvContent += "Conductance (mS)," + results.conductance.toFixed(4) + "\n";
+            csvContent += "Conductivité (mS/cm)," + results.conductivity.toFixed(4) + "\n";
+            csvContent += "Conductivité molaire (S·cm²/mol)," + results.lambdaMolar.toFixed(2) + "\n";
+            csvContent += "Conductivité molaire limite (S·cm²/mol)," + results.lambdaLimit.toFixed(2) + "\n";
+            csvContent += "Constante de cellule (cm⁻¹)," + results.cellConstant.toFixed(2) + "\n\n";
+            csvContent += "IONS\n";
+            csvContent += "Cation," + ionicConductivities[sol.cation].name + "," + ionicConductivities[sol.cation].lambda + " S·cm²/mol\n";
+            csvContent += "Anion," + ionicConductivities[sol.anion].name + "," + ionicConductivities[sol.anion].lambda + " S·cm²/mol\n";
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "donnees_conductimetrie.csv");
+            link.click();
+        }
+
+        // Animation des étapes du protocole
+        let currentStep = 1;
+        setInterval(() => {
+            if (animationId) {
+                document.querySelectorAll('.protocol-step').forEach(step => step.classList.remove('active'));
+                document.getElementById('step' + currentStep).classList.add('active');
+                currentStep = currentStep % 5 + 1;
+            }
+        }, 2000);
+
+        // Initialisation au chargement
+        window.onload = init;
+    </script>
+</body>
+</html>
