@@ -1,0 +1,112 @@
+{
+  "generated": "2026-06-08",
+  "tests": [
+    {
+      "id": "1bac_exmath_diag_001",
+      "path": "tests/1BAC_EX_MATH/physique-chimie/test_diag_001.json",
+      "title": "اختبار تشخيصي شامل",
+      "level": "1BAC_EX_MATH",
+      "subject": "physique-chimie",
+      "type": "diagnostic"
+    },
+
+    {
+      "id": "1bac_rotation_form_001",
+      "path": "tests/1BAC_EX_MATH/physique-chimie/mouvement_rotation.json",
+      "title": "الحركة الدورانية",
+      "level": "1BAC_EX_MATH",
+      "subject": "physique-chimie",
+      "type": "formative"
+    },
+
+    {
+      "id": "1bac_travail_form_001",
+      "path": "tests/1BAC_EX_MATH/physique-chimie/travail_puissance.json",
+      "title": "الشغل والقدرة",
+      "level": "1BAC_EX_MATH",
+      "subject": "physique-chimie",
+      "type": "formative"
+    },
+
+    {
+      "id": "1bac_conductance_form_001",
+      "path": "tests/1BAC_EX_MATH/physique-chimie/conductance.json",
+      "title": "قياس الناقلية",
+      "level": "1BAC_EX_MATH",
+      "subject": "physique-chimie",
+      "type": "formative"
+    },
+
+    {
+      "id": "1bac_acidobase_form_001",
+      "path": "tests/1BAC_EX_MATH/physique-chimie/acido_basique.json",
+      "title": "التفاعلات الحمضية القاعدية",
+      "level": "1BAC_EX_MATH",
+      "subject": "physique-chimie",
+      "type": "formative"
+    },
+
+    {
+      "id": "1bac_optique_form_001",
+      "path": "tests/1BAC_EX_MATH/physique-chimie/optique.json",
+      "title": "البصريات الهندسية",
+      "level": "1BAC_EX_MATH",
+      "subject": "physique-chimie",
+      "type": "formative"
+    },
+
+    {
+      "id": "2bac_pc_diag_001",
+      "path": "tests/2BAC_PCF/physique-chimie/test_diag_001.json",
+      "title": "اختبار تشخيصي شامل",
+      "level": "2BAC_PCF",
+      "subject": "physique-chimie",
+      "type": "diagnostic"
+    },
+
+    {
+      "id": "2bac_ondes_form_001",
+      "path": "tests/2BAC_PCF/physique-chimie/ondes.json",
+      "title": "الموجات",
+      "level": "2BAC_PCF",
+      "subject": "physique-chimie",
+      "type": "formative"
+    },
+
+    {
+      "id": "2bac_rc_form_001",
+      "path": "tests/2BAC_PCF/physique-chimie/dipole_rc.json",
+      "title": "ثنائي القطب RC",
+      "level": "2BAC_PCF",
+      "subject": "physique-chimie",
+      "type": "formative"
+    },
+
+    {
+      "id": "2bac_rlc_form_001",
+      "path": "tests/2BAC_PCF/physique-chimie/rlc.json",
+      "title": "دارة RLC",
+      "level": "2BAC_PCF",
+      "subject": "physique-chimie",
+      "type": "formative"
+    },
+
+    {
+      "id": "2bac_newton_form_001",
+      "path": "tests/2BAC_PCF/physique-chimie/newton.json",
+      "title": "قوانين نيوتن",
+      "level": "2BAC_PCF",
+      "subject": "physique-chimie",
+      "type": "formative"
+    },
+
+    {
+      "id": "2bac_oxred_form_001",
+      "path": "tests/2BAC_PCF/physique-chimie/oxydoreduction.json",
+      "title": "الأكسدة والإرجاع",
+      "level": "2BAC_PCF",
+      "subject": "physique-chimie",
+      "type": "formative"
+    }
+  ]
+}
