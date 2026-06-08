@@ -1,0 +1,268 @@
+{
+  "id": "TCS_PC_DIAG_2025",
+  "title": "الاختبار التشخيصي في مادة الفيزياء والكيمياء",
+  "subject": "الفيزياء والكيمياء",
+  "level": "TCS",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Pour décrire le mouvement ou le repos d'un corps, il faut d'abord choisir :",
+      "options": [
+        "une trajectoire.",
+        "un corps de référence (référentiel).",
+        "un chronomètre.",
+        "une vitesse moyenne."
+      ],
+      "correct": 1,
+      "gap": "عدم استيعاب مفهوم نسبية الحركة وضرورة اختيار الجسم المرجعي",
+      "recommendation": "التذكير بمفهوم نسبية الحركة والسكون واعتبار الجسم المرجعي شرطاً أساسياً قبل وصف أي حركة."
+    },
+    {
+      "id": "q2",
+      "text": "Quelle est la relation correcte exprimant la vitesse moyenne $v_m$ d'un mobile ?",
+      "options": [
+        "v_m = d . t",
+        "v_m = t / d",
+        "v_m = d / t",
+        "v_m = d + t"
+      ],
+      "correct": 2,
+      "gap": "صعوبة في تذكر العلاقة الرياضية لحساب السرعة المتوسطة",
+      "recommendation": "مراجعة علاقة السرعة ($v = d/t$) والتدرب على استخراج المسافة والمدة الزمنية منها."
+    },
+    {
+      "id": "q3",
+      "text": "Si la vitesse d'un mobile augmente au cours du temps, le mouvement est dit :",
+      "options": [
+        "uniforme.",
+        "accéléré.",
+        "retardé (ralenti).",
+        "périodique."
+      ],
+      "correct": 1,
+      "gap": "الخلط بين طبيعة الحركة (متسارعة، متباطئة، منتظمة) وتطور السرعة",
+      "recommendation": "ربط تطور السرعة بطبيعة الحركة: السرعة تتزايد تعني حركة متسارعة (accéléré)، وثابتة تعني منتظمة (uniforme)."
+    },
+    {
+      "id": "q4",
+      "text": "L'action mécanique exercée par le vent sur la voile d'un bateau est une action :",
+      "options": [
+        "de contact localisée.",
+        "de contact répartie.",
+        "à distance répartie.",
+        "magnétique."
+      ],
+      "correct": 1,
+      "gap": "صعوبة في تصنيف التأثيرات الميكانيكية (تماس مموضع، تماس موزع، عن بعد)",
+      "recommendation": "شرح كافٍ لفرق التماس الموزع (مساحة التماس كبيرة كالمائع مع السطح) والمموضع (في نقطة كخيط)."
+    },
+    {
+      "id": "q5",
+      "text": "On mesure l'intensité d'une force à l'aide d'un :",
+      "options": [
+        "balance.",
+        "dynamomètre.",
+        "ampèremètre.",
+        "baromètre."
+      ],
+      "correct": 1,
+      "gap": "الخلط بين أجهزة قياس المقادير الفيزيائية (الكتلة والشدة والضغط)",
+      "recommendation": "التمييز بين جهاز الدينامومتر لقياس القوة بالنيوتن ($N$) والبلانص (المنصة/الميزان) لقياس الكتلة بالكيلوغرام ($kg$)."
+    },
+    {
+      "id": "q6",
+      "text": "La relation entre l'intensité du poids $P$ d'un corps et sa masse $m$ est :",
+      "options": [
+        "P = m / g",
+        "P = m . g",
+        "m = P . g",
+        "P = g / m"
+      ],
+      "correct": 1,
+      "gap": "خلط في الصياغة الرياضية للعلاقة بين الوزن والكتلة",
+      "recommendation": "التأكيد على المعادلة الأساسية $P = m \\times g$ وضبط الوحدات (P بالنيوتن و m بالكيلوغرام)."
+    },
+    {
+      "id": "q7",
+      "text": "L'air est un mélange gazeux constitué principalement de :",
+      "options": [
+        "80% de dioxyde de carbone et 20% de dioxygène.",
+        "78% de diazote et 21% de dioxygène.",
+        "50% de dioxygène et 50% de diazote.",
+        "100% de dioxygène."
+      ],
+      "correct": 1,
+      "gap": "ضعف الثقافة العلمية المكتسبة حول الغازات المكونة للغلاف الجوي",
+      "recommendation": "تذكير التلاميذ بالنسبة التقريبية المكونة للهواء (حوالي 4 أضعاف من الأزوت مقارنة بالأكسجين)."
+    },
+    {
+      "id": "q8",
+      "text": "Quel test chimique permet de mettre en évidence la présence de l'eau ?",
+      "options": [
+        "L'eau de chaux qui se trouble.",
+        "Le sulfate de cuivre anhydre qui devient bleu.",
+        "La buchette en braise qui se rallume.",
+        "Une détonation en présence d'une flamme."
+      ],
+      "correct": 1,
+      "gap": "عدم التمييز بين ركائز الكواشف الكيميائية للأجسام (الماء، ثاني أكسيد الكربون)",
+      "recommendation": "مراجعة ركائز الكشف: كبريتات النحاس اللامائي يكشف عن الماء، وماء الجير يكشف عن $CO_2$."
+    },
+    {
+      "id": "q9",
+      "text": "Une solution aqueuse dont le $pH = 9$ est une solution :",
+      "options": [
+        "acide.",
+        "basique.",
+        "neutre.",
+        "pure."
+      ],
+      "correct": 1,
+      "gap": "عجز عن تصنيف المحاليل المائية (حمضية، قاعدية، محايدة) حسب قيمة الـ pH",
+      "recommendation": "تثبيت سلم الـ $pH$: أصغر من 7 حمضي، يساوي 7 محايد، أكبر من 7 قاعدي."
+    },
+    {
+      "id": "q10",
+      "text": "Lors de la combustion complète du butane dans le dioxygène, il se forme :",
+      "options": [
+        "du carbone et de l'eau.",
+        "du monoxyde de carbone et de l'eau.",
+        "du dioxyde de carbone et de l'eau.",
+        "uniquement de la vapeur d'eau."
+      ],
+      "correct": 2,
+      "gap": "عدم القدرة على تحديد نواتج الاحتراق الكامل للمحروقات الهيدروكربونية",
+      "recommendation": "التذكير بأن الاحتراق الكامل ينتج دائماً الماء وثاني أكسيد الكربون، بينما غير الكامل ينتج أحادي الكربون أو الكربون."
+    },
+    {
+      "id": "q11",
+      "text": "L'atome est constitué d'un noyau central entouré par :",
+      "options": [
+        "des molécules.",
+        "des protons positifs uniquement.",
+        "des électrons en mouvement.",
+        "des neutrons isolés."
+      ],
+      "correct": 2,
+      "gap": "ضعف في استحضار المكونات البنيوية الأساسية للذرة",
+      "recommendation": "شرح مبسط لبنية الذرة (النواة في المركز والإلكترونات تدور حولها في سحابة إلكترونية)."
+    },
+    {
+      "id": "q12",
+      "text": "Un ion négatif (anion) est un atome ou groupe d'atomes qui a :",
+      "options": [
+        "gagné un ou plusieurs électrons.",
+        "perdu un ou plusieurs électrons.",
+        "gagner des protons.",
+        "perdu son noyau."
+      ],
+      "correct": 0,
+      "gap": "الخلط بين كيفية تشكل الأيونات الموجبة (الكاتيونات) والسالبة (الأنيونات)",
+      "recommendation": "توضيح أن كسب الإلكترونات (السالبة) يزيد الشحنة السالبة فيعطي أنيون، والفقر يعطي كاتيون."
+    },
+    {
+      "id": "q13",
+      "text": "Quelle formule chimique représente l'ion hydroxyde responsable de la basicité ?",
+      "options": [
+        "H_3O^+",
+        "OH^-",
+        "Cl^-",
+        "Na^+"
+      ],
+      "correct": 1,
+      "gap": "عدم حفظ الرموز والأيونات المتداولة بكثرة في المحاليل المائية",
+      "recommendation": "حفظ الرموز الأساسية: أيون الهيدروكسيد $OH^-$ وأيون الهيدروجين $H^+$."
+    },
+    {
+      "id": "q14",
+      "text": "Dans une solution acide, lorsqu'on ajoute de l'eau (dilution), la valeur du $pH$ :",
+      "options": [
+        "diminue.",
+        "augmente et se rapproche de 7.",
+        "reste constante.",
+        "devient supérieure à 14."
+      ],
+      "correct": 1,
+      "gap": "عدم فهم تأثير عملية التخفيف على تركيز المحاليل الحمضية والقاعدية",
+      "recommendation": "شرح أن التخفيف يضعف الحموضة وبالتالي يرفع قيمة الـ $pH$ تدريجياً لتقترب من القيمة 7 (دون تجاوزها)."
+    },
+    {
+      "id": "q15",
+      "text": "Un matériau qui laisse passer le courant électrique est appelé :",
+      "options": [
+        "un isolant.",
+        "un conducteur.",
+        "un cristal.",
+        "un générateur."
+      ],
+      "correct": 1,
+      "gap": "عدم التمييز اللغوي أو المفهومي بين المواد الموصلة والمواد العازلة",
+      "recommendation": "مراجعة خاصية التوصيل الكهربائي للمواد (المعادن موصلة، البلاستيك والخشب عازل)."
+    },
+    {
+      "id": "q16",
+      "text": "Dans un circuit électrique, le courant électrique continu circule à l'extérieur du générateur :",
+      "options": [
+        "de la borne moins (-) vers la borne plus (+).",
+        "de la borne plus (+) vers la borne moins (-).",
+        "dans les deux sens en même temps.",
+        "uniquement si le circuit est ouvert."
+      ],
+      "correct": 1,
+      "gap": "جهل أو نسيان الاصطلاح العالمي لمنحى التيار الكهربائي المستمر",
+      "recommendation": "التثبيت الدائم للاصطلاح: التيار يخرج من القطب الموجب ($+$) ويعود عبر القطب السالب ($-$) للمولد."
+    },
+    {
+      "id": "q17",
+      "text": "Quelle est l'unité internationale de l'énergie électrique ?",
+      "options": [
+        "Le Watt (W)",
+        "Le Joule (J)",
+        "Le Wattheure (Wh)",
+        "Le Volt (V)"
+      ],
+      "correct": 1,
+      "gap": "الخلط بين وحدات القدرة الكهربائية ووحدات الطاقة الكهربائية",
+      "recommendation": "التمييز بين القدرة (التي تقاس بالواط $W$) والطاقة (التي تقاس عالمياً بالجول $J$ وعملياً بالواط-ساعة $Wh$)."
+    },
+    {
+      "id": "q18",
+      "text": "La relation qui permet de calculer la puissance électrique consommé par un appareil de chauffage est :",
+      "options": [
+        "P = U . I",
+        "P = U / I",
+        "P = E . t",
+        "P = R . I"
+      ],
+      "correct": 0,
+      "gap": "عجز عن تحديد وتطبيق علاقة القدرة الكهربائية المستهلكة",
+      "recommendation": "تذكر علاقة القدرة المستمرة للجهاز: $P = U \\times I$."
+    },
+    {
+      "id": "q19",
+      "text": "La lumière blanche est une lumière composite séparable. On dit qu'elle est :",
+      "options": [
+        "monochromatique.",
+        "polychromatique.",
+        "sombre.",
+        "laser."
+      ],
+      "correct": 1,
+      "gap": "عدم استيعاب مفهوم تبدد الضوء وطبيعة الضوء الأبيض",
+      "recommendation": "مراجعة درس تبدد الضوء بواسطة المنشور وتذكر أن الضوء الأبيض متعدد الألوان (polychromatique)."
+    },
+    {
+      "id": "q20",
+      "text": "Une année-lumière ($al$) est une unité utilisée pour mesurer :",
+      "options": [
+        "le temps.",
+        "la vitesse.",
+        "la distance.",
+        "l'intensité lumineuse."
+      ],
+      "correct": 2,
+      "gap": "الاعتقاد الخاطئ بأن السنة الضوئية وحدة لقياس الزمن نظراً لاسمها",
+      "recommendation": "شرح أن السنة الضوئية تعبر عن المسافة الفلكية الكبيرة جداً التي يقطعها الضوء خلال سنة كاملة."
+    }
+  ]
+}

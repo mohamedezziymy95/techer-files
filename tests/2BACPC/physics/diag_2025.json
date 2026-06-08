@@ -1,0 +1,268 @@
+{
+  "id": "2BACPC_PC_DIAG_2025",
+  "title": "الاختبار التشخيصي في مادة الفيزياء والكيمياء",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BACPC",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quelle est l'expression correcte de la concentration molaire $C$ d'une solution aqueuse ?",
+      "options": [
+        "C = n . V",
+        "C = n / V",
+        "C = m / V",
+        "C = V / n"
+      ],
+      "correct": 1,
+      "gap": "صعوبة في تحديد واستيعاب العلاقة الأساسية للتركيز المولي",
+      "recommendation": "مراجعة مكتسبات الجذع المشترك والأولى باك حول المقادير الفيزيائية المرتبطة بكمية المادة."
+    },
+    {
+      "id": "q2",
+      "text": "L'oxydant est une espèce chimique capable de :",
+      "options": [
+        "perdre un ou plusieurs électrons.",
+        "gagner un ou plusieurs électrons.",
+        "perdre un proton H+.",
+        "gagner un proton H+."
+      ],
+      "correct": 1,
+      "gap": "خلط بين مفهومي المؤكسد والمختزل (تفاعلات أكسدة-اختزال)",
+      "recommendation": "إعادة ضبط تعريف المؤكسد والمختزل وتذكر أن المؤكسد يكتسب إلكترونات (Ox + ne- = Red)."
+    },
+    {
+      "id": "q3",
+      "text": "Dans une solution aqueuse, le produit ionique de l'eau à $25^\\circ\\text{C}$ est $K_e = 10^{-14}$. Si une solution a un $pH = 3$, quelle est sa concentration en ions $H_3O^+$ ?",
+      "options": [
+        "10^3 \\text{ mol/L}",
+        "3 \\text{ mol/L}",
+        "10^{-3} \\text{ mol/L}",
+        "10^{-11} \\text{ mol/L}"
+      ],
+      "correct": 2,
+      "gap": "عدم القدرة على حساب تركيز أيونات الهيدرونيوم انطلاقاً من الـ pH",
+      "recommendation": "تذكر العلاقة الأساسية: $[H_3O^+][H_3O^+] = 10^{-pH}$ وتطبيقها مباشرة."
+    },
+    {
+      "id": "q4",
+      "text": "Quelle est l'unité de la conductance $G$ d'une solution électrolytique dans le Système International (SI) ?",
+      "options": [
+        "Ohm (\\Omega)",
+        "Siemens (S)",
+        "Volt (V)",
+        "Ampère (A)"
+      ],
+      "correct": 1,
+      "gap": "ضعف في معرفة وحدات القياس الخاصة بالكهرباء والكيمياء (الموصلية والمنصهر)",
+      "recommendation": "مراجعة درس قياس المواصلة (الأولى باك) والتمييز بين المقاومة (Ohm) والمنصهر/المواصلة (Siemens)."
+    },
+    {
+      "id": "q5",
+      "text": "L'équation d'état d'un gaz parfait est $P.V = n.R.T$. Quelle est l'unité de la température $T$ dans cette formule ?",
+      "options": [
+        "Le degré Celsius (^\\circ\\text{C})",
+        "Le Kelvin (K)",
+        "Le Fahrenheit (^\\circ\\text{F})",
+        "Le Joule (J)"
+      ],
+      "correct": 1,
+      "gap": "عدم استخدام الوحدة العالمية للدرجة الحرارية المطلقة في قوانين الغازات",
+      "recommendation": "تذكر دائماً تحويل درجة الحرارة إلى السلم العالمي المطلق (ال Kelvin) عبر إضافة 273.15 إلى القيمة بالدرجة مئوية."
+    },
+    {
+      "id": "q6",
+      "text": "Lors d'une dilution d'une solution aqueuse, quelle grandeur physico-chimique reste invariante ?",
+      "options": [
+        "La concentration molaire",
+        "Le volume de la solution",
+        "La quantité de matière du soluté",
+        "La masse volumique"
+      ],
+      "correct": 2,
+      "gap": "عدم استيعاب مبدأ انحفاظ كمية المادة خلال عملية التخفيف",
+      "recommendation": "التركيز على قانون التخفيف: كمية المادة البدئية تساوي كمية المادة النهائية ($C_i \\times V_i = C_f \\times V_f$)."
+    },
+    {
+      "id": "q7",
+      "text": "La loi d'Ohm pour un conducteur ohmique de résistance $R$ s'écrit :",
+      "options": [
+        "U = R / I",
+        "U = R . I",
+        "I = R . U",
+        "P = R . I"
+      ],
+      "correct": 1,
+      "gap": "ضعف في تمثيل وتذكر العلاقات الكهربائية الأساسية",
+      "recommendation": "مراجعة القوانين الأساسية للكهرباء (قانون أوم، علاقة القدرة والطاقة الكهربائية)."
+    },
+    {
+      "id": "q8",
+      "text": "Un mobile se déplace sur une trajectoire rectiligne. Son équation horaire est $x(t) = 4.t + 2$ (en unités SI). Quelle est la nature de son mouvement ?",
+      "options": [
+        "Mouvement rectiligne uniformément varié",
+        "Mouvement rectiligne uniforme",
+        "Mouvement circulaire uniforme",
+        "Mouvement curviligne"
+      ],
+      "correct": 1,
+      "gap": "صعوبة في تحديد طبيعة الحركة انطلاقاً من المعادلة الزمنية للموضع",
+      "recommendation": "مراجعة درس الحركة ومقارنة المعادلات الزمنية (إذا كانت السرعة ثابتة فالحركة مستقيمة منتظمة)."
+    },
+    {
+      "id": "q9",
+      "text": "Quelle est l'expression de l'énergie cinétique $E_c$ d'un solide en mouvement de translation rectiligne ?",
+      "options": [
+        "E_c = m . v^2",
+        "E_c = \\frac{1}{2} . m . v",
+        "E_c = \\frac{1}{2} . m . v^2",
+        "E_c = m . g . z"
+      ],
+      "correct": 2,
+      "gap": "خلط بين تعبير الطاقة الحركية وتعبيرات طاقات أخرى كالوضع",
+      "recommendation": "حفظ ومراجعة تعابير وأشكال الطاقة (الطاقة الحركية، طاقة الوضع الثقالية، والطاقة الميكانيكية)."
+    },
+    {
+      "id": "q10",
+      "text": "Le travail d'une force constante $\\vec{F}$ lors d'un déplacement rectiligne $AB$ est moteur si :",
+      "options": [
+        "l'angle (\\vec{F}, \\vec{AB}) est égal à 90^\\circ",
+        "l'angle (\\vec{F}, \\vec{AB}) est aigu (< 90^\\circ)",
+        "l'angle (\\vec{F}, \\vec{AB}) est obtus (> 90^\\circ)",
+        "la force est perpendiculaire à la trajectoire"
+      ],
+      "correct": 1,
+      "gap": "عجز عن تحديد طبيعة شغل قوة (مُحرك، مقاوم، منعدم) حسب الزاوية",
+      "recommendation": "تذكر أن الشغل يكون محركاً إذا كان كوصينوس الزاوية موجباً ($W > 0$) ومقاوماً إذا كان سالباً ($W < 0$)."
+    },
+    {
+      "id": "q11",
+      "text": "La poussée d'Archimède exercée sur un corps totalement immergé dans un fluide dépend de :",
+      "options": [
+        "la masse du corps immergé.",
+        "la profondeur à laquelle se trouve le corps.",
+        "le volume du fluide déplacé.",
+        "la forme du corps."
+      ],
+      "correct": 2,
+      "gap": "عدم فهم العوامل المؤثرة في دافعة أرخميدس",
+      "recommendation": "مراجعة درس توازن جسم خاضع لعدة قوى وتذكر أن دافعة أرخميدس تساوي وزن السائل المزاح."
+    },
+    {
+      "id": "q12",
+      "text": "Un corps de masse $m = 2\\text{ kg}$ est situé à une hauteur $h = 5\\text{ m}$ du sol. En prenant $g = 10\\text{ N/kg}$, quelle est son énergie de potentielle de pesanteur $E_{pp}$ (origine au sol) ?",
+      "options": [
+        "10 J",
+        "50 J",
+        "100 J",
+        "25 J"
+      ],
+      "correct": 2,
+      "gap": "صعوبة في التطبيق العددي المباشر لحساب طاقة الوضع الثقالية",
+      "recommendation": "استعمال العلاقة $E_{pp} = m \\cdot g \\cdot h$ والتأكد من توافق الوحدات العالمية."
+    },
+    {
+      "id": "q13",
+      "text": "Quelle relation associe la tension $U_{PN}$ aux bornes d'un générateur de force électromotrice $E$ et de résistance interne $r$ traversé par un courant $I$ ?",
+      "options": [
+        "U_{PN} = E + r.I",
+        "U_{PN} = E - r.I",
+        "U_{PN} = r.I - E",
+        "U_{PN} = E / (r.I)"
+      ],
+      "correct": 1,
+      "gap": "الخلط بين قانون أوم الخاص بمستقبل وقانون أوم الخاص بمولد",
+      "recommendation": "التمييز بين اصطلاح المولد ($U = E - rI$) واصطلاح المستقبل كالمنظم أو المحرك ($U = E' + r'I$)."
+    },
+    {
+      "id": "q14",
+      "text": "À travers une lentille mince convergente, un rayon lumineux passant par le centre optique $O$ :",
+      "options": [
+        "émerge en passant par le foyer image F'.",
+        "est dévié vers le haut.",
+        "continue sa trajectoire sans déviation.",
+        "réfléchit sur lui-même."
+      ],
+      "correct": 2,
+      "gap": "عدم معرفة مسار الأشعة الضوئية الخاصة عبر العدسات المجمعة",
+      "recommendation": "مراجعة قواعد البصريات الهندسة الخاصة بالعدسات الرقيقة المجمعة (المحور البصري، المركز، البؤرة)."
+    },
+    {
+      "id": "q15",
+      "text": "Dans le spectre de la lumière blanche, quelle couleur a la plus petite longueur d'onde ?",
+      "options": [
+        "Le rouge",
+        "Le vert",
+        "Le violet",
+        "Le jaune"
+      ],
+      "correct": 2,
+      "gap": "ضعف الثقافة العلمية المرتبطة بالطيف الضوئي والألوان وتصنيف موجاتها",
+      "recommendation": "تذكر أن طيف الضوء المرئي يمتد بين حوالي $400\\text{ nm}$ (البنفسجي) و $800\\text{ nm}$ (الأحمر)."
+    },
+    {
+      "id": "q16",
+      "text": "Quelle est la relation entre la période $T$ et la fréquence $f$ d'un phénomène périodique ?",
+      "options": [
+        "T = f",
+        "f = 1 / T",
+        "T = 1 / f^2",
+        "f = T / 2"
+      ],
+      "correct": 1,
+      "gap": "خلط بين المفهومين والوحدات الخاصة بالتردد والدور",
+      "recommendation": "التركيز على أن التردد مقلوب الدور وحدته الهرتز ($Hz$) والدور وحدته الثانية ($s$)."
+    },
+    {
+      "id": "q17",
+      "text": "L'unité de la quantité de matière dans le Système International est :",
+      "options": [
+        "le gramme (g)",
+        "le litre (L)",
+        "la mole (mol)",
+        "le nombre d'Avogadro"
+      ],
+      "correct": 2,
+      "gap": "الخلط بين الكتلة وحجم المادة وكمية المادة (العدد المولي)",
+      "recommendation": "الاستيعاب الجيد لفهوم المول كمقدار مستقل يعبر عن كمية المادة في الكيمياء."
+    },
+    {
+      "id": "q18",
+      "text": "Un conducteur ohmique traverse une puissance thermique par effet Joule. Quelle expression donne cette puissance $P_J$ ?",
+      "options": [
+        "P_J = R . I",
+        "P_J = R^2 . I",
+        "P_J = R . I^2",
+        "P_J = U / I"
+      ],
+      "correct": 2,
+      "gap": "صعوبة في تحديد صيغة مفعول جول الحراري في الكهرباء",
+      "recommendation": "مراجعة درس الانتقالات الطاقية في دارة كهربائية والتأكيد على صيغة مفعول جول $P = R \\cdot I^2$."
+    },
+    {
+      "id": "q19",
+      "text": "Quelle est la formule brute de l'éthanol (un alcool à deux atomes de carbone) ?",
+      "options": [
+        "CH_4",
+        "C_2H_6O",
+        "CH_4O",
+        "C_3H_8O"
+      ],
+      "correct": 1,
+      "gap": "ضعف في تسمية وكتابة الصيغ الإجمالية للمركبات العضوية الأساسية",
+      "recommendation": "مراجعة مبادئ الكيمياء العضوية (الألكانات، الكحولات) التي تم دراستها في الجذع المشترك والأولى باك."
+    },
+    {
+      "id": "q20",
+      "text": "Si un système thermodynamique reçoit de la chaleur de l'extérieur, le signe de cette énergie thermique $Q$ est considéré comme :",
+      "options": [
+        "négatif (Q < 0).",
+        "positif (Q > 0).",
+        "nul (Q = 0).",
+        "indéterminé."
+      ],
+      "correct": 1,
+      "gap": "عدم ضبط اصطلاح الإشارات في التبادلات الطاقية الحرارية والميكانيكية",
+      "recommendation": "تذكر قاعدة الإشارات المتفق عليها: كل ما يكتسبه أو يستقبله النظام يكون موجباً ($>0$) وما يفقده أو يمنحه يكون سالباً ($<0$)."
+    }
+  ]
+}
