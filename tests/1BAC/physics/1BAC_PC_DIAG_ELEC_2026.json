@@ -1,0 +1,156 @@
+Create Google DocsCreate Word DocsCreate PDF DocsExport to Notion
+
+Settings
+Conversation avec Gemini
+أعد لي ملف مشابه لهذا الاختبار بالاعتماد على الصورة المرفقة ، يجب أن يكون الاختبار بالفرنسية مع العلم أنه سيظهر في صفحة html يجب أن تظهر العلاقات الرياضية بشكل جيد
+
+تم إعداد ملف الاختبار التشخيصي الجديد بصيغة JSON بناءً على المحاور والمفاهيم الواردة في الصورة المرفقة والمتعلقة بجزء الكهرباء والمغناطيسية لـ (1BAC)، مع صياغة الأسئلة والاختيارات باللغة الفرنسية، وصياغة خانات التوصيات والتعثرات باللغة العربية تماشياً مع بنية الملف الأصلي.
+
+لقد تم إدراج الرموز والعلاقات الرياضية والفيزيائية باستخدام صيغ متوافقة مع صفحات الويب (...) لضمان ظهورها بشكل ممتاز ومستقر عند عرضها في صفحة HTML.
+
+ملف الـ JSON جاهز للتحميل:
+Icône JSON
+diag_electricity_2026
+ JSON 
+Ouvert
+
+نظرة على محتوى الملف والأسئلة المدرجة فيه:
+مفعول جول وانتقال الطاقة: أسئلة حول صيغة القدرة المبددة بمفعول جول (P 
+J
+​
+ =R⋅I 
+2
+ ) ومبدأ انحفاظ الطاقة في الدارات الكهربائية.
+
+شغل القوة الكهرساكنة وطاقة الوضع (خاص بمسلك العلوم الرياضية): التركيز على مميزات الشغل وطاقة الوضع الكهرساكنة (E 
+pe
+​
+ =q⋅V).
+
+المغناطيسية وتجربة أورستد: تحديد المفهوم التاريخي لتوليد المجال المغناطيسي بواسطة التيار الكهربائي ووحدته العالمية التيسلا (T).
+
+قوى لابلاص وتحول الطاقة: أسئلة تتمحور حول التعبير الرياضي لقوة لابلاص (F=I⋅L⋅B) ودورها المحرك في تحويل الطاقة الكهربائية إلى طاقة ميكانيكية (حركية).
+
+Create Google Docs
+Create Word Docs
+Create PDF Docs
+Export to Notion
+
+
+
+Gemini est une IA et peut se tromper.
+
+{
+  "id": "1BAC_PC_DIAG_ELEC_2026",
+  "title": "الاختبار التشخيصي في مادة الفيزياء - جزء الكهرباء والمغناطيسية",
+  "subject": "الفيزياء والكيمياء (الكهرباء والمغناطيسية)",
+  "level": "1BAC",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quelle est l'expression de la puissance électrique $P_J$ dissipée par effet Joule dans un conducteur ohmique de résistance $R$ traversé par un courant $I$ ?",
+      "options": [
+        "P_J = R / I^2",
+        "P_J = R . I",
+        "P_J = R . I^2",
+        "P_J = R^2 . I"
+      ],
+      "correct": 2,
+      "gap": "صعوبة في تذكر الصيغة الرياضية للقدرة المبددة بمفعول جول في موصل أومي",
+      "recommendation": "مراجعة مفهوم مفعول جول والتركيز على العلاقة $P_J = R \\cdot I^2$ والتمييز بينها وبين القدرة المستهلكة العامة."
+    },
+    {
+      "id": "q2",
+      "text": "Le travail d'une force électrostatique $\\vec{F}$ s'exercant sur une charge $q$ se déplaçant d'un point $A$ à un point $B$ dans un champ électrique uniforme dépend de :",
+      "options": [
+        "la forme du chemin suivi entre A et B.",
+        "uniquement des positions des points A et B (l'état initial et final).",
+        "la vitesse de la charge entre A et B.",
+        "la masse de la particule chargée uniquement."
+      ],
+      "correct": 1,
+      "gap": "عدم استيعاب أن قوة الوضع الكهرساكنة هي قوة محافظة ولا يتعلق شغلها بالمسار المتبع",
+      "recommendation": "التأكيد على أن شغل القوة الكهرساكنة يعتمد فقط على الموضع البدئي والنهائي: $W_{AB}(\\vec{F}) = q(V_A - V_B)$."
+    },
+    {
+      "id": "q3",
+      "text": "L'expression de l'énergie potentielle électrostatique $E_{pe}$ d'une charge ponctuelle $q$ placée en un point de potentiel électrique $V$ (en choisissant l'origine des énergies comme référence) est :",
+      "options": [
+        "E_{pe} = q / V",
+        "E_{pe} = q . V",
+        "E_{pe} = q^2 . V",
+        "E_{pe} = V / q"
+      ],
+      "correct": 1,
+      "gap": "ضعف في صياغة طاقة الوضع الكهرساكنة وعلاقتها بالجهد الكهربائي للعلوم الرياضية",
+      "recommendation": "مراجعة العلاقة المباشرة لطاقة الوضع الكهرساكنة $E_{pe} = q \\cdot V$ مع الانتباه لإشارة الشحنة $q$."
+    },
+    {
+      "id": "q4",
+      "text": "L'expérience historique d'Oersted a mis en évidence que :",
+      "options": [
+        "un aimant permanent crée un courant électrique.",
+        "un courant électrique crée un champ magnétique capable de dévier une aiguille aimantée.",
+        "la lumière est une onde électromagnétique.",
+        "les forces de Laplace n'existent pas."
+      ],
+      "correct": 1,
+      "gap": "عدم معرفة الأهمية التاريخية والعلمية لتجربة أورستد في ربط الكهرباء بالمغناطيسية",
+      "recommendation": "إعادة إبراز تجربة أورستد كمنطلق لإنتاج المجال المغناطيسي بواسطة التيارات الكهربائية."
+    },
+    {
+      "id": "q5",
+      "text": "Quelle est l'unité internationale (SI) de l'intensité du champ magnétique $B$ ?",
+      "options": [
+        "Le Volt (V)",
+        "Le Watt (W)",
+        "Le Tesla (T)",
+        "Le Gauss (G)"
+      ],
+      "correct": 2,
+      "gap": "عدم ضبط الوحدة العالمية لقياس شدة المجال المغناطيسي",
+      "recommendation": "التركيز على أن التيسلا ($T$) هي الوحدة العالمية المعتمدة في النظام الدولي (SI) للمجال المغناطيسي."
+    },
+    {
+      "id": "q6",
+      "text": "La force de Laplace $\\vec{F}$ exercée sur un conducteur rectiligne de longueur $L$ parcouru par un courant $I$ et placé dans un champ magnétique uniforme $\\vec{B}$ perpendiculaire au conducteur a pour intensité :",
+      "options": [
+        "F = I . L . B",
+        "F = I . L / B",
+        "F = B . L / I",
+        "F = I^2 . L . B"
+      ],
+      "correct": 0,
+      "gap": "خلط في الصيغة الرياضية لشدة قوة لابلاص وغياب استحضار تأثير الزاوية قائمة",
+      "recommendation": "التذكير بصيغة قوة لابلاص $F = I \\cdot L \\cdot B \\cdot \\sin(\\alpha)$ وعندما يكون التعامد فإن $\\sin(\\pi/2) = 1$ تصبح $F = I \\cdot L \\cdot B$."
+    },
+    {
+      "id": "q7",
+      "text": "Les forces de Laplace permettent de réaliser une conversion d'énergie. Il s'agit de la transformation de :",
+      "options": [
+        "l'énergie thermique en énergie électrique.",
+        "l'énergie électrique en énergie mécanique (mouvement).",
+        "l'énergie mécanique en énergie chimique.",
+        "l'énergie magnétique en énergie thermique uniquement."
+      ],
+      "correct": 1,
+      "gap": "عدم إدراك الدور المحرك لقوى لابلاص في تحويل الطاقة داخل الأنظمة الكهروميكانيكية",
+      "recommendation": "التركيز على التطبيقات العملية لقوة لابلاص (كالمنظمات والمحركات الكهربائية) التي تحول الطاقة الكهربائية إلى طاقة ميكانيكية."
+    },
+    {
+      "id": "q8",
+      "text": "Dans un circuit électrique en courant continu comprenant un générateur et un récepteur, le transfert d'énergie global est régi par la loi de conservation de l'énergie. L'énergie totale fournie par le générateur est égale à :",
+      "options": [
+        "l'énergie utile du récepteur uniquement.",
+        "l'énergie dissipée par effet Joule uniquement.",
+        "la somme de l'énergie utile et de toutes les énergies dissipées (Joule, etc.).",
+        "la différence entre l'énergie utile et l'énergie dissipée."
+      ],
+      "correct": 2,
+      "gap": "ضعف في تطبيق مبدأ انحفاظ الطاقة على دارة كهربائية مغلقة",
+      "recommendation": "ترسيخ مبدأ انحفاظ الطاقة في الدارات: الطاقة الممنوحة تساوي دائماً مجموع الطاقة النافعة والطاقة المبددة."
+    }
+  ]
+}
+diag_electricity_2026.json
+Affichage de diag_electricity_2026.json.
