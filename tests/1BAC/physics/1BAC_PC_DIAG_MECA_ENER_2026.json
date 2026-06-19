@@ -1,0 +1,112 @@
+{
+  "id": "1BAC_PC_DIAG_MECA_ENER_2026",
+  "title": "الاختبار التشخيصي في مادة الفيزياء - جزء الشغل الميكانيكي والطاقة",
+  "subject": "الفيزياء والكيمياء (الميكانيك والطاقة)",
+  "level": "1BAC",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "L'expression du travail d'une force constante $\\vec{F}$ lors d'un déplacement rectiligne $AB$ est :",
+      "options": [
+        "W_{AB}(\\vec{F}) = F . AB . \\sin(\\alpha)",
+        "W_{AB}(\\vec{F}) = F . AB . \\cos(\\alpha)",
+        "W_{AB}(\\vec{F}) = F / (AB . \\cos(\\alpha))",
+        "W_{AB}(\\vec{F}) = F . AB"
+      ],
+      "correct": 1,
+      "gap": "عجز عن تذكر الصيغة الرياضية الصحيحة لشغل قوة ثابتة في حالة إزاحة والخلط بين الدالتين الجيبية وجيب التمام",
+      "recommendation": "التأكيد على أن الشغل يرتبط بمركبة القوة الموازية للمسار عبر العلاقة $W_{AB}(\\vec{F}) = F \\cdot AB \\cdot \\cos(\\alpha)$."
+    },
+    {
+      "id": "q2",
+      "text": "Le travail d'un couple de forces de moment constant $M_{\\Delta}$ s'appliquant sur un corps en rotation d'un angle $\\Delta\\theta$ autour d'un axe fixe $\\Delta$ est :",
+      "options": [
+        "W = M_{\\Delta} . \\Delta\\theta",
+        "W = M_{\\Delta} / \\Delta\\theta",
+        "W = 0.5 . M_{\\Delta} . (\\Delta\\theta)^2",
+        "W = M_{\\Delta} . \\cos(\\Delta\\theta)"
+      ],
+      "correct": 0,
+      "gap": "صعوبة في التمييز بين تعبير الشغل في حالة الإزاحة وتعبيره في حالة الدوران حول محور ثابت",
+      "recommendation": "مراجعة تماثل القوانين الفيزيائية بين الإزاحة والدوران، حيث يقابل القوة $F$ العزم $M_{\\Delta}$ وتقابل المسافة $AB$ الأفصول الزاوي $\\Delta\\theta$."
+    },
+    {
+      "id": "q3",
+      "text": "L'expression de l'énergie cinétique $E_c$ d'un corps solide en mouvement de translation rectiligne avec une vitesse $v$ est :",
+      "options": [
+        "E_c = m . v^2",
+        "E_c = 0.5 . m . v",
+        "E_c = 0.5 . m . v^2",
+        "E_c = 0.5 . m^2 . v"
+      ],
+      "correct": 2,
+      "gap": "عدم حفظ وتذكر التعبير الرياضي الصحيح للطاقة الحركية في حالة الإزاحة",
+      "recommendation": "التذكير بصيغة الطاقة الحركية للإزاحة $E_c = \\frac{1}{2}m \\cdot v^2$ والتركيز على أن الطاقة تتناسب مع مربع السرعة."
+    },
+    {
+      "id": "q4",
+      "text": "L'énergie potentielle de pesanteur $E_{pp}$ d'un corps solide de masse $m$ situé à une altitude $z$ (l'axe $Oz$ étant dirigé vers le haut, et l'origine comme référence) est :",
+      "options": [
+        "E_{pp} = m . g / z",
+        "E_{pp} = m . g . z",
+        "E_{pp} = - m . g . z",
+        "E_{pp} = 0.5 . m . g . z^2"
+      ],
+      "correct": 1,
+      "gap": "الخلط في إشارة وتعبير طاقة الوضع الثقالية وعلاقتها بالارتفاع عن سطح الأرض",
+      "recommendation": "التركيز على أن طاقة الوضع الثقالية ترتبط بالشغل اللازم لإبعاد الجسم عن الأرض وتساوي $E_{pp} = m \\cdot g \\cdot z$ عند توجيه المحور نحو الأعلى."
+    },
+    {
+      "id": "q5",
+      "text": "En l'absence de frottements (forces non conservatrices), l'énergie mécanique $E_m = E_c + E_{pp}$ d'un système :",
+      "options": [
+        "diminue au cours du temps.",
+        "augmente au cours du temps.",
+        "se conserve (reste constante).",
+        "s'annule dès que le corps s'arrête."
+      ],
+      "correct": 2,
+      "gap": "عدم استيعاب شرط انحفاظ الطاقة الميكانيكية وغياب المفهوم التجريبي لتحول الطاقة بين الحركية والوضع",
+      "recommendation": "ترسيخ مبدأ انحفاظ الطاقة الميكانيكية في غياب الاحتكاكات وفهم أن أي نقص في الطاقة الحركية يقابله زيادة في طاقة الوضع والعكس صحيح."
+    },
+    {
+      "id": "q6",
+      "text": "Lorsqu'un corps subit des frottements, on observe une diminution de son énergie mécanique. Ce manque d'énergie est converti sous forme :",
+      "options": [
+        "d'énergie potentielle supplémentaire.",
+        "d'énergie thermique (chaleur) transférée au milieu extérieur.",
+        "d'énergie cinétique microscopique ordonnée.",
+        "d'énergie chimique."
+      ],
+      "correct": 1,
+      "gap": "العجز عن تفسير النقص الملاحظ في الطاقة الميكانيكية بربطه بالـتأثيرات المجهرية ذات الطابع الحراري",
+      "recommendation": "توضيح أن الاحتكاكات تؤدي إلى بدد الطاقة الميكانيكية وتحولها إلى طاقة غير منظمة (انتقال حراري) ترفع الطاقة الداخلية للجملة."
+    },
+    {
+      "id": "q7",
+      "text": "Le mode de transfert thermique qui se produit d'un corps chaud vers un corps froid sans déplacement de matière et par contact direct est appelé :",
+      "options": [
+        "la convection.",
+        "le rayonnement.",
+        "la conduction (le contact).",
+        "la sublimation."
+      ],
+      "correct": 2,
+      "gap": "عدم التمييز بين الأشكال المختلفة للانتقال الحراري (التماس، الإشعاع، الحمل)",
+      "recommendation": "مراجعة أصناف الانتقال الحراري والتركيز على أن الانتقال بالتماس المباشر دون انتقال المادة يسمى موصلية حرارية أو التماس (conduction)."
+    },
+    {
+      "id": "q8",
+      "text": "Le transfert d'énergie par rayonnement (comme l'énergie reçue du Soleil) se fait par :",
+      "options": [
+        "ondes électromagnétiques (lumière, infrarouge) et peut avoir lieu dans le vide.",
+        "déplacement de fluide chaud uniquement.",
+        "chocs de proche en proche dans un milieu solide uniquement.",
+        "contact direct obligatoire entre les deux corps."
+      ],
+      "correct": 0,
+      "gap": "اعتقاد خاطئ بأن الانتقال الحراري يتطلب دائماً وجود وسط مادي ملموس",
+      "recommendation": "التأكيد على أن الانتقال بالإشعاع (rayonnement) هو الشكل الوحيد الذي يمكنه الانتشار في الفراغ عبر الأمواج الكهرومغناطيسية."
+    }
+  ]
+}
