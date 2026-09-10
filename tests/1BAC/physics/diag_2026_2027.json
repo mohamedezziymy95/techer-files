@@ -1,0 +1,537 @@
+{
+  "id": "1BAC_PC_DIAG_COMPLET_2026_2027",
+  "title": "التقويم التشخيصي الشامل في الفيزياء والكيمياء الأولى بكالوريا علوم تجريبية وعلوم رياضية",
+  "subject": "الفيزياء والكيمياء",
+  "level": "1BAC",
+  "type": "diagnostic",
+  "type_label": "تشخيصي",
+  "duration": 60,
+  "version": "2026.1",
+  "instructions": "قد يكون للسؤال جواب صحيح واحد أو عدة أجوبة صحيحة. اختر جميع الأجوبة الصحيحة.",
+  "scoring": {
+    "mode": "partial_multi_select",
+    "questionPoints": 1,
+    "rule": "توزع نقطة السؤال على الأجوبة الصحيحة، ويخصم اختيار خاطئ جزءاً مماثلاً دون النزول تحت صفر."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Un solide de masse m = 250 g est suspendu à un ressort vertical et reste en équilibre. On prend g = 10 N·kg⁻¹.",
+      "options": [
+        "La tension du ressort est dirigée vers le bas.",
+        "La tension du ressort est dirigée vers le haut et vaut 2,5 N.",
+        "Le poids est dirigé vers le haut.",
+        "Le poids est dirigé vers le bas et vaut 2,5 N."
+      ],
+      "correct": [
+        1,
+        3
+      ],
+      "domain": "MÉCANIQUE",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الميكانيك",
+      "recommendation": "مراجعة الحركة والقوى والتوازن والشغل والطاقة مع تطبيقات عددية قصيرة."
+    },
+    {
+      "id": "q2",
+      "text": "Un solide est en équilibre sur un plan incliné avec frottement, soumis uniquement à son poids et à la force de contact du plan.",
+      "options": [
+        "La force de contact est normale au plan.",
+        "La résultante de contact est verticale vers le haut.",
+        "La force de contact est verticale vers le bas.",
+        "La force de contact est parallèle au plan."
+      ],
+      "correct": 1,
+      "domain": "MÉCANIQUE",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الميكانيك",
+      "recommendation": "مراجعة الحركة والقوى والتوازن والشغل والطاقة مع تطبيقات عددية قصيرة."
+    },
+    {
+      "id": "q3",
+      "text": "Un mobile parcourt une trajectoire droite avec une vitesse constante.",
+      "options": [
+        "Mouvement rectiligne accéléré.",
+        "Mouvement circulaire uniforme.",
+        "Mouvement curviligne uniforme.",
+        "Mouvement rectiligne uniforme."
+      ],
+      "correct": 3,
+      "domain": "MÉCANIQUE",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الميكانيك",
+      "recommendation": "مراجعة الحركة والقوى والتوازن والشغل والطاقة مع تطبيقات عددية قصيرة."
+    },
+    {
+      "id": "q4",
+      "text": "Pour un mouvement rectiligne uniforme de vitesse v = 0,50 m·s⁻¹ et de position initiale x₀ = −0,060 m, l’équation horaire est :",
+      "options": [
+        "x(t)=−0,50t−0,060",
+        "x(t)=0,060−0,50t",
+        "x(t)=0,50t−0,060",
+        "x(t)=0,50t+0,060"
+      ],
+      "correct": 2,
+      "domain": "MÉCANIQUE",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الميكانيك",
+      "recommendation": "مراجعة الحركة والقوى والتوازن والشغل والطاقة مع تطبيقات عددية قصيرة."
+    },
+    {
+      "id": "q5",
+      "text": "La vitesse instantanée au voisinage de la date tᵢ peut être estimée par la méthode symétrique :",
+      "options": [
+        "v(tᵢ) ≈ (xᵢ₊₁−xᵢ₋₁)/(tᵢ₊₁−tᵢ₋₁)",
+        "v(tᵢ) ≈ (xᵢ₊₁+xᵢ₋₁)/(tᵢ₊₁+tᵢ₋₁)",
+        "v(tᵢ) ≈ xᵢ/tᵢ dans tous les cas",
+        "v(tᵢ) ≈ (tᵢ₊₁−tᵢ₋₁)/(xᵢ₊₁−xᵢ₋₁)"
+      ],
+      "correct": 0,
+      "domain": "MÉCANIQUE",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الميكانيك",
+      "recommendation": "مراجعة الحركة والقوى والتوازن والشغل والطاقة مع تطبيقات عددية قصيرة."
+    },
+    {
+      "id": "q6",
+      "text": "Une force F = 10 N est appliquée à l’extrémité d’une tige OB = 0,40 m et fait un angle θ avec la tige. Son moment en valeur absolue vaut :",
+      "options": [
+        "F/OB",
+        "F·OB·sin θ",
+        "F·OB·cos θ dans tous les cas",
+        "F+OB"
+      ],
+      "correct": 1,
+      "domain": "MÉCANIQUE",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الميكانيك",
+      "recommendation": "مراجعة الحركة والقوى والتوازن والشغل والطاقة مع تطبيقات عددية قصيرة."
+    },
+    {
+      "id": "q7",
+      "text": "Dans une solution électrolytique placée dans un circuit continu :",
+      "options": [
+        "Le courant est lié à la migration orientée des ions.",
+        "Les cations et les anions migrent en sens opposés.",
+        "Les électrons assurent la conduction à l’intérieur de la solution.",
+        "Le courant conventionnel sort de la borne positive du générateur."
+      ],
+      "correct": [
+        0,
+        1,
+        3
+      ],
+      "domain": "ÉLECTRICITÉ",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الكهرباء",
+      "recommendation": "مراجعة قوانين الدارات والتوتر والتيار والاستطاعة والطاقة الكهربائية."
+    },
+    {
+      "id": "q8",
+      "text": "À un nœud, un courant I se partage en deux courants I₁ et I₂.",
+      "options": [
+        "I=I₁−I₂",
+        "I=I₁+I₂",
+        "I₁=I+I₂",
+        "I₂=I+I₁"
+      ],
+      "correct": 1,
+      "domain": "ÉLECTRICITÉ",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الكهرباء",
+      "recommendation": "مراجعة قوانين الدارات والتوتر والتيار والاستطاعة والطاقة الكهربائية."
+    },
+    {
+      "id": "q9",
+      "text": "Dans une maille allant de P à N par A et B, la loi d’additivité des tensions donne :",
+      "options": [
+        "Uᴘɴ=Uᴀʙ−Uʙɴ",
+        "Uᴘɴ=Uᴘᴀ+Uᴀʙ+Uʙɴ",
+        "Uᴘɴ=Uᴀʙ=Uʙɴ",
+        "Uᴘɴ=−Uᴘᴀ−Uᴀʙ−Uʙɴ"
+      ],
+      "correct": 1,
+      "domain": "ÉLECTRICITÉ",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الكهرباء",
+      "recommendation": "مراجعة قوانين الدارات والتوتر والتيار والاستطاعة والطاقة الكهربائية."
+    },
+    {
+      "id": "q10",
+      "text": "À propos des sources lumineuses :",
+      "options": [
+        "Le Soleil est une source primaire.",
+        "Une lampe allumée est une source secondaire.",
+        "Un miroir éclairé est une source secondaire.",
+        "Un nuage éclairé est une source secondaire."
+      ],
+      "correct": [
+        0,
+        2,
+        3
+      ],
+      "domain": "OPTIQUE",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الضوء",
+      "recommendation": "مراجعة مصادر الضوء والانتشار المستقيمي وتغير اتجاه الضوء بين الأوساط."
+    },
+    {
+      "id": "q11",
+      "text": "Propagation de la lumière :",
+      "options": [
+        "Elle est rectiligne dans un milieu transparent homogène.",
+        "Elle est toujours rectiligne dans un milieu hétérogène.",
+        "Elle est courbe dans tout milieu homogène.",
+        "Sa direction peut changer dans un milieu hétérogène."
+      ],
+      "correct": [
+        0,
+        3
+      ],
+      "domain": "OPTIQUE",
+      "points": 1,
+      "gap": "تعثر في مكتسبات الضوء",
+      "recommendation": "مراجعة مصادر الضوء والانتشار المستقيمي وتغير اتجاه الضوء بين الأوساط."
+    },
+    {
+      "id": "q12",
+      "text": "Avec M(H)=1, M(C)=12, M(O)=16 et M(Na)=23 g·mol⁻¹ :",
+      "options": [
+        "M(NaOH)=23 et M(C₆H₁₂O₆)=72",
+        "M(NaOH)=40 et M(C₆H₁₂O₆)=180",
+        "M(NaOH)=40 et M(C₆H₁₂O₆)=84",
+        "M(NaOH)=23 et M(C₆H₁₂O₆)=180"
+      ],
+      "correct": 1,
+      "domain": "QUANTITÉ DE MATIÈRE ET SOLUTIONS",
+      "points": 1,
+      "gap": "تعثر في كمية المادة والمحاليل",
+      "recommendation": "مراجعة n=m/M وn=V/Vm والتركيز المولي والتخفيف مع توحيد الوحدات."
+    },
+    {
+      "id": "q13",
+      "text": "Les expressions correctes de la quantité de matière sont :",
+      "options": [
+        "n=mM ; n(g)=Vₘ/V",
+        "n=M/m ; n(g)=VₘV",
+        "n=m/V ; n(g)=V/Vₘ",
+        "n=m/M ; n(g)=V/Vₘ ; n(soluté)=CV"
+      ],
+      "correct": 3,
+      "domain": "QUANTITÉ DE MATIÈRE ET SOLUTIONS",
+      "points": 1,
+      "gap": "تعثر في كمية المادة والمحاليل",
+      "recommendation": "مراجعة n=m/M وn=V/Vm والتركيز المولي والتخفيف مع توحيد الوحدات."
+    },
+    {
+      "id": "q14",
+      "text": "La masse volumique d’un corps de masse m et de volume V est :",
+      "options": [
+        "ρ=mM",
+        "ρ=M/V",
+        "ρ=m/V",
+        "ρ=V/M"
+      ],
+      "correct": 2,
+      "domain": "QUANTITÉ DE MATIÈRE ET SOLUTIONS",
+      "points": 1,
+      "gap": "تعثر في كمية المادة والمحاليل",
+      "recommendation": "مراجعة n=m/M وn=V/Vm والتركيز المولي والتخفيف مع توحيد الوحدات."
+    },
+    {
+      "id": "q15",
+      "text": "Un échantillon de NaOH solide de masse 40 mg, avec M(NaOH)=40 g·mol⁻¹, contient :",
+      "options": [
+        "1,00 mmol",
+        "0,100 mol",
+        "0,100 mmol",
+        "1,00 mol"
+      ],
+      "correct": 0,
+      "domain": "QUANTITÉ DE MATIÈRE ET SOLUTIONS",
+      "points": 1,
+      "gap": "تعثر في كمية المادة والمحاليل",
+      "recommendation": "مراجعة n=m/M وn=V/Vm والتركيز المولي والتخفيف مع توحيد الوحدات."
+    },
+    {
+      "id": "q16",
+      "text": "Pour 500 mL de cyclohexane, d=0,80, ρₑₐᵤ=1,0 g·cm⁻³ et M=84 g·mol⁻¹ :",
+      "options": [
+        "n=ρₑₐᵤdV/M=4,76 mol",
+        "n=0,476 mol",
+        "n=2,10×10⁻³ mol",
+        "n=4,76×10⁻³ mol"
+      ],
+      "correct": 0,
+      "domain": "QUANTITÉ DE MATIÈRE ET SOLUTIONS",
+      "points": 1,
+      "gap": "تعثر في كمية المادة والمحاليل",
+      "recommendation": "مراجعة n=m/M وn=V/Vm والتركيز المولي والتخفيف مع توحيد الوحدات."
+    },
+    {
+      "id": "q17",
+      "text": "Pour V(H₂)=7,5 L aux CNTP, avec Vₘ=22,4 L·mol⁻¹ :",
+      "options": [
+        "n=33,5 mol",
+        "n=V/Vₘ=0,335 mol",
+        "n=3,35 mol",
+        "n=165 mol"
+      ],
+      "correct": 1,
+      "domain": "QUANTITÉ DE MATIÈRE ET SOLUTIONS",
+      "points": 1,
+      "gap": "تعثر في كمية المادة والمحاليل",
+      "recommendation": "مراجعة n=m/M وn=V/Vm والتركيز المولي والتخفيف مع توحيد الوحدات."
+    },
+    {
+      "id": "q18",
+      "text": "On dissout du saccharose C₁₂H₂₂O₁₁ dans l’eau.",
+      "options": [
+        "Le saccharose est le solvant.",
+        "L’eau est le solvant.",
+        "Le saccharose est un composé ionique.",
+        "Le saccharose est un composé moléculaire."
+      ],
+      "correct": [
+        1,
+        3
+      ],
+      "domain": "QUANTITÉ DE MATIÈRE ET SOLUTIONS",
+      "points": 1,
+      "gap": "تعثر في كمية المادة والمحاليل",
+      "recommendation": "مراجعة n=m/M وn=V/Vm والتركيز المولي والتخفيف مع توحيد الوحدات."
+    },
+    {
+      "id": "q19",
+      "text": "La dilution consiste à :",
+      "options": [
+        "Diminuer la concentration en ajoutant du solvant, sans changer la quantité de soluté.",
+        "Augmenter la quantité de soluté.",
+        "Diminuer le volume de solution.",
+        "Transformer le soluté en ions."
+      ],
+      "correct": 0,
+      "domain": "QUANTITÉ DE MATIÈRE ET SOLUTIONS",
+      "points": 1,
+      "gap": "تعثر في كمية المادة والمحاليل",
+      "recommendation": "مراجعة n=m/M وn=V/Vm والتركيز المولي والتخفيف مع توحيد الوحدات."
+    },
+    {
+      "id": "q20",
+      "text": "On dissout 250 mg de saccharose (M=342 g·mol⁻¹) dans 500 mL, puis on ajoute 250 mL d’eau.",
+      "options": [
+        "C₁=1,46 mol·L⁻¹",
+        "C₁=1,46×10⁻³ mol·L⁻¹ et C₂=9,75×10⁻⁴ mol·L⁻¹",
+        "La concentration massique initiale vaut 0,50 g·L⁻¹.",
+        "La concentration massique initiale vaut 2,50 g·L⁻¹."
+      ],
+      "correct": [
+        1,
+        2
+      ],
+      "domain": "QUANTITÉ DE MATIÈRE ET SOLUTIONS",
+      "points": 1,
+      "gap": "تعثر في كمية المادة والمحاليل",
+      "recommendation": "مراجعة n=m/M وn=V/Vm والتركيز المولي والتخفيف مع توحيد الوحدات."
+    },
+    {
+      "id": "q21",
+      "text": "Un piston de rayon 5,0 cm porte une masse de 1,5 kg. Avec g=10 N·kg⁻¹ et Pₐₜₘ=1,013×10⁵ Pa, la pression du gaz vaut :",
+      "options": [
+        "P=Pₐₜₘ",
+        "P=Pₐₜₘ−mg/S",
+        "P=Pₐₜₘ+mg/S≈1,032×10⁵ Pa",
+        "P=mg/S≈1,91×10³ Pa"
+      ],
+      "correct": 2,
+      "domain": "PRESSION ET GAZ",
+      "points": 1,
+      "gap": "تعثر في الضغط والغازات",
+      "recommendation": "مراجعة الضغط والقوة والمساحة وتأثير الضغط ودرجة الحرارة في الحجم المولي."
+    },
+    {
+      "id": "q22",
+      "text": "Pour un gaz parfait, le volume molaire :",
+      "options": [
+        "Dépend de la quantité de matière.",
+        "Est le même pour tous les gaz parfaits aux mêmes T et P.",
+        "Dépend de la température et de la pression.",
+        "Dépend de la nature chimique du gaz idéal."
+      ],
+      "correct": [
+        1,
+        2
+      ],
+      "domain": "PRESSION ET GAZ",
+      "points": 1,
+      "gap": "تعثر في الضغط والغازات",
+      "recommendation": "مراجعة الضغط والقوة والمساحة وتأثير الضغط ودرجة الحرارة في الحجم المولي."
+    },
+    {
+      "id": "q23",
+      "text": "Un ion monoatomique est un atome qui :",
+      "options": [
+        "A gagné un ou plusieurs électrons.",
+        "A perdu un ou plusieurs électrons.",
+        "Est formé de plusieurs atomes.",
+        "Est toujours positif."
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "domain": "IONS ET IDENTIFICATION",
+      "points": 1,
+      "gap": "تعثر في الأيونات وروائز التعرف",
+      "recommendation": "مراجعة تشكل الأيونات وروائز الماء وثنائي أكسيد الكربون وبعض الأنواع الكيميائية."
+    },
+    {
+      "id": "q24",
+      "text": "Classer Cl⁻, H₃O⁺, SO₄²⁻ et Zn²⁺ dans cet ordre.",
+      "options": [
+        "simple, complexe, complexe, simple",
+        "complexe, simple, simple, complexe",
+        "simple, simple, complexe, complexe",
+        "complexe, complexe, simple, simple"
+      ],
+      "correct": 0,
+      "domain": "IONS ET IDENTIFICATION",
+      "points": 1,
+      "gap": "تعثر في الأيونات وروائز التعرف",
+      "recommendation": "مراجعة تشكل الأيونات وروائز الماء وثنائي أكسيد الكربون وبعض الأنواع الكيميائية."
+    },
+    {
+      "id": "q25",
+      "text": "La combustion complète du butane met en jeu :",
+      "options": [
+        "C₄H₁₀ et H₂O comme réactifs.",
+        "CO₂ et O₂ comme produits.",
+        "C₄H₁₀ et O₂ comme réactifs, CO₂ et H₂O comme produits.",
+        "C, CO et H₂O uniquement comme produits."
+      ],
+      "correct": 2,
+      "domain": "IONS ET IDENTIFICATION",
+      "points": 1,
+      "gap": "تعثر في الأيونات وروائز التعرف",
+      "recommendation": "مراجعة تشكل الأيونات وروائز الماء وثنائي أكسيد الكربون وبعض الأنواع الكيميائية."
+    },
+    {
+      "id": "q26",
+      "text": "Le test d’identification de l’eau utilise :",
+      "options": [
+        "La liqueur de Fehling.",
+        "L’eau de chaux.",
+        "Le nitrate d’argent.",
+        "Le sulfate de cuivre anhydre, qui devient bleu."
+      ],
+      "correct": 3,
+      "domain": "IONS ET IDENTIFICATION",
+      "points": 1,
+      "gap": "تعثر في الأيونات وروائز التعرف",
+      "recommendation": "مراجعة تشكل الأيونات وروائز الماء وثنائي أكسيد الكربون وبعض الأنواع الكيميائية."
+    },
+    {
+      "id": "q27",
+      "text": "Le dioxyde de carbone est mis en évidence par :",
+      "options": [
+        "La liqueur de Fehling.",
+        "Le sulfate de cuivre anhydre.",
+        "L’eau de chaux qui se trouble.",
+        "Le papier pH uniquement."
+      ],
+      "correct": 2,
+      "domain": "IONS ET IDENTIFICATION",
+      "points": 1,
+      "gap": "تعثر في الأيونات وروائز التعرف",
+      "recommendation": "مراجعة تشكل الأيونات وروائز الماء وثنائي أكسيد الكربون وبعض الأنواع الكيميائية."
+    },
+    {
+      "id": "q28",
+      "text": "À propos de la combustion des hydrocarbures :",
+      "options": [
+        "La combustion complète produit CO₂ et H₂O.",
+        "Une combustion incomplète peut produire CO et H₂O.",
+        "Le carbone est un réactif de la combustion incomplète du butane.",
+        "Une combustion incomplète peut produire C, CO et H₂O."
+      ],
+      "correct": [
+        0,
+        1,
+        3
+      ],
+      "domain": "IONS ET IDENTIFICATION",
+      "points": 1,
+      "gap": "تعثر في الأيونات وروائز التعرف",
+      "recommendation": "مراجعة تشكل الأيونات وروائز الماء وثنائي أكسيد الكربون وبعض الأنواع الكيميائية."
+    },
+    {
+      "id": "q29",
+      "text": "Zn réagit avec une solution d’acide chlorhydrique.",
+      "options": [
+        "Cl⁻ est un réactif consommé.",
+        "Zn²⁺ est un réactif.",
+        "Cl⁻ est une espèce spectatrice.",
+        "Les produits sont Zn²⁺, H₂ et H₂O."
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "domain": "RÉACTION CHIMIQUE",
+      "points": 1,
+      "gap": "تعثر في التفاعل الكيميائي",
+      "recommendation": "مراجعة المتفاعلات والنواتج والمعادلة الحصيلة والتقدم والمتفاعل المحد."
+    },
+    {
+      "id": "q30",
+      "text": "Avec m(Zn)=100 mg, M(Zn)=65,4 g·mol⁻¹, C=0,50 mol·L⁻¹ et V=100 mL :",
+      "options": [
+        "nᵢ(Zn)=mM et nᵢ(H₃O⁺)=C/V",
+        "nᵢ(Zn)=m/M et nᵢ(H₃O⁺)=CV",
+        "nᵢ(Zn)=0,153 mol et nᵢ(H₃O⁺)=0,005 mol",
+        "nᵢ(Zn)=1,53×10⁻³ mol et nᵢ(H₃O⁺)=5,0×10⁻² mol"
+      ],
+      "correct": [
+        1,
+        3
+      ],
+      "domain": "RÉACTION CHIMIQUE",
+      "points": 1,
+      "gap": "تعثر في التفاعل الكيميائي",
+      "recommendation": "مراجعة المتفاعلات والنواتج والمعادلة الحصيلة والتقدم والمتفاعل المحد."
+    },
+    {
+      "id": "q31",
+      "text": "L’équation bilan correctement ajustée est :",
+      "options": [
+        "Zn+H₃O⁺→Zn²⁺+H₂+H₂O",
+        "Zn+2H₃O⁺→Zn²⁺+H₂+2H₂O",
+        "2Zn+H₃O⁺→2Zn²⁺+H₂O",
+        "Zn+2Cl⁻→ZnCl₂"
+      ],
+      "correct": 1,
+      "domain": "RÉACTION CHIMIQUE",
+      "points": 1,
+      "gap": "تعثر في التفاعل الكيميائي",
+      "recommendation": "مراجعة المتفاعلات والنواتج والمعادلة الحصيلة والتقدم والمتفاعل المحد."
+    },
+    {
+      "id": "q32",
+      "text": "Dans les conditions de la question 30, avec Vₘ=24 L·mol⁻¹ :",
+      "options": [
+        "H₃O⁺ est limitant.",
+        "xₘₐₓ=1,53×10⁻³ mol.",
+        "V(H₂)=36,7 mL.",
+        "V(H₂)=1,53 mL."
+      ],
+      "correct": [
+        1,
+        2
+      ],
+      "domain": "RÉACTION CHIMIQUE",
+      "points": 1,
+      "gap": "تعثر في التفاعل الكيميائي",
+      "recommendation": "مراجعة المتفاعلات والنواتج والمعادلة الحصيلة والتقدم والمتفاعل المحد."
+    }
+  ]
+}

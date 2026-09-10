@@ -1,0 +1,576 @@
+{
+  "id": "TCS_PC_DIAG_COMPLET_2026_2027",
+  "title": "التقويم التشخيصي الشامل في الفيزياء والكيمياء الجذع المشترك العلمي خيار فرنسية",
+  "subject": "الفيزياء والكيمياء",
+  "level": "TCS",
+  "type": "diagnostic",
+  "type_label": "تشخيصي",
+  "duration": 60,
+  "version": "2026.1",
+  "instructions": "قد يكون للسؤال جواب صحيح واحد أو عدة أجوبة صحيحة. اختر جميع الأجوبة الصحيحة.",
+  "scoring": {
+    "mode": "partial_multi_select",
+    "questionPoints": 1,
+    "rule": "توزع نقطة السؤال على الأجوبة الصحيحة، ويخصم اختيار خاطئ جزءاً مماثلاً دون النزول تحت صفر."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Un solide de masse 250 g est suspendu à un ressort vertical et reste en équilibre. On prend g=10 N·kg⁻¹.",
+      "options": [
+        "La tension du ressort est verticale vers le bas.",
+        "La tension du ressort est verticale vers le haut et vaut 2,5 N.",
+        "Le poids est vertical vers le haut.",
+        "Le poids est vertical vers le bas et vaut 2,5 N."
+      ],
+      "correct": [
+        1,
+        3
+      ],
+      "domain": "ACTIONS MÉCANIQUES",
+      "points": 1,
+      "gap": "تعثر في تمثيل القوى وشروط التوازن",
+      "recommendation": "مراجعة خصائص القوة والوزن وشروط توازن جسم خاضع لقوتين أو أكثر."
+    },
+    {
+      "id": "q2",
+      "text": "À propos de la mesure d’une force avec un dynamomètre :",
+      "options": [
+        "La valeur d’une division dépend du calibre et du nombre de divisions.",
+        "La lecture s’effectue dans l’unité indiquée sur l’appareil.",
+        "Il faut vérifier le zéro avant la mesure.",
+        "Un dynamomètre mesure une masse en kilogrammes."
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "domain": "ACTIONS MÉCANIQUES",
+      "points": 1,
+      "gap": "تعثر في تمثيل القوى وشروط التوازن",
+      "recommendation": "مراجعة خصائص القوة والوزن وشروط توازن جسم خاضع لقوتين أو أكثر."
+    },
+    {
+      "id": "q3",
+      "text": "Un vecteur-force est complètement défini par :",
+      "options": [
+        "Son point d’application.",
+        "Sa direction et son sens.",
+        "Son intensité exprimée en newtons.",
+        "La couleur utilisée pour le tracer."
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "domain": "ACTIONS MÉCANIQUES",
+      "points": 1,
+      "gap": "تعثر في تمثيل القوى وشروط التوازن",
+      "recommendation": "مراجعة خصائص القوة والوزن وشروط توازن جسم خاضع لقوتين أو أكثر."
+    },
+    {
+      "id": "q4",
+      "text": "On donne m=150 g et g=10 N·kg⁻¹.",
+      "options": [
+        "Le poids vaut 1,5 N.",
+        "Le poids vaut 15 N.",
+        "La masse dépend de l’altitude.",
+        "Le poids est plus grand sur la Lune que sur la Terre."
+      ],
+      "correct": 0,
+      "domain": "ACTIONS MÉCANIQUES",
+      "points": 1,
+      "gap": "تعثر في تمثيل القوى وشروط التوازن",
+      "recommendation": "مراجعة خصائص القوة والوزن وشروط توازن جسم خاضع لقوتين أو أكثر."
+    },
+    {
+      "id": "q5",
+      "text": "À propos de quelques mouvements usuels :",
+      "options": [
+        "La roue d’un véhicule tourne autour de son axe.",
+        "Une pale d’éolienne effectue une rotation autour de l’axe du rotor.",
+        "Une nacelle qui reste verticale sur une grande roue est en translation circulaire.",
+        "Tout point d’un solide en translation décrit nécessairement une droite."
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "domain": "MOUVEMENT",
+      "points": 1,
+      "gap": "تعثر في وصف الحركة وحساب السرعة",
+      "recommendation": "مراجعة المرجع والمسار وأنواع الحركة وعلاقة السرعة بالمسافة والزمن."
+    },
+    {
+      "id": "q6",
+      "text": "La vitesse moyenne :",
+      "options": [
+        "Est le rapport de la distance parcourue à la durée.",
+        "Vérifie v=d/Δt.",
+        "Vérifie toujours v=Δt/d.",
+        "S’exprime en m·s⁻¹ dans le Système international."
+      ],
+      "correct": [
+        0,
+        1,
+        3
+      ],
+      "domain": "MOUVEMENT",
+      "points": 1,
+      "gap": "تعثر في وصف الحركة وحساب السرعة",
+      "recommendation": "مراجعة المرجع والمسار وأنواع الحركة وعلاقة السرعة بالمسافة والزمن."
+    },
+    {
+      "id": "q7",
+      "text": "Ahmed parcourt 400 m en 50 s et Driss 400 m en 60 s.",
+      "options": [
+        "vAhmed=8,0 m·s⁻¹.",
+        "vAhmed=28,8 km·h⁻¹.",
+        "vDriss≈6,67 m·s⁻¹.",
+        "vDriss=24,0 km·h⁻¹."
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "domain": "MOUVEMENT",
+      "points": 1,
+      "gap": "تعثر في وصف الحركة وحساب السرعة",
+      "recommendation": "مراجعة المرجع والمسار وأنواع الحركة وعلاقة السرعة بالمسافة والزمن."
+    },
+    {
+      "id": "q8",
+      "text": "Un solide soumis uniquement à deux forces est en équilibre si ces forces :",
+      "options": [
+        "Ont la même intensité.",
+        "Ont la même droite d’action.",
+        "Sont de sens opposés.",
+        "Ont des directions perpendiculaires."
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "domain": "ACTIONS MÉCANIQUES",
+      "points": 1,
+      "gap": "تعثر في تمثيل القوى وشروط التوازن",
+      "recommendation": "مراجعة خصائص القوة والوزن وشروط توازن جسم خاضع لقوتين أو أكثر."
+    },
+    {
+      "id": "q9",
+      "text": "Deux lampes identiques sont montées soit en série, soit en dérivation sur le même générateur.",
+      "options": [
+        "Le montage en série comporte une seule boucle.",
+        "Le montage en dérivation comporte plusieurs branches.",
+        "Chaque lampe du montage en dérivation reçoit la tension du générateur.",
+        "L’éclat est nécessairement plus fort en série."
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "domain": "CIRCUITS ÉLECTRIQUES",
+      "points": 1,
+      "gap": "تعثر في تركيب الدارات وقوانينها",
+      "recommendation": "مراجعة التوالي والتفرع وقانون العقد وإضافية التوترات."
+    },
+    {
+      "id": "q10",
+      "text": "Dans un circuit électrique :",
+      "options": [
+        "Le courant conventionnel sort de la borne positive du générateur.",
+        "Le courant circule dans un circuit ouvert.",
+        "Dans une boucle série, l’intensité est la même en tout point.",
+        "Le courant sort simultanément des deux bornes du générateur."
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "domain": "CIRCUITS ÉLECTRIQUES",
+      "points": 1,
+      "gap": "تعثر في تركيب الدارات وقوانينها",
+      "recommendation": "مراجعة التوالي والتفرع وقانون العقد وإضافية التوترات."
+    },
+    {
+      "id": "q11",
+      "text": "Pour mesurer U aux bornes d’une lampe et I dans cette lampe :",
+      "options": [
+        "Le voltmètre se branche en dérivation.",
+        "L’ampèremètre se branche en série.",
+        "Le voltmètre se branche en série.",
+        "L’ampèremètre se branche en dérivation."
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "domain": "MESURES ÉLECTRIQUES",
+      "points": 1,
+      "gap": "تعثر في القياسات الكهربائية",
+      "recommendation": "مراجعة وحدات التوتر والتيار وطريقة ربط الفولطمتر والأمبيرمتر."
+    },
+    {
+      "id": "q12",
+      "text": "L’intensité du courant électrique peut s’exprimer en :",
+      "options": [
+        "volt (V).",
+        "ampère (A).",
+        "milliampère (mA).",
+        "ohm (Ω)."
+      ],
+      "correct": [
+        1,
+        2
+      ],
+      "domain": "MESURES ÉLECTRIQUES",
+      "points": 1,
+      "gap": "تعثر في القياسات الكهربائية",
+      "recommendation": "مراجعة وحدات التوتر والتيار وطريقة ربط الفولطمتر والأمبيرمتر."
+    },
+    {
+      "id": "q13",
+      "text": "À un nœud, I se partage entre deux branches d’intensités I₁ et I₂.",
+      "options": [
+        "I=I₁+I₂.",
+        "I=I₁−I₂ dans tous les cas.",
+        "Si I=3 mA et I₂=1 mA, alors I₁=2 mA.",
+        "Le circuit possède nécessairement six nœuds."
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "domain": "CIRCUITS ÉLECTRIQUES",
+      "points": 1,
+      "gap": "تعثر في تركيب الدارات وقوانينها",
+      "recommendation": "مراجعة التوالي والتفرع وقانون العقد وإضافية التوترات."
+    },
+    {
+      "id": "q14",
+      "text": "La tension électrique peut s’exprimer en :",
+      "options": [
+        "volt (V).",
+        "ampère (A).",
+        "kilovolt (kV).",
+        "ohm (Ω)."
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "domain": "MESURES ÉLECTRIQUES",
+      "points": 1,
+      "gap": "تعثر في القياسات الكهربائية",
+      "recommendation": "مراجعة وحدات التوتر والتيار وطريقة ربط الفولطمتر والأمبيرمتر."
+    },
+    {
+      "id": "q15",
+      "text": "Deux lampes L₁ et L₂ sont montées en série sous une tension U.",
+      "options": [
+        "U=U₁+U₂.",
+        "U=U₂−U₁.",
+        "Si U=3 V et U₁=2 V, alors U₂=5 V.",
+        "Si les lampes sont identiques, U₁=U₂=U/2."
+      ],
+      "correct": [
+        0,
+        3
+      ],
+      "domain": "CIRCUITS ÉLECTRIQUES",
+      "points": 1,
+      "gap": "تعثر في تركيب الدارات وقوانينها",
+      "recommendation": "مراجعة التوالي والتفرع وقانون العقد وإضافية التوترات."
+    },
+    {
+      "id": "q16",
+      "text": "À propos des oscillogrammes :",
+      "options": [
+        "Une droite horizontale non nulle représente une tension continue.",
+        "Une sinusoïde alternant de part et d’autre de zéro représente une tension alternative sinusoïdale.",
+        "Une tension alternative change de signe au cours du temps.",
+        "Toute tension périodique est forcément sinusoïdale."
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "domain": "TENSIONS VARIABLES",
+      "points": 1,
+      "gap": "تعثر في قراءة التوترات المتغيرة",
+      "recommendation": "مراجعة الدور والتردد والقيمة القصوى والفعالة وقراءة راسم التذبذب."
+    },
+    {
+      "id": "q17",
+      "text": "Un oscillogramme sinusoïdal présente Umax=4 divisions, une période de 4 divisions, avec 2 V/div et 5 ms/div.",
+      "options": [
+        "Umax=8 V.",
+        "T=20 ms.",
+        "f=50 Hz.",
+        "Ueff≈5,66 V."
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "domain": "TENSIONS VARIABLES",
+      "points": 1,
+      "gap": "تعثر في قراءة التوترات المتغيرة",
+      "recommendation": "مراجعة الدور والتردد والقيمة القصوى والفعالة وقراءة راسم التذبذب."
+    },
+    {
+      "id": "q18",
+      "text": "Un conducteur ohmique :",
+      "options": [
+        "Limite le passage du courant.",
+        "À tension constante, laisse passer une intensité plus grande si R diminue.",
+        "S’oppose au passage du courant.",
+        "Possède une borne positive fixe et une borne négative fixe."
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "domain": "CONDUCTEUR OHMIQUE",
+      "points": 1,
+      "gap": "تعثر في قانون أوم",
+      "recommendation": "مراجعة قياس المقاومة والعلاقة U=RI والتحويل بين الوحدات."
+    },
+    {
+      "id": "q19",
+      "text": "La mesure d’une résistance s’effectue avec :",
+      "options": [
+        "Un ohmmètre en dérivation aux bornes du conducteur isolé du circuit.",
+        "Un ampèremètre en dérivation.",
+        "Un voltmètre en série.",
+        "Un ohmmètre sur un circuit obligatoirement alimenté."
+      ],
+      "correct": 0,
+      "domain": "CONDUCTEUR OHMIQUE",
+      "points": 1,
+      "gap": "تعثر في قانون أوم",
+      "recommendation": "مراجعة قياس المقاومة والعلاقة U=RI والتحويل بين الوحدات."
+    },
+    {
+      "id": "q20",
+      "text": "La loi d’Ohm aux bornes d’un conducteur ohmique est :",
+      "options": [
+        "U=I/R.",
+        "I=RU.",
+        "U=RI.",
+        "U=R/I."
+      ],
+      "correct": 2,
+      "domain": "CONDUCTEUR OHMIQUE",
+      "points": 1,
+      "gap": "تعثر في قانون أوم",
+      "recommendation": "مراجعة قياس المقاومة والعلاقة U=RI والتحويل بين الوحدات."
+    },
+    {
+      "id": "q21",
+      "text": "Application de la loi d’Ohm :",
+      "options": [
+        "Pour I=20 mA et R=300 Ω, U=6 V.",
+        "Pour U=6 V et R=200 Ω, I=30 mA.",
+        "À R constante, si U double, I double.",
+        "À R constante, si U double, I reste constante."
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "domain": "CONDUCTEUR OHMIQUE",
+      "points": 1,
+      "gap": "تعثر في قانون أوم",
+      "recommendation": "مراجعة قياس المقاومة والعلاقة U=RI والتحويل بين الوحدات."
+    },
+    {
+      "id": "q22",
+      "text": "Associer chaque technique à sa définition :",
+      "options": [
+        "La décantation sépare des liquides non miscibles.",
+        "Le distillat est le liquide recueilli après distillation.",
+        "La distillation récupère une substance volatile.",
+        "La filtration sépare un solide d’un liquide au moyen d’un filtre."
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "domain": "SÉPARATION DES MÉLANGES",
+      "points": 1,
+      "gap": "تعثر في تقنيات فصل المخاليط",
+      "recommendation": "مراجعة الترشيح والترويق والتقطير وربط كل تقنية باستعمالها."
+    },
+    {
+      "id": "q23",
+      "text": "À propos de l’atome :",
+      "options": [
+        "Il est constitué uniquement d’un noyau.",
+        "Il comporte un noyau entouré d’un nuage électronique.",
+        "Il est électriquement neutre.",
+        "Le numéro atomique Z est le nombre de protons du noyau."
+      ],
+      "correct": [
+        1,
+        2,
+        3
+      ],
+      "domain": "ATOMES ET IONS",
+      "points": 1,
+      "gap": "تعثر في بنية الذرة والأيونات",
+      "recommendation": "مراجعة مكونات الذرة والعدد الذري وكيفية تشكل الأيونات."
+    },
+    {
+      "id": "q24",
+      "text": "Les ions formés par Al, S, Cu et Cl dans les cas usuels indiqués sont :",
+      "options": [
+        "Al³⁺ après perte de 3 e⁻.",
+        "S²⁻ après gain de 2 e⁻.",
+        "Cu²⁺ après perte de 2 e⁻.",
+        "Cl⁻ après gain de 1 e⁻."
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "domain": "ATOMES ET IONS",
+      "points": 1,
+      "gap": "تعثر في بنية الذرة والأيونات",
+      "recommendation": "مراجعة مكونات الذرة والعدد الذري وكيفية تشكل الأيونات."
+    },
+    {
+      "id": "q25",
+      "text": "Les symboles chimiques corrects sont :",
+      "options": [
+        "Carbone : C.",
+        "Hydrogène : H.",
+        "Oxygène : O.",
+        "Azote : N."
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "domain": "ESPÈCES CHIMIQUES",
+      "points": 1,
+      "gap": "تعثر في الرموز والصيغ الكيميائية",
+      "recommendation": "مراجعة رموز العناصر وصيغ الجزيئات الشائعة."
+    },
+    {
+      "id": "q26",
+      "text": "Les formules correctes sont :",
+      "options": [
+        "Dihydrogène H₂ et dioxygène O₂.",
+        "Diazote N₂ et eau H₂O.",
+        "Méthane CH₄ et dioxyde de carbone CO₂.",
+        "Monoxyde de carbone CO."
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "domain": "ESPÈCES CHIMIQUES",
+      "points": 1,
+      "gap": "تعثر في الرموز والصيغ الكيميائية",
+      "recommendation": "مراجعة رموز العناصر وصيغ الجزيئات الشائعة."
+    },
+    {
+      "id": "q27",
+      "text": "À propos des combustions :",
+      "options": [
+        "La combustion du carbone est une transformation physique.",
+        "Une combustion complète du butane peut présenter une flamme bleue.",
+        "Une flamme verte caractérise nécessairement la combustion complète du butane.",
+        "Dans la combustion du méthane dans l’air, le comburant est O₂."
+      ],
+      "correct": [
+        1,
+        3
+      ],
+      "domain": "COMBUSTIONS",
+      "points": 1,
+      "gap": "تعثر في الاحتراقات",
+      "recommendation": "مراجعة شروط الاحتراق الكامل وغير الكامل والمتفاعلات والنواتج."
+    },
+    {
+      "id": "q28",
+      "text": "Lors d’une transformation chimique :",
+      "options": [
+        "La masse totale se conserve dans un système fermé.",
+        "De nouveaux atomes sont créés.",
+        "Les atomes se réorganisent pour former de nouvelles espèces.",
+        "La nature et le nombre des atomes se conservent."
+      ],
+      "correct": [
+        0,
+        2,
+        3
+      ],
+      "domain": "TRANSFORMATION CHIMIQUE",
+      "points": 1,
+      "gap": "تعثر في التحول الكيميائي",
+      "recommendation": "مراجعة انحفاظ الكتلة والذرات وإعادة ترتيبها أثناء التحول."
+    },
+    {
+      "id": "q29",
+      "text": "Choisir les équations correctement ajustées :",
+      "options": [
+        "CH₄+2O₂→CO₂+2H₂O.",
+        "2H₂+O₂→2H₂O.",
+        "2Mg+O₂→2MgO.",
+        "4NH₃+5O₂→4NO+6H₂O."
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "domain": "ÉQUATIONS CHIMIQUES",
+      "points": 1,
+      "gap": "تعثر في موازنة المعادلات الكيميائية",
+      "recommendation": "التدرب على موازنة المعادلات مع الحفاظ على نوع وعدد الذرات."
+    },
+    {
+      "id": "q30",
+      "text": "Choisir les phrases scientifiquement correctes :",
+      "options": [
+        "Le poids est la force d’attraction exercée par la Terre sur un corps.",
+        "Un corps pur moléculaire contient un seul type de molécules.",
+        "La lumière blanche est polychromatique.",
+        "La tension se mesure avec un voltmètre."
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "domain": "SYNTHÈSE DES ACQUIS",
+      "points": 1,
+      "gap": "تعثر في ربط المكتسبات الأساسية",
+      "recommendation": "إنجاز أنشطة دعم مركزة في المفاهيم الأساسية غير المتحكم فيها."
+    }
+  ]
+}
