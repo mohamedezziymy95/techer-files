@@ -1,0 +1,848 @@
+{
+  "id": "1BAC_PC_DIAG_2025",
+  "title": "الاختبار التشخيصي في مادة الفيزياء والكيمياء",
+  "subject": "الفيزياء والكيمياء",
+  "level": "1BAC",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quelle est l'unité internationale de la vitesse linéaire ?",
+      "options": [
+        "km/h",
+        "m/s",
+        "m.s",
+        "cm/s"
+      ],
+      "correct": 1,
+      "gap": "صعوبة في تحديد الوحدة العالمية للسرعة والخلط بينها وبين الوحدات المتداولة",
+      "recommendation": "التأكيد على استخدام الوحدات العالمية (SI) في الحسابات الفيزيائية وخاصة المتر على الثانية ($m/s$).",
+      "explanation": "التأكيد على استخدام الوحدات العالمية (SI) في الحسابات الفيزيائية وخاصة المتر على الثانية ($m/s$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: m/s",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q1_support_1",
+          "text": "Exercice de soutien — Quelle est l'unité internationale de la vitesse linéaire ?",
+          "options": [
+            "m/s",
+            "m.s",
+            "cm/s",
+            "km/h"
+          ],
+          "correct": 0,
+          "explanation": "التأكيد على استخدام الوحدات العالمية (SI) في الحسابات الفيزيائية وخاصة المتر على الثانية ($m/s$).",
+          "image": ""
+        },
+        {
+          "id": "q1_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : km/h",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التأكيد على استخدام الوحدات العالمية (SI) في الحسابات الفيزيائية وخاصة المتر على الثانية ($m/s$).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "L'expression de l'intensité de la force d'attraction gravitationnelle entre deux corps $A$ et $B$ ponctuels est :",
+      "options": [
+        "$F = G . (m_A . m_B) / d$",
+        "$F = G . (m_A . m_B) / d^2$",
+        "$F = G . (m_A + m_B) / d^2$",
+        "$F = (m_A . m_B) / (G . d^2)$"
+      ],
+      "correct": 1,
+      "gap": "عدم حفظ وتذكر قانون التجاذب الكوني وصيغته الرياضية",
+      "recommendation": "مراجعة درس التجاذب الكوني التركيز على تناسب القوة عكسياً مع مربع المسافة $d^2$.",
+      "explanation": "مراجعة درس التجاذب الكوني التركيز على تناسب القوة عكسياً مع مربع المسافة $d^2$.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $F = G . (m_A . m_B) / d^2$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q2_support_1",
+          "text": "Exercice de soutien — L'expression de l'intensité de la force d'attraction gravitationnelle entre deux corps $A$ et $B$ ponctuels est :",
+          "options": [
+            "$F = G . (m_A + m_B) / d^2$",
+            "$F = (m_A . m_B) / (G . d^2)$",
+            "$F = G . (m_A . m_B) / d$",
+            "$F = G . (m_A . m_B) / d^2$"
+          ],
+          "correct": 3,
+          "explanation": "مراجعة درس التجاذب الكوني التركيز على تناسب القوة عكسياً مع مربع المسافة $d^2$.",
+          "image": ""
+        },
+        {
+          "id": "q2_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $F = G . (m_A . m_B) / d$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة درس التجاذب الكوني التركيز على تناسب القوة عكسياً مع مربع المسافة $d^2$.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Un corps est en équilibre sous l'action de deux forces $\\vec{F}_1$ et $\\vec{F}_2$. La condition d'équilibre est :",
+      "options": [
+        "$F_1 = F_2$",
+        "$\\vec{F}_1 - \\vec{F}_2 = \\vec{0}$",
+        "$\\vec{F}_1 + \\vec{F}_2 = \\vec{0}$",
+        "$\\vec{F}_1 = - F_2$"
+      ],
+      "correct": 2,
+      "gap": "خلط في التعبير المتجهي لشرط توازن جسم خاضع لقوتين",
+      "recommendation": "التمييز بين التعبير المتجهي للمجموع المنعدم ($\\vec{F}_1 + \\vec{F}_2 = \\vec{0}$) وتساوي الشدتين ($F_1 = F_2$).",
+      "explanation": "التمييز بين التعبير المتجهي للمجموع المنعدم ($\\vec{F}_1 + \\vec{F}_2 = \\vec{0}$) وتساوي الشدتين ($F_1 = F_2$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $\\vec{F}_1 + \\vec{F}_2 = \\vec{0}$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q3_support_1",
+          "text": "Exercice de soutien — Un corps est en équilibre sous l'action de deux forces $\\vec{F}_1$ et $\\vec{F}_2$. La condition d'équilibre est :",
+          "options": [
+            "$\\vec{F}_1 = - F_2$",
+            "$F_1 = F_2$",
+            "$\\vec{F}_1 - \\vec{F}_2 = \\vec{0}$",
+            "$\\vec{F}_1 + \\vec{F}_2 = \\vec{0}$"
+          ],
+          "correct": 3,
+          "explanation": "التمييز بين التعبير المتجهي للمجموع المنعدم ($\\vec{F}_1 + \\vec{F}_2 = \\vec{0}$) وتساوي الشدتين ($F_1 = F_2$).",
+          "image": ""
+        },
+        {
+          "id": "q3_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $F_1 = F_2$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التمييز بين التعبير المتجهي للمجموع المنعدم ($\\vec{F}_1 + \\vec{F}_2 = \\vec{0}$) وتساوي الشدتين ($F_1 = F_2$).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Le poids d'un corps dépend de :",
+      "options": [
+        "sa masse uniquement.",
+        "son lieu géographique et de la planète considérée.",
+        "sa vitesse de déplacement.",
+        "sa température."
+      ],
+      "correct": 1,
+      "gap": "الخلط بين مفهوم الكتلة (ثابتة) ومفهوم الوزن (متغير حسب المكان)",
+      "recommendation": "تذكر العلاقة $P = m \\cdot g$ وفهم أن شدة الثقالة $g$ تتغير حسب الارتفاع والمكان.",
+      "explanation": "تذكر العلاقة $P = m \\cdot g$ وفهم أن شدة الثقالة $g$ تتغير حسب الارتفاع والمكان.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: son lieu géographique et de la planète considérée.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q4_support_1",
+          "text": "Exercice de soutien — Le poids d'un corps dépend de :",
+          "options": [
+            "son lieu géographique et de la planète considérée.",
+            "sa vitesse de déplacement.",
+            "sa température.",
+            "sa masse uniquement."
+          ],
+          "correct": 0,
+          "explanation": "تذكر العلاقة $P = m \\cdot g$ وفهم أن شدة الثقالة $g$ تتغير حسب الارتفاع والمكان.",
+          "image": ""
+        },
+        {
+          "id": "q4_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : sa masse uniquement.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر العلاقة $P = m \\cdot g$ وفهم أن شدة الثقالة $g$ تتغير حسب الارتفاع والمكان.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Quelle est l'unité de la pression dans le Système international (SI) ?",
+      "options": [
+        "Le bar (bar)",
+        "L'atmosphère (atm)",
+        "Le Pascal (Pa)",
+        "Le millimètre de mercure (mmHg)"
+      ],
+      "correct": 2,
+      "gap": "عدم معرفة أو تمييز الوحدة العالمية لقياس الضغط بين الوحدات الأخرى",
+      "recommendation": "التذكير بأن الباسكال ($Pa$) هو الوحدة العالمية، والتعرف على علاقات التحويل (خاصة $1\\text{ bar} = 10^5\\text{ Pa}$).",
+      "explanation": "التذكير بأن الباسكال ($Pa$) هو الوحدة العالمية، والتعرف على علاقات التحويل (خاصة $1\\text{ bar} = 10^5\\text{ Pa}$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: Le Pascal (Pa)",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q5_support_1",
+          "text": "Exercice de soutien — Quelle est l'unité de la pression dans le Système international (SI) ?",
+          "options": [
+            "L'atmosphère (atm)",
+            "Le Pascal (Pa)",
+            "Le millimètre de mercure (mmHg)",
+            "Le bar (bar)"
+          ],
+          "correct": 1,
+          "explanation": "التذكير بأن الباسكال ($Pa$) هو الوحدة العالمية، والتعرف على علاقات التحويل (خاصة $1\\text{ bar} = 10^5\\text{ Pa}$).",
+          "image": ""
+        },
+        {
+          "id": "q5_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : Le bar (bar)",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التذكير بأن الباسكال ($Pa$) هو الوحدة العالمية، والتعرف على علاقات التحويل (خاصة $1\\text{ bar} = 10^5\\text{ Pa}$).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "La formule qui lie la quantité de matière $n$ à la masse $m$ d'un échantillon solide est :",
+      "options": [
+        "$n = m . M$",
+        "$n = M / m$",
+        "$n = m / M$",
+        "$n = V / V_m$"
+      ],
+      "correct": 2,
+      "gap": "عجز عن اختيار العلاقة المناسبة لحساب كمية المادة بالنسبة للجوامد",
+      "recommendation": "مراجعة العلاقات الأساسية لكمية المادة والتمييز بين استخدام الكتلة المولية للجوامد والحجم المولي للغازات.",
+      "explanation": "مراجعة العلاقات الأساسية لكمية المادة والتمييز بين استخدام الكتلة المولية للجوامد والحجم المولي للغازات.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $n = m / M$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q6_support_1",
+          "text": "Exercice de soutien — La formule qui lie la quantité de matière $n$ à la masse $m$ d'un échantillon solide est :",
+          "options": [
+            "$n = m / M$",
+            "$n = V / V_m$",
+            "$n = m . M$",
+            "$n = M / m$"
+          ],
+          "correct": 0,
+          "explanation": "مراجعة العلاقات الأساسية لكمية المادة والتمييز بين استخدام الكتلة المولية للجوامد والحجم المولي للغازات.",
+          "image": ""
+        },
+        {
+          "id": "q6_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $n = m . M$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة العلاقات الأساسية لكمية المادة والتمييز بين استخدام الكتلة المولية للجوامد والحجم المولي للغازات.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "Le volume molaire $V_m$ d'un gaz dépend de :",
+      "options": [
+        "la nature du gaz.",
+        "la température et la pression.",
+        "la masse molaire du gaz.",
+        "la quantité de matière."
+      ],
+      "correct": 1,
+      "gap": "اعتقاد خاطئ بأن الحجم المولي للغاز يتعلق بنوعه وليس بالظروف الخارجية",
+      "recommendation": "تذكر قانون أفوغادرو-أمبير: جميع الغازات تشغل نفس الحجم المولي تحت نفس ظروف الضغط ودرجة الحرارة.",
+      "explanation": "تذكر قانون أفوغادرو-أمبير: جميع الغازات تشغل نفس الحجم المولي تحت نفس ظروف الضغط ودرجة الحرارة.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: la température et la pression.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q7_support_1",
+          "text": "Exercice de soutien — Le volume molaire $V_m$ d'un gaz dépend de :",
+          "options": [
+            "la quantité de matière.",
+            "la nature du gaz.",
+            "la température et la pression.",
+            "la masse molaire du gaz."
+          ],
+          "correct": 2,
+          "explanation": "تذكر قانون أفوغادرو-أمبير: جميع الغازات تشغل نفس الحجم المولي تحت نفس ظروف الضغط ودرجة الحرارة.",
+          "image": ""
+        },
+        {
+          "id": "q7_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : la nature du gaz.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر قانون أفوغادرو-أمبير: جميع الغازات تشغل نفس الحجم المولي تحت نفس ظروف الضغط ودرجة الحرارة.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Dans le modèle de l'atome, les électrons possèdent une charge électrique :",
+      "options": [
+        "positive.",
+        "négative.",
+        "neutre.",
+        "variable."
+      ],
+      "correct": 1,
+      "gap": "خلط في إشارات الشحن الكهربائية لمكونات المادة (النواة والإلكترونات)",
+      "recommendation": "مراجعة درس نموذج الذرة (الإلكترونات سالبة $-e$ والنواة موجبة $+Ze$).",
+      "explanation": "مراجعة درس نموذج الذرة (الإلكترونات سالبة $-e$ والنواة موجبة $+Ze$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: négative.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q8_support_1",
+          "text": "Exercice de soutien — Dans le modèle de l'atome, les électrons possèdent une charge électrique :",
+          "options": [
+            "négative.",
+            "neutre.",
+            "variable.",
+            "positive."
+          ],
+          "correct": 0,
+          "explanation": "مراجعة درس نموذج الذرة (الإلكترونات سالبة $-e$ والنواة موجبة $+Ze$).",
+          "image": ""
+        },
+        {
+          "id": "q8_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : positive.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة درس نموذج الذرة (الإلكترونات سالبة $-e$ والنواة موجبة $+Ze$).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "La configuration électronique de l'atome de Carbone ($Z=6$) dans son état fondamental est :",
+      "options": [
+        "$(K)^2 (L)^4$",
+        "$(K)^4 (L)^2$",
+        "$(K)^2 (L)^2 (M)^2$",
+        "$(K)^6$"
+      ],
+      "correct": 0,
+      "gap": "صعوبة في تطبيق قواعد التوزيع الإلكتروني على الطبقات K و L",
+      "recommendation": "تذكر أن السعة القصوى للطبقة $K$ هي 2 إلكترون، ثم ننتقل لشحن الطبقة $L$.",
+      "explanation": "تذكر أن السعة القصوى للطبقة $K$ هي 2 إلكترون، ثم ننتقل لشحن الطبقة $L$.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $(K)^2 (L)^4$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q9_support_1",
+          "text": "Exercice de soutien — La configuration électronique de l'atome de Carbone ($Z=6$) dans son état fondamental est :",
+          "options": [
+            "$(K)^4 (L)^2$",
+            "$(K)^2 (L)^2 (M)^2$",
+            "$(K)^6$",
+            "$(K)^2 (L)^4$"
+          ],
+          "correct": 3,
+          "explanation": "تذكر أن السعة القصوى للطبقة $K$ هي 2 إلكترون، ثم ننتقل لشحن الطبقة $L$.",
+          "image": ""
+        },
+        {
+          "id": "q9_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $(K)^4 (L)^2$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر أن السعة القصوى للطبقة $K$ هي 2 إلكترون، ثم ننتقل لشحن الطبقة $L$.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "Combien de liaisons covalentes un atome d'hydrogène ($Z=1$) peut-il former ?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "4"
+      ],
+      "correct": 1,
+      "gap": "عدم القدرة على تحديد عدد الروابط التساهمية انطلاقاً من البنية الإلكترونية",
+      "recommendation": "تطبيق قاعدة الثنائية أو الثمانية لتحديد عدد الإلكترونات العازبة التي يحتاجها العنصر للاستقرار.",
+      "explanation": "تطبيق قاعدة الثنائية أو الثمانية لتحديد عدد الإلكترونات العازبة التي يحتاجها العنصر للاستقرار.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: 1",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q10_support_1",
+          "text": "Exercice de soutien — Combien de liaisons covalentes un atome d'hydrogène ($Z=1$) peut-il former ?",
+          "options": [
+            "2",
+            "4",
+            "0",
+            "1"
+          ],
+          "correct": 3,
+          "explanation": "تطبيق قاعدة الثنائية أو الثمانية لتحديد عدد الإلكترونات العازبة التي يحتاجها العنصر للاستقرار.",
+          "image": ""
+        },
+        {
+          "id": "q10_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : 0",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تطبيق قاعدة الثنائية أو الثمانية لتحديد عدد الإلكترونات العازبة التي يحتاجها العنصر للاستقرار.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "Dans une molécule, deux atomes partagent deux électrons (un doublet d'électrons). Il s'agit d'une :",
+      "options": [
+        "liaison ionique.",
+        "liaison covalente simple.",
+        "liaison covalente double.",
+        "liaison hydrogène."
+      ],
+      "correct": 1,
+      "gap": "خلط في المصطلحات وتحديد نوع الرابطة بناءً على عدد الإلكترونات المشتركة",
+      "recommendation": "تذكر أن زوجاً واحداً مشتركاً (إلكترونين) يعني رابطة تساهمية بسيطة (liaison simple).",
+      "explanation": "تذكر أن زوجاً واحداً مشتركاً (إلكترونين) يعني رابطة تساهمية بسيطة (liaison simple).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: liaison covalente simple.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q11_support_1",
+          "text": "Exercice de soutien — Dans une molécule, deux atomes partagent deux électrons (un doublet d'électrons). Il s'agit d'une :",
+          "options": [
+            "liaison hydrogène.",
+            "liaison ionique.",
+            "liaison covalente simple.",
+            "liaison covalente double."
+          ],
+          "correct": 2,
+          "explanation": "تذكر أن زوجاً واحداً مشتركاً (إلكترونين) يعني رابطة تساهمية بسيطة (liaison simple).",
+          "image": ""
+        },
+        {
+          "id": "q11_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : liaison ionique.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر أن زوجاً واحداً مشتركاً (إلكترونين) يعني رابطة تساهمية بسيطة (liaison simple).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "L'énoncé correct de la loi de conservation de la masse lors d'une réaction chimique est :",
+      "options": [
+        "Le nombre de molécules reste le même.",
+        "La masse totale des produits est égale à la masse totale des réactifs.",
+        "Le volume total reste inchangé.",
+        "Les réactifs se transforment en de nouveaux éléments chimiques."
+      ],
+      "correct": 1,
+      "gap": "عدم استيعاب المعنى الحقيقي لقانون انحفاظ الكتلة (قانون لافوازييه)",
+      "recommendation": "التركيز على أن الانحفاظ يكون للنوع والعدد الذري وللكتلة الإجمالية، وليس لعدد الجزيئات.",
+      "explanation": "التركيز على أن الانحفاظ يكون للنوع والعدد الذري وللكتلة الإجمالية، وليس لعدد الجزيئات.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: La masse totale des produits est égale à la masse totale des réactifs.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q12_support_1",
+          "text": "Exercice de soutien — L'énoncé correct de la loi de conservation de la masse lors d'une réaction chimique est :",
+          "options": [
+            "La masse totale des produits est égale à la masse totale des réactifs.",
+            "Le volume total reste inchangé.",
+            "Les réactifs se transforment en de nouveaux éléments chimiques.",
+            "Le nombre de molécules reste le même."
+          ],
+          "correct": 0,
+          "explanation": "التركيز على أن الانحفاظ يكون للنوع والعدد الذري وللكتلة الإجمالية، وليس لعدد الجزيئات.",
+          "image": ""
+        },
+        {
+          "id": "q12_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : Le nombre de molécules reste le même.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التركيز على أن الانحفاظ يكون للنوع والعدد الذري وللكتلة الإجمالية، وليس لعدد الجزيئات.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": "Pour équilibrer l'équation suivante : $a \\cdot \\text{CH}_4 + b \\cdot \\text{O}_2 \\rightarrow c \\cdot \\text{CO}_2 + d \\cdot \\text{H}_2\\text{O}$, les coefficients $a, b, c, d$ sont respectivement :",
+      "options": [
+        "1, 1, 1, 1",
+        "1, 2, 1, 2",
+        "1, 2, 2, 1",
+        "2, 4, 2, 2"
+      ],
+      "correct": 1,
+      "gap": "ضعف مهارة موازنة المعادلات الكيميائية البسيطة",
+      "recommendation": "التدرب على موازنة العناصر بالترتيب: الكربون، ثم الهيدروجين، ثم الأكسجين في تفاعلات الاحتراق.",
+      "explanation": "التدرب على موازنة العناصر بالترتيب: الكربون، ثم الهيدروجين، ثم الأكسجين في تفاعلات الاحتراق.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: 1, 2, 1, 2",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q13_support_1",
+          "text": "Exercice de soutien — Pour équilibrer l'équation suivante : $a \\cdot \\text{CH}_4 + b \\cdot \\text{O}_2 \\rightarrow c \\cdot \\text{CO}_2 + d \\cdot \\text{H}_2\\text{O}$, les coefficients $a, b, c, d$ sont respectivement :",
+          "options": [
+            "1, 2, 1, 2",
+            "1, 2, 2, 1",
+            "2, 4, 2, 2",
+            "1, 1, 1, 1"
+          ],
+          "correct": 0,
+          "explanation": "التدرب على موازنة العناصر بالترتيب: الكربون، ثم الهيدروجين، ثم الأكسجين في تفاعلات الاحتراق.",
+          "image": ""
+        },
+        {
+          "id": "q13_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : 1, 1, 1, 1",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التدرب على موازنة العناصر بالترتيب: الكربون، ثم الهيدروجين، ثم الأكسجين في تفاعلات الاحتراق.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": "Dans un circuit électrique en série, l'intensité du courant électrique :",
+      "options": [
+        "est la même en tout point du circuit.",
+        "s'additionne à chaque dipôle.",
+        "diminue à mesure qu'on s'éloigne du générateur.",
+        "dépend de l'ordre des dipôles."
+      ],
+      "correct": 0,
+      "gap": "عدم تذكر واستيعاب قانون فرادية الشدة في تركيب على السلسلة",
+      "recommendation": "مراجعة قوانين التيار الكهربائي المستمر (قانون فرادية الشدة في التوالي، وقانون العقد في التوازي).",
+      "explanation": "مراجعة قوانين التيار الكهربائي المستمر (قانون فرادية الشدة في التوالي، وقانون العقد في التوازي).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: est la même en tout point du circuit.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q14_support_1",
+          "text": "Exercice de soutien — Dans un circuit électrique en série, l'intensité du courant électrique :",
+          "options": [
+            "diminue à mesure qu'on s'éloigne du générateur.",
+            "dépend de l'ordre des dipôles.",
+            "est la même en tout point du circuit.",
+            "s'additionne à chaque dipôle."
+          ],
+          "correct": 2,
+          "explanation": "مراجعة قوانين التيار الكهربائي المستمر (قانون فرادية الشدة في التوالي، وقانون العقد في التوازي).",
+          "image": ""
+        },
+        {
+          "id": "q14_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : s'additionne à chaque dipôle.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة قوانين التيار الكهربائي المستمر (قانون فرادية الشدة في التوالي، وقانون العقد في التوازي).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": "L'appareil utilisé pour mesurer la tension électrique aux bornes d'un dipôle est :",
+      "options": [
+        "l'ampèremètre branché en série.",
+        "le voltmètre branché en parallèle.",
+        "le voltmètre branché en série.",
+        "l'ohmmètre branché en parallèle."
+      ],
+      "correct": 1,
+      "gap": "الخلط بين أجهزة القياس الكهربائية وطريقة ربطها في الدارة",
+      "recommendation": "تذكر دائماً: الفولتمتر يقيس التوتر ويوصل على التوازي، والأمبيرمتر يقيس الشدة ويوصل على التوالي.",
+      "explanation": "تذكر دائماً: الفولتمتر يقيس التوتر ويوصل على التوازي، والأمبيرمتر يقيس الشدة ويوصل على التوالي.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: le voltmètre branché en parallèle.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q15_support_1",
+          "text": "Exercice de soutien — L'appareil utilisé pour mesurer la tension électrique aux bornes d'un dipôle est :",
+          "options": [
+            "l'ohmmètre branché en parallèle.",
+            "l'ampèremètre branché en série.",
+            "le voltmètre branché en parallèle.",
+            "le voltmètre branché en série."
+          ],
+          "correct": 2,
+          "explanation": "تذكر دائماً: الفولتمتر يقيس التوتر ويوصل على التوازي، والأمبيرمتر يقيس الشدة ويوصل على التوالي.",
+          "image": ""
+        },
+        {
+          "id": "q15_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : l'ampèremètre branché en série.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر دائماً: الفولتمتر يقيس التوتر ويوصل على التوازي، والأمبيرمتر يقيس الشدة ويوصل على التوالي.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": "Un conducteur ohmique de résistance $R = 10\\ \\Omega$ est traversé par un courant $I = 2\\text{ A}$. Quelle est la tension $U$ à ses bornes ?",
+      "options": [
+        "5 V",
+        "0.2 V",
+        "20 V",
+        "12 V"
+      ],
+      "correct": 2,
+      "gap": "ضعف في الحساب العددي البسيط وتطبيق قانون أوم",
+      "recommendation": "تطبيق العلاقة $U = R \\cdot I$ مباشرة مع الانتباه للوحدات ($10 \\times 2 = 20\\text{ V}$).",
+      "explanation": "تطبيق العلاقة $U = R \\cdot I$ مباشرة مع الانتباه للوحدات ($10 \\times 2 = 20\\text{ V}$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: 20 V",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q16_support_1",
+          "text": "Exercice de soutien — Un conducteur ohmique de résistance $R = 10\\ \\Omega$ est traversé par un courant $I = 2\\text{ A}$. Quelle est la tension $U$ à ses bornes ?",
+          "options": [
+            "0.2 V",
+            "20 V",
+            "12 V",
+            "5 V"
+          ],
+          "correct": 1,
+          "explanation": "تطبيق العلاقة $U = R \\cdot I$ مباشرة مع الانتباه للوحدات ($10 \\times 2 = 20\\text{ V}$).",
+          "image": ""
+        },
+        {
+          "id": "q16_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : 5 V",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تطبيق العلاقة $U = R \\cdot I$ مباشرة مع الانتباه للوحدات ($10 \\times 2 = 20\\text{ V}$).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": "Le phénomène de réflexion de la lumière se produit lorsque la lumière :",
+      "options": [
+        "traverse un milieu transparent différent.",
+        "rencontre une surface réfléchissante et rebondit.",
+        "est absorbée par un milieu opaque.",
+        "se propage en ligne droite dans le vide."
+      ],
+      "correct": 1,
+      "gap": "خلط مفاهيمي بين ظاهرتي انعكاس وانكسار الضوء",
+      "recommendation": "التمييز بين الانعكاس (ارتداد الضوء في نفس الوسط) والانكسار (انحراف الضوء عند تغيير وسط الانتشار).",
+      "explanation": "التمييز بين الانعكاس (ارتداد الضوء في نفس الوسط) والانكسار (انحراف الضوء عند تغيير وسط الانتشار).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: rencontre une surface réfléchissante et rebondit.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q17_support_1",
+          "text": "Exercice de soutien — Le phénomène de réflexion de la lumière se produit lorsque la lumière :",
+          "options": [
+            "rencontre une surface réfléchissante et rebondit.",
+            "est absorbée par un milieu opaque.",
+            "se propage en ligne droite dans le vide.",
+            "traverse un milieu transparent différent."
+          ],
+          "correct": 0,
+          "explanation": "التمييز بين الانعكاس (ارتداد الضوء في نفس الوسط) والانكسار (انحراف الضوء عند تغيير وسط الانتشار).",
+          "image": ""
+        },
+        {
+          "id": "q17_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : traverse un milieu transparent différent.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التمييز بين الانعكاس (ارتداد الضوء في نفس الوسط) والانكسار (انحراف الضوء عند تغيير وسط الانتشار).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": "L'indice de réfraction $n$ d'un milieu transparent est donné par la relation ($c$: vitesse dans le vide, $v$: vitesse dans le milieu) :",
+      "options": [
+        "$n = v / c$",
+        "$n = c . v$",
+        "$n = c / v$",
+        "$n = c + v$"
+      ],
+      "correct": 2,
+      "gap": "عدم تذكر صيغة معامل انكسار وسط شفاف",
+      "recommendation": "مراجعة درس انكسار الضوء وتذكر أن $n \\ge 1$ دائماً لأن $c \\ge v$ والعلاقة هي $n=c/v$.",
+      "explanation": "مراجعة درس انكسار الضوء وتذكر أن $n \\ge 1$ دائماً لأن $c \\ge v$ والعلاقة هي $n=c/v$.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $n = c / v$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q18_support_1",
+          "text": "Exercice de soutien — L'indice de réfraction $n$ d'un milieu transparent est donné par la relation ($c$: vitesse dans le vide, $v$: vitesse dans le milieu) :",
+          "options": [
+            "$n = c / v$",
+            "$n = c + v$",
+            "$n = v / c$",
+            "$n = c . v$"
+          ],
+          "correct": 0,
+          "explanation": "مراجعة درس انكسار الضوء وتذكر أن $n \\ge 1$ دائماً لأن $c \\ge v$ والعلاقة هي $n=c/v$.",
+          "image": ""
+        },
+        {
+          "id": "q18_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $n = v / c$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة درس انكسار الضوء وتذكر أن $n \\ge 1$ دائماً لأن $c \\ge v$ والعلاقة هي $n=c/v$.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": "Une source lumineuse de couleur pure (une seule longueur d'onde) est dite :",
+      "options": [
+        "polychrormatique.",
+        "monochromatique.",
+        "blanche.",
+        "invisible."
+      ],
+      "correct": 1,
+      "gap": "عدم ضبط المصطلحات اللغوية والعلمية الخاصة بالضوء وطيفه",
+      "recommendation": "التمييز بين الضوء أحادي اللون (monochromatique) كالليزر، ومتعدد الألوان (polychromatique) كضوء الشمس.",
+      "explanation": "التمييز بين الضوء أحادي اللون (monochromatique) كالليزر، ومتعدد الألوان (polychromatique) كضوء الشمس.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: monochromatique.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q19_support_1",
+          "text": "Exercice de soutien — Une source lumineuse de couleur pure (une seule longueur d'onde) est dite :",
+          "options": [
+            "invisible.",
+            "polychrormatique.",
+            "monochromatique.",
+            "blanche."
+          ],
+          "correct": 2,
+          "explanation": "التمييز بين الضوء أحادي اللون (monochromatique) كالليزر، ومتعدد الألوان (polychromatique) كضوء الشمس.",
+          "image": ""
+        },
+        {
+          "id": "q19_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : polychrormatique.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التمييز بين الضوء أحادي اللون (monochromatique) كالليزر، ومتعدد الألوان (polychromatique) كضوء الشمس.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": "Quelle est la valeur approchée de la vitesse de propagation de la lumière dans le vide (ou dans l'air) ?",
+      "options": [
+        "$300 \\text{ m/s}$",
+        "$3 \\cdot 10^8 \\text{ m/s}$",
+        "$3 \\cdot 10^5 \\text{ m/s}$",
+        "$340 \\text{ m/s}$"
+      ],
+      "correct": 1,
+      "gap": "الخلط بين سرعة الضوء العالية جداً وسرعة الصوت في الهواء ($340\\text{ m/s}$)",
+      "recommendation": "التركيز على حفظ الثوابت الفيزيائية الكبرى وتذكر أن سرعة الضوء هي القيمة القصوى $c \\approx 3 \\cdot 10^8\\text{ m/s}$.",
+      "explanation": "التركيز على حفظ الثوابت الفيزيائية الكبرى وتذكر أن سرعة الضوء هي القيمة القصوى $c \\approx 3 \\cdot 10^8\\text{ m/s}$.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $3 \\cdot 10^8 \\text{ m/s}$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q20_support_1",
+          "text": "Exercice de soutien — Quelle est la valeur approchée de la vitesse de propagation de la lumière dans le vide (ou dans l'air) ?",
+          "options": [
+            "$3 \\cdot 10^8 \\text{ m/s}$",
+            "$3 \\cdot 10^5 \\text{ m/s}$",
+            "$340 \\text{ m/s}$",
+            "$300 \\text{ m/s}$"
+          ],
+          "correct": 0,
+          "explanation": "التركيز على حفظ الثوابت الفيزيائية الكبرى وتذكر أن سرعة الضوء هي القيمة القصوى $c \\approx 3 \\cdot 10^8\\text{ m/s}$.",
+          "image": ""
+        },
+        {
+          "id": "q20_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $300 \\text{ m/s}$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التركيز على حفظ الثوابت الفيزيائية الكبرى وتذكر أن سرعة الضوء هي القيمة القصوى $c \\approx 3 \\cdot 10^8\\text{ m/s}$.",
+          "image": ""
+        }
+      ]
+    }
+  ]
+}

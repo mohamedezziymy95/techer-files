@@ -1,0 +1,848 @@
+{
+  "id": "2BACPC_PC_DIAG_2025",
+  "title": "الاختبار التشخيصي في مادة الفيزياء والكيمياء",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BAC",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quelle est l'expression correcte de la concentration molaire $C$ d'une solution aqueuse ?",
+      "options": [
+        "$C = n . V$",
+        "$C = n / V$",
+        "$C = m / V$",
+        "$C = V / n$"
+      ],
+      "correct": 1,
+      "gap": "صعوبة في تحديد واستيعاب العلاقة الأساسية للتركيز المولي",
+      "recommendation": "مراجعة مكتسبات الجذع المشترك والأولى باك حول المقادير الفيزيائية المرتبطة بكمية المادة.",
+      "explanation": "مراجعة مكتسبات الجذع المشترك والأولى باك حول المقادير الفيزيائية المرتبطة بكمية المادة.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $C = n / V$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q1_support_1",
+          "text": "Exercice de soutien — Quelle est l'expression correcte de la concentration molaire $C$ d'une solution aqueuse ?",
+          "options": [
+            "$C = n / V$",
+            "$C = m / V$",
+            "$C = V / n$",
+            "$C = n . V$"
+          ],
+          "correct": 0,
+          "explanation": "مراجعة مكتسبات الجذع المشترك والأولى باك حول المقادير الفيزيائية المرتبطة بكمية المادة.",
+          "image": ""
+        },
+        {
+          "id": "q1_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $C = n . V$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة مكتسبات الجذع المشترك والأولى باك حول المقادير الفيزيائية المرتبطة بكمية المادة.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "L'oxydant est une espèce chimique capable de :",
+      "options": [
+        "perdre un ou plusieurs électrons.",
+        "gagner un ou plusieurs électrons.",
+        "perdre un proton H+.",
+        "gagner un proton H+."
+      ],
+      "correct": 1,
+      "gap": "خلط بين مفهومي المؤكسد والمختزل (تفاعلات أكسدة-اختزال)",
+      "recommendation": "إعادة ضبط تعريف المؤكسد والمختزل وتذكر أن المؤكسد يكتسب إلكترونات (Ox + ne- = Red).",
+      "explanation": "إعادة ضبط تعريف المؤكسد والمختزل وتذكر أن المؤكسد يكتسب إلكترونات (Ox + ne- = Red).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: gagner un ou plusieurs électrons.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q2_support_1",
+          "text": "Exercice de soutien — L'oxydant est une espèce chimique capable de :",
+          "options": [
+            "perdre un proton H+.",
+            "gagner un proton H+.",
+            "perdre un ou plusieurs électrons.",
+            "gagner un ou plusieurs électrons."
+          ],
+          "correct": 3,
+          "explanation": "إعادة ضبط تعريف المؤكسد والمختزل وتذكر أن المؤكسد يكتسب إلكترونات (Ox + ne- = Red).",
+          "image": ""
+        },
+        {
+          "id": "q2_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : perdre un ou plusieurs électrons.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. إعادة ضبط تعريف المؤكسد والمختزل وتذكر أن المؤكسد يكتسب إلكترونات (Ox + ne- = Red).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Dans une solution aqueuse, le produit ionique de l'eau à $25^\\circ\\text{C}$ est $K_e = 10^{-14}$. Si une solution a un $pH = 3$, quelle est sa concentration en ions $H_3O^+$ ?",
+      "options": [
+        "$10^3 \\text{ mol/L}$",
+        "$3 \\text{ mol/L}$",
+        "$10^{-3} \\text{ mol/L}$",
+        "$10^{-11} \\text{ mol/L}$"
+      ],
+      "correct": 2,
+      "gap": "عدم القدرة على حساب تركيز أيونات الهيدرونيوم انطلاقاً من الـ pH",
+      "recommendation": "تذكر العلاقة الأساسية: $[H_3O^+] = 10^{-pH}$ وتطبيقها مباشرة.",
+      "explanation": "تذكر العلاقة الأساسية: $[H_3O^+] = 10^{-pH}$ وتطبيقها مباشرة.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $10^{-3} \\text{ mol/L}$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q3_support_1",
+          "text": "Exercice de soutien — Dans une solution aqueuse, le produit ionique de l'eau à $25^\\circ\\text{C}$ est $K_e = 10^{-14}$. Si une solution a un $pH = 3$, quelle est sa concentration en ions $H_3O^+$ ?",
+          "options": [
+            "$10^{-11} \\text{ mol/L}$",
+            "$10^3 \\text{ mol/L}$",
+            "$3 \\text{ mol/L}$",
+            "$10^{-3} \\text{ mol/L}$"
+          ],
+          "correct": 3,
+          "explanation": "تذكر العلاقة الأساسية: $[H_3O^+] = 10^{-pH}$ وتطبيقها مباشرة.",
+          "image": ""
+        },
+        {
+          "id": "q3_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $10^3 \\text{ mol/L}$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر العلاقة الأساسية: $[H_3O^+] = 10^{-pH}$ وتطبيقها مباشرة.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Quelle est l'unité de la conductance $G$ d'une solution électrolytique dans le Système International (SI) ?",
+      "options": [
+        "$Ohm (\\Omega)$",
+        "Siemens (S)",
+        "Volt (V)",
+        "Ampère (A)"
+      ],
+      "correct": 1,
+      "gap": "ضعف في معرفة وحدات القياس الخاصة بالكهرباء والكيمياء (الموصلية والمنصهر)",
+      "recommendation": "مراجعة درس قياس المواصلة (الأولى باك) والتمييز بين المقاومة (Ohm) والمنصهر/المواصلة (Siemens).",
+      "explanation": "مراجعة درس قياس المواصلة (الأولى باك) والتمييز بين المقاومة (Ohm) والمنصهر/المواصلة (Siemens).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: Siemens (S)",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q4_support_1",
+          "text": "Exercice de soutien — Quelle est l'unité de la conductance $G$ d'une solution électrolytique dans le Système International (SI) ?",
+          "options": [
+            "Siemens (S)",
+            "Volt (V)",
+            "Ampère (A)",
+            "$Ohm (\\Omega)$"
+          ],
+          "correct": 0,
+          "explanation": "مراجعة درس قياس المواصلة (الأولى باك) والتمييز بين المقاومة (Ohm) والمنصهر/المواصلة (Siemens).",
+          "image": ""
+        },
+        {
+          "id": "q4_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $Ohm (\\Omega)$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة درس قياس المواصلة (الأولى باك) والتمييز بين المقاومة (Ohm) والمنصهر/المواصلة (Siemens).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "L'équation d'état d'un gaz parfait est $P.V = n.R.T$. Quelle est l'unité de la température $T$ dans cette formule ?",
+      "options": [
+        "$Le degré Celsius (^\\circ\\text{C})$",
+        "Le Kelvin (K)",
+        "$Le Fahrenheit (^\\circ\\text{F})$",
+        "Le Joule (J)"
+      ],
+      "correct": 1,
+      "gap": "عدم استخدام الوحدة العالمية للدرجة الحرارية المطلقة في قوانين الغازات",
+      "recommendation": "تذكر دائماً تحويل درجة الحرارة إلى السلم العالمي المطلق (ال Kelvin) عبر إضافة 273.15 إلى القيمة بالدرجة مئوية.",
+      "explanation": "تذكر دائماً تحويل درجة الحرارة إلى السلم العالمي المطلق (ال Kelvin) عبر إضافة 273.15 إلى القيمة بالدرجة مئوية.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: Le Kelvin (K)",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q5_support_1",
+          "text": "Exercice de soutien — L'équation d'état d'un gaz parfait est $P.V = n.R.T$. Quelle est l'unité de la température $T$ dans cette formule ?",
+          "options": [
+            "Le Kelvin (K)",
+            "$Le Fahrenheit (^\\circ\\text{F})$",
+            "Le Joule (J)",
+            "$Le degré Celsius (^\\circ\\text{C})$"
+          ],
+          "correct": 0,
+          "explanation": "تذكر دائماً تحويل درجة الحرارة إلى السلم العالمي المطلق (ال Kelvin) عبر إضافة 273.15 إلى القيمة بالدرجة مئوية.",
+          "image": ""
+        },
+        {
+          "id": "q5_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $Le degré Celsius (^\\circ\\text{C})$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر دائماً تحويل درجة الحرارة إلى السلم العالمي المطلق (ال Kelvin) عبر إضافة 273.15 إلى القيمة بالدرجة مئوية.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "Lors d'une dilution d'une solution aqueuse, quelle grandeur physico-chimique reste invariante ?",
+      "options": [
+        "La concentration molaire",
+        "Le volume de la solution",
+        "La quantité de matière du soluté",
+        "La masse volumique"
+      ],
+      "correct": 2,
+      "gap": "عدم استيعاب مبدأ انحفاظ كمية المادة خلال عملية التخفيف",
+      "recommendation": "التركيز على قانون التخفيف: كمية المادة البدئية تساوي كمية المادة النهائية ($C_i \\times V_i = C_f \\times V_f$).",
+      "explanation": "التركيز على قانون التخفيف: كمية المادة البدئية تساوي كمية المادة النهائية ($C_i \\times V_i = C_f \\times V_f$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: La quantité de matière du soluté",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q6_support_1",
+          "text": "Exercice de soutien — Lors d'une dilution d'une solution aqueuse, quelle grandeur physico-chimique reste invariante ?",
+          "options": [
+            "La quantité de matière du soluté",
+            "La masse volumique",
+            "La concentration molaire",
+            "Le volume de la solution"
+          ],
+          "correct": 0,
+          "explanation": "التركيز على قانون التخفيف: كمية المادة البدئية تساوي كمية المادة النهائية ($C_i \\times V_i = C_f \\times V_f$).",
+          "image": ""
+        },
+        {
+          "id": "q6_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : La concentration molaire",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التركيز على قانون التخفيف: كمية المادة البدئية تساوي كمية المادة النهائية ($C_i \\times V_i = C_f \\times V_f$).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "La loi d'Ohm pour un conducteur ohmique de résistance $R$ s'écrit :",
+      "options": [
+        "$U = R / I$",
+        "$U = R . I$",
+        "$I = R . U$",
+        "$P = R . I$"
+      ],
+      "correct": 1,
+      "gap": "ضعف في تمثيل وتذكر العلاقات الكهربائية الأساسية",
+      "recommendation": "مراجعة القوانين الأساسية للكهرباء (قانون أوم، علاقة القدرة والطاقة الكهربائية).",
+      "explanation": "مراجعة القوانين الأساسية للكهرباء (قانون أوم، علاقة القدرة والطاقة الكهربائية).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $U = R . I$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q7_support_1",
+          "text": "Exercice de soutien — La loi d'Ohm pour un conducteur ohmique de résistance $R$ s'écrit :",
+          "options": [
+            "$P = R . I$",
+            "$U = R / I$",
+            "$U = R . I$",
+            "$I = R . U$"
+          ],
+          "correct": 2,
+          "explanation": "مراجعة القوانين الأساسية للكهرباء (قانون أوم، علاقة القدرة والطاقة الكهربائية).",
+          "image": ""
+        },
+        {
+          "id": "q7_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $U = R / I$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة القوانين الأساسية للكهرباء (قانون أوم، علاقة القدرة والطاقة الكهربائية).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Un mobile se déplace sur une trajectoire rectiligne. Son équation horaire est $x(t) = 4.t + 2$ (en unités SI). Quelle est la nature de son mouvement ?",
+      "options": [
+        "Mouvement rectiligne uniformément varié",
+        "Mouvement rectiligne uniforme",
+        "Mouvement circulaire uniforme",
+        "Mouvement curviligne"
+      ],
+      "correct": 1,
+      "gap": "صعوبة في تحديد طبيعة الحركة انطلاقاً من المعادلة الزمنية للموضع",
+      "recommendation": "مراجعة درس الحركة ومقارنة المعادلات الزمنية (إذا كانت السرعة ثابتة فالحركة مستقيمة منتظمة).",
+      "explanation": "مراجعة درس الحركة ومقارنة المعادلات الزمنية (إذا كانت السرعة ثابتة فالحركة مستقيمة منتظمة).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: Mouvement rectiligne uniforme",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q8_support_1",
+          "text": "Exercice de soutien — Un mobile se déplace sur une trajectoire rectiligne. Son équation horaire est $x(t) = 4.t + 2$ (en unités SI). Quelle est la nature de son mouvement ?",
+          "options": [
+            "Mouvement rectiligne uniforme",
+            "Mouvement circulaire uniforme",
+            "Mouvement curviligne",
+            "Mouvement rectiligne uniformément varié"
+          ],
+          "correct": 0,
+          "explanation": "مراجعة درس الحركة ومقارنة المعادلات الزمنية (إذا كانت السرعة ثابتة فالحركة مستقيمة منتظمة).",
+          "image": ""
+        },
+        {
+          "id": "q8_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : Mouvement rectiligne uniformément varié",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة درس الحركة ومقارنة المعادلات الزمنية (إذا كانت السرعة ثابتة فالحركة مستقيمة منتظمة).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "Quelle est l'expression de l'énergie cinétique $E_c$ d'un solide en mouvement de translation rectiligne ?",
+      "options": [
+        "$E_c = m . v^2$",
+        "$E_c = \\frac{1}{2} . m . v$",
+        "$E_c = \\frac{1}{2} . m . v^2$",
+        "$E_c = m . g . z$"
+      ],
+      "correct": 2,
+      "gap": "خلط بين تعبير الطاقة الحركية وتعبيرات طاقات أخرى كالوضع",
+      "recommendation": "حفظ ومراجعة تعابير وأشكال الطاقة (الطاقة الحركية، طاقة الوضع الثقالية، والطاقة الميكانيكية).",
+      "explanation": "حفظ ومراجعة تعابير وأشكال الطاقة (الطاقة الحركية، طاقة الوضع الثقالية، والطاقة الميكانيكية).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $E_c = \\frac{1}{2} . m . v^2$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q9_support_1",
+          "text": "Exercice de soutien — Quelle est l'expression de l'énergie cinétique $E_c$ d'un solide en mouvement de translation rectiligne ?",
+          "options": [
+            "$E_c = \\frac{1}{2} . m . v$",
+            "$E_c = \\frac{1}{2} . m . v^2$",
+            "$E_c = m . g . z$",
+            "$E_c = m . v^2$"
+          ],
+          "correct": 1,
+          "explanation": "حفظ ومراجعة تعابير وأشكال الطاقة (الطاقة الحركية، طاقة الوضع الثقالية، والطاقة الميكانيكية).",
+          "image": ""
+        },
+        {
+          "id": "q9_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $E_c = m . v^2$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. حفظ ومراجعة تعابير وأشكال الطاقة (الطاقة الحركية، طاقة الوضع الثقالية، والطاقة الميكانيكية).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "Le travail d'une force constante $\\vec{F}$ lors d'un déplacement rectiligne $AB$ est moteur si :",
+      "options": [
+        "$l'angle (\\vec{F}, \\vec{AB}) est égal à 90^\\circ$",
+        "$l'angle (\\vec{F}, \\vec{AB}) est aigu (< 90^\\circ)$",
+        "$l'angle (\\vec{F}, \\vec{AB}) est obtus (> 90^\\circ)$",
+        "la force est perpendiculaire à la trajectoire"
+      ],
+      "correct": 1,
+      "gap": "عجز عن تحديد طبيعة شغل قوة (مُحرك، مقاوم، منعدم) حسب الزاوية",
+      "recommendation": "تذكر أن الشغل يكون محركاً إذا كان كوصينوس الزاوية موجباً ($W > 0$) ومقاوماً إذا كان سالباً ($W < 0$).",
+      "explanation": "تذكر أن الشغل يكون محركاً إذا كان كوصينوس الزاوية موجباً ($W > 0$) ومقاوماً إذا كان سالباً ($W < 0$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $l'angle (\\vec{F}, \\vec{AB}) est aigu (< 90^\\circ)$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q10_support_1",
+          "text": "Exercice de soutien — Le travail d'une force constante $\\vec{F}$ lors d'un déplacement rectiligne $AB$ est moteur si :",
+          "options": [
+            "$l'angle (\\vec{F}, \\vec{AB}) est obtus (> 90^\\circ)$",
+            "la force est perpendiculaire à la trajectoire",
+            "$l'angle (\\vec{F}, \\vec{AB}) est égal à 90^\\circ$",
+            "$l'angle (\\vec{F}, \\vec{AB}) est aigu (< 90^\\circ)$"
+          ],
+          "correct": 3,
+          "explanation": "تذكر أن الشغل يكون محركاً إذا كان كوصينوس الزاوية موجباً ($W > 0$) ومقاوماً إذا كان سالباً ($W < 0$).",
+          "image": ""
+        },
+        {
+          "id": "q10_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $l'angle (\\vec{F}, \\vec{AB}) est égal à 90^\\circ$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر أن الشغل يكون محركاً إذا كان كوصينوس الزاوية موجباً ($W > 0$) ومقاوماً إذا كان سالباً ($W < 0$).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "La poussée d'Archimède exercée sur un corps totalement immergé dans un fluide dépend de :",
+      "options": [
+        "la masse du corps immergé.",
+        "la profondeur à laquelle se trouve le corps.",
+        "le volume du fluide déplacé.",
+        "la forme du corps."
+      ],
+      "correct": 2,
+      "gap": "عدم فهم العوامل المؤثرة في دافعة أرخميدس",
+      "recommendation": "مراجعة درس توازن جسم خاضع لعدة قوى وتذكر أن دافعة أرخميدس تساوي وزن السائل المزاح.",
+      "explanation": "مراجعة درس توازن جسم خاضع لعدة قوى وتذكر أن دافعة أرخميدس تساوي وزن السائل المزاح.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: le volume du fluide déplacé.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q11_support_1",
+          "text": "Exercice de soutien — La poussée d'Archimède exercée sur un corps totalement immergé dans un fluide dépend de :",
+          "options": [
+            "la forme du corps.",
+            "la masse du corps immergé.",
+            "la profondeur à laquelle se trouve le corps.",
+            "le volume du fluide déplacé."
+          ],
+          "correct": 3,
+          "explanation": "مراجعة درس توازن جسم خاضع لعدة قوى وتذكر أن دافعة أرخميدس تساوي وزن السائل المزاح.",
+          "image": ""
+        },
+        {
+          "id": "q11_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : la masse du corps immergé.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة درس توازن جسم خاضع لعدة قوى وتذكر أن دافعة أرخميدس تساوي وزن السائل المزاح.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "Un corps de masse $m = 2\\text{ kg}$ est situé à une hauteur $h = 5\\text{ m}$ du sol. En prenant $g = 10\\text{ N/kg}$, quelle est son énergie potentielle de pesanteur $E_{pp}$ (origine au sol) ?",
+      "options": [
+        "10 J",
+        "50 J",
+        "100 J",
+        "25 J"
+      ],
+      "correct": 2,
+      "gap": "صعوبة في التطبيق العددي المباشر لحساب طاقة الوضع الثقالية",
+      "recommendation": "استعمال العلاقة $E_{pp} = m \\cdot g \\cdot h$ والتأكد من توافق الوحدات العالمية.",
+      "explanation": "استعمال العلاقة $E_{pp} = m \\cdot g \\cdot h$ والتأكد من توافق الوحدات العالمية.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: 100 J",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q12_support_1",
+          "text": "Exercice de soutien — Un corps de masse $m = 2\\text{ kg}$ est situé à une hauteur $h = 5\\text{ m}$ du sol. En prenant $g = 10\\text{ N/kg}$, quelle est son énergie potentielle de pesanteur $E_{pp}$ (origine au sol) ?",
+          "options": [
+            "50 J",
+            "100 J",
+            "25 J",
+            "10 J"
+          ],
+          "correct": 1,
+          "explanation": "استعمال العلاقة $E_{pp} = m \\cdot g \\cdot h$ والتأكد من توافق الوحدات العالمية.",
+          "image": ""
+        },
+        {
+          "id": "q12_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : 10 J",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. استعمال العلاقة $E_{pp} = m \\cdot g \\cdot h$ والتأكد من توافق الوحدات العالمية.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": "Quelle relation associe la tension $U_{PN}$ aux bornes d'un générateur de force électromotrice $E$ et de résistance interne $r$ traversé par un courant $I$ ?",
+      "options": [
+        "$U_{PN} = E + r.I$",
+        "$U_{PN} = E - r.I$",
+        "$U_{PN} = r.I - E$",
+        "$U_{PN} = E / (r.I)$"
+      ],
+      "correct": 1,
+      "gap": "الخلط بين قانون أوم الخاص بمستقبل وقانون أوم الخاص بمولد",
+      "recommendation": "التمييز بين اصطلاح المولد ($U = E - rI$) واصطلاح المستقبل كالمنظم أو المحرك ($U = E' + r'I$).",
+      "explanation": "التمييز بين اصطلاح المولد ($U = E - rI$) واصطلاح المستقبل كالمنظم أو المحرك ($U = E' + r'I$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $U_{PN} = E - r.I$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q13_support_1",
+          "text": "Exercice de soutien — Quelle relation associe la tension $U_{PN}$ aux bornes d'un générateur de force électromotrice $E$ et de résistance interne $r$ traversé par un courant $I$ ?",
+          "options": [
+            "$U_{PN} = E - r.I$",
+            "$U_{PN} = r.I - E$",
+            "$U_{PN} = E / (r.I)$",
+            "$U_{PN} = E + r.I$"
+          ],
+          "correct": 0,
+          "explanation": "التمييز بين اصطلاح المولد ($U = E - rI$) واصطلاح المستقبل كالمنظم أو المحرك ($U = E' + r'I$).",
+          "image": ""
+        },
+        {
+          "id": "q13_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $U_{PN} = E + r.I$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التمييز بين اصطلاح المولد ($U = E - rI$) واصطلاح المستقبل كالمنظم أو المحرك ($U = E' + r'I$).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": "À travers une lentille mince convergente, un rayon lumineux passant par le centre optique $O$ :",
+      "options": [
+        "émerge en passant par le foyer image F'.",
+        "est dévié vers le haut.",
+        "continue sa trajectoire sans déviation.",
+        "réfléchit sur lui-même."
+      ],
+      "correct": 2,
+      "gap": "عدم معرفة مسار الأشعة الضوئية الخاصة عبر العدسات المجمعة",
+      "recommendation": "مراجعة قواعد البصريات الهندسة الخاصة بالعدسات الرقيقة المجمعة (المحور البصري، المركز، البؤرة).",
+      "explanation": "مراجعة قواعد البصريات الهندسة الخاصة بالعدسات الرقيقة المجمعة (المحور البصري، المركز، البؤرة).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: continue sa trajectoire sans déviation.",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q14_support_1",
+          "text": "Exercice de soutien — À travers une lentille mince convergente, un rayon lumineux passant par le centre optique $O$ :",
+          "options": [
+            "continue sa trajectoire sans déviation.",
+            "réfléchit sur lui-même.",
+            "émerge en passant par le foyer image F'.",
+            "est dévié vers le haut."
+          ],
+          "correct": 0,
+          "explanation": "مراجعة قواعد البصريات الهندسة الخاصة بالعدسات الرقيقة المجمعة (المحور البصري، المركز، البؤرة).",
+          "image": ""
+        },
+        {
+          "id": "q14_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : émerge en passant par le foyer image F'.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة قواعد البصريات الهندسة الخاصة بالعدسات الرقيقة المجمعة (المحور البصري، المركز، البؤرة).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": "Dans le spectre de la lumière blanche, quelle couleur a la plus petite longueur d'onde ?",
+      "options": [
+        "Le rouge",
+        "Le vert",
+        "Le violet",
+        "Le jaune"
+      ],
+      "correct": 2,
+      "gap": "ضعف الثقافة العلمية المرتبطة بالطيف الضوئي والألوان وتصنيف موجاتها",
+      "recommendation": "تذكر أن طيف الضوء المرئي يمتد بين حوالي $400\\text{ nm}$ (البنفسجي) و $800\\text{ nm}$ (الأحمر).",
+      "explanation": "تذكر أن طيف الضوء المرئي يمتد بين حوالي $400\\text{ nm}$ (البنفسجي) و $800\\text{ nm}$ (الأحمر).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: Le violet",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q15_support_1",
+          "text": "Exercice de soutien — Dans le spectre de la lumière blanche, quelle couleur a la plus petite longueur d'onde ?",
+          "options": [
+            "Le jaune",
+            "Le rouge",
+            "Le vert",
+            "Le violet"
+          ],
+          "correct": 3,
+          "explanation": "تذكر أن طيف الضوء المرئي يمتد بين حوالي $400\\text{ nm}$ (البنفسجي) و $800\\text{ nm}$ (الأحمر).",
+          "image": ""
+        },
+        {
+          "id": "q15_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : Le rouge",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر أن طيف الضوء المرئي يمتد بين حوالي $400\\text{ nm}$ (البنفسجي) و $800\\text{ nm}$ (الأحمر).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": "Quelle est la relation entre la période $T$ et la fréquence $f$ d'un phénomène périodique ?",
+      "options": [
+        "$T = f$",
+        "$f = 1 / T$",
+        "$T = 1 / f^2$",
+        "$f = T / 2$"
+      ],
+      "correct": 1,
+      "gap": "خلط بين المفهومين والوحدات الخاصة بالتردد والدور",
+      "recommendation": "التركيز على أن التردد مقلوب الدور وحدته الهرتز ($Hz$) والدور وحدته الثانية ($s$).",
+      "explanation": "التركيز على أن التردد مقلوب الدور وحدته الهرتز ($Hz$) والدور وحدته الثانية ($s$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $f = 1 / T$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q16_support_1",
+          "text": "Exercice de soutien — Quelle est la relation entre la période $T$ et la fréquence $f$ d'un phénomène périodique ?",
+          "options": [
+            "$f = 1 / T$",
+            "$T = 1 / f^2$",
+            "$f = T / 2$",
+            "$T = f$"
+          ],
+          "correct": 0,
+          "explanation": "التركيز على أن التردد مقلوب الدور وحدته الهرتز ($Hz$) والدور وحدته الثانية ($s$).",
+          "image": ""
+        },
+        {
+          "id": "q16_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $T = f$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. التركيز على أن التردد مقلوب الدور وحدته الهرتز ($Hz$) والدور وحدته الثانية ($s$).",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": "L'unité de la quantité de matière dans le Système International est :",
+      "options": [
+        "le gramme (g)",
+        "le litre (L)",
+        "la mole (mol)",
+        "le nombre d'Avogadro"
+      ],
+      "correct": 2,
+      "gap": "الخلط بين الكتلة وحجم المادة وكمية المادة (العدد المولي)",
+      "recommendation": "الاستيعاب الجيد لفهوم المول كمقدار مستقل يعبر عن كمية المادة في الكيمياء.",
+      "explanation": "الاستيعاب الجيد لفهوم المول كمقدار مستقل يعبر عن كمية المادة في الكيمياء.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: la mole (mol)",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q17_support_1",
+          "text": "Exercice de soutien — L'unité de la quantité de matière dans le Système International est :",
+          "options": [
+            "le litre (L)",
+            "la mole (mol)",
+            "le nombre d'Avogadro",
+            "le gramme (g)"
+          ],
+          "correct": 1,
+          "explanation": "الاستيعاب الجيد لفهوم المول كمقدار مستقل يعبر عن كمية المادة في الكيمياء.",
+          "image": ""
+        },
+        {
+          "id": "q17_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : le gramme (g)",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. الاستيعاب الجيد لفهوم المول كمقدار مستقل يعبر عن كمية المادة في الكيمياء.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": "Un conducteur ohmique traverse une puissance thermique par effet Joule. Quelle expression donne cette puissance $P_J$ ?",
+      "options": [
+        "$P_J = R . I$",
+        "$P_J = R^2 . I$",
+        "$P_J = R . I^2$",
+        "$P_J = U / I$"
+      ],
+      "correct": 2,
+      "gap": "صعوبة في تحديد صيغة مفعول جول الحراري في الكهرباء",
+      "recommendation": "مراجعة درس الانتقالات الطاقية في دارة كهربائية والتأكيد على صيغة مفعول جول $P = R \\cdot I^2$.",
+      "explanation": "مراجعة درس الانتقالات الطاقية في دارة كهربائية والتأكيد على صيغة مفعول جول $P = R \\cdot I^2$.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $P_J = R . I^2$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q18_support_1",
+          "text": "Exercice de soutien — Un conducteur ohmique traverse une puissance thermique par effet Joule. Quelle expression donne cette puissance $P_J$ ?",
+          "options": [
+            "$P_J = R . I^2$",
+            "$P_J = U / I$",
+            "$P_J = R . I$",
+            "$P_J = R^2 . I$"
+          ],
+          "correct": 0,
+          "explanation": "مراجعة درس الانتقالات الطاقية في دارة كهربائية والتأكيد على صيغة مفعول جول $P = R \\cdot I^2$.",
+          "image": ""
+        },
+        {
+          "id": "q18_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $P_J = R . I$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة درس الانتقالات الطاقية في دارة كهربائية والتأكيد على صيغة مفعول جول $P = R \\cdot I^2$.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": "Quelle est la formule brute de l'éthanol (un alcool à deux atomes de carbone) ?",
+      "options": [
+        "$CH_4$",
+        "$C_2H_6O$",
+        "$CH_4O$",
+        "$C_3H_8O$"
+      ],
+      "correct": 1,
+      "gap": "ضعف في تسمية وكتابة الصيغ الإجمالية للمركبات العضوية الأساسية",
+      "recommendation": "مراجعة مبادئ الكيمياء العضوية (الألكانات، الكحولات) التي تم دراستها في الجذع المشترك والأولى باك.",
+      "explanation": "مراجعة مبادئ الكيمياء العضوية (الألكانات، الكحولات) التي تم دراستها في الجذع المشترك والأولى باك.",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $C_2H_6O$",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q19_support_1",
+          "text": "Exercice de soutien — Quelle est la formule brute de l'éthanol (un alcool à deux atomes de carbone) ?",
+          "options": [
+            "$C_3H_8O$",
+            "$CH_4$",
+            "$C_2H_6O$",
+            "$CH_4O$"
+          ],
+          "correct": 2,
+          "explanation": "مراجعة مبادئ الكيمياء العضوية (الألكانات، الكحولات) التي تم دراستها في الجذع المشترك والأولى باك.",
+          "image": ""
+        },
+        {
+          "id": "q19_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $CH_4$",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. مراجعة مبادئ الكيمياء العضوية (الألكانات، الكحولات) التي تم دراستها في الجذع المشترك والأولى باك.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": "Si un système thermodynamique reçoit de la chaleur de l'extérieur, le signe de cette énergie thermique $Q$ est considéré comme :",
+      "options": [
+        "négatif (Q < 0).",
+        "positif (Q > 0).",
+        "$nul (Q = 0).$",
+        "indéterminé."
+      ],
+      "correct": 1,
+      "gap": "عدم ضبط اصطلاح الإشارات في التبادلات الطاقية الحرارية والميكانيكية",
+      "recommendation": "تذكر قاعدة الإشارات المتفق عليها: كل ما يكتسبه أو يستقبله النظام يكون موجباً ($>0$) وما يفقده أو يمنحه يكون سالباً ($<0$).",
+      "explanation": "تذكر قاعدة الإشارات المتفق عليها: كل ما يكتسبه أو يستقبله النظام يكون موجباً ($>0$) وما يفقده أو يمنحه يكون سالباً ($<0$).",
+      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: positif (Q > 0).",
+      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
+      "support_exercises": [
+        {
+          "id": "q20_support_1",
+          "text": "Exercice de soutien — Si un système thermodynamique reçoit de la chaleur de l'extérieur, le signe de cette énergie thermique $Q$ est considéré comme :",
+          "options": [
+            "positif (Q > 0).",
+            "$nul (Q = 0).$",
+            "indéterminé.",
+            "négatif (Q < 0)."
+          ],
+          "correct": 0,
+          "explanation": "تذكر قاعدة الإشارات المتفق عليها: كل ما يكتسبه أو يستقبله النظام يكون موجباً ($>0$) وما يفقده أو يمنحه يكون سالباً ($<0$).",
+          "image": ""
+        },
+        {
+          "id": "q20_support_2",
+          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : négatif (Q < 0).",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "correct": 1,
+          "explanation": "هذه العبارة غير صحيحة. تذكر قاعدة الإشارات المتفق عليها: كل ما يكتسبه أو يستقبله النظام يكون موجباً ($>0$) وما يفقده أو يمنحه يكون سالباً ($<0$).",
+          "image": ""
+        }
+      ]
+    }
+  ]
+}
