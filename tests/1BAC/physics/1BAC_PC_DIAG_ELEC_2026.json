@@ -16,13 +16,14 @@
       "correct": 2,
       "gap": "صعوبة في تذكر الصيغة الرياضية للقدرة المبددة بمفعول جول في موصل أومي",
       "recommendation": "مراجعة مفهوم مفعول جول والتركيز على العلاقة $P_J = R \\cdot I^2$ والتمييز بينها وبين القدرة المستهلكة العامة.",
+      "domain": "الكهرباء",
+      "skill": "صعوبة في تذكر الصيغة الرياضية للقدرة المبددة بمفعول جول في موصل أومي",
+      "points": 1,
       "explanation": "مراجعة مفهوم مفعول جول والتركيز على العلاقة $P_J = R \\cdot I^2$ والتمييز بينها وبين القدرة المستهلكة العامة.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $P_J = R . I^2$",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q1_support_1",
-          "text": "Exercice de soutien — Quelle est l'expression de la puissance électrique $P_J$ dissipée par effet Joule dans un conducteur ohmique de résistance $R$ traversé par un courant $I$ ?",
+          "id": "q1_practice",
+          "text": "Vérification guidée : Quelle est l'expression de la puissance électrique $P_J$ dissipée par effet Joule dans un conducteur ohmique de résistance $R$ traversé par un courant $I$ ?",
           "options": [
             "$P_J = R . I$",
             "$P_J = R . I^2$",
@@ -30,19 +31,25 @@
             "$P_J = R / I^2$"
           ],
           "correct": 1,
-          "explanation": "مراجعة مفهوم مفعول جول والتركيز على العلاقة $P_J = R \\cdot I^2$ والتمييز بينها وبين القدرة المستهلكة العامة.",
-          "image": ""
+          "domain": "الكهرباء",
+          "points": 1,
+          "explanation": "مراجعة مفهوم مفعول جول والتركيز على العلاقة $P_J = R \\cdot I^2$ والتمييز بينها وبين القدرة المستهلكة العامة."
         },
         {
-          "id": "q1_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $P_J = R / I^2$",
+          "id": "q1_transfer",
+          "text": "Une résistance de 4 Ω est traversée par 0,5 A. La tension vaut :",
           "options": [
-            "Vrai",
-            "Faux"
+            "2 V",
+            "8 V",
+            "0,125 V"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. مراجعة مفهوم مفعول جول والتركيز على العلاقة $P_J = R \\cdot I^2$ والتمييز بينها وبين القدرة المستهلكة العامة.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكهرباء",
+          "skill": "الكهرباء",
+          "points": 1,
+          "gap": "À revoir : الكهرباء",
+          "recommendation": "U = R I = 4 × 0,5 = 2 V.",
+          "explanation": "U = R I = 4 × 0,5 = 2 V."
         }
       ]
     },
@@ -58,33 +65,40 @@
       "correct": 1,
       "gap": "عدم استيعاب أن قوة الوضع الكهرساكنة هي قوة محافظة ولا يتعلق شغلها بالمسار المتبع",
       "recommendation": "التأكيد على أن شغل القوة الكهرساكنة يعتمد فقط على الموضع البدئي والنهائي: $W_{AB}(\\vec{F}) = q(V_A - V_B)$.",
+      "domain": "الكهرباء",
+      "skill": "عدم استيعاب أن قوة الوضع الكهرساكنة هي قوة محافظة ولا يتعلق شغلها بالمسار المتبع",
+      "points": 1,
       "explanation": "التأكيد على أن شغل القوة الكهرساكنة يعتمد فقط على الموضع البدئي والنهائي: $W_{AB}(\\vec{F}) = q(V_A - V_B)$.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: uniquement des positions des points A et B (l'état initial et final).",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q2_support_1",
-          "text": "Exercice de soutien — Le travail d'une force électrostatique $\\vec{F}$ s'exercant sur une charge $q$ se déplaçant d'un point $A$ à un point $B$ dans un champ électrique uniforme dépend de :",
+          "id": "q2_practice",
+          "text": "Vérification guidée : Le travail d'une force électrostatique $\\vec{F}$ s'exercant sur une charge $q$ se déplaçant d'un point $A$ à un point $B$ dans un champ électrique uniforme dépend de :",
           "options": [
+            "uniquement des positions des points A et B (l'état initial et final).",
             "la vitesse de la charge entre A et B.",
             "la masse de la particule chargée uniquement.",
-            "la forme du chemin suivi entre A et B.",
-            "uniquement des positions des points A et B (l'état initial et final)."
+            "la forme du chemin suivi entre A et B."
           ],
-          "correct": 3,
-          "explanation": "التأكيد على أن شغل القوة الكهرساكنة يعتمد فقط على الموضع البدئي والنهائي: $W_{AB}(\\vec{F}) = q(V_A - V_B)$.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكهرباء",
+          "points": 1,
+          "explanation": "التأكيد على أن شغل القوة الكهرساكنة يعتمد فقط على الموضع البدئي والنهائي: $W_{AB}(\\vec{F}) = q(V_A - V_B)$."
         },
         {
-          "id": "q2_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : la forme du chemin suivi entre A et B.",
+          "id": "q2_transfer",
+          "text": "Une résistance de 4 Ω est traversée par 0,5 A. La tension vaut :",
           "options": [
-            "Vrai",
-            "Faux"
+            "2 V",
+            "8 V",
+            "0,125 V"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. التأكيد على أن شغل القوة الكهرساكنة يعتمد فقط على الموضع البدئي والنهائي: $W_{AB}(\\vec{F}) = q(V_A - V_B)$.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكهرباء",
+          "skill": "الكهرباء",
+          "points": 1,
+          "gap": "À revoir : الكهرباء",
+          "recommendation": "U = R I = 4 × 0,5 = 2 V.",
+          "explanation": "U = R I = 4 × 0,5 = 2 V."
         }
       ]
     },
@@ -100,33 +114,40 @@
       "correct": 1,
       "gap": "ضعف في صياغة طاقة الوضع الكهرساكنة وعلاقتها بالجهد الكهربائي للعلوم الرياضية",
       "recommendation": "مراجعة العلاقة المباشرة لطاقة الوضع الكهرساكنة $E_{pe} = q \\cdot V$ مع الانتباه لإشارة الشحنة $q$.",
+      "domain": "الكهرباء",
+      "skill": "ضعف في صياغة طاقة الوضع الكهرساكنة وعلاقتها بالجهد الكهربائي للعلوم الرياضية",
+      "points": 1,
       "explanation": "مراجعة العلاقة المباشرة لطاقة الوضع الكهرساكنة $E_{pe} = q \\cdot V$ مع الانتباه لإشارة الشحنة $q$.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $E_{pe} = q . V$",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q3_support_1",
-          "text": "Exercice de soutien — L'expression de l'énergie potentielle électrostatique $E_{pe}$ d'une charge ponctuelle $q$ placée en un point de potentiel électrique $V$ (en choisissant l'origine des énergies comme référence) est :",
+          "id": "q3_practice",
+          "text": "Vérification guidée : L'expression de l'énergie potentielle électrostatique $E_{pe}$ d'une charge ponctuelle $q$ placée en un point de potentiel électrique $V$ (en choisissant l'origine des énergies comme référence) est :",
           "options": [
-            "$E_{pe} = V / q$",
-            "$E_{pe} = q / V$",
             "$E_{pe} = q . V$",
-            "$E_{pe} = q^2 . V$"
+            "$E_{pe} = q^2 . V$",
+            "$E_{pe} = V / q$",
+            "$E_{pe} = q / V$"
           ],
-          "correct": 2,
-          "explanation": "مراجعة العلاقة المباشرة لطاقة الوضع الكهرساكنة $E_{pe} = q \\cdot V$ مع الانتباه لإشارة الشحنة $q$.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكهرباء",
+          "points": 1,
+          "explanation": "مراجعة العلاقة المباشرة لطاقة الوضع الكهرساكنة $E_{pe} = q \\cdot V$ مع الانتباه لإشارة الشحنة $q$."
         },
         {
-          "id": "q3_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $E_{pe} = q / V$",
+          "id": "q3_transfer",
+          "text": "Une résistance de 4 Ω est traversée par 0,5 A. La tension vaut :",
           "options": [
-            "Vrai",
-            "Faux"
+            "2 V",
+            "8 V",
+            "0,125 V"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. مراجعة العلاقة المباشرة لطاقة الوضع الكهرساكنة $E_{pe} = q \\cdot V$ مع الانتباه لإشارة الشحنة $q$.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكهرباء",
+          "skill": "الكهرباء",
+          "points": 1,
+          "gap": "À revoir : الكهرباء",
+          "recommendation": "U = R I = 4 × 0,5 = 2 V.",
+          "explanation": "U = R I = 4 × 0,5 = 2 V."
         }
       ]
     },
@@ -142,13 +163,14 @@
       "correct": 1,
       "gap": "عدم معرفة الأهمية التاريخية والعلمية لتجربة أورستد في ربط الكهرباء بالمغناطيسية",
       "recommendation": "إعادة إبراز تجربة أورستد كمنطلق لإنتاج المجال المغناطيسي بواسطة التيارات الكهربائية.",
+      "domain": "مفاهيم علمية",
+      "skill": "عدم معرفة الأهمية التاريخية والعلمية لتجربة أورستد في ربط الكهرباء بالمغناطيسية",
+      "points": 1,
       "explanation": "إعادة إبراز تجربة أورستد كمنطلق لإنتاج المجال المغناطيسي بواسطة التيارات الكهربائية.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: un courant électrique crée un champ magnétique capable de dévier une aiguille aimantée.",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q4_support_1",
-          "text": "Exercice de soutien — L'expérience historique d'Oersted a mis en évidence que :",
+          "id": "q4_practice",
+          "text": "Vérification guidée : L'expérience historique d'Oersted a mis en évidence que :",
           "options": [
             "un courant électrique crée un champ magnétique capable de dévier une aiguille aimantée.",
             "la lumière est une onde électromagnétique.",
@@ -156,19 +178,9 @@
             "un aimant permanent crée un courant électrique."
           ],
           "correct": 0,
-          "explanation": "إعادة إبراز تجربة أورستد كمنطلق لإنتاج المجال المغناطيسي بواسطة التيارات الكهربائية.",
-          "image": ""
-        },
-        {
-          "id": "q4_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : un aimant permanent crée un courant électrique.",
-          "options": [
-            "Vrai",
-            "Faux"
-          ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. إعادة إبراز تجربة أورستد كمنطلق لإنتاج المجال المغناطيسي بواسطة التيارات الكهربائية.",
-          "image": ""
+          "domain": "مفاهيم علمية",
+          "points": 1,
+          "explanation": "إعادة إبراز تجربة أورستد كمنطلق لإنتاج المجال المغناطيسي بواسطة التيارات الكهربائية."
         }
       ]
     },
@@ -184,13 +196,14 @@
       "correct": 2,
       "gap": "عدم ضبط الوحدة العالمية لقياس شدة المجال المغناطيسي",
       "recommendation": "التركيز على أن التيسلا ($T$) هي الوحدة العالمية المعتمدة في النظام الدولي (SI) للمجال المغناطيسي.",
+      "domain": "مفاهيم علمية",
+      "skill": "عدم ضبط الوحدة العالمية لقياس شدة المجال المغناطيسي",
+      "points": 1,
       "explanation": "التركيز على أن التيسلا ($T$) هي الوحدة العالمية المعتمدة في النظام الدولي (SI) للمجال المغناطيسي.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: Le Tesla (T)",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q5_support_1",
-          "text": "Exercice de soutien — Quelle est l'unité internationale (SI) de l'intensité du champ magnétique $B$ ?",
+          "id": "q5_practice",
+          "text": "Vérification guidée : Quelle est l'unité internationale (SI) de l'intensité du champ magnétique $B$ ?",
           "options": [
             "Le Watt (W)",
             "Le Tesla (T)",
@@ -198,19 +211,9 @@
             "Le Volt (V)"
           ],
           "correct": 1,
-          "explanation": "التركيز على أن التيسلا ($T$) هي الوحدة العالمية المعتمدة في النظام الدولي (SI) للمجال المغناطيسي.",
-          "image": ""
-        },
-        {
-          "id": "q5_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : Le Volt (V)",
-          "options": [
-            "Vrai",
-            "Faux"
-          ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. التركيز على أن التيسلا ($T$) هي الوحدة العالمية المعتمدة في النظام الدولي (SI) للمجال المغناطيسي.",
-          "image": ""
+          "domain": "مفاهيم علمية",
+          "points": 1,
+          "explanation": "التركيز على أن التيسلا ($T$) هي الوحدة العالمية المعتمدة في النظام الدولي (SI) للمجال المغناطيسي."
         }
       ]
     },
@@ -226,33 +229,40 @@
       "correct": 0,
       "gap": "خلط في الصيغة الرياضية لشدة قوة لابلاص وغياب استحضار تأثير الزاوية قائمة",
       "recommendation": "التذكير بصيغة قوة لابلاص $F = I \\cdot L \\cdot B \\cdot \\sin(\\alpha)$ وعندما يكون التعامد فإن $\\sin(\\pi/2) = 1$ تصبح $F = I \\cdot L \\cdot B$.",
+      "domain": "الكهرباء",
+      "skill": "خلط في الصيغة الرياضية لشدة قوة لابلاص وغياب استحضار تأثير الزاوية قائمة",
+      "points": 1,
       "explanation": "التذكير بصيغة قوة لابلاص $F = I \\cdot L \\cdot B \\cdot \\sin(\\alpha)$ وعندما يكون التعامد فإن $\\sin(\\pi/2) = 1$ تصبح $F = I \\cdot L \\cdot B$.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $F = I . L . B$",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q6_support_1",
-          "text": "Exercice de soutien — La force de Laplace $\\vec{F}$ exercée sur un conducteur rectiligne de longueur $L$ parcouru par un courant $I$ et placé dans un champ magnétique uniforme $\\vec{B}$ perpendiculaire au conducteur a pour intensité :",
+          "id": "q6_practice",
+          "text": "Vérification guidée : La force de Laplace $\\vec{F}$ exercée sur un conducteur rectiligne de longueur $L$ parcouru par un courant $I$ et placé dans un champ magnétique uniforme $\\vec{B}$ perpendiculaire au conducteur a pour intensité :",
           "options": [
+            "$F = I . L / B$",
             "$F = B . L / I$",
             "$F = I^2 . L . B$",
-            "$F = I . L . B$",
-            "$F = I . L / B$"
+            "$F = I . L . B$"
           ],
-          "correct": 2,
-          "explanation": "التذكير بصيغة قوة لابلاص $F = I \\cdot L \\cdot B \\cdot \\sin(\\alpha)$ وعندما يكون التعامد فإن $\\sin(\\pi/2) = 1$ تصبح $F = I \\cdot L \\cdot B$.",
-          "image": ""
+          "correct": 3,
+          "domain": "الكهرباء",
+          "points": 1,
+          "explanation": "التذكير بصيغة قوة لابلاص $F = I \\cdot L \\cdot B \\cdot \\sin(\\alpha)$ وعندما يكون التعامد فإن $\\sin(\\pi/2) = 1$ تصبح $F = I \\cdot L \\cdot B$."
         },
         {
-          "id": "q6_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $F = I . L / B$",
+          "id": "q6_transfer",
+          "text": "Une résistance de 4 Ω est traversée par 0,5 A. La tension vaut :",
           "options": [
-            "Vrai",
-            "Faux"
+            "2 V",
+            "8 V",
+            "0,125 V"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. التذكير بصيغة قوة لابلاص $F = I \\cdot L \\cdot B \\cdot \\sin(\\alpha)$ وعندما يكون التعامد فإن $\\sin(\\pi/2) = 1$ تصبح $F = I \\cdot L \\cdot B$.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكهرباء",
+          "skill": "الكهرباء",
+          "points": 1,
+          "gap": "À revoir : الكهرباء",
+          "recommendation": "U = R I = 4 × 0,5 = 2 V.",
+          "explanation": "U = R I = 4 × 0,5 = 2 V."
         }
       ]
     },
@@ -268,33 +278,40 @@
       "correct": 1,
       "gap": "عدم إدراك الدور المحرك لقوى لابلاص في تحويل الطاقة داخل الأنظمة الكهروميكانيكية",
       "recommendation": "التركيز على التطبيقات العملية لقوة لابلاص (كالمنظمات والمحركات الكهربائية) التي تحول الطاقة الكهربائية إلى طاقة ميكانيكية.",
+      "domain": "الكيمياء",
+      "skill": "عدم إدراك الدور المحرك لقوى لابلاص في تحويل الطاقة داخل الأنظمة الكهروميكانيكية",
+      "points": 1,
       "explanation": "التركيز على التطبيقات العملية لقوة لابلاص (كالمنظمات والمحركات الكهربائية) التي تحول الطاقة الكهربائية إلى طاقة ميكانيكية.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: l'énergie électrique en énergie mécanique (mouvement).",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q7_support_1",
-          "text": "Exercice de soutien — Les forces de Laplace permettent de réaliser une conversion d'énergie. Il s'agit de la transformation de :",
+          "id": "q7_practice",
+          "text": "Vérification guidée : Les forces de Laplace permettent de réaliser une conversion d'énergie. Il s'agit de la transformation de :",
           "options": [
-            "l'énergie magnétique en énergie thermique uniquement.",
-            "l'énergie thermique en énergie électrique.",
             "l'énergie électrique en énergie mécanique (mouvement).",
-            "l'énergie mécanique en énergie chimique."
+            "l'énergie mécanique en énergie chimique.",
+            "l'énergie magnétique en énergie thermique uniquement.",
+            "l'énergie thermique en énergie électrique."
           ],
-          "correct": 2,
-          "explanation": "التركيز على التطبيقات العملية لقوة لابلاص (كالمنظمات والمحركات الكهربائية) التي تحول الطاقة الكهربائية إلى طاقة ميكانيكية.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "التركيز على التطبيقات العملية لقوة لابلاص (كالمنظمات والمحركات الكهربائية) التي تحول الطاقة الكهربائية إلى طاقة ميكانيكية."
         },
         {
-          "id": "q7_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : l'énergie thermique en énergie électrique.",
+          "id": "q7_transfer",
+          "text": "On dissout 0,2 mol dans un volume final de 0,5 L. La concentration vaut :",
           "options": [
-            "Vrai",
-            "Faux"
+            "0,4 mol/L",
+            "0,1 mol/L",
+            "2,5 mol/L"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. التركيز على التطبيقات العملية لقوة لابلاص (كالمنظمات والمحركات الكهربائية) التي تحول الطاقة الكهربائية إلى طاقة ميكانيكية.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "الكيمياء",
+          "points": 1,
+          "gap": "À revoir : الكيمياء",
+          "recommendation": "C = n/V = 0,2/0,5 = 0,4 mol/L.",
+          "explanation": "C = n/V = 0,2/0,5 = 0,4 mol/L."
         }
       ]
     },
@@ -310,13 +327,14 @@
       "correct": 2,
       "gap": "ضعف في تطبيق مبدأ انحفاظ الطاقة على دارة كهربائية مغلقة",
       "recommendation": "ترسيخ مبدأ انحفاظ الطاقة في الدارات: الطاقة الممنوحة تساوي دائماً مجموع الطاقة النافعة والطاقة المبددة.",
+      "domain": "الكهرباء",
+      "skill": "ضعف في تطبيق مبدأ انحفاظ الطاقة على دارة كهربائية مغلقة",
+      "points": 1,
       "explanation": "ترسيخ مبدأ انحفاظ الطاقة في الدارات: الطاقة الممنوحة تساوي دائماً مجموع الطاقة النافعة والطاقة المبددة.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: la somme de l'énergie utile et de toutes les énergies dissipées (Joule, etc.).",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q8_support_1",
-          "text": "Exercice de soutien — Dans un circuit électrique en courant continu comprenant un générateur et un récepteur, le transfert d'énergie global est régi par la loi de conservation de l'énergie. L'énergie totale fournie par le générateur est égale à :",
+          "id": "q8_practice",
+          "text": "Vérification guidée : Dans un circuit électrique en courant continu comprenant un générateur et un récepteur, le transfert d'énergie global est régi par la loi de conservation de l'énergie. L'énergie totale fournie par le générateur est égale à :",
           "options": [
             "l'énergie dissipée par effet Joule uniquement.",
             "la somme de l'énergie utile et de toutes les énergies dissipées (Joule, etc.).",
@@ -324,21 +342,31 @@
             "l'énergie utile du récepteur uniquement."
           ],
           "correct": 1,
-          "explanation": "ترسيخ مبدأ انحفاظ الطاقة في الدارات: الطاقة الممنوحة تساوي دائماً مجموع الطاقة النافعة والطاقة المبددة.",
-          "image": ""
+          "domain": "الكهرباء",
+          "points": 1,
+          "explanation": "ترسيخ مبدأ انحفاظ الطاقة في الدارات: الطاقة الممنوحة تساوي دائماً مجموع الطاقة النافعة والطاقة المبددة."
         },
         {
-          "id": "q8_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : l'énergie utile du récepteur uniquement.",
+          "id": "q8_transfer",
+          "text": "Une résistance de 4 Ω est traversée par 0,5 A. La tension vaut :",
           "options": [
-            "Vrai",
-            "Faux"
+            "2 V",
+            "8 V",
+            "0,125 V"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. ترسيخ مبدأ انحفاظ الطاقة في الدارات: الطاقة الممنوحة تساوي دائماً مجموع الطاقة النافعة والطاقة المبددة.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكهرباء",
+          "skill": "الكهرباء",
+          "points": 1,
+          "gap": "À revoir : الكهرباء",
+          "recommendation": "U = R I = 4 × 0,5 = 2 V.",
+          "explanation": "U = R I = 4 × 0,5 = 2 V."
         }
       ]
     }
-  ]
+  ],
+  "duration": 45,
+  "type": "diagnostic",
+  "type_label": "تشخيصي",
+  "version": "2026.10.1"
 }

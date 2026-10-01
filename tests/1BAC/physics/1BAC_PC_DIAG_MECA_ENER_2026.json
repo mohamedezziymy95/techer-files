@@ -16,13 +16,14 @@
       "correct": 1,
       "gap": "عجز عن تذكر الصيغة الرياضية الصحيحة لشغل قوة ثابتة في حالة إزاحة والخلط بين الدالتين الجيبية وجيب التمام",
       "recommendation": "التأكيد على أن الشغل يرتبط بمركبة القوة الموازية للمسار عبر العلاقة $W_{AB}(\\vec{F}) = F \\cdot AB \\cdot \\cos(\\alpha)$.",
+      "domain": "الكيمياء",
+      "skill": "عجز عن تذكر الصيغة الرياضية الصحيحة لشغل قوة ثابتة في حالة إزاحة والخلط بين الدالتين الجيبية وجيب التمام",
+      "points": 1,
       "explanation": "التأكيد على أن الشغل يرتبط بمركبة القوة الموازية للمسار عبر العلاقة $W_{AB}(\\vec{F}) = F \\cdot AB \\cdot \\cos(\\alpha)$.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $W_{AB}(\\vec{F}) = F . AB . \\cos(\\alpha)$",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q1_support_1",
-          "text": "Exercice de soutien — L'expression du travail d'une force constante $\\vec{F}$ lors d'un déplacement rectiligne $AB$ est :",
+          "id": "q1_practice",
+          "text": "Vérification guidée : L'expression du travail d'une force constante $\\vec{F}$ lors d'un déplacement rectiligne $AB$ est :",
           "options": [
             "$W_{AB}(\\vec{F}) = F . AB . \\cos(\\alpha)$",
             "$W_{AB}(\\vec{F}) = F / (AB . \\cos(\\alpha))$",
@@ -30,19 +31,25 @@
             "$W_{AB}(\\vec{F}) = F . AB . \\sin(\\alpha)$"
           ],
           "correct": 0,
-          "explanation": "التأكيد على أن الشغل يرتبط بمركبة القوة الموازية للمسار عبر العلاقة $W_{AB}(\\vec{F}) = F \\cdot AB \\cdot \\cos(\\alpha)$.",
-          "image": ""
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "التأكيد على أن الشغل يرتبط بمركبة القوة الموازية للمسار عبر العلاقة $W_{AB}(\\vec{F}) = F \\cdot AB \\cdot \\cos(\\alpha)$."
         },
         {
-          "id": "q1_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $W_{AB}(\\vec{F}) = F . AB . \\sin(\\alpha)$",
+          "id": "q1_transfer",
+          "text": "On dissout 0,2 mol dans un volume final de 0,5 L. La concentration vaut :",
           "options": [
-            "Vrai",
-            "Faux"
+            "0,4 mol/L",
+            "0,1 mol/L",
+            "2,5 mol/L"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. التأكيد على أن الشغل يرتبط بمركبة القوة الموازية للمسار عبر العلاقة $W_{AB}(\\vec{F}) = F \\cdot AB \\cdot \\cos(\\alpha)$.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "الكيمياء",
+          "points": 1,
+          "gap": "À revoir : الكيمياء",
+          "recommendation": "C = n/V = 0,2/0,5 = 0,4 mol/L.",
+          "explanation": "C = n/V = 0,2/0,5 = 0,4 mol/L."
         }
       ]
     },
@@ -58,33 +65,40 @@
       "correct": 0,
       "gap": "صعوبة في التمييز بين تعبير الشغل في حالة الإزاحة وتعبيره في حالة الدوران حول محور ثابت",
       "recommendation": "مراجعة تماثل القوانين الفيزيائية بين الإزاحة والدوران، حيث يقابل القوة $F$ العزم $M_{\\Delta}$ وتقابل المسافة $AB$ الأفصول الزاوي $\\Delta\\theta$.",
+      "domain": "الكيمياء",
+      "skill": "صعوبة في التمييز بين تعبير الشغل في حالة الإزاحة وتعبيره في حالة الدوران حول محور ثابت",
+      "points": 1,
       "explanation": "مراجعة تماثل القوانين الفيزيائية بين الإزاحة والدوران، حيث يقابل القوة $F$ العزم $M_{\\Delta}$ وتقابل المسافة $AB$ الأفصول الزاوي $\\Delta\\theta$.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $W = M_{\\Delta} . \\Delta\\theta$",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q2_support_1",
-          "text": "Exercice de soutien — Le travail d'un couple de forces de moment constant $M_{\\Delta}$ s'appliquant sur un corps en rotation d'un angle $\\Delta\\theta$ autour d'un axe fixe $\\Delta$ est :",
+          "id": "q2_practice",
+          "text": "Vérification guidée : Le travail d'un couple de forces de moment constant $M_{\\Delta}$ s'appliquant sur un corps en rotation d'un angle $\\Delta\\theta$ autour d'un axe fixe $\\Delta$ est :",
           "options": [
+            "$W = M_{\\Delta} / \\Delta\\theta$",
             "$W = 0.5 . M_{\\Delta} . (\\Delta\\theta)^2$",
             "$W = M_{\\Delta} . \\cos(\\Delta\\theta)$",
-            "$W = M_{\\Delta} . \\Delta\\theta$",
-            "$W = M_{\\Delta} / \\Delta\\theta$"
+            "$W = M_{\\Delta} . \\Delta\\theta$"
           ],
-          "correct": 2,
-          "explanation": "مراجعة تماثل القوانين الفيزيائية بين الإزاحة والدوران، حيث يقابل القوة $F$ العزم $M_{\\Delta}$ وتقابل المسافة $AB$ الأفصول الزاوي $\\Delta\\theta$.",
-          "image": ""
+          "correct": 3,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "مراجعة تماثل القوانين الفيزيائية بين الإزاحة والدوران، حيث يقابل القوة $F$ العزم $M_{\\Delta}$ وتقابل المسافة $AB$ الأفصول الزاوي $\\Delta\\theta$."
         },
         {
-          "id": "q2_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $W = M_{\\Delta} / \\Delta\\theta$",
+          "id": "q2_transfer",
+          "text": "On dissout 0,2 mol dans un volume final de 0,5 L. La concentration vaut :",
           "options": [
-            "Vrai",
-            "Faux"
+            "0,4 mol/L",
+            "0,1 mol/L",
+            "2,5 mol/L"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. مراجعة تماثل القوانين الفيزيائية بين الإزاحة والدوران، حيث يقابل القوة $F$ العزم $M_{\\Delta}$ وتقابل المسافة $AB$ الأفصول الزاوي $\\Delta\\theta$.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "الكيمياء",
+          "points": 1,
+          "gap": "À revoir : الكيمياء",
+          "recommendation": "C = n/V = 0,2/0,5 = 0,4 mol/L.",
+          "explanation": "C = n/V = 0,2/0,5 = 0,4 mol/L."
         }
       ]
     },
@@ -100,33 +114,40 @@
       "correct": 2,
       "gap": "عدم حفظ وتذكر التعبير الرياضي الصحيح للطاقة الحركية في حالة الإزاحة",
       "recommendation": "التذكير بصيغة الطاقة الحركية للإزاحة $E_c = \\frac{1}{2}m \\cdot v^2$ والتركيز على أن الطاقة تتناسب مع مربع السرعة.",
+      "domain": "الكيمياء",
+      "skill": "عدم حفظ وتذكر التعبير الرياضي الصحيح للطاقة الحركية في حالة الإزاحة",
+      "points": 1,
       "explanation": "التذكير بصيغة الطاقة الحركية للإزاحة $E_c = \\frac{1}{2}m \\cdot v^2$ والتركيز على أن الطاقة تتناسب مع مربع السرعة.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $E_c = 0.5 . m . v^2$",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q3_support_1",
-          "text": "Exercice de soutien — L'expression de l'énergie cinétique $E_c$ d'un corps solide en mouvement de translation rectiligne avec une vitesse $v$ est :",
+          "id": "q3_practice",
+          "text": "Vérification guidée : L'expression de l'énergie cinétique $E_c$ d'un corps solide en mouvement de translation rectiligne avec une vitesse $v$ est :",
           "options": [
-            "$E_c = 0.5 . m^2 . v$",
-            "$E_c = m . v^2$",
             "$E_c = 0.5 . m . v$",
-            "$E_c = 0.5 . m . v^2$"
-          ],
-          "correct": 3,
-          "explanation": "التذكير بصيغة الطاقة الحركية للإزاحة $E_c = \\frac{1}{2}m \\cdot v^2$ والتركيز على أن الطاقة تتناسب مع مربع السرعة.",
-          "image": ""
-        },
-        {
-          "id": "q3_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $E_c = m . v^2$",
-          "options": [
-            "Vrai",
-            "Faux"
+            "$E_c = 0.5 . m . v^2$",
+            "$E_c = 0.5 . m^2 . v$",
+            "$E_c = m . v^2$"
           ],
           "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. التذكير بصيغة الطاقة الحركية للإزاحة $E_c = \\frac{1}{2}m \\cdot v^2$ والتركيز على أن الطاقة تتناسب مع مربع السرعة.",
-          "image": ""
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "التذكير بصيغة الطاقة الحركية للإزاحة $E_c = \\frac{1}{2}m \\cdot v^2$ والتركيز على أن الطاقة تتناسب مع مربع السرعة."
+        },
+        {
+          "id": "q3_transfer",
+          "text": "On dissout 0,2 mol dans un volume final de 0,5 L. La concentration vaut :",
+          "options": [
+            "0,4 mol/L",
+            "0,1 mol/L",
+            "2,5 mol/L"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "الكيمياء",
+          "points": 1,
+          "gap": "À revoir : الكيمياء",
+          "recommendation": "C = n/V = 0,2/0,5 = 0,4 mol/L.",
+          "explanation": "C = n/V = 0,2/0,5 = 0,4 mol/L."
         }
       ]
     },
@@ -142,13 +163,14 @@
       "correct": 1,
       "gap": "الخلط في إشارة وتعبير طاقة الوضع الثقالية وعلاقتها بالارتفاع عن سطح الأرض",
       "recommendation": "التركيز على أن طاقة الوضع الثقالية ترتبط بالشغل اللازم لإبعاد الجسم عن الأرض وتساوي $E_{pp} = m \\cdot g \\cdot z$ عند توجيه المحور نحو الأعلى.",
+      "domain": "الميكانيك",
+      "skill": "الخلط في إشارة وتعبير طاقة الوضع الثقالية وعلاقتها بالارتفاع عن سطح الأرض",
+      "points": 1,
       "explanation": "التركيز على أن طاقة الوضع الثقالية ترتبط بالشغل اللازم لإبعاد الجسم عن الأرض وتساوي $E_{pp} = m \\cdot g \\cdot z$ عند توجيه المحور نحو الأعلى.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: $E_{pp} = m . g . z$",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q4_support_1",
-          "text": "Exercice de soutien — L'énergie potentielle de pesanteur $E_{pp}$ d'un corps solide de masse $m$ situé à une altitude $z$ (l'axe $Oz$ étant dirigé vers le haut, et l'origine comme référence) est :",
+          "id": "q4_practice",
+          "text": "Vérification guidée : L'énergie potentielle de pesanteur $E_{pp}$ d'un corps solide de masse $m$ situé à une altitude $z$ (l'axe $Oz$ étant dirigé vers le haut, et l'origine comme référence) est :",
           "options": [
             "$E_{pp} = m . g . z$",
             "$E_{pp} = - m . g . z$",
@@ -156,19 +178,25 @@
             "$E_{pp} = m . g / z$"
           ],
           "correct": 0,
-          "explanation": "التركيز على أن طاقة الوضع الثقالية ترتبط بالشغل اللازم لإبعاد الجسم عن الأرض وتساوي $E_{pp} = m \\cdot g \\cdot z$ عند توجيه المحور نحو الأعلى.",
-          "image": ""
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "التركيز على أن طاقة الوضع الثقالية ترتبط بالشغل اللازم لإبعاد الجسم عن الأرض وتساوي $E_{pp} = m \\cdot g \\cdot z$ عند توجيه المحور نحو الأعلى."
         },
         {
-          "id": "q4_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : $E_{pp} = m . g / z$",
+          "id": "q4_transfer",
+          "text": "Un mobile parcourt 150 m en 30 s. Sa vitesse moyenne est :",
           "options": [
-            "Vrai",
-            "Faux"
+            "5 m/s",
+            "180 m/s",
+            "4500 m/s"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. التركيز على أن طاقة الوضع الثقالية ترتبط بالشغل اللازم لإبعاد الجسم عن الأرض وتساوي $E_{pp} = m \\cdot g \\cdot z$ عند توجيه المحور نحو الأعلى.",
-          "image": ""
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "الميكانيك",
+          "points": 1,
+          "gap": "À revoir : الميكانيك",
+          "recommendation": "v = d/Δt = 150/30 = 5 m/s.",
+          "explanation": "v = d/Δt = 150/30 = 5 m/s."
         }
       ]
     },
@@ -184,13 +212,14 @@
       "correct": 2,
       "gap": "عدم استيعاب شرط انحفاظ الطاقة الميكانيكية وغياب المفهوم التجريبي لتحول الطاقة بين الحركية والوضع",
       "recommendation": "ترسيخ مبدأ انحفاظ الطاقة الميكانيكية في غياب الاحتكاكات وفهم أن أي نقص في الطاقة الحركية يقابله زيادة في طاقة الوضع والعكس صحيح.",
+      "domain": "الميكانيك",
+      "skill": "عدم استيعاب شرط انحفاظ الطاقة الميكانيكية وغياب المفهوم التجريبي لتحول الطاقة بين الحركية والوضع",
+      "points": 1,
       "explanation": "ترسيخ مبدأ انحفاظ الطاقة الميكانيكية في غياب الاحتكاكات وفهم أن أي نقص في الطاقة الحركية يقابله زيادة في طاقة الوضع والعكس صحيح.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: se conserve (reste constante).",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q5_support_1",
-          "text": "Exercice de soutien — En l'absence de frottements (forces non conservatrices), l'énergie mécanique $E_m = E_c + E_{pp}$ d'un système :",
+          "id": "q5_practice",
+          "text": "Vérification guidée : En l'absence de frottements (forces non conservatrices), l'énergie mécanique $E_m = E_c + E_{pp}$ d'un système :",
           "options": [
             "augmente au cours du temps.",
             "se conserve (reste constante).",
@@ -198,19 +227,25 @@
             "diminue au cours du temps."
           ],
           "correct": 1,
-          "explanation": "ترسيخ مبدأ انحفاظ الطاقة الميكانيكية في غياب الاحتكاكات وفهم أن أي نقص في الطاقة الحركية يقابله زيادة في طاقة الوضع والعكس صحيح.",
-          "image": ""
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "ترسيخ مبدأ انحفاظ الطاقة الميكانيكية في غياب الاحتكاكات وفهم أن أي نقص في الطاقة الحركية يقابله زيادة في طاقة الوضع والعكس صحيح."
         },
         {
-          "id": "q5_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : diminue au cours du temps.",
+          "id": "q5_transfer",
+          "text": "Un mobile parcourt 150 m en 30 s. Sa vitesse moyenne est :",
           "options": [
-            "Vrai",
-            "Faux"
+            "5 m/s",
+            "180 m/s",
+            "4500 m/s"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. ترسيخ مبدأ انحفاظ الطاقة الميكانيكية في غياب الاحتكاكات وفهم أن أي نقص في الطاقة الحركية يقابله زيادة في طاقة الوضع والعكس صحيح.",
-          "image": ""
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "الميكانيك",
+          "points": 1,
+          "gap": "À revoir : الميكانيك",
+          "recommendation": "v = d/Δt = 150/30 = 5 m/s.",
+          "explanation": "v = d/Δt = 150/30 = 5 m/s."
         }
       ]
     },
@@ -226,33 +261,40 @@
       "correct": 1,
       "gap": "العجز عن تفسير النقص الملاحظ في الطاقة الميكانيكية بربطه بالـتأثيرات المجهرية ذات الطابع الحراري",
       "recommendation": "توضيح أن الاحتكاكات تؤدي إلى بدد الطاقة الميكانيكية وتحولها إلى طاقة غير منظمة (انتقال حراري) ترفع الطاقة الداخلية للجملة.",
+      "domain": "الكيمياء",
+      "skill": "العجز عن تفسير النقص الملاحظ في الطاقة الميكانيكية بربطه بالـتأثيرات المجهرية ذات الطابع الحراري",
+      "points": 1,
       "explanation": "توضيح أن الاحتكاكات تؤدي إلى بدد الطاقة الميكانيكية وتحولها إلى طاقة غير منظمة (انتقال حراري) ترفع الطاقة الداخلية للجملة.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: d'énergie thermique (chaleur) transférée au milieu extérieur.",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q6_support_1",
-          "text": "Exercice de soutien — Lorsqu'un corps subit des frottements, on observe une diminution de son énergie mécanique. Ce manque d'énergie est converti sous forme :",
+          "id": "q6_practice",
+          "text": "Vérification guidée : Lorsqu'un corps subit des frottements, on observe une diminution de son énergie mécanique. Ce manque d'énergie est converti sous forme :",
           "options": [
+            "d'énergie thermique (chaleur) transférée au milieu extérieur.",
             "d'énergie cinétique microscopique ordonnée.",
             "d'énergie chimique.",
-            "d'énergie potentielle supplémentaire.",
-            "d'énergie thermique (chaleur) transférée au milieu extérieur."
+            "d'énergie potentielle supplémentaire."
           ],
-          "correct": 3,
-          "explanation": "توضيح أن الاحتكاكات تؤدي إلى بدد الطاقة الميكانيكية وتحولها إلى طاقة غير منظمة (انتقال حراري) ترفع الطاقة الداخلية للجملة.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "توضيح أن الاحتكاكات تؤدي إلى بدد الطاقة الميكانيكية وتحولها إلى طاقة غير منظمة (انتقال حراري) ترفع الطاقة الداخلية للجملة."
         },
         {
-          "id": "q6_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : d'énergie potentielle supplémentaire.",
+          "id": "q6_transfer",
+          "text": "On dissout 0,2 mol dans un volume final de 0,5 L. La concentration vaut :",
           "options": [
-            "Vrai",
-            "Faux"
+            "0,4 mol/L",
+            "0,1 mol/L",
+            "2,5 mol/L"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. توضيح أن الاحتكاكات تؤدي إلى بدد الطاقة الميكانيكية وتحولها إلى طاقة غير منظمة (انتقال حراري) ترفع الطاقة الداخلية للجملة.",
-          "image": ""
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "الكيمياء",
+          "points": 1,
+          "gap": "À revoir : الكيمياء",
+          "recommendation": "C = n/V = 0,2/0,5 = 0,4 mol/L.",
+          "explanation": "C = n/V = 0,2/0,5 = 0,4 mol/L."
         }
       ]
     },
@@ -268,33 +310,40 @@
       "correct": 2,
       "gap": "عدم التمييز بين الأشكال المختلفة للانتقال الحراري (التماس، الإشعاع، الحمل)",
       "recommendation": "مراجعة أصناف الانتقال الحراري والتركيز على أن الانتقال بالتماس المباشر دون انتقال المادة يسمى موصلية حرارية أو التماس (conduction).",
+      "domain": "الكيمياء",
+      "skill": "عدم التمييز بين الأشكال المختلفة للانتقال الحراري (التماس، الإشعاع، الحمل)",
+      "points": 1,
       "explanation": "مراجعة أصناف الانتقال الحراري والتركيز على أن الانتقال بالتماس المباشر دون انتقال المادة يسمى موصلية حرارية أو التماس (conduction).",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: la conduction (le contact).",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q7_support_1",
-          "text": "Exercice de soutien — Le mode de transfert thermique qui se produit d'un corps chaud vers un corps froid sans déplacement de matière et par contact direct est appelé :",
+          "id": "q7_practice",
+          "text": "Vérification guidée : Le mode de transfert thermique qui se produit d'un corps chaud vers un corps froid sans déplacement de matière et par contact direct est appelé :",
           "options": [
-            "la sublimation.",
-            "la convection.",
             "le rayonnement.",
-            "la conduction (le contact)."
-          ],
-          "correct": 3,
-          "explanation": "مراجعة أصناف الانتقال الحراري والتركيز على أن الانتقال بالتماس المباشر دون انتقال المادة يسمى موصلية حرارية أو التماس (conduction).",
-          "image": ""
-        },
-        {
-          "id": "q7_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : la convection.",
-          "options": [
-            "Vrai",
-            "Faux"
+            "la conduction (le contact).",
+            "la sublimation.",
+            "la convection."
           ],
           "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. مراجعة أصناف الانتقال الحراري والتركيز على أن الانتقال بالتماس المباشر دون انتقال المادة يسمى موصلية حرارية أو التماس (conduction).",
-          "image": ""
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "مراجعة أصناف الانتقال الحراري والتركيز على أن الانتقال بالتماس المباشر دون انتقال المادة يسمى موصلية حرارية أو التماس (conduction)."
+        },
+        {
+          "id": "q7_transfer",
+          "text": "On dissout 0,2 mol dans un volume final de 0,5 L. La concentration vaut :",
+          "options": [
+            "0,4 mol/L",
+            "0,1 mol/L",
+            "2,5 mol/L"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "الكيمياء",
+          "points": 1,
+          "gap": "À revoir : الكيمياء",
+          "recommendation": "C = n/V = 0,2/0,5 = 0,4 mol/L.",
+          "explanation": "C = n/V = 0,2/0,5 = 0,4 mol/L."
         }
       ]
     },
@@ -310,13 +359,14 @@
       "correct": 0,
       "gap": "اعتقاد خاطئ بأن الانتقال الحراري يتطلب دائماً وجود وسط مادي ملموس",
       "recommendation": "التأكيد على أن الانتقال بالإشعاع (rayonnement) هو الشكل الوحيد الذي يمكنه الانتشار في الفراغ عبر الأمواج الكهرومغناطيسية.",
+      "domain": "الحرارة",
+      "skill": "اعتقاد خاطئ بأن الانتقال الحراري يتطلب دائماً وجود وسط مادي ملموس",
+      "points": 1,
       "explanation": "التأكيد على أن الانتقال بالإشعاع (rayonnement) هو الشكل الوحيد الذي يمكنه الانتشار في الفراغ عبر الأمواج الكهرومغناطيسية.",
-      "worked_example": "مثال موجه: نحدد أولاً المفهوم أو العلاقة المطلوبة، ثم نقارنها بالمعطيات. في هذه الحالة النتيجة التي ينبغي الاحتفاظ بها هي: ondes électromagnétiques (lumière, infrarouge) et peut avoir lieu dans le vide.",
-      "hint": "حدد المقدار أو المفهوم المطلوب، استبعد الاختيارات غير المتجانسة، ثم تحقق من العلاقة والوحدة.",
-      "support_exercises": [
+      "practice": [
         {
-          "id": "q8_support_1",
-          "text": "Exercice de soutien — Le transfert d'énergie par rayonnement (comme l'énergie reçue du Soleil) se fait par :",
+          "id": "q8_practice",
+          "text": "Vérification guidée : Le transfert d'énergie par rayonnement (comme l'énergie reçue du Soleil) se fait par :",
           "options": [
             "déplacement de fluide chaud uniquement.",
             "chocs de proche en proche dans un milieu solide uniquement.",
@@ -324,21 +374,31 @@
             "ondes électromagnétiques (lumière, infrarouge) et peut avoir lieu dans le vide."
           ],
           "correct": 3,
-          "explanation": "التأكيد على أن الانتقال بالإشعاع (rayonnement) هو الشكل الوحيد الذي يمكنه الانتشار في الفراغ عبر الأمواج الكهرومغناطيسية.",
-          "image": ""
+          "domain": "الحرارة",
+          "points": 1,
+          "explanation": "التأكيد على أن الانتقال بالإشعاع (rayonnement) هو الشكل الوحيد الذي يمكنه الانتشار في الفراغ عبر الأمواج الكهرومغناطيسية."
         },
         {
-          "id": "q8_support_2",
-          "text": "Vrai ou faux ? Pour la situation étudiée, la proposition suivante est correcte : déplacement de fluide chaud uniquement.",
+          "id": "q8_transfer",
+          "text": "Le transfert thermique du Soleil vers la Terre est principalement :",
           "options": [
-            "Vrai",
-            "Faux"
+            "un rayonnement",
+            "une conduction dans le vide",
+            "une convection dans le vide"
           ],
-          "correct": 1,
-          "explanation": "هذه العبارة غير صحيحة. التأكيد على أن الانتقال بالإشعاع (rayonnement) هو الشكل الوحيد الذي يمكنه الانتشار في الفراغ عبر الأمواج الكهرومغناطيسية.",
-          "image": ""
+          "correct": 0,
+          "domain": "الحرارة",
+          "skill": "الحرارة",
+          "points": 1,
+          "gap": "À revoir : الحرارة",
+          "recommendation": "Les ondes électromagnétiques se propagent dans le vide.",
+          "explanation": "Les ondes électromagnétiques se propagent dans le vide."
         }
       ]
     }
-  ]
+  ],
+  "duration": 45,
+  "type": "diagnostic",
+  "type_label": "تشخيصي",
+  "version": "2026.10.1"
 }

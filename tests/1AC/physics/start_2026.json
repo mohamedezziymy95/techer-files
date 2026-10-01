@@ -1,0 +1,260 @@
+{
+  "id": "1AC_PC_START_2026",
+  "title": "Diagnostic initial — 1AC",
+  "subject": "الفيزياء والكيمياء",
+  "level": "1AC",
+  "type": "diagnostic",
+  "type_label": "تشخيصي مختصر",
+  "duration": 15,
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "La masse se mesure avec :",
+      "options": [
+        "une balance",
+        "un thermomètre",
+        "une éprouvette"
+      ],
+      "correct": 0,
+      "domain": "Mesure",
+      "skill": "Mesure",
+      "points": 1,
+      "gap": "À revoir : Mesure",
+      "recommendation": "La balance mesure la masse. Le kilogramme est l’unité SI.",
+      "explanation": "La balance mesure la masse. Le kilogramme est l’unité SI.",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification guidée : La masse se mesure avec :",
+          "options": [
+            "un thermomètre",
+            "une éprouvette",
+            "une balance"
+          ],
+          "correct": 2,
+          "domain": "Mesure",
+          "points": 1,
+          "explanation": "La balance mesure la masse. Le kilogramme est l’unité SI."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "L’unité SI du volume est :",
+      "options": [
+        "le kilogramme",
+        "le mètre cube",
+        "le degré Celsius"
+      ],
+      "correct": 1,
+      "domain": "Mesure",
+      "skill": "Mesure",
+      "points": 1,
+      "gap": "À revoir : Mesure",
+      "recommendation": "Un volume se mesure en m³. 1 L = 1 dm³.",
+      "explanation": "Un volume se mesure en m³. 1 L = 1 dm³.",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification guidée : L’unité SI du volume est :",
+          "options": [
+            "le mètre cube",
+            "le degré Celsius",
+            "le kilogramme"
+          ],
+          "correct": 0,
+          "domain": "Mesure",
+          "points": 1,
+          "explanation": "Un volume se mesure en m³. 1 L = 1 dm³."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Un liquide prend :",
+      "options": [
+        "la forme du récipient",
+        "une forme propre",
+        "tout le volume disponible"
+      ],
+      "correct": 0,
+      "domain": "Matière",
+      "skill": "Matière",
+      "points": 1,
+      "gap": "À revoir : Matière",
+      "recommendation": "Un liquide possède un volume propre mais pas de forme propre.",
+      "explanation": "Un liquide possède un volume propre mais pas de forme propre.",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification guidée : Un liquide prend :",
+          "options": [
+            "une forme propre",
+            "tout le volume disponible",
+            "la forme du récipient"
+          ],
+          "correct": 2,
+          "domain": "Matière",
+          "points": 1,
+          "explanation": "Un liquide possède un volume propre mais pas de forme propre."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Lors de la fusion, l’eau passe :",
+      "options": [
+        "du gaz au liquide",
+        "du solide au liquide",
+        "du liquide au gaz"
+      ],
+      "correct": 1,
+      "domain": "Matière",
+      "skill": "Matière",
+      "points": 1,
+      "gap": "À revoir : Matière",
+      "recommendation": "La fusion est le passage de l’état solide à l’état liquide.",
+      "explanation": "La fusion est le passage de l’état solide à l’état liquide.",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification guidée : Lors de la fusion, l’eau passe :",
+          "options": [
+            "du solide au liquide",
+            "du liquide au gaz",
+            "du gaz au liquide"
+          ],
+          "correct": 0,
+          "domain": "Matière",
+          "points": 1,
+          "explanation": "La fusion est le passage de l’état solide à l’état liquide."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Pour séparer du sable de l’eau, on peut utiliser :",
+      "options": [
+        "la filtration",
+        "un aimant",
+        "la dissolution"
+      ],
+      "correct": 0,
+      "domain": "Mélanges",
+      "skill": "Mélanges",
+      "points": 1,
+      "gap": "À revoir : Mélanges",
+      "recommendation": "La filtration retient un solide insoluble et laisse passer le liquide.",
+      "explanation": "La filtration retient un solide insoluble et laisse passer le liquide.",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification guidée : Pour séparer du sable de l’eau, on peut utiliser :",
+          "options": [
+            "un aimant",
+            "la dissolution",
+            "la filtration"
+          ],
+          "correct": 2,
+          "domain": "Mélanges",
+          "points": 1,
+          "explanation": "La filtration retient un solide insoluble et laisse passer le liquide."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "L’air est :",
+      "options": [
+        "un corps pur",
+        "un mélange de gaz",
+        "un liquide"
+      ],
+      "correct": 1,
+      "domain": "Mélanges",
+      "skill": "Mélanges",
+      "points": 1,
+      "gap": "À revoir : Mélanges",
+      "recommendation": "L’air est un mélange gazeux, principalement de diazote et de dioxygène.",
+      "explanation": "L’air est un mélange gazeux, principalement de diazote et de dioxygène.",
+      "practice": [
+        {
+          "id": "q6_practice",
+          "text": "Vérification guidée : L’air est :",
+          "options": [
+            "un mélange de gaz",
+            "un liquide",
+            "un corps pur"
+          ],
+          "correct": 0,
+          "domain": "Mélanges",
+          "points": 1,
+          "explanation": "L’air est un mélange gazeux, principalement de diazote et de dioxygène."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "Un circuit fermé contient une pile et une lampe en bon état. La lampe :",
+      "options": [
+        "peut s’allumer",
+        "ne peut jamais s’allumer",
+        "fond toujours"
+      ],
+      "correct": 0,
+      "domain": "Électricité",
+      "skill": "Électricité",
+      "points": 1,
+      "gap": "À revoir : Électricité",
+      "recommendation": "Le courant circule si le circuit est fermé et les composants sont correctement raccordés.",
+      "explanation": "Le courant circule si le circuit est fermé et les composants sont correctement raccordés.",
+      "practice": [
+        {
+          "id": "q7_practice",
+          "text": "Vérification guidée : Un circuit fermé contient une pile et une lampe en bon état. La lampe :",
+          "options": [
+            "ne peut jamais s’allumer",
+            "fond toujours",
+            "peut s’allumer"
+          ],
+          "correct": 2,
+          "domain": "Électricité",
+          "points": 1,
+          "explanation": "Le courant circule si le circuit est fermé et les composants sont correctement raccordés."
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Le cuivre est :",
+      "options": [
+        "un isolant électrique",
+        "un conducteur électrique",
+        "toujours un aimant"
+      ],
+      "correct": 1,
+      "domain": "Électricité",
+      "skill": "Électricité",
+      "points": 1,
+      "gap": "À revoir : Électricité",
+      "recommendation": "Les métaux comme le cuivre conduisent le courant électrique.",
+      "explanation": "Les métaux comme le cuivre conduisent le courant électrique.",
+      "practice": [
+        {
+          "id": "q8_practice",
+          "text": "Vérification guidée : Le cuivre est :",
+          "options": [
+            "un conducteur électrique",
+            "toujours un aimant",
+            "un isolant électrique"
+          ],
+          "correct": 0,
+          "domain": "Électricité",
+          "points": 1,
+          "explanation": "Les métaux comme le cuivre conduisent le courant électrique."
+        }
+      ]
+    }
+  ]
+}

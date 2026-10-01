@@ -1,0 +1,260 @@
+{
+  "id": "2AC_PC_START_2026",
+  "title": "Diagnostic initial — 2AC",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2AC",
+  "type": "diagnostic",
+  "type_label": "تشخيصي مختصر",
+  "duration": 15,
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Dans l’air, le dioxygène représente environ :",
+      "options": [
+        "21 %",
+        "78 %",
+        "100 %"
+      ],
+      "correct": 0,
+      "domain": "Air",
+      "skill": "Air",
+      "points": 1,
+      "gap": "À revoir : Air",
+      "recommendation": "L’air contient environ 21 % de dioxygène et 78 % de diazote en volume.",
+      "explanation": "L’air contient environ 21 % de dioxygène et 78 % de diazote en volume.",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification guidée : Dans l’air, le dioxygène représente environ :",
+          "options": [
+            "78 %",
+            "100 %",
+            "21 %"
+          ],
+          "correct": 2,
+          "domain": "Air",
+          "points": 1,
+          "explanation": "L’air contient environ 21 % de dioxygène et 78 % de diazote en volume."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Une molécule de dioxygène est notée :",
+      "options": [
+        "O",
+        "O₂",
+        "CO₂"
+      ],
+      "correct": 1,
+      "domain": "Atomes et molécules",
+      "skill": "Atomes et molécules",
+      "points": 1,
+      "gap": "À revoir : Atomes et molécules",
+      "recommendation": "O₂ contient deux atomes d’oxygène.",
+      "explanation": "O₂ contient deux atomes d’oxygène.",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification guidée : Une molécule de dioxygène est notée :",
+          "options": [
+            "O₂",
+            "CO₂",
+            "O"
+          ],
+          "correct": 0,
+          "domain": "Atomes et molécules",
+          "points": 1,
+          "explanation": "O₂ contient deux atomes d’oxygène."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Une combustion nécessite un combustible et :",
+      "options": [
+        "un comburant",
+        "du sable",
+        "du cuivre"
+      ],
+      "correct": 0,
+      "domain": "Combustion",
+      "skill": "Combustion",
+      "points": 1,
+      "gap": "À revoir : Combustion",
+      "recommendation": "Le dioxygène est un comburant. Une source d’énergie permet généralement d’amorcer la combustion.",
+      "explanation": "Le dioxygène est un comburant. Une source d’énergie permet généralement d’amorcer la combustion.",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification guidée : Une combustion nécessite un combustible et :",
+          "options": [
+            "du sable",
+            "du cuivre",
+            "un comburant"
+          ],
+          "correct": 2,
+          "domain": "Combustion",
+          "points": 1,
+          "explanation": "Le dioxygène est un comburant. Une source d’énergie permet généralement d’amorcer la combustion."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "En système fermé, la masse totale lors d’une réaction chimique :",
+      "options": [
+        "augmente toujours",
+        "se conserve",
+        "diminue toujours"
+      ],
+      "correct": 1,
+      "domain": "Réaction chimique",
+      "skill": "Réaction chimique",
+      "points": 1,
+      "gap": "À revoir : Réaction chimique",
+      "recommendation": "La masse des réactifs consommés est égale à celle des produits formés.",
+      "explanation": "La masse des réactifs consommés est égale à celle des produits formés.",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification guidée : En système fermé, la masse totale lors d’une réaction chimique :",
+          "options": [
+            "se conserve",
+            "diminue toujours",
+            "augmente toujours"
+          ],
+          "correct": 0,
+          "domain": "Réaction chimique",
+          "points": 1,
+          "explanation": "La masse des réactifs consommés est égale à celle des produits formés."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Un mobile parcourt 120 m en 20 s. Sa vitesse moyenne est :",
+      "options": [
+        "6 m/s",
+        "100 m/s",
+        "2400 m/s"
+      ],
+      "correct": 0,
+      "domain": "Mouvement",
+      "skill": "Mouvement",
+      "points": 1,
+      "gap": "À revoir : Mouvement",
+      "recommendation": "v = d/Δt = 120/20 = 6 m/s.",
+      "explanation": "v = d/Δt = 120/20 = 6 m/s.",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification guidée : Un mobile parcourt 120 m en 20 s. Sa vitesse moyenne est :",
+          "options": [
+            "100 m/s",
+            "2400 m/s",
+            "6 m/s"
+          ],
+          "correct": 2,
+          "domain": "Mouvement",
+          "points": 1,
+          "explanation": "v = d/Δt = 120/20 = 6 m/s."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "Un mouvement se décrit par rapport à :",
+      "options": [
+        "un référentiel",
+        "une couleur",
+        "une température"
+      ],
+      "correct": 0,
+      "domain": "Mouvement",
+      "skill": "Mouvement",
+      "points": 1,
+      "gap": "À revoir : Mouvement",
+      "recommendation": "Le mouvement et le repos sont relatifs au référentiel choisi.",
+      "explanation": "Le mouvement et le repos sont relatifs au référentiel choisi.",
+      "practice": [
+        {
+          "id": "q6_practice",
+          "text": "Vérification guidée : Un mouvement se décrit par rapport à :",
+          "options": [
+            "une couleur",
+            "une température",
+            "un référentiel"
+          ],
+          "correct": 2,
+          "domain": "Mouvement",
+          "points": 1,
+          "explanation": "Le mouvement et le repos sont relatifs au référentiel choisi."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "Une source lumineuse primaire :",
+      "options": [
+        "produit sa propre lumière",
+        "ne fait que diffuser la lumière reçue",
+        "est toujours froide"
+      ],
+      "correct": 0,
+      "domain": "Optique",
+      "skill": "Optique",
+      "points": 1,
+      "gap": "À revoir : Optique",
+      "recommendation": "Le Soleil et une lampe allumée sont des sources primaires.",
+      "explanation": "Le Soleil et une lampe allumée sont des sources primaires.",
+      "practice": [
+        {
+          "id": "q7_practice",
+          "text": "Vérification guidée : Une source lumineuse primaire :",
+          "options": [
+            "ne fait que diffuser la lumière reçue",
+            "est toujours froide",
+            "produit sa propre lumière"
+          ],
+          "correct": 2,
+          "domain": "Optique",
+          "points": 1,
+          "explanation": "Le Soleil et une lampe allumée sont des sources primaires."
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Dans un milieu transparent homogène, la lumière se propage :",
+      "options": [
+        "en ligne droite",
+        "en cercle",
+        "uniquement vers le haut"
+      ],
+      "correct": 0,
+      "domain": "Optique",
+      "skill": "Optique",
+      "points": 1,
+      "gap": "À revoir : Optique",
+      "recommendation": "Le modèle du rayon lumineux représente une propagation rectiligne dans ces conditions.",
+      "explanation": "Le modèle du rayon lumineux représente une propagation rectiligne dans ces conditions.",
+      "practice": [
+        {
+          "id": "q8_practice",
+          "text": "Vérification guidée : Dans un milieu transparent homogène, la lumière se propage :",
+          "options": [
+            "en cercle",
+            "uniquement vers le haut",
+            "en ligne droite"
+          ],
+          "correct": 2,
+          "domain": "Optique",
+          "points": 1,
+          "explanation": "Le modèle du rayon lumineux représente une propagation rectiligne dans ces conditions."
+        }
+      ]
+    }
+  ]
+}

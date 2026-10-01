@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-11",
+  "generated": "2026-10-01",
   "tests": [
     {
       "id": "2BACPC_PC_DIAG_2025",
       "title": "الاختبار التشخيصي في مادة الفيزياء والكيمياء",
       "subject": "الفيزياء والكيمياء",
-      "level": "2BAC",
+      "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي",
       "duration": 45,
@@ -55,7 +55,50 @@
       "duration": 45,
       "path": "TCS/physics/diag_2025.json",
       "questions_count": 20
+    },
+    {
+      "id": "1AC_PC_START_2026",
+      "title": "Diagnostic initial — 1AC",
+      "subject": "الفيزياء والكيمياء",
+      "level": "1AC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي مختصر",
+      "duration": 15,
+      "path": "1AC/physics/start_2026.json",
+      "questions_count": 8
+    },
+    {
+      "id": "2AC_PC_START_2026",
+      "title": "Diagnostic initial — 2AC",
+      "subject": "الفيزياء والكيمياء",
+      "level": "2AC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي مختصر",
+      "duration": 15,
+      "path": "2AC/physics/start_2026.json",
+      "questions_count": 8
+    },
+    {
+      "id": "3AC_PC_START_2026",
+      "title": "Diagnostic initial — 3AC",
+      "subject": "الفيزياء والكيمياء",
+      "level": "3AC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي مختصر",
+      "duration": 15,
+      "path": "3AC/physics/start_2026.json",
+      "questions_count": 8
+    },
+    {
+      "id": "1bac_exmath_diag_001",
+      "title": "اختبار تشخيصي شامل",
+      "subject": "physique-chimie",
+      "level": "1BAC_EX_MATH",
+      "type": "practice",
+      "type_label": "تدريب",
+      "duration": 0,
+      "path": "2BACPC/physics/test_diag_001.json",
+      "questions_count": 3
     }
-  ],
-  "schema_version": 2
+  ]
 }

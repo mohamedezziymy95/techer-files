@@ -1,0 +1,260 @@
+{
+  "id": "3AC_PC_START_2026",
+  "title": "Diagnostic initial — 3AC",
+  "subject": "الفيزياء والكيمياء",
+  "level": "3AC",
+  "type": "diagnostic",
+  "type_label": "تشخيصي مختصر",
+  "duration": 15,
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Une solution de pH 3 est :",
+      "options": [
+        "acide",
+        "neutre",
+        "basique"
+      ],
+      "correct": 0,
+      "domain": "Solutions",
+      "skill": "Solutions",
+      "points": 1,
+      "gap": "À revoir : Solutions",
+      "recommendation": "À 25 °C, une solution aqueuse est acide si son pH est inférieur à 7.",
+      "explanation": "À 25 °C, une solution aqueuse est acide si son pH est inférieur à 7.",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification guidée : Une solution de pH 3 est :",
+          "options": [
+            "neutre",
+            "basique",
+            "acide"
+          ],
+          "correct": 2,
+          "domain": "Solutions",
+          "points": 1,
+          "explanation": "À 25 °C, une solution aqueuse est acide si son pH est inférieur à 7."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "La formule de l’ion hydroxyde est :",
+      "options": [
+        "OH⁻",
+        "H⁺",
+        "Na⁺"
+      ],
+      "correct": 0,
+      "domain": "Solutions",
+      "skill": "Solutions",
+      "points": 1,
+      "gap": "À revoir : Solutions",
+      "recommendation": "Les ions hydroxyde OH⁻ participent au caractère basique d’une solution.",
+      "explanation": "Les ions hydroxyde OH⁻ participent au caractère basique d’une solution.",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification guidée : La formule de l’ion hydroxyde est :",
+          "options": [
+            "H⁺",
+            "Na⁺",
+            "OH⁻"
+          ],
+          "correct": 2,
+          "domain": "Solutions",
+          "points": 1,
+          "explanation": "Les ions hydroxyde OH⁻ participent au caractère basique d’une solution."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Un anion possède une charge :",
+      "options": [
+        "positive",
+        "négative",
+        "toujours nulle"
+      ],
+      "correct": 1,
+      "domain": "Ions",
+      "skill": "Ions",
+      "points": 1,
+      "gap": "À revoir : Ions",
+      "recommendation": "Un anion résulte d’un gain d’électrons.",
+      "explanation": "Un anion résulte d’un gain d’électrons.",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification guidée : Un anion possède une charge :",
+          "options": [
+            "négative",
+            "toujours nulle",
+            "positive"
+          ],
+          "correct": 0,
+          "domain": "Ions",
+          "points": 1,
+          "explanation": "Un anion résulte d’un gain d’électrons."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Pour diluer un acide, on verse progressivement :",
+      "options": [
+        "l’acide dans l’eau",
+        "l’eau dans l’acide concentré",
+        "l’acide sur les mains"
+      ],
+      "correct": 0,
+      "domain": "Sécurité",
+      "skill": "Sécurité",
+      "points": 1,
+      "gap": "À revoir : Sécurité",
+      "recommendation": "On ajoute l’acide à l’eau, avec protections adaptées et sous surveillance.",
+      "explanation": "On ajoute l’acide à l’eau, avec protections adaptées et sous surveillance.",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification guidée : Pour diluer un acide, on verse progressivement :",
+          "options": [
+            "l’eau dans l’acide concentré",
+            "l’acide sur les mains",
+            "l’acide dans l’eau"
+          ],
+          "correct": 2,
+          "domain": "Sécurité",
+          "points": 1,
+          "explanation": "On ajoute l’acide à l’eau, avec protections adaptées et sous surveillance."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Un solide de masse 2 kg est soumis à g = 10 N/kg. Son poids vaut :",
+      "options": [
+        "20 N",
+        "2 N",
+        "0,2 N"
+      ],
+      "correct": 0,
+      "domain": "Forces",
+      "skill": "Forces",
+      "points": 1,
+      "gap": "À revoir : Forces",
+      "recommendation": "P = m g = 2 × 10 = 20 N. Le poids est une force.",
+      "explanation": "P = m g = 2 × 10 = 20 N. Le poids est une force.",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification guidée : Un solide de masse 2 kg est soumis à g = 10 N/kg. Son poids vaut :",
+          "options": [
+            "2 N",
+            "0,2 N",
+            "20 N"
+          ],
+          "correct": 2,
+          "domain": "Forces",
+          "points": 1,
+          "explanation": "P = m g = 2 × 10 = 20 N. Le poids est une force."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "Deux forces peuvent équilibrer un solide si elles ont :",
+      "options": [
+        "même droite d’action, même intensité et sens opposés",
+        "même sens",
+        "des droites d’action quelconques"
+      ],
+      "correct": 0,
+      "domain": "Forces",
+      "skill": "Forces",
+      "points": 1,
+      "gap": "À revoir : Forces",
+      "recommendation": "Pour un solide soumis à deux forces, ces trois conditions sont nécessaires à l’équilibre.",
+      "explanation": "Pour un solide soumis à deux forces, ces trois conditions sont nécessaires à l’équilibre.",
+      "practice": [
+        {
+          "id": "q6_practice",
+          "text": "Vérification guidée : Deux forces peuvent équilibrer un solide si elles ont :",
+          "options": [
+            "même sens",
+            "des droites d’action quelconques",
+            "même droite d’action, même intensité et sens opposés"
+          ],
+          "correct": 2,
+          "domain": "Forces",
+          "points": 1,
+          "explanation": "Pour un solide soumis à deux forces, ces trois conditions sont nécessaires à l’équilibre."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "Un conducteur de résistance 5 Ω est traversé par 2 A. La tension vaut :",
+      "options": [
+        "10 V",
+        "2,5 V",
+        "0,4 V"
+      ],
+      "correct": 0,
+      "domain": "Électricité",
+      "skill": "Électricité",
+      "points": 1,
+      "gap": "À revoir : Électricité",
+      "recommendation": "U = R I = 5 × 2 = 10 V.",
+      "explanation": "U = R I = 5 × 2 = 10 V.",
+      "practice": [
+        {
+          "id": "q7_practice",
+          "text": "Vérification guidée : Un conducteur de résistance 5 Ω est traversé par 2 A. La tension vaut :",
+          "options": [
+            "2,5 V",
+            "0,4 V",
+            "10 V"
+          ],
+          "correct": 2,
+          "domain": "Électricité",
+          "points": 1,
+          "explanation": "U = R I = 5 × 2 = 10 V."
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "L’énergie consommée pendant une durée Δt à puissance constante P est :",
+      "options": [
+        "$E = P Δt$",
+        "$E = P/Δt$",
+        "$E = Δt/P$"
+      ],
+      "correct": 0,
+      "domain": "Électricité",
+      "skill": "Électricité",
+      "points": 1,
+      "gap": "À revoir : Électricité",
+      "recommendation": "Avec P en watts et Δt en secondes, E est en joules.",
+      "explanation": "Avec P en watts et Δt en secondes, E est en joules.",
+      "practice": [
+        {
+          "id": "q8_practice",
+          "text": "Vérification guidée : L’énergie consommée pendant une durée Δt à puissance constante P est :",
+          "options": [
+            "$E = P/Δt$",
+            "$E = Δt/P$",
+            "$E = P Δt$"
+          ],
+          "correct": 2,
+          "domain": "Électricité",
+          "points": 1,
+          "explanation": "Avec P en watts et Δt en secondes, E est en joules."
+        }
+      ]
+    }
+  ]
+}

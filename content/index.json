@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "version": "2026.10.1",
+  "levels": [
+    {
+      "code": "1AC",
+      "subjects": [
+        {
+          "id": "physics",
+          "title": "الفيزياء والكيمياء",
+          "lessons": [
+            {
+              "id": "support_1AC_PC_START_2026",
+              "title": "مراجعة ودعم • Diagnostic initial — 1AC",
+              "objectives": [
+                "مراجعة المفاهيم الأساسية",
+                "تفسير الإجابات وتصحيح التعثرات"
+              ],
+              "resources": [
+                {
+                  "title": "شرح ومراجعة / Révision guidée",
+                  "path": "content/1AC/support_1AC_PC_START_2026.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": "1AC/physics/start_2026.json"
+            },
+            {
+              "id": "science_lab",
+              "title": "مختبر تفاعلي • Laboratoire interactif",
+              "objectives": [
+                "تغيير المقادير وملاحظة العلاقات",
+                "التوقع ثم التفسير العلمي"
+              ],
+              "resources": [
+                {
+                  "title": "قانون أوم والطاقات والموجات",
+                  "path": "content/simulations/science_lab.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2AC",
+      "subjects": [
+        {
+          "id": "physics",
+          "title": "الفيزياء والكيمياء",
+          "lessons": [
+            {
+              "id": "support_2AC_PC_START_2026",
+              "title": "مراجعة ودعم • Diagnostic initial — 2AC",
+              "objectives": [
+                "مراجعة المفاهيم الأساسية",
+                "تفسير الإجابات وتصحيح التعثرات"
+              ],
+              "resources": [
+                {
+                  "title": "شرح ومراجعة / Révision guidée",
+                  "path": "content/2AC/support_2AC_PC_START_2026.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": "2AC/physics/start_2026.json"
+            },
+            {
+              "id": "science_lab",
+              "title": "مختبر تفاعلي • Laboratoire interactif",
+              "objectives": [
+                "تغيير المقادير وملاحظة العلاقات",
+                "التوقع ثم التفسير العلمي"
+              ],
+              "resources": [
+                {
+                  "title": "قانون أوم والطاقات والموجات",
+                  "path": "content/simulations/science_lab.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3AC",
+      "subjects": [
+        {
+          "id": "physics",
+          "title": "الفيزياء والكيمياء",
+          "lessons": [
+            {
+              "id": "support_3AC_PC_START_2026",
+              "title": "مراجعة ودعم • Diagnostic initial — 3AC",
+              "objectives": [
+                "مراجعة المفاهيم الأساسية",
+                "تفسير الإجابات وتصحيح التعثرات"
+              ],
+              "resources": [
+                {
+                  "title": "شرح ومراجعة / Révision guidée",
+                  "path": "content/3AC/support_3AC_PC_START_2026.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": "3AC/physics/start_2026.json"
+            },
+            {
+              "id": "science_lab",
+              "title": "مختبر تفاعلي • Laboratoire interactif",
+              "objectives": [
+                "تغيير المقادير وملاحظة العلاقات",
+                "التوقع ثم التفسير العلمي"
+              ],
+              "resources": [
+                {
+                  "title": "قانون أوم والطاقات والموجات",
+                  "path": "content/simulations/science_lab.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "TCS",
+      "subjects": [
+        {
+          "id": "physics",
+          "title": "الفيزياء والكيمياء",
+          "lessons": [
+            {
+              "id": "support_TCS_PC_DIAG_2025",
+              "title": "مراجعة ودعم • الاختبار التشخيصي في مادة الفيزياء والكيمياء",
+              "objectives": [
+                "مراجعة المفاهيم الأساسية",
+                "تفسير الإجابات وتصحيح التعثرات"
+              ],
+              "resources": [
+                {
+                  "title": "شرح ومراجعة / Révision guidée",
+                  "path": "content/TCS/support_TCS_PC_DIAG_2025.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": "TCS/physics/diag_2025.json"
+            },
+            {
+              "id": "science_lab",
+              "title": "مختبر تفاعلي • Laboratoire interactif",
+              "objectives": [
+                "تغيير المقادير وملاحظة العلاقات",
+                "التوقع ثم التفسير العلمي"
+              ],
+              "resources": [
+                {
+                  "title": "قانون أوم والطاقات والموجات",
+                  "path": "content/simulations/science_lab.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1BAC",
+      "subjects": [
+        {
+          "id": "physics",
+          "title": "الفيزياء والكيمياء",
+          "lessons": [
+            {
+              "id": "support_1BAC_PC_DIAG_2025",
+              "title": "مراجعة ودعم • الاختبار التشخيصي في مادة الفيزياء والكيمياء",
+              "objectives": [
+                "مراجعة المفاهيم الأساسية",
+                "تفسير الإجابات وتصحيح التعثرات"
+              ],
+              "resources": [
+                {
+                  "title": "شرح ومراجعة / Révision guidée",
+                  "path": "content/1BAC/support_1BAC_PC_DIAG_2025.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": "1BAC/physics/diag_2025.json"
+            },
+            {
+              "id": "support_1BAC_PC_DIAG_ELEC_2026",
+              "title": "مراجعة ودعم • الاختبار التشخيصي في مادة الفيزياء - جزء الكهرباء والمغناطيسية",
+              "objectives": [
+                "مراجعة المفاهيم الأساسية",
+                "تفسير الإجابات وتصحيح التعثرات"
+              ],
+              "resources": [
+                {
+                  "title": "شرح ومراجعة / Révision guidée",
+                  "path": "content/1BAC/support_1BAC_PC_DIAG_ELEC_2026.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": "1BAC/physics/1BAC_PC_DIAG_ELEC_2026.json"
+            },
+            {
+              "id": "support_1BAC_PC_DIAG_MECA_ENER_2026",
+              "title": "مراجعة ودعم • الاختبار التشخيصي في مادة الفيزياء - جزء الشغل الميكانيكي والطاقة",
+              "objectives": [
+                "مراجعة المفاهيم الأساسية",
+                "تفسير الإجابات وتصحيح التعثرات"
+              ],
+              "resources": [
+                {
+                  "title": "شرح ومراجعة / Révision guidée",
+                  "path": "content/1BAC/support_1BAC_PC_DIAG_MECA_ENER_2026.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": "1BAC/physics/1BAC_PC_DIAG_MECA_ENER_2026.json"
+            },
+            {
+              "id": "science_lab",
+              "title": "مختبر تفاعلي • Laboratoire interactif",
+              "objectives": [
+                "تغيير المقادير وملاحظة العلاقات",
+                "التوقع ثم التفسير العلمي"
+              ],
+              "resources": [
+                {
+                  "title": "قانون أوم والطاقات والموجات",
+                  "path": "content/simulations/science_lab.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2BACPC",
+      "subjects": [
+        {
+          "id": "physics",
+          "title": "الفيزياء والكيمياء",
+          "lessons": [
+            {
+              "id": "support_2BACPC_PC_DIAG_2025",
+              "title": "مراجعة ودعم • الاختبار التشخيصي في مادة الفيزياء والكيمياء",
+              "objectives": [
+                "مراجعة المفاهيم الأساسية",
+                "تفسير الإجابات وتصحيح التعثرات"
+              ],
+              "resources": [
+                {
+                  "title": "شرح ومراجعة / Révision guidée",
+                  "path": "content/2BACPC/support_2BACPC_PC_DIAG_2025.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": "2BACPC/physics/diag_2025.json"
+            },
+            {
+              "id": "science_lab",
+              "title": "مختبر تفاعلي • Laboratoire interactif",
+              "objectives": [
+                "تغيير المقادير وملاحظة العلاقات",
+                "التوقع ثم التفسير العلمي"
+              ],
+              "resources": [
+                {
+                  "title": "قانون أوم والطاقات والموجات",
+                  "path": "content/simulations/science_lab.html",
+                  "category": "دروس"
+                }
+              ],
+              "test_path": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "includes_legacy_library": true
+}
