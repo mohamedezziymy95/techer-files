@@ -1,0 +1,252 @@
+{
+  "id": "2BAC_PHYS_ONDES_LUMINEUSES_DIAG_2026",
+  "title": "تقويم المكتسبات والدعم: درس انتشار موجة ضوئية",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BAC",
+  "duration": 40,
+  "type": "diagnostic",
+  "type_label": "تشخيصي ودعم",
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quelle est la condition nécessaire pour observer le phénomène de diffraction d'une onde lumineuse à travers une fente de largeur $a$ ?",
+      "options": [
+        "$a \\le \\lambda$[cite: 12]",
+        "$a \\gg \\lambda$",
+        "$a = 100 \\cdot \\lambda$",
+        "$a \\ge 10 \\cdot \\lambda$"
+      ],
+      "correct": 0,
+      "gap": "عدم استيعاب شرط حدوث ظاهرة الحيود للضوء",
+      "recommendation": "تذكر أن حيود الضوء يبرز طبيعته الموجية ويحدث عندما تكون فجوة العرض أصغر من أو تساوي طول الموجة ($a \\le \\lambda$)[cite: 11, 12].",
+      "domain": "الضوء",
+      "skill": "فهم وتطبيق شرط حيود الضوء",
+      "points": 1,
+      "explanation": "On obtient la diffraction de la lumière par une fente de largeur a lorsque $a \\le \\lambda$[cite: 12].",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification : Si on éclaire une fente très large ($a$ grand devant $\\lambda$) avec un laser, on observe sur l'écran :",
+          "options": [
+            "Une seule tache lumineuse sans diffraction notable[cite: 11].",
+            "Plusieurs franges brillantes très étalées.",
+            "Une extinction totale de la lumière."
+          ],
+          "correct": 0,
+          "domain": "الضوء",
+          "points": 1,
+          "explanation": "Lorsque la largeur de la fente devient grande, on voit une seule tache lumineuse[cite: 11]."
+        },
+        {
+          "id": "q1_transfer",
+          "text": "Le phénomène de diffraction de la lumière prouve que :",
+          "options": [
+            "La lumière a une nature ondulatoire[cite: 11].",
+            "La lumière se propage uniquement en ligne droite.",
+            "La lumière est constituée de particules matérielles massives."
+          ],
+          "correct": 0,
+          "domain": "الضوء",
+          "skill": "الطبيعة الموجية للضوء",
+          "points": 1,
+          "gap": "À revoir : الطبيعة الموجية للضوء",
+          "recommendation": "الحيود خاصية أساسية للموجات، وتطبيقه على الضوء يثبت طابعه الموجي الكهرومغناطيسي[cite: 11, 12].",
+          "explanation": "Par analogie avec les ondes mécaniques, la lumière est une onde électromagnétique[cite: 11, 12]."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Quelle est l'expression correcte de la largeur de la tache centrale $L$ en fonction de la longueur d'onde $\\lambda$, de la distance $D$ et de la largeur de la fente $a$ ?",
+      "options": [
+        "$L = \\frac{2 \\cdot \\lambda \\cdot D}{a}$[cite: 13]",
+        "$L = \\frac{a \\cdot D}{\\lambda}$",
+        "$L = \\frac{\\lambda \\cdot a}{2 \\cdot D}$",
+        "$L = \\lambda \\cdot a \\cdot D$"
+      ],
+      "correct": 0,
+      "gap": "عجز عن تذكر أو استخراج علاقة عرض البقعة المركزية",
+      "recommendation": "استعمال العلاقة التقريبية $\\theta = \\frac{L}{2D}$ و $\\theta = \\frac{\\lambda}{a}$ لاستنتاج $L = \\frac{2\\lambda D}{a}$[cite: 13].",
+      "domain": "الضوء",
+      "skill": "استثمار علاقات الحيود الضوئي",
+      "points": 1,
+      "explanation": "D'après les relations $\\theta = \\frac{\\lambda}{a}$ et $\\theta = \\frac{L}{2D}$, on déduit que $L = \\frac{2\\lambda D}{a}$[cite: 13].",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification : Si on diminue la largeur de la fente $a$, la largeur de la tache centrale $L$ :",
+          "options": [
+            "Augmente car $L$ est inversement proportionnelle à $a$[cite: 13].",
+            "Diminue proportionnellement.",
+            "Reste constante."
+          ],
+          "correct": 0,
+          "domain": "الضوء",
+          "points": 1,
+          "explanation": "Plus la fente est fine et étroite, plus la taille de la tache centrale de diffraction est grande[cite: 11]."
+        },
+        {
+          "id": "q2_transfer",
+          "text": "L'écart angulaire $\\theta$ entre le milieu de la tache centrale et la première extinction s'écrit :",
+          "options": [
+            "$\\theta = \\frac{\\lambda}{a}$[cite: 13]",
+            "$\\theta = \\frac{a}{\\lambda}$",
+            "$\\theta = L \\cdot D$"
+          ],
+          "correct": 0,
+          "domain": "الضوء",
+          "skill": "الإعطاف الزاوي للحيود",
+          "points": 1,
+          "gap": "À revoir : الإعطاف الزاوي",
+          "recommendation": "الإعطاف الزاوي يعطى بالعلاقة $\\theta = \\frac{\\lambda}{a}$[cite: 13].",
+          "explanation": "D'après la courbe et la théorie, $\\theta = \\frac{\\lambda}{a}$[cite: 13]."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Lorsqu'une onde lumineuse passe du vide (ou de l'air) à un milieu transparent matériel, quelle grandeur reste invariante ?",
+      "options": [
+        "La fréquence $\\nu$ (ou la période $T$)[cite: 12]",
+        "La longueur d'onde $\\lambda$",
+        "La célérité de la lumière $V$",
+        "L'indice de réfraction du milieu"
+      ],
+      "correct": 0,
+      "gap": "الخلط بين المقادير التي تتغير والتي تبقى ثابتة عند انتقال الضوء بين وسطين",
+      "recommendation": "تذكر دائماً أن التردد $\\nu$ مرتبط بالمنبع ولا يتغير مهما كان وسط الانتشار، بينما تتغير السرعة وطول الموجة[cite: 12].",
+      "domain": "الضوء",
+      "skill": "معرفة خصائص الموجة الضوئية حسب الوسط",
+      "points": 1,
+      "explanation": "La fréquence $\\nu$ de l'onde lumineuse ne dépend pas du milieu de propagation, contrairement à la longueur d'onde $\\lambda$[cite: 12].",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification : Dans un milieu transparent d'indice $n$, la vitesse de la lumière $V$ et sa relation avec la célérité dans le vide $c$ s'écrivent :",
+          "options": [
+            "$V = \\frac{c}{n}$[cite: 14]",
+            "$V = c \\cdot n$",
+            "$V = c + n$"
+          ],
+          "correct": 0,
+          "domain": "الضوء",
+          "points": 1,
+          "explanation": "D'après la définition de l'indice de réfraction $n = \\frac{c}{V}$, on a $V = \\frac{c}{n}$[cite: 14]."
+        },
+        {
+          "id": "q3_transfer",
+          "text": "La relation entre l'indice de réfraction $n$, la longueur d'onde dans le vide $\\lambda_0$ et dans le milieu $\\lambda$ est :",
+          "options": [
+            "$n = \\frac{\\lambda_0}{\\lambda}$[cite: 14]",
+            "$n = \\lambda_0 \\cdot \\lambda$",
+            "$n = \\frac{\\lambda}{\\lambda_0}$"
+          ],
+          "correct": 0,
+          "domain": "الضوء",
+          "skill": "معامل الانكسار وطول الموجة",
+          "points": 1,
+          "gap": "À revoir : معامل الانكسار والطول الموجي",
+          "recommendation": "بما أن $\\nu$ ثابت، فإن $n = \\frac{c}{V} = \\frac{\\lambda_0 \\cdot \\nu}{\\lambda \\cdot \\nu} = \\frac{\\lambda_0}{\\lambda}$[cite: 12, 14].",
+          "explanation": "On a $n = \\frac{\\lambda_0}{\\lambda}$[cite: 14]."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Quelle est la définition et la nature d'une lumière monochromatique ?",
+      "options": [
+        "Une onde électromagnétique composée d'une seule fréquence (une seule radiation)[cite: 12]",
+        "Un ensemble de plusieurs lumières de fréquences différentes",
+        "Une onde mécanique nécessitant un milieu matériel pour se propager",
+        "Une lumière visible dépourvue de toute longueur d'onde"
+      ],
+      "correct": 0,
+      "gap": "عدم التمييز بين الضوء المونوكروماتي (أحاد اللون) والضوء البوليكروماتي (متعدد الألوان)",
+      "recommendation": "الضوء الأحادي اللون (Monochromatique) يتكون من إشعاع ذي تردد واحد (مثل ضوء الليزر)، بينما المتعدد (Polychromatique) يضم عدة ترددات (مثل الضوء الأبيض)[cite: 12].",
+      "domain": "الضوء",
+      "skill": "تصنيف الأضواء حسب تردداتها",
+      "points": 1,
+      "explanation": "Une lumière monochromatique est une onde électromagnétique progressive sinusoïdale de fréquence donnée (composée d'une seule radiation)[cite: 12].",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification : La lumière émise par un laser hélium-néon est un exemple de :",
+          "options": [
+            "Lumière monochromatique[cite: 12].",
+            "Lumière polychromatique (lumière blanche).",
+            "Onde mécanique longitudinale."
+          ],
+          "correct": 0,
+          "domain": "الضوء",
+          "points": 1,
+          "explanation": "L'exemple type de la lumière monochromatique est la lumière émise par un laser[cite: 12]."
+        },
+        {
+          "id": "q4_transfer",
+          "text": "La lumière blanche est qualifiée de :",
+          "options": [
+            "Polychromatique car elle est composée d'un ensemble de lumières monochromatiques de fréquences différentes[cite: 14].",
+            "Monochromatique pure.",
+            "Onde purement mécanique."
+          ],
+          "correct": 0,
+          "domain": "الضوء",
+          "skill": "طبيعة الضوء الأبيض",
+          "points": 1,
+          "gap": "À revoir : الضوء الأبيض والتركيب الطيفي",
+          "recommendation": "الضوء الأبيض يتكون من طيف واسع من الترددات المرئية، فهو متعدد الألوان (Polychromatique)[cite: 14].",
+          "explanation": "Le phénomène de dispersion montre que la lumière blanche est polychromatique[cite: 14]."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Comment s'écrit la deuxième loi de Descartes pour la réfraction de la lumière passant d'un milieu d'indice $n_1$ à un milieu d'indice $n_2$ ?",
+      "options": [
+        "$n_1 \\cdot \\sin(i_1) = n_2 \\cdot \\sin(i_2)$[cite: 14]",
+        "$n_1 \\cdot \\sin(i_2) = n_2 \\cdot \\sin(i_1)$",
+        "$i_1 = n_1 \\cdot i_2$",
+        "$\\sin(i_1) = \\sin(i_2)$"
+      ],
+      "correct": 0,
+      "gap": "خلط في تطبيق قوانين ديكارت لانكسار الضوء",
+      "recommendation": "تذكر قانون الانكسار الثاني: جداء معامل انكسار الوسط الأول في جيب زاوية الورود يساوي جداء معامل انكسار الوسط الثاني في جيب زاوية الانكسار ($n_1 \\sin i_1 = n_2 \\sin i_2$)[cite: 14].",
+      "domain": "البصريات والهندسة الضوئية",
+      "skill": "تطبيق قوانين ديكارت للانكسار",
+      "points": 1,
+      "explanation": "La deuxième loi de Descartes de réfraction s'écrit : $n_1 \\cdot \\sin(i_1) = n_2 \\cdot \\sin(i_2)$[cite: 14].",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification : Pour un prisme d'angle $A$ et d'indice $n$ placé dans l'air ($n_{air} \\approx 1$), la relation entre l'angle d'incidence $i$ et l'angle de réfraction $r$ sur la première face est :",
+          "options": [
+            "$\\sin(i) = n \\cdot \\sin(r)$[cite: 14]",
+            "$n \\cdot \\sin(i) = \\sin(r)$",
+            "$i = r$"
+          ],
+          "correct": 0,
+          "domain": "البصريات والهندسة الضوئية",
+          "points": 1,
+          "explanation": "D'après les relations caractéristiques du prisme : $\\sin(i) = n \\cdot \\sin(r)$[cite: 14]."
+        },
+        {
+          "id": "q5_transfer",
+          "text": "L'angle de déviation $D$ d'un rayonnant à travers un prisme est donné par la formule :",
+          "options": [
+            "$D = i + i' - A$[cite: 14]",
+            "$D = r + r'$",
+            "$D = i - i' + A$"
+          ],
+          "correct": 0,
+          "domain": "البصريات والهندسة الضوئية",
+          "skill": "علاقات الموشور",
+          "points": 1,
+          "gap": "À revoir : علاقات الموشور الأساسية",
+          "recommendation": "تجميع علاقات الموشور الأساسية: $A = r + r'$ و $D = i + i' - A$[cite: 14].",
+          "explanation": "La déviation totale par le prisme est $D = i + i' - A$[cite: 14]."
+        }
+      ]
+    }
+  ]
+}

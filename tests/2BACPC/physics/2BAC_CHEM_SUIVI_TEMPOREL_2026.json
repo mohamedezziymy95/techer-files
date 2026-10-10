@@ -1,0 +1,252 @@
+{
+  "id": "2BAC_CHEM_SUIVI_TEMPOREL_2026",
+  "title": "تقويم المكتسبات والدعم: التتبع الزمني لتحول كيميائي - سرعة التفاعل",
+  "subject": "الكيمياء",
+  "level": "2BAC",
+  "duration": 40,
+  "type": "diagnostic",
+  "type_label": "تشخيصي ودعم",
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quelles sont les méthodes expérimentales fondamentales pour suivre l'évolution temporelle d'une transformation chimique ?",
+      "options": [
+        "Les méthodes physiques (conductimétrie, pH-métrie, pression, volume) et chimiques (titrage)[cite: 19].",
+        "Uniquement les méthodes thermiques par évaporation.",
+        "La pesée directe de tous les atomes isolés.",
+        "L'observation microscopique optique simple."
+      ],
+      "correct": 0,
+      "gap": "عدم الإحاطة بطرق التتبع الزمني الفيزيائية والكيميائية",
+      "recommendation": "التفرقة بين طرق التتبع الفيزيائية غير المتلفة والكيميائية عبر المعايرة[cite: 19].",
+      "domain": "الكيمياء",
+      "skill": "معرفة تقنيات التتبع الزمني",
+      "points": 1,
+      "explanation": "Pour suivre l'évolution temporelle, on utilise des techniques physiques (conductimétrie, pH-métrie, mesure de volume ou de pression) et des méthodes chimiques comme le titrage[cite: 19].",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification : Pour suivre une transformation impliquant des ions oxonium $H_3O^+$, on privilégie souvent :",
+          "options": [
+            "La pH-métrie ou la conductimétrie[cite: 19].",
+            "La mesure de la masse d'un solide inerte.",
+            "L'utilisation d'un thermomètre simple."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "La pH-métrie est adaptée aux milieux contenant des ions oxonium $H_3O^+$[cite: 19]."
+        },
+        {
+          "id": "q1_transfer",
+          "text": "Pourquoi ajoute-t-on de l'eau froide au volume prélevé lors d'un dosage par trempe ?",
+          "options": [
+            "Pour bloquer ou ralentir instantanément la réaction étudiée[cite: 22].",
+            "Pour accélérer la formation du gaz.",
+            "Pour modifier la valeur de la concentration maximale."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "عملية التبريد الفجائي (Trempe)",
+          "points": 1,
+          "gap": "À revoir : تقنية الإيقاف أو التبريد الفجائي",
+          "recommendation": "التبريد الفجائي بالماء البارد يوقف التفاعل لكي نتمكن من معايرته بأمان[cite: 22].",
+          "explanation": "On ajoute de l'eau froide pour bloquer la réaction lors des prélèvements[cite: 22]."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Quel est l'expression de la vitesse volumique $v$ d'une réaction chimique dans un volume $V$ de solution ?",
+      "options": [
+        "$v = \\frac{1}{V} \\cdot \\frac{dx}{dt}$[cite: 19]",
+        "$v = V \\cdot \\frac{dx}{dt}$",
+        "$v = \\frac{dx}{dt} + V$",
+        "$v = \\frac{V}{dx/dt}$"
+      ],
+      "correct": 0,
+      "gap": "خطأ في تركيب تعبير السرعة الحجمية للتفاعل",
+      "recommendation": "تذكر أن السرعة الحجمية تقسم مشتقة التقدم على حجم المحلول الكلي $V$[cite: 19].",
+      "domain": "الكيمياء",
+      "skill": "تطبيق قانون السرعة الحجمية",
+      "points": 1,
+      "explanation": "La vitesse volumique correspond à la quantité de matière formée ou disparue par unité de temps et de volume : $v = \\frac{1}{V}\\frac{dx}{dt}$[cite: 19].",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification : Comment détermine-t-on graphiquement la dérivée $\\frac{dx}{dt}$ à un instant donné $t_i$ sur la courbe $x = f(t)$ ?",
+          "options": [
+            "En calculant le coefficient directeur de la tangente à la courbe à l'instant $t_i$[cite: 19].",
+            "En mesurant l'ordonnée maximale du point final.",
+            "En multipliant le temps par la concentration."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "La dérivée $\\frac{dx}{dt}$ est le coefficient directeur de la tangente à la courbe $x=f(t)$ à l'instant considéré[cite: 19]."
+        },
+        {
+          "id": "q2_transfer",
+          "text": "Quelles sont les unités usuelles de la vitesse volumique de réaction $v$ ?",
+          "options": [
+            "$\\text{mol}\\cdot\\text{L}^{-1}\\cdot\\text{min}^{-1}$ (ou $\\text{mol}\\cdot\\text{m}^{-3}\\cdot\\text{s}^{-1}$)[cite: 19]",
+            "$\\text{mol}\\cdot\\text{s}$",
+            "$\\text{L}\\cdot\\text{mol}^{-1}$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "وحدات السرعة الحجمية",
+          "points": 1,
+          "gap": "À revoir : وحدات المقادير الحركية",
+          "recommendation": "مراجعة وحدات التقدم (mol) والحجم (L أو $m^3$) والزمن (s أو min)[cite: 19].",
+          "explanation": "L'unité de $v$ est $\\text{mol}\\cdot\\text{m}^{-3}\\cdot\\text{s}^{-1}$ ou $\\text{mol}\\cdot\\text{L}^{-1}\\cdot\\text{min}^{-1}$[cite: 19]."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Comment évolue la vitesse volumique d'une réaction chimique au cours du temps ?",
+      "options": [
+        "Elle diminue continuellement et tend vers zéro à la fin de la transformation[cite: 20].",
+        "Elle augmente de façon exponentielle.",
+        "Elle reste constante de la date $t=0$ jusqu'à l'état final.",
+        "Elle s'annule brusquement dès la première seconde."
+      ],
+      "correct": 0,
+      "gap": "عدم إدراك التطور الزمني للسرعة الحجمية",
+      "recommendation": "تناقص تراكيز المتفاعلات يؤدي حتماً إلى تناقص ميل المماسات وبالتالي تناقص السرعة حتى تنعدم[cite: 20].",
+      "domain": "الكيمياء",
+      "skill": "تفسير تطور السرعة عبر الزمن",
+      "points": 1,
+      "explanation": "Au cours d'une transformation chimique, la vitesse volumique de réaction diminue et tend vers 0 à la fin de cette transformation[cite: 20].",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification : À quelle date la vitesse d'une réaction chimique est-elle généralement maximale ?",
+          "options": [
+            "À l'instant initial $t = 0$ (au début de la réaction).",
+            "Au temps de demi-réaction $t_{1/2}$.",
+            "À l'état final du système."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "La vitesse est maximale à $t=0$ car les concentrations des réactifs sont à leur maximum."
+        },
+        {
+          "id": "q3_transfer",
+          "text": "Graphiquement, la diminution de la vitesse se traduit par :",
+          "options": [
+            "La diminution de la pente des tangentes à la courbe $x=f(t)$ au cours du temps[cite: 20].",
+            "L'augmentation verticale de l'asymptote.",
+            "L'inversion totale du sens des axes."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "التأويل المبياني للسرعة",
+          "points": 1,
+          "gap": "À revoir : الملاحظة المبيانية للميل",
+          "recommendation": "كلما تقدمنا في الزمن أصبح مماس المنحنى أكثر أفقية (ميله يؤول للصفر)[cite: 20].",
+          "explanation": "La pente des tangentes diminue au cours du temps, ce qui traduit la diminution de la vitesse[cite: 20]."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Qu'est-ce que le temps de demi-réaction $t_{1/2}$ pour une transformation totale ?",
+      "options": [
+        "La durée nécessaire pour que l'avancement $x$ atteigne la moitié de sa valeur maximale : $x(t_{1/2}) = \\frac{x_{max}}{2}$[cite: 20].",
+        "Le temps total que met la réaction pour s'arrêter complètement.",
+        "La moitié du volume initial des réactifs.",
+        "Le temps au bout duquel la température double."
+      ],
+      "correct": 0,
+      "gap": "خلط في تعريف وكيفية تحديد زمن نصف التفاعل",
+      "recommendation": "تعريف $t_{1/2}$ مرتبط حصراً ببلوغ التقدم نصف قيمته النهائية أو القصوى ($x_{max}/2$)[cite: 20].",
+      "domain": "الكيمياء",
+      "skill": "ضبط وتعريف زمن نصف التفاعل",
+      "points": 1,
+      "explanation": "Le temps de demi-réaction $t_{1/2}$ est la durée nécessaire pour que l'avancement de la réaction $x$ soit égal à la moitié de sa valeur finale $x_{max}/2$[cite: 20].",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification : Pour déterminer graphiquement $t_{1/2}$ sur la courbe $x=f(t)$, on procède par :",
+          "options": [
+            "Détermination de $x_{max}$, placement de $\\frac{x_{max}}{2}$ sur l'axe des ordonnées, puis projection sur la courbe et l'axe des temps[cite: 20].",
+            "Mesure directe de la pente à l'origine.",
+            "Division de la durée totale de l'expérience par quatre."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "On détermine $x_{max}$ par l'asymptote horizontale, puis on repère $\\frac{x_{max}}{2}$ pour trouver $t_{1/2}$ sur l'axe des abscisses[cite: 20]."
+        },
+        {
+          "id": "q4_transfer",
+          "text": "Si $x_{max} = 20\\text{ mmol}$, à l'instant $t_{1/2}$, la valeur de l'avancement est :",
+          "options": [
+            "$10\\text{ mmol}$[cite: 20]",
+            "$20\\text{ mmol}$",
+            "$5\\text{ mmol}$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "حساب وتطبيق قيمة نصف التقدم",
+          "points": 1,
+          "gap": "À revoir : تطبيق العلاقة العددية لنصف التقدم",
+          "recommendation": "نقسم القيمة القصوى دوماً على اثنين ($20 / 2 = 10$)[cite: 20].",
+          "explanation": "À $t_{1/2}$, $x = \\frac{x_{max}}{2} = \\frac{20}{2} = 10\\text{ mmol}$[cite: 20]."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Selon l'interprétation microscopique d'une réaction chimique, à quoi est due l'évolution du système ?",
+      "options": [
+        "À des chocs efficaces entre les entités des réactifs ayant une énergie suffisante pour rompre leurs liaisons[cite: 25].",
+        "À une simple cohabitation statique sans aucun contact.",
+        "À l'attraction gravitationnelle pure entre les récipients.",
+        "À l'augmentation spontanée du nombre de protons du noyau."
+      ],
+      "correct": 0,
+      "gap": "غياب الفهم المجهري للتفاعلات الكيميائية والتصادمات الفعالة",
+      "recommendation": "ربط حدوث التفاعلات بوجود تصادمات مجهرية فعالة ومزودة بطاقة كافية لكسر الروابط[cite: 25].",
+      "domain": "الكيمياء",
+      "skill": "فهم التفسير المجهري للتحولات الكيميائية",
+      "points": 1,
+      "explanation": "Pour qu'une réaction chimique ait lieu, il faut que les entités chimiques subissent des chocs efficaces lorsque leur énergie est suffisante pour rompre leurs liaisons[cite: 25].",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification : Un choc entre deux entités réactives est qualifié d'efficace si :",
+          "options": [
+            "L'énergie des entités est suffisante pour rompre les liaisons initiales[cite: 25].",
+            "Les molécules rebondissent sans aucune modification.",
+            "La température extérieure baisse instantanément à $0\\text{ K}$."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "Le choc est efficace si l'énergie est suffisante pour rompre les liaisons chimiques[cite: 25]."
+        },
+        {
+          "id": "q5_transfer",
+          "text": "L'élévation de la température accélère une réaction car elle :",
+          "options": [
+            "Augmente l'agitence thermique et l'énergie cinétique des entités, rendant les chocs plus fréquents et efficaces.",
+            "Diminue le nombre total de collisions.",
+            "Stoppe l'échange d'électrons."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "تأثير الحرارة مجهرياً",
+          "points": 1,
+          "gap": "À revoir : التأويل المجهري لعامل الحرارة",
+          "recommendation": "الحرارة ترفع من سرعة وحركة الدقائق فتزداد فعالية وتكرار التصادمات.",
+          "explanation": "Une température plus élevée accroît l'énergie des entités, favorisant les chocs efficaces."
+        }
+      ]
+    }
+  ]
+}

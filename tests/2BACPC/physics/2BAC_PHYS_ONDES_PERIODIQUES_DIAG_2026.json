@@ -1,0 +1,257 @@
+{
+  "id": "2BAC_PHYS_ONDES_PERIODIQUES_DIAG_2026",
+  "title": "تقويم المكتسبات والدعم: درس الموجات الميكانيكية المتوالية الدورية",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BAC",
+  "duration": 40,
+  "type": "diagnostic",
+  "type_label": "تشخيصي ودعم",
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quelle est la relation entre la période temporelle $T$ et la fréquence $N$ d'une onde périodique ?",
+      "options": [
+        "$N = \\frac{1}{T}$",
+        "$N = T^2$",
+        "$T = 2 \\cdot N$",
+        "$N = T$"
+      ],
+      "correct": 0,
+      "gap": "الخلط بين مفهومي التردد والدور والوحدات الخاصة بهما",
+      "recommendation": "التأكيد على أن التردد N هو مقلوب الدور T (الوحدة: Hz و s).",
+      "domain": "الموجات",
+      "skill": "حساب واستعمال الدور والتردد",
+      "points": 1,
+      "explanation": "La fréquence N représente le nombre de périodes par unité de temps : $N = \\frac{1}{T}$.",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification : Un diapason émet un son de période $T = 2\\text{ ms}$. Sa fréquence $N$ est :",
+          "options": [
+            "$500\\text{ Hz}$",
+            "$200\\text{ Hz}$",
+            "$0,5\\text{ Hz}$",
+            "$50\\text{ Hz}$"
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "$N = \\frac{1}{2 \\cdot 10^{-3}\\text{ s}} = 500\\text{ Hz}$."
+        },
+        {
+          "id": "q1_transfer",
+          "text": "Si la fréquence d'une onde augmente, sa période temporelle :",
+          "options": [
+            "Diminue car $T = \\frac{1}{N}$.",
+            "Augmente proportionnellement.",
+            "Reste constante."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "العلاقة التناكسية بين الدور والتردد",
+          "points": 1,
+          "gap": "À revoir : التناسب العكسي بين الدور والتردد",
+          "recommendation": "كلما زاد التردد ينقص الدور الزمني.",
+          "explanation": "La période T est inversement proportionnelle à la fréquence N."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Quelle est l'expression de la célérité $V$ d'une onde mécanique sinusoïdale en fonction de la longueur d'onde $\\lambda$ et de la période $T$ ?",
+      "options": [
+        "$V = \\frac{\\lambda}{T} = \\lambda \\cdot N$",
+        "$V = \\frac{T}{\\lambda}$",
+        "$V = \\lambda \\cdot T$",
+        "$V = \\frac{N}{\\lambda}$"
+      ],
+      "correct": 0,
+      "gap": "عدم الربط بين المقادير الزمانية والمكانية لسرعة الانتشار",
+      "recommendation": "تذكر أن طول الموجة هو المسافة المقطوعة خلال دور واحد: $V = \\frac{\\lambda}{T} = \\lambda \\cdot N$.",
+      "domain": "الموجات",
+      "skill": "تطبيق علاقة سرعة انتشار موجة دورية",
+      "points": 1,
+      "explanation": "La célérité $V$ est égale au rapport de la longueur d'onde $\\lambda$ sur la période $T$.",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification : Une onde de longueur d'onde $\\lambda = 4\\text{ cm}$ se propage avec une fréquence $N = 15\\text{ Hz}$. Sa célérité est :",
+          "options": [
+            "$0,6\\text{ m/s}$",
+            "$60\\text{ m/s}$",
+            "$3,75\\text{ m/s}$",
+            "$0,15\\text{ m/s}$"
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "$V = \\lambda \\cdot N = 0,04\\text{ m} \\times 15\\text{ Hz} = 0,6\\text{ m/s}$."
+        },
+        {
+          "id": "q2_transfer",
+          "text": "La longueur d'onde $\\lambda$ représente :",
+          "options": [
+            "La périodicité spatiale (distance parcourue pendant une période T).",
+            "La durée d'une oscillation.",
+            "L'amplitude maximale du signal."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "مفهوم طول الموجة",
+          "points": 1,
+          "gap": "À revoir : الدورية المكانية",
+          "recommendation": "طول الموجة مسافة وتعبر عن الدورية المكانية للموجة.",
+          "explanation": "La longueur d'onde est la plus petite distance séparant deux points dans le même état vibratoire."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Deux points $M$ et $N$ du milieu de propagation vibrent en phase si la distance $MN$ vérifie :",
+      "options": [
+        "$MN = k \\cdot \\lambda$ avec $k \\in \\mathbb{N}^*$",
+        "$MN = (k + \\frac{1}{2}) \\cdot \\lambda$ avec $k \\in \\mathbb{N}$",
+        "$MN = \\frac{\\lambda}{4}$",
+        "$MN = k \\cdot T$"
+      ],
+      "correct": 0,
+      "gap": "عدم القدرة على تحديد حالة الاهتزاز (توافق أو تعاكس في الطور)",
+      "recommendation": "المقارنة بين المسافة MN وطول الموجة $\\lambda$: توافق في الطور ($MN = k \\cdot \\lambda$)، تعاكس في الطور ($MN = (k+0,5) \\cdot \\lambda$).",
+      "domain": "الموجات",
+      "skill": "مقارنة حركة نقطتين من وسط الانتشار",
+      "points": 1,
+      "explanation": "Deux points vibrent en phase si leur distance est un multiple entier de la longueur d'onde $\\lambda$.",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification : Soit $\\lambda = 5\\text{ cm}$. Deux points distants de $d = 12,5\\text{ cm}$ vibrent :",
+          "options": [
+            "En opposition de phase car $d = 2,5 \\cdot \\lambda$.",
+            "En phase car $d = 2,5 \\cdot \\lambda$.",
+            "Perpendiculairement.",
+            "Sans aucun retard."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "$\\frac{d}{\\lambda} = \\frac{12,5}{5} = 2,5 = 2 + 0,5$ donc ils vibrent en opposition de phase."
+        },
+        {
+          "id": "q3_transfer",
+          "text": "Si deux points $A$ et $B$ vibrent en phase, leurs élongations à chaque instant sont :",
+          "options": [
+            "Identiques : $y_A(t) = y_B(t)$.",
+            "Opposées : $y_A(t) = -y_B(t)$.",
+            "Indépendantes."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "استطالة نقاط تهتز على توافق في الطور",
+          "points": 1,
+          "gap": "À revoir : مفهوم التوافق في الطور",
+          "recommendation": "عند التوافق في الطور تكون للنقطتين نفس الاستطالة ونفس الحركة في كل لحظة.",
+          "explanation": "Les points en phase possèdent la même élongation à chaque instant."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Quelle est la condition sur la largeur $a$ d'une fente pour observer le phénomène de diffraction d'une onde de longueur d'onde $\\lambda$ ?",
+      "options": [
+        "$a \\le \\lambda$",
+        "$a \\gg \\lambda$",
+        "$a = 100 \\cdot \\lambda$",
+        "$a \\ge 10 \\cdot \\lambda$"
+      ],
+      "correct": 0,
+      "gap": "عدم استيعاب شرط وشكل ظاهرة الحيود",
+      "recommendation": "تكون ظاهرة الحيود ملحوظة عندما يكون عرض الفتحة أصغر من أو يحادي طول الموجة ($a \\le \\lambda$).",
+      "domain": "الموجات",
+      "skill": "معرفة شرط وحصيلة ظاهرة الحيود",
+      "points": 1,
+      "explanation": "Le phénomène de diffraction se produit lorsque les dimensions de l'ouverture ou de l'obstacle sont inférieures ou du même ordre de grandeur que la longueur d'onde ($a \\le \\lambda$).",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification : Après traversée d'une fente de largeur $a \\le \\lambda$, l'onde diffractée conserve :",
+          "options": [
+            "La même longueur d'onde $\\lambda$, la même fréquence $N$ et la même célérité $V$.",
+            "Une longueur d'onde plus petite.",
+            "Une fréquence plus grande.",
+            "Une vitesse plus faible."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "La diffraction modifie la forme de l'onde mais ne change ni sa longueur d'onde, ni sa fréquence, ni sa vitesse."
+        },
+        {
+          "id": "q4_transfer",
+          "text": "Une onde rectiligne à la surface de l'eau traverse une fente de largeur $a = 2\\text{ cm}$. Si $\\lambda = 5\\text{ cm}$, l'onde après la fente sera :",
+          "options": [
+            "Circulaire (onde diffractée car $a < \\lambda$).",
+            "Rectiligne (pas de diffraction).",
+            "Complètement absorbée."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "شكل الموجة المحودة",
+          "points": 1,
+          "gap": "À revoir : شكل الموجة بعد الحيود",
+          "recommendation": "الموجة المستقيمة تتحول إلى موجة دائرية عند تحقق شرط الحيود.",
+          "explanation": "Comme $a < \\lambda$, l'onde rectiligne devient circulaire après la fente."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Un milieu est dit dispersif si :",
+      "options": [
+        "La célérité de l'onde dans ce milieu dépend de sa fréquence $N$.",
+        "La célérité de l'onde est indépendante de la fréquence.",
+        "L'onde ne peut pas s'y propager.",
+        "La longueur d'onde reste constante quel que soit le milieu."
+      ],
+      "correct": 0,
+      "gap": "عدم ضبط تعريف الوسط المتبدد وأمثليته",
+      "recommendation": "تذكر أن الوسط المتبدد هو كل وسط تتغير فيه سرعة انتشار الموجة بتغير ترددها (مثال: الماء وسط متبدد).",
+      "domain": "الموجات",
+      "skill": "تعريف واكتشاف الوسط المتبدد",
+      "points": 1,
+      "explanation": "Un milieu est dispersif si la vitesse de propagation de l'onde dépend de sa fréquence.",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification : Pour les ondes à la surface de l'eau, si on augmente la fréquence $N$ de $20\\text{ Hz}$ à $30\\text{ Hz}$, la vitesse $V$ passe de $20\\text{ m/s}$ à $24\\text{ m/s}$. On conclut que :",
+          "options": [
+            "L'eau est un milieu dispersif.",
+            "L'eau est un milieu non dispersif.",
+            "L'eau absorbe l'onde.",
+            "La fréquence ne change pas."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "Puisque la célérité dépend de la fréquence, le milieu (l'eau) est dispersif."
+        },
+        {
+          "id": "q5_transfer",
+          "text": "Parmi les milieux suivants, lequel est un exemple classique de milieu non dispersif pour les ondes sonores ?",
+          "options": [
+            "L'air (toutes les fréquences sonores se propagent à la même vitesse).",
+            "L'eau à la surface.",
+            "Un verre prismatique."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "أمثلة الأوساط المتبددة وغير المتبددة",
+          "points": 1,
+          "gap": "À revoir : الأوساط غير المتبددة",
+          "recommendation": "في الهواء تنتشر جميع الأصوات بمختلف تردداتها بنفس السرعة تقريباً.",
+          "explanation": "L'air est un milieu non dispersif pour le son."
+        }
+      ]
+    }
+  ]
+}
