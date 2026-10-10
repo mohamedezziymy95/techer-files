@@ -1,0 +1,252 @@
+{
+  "id": "2BAC_CHEM_TRANSFORMATIONS_LENTES_RAPIDES_2026",
+  "title": "تقويم المكتسبات والدعم: التفاعلات السريعة والبطيئة لمجموعة كيميائية",
+  "subject": "الكيمياء",
+  "level": "2BAC",
+  "duration": 40,
+  "type": "diagnostic",
+  "type_label": "تشخيصي ودعم",
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Qu'appelle-t-on un oxydant selon les réactions d'oxydoréduction ?",
+      "options": [
+        "Une espèce chimique capable de gagner un ou plusieurs électrons[cite: 15].",
+        "Une espèce chimique capable de perdre des électrons[cite: 15].",
+        "Un corps pur simple sans charge.",
+        "Un catalyseur thermique."
+      ],
+      "correct": 0,
+      "gap": "الخلط بين مفهومي المؤكسد والمختزل في تفاعلات الأكسدة والاختزال",
+      "recommendation": "تذكر أن المؤكسد يكتسب إلكترونات بينما المختزل يفقد إلكترونات[cite: 15].",
+      "domain": "الكيمياء",
+      "skill": "تعريف المفاهيم الأساسية للأكسدة والاختزال",
+      "points": 1,
+      "explanation": "Un oxydant est une espèce chimique capable de gagner un ou plusieurs électrons[cite: 15].",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification : L'oxydation est définie chimiquement comme :",
+          "options": [
+            "Une perte d'un ou plusieurs électrons[cite: 15].",
+            "Un gain d'électrons.",
+            "Une variation de pression."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "L'oxydation est une perte d'un ou plusieurs électrons[cite: 15]."
+        },
+        {
+          "id": "q1_transfer",
+          "text": "Dans un couple $Ox/Red$, la demi-équation électronique s'écrit généralement sous la forme :",
+          "options": [
+            "$Ox + n \\cdot e^- \\rightleftharpoons Red$[cite: 15]",
+            "$Red \\rightleftharpoons Ox + e^-$",
+            "$Ox + Red \\rightarrow n \\cdot e^-$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "كتابة النصف معادلات الإلكترونية",
+          "points": 1,
+          "gap": "À revoir : كتابة انصاف المعادلات",
+          "recommendation": "المؤكسد يضاف إليه الإلكترونات في الطرف الأيسر[cite: 15].",
+          "explanation": "L'oxydant gagne des électrons selon $Ox + n e^- \\rightleftharpoons Red$[cite: 15]."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Qu'est-ce qu'une transformation rapide en chimie ?",
+      "options": [
+        "Une transformation qui se fait en une courte durée qu'on ne peut pas suivre à l'œil nu[cite: 16].",
+        "Une transformation qui dure plusieurs jours.",
+        "Une réaction qui se produit uniquement à haute température.",
+        "Une transformation réversible infinie."
+      ],
+      "correct": 0,
+      "gap": "عدم التمييز بين التحولات السريعة والبطيئة",
+      "recommendation": "التحول السريع يحدث في مدة وجيزة لا تسمح بتتبعه عيانياً، على عكس التحول البطيء[cite: 16, 17].",
+      "domain": "الكيمياء",
+      "skill": "تصنيف التحولات الكيميائية حسب مدتها الزمنية",
+      "points": 1,
+      "explanation": "Une transformation rapide est une transformation qui se fait en une courte durée de telle façon qu'on ne peut pas suivre son évolution[cite: 16].",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification : La réaction entre la solution de diiode et le thiosulfate de sodium est un exemple de :",
+          "options": [
+            "Transformation rapide[cite: 16].",
+            "Transformation lente.",
+            "Transformation nucléaire."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "La décoloration est rapide, il s'agit d'une transformation rapide[cite: 16]."
+        },
+        {
+          "id": "q2_transfer",
+          "text": "Parmi les exemples suivants, lequel constitue une transformation lente ?",
+          "options": [
+            "L'oxydation du fer à l'air libre[cite: 17].",
+            "La combustion instantanée du butane[cite: 16].",
+            "La plupart des réactions acido-basiques[cite: 16]."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "أمثلة التحولات البطيئة",
+          "points": 1,
+          "gap": "À revoir : أمثلة التحولات البطيئة والسريعة",
+          "recommendation": "التفاعلات مثل صدأ الحديد تستغرق وقتاً طويلاً فهي بطيئة[cite: 16, 17].",
+          "explanation": "L'oxydation du fer est un exemple de transformation lente[cite: 17]."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Qu'appelle-t-on un facteur cinétique ?",
+      "options": [
+        "Tout paramètre capable d'influer sur la vitesse d'une transformation chimique[cite: 17].",
+        "Une constante d'équilibre chimique.",
+        "La masse molaire d'un réactif.",
+        "Le volume total de la solution."
+      ],
+      "correct": 0,
+      "gap": "جهل مفهوم العوامل الحركية ودورها",
+      "recommendation": "العامل الحركي هو كل مؤثر يغير سرعة التفاعل (مثل الحرارة والتركيز)[cite: 17].",
+      "domain": "الكيمياء",
+      "skill": "تعريف العوامل الحركية",
+      "points": 1,
+      "explanation": "On appelle facteur cinétique tout paramètre capable d'influer sur la vitesse d'une transformation chimique[cite: 17].",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification : Quels sont les deux principaux facteurs cinétiques étudiés couramment ?",
+          "options": [
+            "La température et la concentration initiale des réactifs[cite: 17].",
+            "La pression atmosphérique et la couleur de la solution.",
+            "La masse volumique de l'eau."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "La température et la concentration initiale des réactifs sont des facteurs cinétiques[cite: 17]."
+        },
+        {
+          "id": "q3_transfer",
+          "text": "La vitesse d'évolution d'un système chimique est d'autant plus grande que :",
+          "options": [
+            "Sa température est plus élevée[cite: 17].",
+            "Sa température est très basse.",
+            "Le milieu est fortement dilué."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "تأثير درجة الحرارة",
+          "points": 1,
+          "gap": "À revoir : تأثير الحرارة على السرعة",
+          "recommendation": "كلما ارتفعت الحرارة زادت سرعة التفاعل[cite: 17].",
+          "explanation": "La vitesse est d'autant plus grande que la température est plus élevée[cite: 17]."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Comment évolue la vitesse d'une réaction si on augmente la concentration initiale des réactifs ?",
+      "options": [
+        "Elle augmente[cite: 17].",
+        "Elle diminue.",
+        "Elle s'annule immédiatement.",
+        "Elle reste strictement constante."
+      ],
+      "correct": 0,
+      "gap": "عدم استيعاب تأثير التركيز البدئي للمتفاعلات",
+      "recommendation": "زيادة التراكيز البدئية ترفع من احتمالية التصادمات الفعالة فتزداد السرعة[cite: 17].",
+      "domain": "الكيمياء",
+      "skill": "تأثير التركيز البدئي",
+      "points": 1,
+      "explanation": "La vitesse d'évolution d'un système chimique est d'autant plus grande que les concentrations initiales sont plus importantes[cite: 17].",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification : Pour accélérer un chauffage ou une cuisson à domicile, on utilise souvent :",
+          "options": [
+            "Une cocotte-minute pour élever la température[cite: 17].",
+            "Un réfrigérateur.",
+            "Une dilution massive."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "On accélère des transformations en augmentant la température, par exemple avec une cocotte-minute[cite: 17]."
+        },
+        {
+          "id": "q4_transfer",
+          "text": "Pour ralentir ou bloquer une transformation chimique non désirée, on peut :",
+          "options": [
+            "Diminuer la température ou diluer le mélange réactionnel[cite: 17].",
+            "Augmenter fortement la température.",
+            "Ajouter un excès de réactifs concentrés."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "تطبيقات إبطاء التفاعلات",
+          "points": 1,
+          "gap": "À revoir : طرق إبطاء التفاعلات",
+          "recommendation": "الخفض والتبريد أو التخفيف يبطئ التفاعلات الكيميائية[cite: 17].",
+          "explanation": "On ralentit ou bloque les transformations en diminuant la température ou en diluant[cite: 17]."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Quel rôle joue le réfrigérateur dans la conservation des aliments ?",
+      "options": [
+        "Il ralentit les transformations chimiques de dégradation grâce à la basse température[cite: 17].",
+        "Il accélère la cuisson des aliments.",
+        "Il détruit tous les électrons.",
+        "Il augmente la concentration des réactifs."
+      ],
+      "correct": 0,
+      "gap": "ربط العوامل الحركية بالحياة اليومية وحفظ المواد",
+      "recommendation": "التبريد يقلل من سرعة تفاعلات الفساد عبر استغلال تأثير عامل الحرارة[cite: 17].",
+      "domain": "الكيمياء",
+      "skill": "تطبيقات العوامل الحركية في الحياة اليومية",
+      "points": 1,
+      "explanation": "La conservation des aliments dans un réfrigérateur permet de ralentir les transformations par diminution de la température[cite: 17].",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification : La température est considérée en cinétique chimique comme :",
+          "options": [
+            "Un facteur cinétique[cite: 17].",
+            "Une quantité de matière.",
+            "Un réactif limitant."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "La température est un facteur cinétique[cite: 17]."
+        },
+        {
+          "id": "q5_transfer",
+          "text": "Parmi les autres facteurs cinétiques possibles mentionnés, on trouve :",
+          "options": [
+            "Le catalyseur et la nature du solvant[cite: 17].",
+            "La couleur de l'éprouvette.",
+            "La masse de la balance."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "العوامل الحركية الأخرى",
+          "points": 1,
+          "gap": "À revoir : العوامل الحركية الإضافية",
+          "recommendation": "توجد عوامل أخرى مثل الحفاز (Catalyseur) ونبيعة المذيب[cite: 17].",
+          "explanation": "Il existe d'autres facteurs cinétiques comme le catalyseur et la nature du solvant[cite: 17]."
+        }
+      ]
+    }
+  ]
+}

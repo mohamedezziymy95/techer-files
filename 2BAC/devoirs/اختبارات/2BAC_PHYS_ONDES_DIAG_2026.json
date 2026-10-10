@@ -1,0 +1,260 @@
+{
+  "id": "2BAC_PHYS_ONDES_DIAG_2026",
+  "title": "تقويم المكتسبات والدعم: درس الموجات الميكانيكية المتوالية",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BAC",
+  "duration": 40,
+  "type": "diagnostic",
+  "type_label": "تشخيصي ودعم",
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Lors de la propagation d'une onde mécanique progressive dans un milieu matériel élastique, qu'est-ce qui se déplace ?",
+      "options": [
+        "La matière seulement.",
+        "L'énergie seulement sans transport de matière.",
+        "La matière et l'énergie ensemble.",
+        "Ni la matière ni l'énergie."
+      ],
+      "correct": 1,
+      "gap": "الخلط بين انتقال المادة وانتقال الطاقة أثناء انتشار الموجة",
+      "recommendation": "التأكيد على أن انتشار الموجة الميكانيكية يتميز بنقل الطاقة دون انتقال المادة المشكلة للوسط.",
+      "domain": "الموجات",
+      "skill": "تحديد مفهوم الموجة الميكانيكية وخاصياتها",
+      "points": 1,
+      "explanation": "L'onde mécanique progressive est le phénomène de propagation d'une perturbation sans transport de matière mais avec transport d'énergie.",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification : Un bouchon en liège flotte sur l'eau calme. Lorsqu'une onde passe, le bouchon :",
+          "options": [
+            "Se déplace verticalement puis revient à sa position sans avancer horizontalement.",
+            "Est emporté horizontalement avec l'onde.",
+            "S'enfonce définitivement au fond.",
+            "Reste parfaitement immobile."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "Les points du milieu s'écartent momentanément de leur position d'équilibre puis y reviennent (pas de transport de matière)."
+        },
+        {
+          "id": "q1_transfer",
+          "text": "Une onde se propage le long d'une corde. Une marque rouge sur la corde se déplace-t-elle le long de la corde ?",
+          "options": [
+            "Non, elle oscille verticalement au passage de l'onde puis revient à sa place.",
+            "Oui, elle suit la déformation jusqu'au bout de la corde.",
+            "Oui, elle se déplace dans le sens inverse."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "الموجات الميكانيكية",
+          "points": 1,
+          "gap": "À revoir : نقل الطاقة بدون نقل المادة",
+          "recommendation": "الوسط المادي يهتز موضعياً فقط ولا ينتقل مع الموجة.",
+          "explanation": "La matière ne se déplace pas horizontalement avec l'onde."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Comment qualifie-t-on une onde dont la direction de la perturbation est perpendiculaire à la direction de propagation ?",
+      "options": [
+        "Onde longitudinale.",
+        "Onde transversale.",
+        "Onde sonore.",
+        "Onde stationnaire."
+      ],
+      "correct": 1,
+      "gap": "عدم التمييز بين الموجة المستعرضة والموجة الطولية",
+      "recommendation": "التأكّد من تعاريف أنواع الموجات: المستعرضة (تعامد الاتجاهين) والطولية (توازي الاتجاهين).",
+      "domain": "الموجات",
+      "skill": "التمييز بين الموجة المستعرضة والموجة الطولية",
+      "points": 1,
+      "explanation": "Une onde est dite transversale si la direction de la perturbation est perpendiculaire à la direction de propagation.",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification : L'onde se propageant le long d'une corde secouée verticalement est :",
+          "options": [
+            "Transversale.",
+            "Longitudinale.",
+            "Sonore.",
+            "Tridimensionnelle."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "Déformation verticale et propagation horizontale = Onde transversale."
+        },
+        {
+          "id": "q2_transfer",
+          "text": "L'onde créée par la compression et dilatation des spires d'un ressort est :",
+          "options": [
+            "Longitudinale car la déformation est parallèle à la propagation.",
+            "Transversale car la déformation est perpendiculaire.",
+            "Une onde électromagnétique."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "تصنيف الموجات",
+          "points": 1,
+          "gap": "À revoir : الموجة الطولية والمستعرضة",
+          "recommendation": "التمطيط والضغط في النابض يكونان في نفس اتجاه الانتشار.",
+          "explanation": "Direction de déformation parallèle à la direction de propagation."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Pourquoi le son ne se propage-t-il pas dans le vide ?",
+      "options": [
+        "Car sa vitesse dans le vide est infinie.",
+        "Car le son est une onde mécanique qui nécessite un milieu matériel élastique pour se propager.",
+        "Car la température dans le vide est trop basse.",
+        "Car le son est une onde électromagnétique."
+      ],
+      "correct": 1,
+      "gap": "صعوبة فهم الشروط المادية لانتشار الموجات الصوتية",
+      "recommendation": "مراجعة خصائص الموجات الصوتية للتأكيد على أنها موجات ميكانيكية طولية لا تنتشر في الفراغ.",
+      "domain": "الموجات",
+      "skill": "معرفة طبيعة الموجات الصوتية وشروط انتشارها",
+      "points": 1,
+      "explanation": "Le son est une onde mécanique (longitudinale). Il a besoin de matière (gaz, liquide, solide) pour se propager.",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification : Lorsqu'on fait le vide sous une cloche contenant un réveil qui sonne :",
+          "options": [
+            "Le son disparaît car il n'y a plus de milieu matériel.",
+            "Le son devient plus fort.",
+            "Le son ne change pas.",
+            "La vitesse du son augmente."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "Sans air (vide), les ondes sonores ne peuvent pas se propager."
+        },
+        {
+          "id": "q3_transfer",
+          "text": "Parmi les milieux suivants, dans lequel le son se propage-t-il le plus vite ?",
+          "options": [
+            "L'acier (solide)",
+            "L'eau (liquide)",
+            "L'air (gaz)"
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "سرعة انتشار الصوت حسب الوسط",
+          "points": 1,
+          "gap": "À revoir : تأثير كثافة الوسط على سرعة الصوت",
+          "recommendation": "تزداد سرعة الصوت مع زيادة كثافة ومرونة الوسط: $V_{solide} > V_{liquide} > V_{gaz}$.",
+          "explanation": "La célérité du son est plus importante dans les solides que dans les liquides et les gaz."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Quelle est l'expression du retard temporel $\\tau$ d'un point $M$ par rapport à la source $S$ d'une onde se propageant à la célérité $V$ ?",
+      "options": [
+        "$\\tau = \\frac{SM}{V}$",
+        "$\\tau = SM \\cdot V$",
+        "$\\tau = \\frac{V}{SM}$",
+        "$\\tau = t_S - t_M$"
+      ],
+      "correct": 0,
+      "gap": "عجز عن استخراج أو تطبيق علاقة التأخير الزمني $\\tau$",
+      "recommendation": "تذكر علاقة السرعة $V = d / \\Delta t$ وتطبيقها لحساب التأخير الزمني $\\tau = SM / V$.",
+      "domain": "الموجات",
+      "skill": "استعمال وتطبيق علاقة التأخير الزمني",
+      "points": 1,
+      "explanation": "Le retard temporel est la durée mise par l'onde pour parcourir la distance $SM$ : $\\tau = \\frac{SM}{V}$.",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification : Une onde se propage sur une corde à $V = 10\\text{ m/s}$. Le retard temporel d'un point $M$ situé à $d = 2\\text{ m}$ de la source est :",
+          "options": [
+            "$\\tau = 0,2\\text{ s}$",
+            "$\\tau = 5\\text{ s}$",
+            "$\\tau = 20\\text{ s}$",
+            "$\\tau = 0,5\\text{ s}$"
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "$\\tau = d / V = 2 / 10 = 0,2\\text{ s}$."
+        },
+        {
+          "id": "q4_transfer",
+          "text": "L'élongation du point $M$ à l'instant $t$ est liée à celle de la source $S$ par :",
+          "options": [
+            "$y_M(t) = y_S(t - \\tau)$",
+            "$y_M(t) = y_S(t + \\tau)$",
+            "$y_M(t) = y_S(t) \\cdot \\tau$"
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "العلاقة بين استطالة نقطة واستطالة المنبع",
+          "points": 1,
+          "gap": "À revoir : استطالة نقاط وسط الانتشار",
+          "recommendation": "النقطة $M$ تكرر نفس حركة المنبع $S$ بتأخير زمني قدره $\\tau$.",
+          "explanation": "Le point M refait le même mouvement que la source S avec un retard $\\tau$."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Que se passe-t-il lorsque deux ondes mécaniques de faible amplitude se croisent ?",
+      "options": [
+        "Elles s'annulent définitivement.",
+        "Elles se superposent puis continuent de se propager sans être altérées.",
+        "Elles rebondissent l'une sur l'autre.",
+        "La plus grande onde absorbe la plus petite."
+      ],
+      "correct": 1,
+      "gap": "عدم استيعاب خاصية تراكب موجتين ميكانيكيتين",
+      "recommendation": "مراجعة فقرة تراكب الموجات: تتقاطع الموجات وتتراكب ثم تواصل انتشارها دون أن تتأثر ببعضها.",
+      "domain": "الموجات",
+      "skill": "فهم تراكب موجتين ميكانيكيتين",
+      "points": 1,
+      "explanation": "Lorsque deux ondes se croisent, elles se superposent et continuent à se propager après leur rencontre sans se perturber.",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification : Deux perturbations se déplaçant en sens inverses sur une corde se rencontrent. Après le croisement :",
+          "options": [
+            "Chaque onde reprend sa forme et sa vitesse initiales.",
+            "La corde s'arrête de vibrer.",
+            "Une seule onde subsiste.",
+            "Leurs vitesses diminuent de moitié."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "points": 1,
+          "explanation": "Après la superposition, chaque onde conserve son état, sa forme et sa vitesse."
+        },
+        {
+          "id": "q5_transfer",
+          "text": "Une onde à la surface de l'eau créée par la chute d'une goutte se propage dans combien de dimensions ?",
+          "options": [
+            "2 dimensions (dans un plan).",
+            "1 dimension (une ligne).",
+            "3 dimensions (dans l'espace)."
+          ],
+          "correct": 0,
+          "domain": "الموجات",
+          "skill": "بعد انتشار الموجة",
+          "points": 1,
+          "gap": "À revoir : أبعاد انتشار الموجة",
+          "recommendation": "الموجة على سطح الماء ثنائية البعد (تنتشر في مستوى).",
+          "explanation": "La propagation à la surface de l'eau a lieu dans un plan (2D)."
+        }
+      ]
+    }
+  ]
+}
+```eof
+
+تم إعداد هذا الملف لتغطية أهم مفاهيم الدرس (الموجة الميكانيكية، الموجة الطولية والمستعرضة، الموجة الصوتية، التأخير الزمني، وتراكب الموجات) مرفقاً بتوجيهات دعم ومسائل تطبيقية مباشرة لنفس البنية البرمجية.
