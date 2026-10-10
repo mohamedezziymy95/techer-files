@@ -1,0 +1,251 @@
+{
+  "id": "2BAC_CHEM_GRANDEURS_PHYSIQUES_2026",
+  "title": "تقويم المكتسبات والدعم: المقادير الفيزيائية المرتبطة بكمية المادة",
+  "subject": "الكيمياء",
+  "level": "2BAC",
+  "duration": 40,
+  "type": "diagnostic",
+  "type_label": "تشخيصي ودعم",
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quelle est la relation correcte entre la quantité de matière $n$, la masse $m$ d'un échantillon et sa masse molaire $M$ ?",
+      "options": [
+        "$n = \\frac{m}{M}$",
+        "$n = m \\cdot M$",
+        "$n = \\frac{M}{m}$",
+        "$n = m + M$"
+      ],
+      "correct": 0,
+      "gap": "خطأ في تطبيق العلاقة الأساسية للكمية المادية والكتلة",
+      "recommendation": "تذكر أن كمية المادة تحسب بقسمة الكتلة على الكتلة المولية.",
+      "domain": "الكيمياء",
+      "skill": "حساب كمية المادة للصلب والسائل",
+      "points": 1,
+      "explanation": "La quantité de matière d'un échantillon de masse $m$ est donnée par $n = \\frac{m}{M}$.",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification : Quelle est l'unité internationale de la masse molaire $M$ ?",
+          "options": [
+            "$\\text{g}\\cdot\\text{mol}^{-1}$",
+            "$\\text{kg}\\cdot\\text{m}^3$",
+            "$\\text{mol}\\cdot\\text{L}^{-1}$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "L'unité de la masse molaire est le gramme par mole ($\\text{g}\\cdot\\text{mol}^{-1}$)."
+        },
+        {
+          "id": "q1_transfer",
+          "text": "Si on a un échantillon de glucose de masse $36\\text{ g}$ avec $M = 180\\text{ g/mol}$, la quantité de matière vaut :",
+          "options": [
+            "$0,2\\text{ mol}$",
+            "$5\\text{ mol}$",
+            "$18\\text{ mol}$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "تطبيق حساب كمية المادة للغليكوز",
+          "points": 1,
+          "gap": "À revoir : التطبيق العددي لكمية المادة",
+          "recommendation": "قسمة الكتلة على الكتلة المولية $36 / 180 = 0,2\\text{ mol}$.",
+          "explanation": "$n = 36 / 180 = 0,2\\text{ mol}$."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Comment s'exprime la quantité de matière $n$ d'un liquide ou solide de volume $V$ et de masse volumique $\\rho$ ?",
+      "options": [
+        "$n = \\frac{\\rho \\cdot V}{M}$",
+        "$n = \\frac{M}{\\rho \\cdot V}$",
+        "$n = \\rho \\cdot V \\cdot M$",
+        "$n = \\frac{V}{M}$"
+      ],
+      "correct": 0,
+      "gap": "عجز عن دمج الكتلة الحجمية في حساب كمية المادة",
+      "recommendation": "استحضار أن الكتلة هي $m = \\rho \\cdot V$ وتعويضها في علاقة كمية المادة.",
+      "domain": "الكيمياء",
+      "skill": "استثمار الكتلة الحجمية للحصول على كمية المادة",
+      "points": 1,
+      "explanation": "Puisque $m = \\rho \\cdot V$, la quantité de matière s'écrit $n = \\frac{\\rho \\cdot V}{M}$.",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification : La densité $d$ d'une espèce chimique par rapport à l'eau est définie par :",
+          "options": [
+            "$d = \\frac{\\rho}{\\rho_e}$",
+            "$d = \\rho \\cdot \\rho_e$",
+            "$d = \\rho_e - \\rho$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "La densité est le quotient de la masse volumique de l'espèce par celle de l'eau."
+        },
+        {
+          "id": "q2_transfer",
+          "text": "La concentration molaire $C$ d'une solution se calcule par la relation :",
+          "options": [
+            "$C = \\frac{n}{V}$",
+            "$C = n \\cdot V$",
+            "$C = \\frac{V}{n}$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "حساب التركيز المولي",
+          "points": 1,
+          "gap": "À revoir : علاقة التركيز المولي",
+          "recommendation": "التركيز المولي هو كمية المادة مقسومة على حجم المحلول $C = n/V$.",
+          "explanation": "La concentration molaire est $C = \\frac{n}{V}$."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Quelle est la relation de conversion entre la température absolue $T$ en Kelvin (K) et la température en Celsius $\\theta$ (°C) ?",
+      "options": [
+        "$T = \\theta + 273$",
+        "$T = \\theta - 273$",
+        "$T = \\theta \\cdot 273$",
+        "$T = \\frac{\\theta}{273}$"
+      ],
+      "correct": 0,
+      "gap": "خطأ في التحويل بين السلم المئوي وسلّم الكلفن المطلق",
+      "recommendation": "إضافة القيمة الثابتة 273 إلى درجة الحرارة بالدرجة المئوية.",
+      "domain": "الكيمياء",
+      "skill": "تحويل درجات الحرارة المطلقة",
+      "points": 1,
+      "explanation": "La relation est $T(\\text{K}) = \\theta(^\\circ\\text{C}) + 273$.",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification : Si la température est de $27^\\circ\\text{C}$, sa valeur en Kelvin est :",
+          "options": [
+            "$300\\text{ K}$",
+            "$246\\text{ K}$",
+            "$273\\text{ K}$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "$T = 27 + 273 = 300\\text{ K}$."
+        },
+        {
+          "id": "q3_transfer",
+          "text": "Le zéro absolu correspond en température Celsius à :",
+          "options": [
+            "$-273^\\circ\\text{C}$",
+            "$0^\\circ\\text{C}$",
+            "$100^\\circ\\text{C}$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "مفهوم الصفر المطلق",
+          "points": 1,
+          "gap": "À revoir : الصفر المطلق",
+          "recommendation": "الصفر المطلق يوافق $-273^\\circ\\text{C}$ (أو انعدام الحركة الحرارية).",
+          "explanation": "Le zéro absolu est fixé à $-273^\\circ\\text{C}$."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Que stipule la loi de Boyle-Mariotte pour une quantité de matière de gaz donnée à température constante ?",
+      "options": [
+        "Le produit de la pression par le volume est constant ($P \\cdot V = \\text{cte}$).",
+        "La pression est toujours égale au volume.",
+        "Le volume est inversement proportionnel à la température.",
+        "La pression diminue lorsque le volume diminue."
+      ],
+      "correct": 0,
+      "gap": "عدم فهم قانون بويل-ماريوت للغازات",
+      "recommendation": "تذكر ثبات جداء الضغط في الحجم عند ثبات درجة الحرارة.",
+      "domain": "الكيمياء",
+      "skill": "تطبيق قانون بويل-ماريوت",
+      "points": 1,
+      "explanation": "À température constante et pour une quantité de matière donnée, le produit $P \\cdot V$ reste constant.",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification : Si on diminue de moitié le volume d'un gaz à température constante, sa pression :",
+          "options": [
+            "Double (est multipliée par 2).",
+            "Reste inchangée.",
+            "Diminue de moitié."
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "Puisque $P \\cdot V = \\text{cte}$, si le volume diminue de moitié, la pression double."
+        },
+        {
+          "id": "q4_transfer",
+          "text": "L'unité légale de la pression dans le Système International est :",
+          "options": [
+            "Le Pascal (Pa)",
+            "Le Bar",
+            "L'Atmosphère (atm)"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "وحدات الضغط",
+          "points": 1,
+          "gap": "À revoir : وحدات القياس للضغط",
+          "recommendation": "الوحدة العالمية للضغط في القوانين هي الباسكال (Pa).",
+          "explanation": "L'unité internationale de la pression est le Pascal (Pa)."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Quelle est l'équation d'état des gaz parfaits liant $P$, $V$, $n$, $R$ et $T$ ?",
+      "options": [
+        "$P \\cdot V = n \\cdot R \\cdot T$",
+        "$P \\cdot n = V \\cdot R \\cdot T$",
+        "$P \\cdot T = n \\cdot R \\cdot V$",
+        "$V \\cdot R = P \\cdot n \\cdot T$"
+      ],
+      "correct": 0,
+      "gap": "خلط في الصيغة الرياضية لمعادلة الغازات المثالية",
+      "recommendation": "استحضار معادلة الحالة الشهيرة للغازات المثالية $P \\cdot V = n \\cdot R \\cdot T$.",
+      "domain": "الكيمياء",
+      "skill": "تطبيق معادلة الغازات المثالية",
+      "points": 1,
+      "explanation": "Les variables d'état d'un gaz parfait sont liées par la relation $P \\cdot V = n \\cdot R \\cdot T$.",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification : Dans les conditions normales de température et de pression, le volume molaire d'un gaz $V_m$ vaut environ :",
+          "options": [
+            "$22,4\\text{ L/mol}$",
+            "$10\\text{ L/mol}$",
+            "$24\\text{ L/mol}$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "points": 1,
+          "explanation": "Dans les conditions normales ($0^\\circ\\text{C}$ et $1\\text{ atm}$), $V_m \\approx 22,4\\text{ L/mol}$."
+        },
+        {
+          "id": "q5_transfer",
+          "text": "La quantité de matière d'un gaz de volume $V$ occupant un volume molaire $V_m$ s'écrit :",
+          "options": [
+            "$n = \\frac{V}{V_m}$",
+            "$n = V \\cdot V_m$",
+            "$n = \\frac{V_m}{V}$"
+          ],
+          "correct": 0,
+          "domain": "الكيمياء",
+          "skill": "حساب كمية مادة غاز بالمول",
+          "gap": "À revoir : علاقة كمية المادة والحجم المولي",
+          "recommendation": "قسمة حجم الغاز على الحجم المولي $n = V / V_m$.",
+          "explanation": "La quantité de matière d'un gaz est $n = \\frac{V}{V_m}$."
+        }
+      ]
+    }
+  ]
+}
