@@ -133,6 +133,17 @@
       "path": "TCS/physics/diag_2025.json",
       "questions_count": 20
     },
+        {
+      "id": "TC_PHYS_GRAVITATION_UNIVERSELLE_2026",
+      "title": "تقويم المكتسبات والدعم: درس الجاذبية الكونية",
+      "subject": "الفيزياء والكيمياء",
+      "level": "TCS",
+      "type": "diagnostic",
+      "type_label": " تشخيصي ودعم",
+      "duration": 20,
+      "path": "TCS/physics/TC_PHYS_GRAVITATION_UNIVERSELLE_2026.json",
+      "questions_count": 5
+    },
     {
       "id": "1AC_PC_START_2026",
       "title": "Diagnostic initial — 1AC",
