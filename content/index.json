@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "2026.10.1",
+  "version": "2026.10.2",
   "levels": [
     {
       "code": "1AC",
@@ -37,6 +37,270 @@
                   "title": "قانون أوم والطاقات والموجات",
                   "path": "content/simulations/science_lab.html",
                   "category": "دروس"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-lessons",
+              "title": "المكتبة الدراسية • دروس",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "circuit",
+                  "path": "1AC/physique/cours a écrit/circuit.pdf",
+                  "category": "دروس",
+                  "sha": "3d653418a2d7b118d17e52bede6876f364d8de0a"
+                },
+                {
+                  "title": "document de cours les mélanges",
+                  "path": "1AC/physique/cours a écrit/document de cours les mélanges.pdf",
+                  "category": "دروس",
+                  "sha": "4e6f2a932b411c07890fc2ae50e98844d3492a93"
+                },
+                {
+                  "title": "Documment de le circuit simple",
+                  "path": "1AC/physique/cours a écrit/Documment de le circuit simple.pdf",
+                  "category": "دروس",
+                  "sha": "1ed87e317f8147d7feef1903eaa280e7a0931a4d"
+                },
+                {
+                  "title": "l'eau dans notre environnement",
+                  "path": "1AC/physique/cours a écrit/l'eau dans notre environnement.pdf",
+                  "category": "دروس",
+                  "sha": "cb0149ab20ec0f32466495a29fd56024f4651fe4"
+                },
+                {
+                  "title": "la chaleur et changement d'état",
+                  "path": "1AC/physique/cours a écrit/la chaleur et changement d'état.pdf",
+                  "category": "دروس",
+                  "sha": "16a44fe61a28bce750677e23188166e46c103961"
+                },
+                {
+                  "title": "La masse des liquides et des solides 2023 2024",
+                  "path": "1AC/physique/cours a écrit/La masse des liquides et des solides 2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "ebd67f997c03c253657efaaddcee7fcd1eab90bd"
+                },
+                {
+                  "title": "La résistance électrique 2023 2024",
+                  "path": "1AC/physique/cours a écrit/La résistance électrique  2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "403962e2060508142a0066e8f535d55a83ca84b6"
+                },
+                {
+                  "title": "La température et la chaleure 2023 2024 fin",
+                  "path": "1AC/physique/cours a écrit/La température et la chaleure 2023_2024 fin.pdf",
+                  "category": "دروس",
+                  "sha": "0489acdb9fa32ba6a7108ed9f45956603d924c76"
+                },
+                {
+                  "title": "La température et la chaleure 2023 2024",
+                  "path": "1AC/physique/cours a écrit/La température et la chaleure 2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "46505a11ad694c2faf4897b2744ef509a4fc37b0"
+                },
+                {
+                  "title": "Le circuit électrique simple 2023 2024",
+                  "path": "1AC/physique/cours a écrit/Le circuit électrique simple 2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "8232bdea504e82291c061daaadb9e92d2e8710ca"
+                },
+                {
+                  "title": "le circuit électrique simple",
+                  "path": "1AC/physique/cours a écrit/le circuit électrique simple.pdf",
+                  "category": "دروس",
+                  "sha": "3b2380f4a8f0a2647ccb53962b403786334361e0"
+                },
+                {
+                  "title": "Le courant électrique continu 2023 2024 fin",
+                  "path": "1AC/physique/cours a écrit/Le courant électrique continu 2023_2024 fin.pdf",
+                  "category": "دروس",
+                  "sha": "2060a64d34e9c2593ce4b9fe0615ab60b63d6a82"
+                },
+                {
+                  "title": "Le courant électrique continu",
+                  "path": "1AC/physique/cours a écrit/Le courant électrique continu.pdf",
+                  "category": "دروس",
+                  "sha": "941ce1b2ca9a36781023cabdc1f9d80079fb1f4d"
+                },
+                {
+                  "title": "le volume 2023 2024",
+                  "path": "1AC/physique/cours a écrit/le volume 2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "0dfa82162152e4c5fd2520d68ea70c574b342553"
+                },
+                {
+                  "title": "les 3 états physiques de la matiére",
+                  "path": "1AC/physique/cours a écrit/les 3 états physiques de la matiére.pdf",
+                  "category": "دروس",
+                  "sha": "2c83b0de11f428d1ef98baf5ad3fd3265d4d40ab"
+                },
+                {
+                  "title": "les mélanges 2023 2024",
+                  "path": "1AC/physique/cours a écrit/les mélanges 2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "de6938c81221548cfbfbb32d2a63cb5f06aa0ab9"
+                },
+                {
+                  "title": "les mélanges",
+                  "path": "1AC/physique/cours a écrit/les mélanges.pdf",
+                  "category": "دروس",
+                  "sha": "9653f1a5e6528c501b39f8f8f4a0da6213c3d171"
+                },
+                {
+                  "title": "Les types des montages électriques 2023 2024",
+                  "path": "1AC/physique/cours a écrit/Les types des montages électriques 2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "579aec203d371f3bf5b7933cf4ca7486cae01a61"
+                },
+                {
+                  "title": "Masse volumique 2023 2024",
+                  "path": "1AC/physique/cours a écrit/Masse volumique 2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "34fa04cdb3e5ec2a06eb8cc21d46a52711fee480"
+                },
+                {
+                  "title": "Pression et la pression atmosphérique",
+                  "path": "1AC/physique/cours a écrit/Pression et la pression atmosphérique.pdf",
+                  "category": "دروس",
+                  "sha": "90096f487b6629df75637e93293caea257752286"
+                },
+                {
+                  "title": "Propriètés physiques des trois états de la matière 2023 2024",
+                  "path": "1AC/physique/cours a écrit/Propriètés physiques des trois états de la matière 2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "d93283abfb6d60e2f8d82d84ea6ac0de825b96fa"
+                },
+                {
+                  "title": "Propriétés des états physique 2023 2024",
+                  "path": "1AC/physique/cours a écrit/Propriétés des états physique 2023_2024.pdf",
+                  "category": "دروس",
+                  "sha": "989761de8376e6bf9555f223bad8fdd218bdc061"
+                },
+                {
+                  "title": "Résistance électrique 2024",
+                  "path": "1AC/physique/cours a écrit/Résistance électrique 2024.pdf",
+                  "category": "دروس",
+                  "sha": "fcbb0e1ede6136b2749f38728390f6765c36ef30"
+                },
+                {
+                  "title": "Résistance électrique",
+                  "path": "1AC/physique/cours a écrit/Résistance électrique.pdf",
+                  "category": "دروس",
+                  "sha": "8c1ac432c7b4c0b04010f152d2688e6978511381"
+                },
+                {
+                  "title": "temperature et chaleur",
+                  "path": "1AC/physique/cours a écrit/temperature et chaleur.pdf",
+                  "category": "دروس",
+                  "sha": "eaf1b0313b5eb7afc470745072e960860a037f6a"
+                },
+                {
+                  "title": "Types de montages électriques",
+                  "path": "1AC/physique/cours a écrit/Types de montages électriques.pdf",
+                  "category": "دروس",
+                  "sha": "54039791680b2ae6e92e67204d42308c5c7ba794"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-exercises",
+              "title": "المكتبة الدراسية • تمارين",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "exercices les mélanges",
+                  "path": "1AC/physique/Exercices/exercices les mélanges.pdf",
+                  "category": "تمارين",
+                  "sha": "c7c202101baf7caa722ae924fb7fcd5dfdf90643"
+                },
+                {
+                  "title": "serie 2",
+                  "path": "1AC/physique/Exercices/serie 2.pdf",
+                  "category": "تمارين",
+                  "sha": "ef61daa8ffa931b3b89b09cba343ccc9ac6c5fc6"
+                },
+                {
+                  "title": "serie n 1 semestre 1",
+                  "path": "1AC/physique/Exercices/serie n 1 semestre 1.pdf",
+                  "category": "تمارين",
+                  "sha": "da6abd5b0ba57d6b9965abe48eb5da383e145a94"
+                },
+                {
+                  "title": "Série d'exercices sur le circuit simple et les types des montages",
+                  "path": "1AC/physique/Exercices/Série d'exercices sur le circuit simple et les types des montages.pdf",
+                  "category": "تمارين",
+                  "sha": "2a33abaef4a5ff8c095769a7a5890927b439458e"
+                },
+                {
+                  "title": "Série d'exercices sur le courant électrique l'intensité et la tension électrique",
+                  "path": "1AC/physique/Exercices/Série d'exercices sur le courant électrique_l'intensité et la tension électrique.pdf",
+                  "category": "تمارين",
+                  "sha": "1c91b9db168501cc3e197061642441aa044cc8c3"
+                },
+                {
+                  "title": "Série d'exercices sur les mélanges et circuit electrique simple montages",
+                  "path": "1AC/physique/Exercices/Série d'exercices sur les mélanges et circuit electrique simple_montages.pdf",
+                  "category": "تمارين",
+                  "sha": "312ac0fae40dde75168aad82ade96be9219f1762"
+                },
+                {
+                  "title": "Série d'exercices sur les mélanges",
+                  "path": "1AC/physique/Exercices/Série d'exercices sur les mélanges.pdf",
+                  "category": "تمارين",
+                  "sha": "32cde81cdad9375d497fa6731bfb2f567d0eaf2f"
+                },
+                {
+                  "title": "Série d'exercices",
+                  "path": "1AC/physique/Exercices/Série d'exercices.pdf",
+                  "category": "تمارين",
+                  "sha": "35ac5c378aa3356ed3eb45d806e30ae9f43c3ee7"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-self-assessment",
+              "title": "المكتبة الدراسية • تقويم ذاتي",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Auto-évalution L'eau Propriétés physiques des états de la matière",
+                  "path": "1AC/physique/Auto-évaluation/Auto-évalution_L'eau__Propriétés physiques des états de la matière.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "24b07455bba63b3fd9a2a8cf381a8d0574b1ca8f"
+                },
+                {
+                  "title": "Auto-évalution Masse Masse volumique",
+                  "path": "1AC/physique/Auto-évaluation/Auto-évalution_Masse_Masse volumique.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "86ace5fbb6279c77a0d2c23a562232be7fa80cd1"
+                },
+                {
+                  "title": "Auto-évalution Volume",
+                  "path": "1AC/physique/Auto-évaluation/Auto-évalution_Volume.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "ac7510c5e8f774672c54aaccfe32b72acf62a853"
+                },
+                {
+                  "title": "Correction d'auto-évalution L'eau Propriétés physiques des états de la matière",
+                  "path": "1AC/physique/Auto-évaluation/Correction d'auto-évalution_L'eau__Propriétés physiques des états de la matière.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "37e399c35bbad6bd20670edc0f8b3b0b6972fca0"
+                },
+                {
+                  "title": "Correction d'Auto-évalution Masse Masse volumique",
+                  "path": "1AC/physique/Auto-évaluation/Correction d'Auto-évalution_Masse_Masse volumique.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "7a7ce106ce1bb125019071e3d7e85af20139fdd0"
+                },
+                {
+                  "title": "Correction d'Auto-évalution Volume",
+                  "path": "1AC/physique/Auto-évaluation/Correction d'Auto-évalution_Volume.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "7329a7077dcf1f9800b0579a0e385bb638175ebc"
                 }
               ],
               "test_path": ""
@@ -83,6 +347,272 @@
                 }
               ],
               "test_path": ""
+            },
+            {
+              "id": "library-lessons",
+              "title": "المكتبة الدراسية • دروس",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Application de la propagation rectiligne de la lumière",
+                  "path": "2AC/physique/cours a écrit/Application de la propagation rectiligne de la lumière.pdf",
+                  "category": "دروس",
+                  "sha": "a1da2ecf181bf629ad5d4834980325aa894ad760"
+                },
+                {
+                  "title": "Etude de quelques instruments optiques",
+                  "path": "2AC/physique/cours a écrit/Etude de quelques instruments optiques.pdf",
+                  "category": "دروس",
+                  "sha": "3446be8b485878e107e5110aa3b71d9e5f84528a"
+                },
+                {
+                  "title": "Jeu du sources et récepteurs de lumière CARTES",
+                  "path": "2AC/physique/cours a écrit/Jeu du sources et récepteurs de lumière CARTES.pdf",
+                  "category": "دروس",
+                  "sha": "83f66c539127e00f758593cd22e0fea4cb1b36a1"
+                },
+                {
+                  "title": "Jeu du sources et récepteurs de lumière",
+                  "path": "2AC/physique/cours a écrit/Jeu du sources et récepteurs de lumière.pdf",
+                  "category": "دروس",
+                  "sha": "9ea2724fda1c30fff6ec1c775a744e045f92bdc3"
+                },
+                {
+                  "title": "L'air qui nous entour",
+                  "path": "2AC/physique/cours a écrit/L'air qui nous entour.pdf",
+                  "category": "دروس",
+                  "sha": "e0b4471713256812ab6d3a2ba3d8f1698d2587e6"
+                },
+                {
+                  "title": "La disperssion de la lumière",
+                  "path": "2AC/physique/cours a écrit/La disperssion de la lumière.pdf",
+                  "category": "دروس",
+                  "sha": "ddf5ee5a7a771192cec9a0d56337ad65223b1693"
+                },
+                {
+                  "title": "La lumière qui nous entoure",
+                  "path": "2AC/physique/cours a écrit/La lumière qui nous entoure.pdf",
+                  "category": "دروس",
+                  "sha": "c4c24de15805f576cf7c2bb44543d5b1a6b5ccd1"
+                },
+                {
+                  "title": "La propagation de la lumière",
+                  "path": "2AC/physique/cours a écrit/La propagation de la lumière.pdf",
+                  "category": "دروس",
+                  "sha": "6435b7c4ebd19b4762231a9c8668dd369c24cec3"
+                },
+                {
+                  "title": "Les atomes et les molécules",
+                  "path": "2AC/physique/cours a écrit/Les atomes et les molécules.pdf",
+                  "category": "دروس",
+                  "sha": "c107500712e94eee3d0a137c942e74fbd034e635"
+                },
+                {
+                  "title": "Les atomes et molècules",
+                  "path": "2AC/physique/cours a écrit/Les atomes et molècules.pdf",
+                  "category": "دروس",
+                  "sha": "42666dd101cabf3f2936f80123c75363586182e7"
+                },
+                {
+                  "title": "Les axes des leçons du 1er semestre 2APIC",
+                  "path": "2AC/physique/cours a écrit/Les axes des leçons du 1er semestre 2APIC.pdf",
+                  "category": "دروس",
+                  "sha": "6f7d3fb3c51a92d67d710f0dcf29c48cbe2b0d55"
+                },
+                {
+                  "title": "Les combustions",
+                  "path": "2AC/physique/cours a écrit/Les combustions.pdf",
+                  "category": "دروس",
+                  "sha": "fb65ff586a3e2a9cf38ec930ef5d76e9638f96c3"
+                },
+                {
+                  "title": "Les lentilles minces",
+                  "path": "2AC/physique/cours a écrit/Les lentilles minces.pdf",
+                  "category": "دروس",
+                  "sha": "23cfd59620e8443ec6a4eb79d9c8a4ca63c44624"
+                },
+                {
+                  "title": "Les lois de la réaction chimique",
+                  "path": "2AC/physique/cours a écrit/Les lois de la réaction chimique .pdf",
+                  "category": "دروس",
+                  "sha": "66ed402dc528eca5d98faa0f472abcfc8fe18a6f"
+                },
+                {
+                  "title": "Les matières naturelles et synthétiques",
+                  "path": "2AC/physique/cours a écrit/Les matières naturelles et synthétiques.pdf",
+                  "category": "دروس",
+                  "sha": "d3018b3afc5992bde6adba04f4ab1015a79c4ba3"
+                },
+                {
+                  "title": "Les sources et récepteures de lumière",
+                  "path": "2AC/physique/cours a écrit/Les sources et récepteures de lumière.pdf",
+                  "category": "دروس",
+                  "sha": "66ca95565b23a3f052b5200d4cfc5b64fb7bec42"
+                },
+                {
+                  "title": "Obstacles d'apprentissage pour la Leçon N° 2 Les sources et récepteures de lumière",
+                  "path": "2AC/physique/cours a écrit/Obstacles d'apprentissage pour la Leçon N° 2 _Les sources et récepteures de lumière.pdf",
+                  "category": "دروس",
+                  "sha": "7c9ecd7175c33c2e86b20927ce28926b7a3f2f96"
+                },
+                {
+                  "title": "Obstacles d'apprentissage pour la Leçon N° 3",
+                  "path": "2AC/physique/cours a écrit/Obstacles d'apprentissage pour la Leçon N° 3.pdf",
+                  "category": "دروس",
+                  "sha": "f4a29139442def886f38c451316f9acd6f85d8e2"
+                },
+                {
+                  "title": "Obstacles d'apprentissage pour la Leçon N° 4",
+                  "path": "2AC/physique/cours a écrit/Obstacles d'apprentissage pour la Leçon N° 4.pdf",
+                  "category": "دروس",
+                  "sha": "1d6de914e7694fbe5334c8ed53604844780f2eb3"
+                },
+                {
+                  "title": "Pollution d'air",
+                  "path": "2AC/physique/cours a écrit/Pollution d'air.pdf",
+                  "category": "دروس",
+                  "sha": "492503ee477947e765539b41fab020774472aaac"
+                },
+                {
+                  "title": "Quelques propriétés de l’air et ses constituants",
+                  "path": "2AC/physique/cours a écrit/Quelques propriétés de l’air et ses constituants.pdf",
+                  "category": "دروس",
+                  "sha": "e2070e0ae31e0eac2b002d193ba051c4e5b976af"
+                },
+                {
+                  "title": "Raffinage",
+                  "path": "2AC/physique/cours a écrit/Raffinage.pdf",
+                  "category": "دروس",
+                  "sha": "8b73b98baf645d14820448272c3820d93368fb77"
+                },
+                {
+                  "title": "🔌 Le courant électrique alternatif sinusoïdal",
+                  "path": "2AC/physique/cours a écrit/🔌 Le courant électrique alternatif sinusoïdal.pdf",
+                  "category": "دروس",
+                  "sha": "7989182bc976c6331f2e0c702cc22f4c36536c55"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-exercises",
+              "title": "المكتبة الدراسية • تمارين",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Corrigé de la serie n 2 Combustion et réactions chimique",
+                  "path": "2AC/physique/Exercices/Corrigé de la serie n 2 Combustion et réactions chimique.pdf",
+                  "category": "تمارين",
+                  "sha": "374ec53eedfae298e9618c4c767460ffac316d1d"
+                },
+                {
+                  "title": "Corrigé série 2 combustion réaction chimique",
+                  "path": "2AC/physique/Exercices/Corrigé série 2 combustion réaction chimique.pdf",
+                  "category": "تمارين",
+                  "sha": "e2a054d9701a2ba23bd025a1a1a3a2ebe4f4a6c3"
+                },
+                {
+                  "title": "Exemples d'équilibrges",
+                  "path": "2AC/physique/Exercices/Exemples d'équilibrges.pdf",
+                  "category": "تمارين",
+                  "sha": "176b27dbd1f7656af56bca0c77b9a919bbd0e4c8"
+                },
+                {
+                  "title": "Exercices combustion carbone EQUILIBRAGE",
+                  "path": "2AC/physique/Exercices/Exercices combustion carbone EQUILIBRAGE.pdf",
+                  "category": "تمارين",
+                  "sha": "0410a65d94527f7c4c5adb96382d2109f2d07044"
+                },
+                {
+                  "title": "serie 2 Leçon 5 et 6 2025",
+                  "path": "2AC/physique/Exercices/serie 2_Leçon 5 et 6_2025.pdf",
+                  "category": "تمارين",
+                  "sha": "9eb20478efae2433b62a94984497b7c12e7cbfaf"
+                },
+                {
+                  "title": "serie 3 Leçon 7 2025",
+                  "path": "2AC/physique/Exercices/serie 3_Leçon 7_2025.pdf",
+                  "category": "تمارين",
+                  "sha": "a5313463d1e2a01e5d691355943aea6bb0c385e8"
+                },
+                {
+                  "title": "serie combustion",
+                  "path": "2AC/physique/Exercices/serie combustion.pdf",
+                  "category": "تمارين",
+                  "sha": "572865d7bde5e2ea19a290377427d935a3c0e1bb"
+                },
+                {
+                  "title": "serie n 2 Combustion et réactions chimique",
+                  "path": "2AC/physique/Exercices/serie n 2 Combustion et réactions chimique.pdf",
+                  "category": "تمارين",
+                  "sha": "b04820327e5c711fdd897a7836c680345ea9bc36"
+                },
+                {
+                  "title": "serie n 2",
+                  "path": "2AC/physique/Exercices/serie n 2.pdf",
+                  "category": "تمارين",
+                  "sha": "8ae5cadd5d77b736f7cf19a292d63bcbcb2fd52a"
+                },
+                {
+                  "title": "serie sources et recépteurs de lumière 2025",
+                  "path": "2AC/physique/Exercices/serie sources et recépteurs de lumière 2025.pdf",
+                  "category": "تمارين",
+                  "sha": "181b8c904a83e667026226e9498de8a26510dfd0"
+                },
+                {
+                  "title": "serie sources et recépteurs de lumière",
+                  "path": "2AC/physique/Exercices/serie sources et recépteurs de lumière.pdf",
+                  "category": "تمارين",
+                  "sha": "c3af32f23729b7b909ec2e39b1cbc02d13a92817"
+                },
+                {
+                  "title": "Suite corrigé 2",
+                  "path": "2AC/physique/Exercices/Suite corrigé 2.pdf",
+                  "category": "تمارين",
+                  "sha": "63cfe20dbdface9d399af0caee964c1d8b764023"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-self-assessment",
+              "title": "المكتبة الدراسية • تقويم ذاتي",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Auto-évalution L'air qui nous entoure Propriétés et constituants d'air Les atomes et les molécules",
+                  "path": "2AC/physique/Auto-évaluation/Auto-évalution_L'air qui nous entoure_Propriétés et constituants d'air_Les atomes et les molécules.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "ad5c4e2a9aaffd6dee5e306d5e9a429b747f6880"
+                },
+                {
+                  "title": "Correction d'Auto-évalution L'air qui nous entoure Propriétés et constituants d'air Les atomes et les molécules",
+                  "path": "2AC/physique/Auto-évaluation/Correction d'Auto-évalution_L'air qui nous entoure_Propriétés et constituants d'air_Les atomes et les molécules.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "d22279c34eb86d903ffc81d4649c5bc0a1b466b2"
+                },
+                {
+                  "title": "Série L'air qui nous entoure Propriétés et constituants d'air Les atomes et les molécules",
+                  "path": "2AC/physique/Auto-évaluation/Série_L'air qui nous entoure_Propriétés et constituants d'air_Les atomes et les molécules.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "90218509bfecf1a0062a1038035e4ad17c16c330"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-videos",
+              "title": "المكتبة الدراسية • فيديوهات",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Propriétés et caractéristiques des lentilles minces + QCM , 2nde (nouveau programme), 1ES, 1L et 1S",
+                  "path": "2AC/physique/Videos d'expériences/Propriétés et caractéristiques des lentilles minces + QCM , 2nde (nouveau programme), 1ES, 1L et 1S.mp4",
+                  "category": "فيديوهات",
+                  "sha": "3a1b89c27134331bd2960d9cce43893c63bf7e23"
+                }
+              ],
+              "test_path": ""
             }
           ]
         }
@@ -123,6 +653,244 @@
                   "title": "قانون أوم والطاقات والموجات",
                   "path": "content/simulations/science_lab.html",
                   "category": "دروس"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-lessons",
+              "title": "المكتبة الدراسية • دروس",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Cours Oxydation des métaux",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Cours  Oxydation des métaux.pdf",
+                  "category": "دروس",
+                  "sha": "2ec889e19656a1fd15023ef4a004849b01306481"
+                },
+                {
+                  "title": "Cours Réaction de quelques matériaux avec les solutions 2024",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Cours  Réaction de quelques matériaux avec les solutions 2024.pdf",
+                  "category": "دروس",
+                  "sha": "bc1faa260b70fde587ec591b9ecb1ad9180914e7"
+                },
+                {
+                  "title": "Cours Réaction de quelques matériaux avec les solutions",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Cours  Réaction de quelques matériaux avec les solutions.pdf",
+                  "category": "دروس",
+                  "sha": "05345e72dea67a9daa52156c3d909cd5a472209b"
+                },
+                {
+                  "title": "Cours Réaction de quelques matériaux avec l’air",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Cours  Réaction de quelques matériaux avec l’air.pdf",
+                  "category": "دروس",
+                  "sha": "f339480a5f7812ee4105285695b853740e76819c"
+                },
+                {
+                  "title": "Cours solution aqueuses solustions acides et basiques",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Cours  solution aqueuses_ solustions acides et basiques.pdf",
+                  "category": "دروس",
+                  "sha": "aa475668cd7e27a58266bd83b8e5b704a4247e37"
+                },
+                {
+                  "title": "Danger de quelques matériaux",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Danger de quelques matériaux.pdf",
+                  "category": "دروس",
+                  "sha": "a3010e4968f28d5941d99c14c083d6426f388af0"
+                },
+                {
+                  "title": "L'énergie électrique Résumé à imprimer",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/L'énergie électrique _Résumé à imprimer.pdf",
+                  "category": "دروس",
+                  "sha": "82e79e9dcbfc11c2d35dde801e1177aa7bfd4bd6"
+                },
+                {
+                  "title": "L'énergie électrique à imprimer",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/L'énergie électrique à imprimer.pdf",
+                  "category": "دروس",
+                  "sha": "fd2cd87141a5386b2b1f599a37ab9ca21047e27a"
+                },
+                {
+                  "title": "La loi d'ohm 2025",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/La loi d'ohm 2025.pdf",
+                  "category": "دروس",
+                  "sha": "9379660eaf568b5c02e3370f5aafbfa0d5aabca1"
+                },
+                {
+                  "title": "La loi d'ohm",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/La loi d'ohm.pdf",
+                  "category": "دروس",
+                  "sha": "778160b78ea1a8e0cbb81171375cdb2b4b38b945"
+                },
+                {
+                  "title": "La puissance électrique 2025",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/La puissance électrique 2025.pdf",
+                  "category": "دروس",
+                  "sha": "d8ded97bc51de643c5f3ba3c4978968ef424cd05"
+                },
+                {
+                  "title": "La puissance électrique",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/La puissance électrique.pdf",
+                  "category": "دروس",
+                  "sha": "bd06bac4cfa117eea638423c95b2b1fbfd773d58"
+                },
+                {
+                  "title": "Résumé 1 . Les actions mécaniques (Www.AdrarPhysic.Fr)",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Résumé 1 . Les actions mécaniques (Www.AdrarPhysic.Fr).pdf",
+                  "category": "دروس",
+                  "sha": "bb9acd6ed975897b422699cf41f9e171c7a208d4"
+                },
+                {
+                  "title": "Résumé 1 . Tests de reconnaissance de quelques ions (Www.AdrarPhysic.Fr)",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Résumé 1 . Tests de reconnaissance de quelques ions (Www.AdrarPhysic.Fr).pdf",
+                  "category": "دروس",
+                  "sha": "cfd3f6a692c918d61894a2d84d2b9bd0dd4f09d9"
+                },
+                {
+                  "title": "Résumé 2 . Mouvement et repos (Www.AdrarPhysic.Fr)",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Résumé 2 . Mouvement et repos (Www.AdrarPhysic.Fr).pdf",
+                  "category": "دروس",
+                  "sha": "03e4245b5fe7bd0b5ee757a5538863487bd09f30"
+                },
+                {
+                  "title": "Résumé 2 . Tests de reconnaissance de quelques ions (Www.AdrarPhysic.Fr)",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Résumé 2 . Tests de reconnaissance de quelques ions (Www.AdrarPhysic.Fr).pdf",
+                  "category": "دروس",
+                  "sha": "24385dcad80b2ee838822f4d6e02baa73973b50f"
+                },
+                {
+                  "title": "Tests de reconnaissance de quelques ions 2024",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Tests de reconnaissance de quelques ions 2024.pdf",
+                  "category": "دروس",
+                  "sha": "e2d41cb13d4d269b18fb341d3dbfffcca19aa726"
+                },
+                {
+                  "title": "Tests de reconnaissance de quelques ions",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Tests de reconnaissance de quelques ions.pdf",
+                  "category": "دروس",
+                  "sha": "236ec893a7f72cdbbe6280533ea1eb6ffeb137a8"
+                },
+                {
+                  "title": "Vitesse moyenne",
+                  "path": "3AC/physique/cours a écrit/Semestre 1/Vitesse moyenne.pdf",
+                  "category": "دروس",
+                  "sha": "92b6fbb8edd8cef22c4735e30d3f7f4a3767ebc1"
+                },
+                {
+                  "title": "Equilibre d’un corps solide soumis à deux forces",
+                  "path": "3AC/physique/cours a écrit/Semestre 2 2024/Equilibre d’un corps solide soumis à deux forces.pdf",
+                  "category": "دروس",
+                  "sha": "7ce039c862bf3dd723fb720aad85bae0c775eb5c"
+                },
+                {
+                  "title": "L'énergie électrique à imprimer 2024",
+                  "path": "3AC/physique/cours a écrit/Semestre 2 2024/L'énergie électrique à imprimer 2024.pdf",
+                  "category": "دروس",
+                  "sha": "3585e2a9be891c28997fd94a1965216fe887f155"
+                },
+                {
+                  "title": "La loi d'ohm 2024",
+                  "path": "3AC/physique/cours a écrit/Semestre 2 2024/La loi d'ohm 2024.pdf",
+                  "category": "دروس",
+                  "sha": "e9aed7afd1f7aace40a0cdbe41a4a60a8d67894e"
+                },
+                {
+                  "title": "La puissance électrique 2024",
+                  "path": "3AC/physique/cours a écrit/Semestre 2 2024/La puissance électrique 2024.pdf",
+                  "category": "دروس",
+                  "sha": "110dbea9020d4b3f2847b5ebd4f4d5bd5bab1dd9"
+                },
+                {
+                  "title": "Le poids et la masse",
+                  "path": "3AC/physique/cours a écrit/Semestre 2 2024/Le poids et la masse.pdf",
+                  "category": "دروس",
+                  "sha": "4907bc77ee76bb8e5167c73b9ff047d8642e7151"
+                },
+                {
+                  "title": "Les actions mécaniques",
+                  "path": "3AC/physique/cours a écrit/Semestre 2 2024/Les actions mécaniques.pdf",
+                  "category": "دروس",
+                  "sha": "2cab98ae1431a0a93c714e02f2d8a7142f936b90"
+                },
+                {
+                  "title": "mouvement st repos",
+                  "path": "3AC/physique/cours a écrit/Semestre 2 2024/mouvement st repos.pdf",
+                  "category": "دروس",
+                  "sha": "750e8d1a2ac588f741fd1f3f467c41cf4f430312"
+                },
+                {
+                  "title": "Notion de Forces",
+                  "path": "3AC/physique/cours a écrit/Semestre 2 2024/Notion de Forces.pdf",
+                  "category": "دروس",
+                  "sha": "12d3f40726b436ea82f049f0b536e2919a3b963a"
+                },
+                {
+                  "title": "Vitesse moyenne 2024",
+                  "path": "3AC/physique/cours a écrit/Semestre 2 2024/Vitesse moyenne 2024.pdf",
+                  "category": "دروس",
+                  "sha": "9e6bfddd45a04f8de0de002b6549edaf42a986a3"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-self-assessment",
+              "title": "المكتبة الدراسية • تقويم ذاتي",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Auto-évalution Matière et électricité",
+                  "path": "3AC/physique/Auto-évaluation/Auto-évalution_Matière et électricité.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "6e9c6d997017de0cc1bb295f1f7f10591292a505"
+                },
+                {
+                  "title": "Auto-évalution Mouvement Et Repos 2024",
+                  "path": "3AC/physique/Auto-évaluation/Auto-évalution_Mouvement_Et_Repos 2024.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "7542eba170f76d95c85fc803a58ca27a2953210a"
+                },
+                {
+                  "title": "Auto-évalution Mouvement Et Repos",
+                  "path": "3AC/physique/Auto-évaluation/Auto-évalution_Mouvement_Et_Repos.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "d948b60ee86d5bb4ad8f3013ad7df996e66d881e"
+                },
+                {
+                  "title": "Auto-évalution quelques matériaux utiliser au quotidiein",
+                  "path": "3AC/physique/Auto-évaluation/Auto-évalution_quelques matériaux utiliser au quotidiein.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "60b97d6291ac1388e55bc6cc823a5c91813f2315"
+                },
+                {
+                  "title": "Auto-évalution Réaction de queques matériaux avec l'air",
+                  "path": "3AC/physique/Auto-évaluation/Auto-évalution_Réaction de queques matériaux avec l'air.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "108663fccc424df5910f9522bd6b5b699cb544d5"
+                },
+                {
+                  "title": "Auto-évalution Slotions aqueuses",
+                  "path": "3AC/physique/Auto-évaluation/Auto-évalution_Slotions aqueuses.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "e41d0e31eaeea6c6b8a28b32ac5dc3763e2c1018"
+                },
+                {
+                  "title": "Correction d'Auto-évalution Réaction de queques matériaux avec l'air",
+                  "path": "3AC/physique/Auto-évaluation/Correction d'Auto-évalution_Réaction de queques matériaux avec l'air.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "3dc118fa517565352c3aca79e91c4bd93e8e4044"
+                },
+                {
+                  "title": "Correction d'Auto-évalution Slotions aqueuses",
+                  "path": "3AC/physique/Auto-évaluation/Correction d'Auto-évalution_Slotions aqueuses.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "3f9f3492f51effdf02b041850ec85cf79171660d"
+                },
+                {
+                  "title": "Corrigé d'Auto-évalution Matière et électricité",
+                  "path": "3AC/physique/Auto-évaluation/Corrigé d'Auto-évalution_Matière et électricité.pdf",
+                  "category": "تقويم ذاتي",
+                  "sha": "1fdbd02e69d5d0b6c150fc69133d6f701f6dc533"
                 }
               ],
               "test_path": ""
@@ -244,6 +1012,176 @@
                 }
               ],
               "test_path": ""
+            },
+            {
+              "id": "library-lessons",
+              "title": "المكتبة الدراسية • دروس",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Auto-évaluation Travail et énergie cinétique",
+                  "path": "1BAC/lecons/Auto-évaluation_Travail_et_énergie cinétique.html",
+                  "category": "دروس",
+                  "sha": "1d0b5068977ec0609ba91b4fbd4d8c30001ba4e1"
+                },
+                {
+                  "title": "Leçon 1 Mouvement de rotation d'un solide autour d'un axe fixe pour élèves",
+                  "path": "1BAC/lecons/Leçon 1 _Mouvement de rotation d'un solide autour d'un axe fixe pour élèves.pdf",
+                  "category": "دروس",
+                  "sha": "9300f3a51a5a757a823f3da722d226fa8e2c1c78"
+                },
+                {
+                  "title": "Leçon 2 Travail et Puissance d’une force pour élèves",
+                  "path": "1BAC/lecons/Leçon 2 _Travail et Puissance d’une force pour élèves.pdf",
+                  "category": "دروس",
+                  "sha": "b5e921429f894fbd3b74a5a3494eedbb31588d47"
+                },
+                {
+                  "title": "Leçon 3 Solution électrolytique et concentration pour élèves",
+                  "path": "1BAC/lecons/Leçon 3_Solution électrolytique et concentration pour élèves.pdf",
+                  "category": "دروس",
+                  "sha": "3808681a7f924cd8bc9b56e680f58d4756c669df"
+                },
+                {
+                  "title": "Leçon 4 Suivi d’une transformation chimique Pour élèves",
+                  "path": "1BAC/lecons/Leçon 4_Suivi d’une transformation chimique_Pour élèves.pdf",
+                  "category": "دروس",
+                  "sha": "2de146e8f1461fbc63e4d25577240c38e353f386"
+                },
+                {
+                  "title": "Travail et énergie cinétique",
+                  "path": "1BAC/lecons/Travail et énergie cinétique.pdf",
+                  "category": "دروس",
+                  "sha": "2803e312ae5ef3e636b203c360bf76331ebdd5fb"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-exercises",
+              "title": "المكتبة الدراسية • تمارين",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Auto-évaluation Suivi d'une transformation chimique",
+                  "path": "1BAC/exercices/Auto-évaluation_Suivi_d'une_transformation_chimique.html",
+                  "category": "تمارين",
+                  "sha": "dcf2f77685ef603097e6e8b0695bfc56d740683b"
+                },
+                {
+                  "title": "Autoévaluation Mouvement de rotation d'un solide autour d'un axe fixe",
+                  "path": "1BAC/exercices/Autoévaluation_Mouvement de rotation d'un solide autour d'un axe fixe.html",
+                  "category": "تمارين",
+                  "sha": "4303588694925ece2a90c3122b6ecfa2f031ae7d"
+                },
+                {
+                  "title": "la correction de la série d'exercices sur le suivi d'une transformation chimique",
+                  "path": "1BAC/exercices/la correction de la série d'exercices  sur le suivi d'une transformation chimique.html",
+                  "category": "تمارين",
+                  "sha": "f84f80d5627977a668898212063c5befeb169283"
+                },
+                {
+                  "title": "la correction de la série d'exercices sur le travail et l'énergie cinétique",
+                  "path": "1BAC/exercices/la correction de la série d'exercices  sur le travail et l'énergie cinétique.html",
+                  "category": "تمارين",
+                  "sha": "afabd6242f6d5ec754cf3f787f442a12399c0fce"
+                },
+                {
+                  "title": "Série d'exercices 1 Leçon 1 1BAC",
+                  "path": "1BAC/exercices/Série d'exercices 1 Leçon 1_1BAC.pdf",
+                  "category": "تمارين",
+                  "sha": "12fcb2ceb8a98a8d8915fc3e875829cf94ad8b4f"
+                },
+                {
+                  "title": "Série d'exercices 2 Leçon 2",
+                  "path": "1BAC/exercices/Série d'exercices 2 Leçon 2.pdf",
+                  "category": "تمارين",
+                  "sha": "4acdb7dd8f53e54c82d068dbc3b4a020ef11d765"
+                },
+                {
+                  "title": "Série d'exercices 3 Leçon 4",
+                  "path": "1BAC/exercices/Série d'exercices 3 Leçon 4.pdf",
+                  "category": "تمارين",
+                  "sha": "fa238e709bb52d78e3569a21486db639e86ad71e"
+                },
+                {
+                  "title": "Série d'exercices du leçon 3",
+                  "path": "1BAC/exercices/Série d'exercices du leçon 3.pdf",
+                  "category": "تمارين",
+                  "sha": "9eccda23a5d808a90cd18a3bbf5883a6d3b63baa"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-homework",
+              "title": "المكتبة الدراسية • فروض",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Auto-évaluation Leçon 1 physique",
+                  "path": "1BAC/devoirs/Auto-évaluation_Leçon 1_physique.pdf",
+                  "category": "فروض",
+                  "sha": "0bcf1327e913062c4a1b4777b5abeb6e90f34728"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-simulations",
+              "title": "المكتبة الدراسية • محاكاة",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Autoporteur",
+                  "path": "1BAC/simulation/Autoporteur.mp4",
+                  "category": "محاكاة",
+                  "sha": "7475084d06e9fd8ae8cba49b6a75c4e52eb2538e"
+                },
+                {
+                  "title": "collision simulation",
+                  "path": "1BAC/simulation/collision_simulation.html",
+                  "category": "محاكاة",
+                  "sha": "ce31e500bb591647103344e9787259febfa2c9ba"
+                },
+                {
+                  "title": "Dissociation of Salt",
+                  "path": "1BAC/simulation/Dissociation of Salt.mp4",
+                  "category": "محاكاة",
+                  "sha": "92fa48ab8af88577524e42b84c4e96e4c0e03f2e"
+                },
+                {
+                  "title": "Energie cinétique",
+                  "path": "1BAC/simulation/Energie cinétique.html",
+                  "category": "محاكاة",
+                  "sha": "723deba8840fa5ea045ae10d7b0cf8d5557e1687"
+                },
+                {
+                  "title": "Jeu de la leçon Energie cinétique",
+                  "path": "1BAC/simulation/Jeu de la leçon_Energie cinétique.html",
+                  "category": "محاكاة",
+                  "sha": "b63f19c9880e1bdcc6b06eb4add49d2188811b0a"
+                },
+                {
+                  "title": "Jeu de la leçon Suivi d'une transformation chimique",
+                  "path": "1BAC/simulation/Jeu de la leçon_Suivi d'une transformation chimique.html",
+                  "category": "محاكاة",
+                  "sha": "903ba3f634a769dfd7ce44b59d92cf1e30bf3931"
+                },
+                {
+                  "title": "lesson3-simulations",
+                  "path": "1BAC/simulation/lesson3-simulations.html",
+                  "category": "محاكاة",
+                  "sha": "eb705087f4caa3398d457a62a579f960f1dcb487"
+                },
+                {
+                  "title": "théorème énergie cinétique",
+                  "path": "1BAC/simulation/théorème_énergie_cinétique.html",
+                  "category": "محاكاة",
+                  "sha": "eb79cdd07c73d042667b67dd86367e00cd38266f"
+                }
+              ],
+              "test_path": ""
             }
           ]
         }
@@ -287,11 +1225,343 @@
                 }
               ],
               "test_path": ""
+            },
+            {
+              "id": "library-lessons",
+              "title": "المكتبة الدراسية • دروس",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Chapitre 1",
+                  "path": "2BAC/lecons/Chapitre 1.pdf",
+                  "category": "دروس",
+                  "sha": "e67851c0fc80e6bd97bf07137ed0ac2b520d5cc6"
+                },
+                {
+                  "title": "Chapitre 2",
+                  "path": "2BAC/lecons/Chapitre 2.pdf",
+                  "category": "دروس",
+                  "sha": "0b6591df862e4c2ffb539fab3490cba179692756"
+                },
+                {
+                  "title": "Chapitre 3",
+                  "path": "2BAC/lecons/Chapitre 3.pdf",
+                  "category": "دروس",
+                  "sha": "4eed4d2b214c45a061ba5806619ededc50e50b3e"
+                },
+                {
+                  "title": "onde lumineuse",
+                  "path": "2BAC/lecons/onde lumineuse.jpg",
+                  "category": "دروس",
+                  "sha": "dc7ab518c756c9fa2a6872fe16da1b58a5cae0ba"
+                },
+                {
+                  "title": "Ondes mécaniques périodiques",
+                  "path": "2BAC/lecons/Ondes mécaniques périodiques.jpg",
+                  "category": "دروس",
+                  "sha": "ef29909d6aa871d289283ae32a0eb9a6da72a7f8"
+                },
+                {
+                  "title": "Ondes mécaniques",
+                  "path": "2BAC/lecons/Ondes mécaniques.jpg",
+                  "category": "دروس",
+                  "sha": "7edb79dd0ef07c821ffd399f9411ea6c5381d945"
+                },
+                {
+                  "title": "Suivi temporel",
+                  "path": "2BAC/lecons/Suivi temporel.jpg",
+                  "category": "دروس",
+                  "sha": "a38397fbab606b7240f9ec70f91088d567eea79b"
+                },
+                {
+                  "title": "الأسئلة التي تطرح على الكيميائي",
+                  "path": "2-BAC/lecons/الأسئلة التي تطرح على الكيميائي.pdf",
+                  "category": "دروس",
+                  "sha": "e24417662645e5639943973d62607f22497c52bd"
+                },
+                {
+                  "title": "التتبع الزمني لتحول كيميائي f",
+                  "path": "2-BAC/lecons/التتبع الزمني لتحول كيميائي f.pdf",
+                  "category": "دروس",
+                  "sha": "85f1347e208e13393378768f566e4c8bb02edf37"
+                },
+                {
+                  "title": "التحولات السريعة والتحولات البطيئة",
+                  "path": "2-BAC/lecons/التحولات السريعة والتحولات البطيئة.pdf",
+                  "category": "دروس",
+                  "sha": "9697ba23537c8a7e5461ba1de444ab96adc24d47"
+                },
+                {
+                  "title": "التفاعلات التي تحدث في منحيين",
+                  "path": "2-BAC/lecons/التفاعلات التي تحدث في منحيين.pdf",
+                  "category": "دروس",
+                  "sha": "403e8e0e03fc6023bd4c0529c55cb68b4df25c7c"
+                },
+                {
+                  "title": "التناقص الإشعاعي",
+                  "path": "2-BAC/lecons/التناقص الإشعاعي.pdf",
+                  "category": "دروس",
+                  "sha": "8d2febddd23a14114d5eb85c099766b7dc2b8ce8"
+                },
+                {
+                  "title": "الموجة الميكانيكية المتوالية الدورية",
+                  "path": "2-BAC/lecons/الموجة الميكانيكية المتوالية الدورية.pdf",
+                  "category": "دروس",
+                  "sha": "14158dca141ef9ac4c8444b2dfef66a5722a8876"
+                },
+                {
+                  "title": "النوى - الكتلة والطاقة",
+                  "path": "2-BAC/lecons/النوى - الكتلة والطاقة.pdf",
+                  "category": "دروس",
+                  "sha": "100ed47488904a3132a2a5be9d20a15f8ae44ead"
+                },
+                {
+                  "title": "انتشار موجة ضوئية",
+                  "path": "2-BAC/lecons/انتشار موجة ضوئية.pdf",
+                  "category": "دروس",
+                  "sha": "0244af6d8a28c634905115424e68762bda07ceca"
+                },
+                {
+                  "title": "تقديم الأسئلة التي تطرح على الفيزيائي",
+                  "path": "2-BAC/lecons/تقديم الأسئلة التي تطرح على الفيزيائي.pdf",
+                  "category": "دروس",
+                  "sha": "2459dfd1d44a345167c92577210d3ce725c27cdd"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-exercises",
+              "title": "المكتبة الدراسية • تمارين",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Série 1",
+                  "path": "2BAC/exercices/Série 1.pdf",
+                  "category": "تمارين",
+                  "sha": "05cb0578dd0ef8cb9c5a064e2a1f3db2bd4229b8"
+                },
+                {
+                  "title": "Série 2",
+                  "path": "2BAC/exercices/Série 2.pdf",
+                  "category": "تمارين",
+                  "sha": "4ff2591d44414ccaf978f8318dd69b125b41c838"
+                },
+                {
+                  "title": "Série 3",
+                  "path": "2BAC/exercices/Série 3.pdf",
+                  "category": "تمارين",
+                  "sha": "08280c98049ec1a2f2d407a862ea637375f4d830"
+                },
+                {
+                  "title": "Série d'exercice du leçon 1 ondes",
+                  "path": "2-BAC/exercices/Série d'exercice du leçon 1 _ondes_.pdf",
+                  "category": "تمارين",
+                  "sha": "5412638ef152dc3a9baad40a05bcd6733b4360cd"
+                },
+                {
+                  "title": "أتمرن للفرض رقم 2 في الدورة الأولى جزء التحولات النووية",
+                  "path": "2-BAC/exercices/أتمرن للفرض رقم 2 في الدورة الأولى_جزء التحولات النووية.docx",
+                  "category": "تمارين",
+                  "sha": "8f7c640f585a020ea611b66b92726e29140cb808"
+                },
+                {
+                  "title": "أتمرن للفرض رقم 2 في الدورة الأولى جزء التحولات النووية",
+                  "path": "2-BAC/exercices/أتمرن للفرض رقم 2 في الدورة الأولى_جزء التحولات النووية.pdf",
+                  "category": "تمارين",
+                  "sha": "d97abdcece45ac4eaa2a17dea5b13c63c9c3b212"
+                },
+                {
+                  "title": "اختبار ذاتي التفتت الإشعاعي",
+                  "path": "2-BAC/exercices/اختبار ذاتي التفتت الإشعاعي.html",
+                  "category": "تمارين",
+                  "sha": "3e6fb3d4674c377391f72a2d026ecaaaff2acd13"
+                },
+                {
+                  "title": "اختبار ذاتي الكتلة والطاقة",
+                  "path": "2-BAC/exercices/اختبار ذاتي الكتلة والطاقة.html",
+                  "category": "تمارين",
+                  "sha": "80d2e6028b0a71c7fe69e50e36d084196246920a"
+                },
+                {
+                  "title": "اختبار ذاتي في درس توازن مجموعة كيميائية",
+                  "path": "2-BAC/exercices/اختبار ذاتي في درس توازن مجموعة كيميائية.html",
+                  "category": "تمارين",
+                  "sha": "4b7ae44a761d2244351e9eaefe4146b34b0e0f95"
+                },
+                {
+                  "title": "اختبار ذاتى في التفاعلات الحمضية القاعدية (2)",
+                  "path": "2-BAC/exercices/اختبار_ذاتى_في_التفاعلات_الحمضية_القاعدية (2).html",
+                  "category": "تمارين",
+                  "sha": "1593fd4d1d4eda89cfdc60b789afd8170d94d838"
+                },
+                {
+                  "title": "النشاط الإشعاعي",
+                  "path": "2-BAC/exercices/النشاط الإشعاعي.pdf",
+                  "category": "تمارين",
+                  "sha": "ea39b35c5abeebcb787494d09a2801d473e1c94c"
+                },
+                {
+                  "title": "تمرين لإضافي خاص بالنووي",
+                  "path": "2-BAC/exercices/تمرين لإضافي خاص بالنووي.html",
+                  "category": "تمارين",
+                  "sha": "9f2c78712162c5c7e2139a817aa852be701752f7"
+                },
+                {
+                  "title": "سلسلة تمارين خاصة بدرس الموجة الضوئية",
+                  "path": "2-BAC/exercices/سلسلة تمارين خاصة بدرس الموجة الضوئية.pdf",
+                  "category": "تمارين",
+                  "sha": "bbbcc01abee95badf403770a849ecde7cbc63ccc"
+                },
+                {
+                  "title": "سلسلة تمارين درس الموجات الميكانيكية الدورية",
+                  "path": "2-BAC/exercices/سلسلة تمارين درس الموجات الميكانيكية الدورية.pdf",
+                  "category": "تمارين",
+                  "sha": "b9d33bc008e9805b6339deebe85c2e1c72902389"
+                },
+                {
+                  "title": "سلسلة تمارين درس النوى الكتلة والطاقة",
+                  "path": "2-BAC/exercices/سلسلة تمارين درس النوى_الكتلة والطاقة.pdf",
+                  "category": "تمارين",
+                  "sha": "15e98d746e06f6c2b7d0f3e6eee4f59caeb62fac"
+                },
+                {
+                  "title": "سلسلة تمارين لدرس التناقص الإشعاعي",
+                  "path": "2-BAC/exercices/سلسلة تمارين لدرس التناقص الإشعاعي.pdf",
+                  "category": "تمارين",
+                  "sha": "52f3f942127eab790a69e965276095c173d1b79b"
+                },
+                {
+                  "title": "كتاب ديما ديما خاص بالرياضيات",
+                  "path": "2-BAC/exercices/كتاب ديما ديما خاص بالرياضيات.pdf",
+                  "category": "تمارين",
+                  "sha": "1126342368ece91b1350336b2b34812f35445ff3"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-homework",
+              "title": "المكتبة الدراسية • فروض",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "C1 S1",
+                  "path": "2BAC/devoirs/C1 S1.pdf",
+                  "category": "فروض",
+                  "sha": "650aa3c43063b2714c9a1c51d2f5a4883a7c2ec2"
+                },
+                {
+                  "title": "Devoir 2 S1",
+                  "path": "2BAC/devoirs/Devoir 2 S1.pdf",
+                  "category": "فروض",
+                  "sha": "d0d709cb3de463ea7547ee11c62e6ef9a2fe167a"
+                },
+                {
+                  "title": "فرض منزلي رقم 2 الدورة 1 - الفيزياء والكيمياء",
+                  "path": "2BAC/devoirs/فرض منزلي رقم 2 الدورة 1 - الفيزياء والكيمياء.html",
+                  "category": "فروض",
+                  "sha": "9a043f07bb80ded2837abdedd1d731bd90148d30"
+                },
+                {
+                  "title": "Planification annuelle du programme de 2 BACSPCF 2025-2026",
+                  "path": "2BAC/devoirs/اختبارات/Planification annuelle du programme de 2 BACSPCF  2025-2026.pdf",
+                  "category": "فروض",
+                  "sha": "5e9c4038ca2d150962844a51776c93b55822272d"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-simulations",
+              "title": "المكتبة الدراسية • محاكاة",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Cuve à eau",
+                  "path": "2BAC/simulation/Cuve à eau.mp4",
+                  "category": "محاكاة",
+                  "sha": "b33aa52d9d15e01b81fb174715dc973ce4bd9f9f"
+                },
+                {
+                  "title": "Ondes mecaniques et lumiere",
+                  "path": "2BAC/simulation/Ondes mecaniques et lumiere.html",
+                  "category": "محاكاة",
+                  "sha": "cd069f412a4fd01036a53ea2658b2af1ec2ef56b"
+                },
+                {
+                  "title": "Simulation ondes mecaniques AR FR",
+                  "path": "2BAC/simulation/Simulation_ondes_mecaniques_AR_FR.html",
+                  "category": "محاكاة",
+                  "sha": "9514a6b69d228a1b5bc31d1f047da47e52d0dfec"
+                },
+                {
+                  "title": "Stroboscope",
+                  "path": "2BAC/simulation/Stroboscope.mp4",
+                  "category": "محاكاة",
+                  "sha": "498219fb9f22ad29197c247bd1f5ac1666b4046f"
+                },
+                {
+                  "title": "ADN et Réplication",
+                  "path": "2-BAC/simulation/ADN et Réplication.html",
+                  "category": "محاكاة",
+                  "sha": "e18525f0ae5493b51a988f6145c06f8ae3731179"
+                },
+                {
+                  "title": "collision simulation",
+                  "path": "2-BAC/simulation/collision_simulation.html",
+                  "category": "محاكاة",
+                  "sha": "fe5d2604e367113342bd341decda3014c5dc6932"
+                },
+                {
+                  "title": "jeu transformation chimique",
+                  "path": "2-BAC/simulation/jeu_transformation_chimique.html",
+                  "category": "محاكاة",
+                  "sha": "c7a23cd54cee561fa2f130e15cbbc0dc354d3bc3"
+                },
+                {
+                  "title": "Mesure de Conductance",
+                  "path": "2-BAC/simulation/Mesure de Conductance.html",
+                  "category": "محاكاة",
+                  "sha": "e63030fdf220377601015fdb08ec14c1ad0648df"
+                },
+                {
+                  "title": "radioactivity simulations",
+                  "path": "2-BAC/simulation/radioactivity_simulations.html",
+                  "category": "محاكاة",
+                  "sha": "e55f22e2ada03aaa5fff3b984ddd9d7024629b84"
+                },
+                {
+                  "title": "redox simulation",
+                  "path": "2-BAC/simulation/redox_simulation.html",
+                  "category": "محاكاة",
+                  "sha": "e34513f82a626ffe692fb83493f90278e54444a8"
+                },
+                {
+                  "title": "réaction en deux sens",
+                  "path": "2-BAC/simulation/réaction en deux sens.html",
+                  "category": "محاكاة",
+                  "sha": "959393e58cd11c8b607a0e088a252e1a8e6620ab"
+                },
+                {
+                  "title": "Simulation nucléaire",
+                  "path": "2-BAC/simulation/Simulation nucléaire.hta.html",
+                  "category": "محاكاة",
+                  "sha": "d3cb5b2b34f7e6d602714b7250d4d3fde3c4e7ac"
+                },
+                {
+                  "title": "محاكاة التفتتات ومنحنى سيغري",
+                  "path": "2-BAC/simulation/محاكاة التفتتات ومنحنى سيغري.html",
+                  "category": "محاكاة",
+                  "sha": "7f7d03d210ab6df4343468a7068bab9107a8ac22"
+                }
+              ],
+              "test_path": ""
             }
           ]
         }
       ]
     }
   ],
-  "includes_legacy_library": true
+  "includes_legacy_library": false
 }
