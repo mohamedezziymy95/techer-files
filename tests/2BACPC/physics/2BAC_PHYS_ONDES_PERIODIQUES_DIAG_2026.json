@@ -117,7 +117,7 @@
       ],
       "correct": 0,
       "gap": "عدم القدرة على تحديد حالة الاهتزاز (توافق أو تعاكس في الطور)",
-      "recommendation": "المقارنة بين المسافة MN وطول الموجة $\\lambda$: توافق في الطور ($MN = k \\cdot \\lambda$)، تعاكس في الطور ($MN = (k+0,5) \\cdot \\lambda$).",
+      "recommendation": "المقارنة بين المسافة MN وطول الموجة $\\lambda$: توافق في الطور ($MN = k \\cdot \\lambda$)، تعاكس في الطور ($MN = (k+0.5)\\lambda$).",
       "domain": "الموجات",
       "skill": "مقارنة حركة نقطتين من وسط الانتشار",
       "points": 1,
@@ -223,7 +223,7 @@
       "practice": [
         {
           "id": "q5_practice",
-          "text": "Vérification : Pour les ondes à la surface de l'eau, si on augmente la fréquence $N$ de $20\\text{ Hz}$ à $30\\text{ Hz}$, la vitesse $V$ passe de $20\\text{ m/s}$ à $24\\text{ m/s}$. On conclut que :",
+          "text": "Vérification : Pour les ondes à la surface de l'eau, si on augmente la fréquence $N$ de $20\\text{ Hz}$ à $30\\text{ Hz}$, la vitesse $V$ passe de $20\\text{ m/s}$ à $24\\text{ m/s}$, alors :",
           "options": [
             "L'eau est un milieu dispersif.",
             "L'eau est un milieu non dispersif.",
