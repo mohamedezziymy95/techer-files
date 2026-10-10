@@ -19,7 +19,7 @@
       "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
-      "duration": 40,
+      "duration": 20,
       "path": "2BACPC/physics/2BAC_PHYS_ONDES_DIAG_2026.json",
       "questions_count": 5
     },
@@ -30,7 +30,7 @@
       "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
-      "duration": 40,
+      "duration": 20,
       "path": "2BACPC/physics/2BAC_PHYS_ONDES_PERIODIQUES_DIAG_2026.json",
       "questions_count": 5
     },
@@ -41,7 +41,7 @@
       "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
-      "duration": 40,
+      "duration": 20,
       "path": "2BACPC/physics/2BAC_PHYS_ONDES_LUMINEUSES_DIAG_2026.json",
       "questions_count": 5
     },
@@ -52,7 +52,7 @@
       "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
-      "duration": 40,
+      "duration": 20,
       "path": "2BACPC/physics/2BAC_CHEM_TRANSFORMATIONS_LENTES_RAPIDES_2026.json",
       "questions_count": 5
     },
@@ -63,7 +63,7 @@
       "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
-      "duration": 40,
+      "duration": 20,
       "path": "2BACPC/physics/2BAC_CHEM_SUIVI_TEMPOREL_2026.json",
       "questions_count": 5
     },
@@ -77,6 +77,28 @@
       "duration": 45,
       "path": "1BAC/physics/diag_2025.json",
       "questions_count": 20
+    },
+        {
+      "id": "2BAC_PHYS_ROTATION_SOLIDE_2026",
+      "title": "تقويم المكتسبات والدعم: حركة دوران جسم صلب حول محور ثابت",
+      "subject": "الفيزياء والكيمياء",
+      "level": "1BAC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي ودعم",
+      "duration": 20,
+      "path": "1BAC/physics/2BAC_PHYS_ROTATION_SOLIDE_2026.json",
+      "questions_count": 5
+    },
+            {
+      "id": "2BAC_CHEM_GRANDEURS_PHYSIQUES_2026",
+      "title": "تقويم المكتسبات والدعم: المقادير الفيزيائية المرتبطة بكمية المادة",
+      "subject": "الفيزياء والكيمياء",
+      "level": "1BAC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي ودعم",
+      "duration": 20,
+      "path": "1BAC/physics/2BAC_CHEM_GRANDEURS_PHYSIQUES_2026.json",
+      "questions_count": 5
     },
     {
       "id": "1BAC_PC_DIAG_ELEC_2026",
