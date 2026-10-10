@@ -937,6 +937,54 @@
                 }
               ],
               "test_path": ""
+            },
+            {
+              "id": "library-lessons",
+              "title": "المكتبة الدراسية • دروس",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Lecon 1 Gravitation universelle modifiable",
+                  "path": "TCS/physique/lecons/Lecon_1_Gravitation_universelle_modifiable.pdf",
+                  "category": "دروس",
+                  "sha": "e16f29e10abad47751b929cd43211d80d4601fd0"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-exercises",
+              "title": "المكتبة الدراسية • تمارين",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Serie 1 Gravitation universelle TC",
+                  "path": "TCS/physique/exercices/Serie_1_Gravitation_universelle_TC.pdf",
+                  "category": "تمارين",
+                  "sha": "8cfab3ab1b6da29dd8cc27799f7e413038a8898e"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-simulations",
+              "title": "المكتبة الدراسية • محاكاة",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Vidéo 1 Comparaison des dimensions des corps et des particules dans l univers",
+                  "path": "TCS/physique/simulation/Vidéo 1 Comparaison des dimensions des corps et des particules dans l_univers.mp4",
+                  "category": "محاكاة",
+                  "sha": "799fa523a1a3c830996681e02baeac4d0b92a3da"
+                },
+                {
+                  "title": "Vidéo 2 Newton et la gravitation",
+                  "path": "TCS/physique/simulation/Vidéo 2 Newton et la gravitation.mp4",
+                  "category": "محاكاة",
+                  "sha": "e04cbfaf59daa92c2ff6a026427c303e83e06c38"
+                }
+              ],
+              "test_path": ""
             }
           ]
         }
@@ -1020,37 +1068,37 @@
               "resources": [
                 {
                   "title": "Auto-évaluation Travail et énergie cinétique",
-                  "path": "1BAC/lecons/Auto-évaluation_Travail_et_énergie cinétique.html",
+                  "path": "1BAC/physique/lecons/Auto-évaluation_Travail_et_énergie cinétique.html",
                   "category": "دروس",
                   "sha": "1d0b5068977ec0609ba91b4fbd4d8c30001ba4e1"
                 },
                 {
                   "title": "Leçon 1 Mouvement de rotation d'un solide autour d'un axe fixe pour élèves",
-                  "path": "1BAC/lecons/Leçon 1 _Mouvement de rotation d'un solide autour d'un axe fixe pour élèves.pdf",
+                  "path": "1BAC/physique/lecons/Leçon 1 _Mouvement de rotation d'un solide autour d'un axe fixe pour élèves.pdf",
                   "category": "دروس",
                   "sha": "9300f3a51a5a757a823f3da722d226fa8e2c1c78"
                 },
                 {
                   "title": "Leçon 2 Travail et Puissance d’une force pour élèves",
-                  "path": "1BAC/lecons/Leçon 2 _Travail et Puissance d’une force pour élèves.pdf",
+                  "path": "1BAC/physique/lecons/Leçon 2 _Travail et Puissance d’une force pour élèves.pdf",
                   "category": "دروس",
                   "sha": "b5e921429f894fbd3b74a5a3494eedbb31588d47"
                 },
                 {
                   "title": "Leçon 3 Solution électrolytique et concentration pour élèves",
-                  "path": "1BAC/lecons/Leçon 3_Solution électrolytique et concentration pour élèves.pdf",
+                  "path": "1BAC/physique/lecons/Leçon 3_Solution électrolytique et concentration pour élèves.pdf",
                   "category": "دروس",
                   "sha": "3808681a7f924cd8bc9b56e680f58d4756c669df"
                 },
                 {
                   "title": "Leçon 4 Suivi d’une transformation chimique Pour élèves",
-                  "path": "1BAC/lecons/Leçon 4_Suivi d’une transformation chimique_Pour élèves.pdf",
+                  "path": "1BAC/physique/lecons/Leçon 4_Suivi d’une transformation chimique_Pour élèves.pdf",
                   "category": "دروس",
                   "sha": "2de146e8f1461fbc63e4d25577240c38e353f386"
                 },
                 {
                   "title": "Travail et énergie cinétique",
-                  "path": "1BAC/lecons/Travail et énergie cinétique.pdf",
+                  "path": "1BAC/physique/lecons/Travail et énergie cinétique.pdf",
                   "category": "دروس",
                   "sha": "2803e312ae5ef3e636b203c360bf76331ebdd5fb"
                 }
@@ -1064,49 +1112,49 @@
               "resources": [
                 {
                   "title": "Auto-évaluation Suivi d'une transformation chimique",
-                  "path": "1BAC/exercices/Auto-évaluation_Suivi_d'une_transformation_chimique.html",
+                  "path": "1BAC/physique/exercices/Auto-évaluation_Suivi_d'une_transformation_chimique.html",
                   "category": "تمارين",
                   "sha": "dcf2f77685ef603097e6e8b0695bfc56d740683b"
                 },
                 {
                   "title": "Autoévaluation Mouvement de rotation d'un solide autour d'un axe fixe",
-                  "path": "1BAC/exercices/Autoévaluation_Mouvement de rotation d'un solide autour d'un axe fixe.html",
+                  "path": "1BAC/physique/exercices/Autoévaluation_Mouvement de rotation d'un solide autour d'un axe fixe.html",
                   "category": "تمارين",
                   "sha": "4303588694925ece2a90c3122b6ecfa2f031ae7d"
                 },
                 {
                   "title": "la correction de la série d'exercices sur le suivi d'une transformation chimique",
-                  "path": "1BAC/exercices/la correction de la série d'exercices  sur le suivi d'une transformation chimique.html",
+                  "path": "1BAC/physique/exercices/la correction de la série d'exercices  sur le suivi d'une transformation chimique.html",
                   "category": "تمارين",
                   "sha": "f84f80d5627977a668898212063c5befeb169283"
                 },
                 {
                   "title": "la correction de la série d'exercices sur le travail et l'énergie cinétique",
-                  "path": "1BAC/exercices/la correction de la série d'exercices  sur le travail et l'énergie cinétique.html",
+                  "path": "1BAC/physique/exercices/la correction de la série d'exercices  sur le travail et l'énergie cinétique.html",
                   "category": "تمارين",
                   "sha": "afabd6242f6d5ec754cf3f787f442a12399c0fce"
                 },
                 {
                   "title": "Série d'exercices 1 Leçon 1 1BAC",
-                  "path": "1BAC/exercices/Série d'exercices 1 Leçon 1_1BAC.pdf",
+                  "path": "1BAC/physique/exercices/Série d'exercices 1 Leçon 1_1BAC.pdf",
                   "category": "تمارين",
                   "sha": "12fcb2ceb8a98a8d8915fc3e875829cf94ad8b4f"
                 },
                 {
                   "title": "Série d'exercices 2 Leçon 2",
-                  "path": "1BAC/exercices/Série d'exercices 2 Leçon 2.pdf",
+                  "path": "1BAC/physique/exercices/Série d'exercices 2 Leçon 2.pdf",
                   "category": "تمارين",
                   "sha": "4acdb7dd8f53e54c82d068dbc3b4a020ef11d765"
                 },
                 {
                   "title": "Série d'exercices 3 Leçon 4",
-                  "path": "1BAC/exercices/Série d'exercices 3 Leçon 4.pdf",
+                  "path": "1BAC/physique/exercices/Série d'exercices 3 Leçon 4.pdf",
                   "category": "تمارين",
                   "sha": "fa238e709bb52d78e3569a21486db639e86ad71e"
                 },
                 {
                   "title": "Série d'exercices du leçon 3",
-                  "path": "1BAC/exercices/Série d'exercices du leçon 3.pdf",
+                  "path": "1BAC/physique/exercices/Série d'exercices du leçon 3.pdf",
                   "category": "تمارين",
                   "sha": "9eccda23a5d808a90cd18a3bbf5883a6d3b63baa"
                 }
@@ -1120,7 +1168,7 @@
               "resources": [
                 {
                   "title": "Auto-évaluation Leçon 1 physique",
-                  "path": "1BAC/devoirs/Auto-évaluation_Leçon 1_physique.pdf",
+                  "path": "1BAC/physique/devoirs/Auto-évaluation_Leçon 1_physique.pdf",
                   "category": "فروض",
                   "sha": "0bcf1327e913062c4a1b4777b5abeb6e90f34728"
                 }
@@ -1134,49 +1182,49 @@
               "resources": [
                 {
                   "title": "Autoporteur",
-                  "path": "1BAC/simulation/Autoporteur.mp4",
+                  "path": "1BAC/physique/simulation/Autoporteur.mp4",
                   "category": "محاكاة",
                   "sha": "7475084d06e9fd8ae8cba49b6a75c4e52eb2538e"
                 },
                 {
                   "title": "collision simulation",
-                  "path": "1BAC/simulation/collision_simulation.html",
+                  "path": "1BAC/physique/simulation/collision_simulation.html",
                   "category": "محاكاة",
                   "sha": "ce31e500bb591647103344e9787259febfa2c9ba"
                 },
                 {
                   "title": "Dissociation of Salt",
-                  "path": "1BAC/simulation/Dissociation of Salt.mp4",
+                  "path": "1BAC/physique/simulation/Dissociation of Salt.mp4",
                   "category": "محاكاة",
                   "sha": "92fa48ab8af88577524e42b84c4e96e4c0e03f2e"
                 },
                 {
                   "title": "Energie cinétique",
-                  "path": "1BAC/simulation/Energie cinétique.html",
+                  "path": "1BAC/physique/simulation/Energie cinétique.html",
                   "category": "محاكاة",
                   "sha": "723deba8840fa5ea045ae10d7b0cf8d5557e1687"
                 },
                 {
                   "title": "Jeu de la leçon Energie cinétique",
-                  "path": "1BAC/simulation/Jeu de la leçon_Energie cinétique.html",
+                  "path": "1BAC/physique/simulation/Jeu de la leçon_Energie cinétique.html",
                   "category": "محاكاة",
                   "sha": "b63f19c9880e1bdcc6b06eb4add49d2188811b0a"
                 },
                 {
                   "title": "Jeu de la leçon Suivi d'une transformation chimique",
-                  "path": "1BAC/simulation/Jeu de la leçon_Suivi d'une transformation chimique.html",
+                  "path": "1BAC/physique/simulation/Jeu de la leçon_Suivi d'une transformation chimique.html",
                   "category": "محاكاة",
                   "sha": "903ba3f634a769dfd7ce44b59d92cf1e30bf3931"
                 },
                 {
                   "title": "lesson3-simulations",
-                  "path": "1BAC/simulation/lesson3-simulations.html",
+                  "path": "1BAC/physique/simulation/lesson3-simulations.html",
                   "category": "محاكاة",
                   "sha": "eb705087f4caa3398d457a62a579f960f1dcb487"
                 },
                 {
                   "title": "théorème énergie cinétique",
-                  "path": "1BAC/simulation/théorème_énergie_cinétique.html",
+                  "path": "1BAC/physique/simulation/théorème_énergie_cinétique.html",
                   "category": "محاكاة",
                   "sha": "eb79cdd07c73d042667b67dd86367e00cd38266f"
                 }
@@ -1233,97 +1281,97 @@
               "resources": [
                 {
                   "title": "Chapitre 1",
-                  "path": "2BAC/lecons/Chapitre 1.pdf",
+                  "path": "2BAC/physique/lecons/Chapitre 1.pdf",
                   "category": "دروس",
                   "sha": "e67851c0fc80e6bd97bf07137ed0ac2b520d5cc6"
                 },
                 {
                   "title": "Chapitre 2",
-                  "path": "2BAC/lecons/Chapitre 2.pdf",
+                  "path": "2BAC/physique/lecons/Chapitre 2.pdf",
                   "category": "دروس",
                   "sha": "0b6591df862e4c2ffb539fab3490cba179692756"
                 },
                 {
                   "title": "Chapitre 3",
-                  "path": "2BAC/lecons/Chapitre 3.pdf",
+                  "path": "2BAC/physique/lecons/Chapitre 3.pdf",
                   "category": "دروس",
                   "sha": "4eed4d2b214c45a061ba5806619ededc50e50b3e"
                 },
                 {
                   "title": "onde lumineuse",
-                  "path": "2BAC/lecons/onde lumineuse.jpg",
+                  "path": "2BAC/physique/lecons/onde lumineuse.jpg",
                   "category": "دروس",
                   "sha": "dc7ab518c756c9fa2a6872fe16da1b58a5cae0ba"
                 },
                 {
                   "title": "Ondes mécaniques périodiques",
-                  "path": "2BAC/lecons/Ondes mécaniques périodiques.jpg",
+                  "path": "2BAC/physique/lecons/Ondes mécaniques périodiques.jpg",
                   "category": "دروس",
                   "sha": "ef29909d6aa871d289283ae32a0eb9a6da72a7f8"
                 },
                 {
                   "title": "Ondes mécaniques",
-                  "path": "2BAC/lecons/Ondes mécaniques.jpg",
+                  "path": "2BAC/physique/lecons/Ondes mécaniques.jpg",
                   "category": "دروس",
                   "sha": "7edb79dd0ef07c821ffd399f9411ea6c5381d945"
                 },
                 {
                   "title": "Suivi temporel",
-                  "path": "2BAC/lecons/Suivi temporel.jpg",
+                  "path": "2BAC/physique/lecons/Suivi temporel.jpg",
                   "category": "دروس",
                   "sha": "a38397fbab606b7240f9ec70f91088d567eea79b"
                 },
                 {
                   "title": "الأسئلة التي تطرح على الكيميائي",
-                  "path": "2-BAC/lecons/الأسئلة التي تطرح على الكيميائي.pdf",
+                  "path": "2-BAC/physique/lecons/الأسئلة التي تطرح على الكيميائي.pdf",
                   "category": "دروس",
                   "sha": "e24417662645e5639943973d62607f22497c52bd"
                 },
                 {
                   "title": "التتبع الزمني لتحول كيميائي f",
-                  "path": "2-BAC/lecons/التتبع الزمني لتحول كيميائي f.pdf",
+                  "path": "2-BAC/physique/lecons/التتبع الزمني لتحول كيميائي f.pdf",
                   "category": "دروس",
                   "sha": "85f1347e208e13393378768f566e4c8bb02edf37"
                 },
                 {
                   "title": "التحولات السريعة والتحولات البطيئة",
-                  "path": "2-BAC/lecons/التحولات السريعة والتحولات البطيئة.pdf",
+                  "path": "2-BAC/physique/lecons/التحولات السريعة والتحولات البطيئة.pdf",
                   "category": "دروس",
                   "sha": "9697ba23537c8a7e5461ba1de444ab96adc24d47"
                 },
                 {
                   "title": "التفاعلات التي تحدث في منحيين",
-                  "path": "2-BAC/lecons/التفاعلات التي تحدث في منحيين.pdf",
+                  "path": "2-BAC/physique/lecons/التفاعلات التي تحدث في منحيين.pdf",
                   "category": "دروس",
                   "sha": "403e8e0e03fc6023bd4c0529c55cb68b4df25c7c"
                 },
                 {
                   "title": "التناقص الإشعاعي",
-                  "path": "2-BAC/lecons/التناقص الإشعاعي.pdf",
+                  "path": "2-BAC/physique/lecons/التناقص الإشعاعي.pdf",
                   "category": "دروس",
                   "sha": "8d2febddd23a14114d5eb85c099766b7dc2b8ce8"
                 },
                 {
                   "title": "الموجة الميكانيكية المتوالية الدورية",
-                  "path": "2-BAC/lecons/الموجة الميكانيكية المتوالية الدورية.pdf",
+                  "path": "2-BAC/physique/lecons/الموجة الميكانيكية المتوالية الدورية.pdf",
                   "category": "دروس",
                   "sha": "14158dca141ef9ac4c8444b2dfef66a5722a8876"
                 },
                 {
                   "title": "النوى - الكتلة والطاقة",
-                  "path": "2-BAC/lecons/النوى - الكتلة والطاقة.pdf",
+                  "path": "2-BAC/physique/lecons/النوى - الكتلة والطاقة.pdf",
                   "category": "دروس",
                   "sha": "100ed47488904a3132a2a5be9d20a15f8ae44ead"
                 },
                 {
                   "title": "انتشار موجة ضوئية",
-                  "path": "2-BAC/lecons/انتشار موجة ضوئية.pdf",
+                  "path": "2-BAC/physique/lecons/انتشار موجة ضوئية.pdf",
                   "category": "دروس",
                   "sha": "0244af6d8a28c634905115424e68762bda07ceca"
                 },
                 {
                   "title": "تقديم الأسئلة التي تطرح على الفيزيائي",
-                  "path": "2-BAC/lecons/تقديم الأسئلة التي تطرح على الفيزيائي.pdf",
+                  "path": "2-BAC/physique/lecons/تقديم الأسئلة التي تطرح على الفيزيائي.pdf",
                   "category": "دروس",
                   "sha": "2459dfd1d44a345167c92577210d3ce725c27cdd"
                 }
@@ -1337,103 +1385,103 @@
               "resources": [
                 {
                   "title": "Série 1",
-                  "path": "2BAC/exercices/Série 1.pdf",
+                  "path": "2BAC/physique/exercices/Série 1.pdf",
                   "category": "تمارين",
                   "sha": "05cb0578dd0ef8cb9c5a064e2a1f3db2bd4229b8"
                 },
                 {
                   "title": "Série 2",
-                  "path": "2BAC/exercices/Série 2.pdf",
+                  "path": "2BAC/physique/exercices/Série 2.pdf",
                   "category": "تمارين",
                   "sha": "4ff2591d44414ccaf978f8318dd69b125b41c838"
                 },
                 {
                   "title": "Série 3",
-                  "path": "2BAC/exercices/Série 3.pdf",
+                  "path": "2BAC/physique/exercices/Série 3.pdf",
                   "category": "تمارين",
                   "sha": "08280c98049ec1a2f2d407a862ea637375f4d830"
                 },
                 {
                   "title": "Série d'exercice du leçon 1 ondes",
-                  "path": "2-BAC/exercices/Série d'exercice du leçon 1 _ondes_.pdf",
+                  "path": "2-BAC/physique/exercices/Série d'exercice du leçon 1 _ondes_.pdf",
                   "category": "تمارين",
                   "sha": "5412638ef152dc3a9baad40a05bcd6733b4360cd"
                 },
                 {
                   "title": "أتمرن للفرض رقم 2 في الدورة الأولى جزء التحولات النووية",
-                  "path": "2-BAC/exercices/أتمرن للفرض رقم 2 في الدورة الأولى_جزء التحولات النووية.docx",
+                  "path": "2-BAC/physique/exercices/أتمرن للفرض رقم 2 في الدورة الأولى_جزء التحولات النووية.docx",
                   "category": "تمارين",
                   "sha": "8f7c640f585a020ea611b66b92726e29140cb808"
                 },
                 {
                   "title": "أتمرن للفرض رقم 2 في الدورة الأولى جزء التحولات النووية",
-                  "path": "2-BAC/exercices/أتمرن للفرض رقم 2 في الدورة الأولى_جزء التحولات النووية.pdf",
+                  "path": "2-BAC/physique/exercices/أتمرن للفرض رقم 2 في الدورة الأولى_جزء التحولات النووية.pdf",
                   "category": "تمارين",
                   "sha": "d97abdcece45ac4eaa2a17dea5b13c63c9c3b212"
                 },
                 {
                   "title": "اختبار ذاتي التفتت الإشعاعي",
-                  "path": "2-BAC/exercices/اختبار ذاتي التفتت الإشعاعي.html",
+                  "path": "2-BAC/physique/exercices/اختبار ذاتي التفتت الإشعاعي.html",
                   "category": "تمارين",
                   "sha": "3e6fb3d4674c377391f72a2d026ecaaaff2acd13"
                 },
                 {
                   "title": "اختبار ذاتي الكتلة والطاقة",
-                  "path": "2-BAC/exercices/اختبار ذاتي الكتلة والطاقة.html",
+                  "path": "2-BAC/physique/exercices/اختبار ذاتي الكتلة والطاقة.html",
                   "category": "تمارين",
                   "sha": "80d2e6028b0a71c7fe69e50e36d084196246920a"
                 },
                 {
                   "title": "اختبار ذاتي في درس توازن مجموعة كيميائية",
-                  "path": "2-BAC/exercices/اختبار ذاتي في درس توازن مجموعة كيميائية.html",
+                  "path": "2-BAC/physique/exercices/اختبار ذاتي في درس توازن مجموعة كيميائية.html",
                   "category": "تمارين",
                   "sha": "4b7ae44a761d2244351e9eaefe4146b34b0e0f95"
                 },
                 {
                   "title": "اختبار ذاتى في التفاعلات الحمضية القاعدية (2)",
-                  "path": "2-BAC/exercices/اختبار_ذاتى_في_التفاعلات_الحمضية_القاعدية (2).html",
+                  "path": "2-BAC/physique/exercices/اختبار_ذاتى_في_التفاعلات_الحمضية_القاعدية (2).html",
                   "category": "تمارين",
                   "sha": "1593fd4d1d4eda89cfdc60b789afd8170d94d838"
                 },
                 {
                   "title": "النشاط الإشعاعي",
-                  "path": "2-BAC/exercices/النشاط الإشعاعي.pdf",
+                  "path": "2-BAC/physique/exercices/النشاط الإشعاعي.pdf",
                   "category": "تمارين",
                   "sha": "ea39b35c5abeebcb787494d09a2801d473e1c94c"
                 },
                 {
                   "title": "تمرين لإضافي خاص بالنووي",
-                  "path": "2-BAC/exercices/تمرين لإضافي خاص بالنووي.html",
+                  "path": "2-BAC/physique/exercices/تمرين لإضافي خاص بالنووي.html",
                   "category": "تمارين",
                   "sha": "9f2c78712162c5c7e2139a817aa852be701752f7"
                 },
                 {
                   "title": "سلسلة تمارين خاصة بدرس الموجة الضوئية",
-                  "path": "2-BAC/exercices/سلسلة تمارين خاصة بدرس الموجة الضوئية.pdf",
+                  "path": "2-BAC/physique/exercices/سلسلة تمارين خاصة بدرس الموجة الضوئية.pdf",
                   "category": "تمارين",
                   "sha": "bbbcc01abee95badf403770a849ecde7cbc63ccc"
                 },
                 {
                   "title": "سلسلة تمارين درس الموجات الميكانيكية الدورية",
-                  "path": "2-BAC/exercices/سلسلة تمارين درس الموجات الميكانيكية الدورية.pdf",
+                  "path": "2-BAC/physique/exercices/سلسلة تمارين درس الموجات الميكانيكية الدورية.pdf",
                   "category": "تمارين",
                   "sha": "b9d33bc008e9805b6339deebe85c2e1c72902389"
                 },
                 {
                   "title": "سلسلة تمارين درس النوى الكتلة والطاقة",
-                  "path": "2-BAC/exercices/سلسلة تمارين درس النوى_الكتلة والطاقة.pdf",
+                  "path": "2-BAC/physique/exercices/سلسلة تمارين درس النوى_الكتلة والطاقة.pdf",
                   "category": "تمارين",
                   "sha": "15e98d746e06f6c2b7d0f3e6eee4f59caeb62fac"
                 },
                 {
                   "title": "سلسلة تمارين لدرس التناقص الإشعاعي",
-                  "path": "2-BAC/exercices/سلسلة تمارين لدرس التناقص الإشعاعي.pdf",
+                  "path": "2-BAC/physique/exercices/سلسلة تمارين لدرس التناقص الإشعاعي.pdf",
                   "category": "تمارين",
                   "sha": "52f3f942127eab790a69e965276095c173d1b79b"
                 },
                 {
                   "title": "كتاب ديما ديما خاص بالرياضيات",
-                  "path": "2-BAC/exercices/كتاب ديما ديما خاص بالرياضيات.pdf",
+                  "path": "2-BAC/physique/exercices/كتاب ديما ديما خاص بالرياضيات.pdf",
                   "category": "تمارين",
                   "sha": "1126342368ece91b1350336b2b34812f35445ff3"
                 }
@@ -1447,25 +1495,25 @@
               "resources": [
                 {
                   "title": "C1 S1",
-                  "path": "2BAC/devoirs/C1 S1.pdf",
+                  "path": "2BAC/physique/devoirs/C1 S1.pdf",
                   "category": "فروض",
                   "sha": "650aa3c43063b2714c9a1c51d2f5a4883a7c2ec2"
                 },
                 {
                   "title": "Devoir 2 S1",
-                  "path": "2BAC/devoirs/Devoir 2 S1.pdf",
+                  "path": "2BAC/physique/devoirs/Devoir 2 S1.pdf",
                   "category": "فروض",
                   "sha": "d0d709cb3de463ea7547ee11c62e6ef9a2fe167a"
                 },
                 {
                   "title": "فرض منزلي رقم 2 الدورة 1 - الفيزياء والكيمياء",
-                  "path": "2BAC/devoirs/فرض منزلي رقم 2 الدورة 1 - الفيزياء والكيمياء.html",
+                  "path": "2BAC/physique/devoirs/فرض منزلي رقم 2 الدورة 1 - الفيزياء والكيمياء.html",
                   "category": "فروض",
                   "sha": "9a043f07bb80ded2837abdedd1d731bd90148d30"
                 },
                 {
                   "title": "Planification annuelle du programme de 2 BACSPCF 2025-2026",
-                  "path": "2BAC/devoirs/اختبارات/Planification annuelle du programme de 2 BACSPCF  2025-2026.pdf",
+                  "path": "2BAC/physique/devoirs/اختبارات/Planification annuelle du programme de 2 BACSPCF  2025-2026.pdf",
                   "category": "فروض",
                   "sha": "5e9c4038ca2d150962844a51776c93b55822272d"
                 }
@@ -1479,81 +1527,227 @@
               "resources": [
                 {
                   "title": "Cuve à eau",
-                  "path": "2BAC/simulation/Cuve à eau.mp4",
+                  "path": "2BAC/physique/simulation/Cuve à eau.mp4",
                   "category": "محاكاة",
                   "sha": "b33aa52d9d15e01b81fb174715dc973ce4bd9f9f"
                 },
                 {
                   "title": "Ondes mecaniques et lumiere",
-                  "path": "2BAC/simulation/Ondes mecaniques et lumiere.html",
+                  "path": "2BAC/physique/simulation/Ondes mecaniques et lumiere.html",
                   "category": "محاكاة",
                   "sha": "cd069f412a4fd01036a53ea2658b2af1ec2ef56b"
                 },
                 {
                   "title": "Simulation ondes mecaniques AR FR",
-                  "path": "2BAC/simulation/Simulation_ondes_mecaniques_AR_FR.html",
+                  "path": "2BAC/physique/simulation/Simulation_ondes_mecaniques_AR_FR.html",
                   "category": "محاكاة",
                   "sha": "9514a6b69d228a1b5bc31d1f047da47e52d0dfec"
                 },
                 {
                   "title": "Stroboscope",
-                  "path": "2BAC/simulation/Stroboscope.mp4",
+                  "path": "2BAC/physique/simulation/Stroboscope.mp4",
                   "category": "محاكاة",
                   "sha": "498219fb9f22ad29197c247bd1f5ac1666b4046f"
                 },
                 {
                   "title": "ADN et Réplication",
-                  "path": "2-BAC/simulation/ADN et Réplication.html",
+                  "path": "2-BAC/physique/simulation/ADN et Réplication.html",
                   "category": "محاكاة",
                   "sha": "e18525f0ae5493b51a988f6145c06f8ae3731179"
                 },
                 {
                   "title": "collision simulation",
-                  "path": "2-BAC/simulation/collision_simulation.html",
+                  "path": "2-BAC/physique/simulation/collision_simulation.html",
                   "category": "محاكاة",
                   "sha": "fe5d2604e367113342bd341decda3014c5dc6932"
                 },
                 {
                   "title": "jeu transformation chimique",
-                  "path": "2-BAC/simulation/jeu_transformation_chimique.html",
+                  "path": "2-BAC/physique/simulation/jeu_transformation_chimique.html",
                   "category": "محاكاة",
                   "sha": "c7a23cd54cee561fa2f130e15cbbc0dc354d3bc3"
                 },
                 {
                   "title": "Mesure de Conductance",
-                  "path": "2-BAC/simulation/Mesure de Conductance.html",
+                  "path": "2-BAC/physique/simulation/Mesure de Conductance.html",
                   "category": "محاكاة",
                   "sha": "e63030fdf220377601015fdb08ec14c1ad0648df"
                 },
                 {
                   "title": "radioactivity simulations",
-                  "path": "2-BAC/simulation/radioactivity_simulations.html",
+                  "path": "2-BAC/physique/simulation/radioactivity_simulations.html",
                   "category": "محاكاة",
                   "sha": "e55f22e2ada03aaa5fff3b984ddd9d7024629b84"
                 },
                 {
                   "title": "redox simulation",
-                  "path": "2-BAC/simulation/redox_simulation.html",
+                  "path": "2-BAC/physique/simulation/redox_simulation.html",
                   "category": "محاكاة",
                   "sha": "e34513f82a626ffe692fb83493f90278e54444a8"
                 },
                 {
                   "title": "réaction en deux sens",
-                  "path": "2-BAC/simulation/réaction en deux sens.html",
+                  "path": "2-BAC/physique/simulation/réaction en deux sens.html",
                   "category": "محاكاة",
                   "sha": "959393e58cd11c8b607a0e088a252e1a8e6620ab"
                 },
                 {
                   "title": "Simulation nucléaire",
-                  "path": "2-BAC/simulation/Simulation nucléaire.hta.html",
+                  "path": "2-BAC/physique/simulation/Simulation nucléaire.hta.html",
                   "category": "محاكاة",
                   "sha": "d3cb5b2b34f7e6d602714b7250d4d3fde3c4e7ac"
                 },
                 {
                   "title": "محاكاة التفتتات ومنحنى سيغري",
-                  "path": "2-BAC/simulation/محاكاة التفتتات ومنحنى سيغري.html",
+                  "path": "2-BAC/physique/simulation/محاكاة التفتتات ومنحنى سيغري.html",
                   "category": "محاكاة",
                   "sha": "7f7d03d210ab6df4343468a7068bab9107a8ac22"
+                }
+              ],
+              "test_path": ""
+            },
+            {
+              "id": "library-other",
+              "title": "المكتبة الدراسية • ملفات أخرى",
+              "objectives": [],
+              "resources": [
+                {
+                  "title": "Communication",
+                  "path": "2-BAC/english/Communication.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "885aeddfaff5536a9c562fb45f052b5c7aed8f47"
+                },
+                {
+                  "title": "Grammar",
+                  "path": "2-BAC/english/Grammar.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "fe07712d41205d580d8e8f5a084f9c665e2ec5e5"
+                },
+                {
+                  "title": "Linking Words",
+                  "path": "2-BAC/english/Linking Words.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "97f93c34ea24e76f375da17dffc0d505cb455f31"
+                },
+                {
+                  "title": "Phrasal Verbs",
+                  "path": "2-BAC/english/Phrasal Verbs.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "b1a9fe2588bc50522608419a3d3850d7c6ad9b78"
+                },
+                {
+                  "title": "Writing",
+                  "path": "2-BAC/english/Writing.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "f80b901b80c295bfba35aabc9f2fd9a58c1277a0"
+                },
+                {
+                  "title": "تلخيص اتصال دالة عددية",
+                  "path": "2-BAC/math/تلخيص اتصال دالة عددية.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "b41ae24cd79100097c5ba51689655c4576ca4d77"
+                },
+                {
+                  "title": "تلخيص الأعداد العقدية",
+                  "path": "2-BAC/math/تلخيص الأعداد العقدية.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "514804a5393277220fe164d4a3459043b9b54a54"
+                },
+                {
+                  "title": "تلخيص التعداد والاحتمالات",
+                  "path": "2-BAC/math/تلخيص التعداد والاحتمالات.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "9d2b5edc9e3e8f166b7da573e66d6a1be07e43e5"
+                },
+                {
+                  "title": "تلخيص الجداء السلمي والمتجهي",
+                  "path": "2-BAC/math/تلخيص الجداء السلمي والمتجهي.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "c8aff5eacecd563a3f5773530beb42ce4b1a0d5a"
+                },
+                {
+                  "title": "تلخيص الحساب المثلثي",
+                  "path": "2-BAC/math/تلخيص الحساب المثلثي.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "edbf6f55bd4081a7f08daf6cbb4aa7b8b3c24e79"
+                },
+                {
+                  "title": "تلخيص الدوال الأصلية والتكامل",
+                  "path": "2-BAC/math/تلخيص الدوال الأصلية والتكامل.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "ec11b4d0b73cea99567001b426c8b14ed2102806"
+                },
+                {
+                  "title": "تلخيص الدوال اللوغاريتمية والأسية",
+                  "path": "2-BAC/math/تلخيص الدوال اللوغاريتمية والأسية.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "3deb752c3751bf9809e242aa85bed9f04211497f"
+                },
+                {
+                  "title": "تلخيص المتتاليات العددية",
+                  "path": "2-BAC/math/تلخيص المتتاليات العددية.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "c0150650685eeea9fb3366835a84fdabc621a594"
+                },
+                {
+                  "title": "تلخيص المعادلات التفاضلية",
+                  "path": "2-BAC/math/تلخيص المعادلات التفاضلية.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "246dd589c79725558dbb662b47fe26141824e888"
+                },
+                {
+                  "title": "تلخيص المعادلات والمتراجحات",
+                  "path": "2-BAC/math/تلخيص المعادلات والمتراجحات.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "9841428e89ee3f4ed8067eed9b77db905e74281f"
+                },
+                {
+                  "title": "تلخيص دراسة دالة عددية",
+                  "path": "2-BAC/math/تلخيص دراسة دالة عددية.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "4615b31ee4671344eeb67c535d120abef63d5e93"
+                },
+                {
+                  "title": "الأدوات المنهجية لمناقشة موضوع فلسفي",
+                  "path": "2-BAC/philosophie/الأدوات المنهجية لمناقشة موضوع فلسفي.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "044ed24a8007ad067968c748e9529f6bfa3201b0"
+                },
+                {
+                  "title": "البنية المفاهيمية الفلسفة",
+                  "path": "2-BAC/philosophie/البنية المفاهيمية_الفلسفة.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "c4cf886e48218a5bc6a36ac986deed8d4912431a"
+                },
+                {
+                  "title": "تأطير عام للمجزوءات فلسفة",
+                  "path": "2-BAC/philosophie/تأطير عام للمجزوءات_فلسفة.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "a2e26f3d36c17cb464e493e9e4186f9c53085e8a"
+                },
+                {
+                  "title": "مجزوءة الأخلاق فلسفة",
+                  "path": "2-BAC/philosophie/مجزوءة الأخلاق_فلسفة.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "a3415a5eafb65f1f6e720b35d2e88cb2694e4b48"
+                },
+                {
+                  "title": "مجزوءة السياسة فلسفة",
+                  "path": "2-BAC/philosophie/مجزوءة السياسة_فلسفة.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "4ce9707ddaa64c1e1581483af3d9dea974f2fd37"
+                },
+                {
+                  "title": "مجزوءة المعرفة فلسفة",
+                  "path": "2-BAC/philosophie/مجزوءة المعرفة_فلسفة.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "65f67be74eeb20e8ed8267d15c4a25f175330db3"
+                },
+                {
+                  "title": "مجزوءة الوضع البشري الفلسفة",
+                  "path": "2-BAC/philosophie/مجزوءة الوضع البشري_الفلسفة.pdf",
+                  "category": "ملفات أخرى",
+                  "sha": "2e419b230f6466504238d8b99d5f5a9f9487c27f"
                 }
               ],
               "test_path": ""
