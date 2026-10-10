@@ -12,60 +12,60 @@
       "path": "2BACPC/physics/diag_2025.json",
       "questions_count": 20
     },
-      {
+    {
       "id": "2BAC_PHYS_ONDES_DIAG_2026",
       "title": "تقويم المكتسبات والدعم: درس الموجات الميكانيكية المتوالية",
       "subject": "الفيزياء والكيمياء",
-      "level": "2BAC",
+      "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
       "duration": 40,
       "path": "2BACPC/physics/2BAC_PHYS_ONDES_DIAG_2026.json",
-      "questions_count": 05
+      "questions_count": 5
     },
-          {
+    {
       "id": "2BAC_PHYS_ONDES_PERIODIQUES_DIAG_2026",
       "title": "تقويم المكتسبات والدعم: درس الموجات الميكانيكية المتوالية الدورية",
       "subject": "الفيزياء والكيمياء",
-      "level": "2BAC",
+      "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
       "duration": 40,
       "path": "2BACPC/physics/2BAC_PHYS_ONDES_PERIODIQUES_DIAG_2026.json",
-      "questions_count": 05
+      "questions_count": 5
     },
-     {
+    {
       "id": "2BAC_PHYS_ONDES_LUMINEUSES_DIAG_2026",
       "title": "تقويم المكتسبات والدعم: درس انتشار موجة ضوئية",
       "subject": "الفيزياء والكيمياء",
-      "level": "2BAC",
+      "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
       "duration": 40,
       "path": "2BACPC/physics/2BAC_PHYS_ONDES_LUMINEUSES_DIAG_2026.json",
-      "questions_count": 05
+      "questions_count": 5
     },
     {
       "id": "2BAC_CHEM_TRANSFORMATIONS_LENTES_RAPIDES_2026",
       "title": "تقويم المكتسبات والدعم: التفاعلات السريعة والبطيئة لمجموعة كيميائية",
       "subject": "الفيزياء والكيمياء",
-      "level": "2BAC",
+      "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
       "duration": 40,
       "path": "2BACPC/physics/2BAC_CHEM_TRANSFORMATIONS_LENTES_RAPIDES_2026.json",
-      "questions_count": 05
+      "questions_count": 5
     },
     {
       "id": "2BAC_CHEM_SUIVI_TEMPOREL_2026",
       "title": "تقويم المكتسبات والدعم: التتبع الزمني لتحول كيميائي - سرعة التفاعل",
       "subject": "الفيزياء والكيمياء",
-      "level": "2BAC",
+      "level": "2BACPC",
       "type": "diagnostic",
       "type_label": "تشخيصي ودعم",
       "duration": 40,
       "path": "2BACPC/physics/2BAC_CHEM_SUIVI_TEMPOREL_2026.json",
-      "questions_count": 05
+      "questions_count": 5
     },
     {
       "id": "1BAC_PC_DIAG_2025",
@@ -80,7 +80,7 @@
     },
     {
       "id": "1BAC_PC_DIAG_ELEC_2026",
-      "title": "الاختبار التشخيصي في مادة الفيزياء - جزء الكهرباء والمغناطيسية ",
+      "title": "الاختبار التشخيصي في مادة الفيزياء - جزء الكهرباء والمغناطيسية",
       "subject": "الفيزياء والكيمياء",
       "level": "1BAC",
       "type": "diagnostic",
@@ -143,17 +143,6 @@
       "duration": 15,
       "path": "3AC/physics/start_2026.json",
       "questions_count": 8
-    },
-    {
-      "id": "1bac_exmath_diag_001",
-      "title": "اختبار تشخيصي شامل",
-      "subject": "physique-chimie",
-      "level": "1BAC_EX_MATH",
-      "type": "practice",
-      "type_label": "تدريب",
-      "duration": 0,
-      "path": "2BACPC/physics/test_diag_001.json",
-      "questions_count": 3
     }
   ]
 }
