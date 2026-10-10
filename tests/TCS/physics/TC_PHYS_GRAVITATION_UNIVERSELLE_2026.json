@@ -1,0 +1,250 @@
+{
+  "id": "TC_PHYS_GRAVITATION_UNIVERSELLE_2026",
+  "title": "تقويم المكتسبات والدعم: درس الجاذبية الكونية",
+  "subject": "الفيزياء والكيمياء",
+  "level": "Tronc Commun",
+  "duration": 40,
+  "type": "diagnostic",
+  "type_label": "تشخيصي ودعم",
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quel est l'ordre de grandeur d'un nombre écrit sous la forme scientifique $N = a \times 10^n$ si $a = 7$ (avec $a \\ge 5$) ?",
+      "options": [
+        "$10^{n+1}$[cite: 43]",
+        "$10^n$[cite: 43]",
+        "$10^{n-1}$[cite: 43]",
+        "$10^{2n}$[cite: 43]"
+      ],
+      "correct": 0,
+      "gap": "خطأ في تحديد رتبة المقدار للعدد العشري",
+      "recommendation": "تذكر أنه إذا كان المعامل $a \\ge 5$ فإن رتبة المقدار تكون $10^{n+1}$[cite: 43].",
+      "domain": "الفيزياء الفلكية",
+      "skill": "تحديد رتبة المقدار",
+      "points": 1,
+      "explanation": "Si $a \\ge 5$, l'ordre de grandeur du nombre est $10^{n+1}$[cite: 43].",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification : L'ordre de grandeur de la taille d'un globule rouge égale à $7 \\mu\\text{m}$ (soit $7 \\times 10^{-6}\\text{ m}$) est :",
+          "options": [
+            "$10^{-5}\\text{ m}$[cite: 43]",
+            "$10^{-6}\\text{ m}$[cite: 43]",
+            "$10^{-7}\\text{ m}$[cite: 43]"
+          ],
+          "correct": 0,
+          "domain": "الفيزياء الفلكية",
+          "points": 1,
+          "explanation": "Puisque $a = 7 \\ge 5$, l'ordre de grandeur est $10^{-6+1} = 10^{-5}\\text{ m}$[cite: 43]."
+        },
+        {
+          "id": "q1_transfer",
+          "text": "L'unité internationale de la longueur est :",
+          "options": [
+            "Le mètre (m)[cite: 42]",
+            "Le kilomètre (km)[cite: 42]",
+            "Le centimètre (cm)[cite: 42]"
+          ],
+          "correct": 0,
+          "domain": "الفيزياء الفلكية",
+          "skill": "وحدات القياس الدولية",
+          "points": 1,
+          "gap": "À revoir : وحدات القياس",
+          "recommendation": "المتر هو الوحدة الأساسية في النظام العالمي[cite: 42].",
+          "explanation": "L'unité de longueur dans le Système international est le mètre[cite: 42]."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Quelle est l'expression mathématique de la loi de la gravitation universelle de Newton entre deux corps ponctuels $A$ et $B$ ?",
+      "options": [
+        "$F = G \\cdot \\frac{m_A \\cdot m_B}{d^2}$[cite: 45]",
+        "$F = G \\cdot \\frac{m_A \\cdot m_B}{d}$[cite: 45]",
+        "$F = \\frac{G \\cdot d^2}{m_A \\cdot m_B}$[cite: 45]",
+        "$F = m_A \\cdot m_B \\cdot d^2$[cite: 45]"
+      ],
+      "correct": 0,
+      "gap": "خطأ في صياغة قانون التجاذب الكوني",
+      "recommendation": "تذكر أن شدة القوة تتعلق بعكس مربع المسافة $d^2$ وليس المسافة وحدها[cite: 45].",
+      "domain": "الميكانيك",
+      "skill": "تطبيق قانون نيوتن للتجاذب الكوني",
+      "points": 1,
+      "explanation": "La force d'attraction est formulée par $F = G \\frac{m_A m_B}{d^2}$[cite: 45].",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification : Les forces d'interaction gravitationnelle entre deux corps $A$ et $B$ ont :",
+          "options": [
+            "La même intensité, la même droite d'action et des sens opposés[cite: 45].",
+            "Des intensités différentes selon les masses.",
+            "Le même sens et la même direction."
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "Ces forces possèdent la même droite d'action, des sens opposés et la même intensité[cite: 45]."
+        },
+        {
+          "id": "q2_transfer",
+          "text": "La constante de gravitation universelle $G$ a pour valeur numérique :",
+          "options": [
+            "$6,67 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2\\cdot\\text{kg}^{-2}$[cite: 45]",
+            "$9,81\\text{ N}\\cdot\\text{kg}^{-1}$[cite: 46]",
+            "$3 \\times 10^8\\text{ m}\\cdot\\text{s}^{-1}$[cite: 14]"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "قيم الثوابت الكونية",
+          "points": 1,
+          "gap": "À revoir : قيمة الثابتة G",
+          "recommendation": "حفظ قيمة ثابتة التجاذب الكوني مع وحدتها[cite: 45].",
+          "explanation": "La constante est $G = 6,67 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2\\cdot\\text{kg}^{-2}$[cite: 45]."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Quelle relation vectorielle lie le poids d'un corps $\\vec{P}$ à sa masse $m$ et au champ de pesanteur $\\vec{g}$ ?",
+      "options": [
+        "$\\vec{P} = m \\cdot \\vec{g}$[cite: 46]",
+        "$\\vec{P} = \\frac{m}{\\vec{g}}$[cite: 46]",
+        "$\\vec{P} = \\vec{g} \\cdot m^2$[cite: 46]",
+        "$\\vec{P} = \\vec{g} - m$[cite: 46]"
+      ],
+      "correct": 0,
+      "gap": "خلط في العلاقة الأساسية للوزن والكتلة",
+      "recommendation": "تذكر أن وزن الجسم هو حاصل ضرب كتلته في شدة الثقالة[cite: 46].",
+      "domain": "الميكانيك",
+      "skill": "تحديد مفهوم الوزن",
+      "points": 1,
+      "explanation": "Le poids d'un corps est donné par la relation $\\vec{P} = m\\vec{g}$[cite: 46].",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification : Le point d'application du poids d'un corps solide homogène est :",
+          "options": [
+            "Son centre de gravité $G$[cite: 46].",
+            "Le point le plus bas en contact avec le sol.",
+            "Le centre de la Terre."
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "Le poids possède comme point d'application le centre de gravité $G$ du corps[cite: 46]."
+        },
+        {
+          "id": "q3_transfer",
+          "text": "L'intensité de la pesanteur à la surface de la Terre $g_0$ vaut environ :",
+          "options": [
+            "$9,81\\text{ N}\\cdot\\text{kg}^{-1}$[cite: 46]",
+            "$6,67 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2\\cdot\\text{kg}^{-2}$[cite: 45]",
+            "$340\\text{ m}\\cdot\\text{s}^{-1}$[cite: 4]"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "قيمة شدة الثقالة",
+          "points": 1,
+          "gap": "À revoir : قيمة شدة الثقالة الأرضية",
+          "recommendation": "قيمة شدة الثقالة المعيارية على سطح الأرض هي تقريباً $9,81\\text{ N/kg}$[cite: 46].",
+          "explanation": "À la surface de la Terre, $g_0 \\simeq 9,81\\text{ N}\\cdot\\text{kg}^{-1}$[cite: 46]."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Comment varie l'intensité de la pesanteur $g(h)$ lorsque l'altitude $h$ augmente au-dessus de la surface de la Terre ?",
+      "options": [
+        "Elle diminue lorsque l'altitude augmente[cite: 46].",
+        "Elle augmente proportionnellement avec l'altitude[cite: 46].",
+        "Elle reste rigoureusement constante[cite: 46].",
+        "Elle s'annule instantanément dès qu'on quitte le sol[cite: 46]."
+      ],
+      "correct": 0,
+      "gap": "عدم فهم تغير الثقالة بدلالة الارتفاع",
+      "recommendation": "الارتفاع $h$ يوجد في المقام مربعاً، وكلما زاد صغرت قيمة الثقالة[cite: 46].",
+      "domain": "الميكانيك",
+      "skill": "تحليل تغيرات شدة الثقالة",
+      "points": 1,
+      "explanation": "L'intensité de la pesanteur diminue lorsque l'altitude augmente selon $g(h) = G \\frac{M_T}{(R_T + h)^2}$[cite: 46].",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification : L'expression de l'intensité de la pesanteur à l'altitude $h$ est :",
+          "options": [
+            "$g(h) = G \\frac{M_T}{(R_T + h)^2}$[cite: 46]",
+            "$g(h) = G \\frac{M_T \\cdot h}{R_T}$[cite: 46]",
+            "$g(h) = \\frac{m \\cdot g_0}{h^2}$[cite: 46]"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "En assimilant le poids à la force gravitationnelle, on obtient $g(h) = G \\frac{M_T}{(R_T + h)^2}$[cite: 46]."
+        },
+        {
+          "id": "q4_transfer",
+          "text": "À la surface de la Terre, l'altitude $h$ est prise égale à :",
+          "options": [
+            "$0$[cite: 46]",
+            "$1000\\text{ km}$[cite: 46]",
+            "Le rayon de la Terre $R_T$[cite: 46]"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "الشروط البدئية للارتفاع",
+          "gap": "À revoir : الارتفاع على سطح الأرض",
+          "recommendation": "على سطح الأرض يكون الارتفاع معدوماً ($h = 0$)[cite: 46].",
+          "explanation": "À la surface de la Terre, l'altitude est $h = 0$[cite: 46]."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Qu'assure principalement la gravitation universelle à l'échelle cosmique ?",
+      "options": [
+        "La cohésion du Système solaire et le mouvement des planètes[cite: 44].",
+        "La création instantanée de la lumière solaire.",
+        "L'immobilité totale de toutes les galaxies.",
+        "La diminution de la masse de la Terre."
+      ],
+      "correct": 0,
+      "gap": "جهل الدور الفيزيائي للجاذبية الكونية",
+      "recommendation": "التجاذب الكوني هو المسؤول الأساسي عن تماسك الكواكب ومداراتها حول الشمس[cite: 44].",
+      "domain": "الفيزياء الفلكية",
+      "skill": "تفسير دور التجاذب الكوني",
+      "points": 1,
+      "explanation": "La gravitation universelle est l'interaction responsable de la cohésion du Système solaire[cite: 44].",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification : Tout corps possédant une masse exerce :",
+          "options": [
+            "Une attraction gravitationnelle sur les autres corps massiques[cite: 44].",
+            "Une répulsion magnétique systématique.",
+            "Une force électrique pure."
+          ],
+          "correct": 0,
+          "domain": "الفيزياء الفلكية",
+          "points": 1,
+          "explanation": "Tout corps possédant une masse exerce une attraction gravitationnelle sur les autres corps massiques[cite: 44]."
+        },
+        {
+          "id": "q5_transfer",
+          "text": "L'interaction gravitationnelle est une interaction qui est toujours :",
+          "options": [
+            "Attractive[cite: 44]",
+            "Répulsive",
+            "Nulle"
+          ],
+          "correct": 0,
+          "domain": "الفيزياء الفلكية",
+          "skill": "طبيعة القوة الجذبوية",
+          "gap": "À revoir : طبيعة التجاذب",
+          "recommendation": "قوة التجاذب الكوني هي دائماً قوة تجاذبية (attractive) وليست تنافرية[cite: 44].",
+          "explanation": "La gravitation universelle est une interaction attractive qui s'exerce entre tous les corps[cite: 44]."
+        }
+      ]
+    }
+  ]
+}
