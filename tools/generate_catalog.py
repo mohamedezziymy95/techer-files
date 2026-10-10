@@ -11,6 +11,7 @@ import argparse
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 
 ALLOWED_EXTENSIONS = {
@@ -178,7 +179,8 @@ def main() -> None:
         json.dump(catalog, fh, ensure_ascii=False, indent=2)
         fh.write("\n")
 
-    print(f"Catalog updated successfully. Added {total_resources} resources across {total_subjects} new subjects.")
+    message = f"✓ Catalog updated successfully.\n  Added {total_resources} resources across {total_subjects} new subjects."
+    print(message, file=sys.stdout)
 
 
 if __name__ == "__main__":
