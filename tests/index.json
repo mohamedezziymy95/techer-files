@@ -12,6 +12,61 @@
       "path": "2BACPC/physics/diag_2025.json",
       "questions_count": 20
     },
+      {
+      "id": "2BAC_PHYS_ONDES_DIAG_2026",
+      "title": "تقويم المكتسبات والدعم: درس الموجات الميكانيكية المتوالية",
+      "subject": "الفيزياء والكيمياء",
+      "level": "2BACPC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي ودعم",
+      "duration": 40,
+      "path": "2BACPC/physics/2BAC_PHYS_ONDES_DIAG_2026.json",
+      "questions_count": 05
+    },
+          {
+      "id": "2BAC_PHYS_ONDES_PERIODIQUES_DIAG_2026",
+      "title": "تقويم المكتسبات والدعم: درس الموجات الميكانيكية المتوالية الدورية",
+      "subject": "الفيزياء والكيمياء",
+      "level": "2BACPC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي ودعم",
+      "duration": 40,
+      "path": "2BACPC/physics/2BAC_PHYS_ONDES_PERIODIQUES_DIAG_2026.json",
+      "questions_count": 05
+    },
+     {
+      "id": "2BAC_PHYS_ONDES_LUMINEUSES_DIAG_2026",
+      "title": "تقويم المكتسبات والدعم: درس انتشار موجة ضوئية",
+      "subject": "الفيزياء والكيمياء",
+      "level": "2BACPC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي ودعم",
+      "duration": 40,
+      "path": "2BACPC/physics/2BAC_PHYS_ONDES_LUMINEUSES_DIAG_2026.json",
+      "questions_count": 05
+    },
+    {
+      "id": "2BAC_CHEM_TRANSFORMATIONS_LENTES_RAPIDES_2026",
+      "title": "تقويم المكتسبات والدعم: التفاعلات السريعة والبطيئة لمجموعة كيميائية",
+      "subject": "الفيزياء والكيمياء",
+      "level": "2BACPC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي ودعم",
+      "duration": 40,
+      "path": "2BACPC/physics/2BAC_CHEM_TRANSFORMATIONS_LENTES_RAPIDES_2026.json",
+      "questions_count": 05
+    },
+    {
+      "id": "2BAC_CHEM_SUIVI_TEMPOREL_2026",
+      "title": "تقويم المكتسبات والدعم: التتبع الزمني لتحول كيميائي - سرعة التفاعل",
+      "subject": "الفيزياء والكيمياء",
+      "level": "2BACPC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي ودعم",
+      "duration": 40,
+      "path": "2BACPC/physics/2BAC_CHEM_SUIVI_TEMPOREL_2026.json",
+      "questions_count": 05
+    },
     {
       "id": "1BAC_PC_DIAG_2025",
       "title": "الاختبار التشخيصي في مادة الفيزياء والكيمياء",
