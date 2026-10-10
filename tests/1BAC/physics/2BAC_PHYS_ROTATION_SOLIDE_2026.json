@@ -1,0 +1,250 @@
+{
+  "id": "2BAC_PHYS_ROTATION_SOLIDE_2026",
+  "title": "تقويم المكتسبات والدعم: حركة دوران جسم صلب حول محور ثابت",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BAC",
+  "duration": 40,
+  "type": "diagnostic",
+  "type_label": "تشخيصي ودعم",
+  "version": "2026.10.1",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Qu'appelle-t-on un mouvement de rotation d'un corps solide indéformable autour d'un axe fixe ?",
+      "options": [
+        "Un mouvement où tous les points décrivent des trajectoires circulaires centrées sur l'axe, sauf les points appartenant à l'axe.",
+        "Un mouvement rectiligne uniformément varié.",
+        "Une translation de toutes les molécules sans exception.",
+        "Un arrêt total des points matériels."
+      ],
+      "correct": 0,
+      "gap": "عدم القدرة على وصف مسارات نقاط جسم في حركة دوران حول محور ثابت",
+      "recommendation": "مراجعة تعريف الدوران ومسارات النقاط الدائرية بالنسبة للمحور الثابت.",
+      "domain": "الميكانيك",
+      "skill": "تعريف ووصف حركة الدوران",
+      "points": 1,
+      "explanation": "Un corps solide indéformable est en mouvement de rotation autour d'un axe fixe si tous ses points décrivent des trajectoires circulaires centrées sur l'axe.",
+      "practice": [
+        {
+          "id": "q1_practice",
+          "text": "Vérification : Les points du solide qui appartiennent directement à l'axe de rotation ont des trajectoires :",
+          "options": [
+            "Immobiles (fixes sur l'axe).",
+            "Circulaires de grand rayon.",
+            "Rectilignes sinusoïdales."
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "Les points appartenant à l'axe de rotation ne bougent pas."
+        },
+        {
+          "id": "q1_transfer",
+          "text": "L'abscisse angulaire $\\theta$ d'un point sur une trajectoire circulaire s'exprime obligatoirement en :",
+          "options": [
+            "Radian (rad)",
+            "Mètre (m)",
+            "Kilogramme (kg)"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "وحدات الأبسكا الزاوية",
+          "points": 1,
+          "gap": "À revoir : وحدات القياس الزاوي",
+          "recommendation": "استعمال الراديان كوحدة عالمية للزوايا في القوانين الفيزيائية.",
+          "explanation": "L'abscisse angulaire est mesurée en radian (rad)."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Quelle est la relation correcte entre l'abscisse curviligne $s$, l'abscisse angulaire $\\theta$ et le rayon $R$ ?",
+      "options": [
+        "$s = R \\cdot \\theta$",
+        "$s = \\frac{\\theta}{R}$",
+        "$s = R + \\theta$",
+        "$s = \\frac{R}{\\theta}$"
+      ],
+      "correct": 0,
+      "gap": "خلط في العلاقة الحسابية بين الأبسكا الكيرفيلينية والأبسكا الزاوية",
+      "recommendation": "تذكر أن المسافة المقطوعة على القوس هي جداء الشعاع في الزاوية بالميزان الرادياني.",
+      "domain": "الميكانيك",
+      "skill": "ربط المقادير الكيرفيلينية بالزاوية",
+      "points": 1,
+      "explanation": "La relation fondamentale est $s = R \\times \\theta$.",
+      "practice": [
+        {
+          "id": "q2_practice",
+          "text": "Vérification : Si un disque de rayon $R = 10\\text{ cm}$ tourne d'un angle $\\theta = \\pi\\text{ rad}$, la distance parcourue par un point de sa périphérie est :",
+          "options": [
+            "$\\pi$ décimètres (ou $31,4\\text{ cm}$)",
+            "$10\\text{ cm}$",
+            "$1\\text{ cm}$"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "$s = R \\cdot \\theta = 10 \\times 3,14 = 31,4\\text{ cm}$."
+        },
+        {
+          "id": "q2_transfer",
+          "text": "La vitesse linéaire $V$ et la vitesse angulaire $\\omega$ sont liées par la relation :",
+          "options": [
+            "$V = R \\cdot \\omega$",
+            "$V = \\frac{\\omega}{R}$",
+            "$V = \\omega^2 \\cdot R$"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "العلاقة بين السرعة الخطية والزاوية",
+          "points": 1,
+          "gap": "À revoir : علاقة السرعات",
+          "recommendation": "السرعة الخطية تساوي جداء الشعاع في السرعة الزاوية $V = R\\omega$.",
+          "explanation": "La relation est $V = R \\cdot \\omega$."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Comment se définit la vitesse angulaire instantanée $\\omega_i$ à l'instant $t_i$ à partir des abscisses angulaires ?",
+      "options": [
+        "$\\omega_i = \\frac{\\theta_{i+1} - \\theta_{i-1}}{t_{i+1} - t_{i-1}}$",
+        "$\\omega_i = \\frac{\\theta_{i+1} + \\theta_{i-1}}{2}$",
+        "$\\omega_i = (\\theta_{i+1} - \\theta_{i-1}) \\cdot \\Delta t$",
+        "$\\omega_i = \\frac{t_{i+1} - t_{i-1}}{\\theta_{i+1} - \\theta_{i-1}}$"
+      ],
+      "correct": 0,
+      "gap": "عجز عن كتابة أو تذكر صيغة السرعة الزاوية اللحظية",
+      "recommendation": "مراجعة صيغة التأطير الزمني لحساب السرعات اللحظية عبر فروق الأبسكا على فترتين.",
+      "domain": "الميكانيك",
+      "skill": "حساب السرعة الزاوية اللحظية",
+      "points": 1,
+      "explanation": "La vitesse angulaire instantanée est définie par $\\omega_i = \\frac{\\theta_{i+1} - \\theta_{i-1}}{t_{i+1} - t_{i-1}}$.",
+      "practice": [
+        {
+          "id": "q3_practice",
+          "text": "Vérification : L'unité internationale de la vitesse angulaire $\\omega$ est :",
+          "options": [
+            "$\\text{rad}\\cdot\\text{s}^{-1}$",
+            "$\\text{m}\\cdot\\text{s}^{-1}$",
+            "$\\text{tr/min}$"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "L'unité légale est le radian par seconde ($\\text{rad}\\cdot\\text{s}^{-1}$)."
+        },
+        {
+          "id": "q3_transfer",
+          "text": "Tous les points d'un solide en rotation autour d'un axe fixe ont :",
+          "options": [
+            "La même vitesse angulaire à un instant donné.",
+            "La même vitesse linéaire indépendamment de leur rayon.",
+            "Des vitesses angulaires totalement différentes selon leur masse."
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "مميزات الدوران لجميع نقاط الصلب",
+          "points": 1,
+          "gap": "À revoir : تجانس السرعة الزاوية للنقاط",
+          "recommendation": "جميع نقاط الجسم تشترك في نفس السرعة الزاوية في نفس اللحظة.",
+          "explanation": "Tous les points du solide ont la même vitesse angulaire au même instant."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Quelle est la forme de l'équation horaire de l'ابسكا angulaire $\\theta(t)$ dans le cas d'un mouvement de rotation uniforme ?",
+      "options": [
+        "$\\theta(t) = \\omega \\cdot t + \\theta_0$ (fonction affine)",
+        "$\\theta(t) = \\frac{1}{2} \\cdot \\omega \\cdot t^2$",
+        "$\\theta(t) = \\theta_0 \\cdot \\cos(t)$",
+        "$\\theta(t) = \\text{constante}$"
+      ],
+      "correct": 0,
+      "gap": "عدم معرفة المعادلة الزمنية لحركة الدوران المنتظم",
+      "recommendation": "تذكر أن الدوران المنتظم يتميز بسرعة زاوية ثابتة، وبالتالي معادلته الزمنية تالفية.",
+      "domain": "الميكانيك",
+      "skill": "تحديد المعادلة الزمنية للدوران المنتظم",
+      "points": 1,
+      "explanation": "L'équation horaire d'un mouvement de rotation uniforme est une fonction affine : $\\theta(t) = \\omega \\cdot t + \\theta_0$.",
+      "practice": [
+        {
+          "id": "q4_practice",
+          "text": "Vérification : Graphiquement, la courbe représentant $\\theta = f(t)$ pour une rotation uniforme est :",
+          "options": [
+            "Une droite ne passant pas nécessairement par l'origine (de pente $\\omega$).",
+            "Une parabole orientée vers le haut.",
+            "Un cercle parfait."
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "La courbe $\\theta=f(t)$ est une droite dont le coefficient directeur est la vitesse angulaire $\\omega$."
+        },
+        {
+          "id": "q4_transfer",
+          "text": "Le coefficient directeur de la droite représentant l'évolution de $\\theta$ en fonction de $t$ représente :",
+          "options": [
+            "La vitesse angulaire $\\omega$",
+            "Le rayon $R$",
+            "La période $T$"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "التأويل المبياني للمعادلة الزمنية",
+          "gap": "À revoir : المայاني للسرعة الزاوية",
+          "recommendation": "ميل المبيان يوافق معامل التوجيه الذي يساوي السرعة الزاوية الثابتة.",
+          "explanation": "Le coefficient directeur de la droite $\\theta(t)$ est la vitesse angulaire $\\omega$."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Quelle est l'expression correcte liant la période $T$ à la vitesse angulaire $\\omega$ pour un mouvement de rotation uniforme ?",
+      "options": [
+        "$T = \\frac{2\\pi}{\\omega}$",
+        "$T = \\omega \\cdot \\pi$",
+        "$T = \\frac{\\omega}{2\\pi}$",
+        "$T = 2 \\cdot \\omega$"
+      ],
+      "correct": 0,
+      "gap": "خلط في علاقات الدور والتردد والسرعة الزاوية",
+      "recommendation": "استحضار أن الدورة الكاملة توافق زاوية $2\pi$ راديان بزمن قدره $T$.",
+      "domain": "الميكانيك",
+      "skill": "حساب الدور والتردد",
+      "points": 1,
+      "explanation": "La période $T$ est le temps d'un tour complet, soit $T = \\frac{2\\pi}{\\omega}$.",
+      "practice": [
+        {
+          "id": "q5_practice",
+          "text": "Vérification : La fréquence $f$ (en Hertz) d'un mouvement de rotation de période $T$ s'écrit :",
+          "options": [
+            "$f = \\frac{1}{T} = \\frac{\\omega}{2\\pi}$",
+            "$f = T \\cdot 2\\pi$",
+            "$f = \\frac{2\\pi}{T}$"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "points": 1,
+          "explanation": "La fréquence est l'inverse de la période : $f = \\frac{1}{T}$."
+        },
+        {
+          "id": "q5_transfer",
+          "text": "Si la vitesse angulaire d'un objet en rotation est $\\omega = 10\\pi\\text{ rad/s}$, sa fréquence est de :",
+          "options": [
+            "$5\\text{ Hz}$",
+            "$10\\text{ Hz}$",
+            "$20\\text{ Hz}$"
+          ],
+          "correct": 0,
+          "domain": "الميكانيك",
+          "skill": "تطبيق حساب التردد",
+          "gap": "À revoir : التطبيق العددي للتردد",
+          "recommendation": "تطبيق العلاقة $f = \\frac{\\omega}{2\pi} = \\frac{10\pi}{2\pi} = 5\\text{ Hz}$.",
+          "explanation": "$f = \\frac{10\\pi}{2\\pi} = 5\\text{ Hz}$."
+        }
+      ]
+    }
+  ]
+}
