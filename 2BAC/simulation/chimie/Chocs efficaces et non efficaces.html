@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation des Chocs Moléculaires</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .reaction-equation {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .simulation-area {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        #canvas {
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            background: linear-gradient(to bottom, #f0f4ff, #e8f0ff);
+            cursor: pointer;
+        }
+        
+        .controls {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .control-group {
+            margin-bottom: 20px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .value-display {
+            text-align: right;
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .stat-card .value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .legend {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .legend h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid #333;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1em;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚛️ Simulation des Chocs Moléculaires</h1>
+        
+        <div class="reaction-equation">
+            A + B → AB (Produit)
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Chocs Totaux</h3>
+                <div class="value" id="totalCollisions">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Chocs Efficaces</h3>
+                <div class="value" id="effectiveCollisions">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Produits Formés</h3>
+                <div class="value" id="products">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Vitesse de Réaction</h3>
+                <div class="value" id="reactionRate">0</div>
+            </div>
+        </div>
+        
+        <div class="simulation-area">
+            <canvas id="canvas" width="700" height="500"></canvas>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label>🌡️ Température</label>
+                    <input type="range" id="temperature" min="1" max="10" value="5" step="1">
+                    <div class="value-display"><span id="tempValue">5</span> / 10</div>
+                </div>
+                
+                <div class="control-group">
+                    <label>🔢 Concentration</label>
+                    <input type="range" id="concentration" min="10" max="60" value="30" step="5">
+                    <div class="value-display"><span id="concValue">30</span> molécules</div>
+                </div>
+                
+                <div class="control-group">
+                    <label>⚡ Énergie d'Activation</label>
+                    <input type="range" id="activation" min="1" max="10" value="5" step="1">
+                    <div class="value-display"><span id="actValue">5</span> / 10</div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-primary" onclick="resetSimulation()">🔄 Réinitialiser</button>
+                    <button class="btn-secondary" onclick="togglePause()">⏸️ Pause</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <h3>🎨 Légende</h3>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff6b6b;"></div>
+                <span><strong>Réactif A</strong> - Molécule rouge</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4ecdc4;"></div>
+                <span><strong>Réactif B</strong> - Molécule cyan</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #95e1d3; border-style: dashed;"></div>
+                <span><strong>Choc non efficace</strong> - Énergie insuffisante, rebond</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4);"></div>
+                <span><strong>Complexe activé</strong> - Formation en cours...</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffd93d;"></div>
+                <span><strong>Produit AB</strong> - Molécule formée avec succès!</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let particles = [];
+        let totalCollisions = 0;
+        let effectiveCollisions = 0;
+        let products = 0;
+        let isPaused = false;
+        let collisionEffects = [];
+        let reactionAnimations = [];
+        
+        class Particle {
+            constructor(x, y, type, isProduct = false) {
+                this.x = x;
+                this.y = y;
+                this.type = type;
+                this.isProduct = isProduct;
+                this.radius = isProduct ? 18 : 12;
+                this.color = this.getColor();
+                this.speed = isProduct ? 1.5 : 2;
+                this.vx = (Math.random() - 0.5) * this.speed;
+                this.vy = (Math.random() - 0.5) * this.speed;
+                this.rotation = 0;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.1;
+            }
+            
+            getColor() {
+                if (this.isProduct) return '#ffd93d';
+                return this.type === 'A' ? '#ff6b6b' : '#4ecdc4';
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.rotation += this.rotationSpeed;
+                
+                if (this.x < this.radius || this.x > canvas.width - this.radius) {
+                    this.vx *= -1;
+                    this.x = Math.max(this.radius, Math.min(canvas.width - this.radius, this.x));
+                }
+                if (this.y < this.radius || this.y > canvas.height - this.radius) {
+                    this.vy *= -1;
+                    this.y = Math.max(this.radius, Math.min(canvas.height - this.radius, this.y));
+                }
+            }
+            
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                
+                if (this.isProduct) {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                    ctx.strokeStyle = '#f39c12';
+                    ctx.lineWidth = 3;
+                    ctx.stroke();
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('AB', 0, 0);
+                    
+                    for (let i = 0; i < 8; i++) {
+                        const angle = (Math.PI * 2 / 8) * i;
+                        const x = Math.cos(angle) * (this.radius + 5);
+                        const y = Math.sin(angle) * (this.radius + 5);
+                        ctx.beginPath();
+                        ctx.arc(x, y, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = '#ffd93d';
+                        ctx.fill();
+                    }
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                    ctx.strokeStyle = '#333';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    
+                    ctx.fillStyle = 'white';
+                    ctx.font = 'bold 14px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(this.type, 0, 0);
+                }
+                
+                ctx.restore();
+            }
+        }
+        
+        class ReactionAnimation {
+            constructor(p1, p2, isEffective) {
+                this.p1 = {x: p1.x, y: p1.y, type: p1.type};
+                this.p2 = {x: p2.x, y: p2.y, type: p2.type};
+                this.centerX = (p1.x + p2.x) / 2;
+                this.centerY = (p1.y + p2.y) / 2;
+                this.isEffective = isEffective;
+                this.stage = 0;
+                this.maxStage = isEffective ? 60 : 30;
+                this.rotation = 0;
+                this.scale = 1;
+            }
+            
+            update() {
+                this.stage++;
+                this.rotation += 0.15;
+                
+                if (this.isEffective) {
+                    if (this.stage < 30) {
+                        const progress = this.stage / 30;
+                        this.p1.x += (this.centerX - this.p1.x) * 0.1;
+                        this.p1.y += (this.centerY - this.p1.y) * 0.1;
+                        this.p2.x += (this.centerX - this.p2.x) * 0.1;
+                        this.p2.y += (this.centerY - this.p2.y) * 0.1;
+                        this.scale = 1 + progress * 0.3;
+                    } else {
+                        this.scale = 1.3 - ((this.stage - 30) / 30) * 0.3;
+                    }
+                } else {
+                    const progress = this.stage / this.maxStage;
+                    const separation = 30 * progress;
+                    const angle = Math.atan2(this.p2.y - this.p1.y, this.p2.x - this.p1.x);
+                    this.p1.x = this.centerX - Math.cos(angle) * separation;
+                    this.p1.y = this.centerY - Math.sin(angle) * separation;
+                    this.p2.x = this.centerX + Math.cos(angle) * separation;
+                    this.p2.y = this.centerY + Math.sin(angle) * separation;
+                }
+                
+                return this.stage < this.maxStage;
+            }
+            
+            draw() {
+                ctx.save();
+                
+                if (this.isEffective) {
+                    ctx.globalAlpha = 0.8;
+                    ctx.translate(this.centerX, this.centerY);
+                    ctx.rotate(this.rotation);
+                    
+                    const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, 40 * this.scale);
+                    gradient.addColorStop(0, 'rgba(255, 215, 0, 0.8)');
+                    gradient.addColorStop(0.5, 'rgba(255, 107, 107, 0.5)');
+                    gradient.addColorStop(0.5, 'rgba(78, 205, 196, 0.5)');
+                    gradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
+                    
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 40 * this.scale, 0, Math.PI * 2);
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                    
+                    for (let i = 0; i < 12; i++) {
+                        const angle = (Math.PI * 2 / 12) * i;
+                        ctx.beginPath();
+                        ctx.moveTo(0, 0);
+                        ctx.lineTo(Math.cos(angle) * 30 * this.scale, Math.sin(angle) * 30 * this.scale);
+                        ctx.strokeStyle = 'rgba(255, 215, 0, 0.6)';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                    }
+                    
+                    ctx.restore();
+                    
+                    if (this.stage < 30) {
+                        ctx.beginPath();
+                        ctx.arc(this.p1.x, this.p1.y, 12 * this.scale, 0, Math.PI * 2);
+                        ctx.fillStyle = '#ff6b6b';
+                        ctx.fill();
+                        ctx.strokeStyle = '#333';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        
+                        ctx.beginPath();
+                        ctx.arc(this.p2.x, this.p2.y, 12 * this.scale, 0, Math.PI * 2);
+                        ctx.fillStyle = '#4ecdc4';
+                        ctx.fill();
+                        ctx.strokeStyle = '#333';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        
+                        ctx.fillStyle = 'white';
+                        ctx.font = 'bold 14px Arial';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText('A', this.p1.x, this.p1.y);
+                        ctx.fillText('B', this.p2.x, this.p2.y);
+                        
+                        ctx.strokeStyle = 'rgba(255, 215, 0, 0.8)';
+                        ctx.lineWidth = 3;
+                        ctx.beginPath();
+                        ctx.moveTo(this.p1.x, this.p1.y);
+                        ctx.lineTo(this.p2.x, this.p2.y);
+                        ctx.stroke();
+                        
+                        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                        ctx.font = 'bold 16px Arial';
+                        ctx.fillText('Complexe activé!', this.centerX, this.centerY - 40);
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(this.centerX, this.centerY, 18 * this.scale, 0, Math.PI * 2);
+                        ctx.fillStyle = '#ffd93d';
+                        ctx.fill();
+                        ctx.strokeStyle = '#f39c12';
+                        ctx.lineWidth = 3;
+                        ctx.stroke();
+                        
+                        ctx.fillStyle = '#333';
+                        ctx.font = 'bold 16px Arial';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText('AB', this.centerX, this.centerY);
+                        
+                        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                        ctx.font = 'bold 16px Arial';
+                        ctx.fillText('Produit formé!', this.centerX, this.centerY - 40);
+                    }
+                } else {
+                    ctx.globalAlpha = 0.6;
+                    
+                    ctx.beginPath();
+                    ctx.arc(this.p1.x, this.p1.y, 12, 0, Math.PI * 2);
+                    ctx.fillStyle = '#ff6b6b';
+                    ctx.fill();
+                    ctx.strokeStyle = '#333';
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([5, 5]);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    ctx.beginPath();
+                    ctx.arc(this.p2.x, this.p2.y, 12, 0, Math.PI * 2);
+                    ctx.fillStyle = '#4ecdc4';
+                    ctx.fill();
+                    ctx.strokeStyle = '#333';
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([5, 5]);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    ctx.fillStyle = 'white';
+                    ctx.font = 'bold 14px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('A', this.p1.x, this.p1.y);
+                    ctx.fillText('B', this.p2.x, this.p2.y);
+                    
+                    ctx.fillStyle = 'rgba(255, 100, 100, 0.8)';
+                    ctx.font = 'bold 14px Arial';
+                    ctx.fillText('Énergie insuffisante!', this.centerX, this.centerY - 30);
+                }
+                
+                ctx.restore();
+            }
+        }
+        
+        class CollisionEffect {
+            constructor(x, y, isEffective) {
+                this.x = x;
+                this.y = y;
+                this.isEffective = isEffective;
+                this.radius = 10;
+                this.maxRadius = isEffective ? 40 : 30;
+                this.alpha = 1;
+                this.lifetime = 30;
+                this.age = 0;
+            }
+            
+            update() {
+                this.age++;
+                this.radius += (this.maxRadius - this.radius) * 0.1;
+                this.alpha = 1 - (this.age / this.lifetime);
+                return this.age < this.lifetime;
+            }
+            
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.strokeStyle = this.isEffective ? '#ffd93d' : '#95e1d3';
+                ctx.lineWidth = this.isEffective ? 4 : 2;
+                ctx.setLineDash(this.isEffective ? [] : [5, 5]);
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+        
+        function initParticles() {
+            particles = [];
+            const concentration = parseInt(document.getElementById('concentration').value);
+            
+            for (let i = 0; i < concentration; i++) {
+                const type = i < concentration / 2 ? 'A' : 'B';
+                const x = Math.random() * (canvas.width - 40) + 20;
+                const y = Math.random() * (canvas.height - 40) + 20;
+                particles.push(new Particle(x, y, type));
+            }
+        }
+        
+        function updateSpeed() {
+            const temp = parseInt(document.getElementById('temperature').value);
+            particles.forEach(p => {
+                if (!p.isProduct) {
+                    const baseSpeed = temp * 0.5;
+                    const angle = Math.atan2(p.vy, p.vx);
+                    p.vx = Math.cos(angle) * baseSpeed;
+                    p.vy = Math.sin(angle) * baseSpeed;
+                }
+            });
+        }
+        
+        function checkCollisions() {
+            const activation = parseInt(document.getElementById('activation').value);
+            const temp = parseInt(document.getElementById('temperature').value);
+            
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p1 = particles[i];
+                    const p2 = particles[j];
+                    
+                    if (!p1.isProduct && !p2.isProduct && p1.type !== p2.type) {
+                        const dx = p2.x - p1.x;
+                        const dy = p2.y - p1.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < p1.radius + p2.radius) {
+                            totalCollisions++;
+                            
+                            const collisionEnergy = temp + Math.random() * 3;
+                            const isEffective = collisionEnergy > activation;
+                            
+                            reactionAnimations.push(new ReactionAnimation(p1, p2, isEffective));
+                            
+                            if (isEffective) {
+                                effectiveCollisions++;
+                                products++;
+                                
+                                const newX = (p1.x + p2.x) / 2;
+                                const newY = (p1.y + p2.y) / 2;
+                                
+                                particles.splice(j, 1);
+                                particles.splice(i, 1);
+                                
+                                setTimeout(() => {
+                                    particles.push(new Particle(newX, newY, 'AB', true));
+                                    
+                                    if (particles.filter(p => !p.isProduct).length < 20) {
+                                        particles.push(new Particle(
+                                            Math.random() * canvas.width,
+                                            Math.random() * canvas.height,
+                                            'A'
+                                        ));
+                                        particles.push(new Particle(
+                                            Math.random() * canvas.width,
+                                            Math.random() * canvas.height,
+                                            'B'
+                                        ));
+                                    }
+                                }, 1000);
+                                
+                                return;
+                            } else {
+                                const angle = Math.atan2(dy, dx);
+                                const speed = Math.sqrt(p1.vx * p1.vx + p1.vy * p1.vy);
+                                p1.vx = -Math.cos(angle) * speed * 1.2;
+                                p1.vy = -Math.sin(angle) * speed * 1.2;
+                                p2.vx = Math.cos(angle) * speed * 1.2;
+                                p2.vy = Math.sin(angle) * speed * 1.2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        function updateStats() {
+            document.getElementById('totalCollisions').textContent = totalCollisions;
+            document.getElementById('effectiveCollisions').textContent = effectiveCollisions;
+            document.getElementById('products').textContent = products;
+            
+            const rate = totalCollisions > 0 
+                ? ((effectiveCollisions / totalCollisions) * 100).toFixed(1)
+                : 0;
+            document.getElementById('reactionRate').textContent = rate + '%';
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (!isPaused) {
+                particles.forEach(p => {
+                    p.update();
+                });
+                
+                checkCollisions();
+                
+                reactionAnimations = reactionAnimations.filter(anim => {
+                    const alive = anim.update();
+                    anim.draw();
+                    return alive;
+                });
+            }
+            
+            particles.forEach(p => p.draw());
+            
+            updateStats();
+            requestAnimationFrame(animate);
+        }
+        
+        function resetSimulation() {
+            totalCollisions = 0;
+            effectiveCollisions = 0;
+            products = 0;
+            collisionEffects = [];
+            reactionAnimations = [];
+            initParticles();
+            updateSpeed();
+        }
+        
+        function togglePause() {
+            isPaused = !isPaused;
+            document.querySelector('.btn-secondary').textContent = isPaused ? '▶️ Reprendre' : '⏸️ Pause';
+        }
+        
+        document.getElementById('temperature').addEventListener('input', function() {
+            document.getElementById('tempValue').textContent = this.value;
+            updateSpeed();
+        });
+        
+        document.getElementById('concentration').addEventListener('input', function() {
+            document.getElementById('concValue').textContent = this.value;
+            initParticles();
+            updateSpeed();
+        });
+        
+        document.getElementById('activation').addEventListener('input', function() {
+            document.getElementById('actValue').textContent = this.value;
+        });
+        
+        initParticles();
+        updateSpeed();
+        animate();
+    </script>
+</body>
+</html>
