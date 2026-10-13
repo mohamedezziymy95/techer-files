@@ -13,6 +13,17 @@
       "questions_count": 20
     },
     {
+  "id": "2BACPC_DM1_2026_MIXED",
+  "title": "Devoir maison 1 — Ondes, diffraction et cinétique (20 points)",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BACPC",
+  "type": "practice",
+  "type_label": "فرض منزلي • أجوبة محررة",
+  "duration": 120,
+  "path": "2BACPC/physics/dm1_2026_mixed.json",
+  "questions_count": 34
+    },
+    {
       "id": "2BAC_PHYS_ONDES_DIAG_2026",
       "title": "تقويم المكتسبات والدعم: درس الموجات الميكانيكية المتوالية",
       "subject": "الفيزياء والكيمياء",
