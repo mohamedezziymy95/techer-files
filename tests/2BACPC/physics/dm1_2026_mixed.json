@@ -1,0 +1,2824 @@
+{
+  "id": "2BACPC_DM1_2026_MIXED",
+  "title": "Devoir maison 1 — Parcours guidé : ondes, diffraction et cinétique",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BACPC",
+  "type": "practice",
+  "type_label": "فرض منزلي • أجوبة محررة",
+  "duration": 120,
+  "version": "4.0",
+  "schema_version": 3,
+  "questions": [
+    {
+      "id": "E1.1",
+      "text": "Exercice 1 — Corde. À t=0, une perturbation part de S. Le profil est donné à t₁=40 ms ; M₃ est le front. On suppose la propagation uniforme, sans atténuation ni réflexion.\nPréciser la nature de l’onde et justifier son caractère transversal.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.1",
+      "explanation": "Il s’agit d’une onde mécanique progressive : une perturbation se propage dans la corde, milieu matériel. Elle est transversale : déplacement vertical des points, propagation horizontale.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.1",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "milieu",
+          "description": "La propagation nécessite…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "nature",
+          "description": "L’onde est…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "direction",
+          "description": "Le déplacement des points est…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "type",
+          "description": "On conclut : onde…",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Construire le raisonnement",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "milieu",
+            "label": "La propagation nécessite…",
+            "options": [
+              "un milieu matériel",
+              "le vide uniquement"
+            ],
+            "accepted": [
+              "un milieu matériel"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "nature",
+            "label": "L’onde est…",
+            "options": [
+              "progressive",
+              "stationnaire"
+            ],
+            "accepted": [
+              "progressive"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "direction",
+            "label": "Le déplacement des points est…",
+            "options": [
+              "perpendiculaire à la propagation",
+              "parallèle à la propagation"
+            ],
+            "accepted": [
+              "perpendiculaire à la propagation"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "type",
+            "label": "On conclut : onde…",
+            "options": [
+              "transversale",
+              "longitudinale"
+            ],
+            "accepted": [
+              "transversale"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E1.2.distance",
+      "text": "Exercice 1 — Corde. À t=0, une perturbation part de S. Le profil est donné à t₁=40 ms ; M₃ est le front. On suppose la propagation uniforme, sans atténuation ni réflexion.\nDéterminer la célérité de l’onde.\nÉtape 1 : lire SM₃ sur le graphique.",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.2",
+      "explanation": "À cette étape : 0.6 m. Vérifier la lecture et les conversions demandées.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.2",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Étape 1 : lire SM₃ sur le graphique.",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.6,
+        "unit": "m",
+        "units": {
+          "m": 1,
+          "cm": 0.01
+        },
+        "absoluteTolerance": 0.015,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Lire les données",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E1.2.temps",
+      "text": "Exprimer t₁=40 ms en secondes (choisir s).",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.2",
+      "explanation": "À cette étape : 0.04 s. Vérifier la lecture et les conversions demandées.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.2",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Exprimer t₁=40 ms en secondes (choisir s).",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.04,
+        "unit": "s",
+        "units": {
+          "s": 1
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Convertir",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E1.2.relation",
+      "text": "Quelle relation permet de calculer la célérité ?",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.2",
+      "explanation": "Relation attendue : v = d/t. Vérifier la cohérence des unités.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.2",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "relation",
+          "description": "Relation",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Choisir la relation",
+        "hints": [
+          "Repérez la grandeur cherchée, puis les grandeurs connues.",
+          "Vérifiez que les unités des deux membres sont compatibles."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "relation",
+            "label": "Relation",
+            "options": [
+              "v = d/t",
+              "v = d×t",
+              "v = t/d"
+            ],
+            "accepted": [
+              "v = d/t"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E1.2",
+      "text": "Exercice 1 — Corde. À t=0, une perturbation part de S. Le profil est donné à t₁=40 ms ; M₃ est le front. On suppose la propagation uniforme, sans atténuation ni réflexion.\nDéterminer la célérité de l’onde.\nÉtape 4 : calculer v avec vos valeurs de SM₃ et t₁.",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.2",
+      "explanation": "$v=SM_3/t_1=0{,}60/(40\\times10^{-3})=15\\;\\mathrm{m\\,s^{-1}}$. En révision, créditer lecture et conversion même si le calcul final est faux.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.2",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Étape 4 : calculer v avec vos valeurs de SM₃ et t₁.",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 15,
+        "unit": "m/s",
+        "units": {
+          "m/s": 1,
+          "cm/s": 0.01
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Calculer",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "divide",
+          "sources": [
+            {
+              "questionId": "E1.2.distance",
+              "component": "value",
+              "min": 0.05,
+              "max": 1
+            },
+            {
+              "questionId": "E1.2.temps",
+              "component": "value",
+              "min": 0.005,
+              "max": 0.5
+            }
+          ],
+          "factor": 1,
+          "points": 0.25
+        },
+        "transfer": {
+          "id": "E1.2_transfer",
+          "text": "Une perturbation parcourt 0,90 m en 60 ms. Calculer sa célérité.",
+          "options": [],
+          "correct": -1,
+          "points": 1,
+          "gap": "",
+          "recommendation": "",
+          "image": "",
+          "correct_options": [],
+          "domain": "Ondes mécaniques",
+          "skill": "E1.2",
+          "explanation": "$v=0{,}90/0{,}060=15\\;\\mathrm{m/s}$.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 15,
+            "unit": "m/s",
+            "units": {
+              "m/s": 1
+            },
+            "absoluteTolerance": 0.15,
+            "relativeTolerance": 0.005
+          },
+          "rubric": [
+            {
+              "id": "r",
+              "description": "Résultat et unité",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E1.3a",
+      "text": "Exercice 1 — Corde. À t=0, une perturbation part de S. Le profil est donné à t₁=40 ms ; M₃ est le front. On suppose la propagation uniforme, sans atténuation ni réflexion.\nÀ quel instant M₃ commence-t-il à vibrer ?",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.3a",
+      "explanation": "$t_{M_3}=40\\;\\mathrm{ms}$ : c’est l’arrivée du front.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.3a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "À quel instant M₃ commence-t-il à vibrer ?",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.04,
+        "unit": "s",
+        "units": {
+          "s": 1,
+          "ms": 0.001
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Lire et calculer",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E1.3b.largeur",
+      "text": "Exercice 1 — Corde. À t=0, une perturbation part de S. Le profil est donné à t₁=40 ms ; M₃ est le front. On suppose la propagation uniforme, sans atténuation ni réflexion.\nPendant quelle durée M₃ vibrera-t-il ?\nLire la largeur spatiale de la perturbation.",
+      "options": [],
+      "correct": -1,
+      "points": 0.2,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.3b",
+      "explanation": "À cette étape : 0.3 m. Vérifier la lecture et les conversions demandées.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.3b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Lire la largeur spatiale de la perturbation.",
+          "points": 0.2,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.3,
+        "unit": "m",
+        "units": {
+          "m": 1,
+          "cm": 0.01
+        },
+        "absoluteTolerance": 0.015,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Lire",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E1.3b.relation",
+      "text": "Exprimer la durée de vibration Δt en fonction de la largeur ℓ et de v.",
+      "options": [],
+      "correct": -1,
+      "points": 0.15,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.3b",
+      "explanation": "Relation attendue : Δt = ℓ/v. Vérifier la cohérence des unités.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.3b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "relation",
+          "description": "Relation",
+          "points": 0.15,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Choisir la relation",
+        "hints": [
+          "Repérez la grandeur cherchée, puis les grandeurs connues.",
+          "Vérifiez que les unités des deux membres sont compatibles."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "relation",
+            "label": "Relation",
+            "options": [
+              "Δt = ℓ/v",
+              "Δt = ℓ×v",
+              "Δt = v/ℓ"
+            ],
+            "accepted": [
+              "Δt = ℓ/v"
+            ],
+            "points": 0.15
+          }
+        ]
+      }
+    },
+    {
+      "id": "E1.3b",
+      "text": "Exercice 1 — Corde. À t=0, une perturbation part de S. Le profil est donné à t₁=40 ms ; M₃ est le front. On suppose la propagation uniforme, sans atténuation ni réflexion.\nPendant quelle durée M₃ vibrera-t-il ?",
+      "options": [],
+      "correct": 0,
+      "points": 0.15,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.3b",
+      "explanation": "$\\Delta t=(0{,}60-0{,}30)/15=0{,}020\\;\\mathrm{s}=20\\;\\mathrm{ms}$.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.3b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Pendant quelle durée M₃ vibrera-t-il ?",
+          "points": 0.15,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.02,
+        "unit": "s",
+        "units": {
+          "s": 1,
+          "ms": 0.001
+        },
+        "absoluteTolerance": 0.001,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Application",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "divide",
+          "sources": [
+            {
+              "questionId": "E1.3b.largeur",
+              "component": "value",
+              "min": 0.03,
+              "max": 0.7
+            },
+            {
+              "questionId": "E1.2",
+              "component": "value",
+              "min": 1,
+              "max": 100
+            }
+          ],
+          "factor": 1,
+          "points": 0.15
+        }
+      }
+    },
+    {
+      "id": "E1.4",
+      "text": "Exercice 1 — Corde. À t=0, une perturbation part de S. Le profil est donné à t₁=40 ms ; M₃ est le front. On suppose la propagation uniforme, sans atténuation ni réflexion.\nReprésenter le profil à t₂=60 ms. Joindre une photo du tracé ; vous pouvez aussi décrire les coordonnées des points remarquables.",
+      "options": [],
+      "correct": 0,
+      "points": 1,
+      "domain": "Ondes mécaniques",
+      "skill": "E1.4",
+      "explanation": "Translation de $\\Delta x=v(t_2-t_1)=0{,}30\\;\\mathrm{m}$ vers la droite. Support de la perturbation : [0,60 ; 0,90] m ; sommet : (0,75 m ; 2 cm). Conserver la forme triangulaire.",
+      "image": "images/dm1_2026/figure1.png",
+      "gap": "Revoir la compétence E1.4",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "plot",
+      "rubric": [
+        {
+          "id": "p1",
+          "description": "Coordonnées du point 1",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "p2",
+          "description": "Coordonnées du point 2",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "p3",
+          "description": "Coordonnées du point 3",
+          "points": 0.3333333333333333,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 1",
+        "stage": "Tracer par coordonnées",
+        "hints": [
+          "La forme et l’amplitude sont conservées.",
+          "Entre 40 ms et 60 ms : déplacement = v × 20 ms."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "graph": {
+          "xMin": 0,
+          "xMax": 1,
+          "yMin": -0.5,
+          "yMax": 2.5,
+          "xLabel": "x (m)",
+          "yLabel": "y (cm)",
+          "curve": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 0.3,
+              "y": 0
+            },
+            {
+              "x": 0.45,
+              "y": 2
+            },
+            {
+              "x": 0.6,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            }
+          ],
+          "targets": [
+            {
+              "x": 0.6,
+              "y": 0
+            },
+            {
+              "x": 0.75,
+              "y": 2
+            },
+            {
+              "x": 0.9,
+              "y": 0
+            }
+          ],
+          "xTolerance": 0.025,
+          "yTolerance": 0.15,
+          "translationSource": {
+            "questionId": "E1.2",
+            "component": "value",
+            "min": 1,
+            "max": 20
+          },
+          "translationFactor": 0.02,
+          "instruction": "Le tracé bleu est le profil initial. Placez dans l’ordre, à 60 ms : 1) pied gauche, 2) sommet, 3) pied droit. Les points orange forment votre profil."
+        }
+      }
+    },
+    {
+      "id": "E2.1",
+      "text": "Exercice 2 — Son. R₁ et R₂ sont distants de 51 cm. Sensibilité horizontale : 0,50 ms/div. Pour le retard, utiliser les deux maxima reliés par la flèche τ (retard dans [0 ; T[).\nLe son dans l’air est-il transversal ou longitudinal ? Transporte-t-il de la matière ? Justifier.",
+      "options": [],
+      "correct": -1,
+      "points": 0.75,
+      "domain": "Ondes sonores",
+      "skill": "E2.1",
+      "explanation": "Onde mécanique longitudinale : les compressions et dilatations de l’air sont parallèles à la propagation. Il y a transport d’énergie, sans transport global de matière (oscillations locales).",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.1",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "nature",
+          "description": "Dans l’air, le son est une onde…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "directions",
+          "description": "Les oscillations sont…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "matiere",
+          "description": "La propagation entraîne…",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Construire le raisonnement",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "nature",
+            "label": "Dans l’air, le son est une onde…",
+            "options": [
+              "mécanique longitudinale",
+              "électromagnétique transversale",
+              "mécanique transversale"
+            ],
+            "accepted": [
+              "mécanique longitudinale"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "directions",
+            "label": "Les oscillations sont…",
+            "options": [
+              "parallèles à la propagation",
+              "perpendiculaires à la propagation"
+            ],
+            "accepted": [
+              "parallèles à la propagation"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "matiere",
+            "label": "La propagation entraîne…",
+            "options": [
+              "un transport d’énergie sans transport global de matière",
+              "un déplacement global de l’air de R₁ vers R₂"
+            ],
+            "accepted": [
+              "un transport d’énergie sans transport global de matière"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E2.2a",
+      "text": "Exercice 2 — Son. R₁ et R₂ sont distants de 51 cm. Sensibilité horizontale : 0,50 ms/div. Pour le retard, utiliser les deux maxima reliés par la flèche τ (retard dans [0 ; T[).\nLire la période T.",
+      "options": [],
+      "correct": 0,
+      "points": 0.375,
+      "domain": "Ondes sonores",
+      "skill": "E2.2a",
+      "explanation": "$T=4\\times0{,}50=2{,}0\\;\\mathrm{ms}$.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.2a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Lire la période T.",
+          "points": 0.375,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.002,
+        "unit": "s",
+        "units": {
+          "s": 1,
+          "ms": 0.001
+        },
+        "absoluteTolerance": 0.0001,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Lire et calculer",
+        "hints": [
+          "Repérez deux maxima successifs du même signal.",
+          "La période est le nombre de divisions entre ces maxima multiplié par 0,50 ms/div."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E2.2b",
+      "text": "Exercice 2 — Son. R₁ et R₂ sont distants de 51 cm. Sensibilité horizontale : 0,50 ms/div. Pour le retard, utiliser les deux maxima reliés par la flèche τ (retard dans [0 ; T[).\nCalculer la fréquence N.",
+      "options": [],
+      "correct": 0,
+      "points": 0.375,
+      "domain": "Ondes sonores",
+      "skill": "E2.2b",
+      "explanation": "$N=1/T=500\\;\\mathrm{Hz}$.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.2b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Calculer la fréquence N.",
+          "points": 0.375,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 500,
+        "unit": "Hz",
+        "units": {
+          "Hz": 1,
+          "kHz": 1000
+        },
+        "absoluteTolerance": 25,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Application",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "inverse",
+          "sources": [
+            {
+              "questionId": "E2.2a",
+              "component": "value",
+              "min": 0.0005,
+              "max": 0.01
+            }
+          ],
+          "factor": 1,
+          "points": 0.375
+        },
+        "transfer": {
+          "id": "E2.2b_transfer",
+          "text": "Un son a une période de 4 ms. Calculer sa fréquence.",
+          "options": [],
+          "correct": -1,
+          "points": 1,
+          "gap": "",
+          "recommendation": "",
+          "image": "",
+          "correct_options": [],
+          "domain": "Ondes sonores",
+          "skill": "E2.2b",
+          "explanation": "$N=1/0{,}004=250\\;\\mathrm{Hz}$.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 250,
+            "unit": "Hz",
+            "units": {
+              "Hz": 1,
+              "kHz": 1000
+            },
+            "absoluteTolerance": 2.5,
+            "relativeTolerance": 0.005
+          },
+          "rubric": [
+            {
+              "id": "r",
+              "description": "Résultat et unité",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E2.3a",
+      "text": "Exercice 2 — Son. R₁ et R₂ sont distants de 51 cm. Sensibilité horizontale : 0,50 ms/div. Pour le retard, utiliser les deux maxima reliés par la flèche τ (retard dans [0 ; T[).\nLire le retard τ indiqué.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Ondes sonores",
+      "skill": "E2.3a",
+      "explanation": "$\\tau=2{,}0-0{,}5=1{,}5\\;\\mathrm{ms}$. Un signal périodique seul ne lève pas l’ambiguïté modulo T ; on utilise ici les maxima indiqués.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.3a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Lire le retard τ indiqué.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.0015,
+        "unit": "s",
+        "units": {
+          "s": 1,
+          "ms": 0.001
+        },
+        "absoluteTolerance": 0.0001,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Lire et calculer",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E2.3b.relation",
+      "text": "Quel lien entre la distance d, le retard τ et la célérité v ?",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Ondes sonores",
+      "skill": "E2.3b",
+      "explanation": "Relation attendue : v = d/τ. Vérifier la cohérence des unités.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.3b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "relation",
+          "description": "Relation",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Choisir la relation",
+        "hints": [
+          "Repérez la grandeur cherchée, puis les grandeurs connues.",
+          "Vérifiez que les unités des deux membres sont compatibles."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "relation",
+            "label": "Relation",
+            "options": [
+              "v = d/τ",
+              "v = τ/d",
+              "v = d×τ"
+            ],
+            "accepted": [
+              "v = d/τ"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E2.3b",
+      "text": "Exercice 2 — Son. R₁ et R₂ sont distants de 51 cm. Sensibilité horizontale : 0,50 ms/div. Pour le retard, utiliser les deux maxima reliés par la flèche τ (retard dans [0 ; T[).\nEn déduire la célérité du son.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Ondes sonores",
+      "skill": "E2.3b",
+      "explanation": "$v=d/\\tau=0{,}51/(1{,}5\\times10^{-3})=340\\;\\mathrm{m\\,s^{-1}}$.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.3b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "En déduire la célérité du son.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 340,
+        "unit": "m/s",
+        "units": {
+          "m/s": 1,
+          "cm/s": 0.01
+        },
+        "absoluteTolerance": 25,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Application",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "inverse",
+          "sources": [
+            {
+              "questionId": "E2.3a",
+              "component": "value",
+              "min": 0.0005,
+              "max": 0.004
+            }
+          ],
+          "factor": 0.51,
+          "points": 0.5
+        }
+      }
+    },
+    {
+      "id": "E2.4.relation",
+      "text": "Quelle relation donne λ à partir de v et T ?",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Ondes sonores",
+      "skill": "E2.4",
+      "explanation": "Relation attendue : λ = vT. Vérifier la cohérence des unités.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.4",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "relation",
+          "description": "Relation",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Choisir la relation",
+        "hints": [
+          "Repérez la grandeur cherchée, puis les grandeurs connues.",
+          "Vérifiez que les unités des deux membres sont compatibles."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "relation",
+            "label": "Relation",
+            "options": [
+              "λ = vT",
+              "λ = v/T",
+              "λ = T/v"
+            ],
+            "accepted": [
+              "λ = vT"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E2.4",
+      "text": "Exercice 2 — Son. R₁ et R₂ sont distants de 51 cm. Sensibilité horizontale : 0,50 ms/div. Pour le retard, utiliser les deux maxima reliés par la flèche τ (retard dans [0 ; T[).\nCalculer la longueur d’onde dans l’air.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Ondes sonores",
+      "skill": "E2.4",
+      "explanation": "$\\lambda=vT=340\\times0{,}002=0{,}68\\;\\mathrm{m}$.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.4",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Calculer la longueur d’onde dans l’air.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.68,
+        "unit": "m",
+        "units": {
+          "m": 1,
+          "cm": 0.01,
+          "mm": 0.001
+        },
+        "absoluteTolerance": 0.05,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Application",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "multiply",
+          "sources": [
+            {
+              "questionId": "E2.3b",
+              "component": "value",
+              "min": 100,
+              "max": 800
+            },
+            {
+              "questionId": "E2.2a",
+              "component": "value",
+              "min": 0.0005,
+              "max": 0.01
+            }
+          ],
+          "factor": 1,
+          "points": 0.5
+        }
+      }
+    },
+    {
+      "id": "E2.5.distance",
+      "text": "R₁R₂=51 cm ; on éloigne R₂ de 17 cm. Quelle est la nouvelle distance ?",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Ondes sonores",
+      "skill": "E2.5",
+      "explanation": "À cette étape : 0.68 m. Vérifier la lecture et les conversions demandées.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.5",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "R₁R₂=51 cm ; on éloigne R₂ de 17 cm. Quelle est la nouvelle distance ?",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.68,
+        "unit": "m",
+        "units": {
+          "m": 1,
+          "cm": 0.01
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Calculer la distance",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E2.5",
+      "text": "Exercice 2 — Son. R₁ et R₂ sont distants de 51 cm. Sensibilité horizontale : 0,50 ms/div. Pour le retard, utiliser les deux maxima reliés par la flèche τ (retard dans [0 ; T[).\nOn éloigne R₂ de 17 cm. Calculer le nouveau retard physique de propagation, même si les signaux redeviennent en phase.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Ondes sonores",
+      "skill": "E2.5",
+      "explanation": "$d\\prime=0{,}68\\;\\mathrm{m}$ ; $\\tau\\prime=d\\prime/v=2{,}0\\;\\mathrm{ms}=T$. Retard physique non nul, déphasage nul modulo $2\\pi$.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.5",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "On éloigne R₂ de 17 cm. Calculer le nouveau retard physique de propagation, même si les signaux redeviennent en phase.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.002,
+        "unit": "s",
+        "units": {
+          "s": 1,
+          "ms": 0.001
+        },
+        "absoluteTolerance": 0.00015,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Application",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "divide",
+          "sources": [
+            {
+              "questionId": "E2.5.distance",
+              "component": "value",
+              "min": 0.2,
+              "max": 1.5
+            },
+            {
+              "questionId": "E2.3b",
+              "component": "value",
+              "min": 100,
+              "max": 800
+            }
+          ],
+          "factor": 1,
+          "points": 0.5
+        }
+      }
+    },
+    {
+      "id": "E2.5.phase",
+      "text": "Avec les valeurs de référence, τ′=T. Comment sont les signaux ?",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Ondes sonores",
+      "skill": "E2.5",
+      "explanation": "Relation attendue : En phase, malgré un retard physique non nul. Vérifier la cohérence des unités.",
+      "image": "images/dm1_2026/figure2.png",
+      "gap": "Revoir la compétence E2.5",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "relation",
+          "description": "Relation",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 2",
+        "stage": "Choisir la relation",
+        "hints": [
+          "Repérez la grandeur cherchée, puis les grandeurs connues.",
+          "Vérifiez que les unités des deux membres sont compatibles."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "relation",
+            "label": "Relation",
+            "options": [
+              "En phase, malgré un retard physique non nul",
+              "En opposition de phase",
+              "Le retard physique est forcément nul"
+            ],
+            "accepted": [
+              "En phase, malgré un retard physique non nul"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E3.1",
+      "text": "Exercice 3 — Diffraction. Fente verticale de largeur a=0,080 mm, laser monochromatique ; L est la largeur de la tache centrale à distance D. Approximation des petits angles.\nDans quelles conditions la diffraction devient-elle importante ? Que révèle-t-elle sur la lumière ?",
+      "options": [],
+      "correct": -1,
+      "points": 0.75,
+      "domain": "Diffraction",
+      "skill": "E3.1",
+      "explanation": "La diffraction devient d’autant plus marquée que la dimension de l’ouverture est petite, notamment comparable à la longueur d’onde. Elle révèle le caractère ondulatoire de la lumière. Une diffraction mesurable existe aussi pour $a\\gg\\lambda$ : ici $\\theta\\simeq\\lambda/a$.",
+      "image": "images/dm1_2026/diffraction.png",
+      "gap": "Revoir la compétence E3.1",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "condition",
+          "description": "La diffraction est plus marquée si l’ouverture devient…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "ordre",
+          "description": "Elle devient importante lorsque a est…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "nature",
+          "description": "La diffraction révèle…",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 3",
+        "stage": "Construire le raisonnement",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "condition",
+            "label": "La diffraction est plus marquée si l’ouverture devient…",
+            "options": [
+              "petite par rapport à sa taille initiale, à λ constant",
+              "plus grande, à λ constant"
+            ],
+            "accepted": [
+              "petite par rapport à sa taille initiale, à λ constant"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "ordre",
+            "label": "Elle devient importante lorsque a est…",
+            "options": [
+              "du même ordre de grandeur que λ",
+              "toujours exactement égal à D"
+            ],
+            "accepted": [
+              "du même ordre de grandeur que λ"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "nature",
+            "label": "La diffraction révèle…",
+            "options": [
+              "le caractère ondulatoire de la lumière",
+              "l’absence de propagation de la lumière"
+            ],
+            "accepted": [
+              "le caractère ondulatoire de la lumière"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E3.2a",
+      "text": "Exercice 3 — Diffraction. Fente verticale de largeur a=0,080 mm, laser monochromatique ; L est la largeur de la tache centrale à distance D. Approximation des petits angles.\nDéterminer la pente k de L=f(D), en m/m.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Diffraction",
+      "skill": "E3.2a",
+      "explanation": "$k=30\\times10^{-3}/2{,}0=0{,}015\\;\\mathrm{m/m}=15\\;\\mathrm{mm/m}$.",
+      "image": "images/dm1_2026/diffraction.png",
+      "gap": "Revoir la compétence E3.2a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Déterminer la pente k de L=f(D), en m/m.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.015,
+        "unit": "m/m",
+        "units": {
+          "m/m": 1,
+          "mm/m": 0.001
+        },
+        "absoluteTolerance": 0.0005,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 3",
+        "stage": "Lire et calculer",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E3.2b.relation",
+      "text": "L=kD et L=2Dλ/a. Exprimer λ.",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Diffraction",
+      "skill": "E3.2b",
+      "explanation": "Relation attendue : λ = ka/2. Vérifier la cohérence des unités.",
+      "image": "images/dm1_2026/diffraction.png",
+      "gap": "Revoir la compétence E3.2b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "relation",
+          "description": "Relation",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 3",
+        "stage": "Choisir la relation",
+        "hints": [
+          "Repérez la grandeur cherchée, puis les grandeurs connues.",
+          "Vérifiez que les unités des deux membres sont compatibles."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "relation",
+            "label": "Relation",
+            "options": [
+              "λ = ka/2",
+              "λ = 2k/a",
+              "λ = a/(2k)"
+            ],
+            "accepted": [
+              "λ = ka/2"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E3.2b.largeur",
+      "text": "Convertir a=0,080 mm en mètres.",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Diffraction",
+      "skill": "E3.2b",
+      "explanation": "À cette étape : 8e-05 m. Vérifier la lecture et les conversions demandées.",
+      "image": "images/dm1_2026/diffraction.png",
+      "gap": "Revoir la compétence E3.2b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Convertir a=0,080 mm en mètres.",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 8e-05,
+        "unit": "m",
+        "units": {
+          "m": 1
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 3",
+        "stage": "Convertir",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E3.2b",
+      "text": "Exercice 3 — Diffraction. Fente verticale de largeur a=0,080 mm, laser monochromatique ; L est la largeur de la tache centrale à distance D. Approximation des petits angles.\nDéterminer la longueur d’onde du laser.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Diffraction",
+      "skill": "E3.2b",
+      "explanation": "$L=2D\\lambda/a$ donc $\\lambda=ka/2=0{,}015\\times80\\times10^{-6}/2=6{,}0\\times10^{-7}\\;\\mathrm{m}=600\\;\\mathrm{nm}$.",
+      "image": "images/dm1_2026/diffraction.png",
+      "gap": "Revoir la compétence E3.2b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Déterminer la longueur d’onde du laser.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 6e-07,
+        "unit": "m",
+        "units": {
+          "m": 1,
+          "nm": 1e-09,
+          "µm": 1e-06
+        },
+        "absoluteTolerance": 2e-08,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 3",
+        "stage": "Application",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "multiply",
+          "sources": [
+            {
+              "questionId": "E3.2a",
+              "component": "value",
+              "min": 0.002,
+              "max": 0.04
+            },
+            {
+              "questionId": "E3.2b.largeur",
+              "component": "value",
+              "min": 1e-06,
+              "max": 0.001
+            }
+          ],
+          "factor": 0.5,
+          "points": 0.5
+        },
+        "transfer": {
+          "id": "E3.2b_transfer",
+          "text": "Une fente de largeur 0,10 mm donne une pente L/D de 0,012. Calculer la longueur d’onde.",
+          "options": [],
+          "correct": -1,
+          "points": 1,
+          "gap": "",
+          "recommendation": "",
+          "image": "",
+          "correct_options": [],
+          "domain": "Diffraction",
+          "skill": "E3.2b",
+          "explanation": "$\\lambda=ka/2=0{,}012\\times10^{-4}/2=6\\times10^{-7}\\;\\mathrm{m}$.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 6e-07,
+            "unit": "m",
+            "units": {
+              "m": 1,
+              "nm": 1e-09
+            },
+            "absoluteTolerance": 6e-09,
+            "relativeTolerance": 0.005
+          },
+          "rubric": [
+            {
+              "id": "r",
+              "description": "Résultat et unité",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E3.3.relation",
+      "text": "Diffraction par un cheveu : L=2Dλ/b. Isoler b.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Diffraction",
+      "skill": "E3.3",
+      "explanation": "Relation attendue : b = 2Dλ/L. Vérifier la cohérence des unités.",
+      "image": "images/dm1_2026/diffraction.png",
+      "gap": "Revoir la compétence E3.3",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "relation",
+          "description": "Relation",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 3",
+        "stage": "Choisir la relation",
+        "hints": [
+          "Repérez la grandeur cherchée, puis les grandeurs connues.",
+          "Vérifiez que les unités des deux membres sont compatibles."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "relation",
+            "label": "Relation",
+            "options": [
+              "b = 2Dλ/L",
+              "b = LD/(2λ)",
+              "b = λL/(2D)"
+            ],
+            "accepted": [
+              "b = 2Dλ/L"
+            ],
+            "points": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "E3.3.L",
+      "text": "Convertir L=28 mm en mètres.",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Diffraction",
+      "skill": "E3.3",
+      "explanation": "À cette étape : 0.028 m. Vérifier la lecture et les conversions demandées.",
+      "image": "images/dm1_2026/diffraction.png",
+      "gap": "Revoir la compétence E3.3",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Convertir L=28 mm en mètres.",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.028,
+        "unit": "m",
+        "units": {
+          "m": 1
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 3",
+        "stage": "Convertir",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E3.3",
+      "text": "Exercice 3 — Diffraction. Fente verticale de largeur a=0,080 mm, laser monochromatique ; L est la largeur de la tache centrale à distance D. Approximation des petits angles.\nOn remplace la fente par un cheveu : D=1,50 m, L=28 mm. Estimer son diamètre.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Diffraction",
+      "skill": "E3.3",
+      "explanation": "Diffraction par l’obstacle (principe de Babinet) : $b=2D\\lambda/L=2\\times1{,}50\\times600\\times10^{-9}/0{,}028\\simeq6{,}43\\times10^{-5}\\;\\mathrm{m}=64{,}3\\;\\mathrm{\\mu m}$.",
+      "image": "images/dm1_2026/diffraction.png",
+      "gap": "Revoir la compétence E3.3",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "On remplace la fente par un cheveu : D=1,50 m, L=28 mm. Estimer son diamètre.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 6.428571e-05,
+        "unit": "m",
+        "units": {
+          "m": 1,
+          "mm": 0.001,
+          "µm": 1e-06
+        },
+        "absoluteTolerance": 3e-06,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 3",
+        "stage": "Application",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "divide",
+          "sources": [
+            {
+              "questionId": "E3.2b",
+              "component": "value",
+              "min": 1e-07,
+              "max": 2e-06
+            },
+            {
+              "questionId": "E3.3.L",
+              "component": "value",
+              "min": 0.005,
+              "max": 0.1
+            }
+          ],
+          "factor": 3,
+          "points": 0.5
+        }
+      }
+    },
+    {
+      "id": "E3.4",
+      "text": "Exercice 3 — Diffraction. Fente verticale de largeur a=0,080 mm, laser monochromatique ; L est la largeur de la tache centrale à distance D. Approximation des petits angles.\nComment évolue L si l’on divise la largeur de l’ouverture par deux ? Justifier.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Diffraction",
+      "skill": "E3.4",
+      "explanation": "À D et λ constants, $L=2D\\lambda/a$ est inversement proportionnelle à a : $a\\prime=a/2\\Rightarrow L\\prime=2L$.",
+      "image": "images/dm1_2026/diffraction.png",
+      "gap": "Revoir la compétence E3.4",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "proportion",
+          "description": "À D et λ constants, L est…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "resultat",
+          "description": "Si a est divisée par 2, L…",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 3",
+        "stage": "Construire le raisonnement",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "proportion",
+            "label": "À D et λ constants, L est…",
+            "options": [
+              "inversement proportionnelle à a",
+              "proportionnelle à a"
+            ],
+            "accepted": [
+              "inversement proportionnelle à a"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "resultat",
+            "label": "Si a est divisée par 2, L…",
+            "options": [
+              "double",
+              "est divisée par 2",
+              "reste constante"
+            ],
+            "accepted": [
+              "double"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E4.1a",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nÉcrire la demi-équation de réduction du permanganate.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.1a",
+      "explanation": "$\\mathrm{MnO_4^-+8H^++5e^-\\rightarrow Mn^{2+}+4H_2O}$. Atomes et charge (+2 de chaque côté) conservés.",
+      "image": "",
+      "gap": "Revoir la compétence E4.1a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "h",
+          "description": "MnO₄⁻ + … H⁺ + … e⁻ → Mn²⁺ + … H₂O : coefficient H⁺",
+          "points": 0.125,
+          "automatic": true
+        },
+        {
+          "id": "e",
+          "description": "Coefficient e⁻",
+          "points": 0.125,
+          "automatic": true
+        },
+        {
+          "id": "eau",
+          "description": "Coefficient H₂O",
+          "points": 0.125,
+          "automatic": true
+        },
+        {
+          "id": "sens",
+          "description": "Les électrons se trouvent…",
+          "points": 0.125,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Équilibrer une demi-équation",
+        "hints": [
+          "Équilibrez O avec H₂O, puis H avec H⁺.",
+          "Équilibrez ensuite les charges avec les électrons."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "h",
+            "label": "MnO₄⁻ + … H⁺ + … e⁻ → Mn²⁺ + … H₂O : coefficient H⁺",
+            "options": [],
+            "accepted": [
+              "8"
+            ],
+            "points": 0.125
+          },
+          {
+            "id": "e",
+            "label": "Coefficient e⁻",
+            "options": [],
+            "accepted": [
+              "5"
+            ],
+            "points": 0.125
+          },
+          {
+            "id": "eau",
+            "label": "Coefficient H₂O",
+            "options": [],
+            "accepted": [
+              "4"
+            ],
+            "points": 0.125
+          },
+          {
+            "id": "sens",
+            "label": "Les électrons se trouvent…",
+            "options": [
+              "à gauche (réduction)",
+              "à droite (oxydation)"
+            ],
+            "accepted": [
+              "à gauche (réduction)"
+            ],
+            "points": 0.125
+          }
+        ]
+      }
+    },
+    {
+      "id": "E4.1b",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nÉcrire la demi-équation d’oxydation du fer(II).",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.1b",
+      "explanation": "$\\mathrm{Fe^{2+}\\rightarrow Fe^{3+}+e^-}$.",
+      "image": "",
+      "gap": "Revoir la compétence E4.1b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "equation",
+          "description": "Compléter : Fe²⁺ → … + …",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Construire le raisonnement",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "equation",
+            "label": "Compléter : Fe²⁺ → … + …",
+            "options": [
+              "Fe³⁺ + e⁻",
+              "Fe³⁺ + 2e⁻",
+              "Fe⁺ + e⁻"
+            ],
+            "accepted": [
+              "Fe³⁺ + e⁻"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E4.1c",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nÉtablir l’équation-bilan.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.1c",
+      "explanation": "$\\mathrm{MnO_4^-+8H^++5Fe^{2+}\\rightarrow Mn^{2+}+4H_2O+5Fe^{3+}}$. Charges : +17 de chaque côté.",
+      "image": "",
+      "gap": "Revoir la compétence E4.1c",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "fe2",
+          "description": "MnO₄⁻ + 8H⁺ + … Fe²⁺ → Mn²⁺ + 4H₂O + … Fe³⁺ : coefficient Fe²⁺",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "fe3",
+          "description": "Coefficient Fe³⁺",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Construire le bilan",
+        "hints": [
+          "Multipliez la demi-équation du fer pour éliminer les électrons.",
+          "Vérifiez la conservation des atomes et de la charge totale."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "fe2",
+            "label": "MnO₄⁻ + 8H⁺ + … Fe²⁺ → Mn²⁺ + 4H₂O + … Fe³⁺ : coefficient Fe²⁺",
+            "options": [],
+            "accepted": [
+              "5"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "fe3",
+            "label": "Coefficient Fe³⁺",
+            "options": [],
+            "accepted": [
+              "5"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E4.1d",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nIdentifier l’oxydant et le réducteur.",
+      "options": [],
+      "correct": -1,
+      "points": 0.25,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.1d",
+      "explanation": "Oxydant : MnO₄⁻, qui capte les électrons. Réducteur : Fe²⁺, qui cède les électrons.",
+      "image": "",
+      "gap": "Revoir la compétence E4.1d",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "oxydant",
+          "description": "L’oxydant qui capte les électrons est…",
+          "points": 0.125,
+          "automatic": true
+        },
+        {
+          "id": "reducteur",
+          "description": "Le réducteur qui cède les électrons est…",
+          "points": 0.125,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Construire le raisonnement",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "oxydant",
+            "label": "L’oxydant qui capte les électrons est…",
+            "options": [
+              "MnO₄⁻",
+              "Fe²⁺",
+              "Fe³⁺"
+            ],
+            "accepted": [
+              "MnO₄⁻"
+            ],
+            "points": 0.125
+          },
+          {
+            "id": "reducteur",
+            "label": "Le réducteur qui cède les électrons est…",
+            "options": [
+              "Mn²⁺",
+              "Fe²⁺",
+              "MnO₄⁻"
+            ],
+            "accepted": [
+              "Fe²⁺"
+            ],
+            "points": 0.125
+          }
+        ]
+      }
+    },
+    {
+      "id": "E4.2a",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nCalculer la quantité initiale de MnO₄⁻.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.2a",
+      "explanation": "$n_1=C_1V_1=2{,}0\\times10^{-2}\\times20{,}0\\times10^{-3}=4{,}0\\times10^{-4}\\;\\mathrm{mol}$.",
+      "image": "",
+      "gap": "Revoir la compétence E4.2a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Calculer la quantité initiale de MnO₄⁻.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.0004,
+        "unit": "mol",
+        "units": {
+          "mol": 1,
+          "mmol": 0.001
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Lire et calculer",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "transfer": {
+          "id": "E4.2a_transfer",
+          "text": "On prélève 30 mL d’une solution à 0,020 mol/L. Calculer n.",
+          "options": [],
+          "correct": -1,
+          "points": 1,
+          "gap": "",
+          "recommendation": "",
+          "image": "",
+          "correct_options": [],
+          "domain": "Chimie : oxydoréduction et cinétique",
+          "skill": "E4.2a",
+          "explanation": "$n=CV=0{,}020\\times0{,}030=6{,}0\\times10^{-4}\\;\\mathrm{mol}$.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 0.0006,
+            "unit": "mol",
+            "units": {
+              "mol": 1,
+              "mmol": 0.001
+            },
+            "absoluteTolerance": 5.999999999999999e-06,
+            "relativeTolerance": 0.005
+          },
+          "rubric": [
+            {
+              "id": "r",
+              "description": "Résultat et unité",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E4.2b",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nCalculer la quantité initiale de Fe²⁺.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.2b",
+      "explanation": "$n_2=C_2V_2=5{,}0\\times10^{-2}\\times50{,}0\\times10^{-3}=2{,}5\\times10^{-3}\\;\\mathrm{mol}$.",
+      "image": "",
+      "gap": "Revoir la compétence E4.2b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Calculer la quantité initiale de Fe²⁺.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.0025,
+        "unit": "mol",
+        "units": {
+          "mol": 1,
+          "mmol": 0.001
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Lire et calculer",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E4.2c",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nQuel réactif est limitant ?",
+      "options": [
+        "MnO₄⁻",
+        "Fe²⁺",
+        "H⁺",
+        "Mélange stœchiométrique"
+      ],
+      "correct": 0,
+      "points": 0.25,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.2c",
+      "explanation": "$n_1/1=0{,}40\\;\\mathrm{mmol}<n_2/5=0{,}50\\;\\mathrm{mmol}$ : MnO₄⁻ est limitant.",
+      "image": "",
+      "gap": "Revoir la compétence E4.2c",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "choice",
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Identifier",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E4.2d",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nCalculer l’avancement maximal.",
+      "options": [],
+      "correct": 0,
+      "points": 0.25,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.2d",
+      "explanation": "$x_{max}=\\min(n_1,n_2/5)=4{,}0\\times10^{-4}\\;\\mathrm{mol}$.",
+      "image": "",
+      "gap": "Revoir la compétence E4.2d",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Calculer l’avancement maximal.",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.0004,
+        "unit": "mol",
+        "units": {
+          "mol": 1,
+          "mmol": 0.001
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Lire et calculer",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E4.3a",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nExprimer [Fe³⁺](t) en fonction de x(t).",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.3a",
+      "explanation": "Initialement, pas de Fe³⁺ : $n(\\mathrm{Fe^{3+}})=5x$ ; donc $[\\mathrm{Fe^{3+}}](t)=5x(t)/V$, avec V en litres pour une concentration en mol/L.",
+      "image": "",
+      "gap": "Revoir la compétence E4.3a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "quantite",
+          "description": "Quantité de Fe³⁺ formée",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "concentration",
+          "description": "À volume total V constant…",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Construire le raisonnement",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "quantite",
+            "label": "Quantité de Fe³⁺ formée",
+            "options": [
+              "n(Fe³⁺) = 5x",
+              "n(Fe³⁺) = x/5",
+              "n(Fe³⁺) = x"
+            ],
+            "accepted": [
+              "n(Fe³⁺) = 5x"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "concentration",
+            "label": "À volume total V constant…",
+            "options": [
+              "[Fe³⁺] = 5x/V",
+              "[Fe³⁺] = 5xV",
+              "[Fe³⁺] = x/(5V)"
+            ],
+            "accepted": [
+              "[Fe³⁺] = 5x/V"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E4.3b",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nCalculer la concentration finale de Fe³⁺.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.3b",
+      "explanation": "$[\\mathrm{Fe^{3+}}]_f=5x_{max}/V=5\\times4{,}0\\times10^{-4}/0{,}070=2{,}86\\times10^{-2}\\;\\mathrm{mol/L}$.",
+      "image": "",
+      "gap": "Revoir la compétence E4.3b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Calculer la concentration finale de Fe³⁺.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 0.02857142857,
+        "unit": "mol/L",
+        "units": {
+          "mol/L": 1,
+          "mmol/L": 0.001
+        },
+        "absoluteTolerance": 0.0003,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Application",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "scale",
+          "sources": [
+            {
+              "questionId": "E4.2d",
+              "component": "value",
+              "min": 1e-05,
+              "max": 0.002
+            }
+          ],
+          "factor": 71.42857142857142,
+          "points": 0.5
+        }
+      }
+    },
+    {
+      "id": "E4.4a",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nLes courbes fournies constituent un modèle pédagogique simplifié de l’évolution de [Fe³⁺] à 20 °C et 40 °C ; elles ne sont pas des mesures de laboratoire.\nPourquoi un suivi conductimétrique est-il envisageable ? Préciser la condition pour exploiter la conductivité.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.4a",
+      "explanation": "Les concentrations ioniques changent, donc $\\sigma=\\sum_i\\lambda_i[i]$ peut varier. Une relation étalonnée ou un modèle reliant σ à x est nécessaire ; on ne mesure pas directement [Fe³⁺] seule. Comparer à température contrôlée, les conductivités molaires ioniques dépendant de la température.",
+      "image": "images/dm1_2026/figure5.png",
+      "gap": "Revoir la compétence E4.4a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "mesure",
+          "description": "On peut suivre σ parce que…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "condition",
+          "description": "Pour relier σ à x, il faut…",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Construire le raisonnement",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "mesure",
+            "label": "On peut suivre σ parce que…",
+            "options": [
+              "les concentrations ioniques évoluent",
+              "σ mesure uniquement Fe³⁺"
+            ],
+            "accepted": [
+              "les concentrations ioniques évoluent"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "condition",
+            "label": "Pour relier σ à x, il faut…",
+            "options": [
+              "un modèle ou étalonnage, à température contrôlée",
+              "seulement mesurer le volume initial"
+            ],
+            "accepted": [
+              "un modèle ou étalonnage, à température contrôlée"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "E4.4b",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nLes courbes fournies constituent un modèle pédagogique simplifié de l’évolution de [Fe³⁺] à 20 °C et 40 °C ; elles ne sont pas des mesures de laboratoire.\nExprimer v(t) en fonction de la dérivée de [Fe³⁺](t).",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.4b",
+      "explanation": "$[\\mathrm{Fe^{3+}}]=5x/V$ avec V constant, donc $v(t)=\\frac1V\\frac{dx}{dt}=\\frac15\\frac{d[\\mathrm{Fe^{3+}}]}{dt}$.",
+      "image": "images/dm1_2026/figure5.png",
+      "gap": "Revoir la compétence E4.4b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "order",
+      "rubric": [
+        {
+          "id": "order",
+          "description": "Ordre logique des étapes",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Ordonner une démonstration",
+        "hints": [
+          "Partez de [Fe³⁺]=5x/V.",
+          "Dérivez à volume constant puis utilisez la définition de v."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "items": [
+          {
+            "id": "c",
+            "text": "Donc v = (1/5) d[Fe³⁺]/dt."
+          },
+          {
+            "id": "a",
+            "text": "À V constant : [Fe³⁺] = 5x/V."
+          },
+          {
+            "id": "b",
+            "text": "Dériver : d[Fe³⁺]/dt = (5/V) dx/dt ; v = (1/V) dx/dt."
+          }
+        ],
+        "correctOrder": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "id": "E4.5a",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nLes courbes fournies constituent un modèle pédagogique simplifié de l’évolution de [Fe³⁺] à 20 °C et 40 °C ; elles ne sont pas des mesures de laboratoire.\nDécrire la construction graphique permettant de mesurer la vitesse initiale à 20 °C.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.5a",
+      "explanation": "Prendre deux points éloignés de la tangente à t=0 (pas deux points de la courbe), par exemple (0 s ; 0 mmol/L) et environ (75 s ; 17,1 mmol/L). Calculer sa pente, convertir mmol en mol, puis diviser par 5.",
+      "image": "images/dm1_2026/figure6.png",
+      "gap": "Revoir la compétence E4.5a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "plot",
+      "rubric": [
+        {
+          "id": "p1",
+          "description": "Coordonnées du point 1",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "p2",
+          "description": "Coordonnées du point 2",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Lire une tangente",
+        "hints": [
+          "Pour une pente, prenez deux points sur la tangente, pas sur la courbe.",
+          "Choisissez les points les plus éloignés demandés, puis calculez Δc/Δt."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "graph": {
+          "xMin": 0,
+          "xMax": 100,
+          "yMin": 0,
+          "yMax": 25,
+          "xLabel": "t (s)",
+          "yLabel": "[Fe³⁺] (mmol/L)",
+          "curve": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 100,
+              "y": 22.857142857142858
+            }
+          ],
+          "targets": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 75,
+              "y": 17.142857142857146
+            }
+          ],
+          "xTolerance": 2,
+          "yTolerance": 0.7,
+          "instruction": "Le segment bleu est la tangente initiale à 20 °C. Placez : 1) son origine ; 2) le point de cette tangente à t=75 s. La courbe complète reste visible dans la figure du sujet."
+        }
+      }
+    },
+    {
+      "id": "E4.5b",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nLes courbes fournies constituent un modèle pédagogique simplifié de l’évolution de [Fe³⁺] à 20 °C et 40 °C ; elles ne sont pas des mesures de laboratoire.\nEstimer la vitesse volumique initiale à 20 °C.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.5b",
+      "explanation": "Pente de la tangente ≈ $0{,}229\\;\\mathrm{mmol\\,L^{-1}\\,s^{-1}}$ ; $v_0\\simeq4{,}57\\times10^{-5}\\;\\mathrm{mol\\,L^{-1}\\,s^{-1}}$. Une plage de lecture graphique est acceptée.",
+      "image": "images/dm1_2026/figure6.png",
+      "gap": "Revoir la compétence E4.5b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Estimer la vitesse volumique initiale à 20 °C.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 4.5714286e-05,
+        "unit": "mol/(L·s)",
+        "units": {
+          "mol/(L·s)": 1,
+          "mmol/(L·s)": 0.001
+        },
+        "absoluteTolerance": 6e-06,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Application",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "follow": {
+          "operation": "scale",
+          "sources": [
+            {
+              "questionId": "E4.5a",
+              "component": "slope",
+              "min": 0.05,
+              "max": 0.6
+            }
+          ],
+          "factor": 0.0002,
+          "points": 0.5
+        }
+      }
+    },
+    {
+      "id": "E4.6a",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nLes courbes fournies constituent un modèle pédagogique simplifié de l’évolution de [Fe³⁺] à 20 °C et 40 °C ; elles ne sont pas des mesures de laboratoire.\nLire le temps de demi-réaction à 20 °C.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.6a",
+      "explanation": "La moitié de la concentration finale vaut environ 14,3 mmol/L. L’horizontale correspondante coupe la courbe à $t_{1/2}\\simeq87\\;\\mathrm{s}$.",
+      "image": "images/dm1_2026/figure5.png",
+      "gap": "Revoir la compétence E4.6a",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Lire le temps de demi-réaction à 20 °C.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 86.64,
+        "unit": "s",
+        "units": {
+          "s": 1,
+          "min": 60
+        },
+        "absoluteTolerance": 8,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Lire et calculer",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E4.6b",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nLes courbes fournies constituent un modèle pédagogique simplifié de l’évolution de [Fe³⁺] à 20 °C et 40 °C ; elles ne sont pas des mesures de laboratoire.\nLire le temps de demi-réaction à 40 °C.",
+      "options": [],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.6b",
+      "explanation": "Même niveau 14,3 mmol/L ; on lit $t_{1/2}\\simeq35\\;\\mathrm{s}$.",
+      "image": "images/dm1_2026/figure7.png",
+      "gap": "Revoir la compétence E4.6b",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "numeric",
+      "rubric": [
+        {
+          "id": "step",
+          "description": "Lire le temps de demi-réaction à 40 °C.",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "numeric": {
+        "value": 34.66,
+        "unit": "s",
+        "units": {
+          "s": 1,
+          "min": 60
+        },
+        "absoluteTolerance": 4,
+        "relativeTolerance": 0.005
+      },
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Lire et calculer",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        }
+      }
+    },
+    {
+      "id": "E4.6c",
+      "text": "Exercice 4 — Milieu acide, H⁺ en excès. V₁=20,0 mL ; C₁(MnO₄⁻)=2,0×10⁻² mol/L ; V₂=50,0 mL ; C₂(Fe²⁺)=5,0×10⁻² mol/L. Volume total constant : 70,0 mL. Transformation supposée totale.\nLes courbes fournies constituent un modèle pédagogique simplifié de l’évolution de [Fe³⁺] à 20 °C et 40 °C ; elles ne sont pas des mesures de laboratoire.\nComparer les temps de demi-réaction et interpréter l’effet de la température à l’échelle microscopique.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Chimie : oxydoréduction et cinétique",
+      "skill": "E4.6c",
+      "explanation": "À 40 °C, le temps de demi-réaction est plus petit : transformation plus rapide. L’agitation thermique et la proportion de collisions efficaces augmentent. Ici, les quantités initiales et la transformation totale imposent le même avancement final.",
+      "image": "images/dm1_2026/figure5.png",
+      "gap": "Revoir la compétence E4.6c",
+      "recommendation": "Comparer chaque étape au corrigé, corriger les unités puis refaire le calcul sans regarder la solution.",
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "temps",
+          "description": "À température plus élevée, t½…",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "micro",
+          "description": "L’explication microscopique est…",
+          "points": 0.25,
+          "automatic": true
+        }
+      ],
+      "learning": {
+        "group": "Exercice 4",
+        "stage": "Construire le raisonnement",
+        "hints": [
+          "Relisez les données et repérez les unités.",
+          "Identifiez la relation avant de remplacer les grandeurs par des valeurs."
+        ],
+        "mistakeFeedback": {
+          "unit": "Votre nombre semble décalé d’une puissance de dix. Vérifiez ms/s, mm/m ou mmol/mol avant de recalculer.",
+          "calculation": "Vérifiez les données utiles, puis le sens de la relation. Gardez les unités à chaque étape."
+        },
+        "slots": [
+          {
+            "id": "temps",
+            "label": "À température plus élevée, t½…",
+            "options": [
+              "diminue : la transformation est plus rapide",
+              "augmente : la transformation est plus rapide"
+            ],
+            "accepted": [
+              "diminue : la transformation est plus rapide"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "micro",
+            "label": "L’explication microscopique est…",
+            "options": [
+              "une agitation thermique accrue et plus de collisions efficaces",
+              "une diminution de toute agitation thermique"
+            ],
+            "accepted": [
+              "une agitation thermique accrue et plus de collisions efficaces"
+            ],
+            "points": 0.25
+          }
+        ]
+      }
+    }
+  ]
+}
