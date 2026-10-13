@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratoire Virtuel — Physique 2BAC SP</title>
+<style>
+/* ==========================================================
+   Laboratoire Virtuel — Ondes mécaniques & Ondes lumineuses
+   2BAC Sciences Physiques (Maroc)
+   ========================================================== */
+:root{
+  --primary:#15275c; --primary-light:#31509b; --primary-dark:#0b1533;
+  --accent:#ff7a18; --accent-light:#ffa851;
+  --bg:#eef1f7; --card-bg:#fff; --text:#1c2331; --text-light:#5a6779;
+  --border:#dde2ea; --ok:#1b7f3b; --warn:#b07400; --bad:#b3261e;
+  --shadow:0 3px 14px rgba(21,39,92,.10);
+  --radius:12px;
+  --font-fr:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --font-ar:"Sakkal Majalla","Traditional Arabic","Amiri","Tahoma",serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-fr);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+body.ar{font-family:var(--font-ar);direction:rtl;font-size:1.06rem}
+
+/* ---------- Header ---------- */
+.header{background:linear-gradient(120deg,var(--primary-dark),var(--primary) 55%,var(--primary-light));
+  color:#fff;padding:.7rem 1.1rem;display:flex;align-items:center;justify-content:space-between;
+  gap:.6rem;flex-wrap:wrap;position:sticky;top:0;z-index:50;box-shadow:0 2px 14px rgba(0,0,0,.2)}
+.header-title{font-size:1.2rem;font-weight:700;letter-spacing:.3px}
+.header-sub{font-size:.78rem;opacity:.85}
+.lang-btn{background:var(--accent);color:#fff;border:0;padding:.45rem 1.1rem;border-radius:22px;
+  font:600 .9rem var(--font-fr);cursor:pointer;transition:.25s;white-space:nowrap}
+.lang-btn:hover{background:var(--accent-light);transform:scale(1.05)}
+
+/* ---------- Tabs ---------- */
+.tabs-container{background:var(--card-bg);border-bottom:2px solid var(--border);overflow-x:auto}
+.tabs{display:flex;list-style:none;min-width:max-content}
+.tab-btn{background:none;border:0;border-bottom:3px solid transparent;padding:.75rem 1.15rem;
+  font:600 .85rem inherit;color:var(--text-light);cursor:pointer;white-space:nowrap;transition:.2s;font-family:inherit}
+.tab-btn:hover{color:var(--primary);background:rgba(21,39,92,.05)}
+.tab-btn.active{color:var(--primary);border-bottom-color:var(--accent);background:rgba(21,39,92,.07)}
+body.ar .tab-btn{font-size:.95rem}
+
+/* ---------- Layout ---------- */
+.main{max-width:1180px;margin:0 auto;padding:1rem}
+.sim-panel{display:none}.sim-panel.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.15rem;margin-bottom:1rem}
+.card-title{font-size:1.08rem;font-weight:700;color:var(--primary);margin-bottom:.85rem;
+  padding-bottom:.35rem;border-bottom:3px solid var(--accent);display:inline-block}
+.chapter-tag{display:inline-block;background:var(--primary);color:#fff;font-size:.68rem;
+  padding:.12rem .55rem;border-radius:10px;margin:0 .4rem;vertical-align:middle;font-weight:600}
+
+/* ---------- Canvas ---------- */
+.canvas-wrap{background:#080c22;border-radius:var(--radius);overflow:hidden;margin-bottom:.9rem}
+.canvas-wrap canvas{width:100%;display:block}
+
+/* ---------- Controls ---------- */
+.controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:.85rem;margin-bottom:.9rem}
+.control-group{display:flex;flex-direction:column;gap:.22rem}
+.control-label{font-size:.84rem;font-weight:600;display:flex;justify-content:space-between;align-items:baseline;gap:.4rem}
+.control-value{color:var(--primary);font-weight:700;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;
+  background:linear-gradient(90deg,var(--primary-light),var(--accent));outline:0;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+  background:var(--primary);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--primary);
+  border:2px solid #fff;cursor:pointer}
+.btn-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem}
+.btn{border:0;border-radius:20px;padding:.45rem 1.2rem;font:600 .85rem inherit;cursor:pointer;transition:.2s;font-family:inherit}
+.btn-main{background:var(--primary);color:#fff}.btn-main:hover{background:var(--primary-light)}
+.btn-sec{background:#e5e9f3;color:var(--primary)}.btn-sec:hover{background:#d4dbeb}
+.btn-acc{background:var(--accent);color:#fff}.btn-acc:hover{background:var(--accent-light)}
+
+/* ---------- Results ---------- */
+.results-box{background:linear-gradient(135deg,#e9edf8,#f4ecf7);border-radius:var(--radius);
+  padding:.9rem 1.1rem;border-inline-start:5px solid var(--primary);margin-bottom:.9rem}
+.results-box h3{font-size:.95rem;color:var(--primary);margin-bottom:.45rem}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:0 1.4rem}
+.result-item{display:flex;justify-content:space-between;gap:.6rem;padding:.22rem 0;font-size:.87rem;
+  border-bottom:1px dotted #c9d0e2}
+.result-label{color:var(--text-light);font-weight:500}
+.result-val{color:var(--primary-dark);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- Status / Note ---------- */
+.status{text-align:center;padding:.7rem;border-radius:var(--radius);font-weight:700;font-size:1rem;margin:.8rem 0;transition:.25s}
+.st-ok{background:#d6f0dc;color:var(--ok);border:2px solid var(--ok)}
+.st-warn{background:#fdf0cf;color:var(--warn);border:2px solid var(--warn)}
+.st-bad{background:#fbd9d6;color:var(--bad);border:2px solid var(--bad)}
+.st-neutral{background:#e3e6ec;color:#4d5666;border:2px solid #9aa3b2}
+.note-box{background:#fff8e6;border-radius:var(--radius);padding:.8rem 1rem;
+  border-inline-start:5px solid var(--accent);font-size:.85rem;color:#5c4620;line-height:1.75}
+.note-box strong{color:#a75a00}
+.footer{text-align:center;padding:1.1rem;font-size:.76rem;color:var(--text-light);border-top:1px solid var(--border);margin-top:1.5rem}
+@media(max-width:600px){
+  .header-title{font-size:1rem}.tab-btn{padding:.6rem .75rem;font-size:.76rem}
+  .main{padding:.55rem}.card{padding:.85rem}.controls-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div>
+    <div class="header-title" data-fr="🔬 Laboratoire Virtuel de Physique" data-ar="🔬 المختبر الافتراضي للفيزياء">🔬 Laboratoire Virtuel de Physique</div>
+    <div class="header-sub" data-fr="2ème Bac Sciences Physiques — Ondes mécaniques &amp; Ondes lumineuses" data-ar="الثانية باكالوريا علوم فيزيائية — الموجات الميكانيكية والضوئية">2ème Bac Sciences Physiques — Ondes mécaniques & Ondes lumineuses</div>
+  </div>
+  <button class="lang-btn" id="langBtn">العربية ⇄ FR</button>
+</header>
+
+<div class="tabs-container">
+  <ul class="tabs" id="tabsList">
+    <li><button class="tab-btn active" data-tab="sim1" data-fr="① Onde sinusoïdale" data-ar="① موجة جيبية">① Onde sinusoïdale</button></li>
+    <li><button class="tab-btn" data-tab="sim2" data-fr="② Phase de M et N" data-ar="② طور M و N">② Phase de M et N</button></li>
+    <li><button class="tab-btn" data-tab="sim3" data-fr="③ Diffraction mécanique" data-ar="③ حيود ميكانيكي">③ Diffraction mécanique</button></li>
+    <li><button class="tab-btn" data-tab="sim4" data-fr="④ Diffraction de la lumière" data-ar="④ حيود الضوء">④ Diffraction de la lumière</button></li>
+    <li><button class="tab-btn" data-tab="sim5" data-fr="⑤ Prisme / Dispersion" data-ar="⑤ المنشور والتبدد">⑤ Prisme / Dispersion</button></li>
+  </ul>
+</div>
+
+<main class="main">
+
+<!-- ======================= SIM 1 ======================= -->
+<div class="sim-panel active" id="sim1">
+ <div class="card">
+  <div class="card-title" data-fr="Périodicité temporelle et spatiale d'une onde sinusoïdale" data-ar="الدورية الزمنية والمكانية لموجة جيبية">Périodicité temporelle et spatiale d'une onde sinusoïdale</div>
+  <span class="chapter-tag">Ch. 2</span>
+  <div class="canvas-wrap"><canvas id="canvas1" width="900" height="330"></canvas></div>
+  <div class="btn-row"><button class="btn btn-main" id="playBtn1" data-fr="⏸ Pause" data-ar="⏸ إيقاف">⏸ Pause</button></div>
+  <div class="controls-grid">
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Période T (s)" data-ar="الدور T (ث)">Période T (s)</span><span class="control-value" id="val_T1">0.50</span></label>
+      <input type="range" id="slider_T1" min="0.1" max="2" step="0.01" value="0.5">
+    </div>
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Longueur d'onde λ (m)" data-ar="طول الموجة λ (م)">Longueur d'onde λ (m)</span><span class="control-value" id="val_L1">2.00</span></label>
+      <input type="range" id="slider_L1" min="0.5" max="6" step="0.01" value="2">
+    </div>
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Amplitude A (m)" data-ar="السعة A (م)">Amplitude A (m)</span><span class="control-value" id="val_A1">1.00</span></label>
+      <input type="range" id="slider_A1" min="0.1" max="2" step="0.01" value="1">
+    </div>
+  </div>
+  <div class="results-box">
+    <h3 data-fr="📊 Résultats" data-ar="📊 النتائج">📊 Résultats</h3>
+    <div class="res-grid">
+      <div class="result-item"><span class="result-label" data-fr="Période T" data-ar="الدور T">Période T</span><span class="result-val" id="res_T1">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Fréquence N = 1/T" data-ar="التردد N = 1/T">Fréquence N = 1/T</span><span class="result-val" id="res_N1">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Longueur d'onde λ" data-ar="طول الموجة λ">Longueur d'onde λ</span><span class="result-val" id="res_L1">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Célérité V = λ/T = λ·N" data-ar="سرعة الانتشار V = λ/T = λ·N">Célérité V = λ/T = λ·N</span><span class="result-val" id="res_V1">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Équation de l'onde" data-ar="معادلة الموجة">Équation de l'onde</span><span class="result-val" id="res_eq1">—</span></div>
+    </div>
+  </div>
+  <div class="note-box"><strong data-fr="📝 Note :" data-ar="📝 ملاحظة :">📝 Note :</strong>
+   <span data-fr="Chaque point du milieu reproduit le mouvement de la source avec un retard τ = x/V : y(x,t) = A·sin(2π(t/T − x/λ)). La périodicité temporelle est T, la périodicité spatiale est λ, et V = λ/T = λ·N."
+         data-ar="كل نقطة من الوسط تعيد حركة المنبع بتأخر زمني τ = x/V : ‏y(x,t)=A·sin(2π(t/T − x/λ)). الدورية الزمنية هي T والدورية المكانية هي λ، و V = λ/T = λ·N.">Chaque point du milieu reproduit le mouvement de la source avec un retard τ = x/V : y(x,t) = A·sin(2π(t/T − x/λ)). La périodicité temporelle est T, la périodicité spatiale est λ, et V = λ/T = λ·N.</span>
+  </div>
+ </div>
+</div>
+
+<!-- ======================= SIM 2 ======================= -->
+<div class="sim-panel" id="sim2">
+ <div class="card">
+  <div class="card-title" data-fr="Comparaison de l'état vibratoire de deux points M et N" data-ar="مقارنة الحالة الاهتزازية لنقطتين M و N">Comparaison de l'état vibratoire de deux points M et N</div>
+  <span class="chapter-tag">Ch. 2</span>
+  <div class="canvas-wrap"><canvas id="canvas2" width="900" height="340"></canvas></div>
+  <div class="btn-row">
+    <button class="btn btn-main" id="playBtn2" data-fr="⏸ Pause" data-ar="⏸ إيقاف">⏸ Pause</button>
+    <button class="btn btn-sec" id="btnPhase2" data-fr="MN = 2λ (en phase)" data-ar="MN = 2λ (توافق الطور)">MN = 2λ (en phase)</button>
+    <button class="btn btn-sec" id="btnOpp2" data-fr="MN = 1,5λ (opposition)" data-ar="MN = 1,5λ (تعاكس الطور)">MN = 1,5λ (opposition)</button>
+  </div>
+  <div class="controls-grid">
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Distance MN (m)" data-ar="المسافة MN (م)">Distance MN (m)</span><span class="control-value" id="val_MN2">2.00</span></label>
+      <input type="range" id="slider_MN2" min="0.1" max="8" step="0.01" value="2">
+    </div>
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Longueur d'onde λ (m)" data-ar="طول الموجة λ (م)">Longueur d'onde λ (m)</span><span class="control-value" id="val_L2">2.00</span></label>
+      <input type="range" id="slider_L2" min="0.5" max="6" step="0.01" value="2">
+    </div>
+  </div>
+  <div id="status2" class="status st-ok">—</div>
+  <div class="results-box">
+    <h3 data-fr="📊 Résultats" data-ar="📊 النتائج">📊 Résultats</h3>
+    <div class="res-grid">
+      <div class="result-item"><span class="result-label">MN</span><span class="result-val" id="res_MN2">—</span></div>
+      <div class="result-item"><span class="result-label">λ</span><span class="result-val" id="res_L2">—</span></div>
+      <div class="result-item"><span class="result-label">MN / λ</span><span class="result-val" id="res_ratio2">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Déphasage Δφ = 2π·MN/λ" data-ar="فرق الطور Δφ = 2π·MN/λ">Déphasage Δφ = 2π·MN/λ</span><span class="result-val" id="res_dphi2">—</span></div>
+    </div>
+  </div>
+  <div class="note-box"><strong data-fr="📝 Note :" data-ar="📝 ملاحظة :">📝 Note :</strong>
+   <span data-fr="Deux points M et N vibrent en phase si MN = k·λ (k entier), et en opposition de phase si MN = (k + ½)·λ. Le déphasage vaut Δφ = 2π·MN/λ."
+         data-ar="تهتز النقطتان M و N على توافق الطور إذا كان MN = k·λ (k عدد صحيح)، وعلى تعاكس الطور إذا كان MN = (k+½)·λ. فرق الطور هو Δφ = 2π·MN/λ.">Deux points M et N vibrent en phase si MN = k·λ (k entier), et en opposition de phase si MN = (k + ½)·λ. Le déphasage vaut Δφ = 2π·MN/λ.</span>
+  </div>
+ </div>
+</div>
+
+<!-- ======================= SIM 3 ======================= -->
+<div class="sim-panel" id="sim3">
+ <div class="card">
+  <div class="card-title" data-fr="Diffraction d'une onde mécanique par une fente de largeur a" data-ar="حيود موجة ميكانيكية بواسطة فتحة عرضها a">Diffraction d'une onde mécanique par une fente de largeur a</div>
+  <span class="chapter-tag">Ch. 2</span>
+  <div class="canvas-wrap"><canvas id="canvas3" width="900" height="460"></canvas></div>
+  <div class="btn-row">
+    <button class="btn btn-main" id="playBtn3" data-fr="⏸ Pause" data-ar="⏸ إيقاف">⏸ Pause</button>
+    <button class="btn btn-sec" id="btnNoDiff3" data-fr="Cas a ≫ λ" data-ar="الحالة a ≫ λ">Cas a ≫ λ</button>
+    <button class="btn btn-acc" id="btnDiff3" data-fr="Cas a ≤ λ" data-ar="الحالة a ≤ λ">Cas a ≤ λ</button>
+  </div>
+  <div class="controls-grid">
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Largeur de la fente a (cm)" data-ar="عرض الفتحة a (سم)">Largeur de la fente a (cm)</span><span class="control-value" id="val_a3">4.0</span></label>
+      <input type="range" id="slider_a3" min="0.4" max="12" step="0.1" value="4">
+    </div>
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Longueur d'onde λ (cm)" data-ar="طول الموجة λ (سم)">Longueur d'onde λ (cm)</span><span class="control-value" id="val_L3">2.0</span></label>
+      <input type="range" id="slider_L3" min="0.4" max="6" step="0.1" value="2">
+    </div>
+  </div>
+  <div id="status3" class="status st-neutral">—</div>
+  <div class="results-box">
+    <h3 data-fr="📊 Résultats" data-ar="📊 النتائج">📊 Résultats</h3>
+    <div class="res-grid">
+      <div class="result-item"><span class="result-label" data-fr="Largeur de la fente a" data-ar="عرض الفتحة a">Largeur de la fente a</span><span class="result-val" id="res_a3">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Longueur d'onde λ" data-ar="طول الموجة λ">Longueur d'onde λ</span><span class="result-val" id="res_L3">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Rapport λ/a" data-ar="النسبة λ/a">Rapport λ/a</span><span class="result-val" id="res_ratio3">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Écart angulaire θ (sin θ = λ/a)" data-ar="الانفراج الزاوي θ (sin θ = λ/a)">Écart angulaire θ (sin θ = λ/a)</span><span class="result-val" id="res_theta3">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Condition de diffraction" data-ar="شرط الحيود">Condition de diffraction</span><span class="result-val" id="res_cond3">—</span></div>
+    </div>
+  </div>
+  <div class="note-box"><strong data-fr="📝 Note :" data-ar="📝 ملاحظة :">📝 Note :</strong>
+   <span data-fr="Le phénomène de diffraction devient important lorsque la largeur de la fente est de l'ordre de la longueur d'onde (a ≲ λ) : les fronts rectilignes deviennent alors circulaires (la fente se comporte comme une source secondaire). Si a ≫ λ, l'onde traverse sans déformation notable (propagation rectiligne). L'écart angulaire vérifie sin θ = λ/a. La diffraction ne modifie NI la fréquence N, NI la longueur d'onde λ, NI la célérité V."
+         data-ar="تصبح ظاهرة الحيود مهمة عندما يكون عرض الفتحة من رتبة طول الموجة (a ≲ λ): تصير جبهات الموجة المستقيمة دائرية (الفتحة تتصرف كمنبع ثانوي). أما إذا كان a ≫ λ فالموجة تعبر دون تغير ملحوظ (انتشار مستقيمي). الانفراج الزاوي يحقق sin θ = λ/a. الحيود لا يغير لا التردد N ولا طول الموجة λ ولا سرعة الانتشار V.">Le phénomène de diffraction devient important lorsque la largeur de la fente est de l'ordre de la longueur d'onde (a ≲ λ) : les fronts rectilignes deviennent alors circulaires. Si a ≫ λ, l'onde traverse sans déformation notable. sin θ = λ/a. La diffraction ne modifie ni N, ni λ, ni V.</span>
+  </div>
+ </div>
+</div>
+
+<!-- ======================= SIM 4 ======================= -->
+<div class="sim-panel" id="sim4">
+ <div class="card">
+  <div class="card-title" data-fr="Diffraction de la lumière — écart angulaire et tache centrale" data-ar="حيود الضوء — الانفراج الزاوي والبقعة المركزية">Diffraction de la lumière — écart angulaire et tache centrale</div>
+  <span class="chapter-tag">Ch. 3</span>
+  <div class="canvas-wrap"><canvas id="canvas4" width="900" height="390"></canvas></div>
+  <div class="controls-grid">
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Largeur de la fente a (μm)" data-ar="عرض الفتحة a (μm)">Largeur de la fente a (μm)</span><span class="control-value" id="val_a4">50</span></label>
+      <input type="range" id="slider_a4" min="10" max="200" step="1" value="50">
+    </div>
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Distance fente–écran D (m)" data-ar="المسافة فتحة–شاشة D (م)">Distance fente–écran D (m)</span><span class="control-value" id="val_D4">2.00</span></label>
+      <input type="range" id="slider_D4" min="0.5" max="5" step="0.01" value="2">
+    </div>
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Longueur d'onde λ (nm)" data-ar="طول الموجة λ (nm)">Longueur d'onde λ (nm)</span><span class="control-value" id="val_L4">580</span></label>
+      <input type="range" id="slider_L4" min="380" max="780" step="1" value="580">
+    </div>
+  </div>
+  <div class="results-box">
+    <h3 data-fr="📊 Résultats" data-ar="📊 النتائج">📊 Résultats</h3>
+    <div class="res-grid">
+      <div class="result-item"><span class="result-label" data-fr="Écart angulaire θ = λ/a" data-ar="الانفراج الزاوي θ = λ/a">Écart angulaire θ = λ/a</span><span class="result-val" id="res_theta4">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Largeur tache centrale L = 2λD/a" data-ar="عرض البقعة المركزية L = 2λD/a">Largeur tache centrale L = 2λD/a</span><span class="result-val" id="res_Ltache4">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Fréquence ν = c/λ" data-ar="التردد ν = c/λ">Fréquence ν = c/λ</span><span class="result-val" id="res_nu4">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Couleur correspondante" data-ar="اللون الموافق">Couleur correspondante</span><span class="result-val" id="res_color4">—</span></div>
+    </div>
+  </div>
+  <div class="note-box"><strong data-fr="📝 Note :" data-ar="📝 ملاحظة :">📝 Note :</strong>
+   <span data-fr="Une lumière monochromatique traversant une fente fine donne sur un écran une tache centrale brillante d'écart angulaire θ = λ/a (rad) et de largeur L = 2λD/a. Plus a est petite, plus la figure s'élargit : c'est une preuve du caractère ondulatoire de la lumière. (Échelle verticale dilatée sur le schéma.)"
+         data-ar="عند مرور ضوء أحادي اللون عبر فتحة رقيقة نحصل على الشاشة على بقعة مركزية مضيئة انفراجها الزاوي θ = λ/a (rad) وعرضها L = 2λD/a. كلما صغر a اتسع شكل الحيود: وهذا دليل على الطبيعة الموجية للضوء. (السلم العمودي مكبَّر في الرسم.)">Une lumière monochromatique traversant une fente fine donne une tache centrale d'écart angulaire θ = λ/a et de largeur L = 2λD/a.</span>
+  </div>
+ </div>
+</div>
+
+<!-- ======================= SIM 5 ======================= -->
+<div class="sim-panel" id="sim5">
+ <div class="card">
+  <div class="card-title" data-fr="Prisme : réfraction, dispersion et déviation" data-ar="المنشور: الانكسار والتبدد والانحراف">Prisme : réfraction, dispersion et déviation</div>
+  <span class="chapter-tag">Ch. 3</span>
+  <div class="canvas-wrap"><canvas id="canvas5" width="900" height="480"></canvas></div>
+  <div class="btn-row">
+    <button class="btn btn-acc" id="btnSpec5" data-fr="🌈 Spectre complet : ON" data-ar="🌈 الطيف الكامل: مفعّل">🌈 Spectre complet : ON</button>
+    <button class="btn btn-sec" id="btnMin5" data-fr="↧ Déviation minimale Dm" data-ar="↧ الانحراف الأصغر Dm">↧ Déviation minimale Dm</button>
+    <button class="btn btn-sec" id="btnAngles5" data-fr="📐 Angles : ON" data-ar="📐 الزوايا: مفعّلة">📐 Angles : ON</button>
+  </div>
+  <div class="controls-grid">
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Angle du prisme A (°)" data-ar="زاوية المنشور A (°)">Angle du prisme A (°)</span><span class="control-value" id="val_Ap5">60</span></label>
+      <input type="range" id="slider_Ap5" min="15" max="80" step="0.5" value="60">
+    </div>
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Angle d'incidence i₁ (°)" data-ar="زاوية السقوط i₁ (°)">Angle d'incidence i₁ (°)</span><span class="control-value" id="val_i15">50.0</span></label>
+      <input type="range" id="slider_i15" min="0" max="88" step="0.5" value="50">
+    </div>
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Longueur d'onde λ (nm)" data-ar="طول الموجة λ (nm)">Longueur d'onde λ (nm)</span><span class="control-value" id="val_L5">580</span></label>
+      <input type="range" id="slider_L5" min="380" max="780" step="1" value="580">
+    </div>
+    <div class="control-group">
+      <label class="control-label"><span data-fr="Point d'incidence I (position)" data-ar="نقطة السقوط I (الموضع)">Point d'incidence I (position)</span><span class="control-value" id="val_pos5">50 %</span></label>
+      <input type="range" id="slider_pos5" min="15" max="85" step="1" value="50">
+    </div>
+  </div>
+  <div id="status5" class="status st-ok">—</div>
+  <div class="results-box">
+    <h3 data-fr="📊 Résultats" data-ar="📊 النتائج">📊 Résultats</h3>
+    <div class="res-grid">
+      <div class="result-item"><span class="result-label" data-fr="Indice n(λ) — loi de Cauchy" data-ar="معامل الانكسار n(λ) — قانون كوشي">Indice n(λ) — Cauchy</span><span class="result-val" id="res_n5">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Vitesse dans le verre V = c/n" data-ar="السرعة داخل الزجاج V = c/n">Vitesse V = c/n</span><span class="result-val" id="res_Vp5">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Angle d'incidence i₁" data-ar="زاوية السقوط i₁">i₁</span><span class="result-val" id="res_i15">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Réfraction r₁ (sin i₁ = n·sin r₁)" data-ar="الانكسار r₁ (sin i₁ = n·sin r₁)">r₁ : sin i₁ = n·sin r₁</span><span class="result-val" id="res_r15">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="r₂ = A − r₁" data-ar="r₂ = A − r₁">r₂ = A − r₁</span><span class="result-val" id="res_r25">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Émergence i₂ (n·sin r₂ = sin i₂)" data-ar="زاوية الخروج i₂ (n·sin r₂ = sin i₂)">i₂ : n·sin r₂ = sin i₂</span><span class="result-val" id="res_i25">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Déviation D = i₁ + i₂ − A" data-ar="الانحراف D = i₁ + i₂ − A">D = i₁ + i₂ − A</span><span class="result-val" id="res_D5">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Angle limite i_lim (sin i_lim = 1/n)" data-ar="الزاوية الحدية i_lim (sin i_lim = 1/n)">i_lim : sin i_lim = 1/n</span><span class="result-val" id="res_ilim5">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Déviation minimale Dm" data-ar="الانحراف الأصغر Dm">Dm</span><span class="result-val" id="res_Dm5">—</span></div>
+      <div class="result-item"><span class="result-label" data-fr="Couleur" data-ar="اللون">Couleur</span><span class="result-val" id="res_color5">—</span></div>
+    </div>
+  </div>
+  <div class="note-box"><strong data-fr="📝 Note :" data-ar="📝 ملاحظة :">📝 Note :</strong>
+   <span data-fr="Le verre est un milieu dispersif : son indice dépend de λ (loi de Cauchy n(λ) = A′ + B′/λ²). Le violet (n grand, V = c/n petite) est plus dévié que le rouge : la lumière blanche se décompose. Relations du prisme : sin i₁ = n·sin r₁ ; r₁ + r₂ = A ; n·sin r₂ = sin i₂ ; D = i₁ + i₂ − A. Si r₂ > i_lim, il y a réflexion totale et aucun rayon n'émerge."
+         data-ar="الزجاج وسط مبدد: معامل انكساره يتعلق بـ λ (قانون كوشي n(λ)=A′+B′/λ²). البنفسجي (n كبير، V=c/n صغيرة) ينحرف أكثر من الأحمر: فيتحلل الضوء الأبيض. علاقات المنشور: sin i₁ = n·sin r₁ ؛ r₁ + r₂ = A ؛ n·sin r₂ = sin i₂ ؛ D = i₁ + i₂ − A. إذا كان r₂ > i_lim يحدث انعكاس كلي ولا يخرج أي شعاع.">Relations du prisme : sin i₁ = n·sin r₁ ; r₁ + r₂ = A ; n·sin r₂ = sin i₂ ; D = i₁ + i₂ − A.</span>
+  </div>
+ </div>
+</div>
+
+</main>
+
+<footer class="footer" data-fr="Laboratoire Virtuel — Physique 2BAC Sciences Physiques — Programme marocain (Ch.2 &amp; Ch.3)" data-ar="المختبر الافتراضي — فيزياء الثانية باكالوريا علوم فيزيائية — البرنامج المغربي (الدرس 2 و 3)">Laboratoire Virtuel — Physique 2BAC SP — Programme marocain</footer>
+
+<script>
+"use strict";
+/* ==========================================================
+   0. UTILITAIRES GÉNÉRAUX
+   ========================================================== */
+const $ = id => document.getElementById(id);
+const DEG = 180 / Math.PI, RAD = Math.PI / 180;
+const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
+let lang = 'fr';                       // langue courante
+const isAr = () => lang === 'ar';
+const tr = (fr,ar) => isAr() ? ar : fr;  // petit helper de traduction
+
+/* ---- géométrie vectorielle (utilisée par le prisme) ---- */
+const Vc   = a => ({x:Math.cos(a), y:Math.sin(a)});
+const vAdd = (p,d,s)=>({x:p.x+d.x*s, y:p.y+d.y*s});
+const vSub = (a,b)=>({x:a.x-b.x, y:a.y-b.y});
+const vDot = (a,b)=>a.x*b.x+a.y*b.y;
+const vCr  = (a,b)=>a.x*b.y-a.y*b.x;
+const vNeg = v=>({x:-v.x,y:-v.y});
+const vAng = v=>Math.atan2(v.y,v.x);
+const lerpP= (a,b,t)=>({x:a.x+(b.x-a.x)*t, y:a.y+(b.y-a.y)*t});
+function vN(v){const l=Math.hypot(v.x,v.y)||1;return{x:v.x/l,y:v.y/l};}
+
+/** Intersection rayon (P,d) / segment [A,B] → paramètre t ou null */
+function raySeg(P,d,A,B){
+  const e=vSub(B,A), den=vCr(d,e);
+  if(Math.abs(den)<1e-12) return null;
+  const ap=vSub(A,P);
+  const t=vCr(ap,e)/den, u=vCr(ap,d)/den;
+  return (t>1e-6 && u>=-1e-9 && u<=1+1e-9) ? t : null;
+}
+/** Réfraction vectorielle (Snell-Descartes). eta = n1/n2. Retourne null si réflexion totale */
+function refract(d,N,eta){
+  let n = (vDot(d,N)>0) ? vNeg(N) : N;       // la normale doit s'opposer au rayon
+  const cosi = -vDot(d,n);
+  const k = 1 - eta*eta*(1-cosi*cosi);
+  if(k < 0) return null;                      // réflexion totale
+  const s = eta*cosi - Math.sqrt(k);
+  return vN({x:eta*d.x+s*n.x, y:eta*d.y+s*n.y});
+}
+const reflectV=(d,N)=>{const c=vDot(d,N);return vN({x:d.x-2*c*N.x, y:d.y-2*c*N.y});};
+/** Prolonge un rayon jusqu'au bord du canvas */
+function toBorder(P,d,w,h,m){
+  let t=1e9;
+  if(d.x> 1e-9) t=Math.min(t,(w-m-P.x)/d.x);
+  if(d.x<-1e-9) t=Math.min(t,(m-P.x)/d.x);
+  if(d.y> 1e-9) t=Math.min(t,(h-m-P.y)/d.y);
+  if(d.y<-1e-9) t=Math.min(t,(m-P.y)/d.y);
+  return vAdd(P,d,Math.max(0,t));
+}
+/** Arc d'angle annoté (pour les figures du prisme) */
+function arcAngle(ctx,c,r,a1,a2,color,label){
+  let d=a2-a1; while(d>Math.PI)d-=2*Math.PI; while(d<-Math.PI)d+=2*Math.PI;
+  ctx.strokeStyle=color; ctx.lineWidth=1.5; ctx.setLineDash([]);
+  ctx.beginPath(); ctx.arc(c.x,c.y,r,a1,a1+d,d<0); ctx.stroke();
+  if(label){
+    const am=a1+d/2;
+    ctx.fillStyle=color; ctx.font='bold 12px sans-serif';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(label,c.x+Math.cos(am)*(r+14),c.y+Math.sin(am)*(r+14));
+    ctx.textBaseline='alphabetic';
+  }
+}
+function dashLine(ctx,a,b,color,dash){
+  ctx.save(); ctx.strokeStyle=color; ctx.lineWidth=1; ctx.setLineDash(dash||[5,4]);
+  ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); ctx.restore();
+}
+
+/* ---- couleurs spectrales ---- */
+function wl2rgb(nm){
+  let r=0,g=0,b=0;
+  if(nm>=380&&nm<440){r=-(nm-440)/60;b=1;}
+  else if(nm<490){g=(nm-440)/50;b=1;}
+  else if(nm<510){g=1;b=-(nm-510)/20;}
+  else if(nm<580){r=(nm-510)/70;g=1;}
+  else if(nm<645){r=1;g=-(nm-645)/65;}
+  else if(nm<=780){r=1;}
+  let f = nm<420 ? .3+.7*(nm-380)/40 : nm>700 ? .3+.7*(780-nm)/80 : 1;
+  f = clamp(f,0,1);
+  const c=v=>Math.round(255*Math.pow(Math.max(0,v)*f,.8));
+  r=c(r);g=c(g);b=c(b);
+  return {r,g,b,str:`rgb(${r},${g},${b})`};
+}
+function colorName(nm){
+  const t=[[380,'Violet','بنفسجي'],[445,'Bleu','أزرق'],[490,'Cyan','سماوي'],
+           [510,'Vert','أخضر'],[565,'Jaune','أصفر'],[590,'Orange','برتقالي'],[625,'Rouge','أحمر']];
+  let s=t[0];
+  for(const e of t) if(nm>=e[0]) s=e;
+  return isAr()?s[2]:s[1];
+}
+/* Loi de Cauchy pour un verre type : n(λ)=A'+B'/λ²  (λ en µm) */
+const cauchyN = nm => 1.5000 + 0.00420/Math.pow(nm/1000,2);
+
+/* ==========================================================
+   1. LANGUE + ONGLETS
+   ========================================================== */
+function applyLang(){
+  document.body.classList.toggle('ar', isAr());
+  document.documentElement.lang = lang;
+  document.documentElement.dir  = isAr() ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    const t = el.getAttribute(isAr()?'data-ar':'data-fr');
+    if(t!==null) el.textContent = t;
+  });
+  $('langBtn').textContent = isAr() ? 'Français ⇄ AR' : 'العربية ⇄ FR';
+  refreshAll();                    // recalcul complet (textes dynamiques inclus)
+}
+$('langBtn').onclick = ()=>{ lang = isAr()?'fr':'ar'; applyLang(); };
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.onclick = ()=>{
+    document.querySelectorAll('.sim-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    $(btn.dataset.tab).classList.add('active');
+    btn.classList.add('active');
+    refreshAll();                  // évite tout décalage après changement d'onglet
+  };
+});
+
+/* ---- gestion lecture / pause des animations ---- */
+const playing = {1:true,2:true,3:true}, tAnim = {1:0,2:0,3:0};
+function bindPlay(n){
+  const b=$('playBtn'+n);
+  b.onclick=()=>{
+    playing[n]=!playing[n];
+    b.setAttribute('data-fr', playing[n]?'⏸ Pause':'▶ Lecture');
+    b.setAttribute('data-ar', playing[n]?'⏸ إيقاف':'▶ تشغيل');
+    b.textContent=b.getAttribute(isAr()?'data-ar':'data-fr');
+  };
+}
+[1,2,3].forEach(bindPlay);
+
+/* ==========================================================
+   SIM 1 — Onde sinusoïdale progressive
+   ========================================================== */
+const c1=$('canvas1'), x1=c1.getContext('2d');
+function updateSim1(){
+  const T=+$('slider_T1').value, L=+$('slider_L1').value, A=+$('slider_A1').value;
+  const N=1/T, V=L/T;
+  $('val_T1').textContent=T.toFixed(2); $('val_L1').textContent=L.toFixed(2); $('val_A1').textContent=A.toFixed(2);
+  $('res_T1').textContent=T.toFixed(2)+' s';
+  $('res_N1').textContent=N.toFixed(2)+' Hz';
+  $('res_L1').textContent=L.toFixed(2)+' m';
+  $('res_V1').textContent=V.toFixed(2)+' m·s⁻¹';
+  $('res_eq1').textContent=`y = ${A.toFixed(2)}·sin[2π(t/${T.toFixed(2)} − x/${L.toFixed(2)})]`;
+}
+function drawSim1(t){
+  const w=c1.width,h=c1.height,T=+$('slider_T1').value,L=+$('slider_L1').value,A=+$('slider_A1').value;
+  const cy=h*0.5, ampMax=h*0.34, pxm=w/8;
+  x1.fillStyle='#080c22'; x1.fillRect(0,0,w,h);
+  // grille
+  x1.strokeStyle='rgba(255,255,255,.06)'; x1.lineWidth=1;
+  for(let i=0;i<=8;i++){x1.beginPath();x1.moveTo(i*pxm,0);x1.lineTo(i*pxm,h);x1.stroke();}
+  for(let i=-2;i<=2;i++){const y=cy+i*ampMax/2;x1.beginPath();x1.moveTo(0,y);x1.lineTo(w,y);x1.stroke();}
+  x1.strokeStyle='rgba(255,255,255,.35)';x1.beginPath();x1.moveTo(0,cy);x1.lineTo(w,cy);x1.stroke();
+  x1.fillStyle='rgba(255,255,255,.45)';x1.font='11px sans-serif';x1.textAlign='center';
+  for(let i=1;i<=8;i++) x1.fillText(i+' m',i*pxm-14,h-6);
+  // sinusoïde  y(x,t)=A sin(2π(t/T − x/λ))
+  const k=2*Math.PI/L, w0=2*Math.PI/T, sc=ampMax*(A/2);
+  x1.beginPath(); x1.strokeStyle='#54c8ff'; x1.lineWidth=2.6;
+  x1.shadowBlur=10; x1.shadowColor='#2196f3';
+  for(let px=0;px<=w;px++){
+    const y=A*Math.sin(w0*t-k*px/pxm), py=cy-y*sc/A;
+    px?x1.lineTo(px,py):x1.moveTo(px,py);
+  }
+  x1.stroke(); x1.shadowBlur=0;
+  // repère de λ
+  const x0=0.6, xe=x0+L;
+  if(xe<=8){
+    const p1=x0*pxm,p2=xe*pxm,ay=cy-sc-26;
+    x1.strokeStyle='#ffa851';x1.lineWidth=1.4;x1.setLineDash([5,3]);
+    x1.beginPath();x1.moveTo(p1,ay);x1.lineTo(p1,cy+sc+8);x1.stroke();
+    x1.beginPath();x1.moveTo(p2,ay);x1.lineTo(p2,cy+sc+8);x1.stroke();
+    x1.setLineDash([]);
+    x1.beginPath();x1.moveTo(p1,ay);x1.lineTo(p2,ay);x1.stroke();
+    x1.fillStyle='#ffa851';x1.font='bold 13px sans-serif';x1.textAlign='center';
+    x1.fillText('λ = '+L.toFixed(2)+' m',(p1+p2)/2,ay-7);
+  }
+  // amplitude A
+  x1.strokeStyle='#8affc1';x1.setLineDash([4,3]);
+  x1.beginPath();x1.moveTo(w-30,cy);x1.lineTo(w-30,cy-sc);x1.stroke();x1.setLineDash([]);
+  x1.fillStyle='#8affc1';x1.font='bold 12px sans-serif';x1.textAlign='right';
+  x1.fillText('A',w-36,cy-sc/2+4);
+  // source
+  x1.fillStyle='#ff5b5b';
+  x1.beginPath();x1.arc(0,cy-A*Math.sin(w0*t)*sc/A,6,0,7);x1.fill();
+  x1.fillStyle='#fff';x1.font='bold 12px sans-serif';x1.textAlign='left';
+  x1.fillText('S',10,cy-A*Math.sin(w0*t)*sc/A-10);
+  x1.fillText('x (m) →',w-72,cy+18);
+  x1.fillStyle='#54c8ff';x1.fillText('V = λ/T →',14,22);
+}
+
+/* ==========================================================
+   SIM 2 — États vibratoires de M et N
+   ========================================================== */
+const c2=$('canvas2'), x2=c2.getContext('2d');
+function updateSim2(){
+  const MN=+$('slider_MN2').value, L=+$('slider_L2').value;
+  const r=MN/L, dphi=2*Math.PI*r;
+  $('val_MN2').textContent=MN.toFixed(2); $('val_L2').textContent=L.toFixed(2);
+  $('res_MN2').textContent=MN.toFixed(2)+' m';
+  $('res_L2').textContent=L.toFixed(2)+' m';
+  $('res_ratio2').textContent=r.toFixed(3);
+  $('res_dphi2').textContent=dphi.toFixed(2)+' rad = '+(dphi/Math.PI).toFixed(2)+'π';
+  const st=$('status2'), f=r-Math.floor(r), tol=.035;
+  if(f<tol||f>1-tol){
+    st.className='status st-ok';
+    st.textContent=tr(`EN PHASE — MN = k·λ  (k = ${Math.round(r)})`,
+                      `على توافق الطور — MN = k·λ  (k = ${Math.round(r)})`);
+  }else if(Math.abs(f-.5)<tol){
+    st.className='status st-bad';
+    st.textContent=tr(`EN OPPOSITION DE PHASE — MN = (k + ½)·λ  (k = ${Math.floor(r)})`,
+                      `على تعاكس الطور — MN = (k + ½)·λ  (k = ${Math.floor(r)})`);
+  }else{
+    st.className='status st-neutral';
+    st.textContent=tr(`État quelconque — MN/λ = ${r.toFixed(3)}`,
+                      `حالة اهتزازية كيفما كانت — MN/λ = ${r.toFixed(3)}`);
+  }
+}
+$('btnPhase2').onclick=()=>{ $('slider_MN2').value=(2*+$('slider_L2').value).toFixed(2); updateSim2(); };
+$('btnOpp2').onclick  =()=>{ $('slider_MN2').value=(1.5*+$('slider_L2').value).toFixed(2); updateSim2(); };
+
+function drawSim2(t){
+  const w=c2.width,h=c2.height,MN=+$('slider_MN2').value,L=+$('slider_L2').value;
+  const T=1.2,A=1,cy=h*.46,amp=h*.27,pxm=w/10,k=2*Math.PI/L,w0=2*Math.PI/T;
+  x2.fillStyle='#080c22';x2.fillRect(0,0,w,h);
+  x2.strokeStyle='rgba(255,255,255,.05)';
+  for(let i=0;i<=10;i++){x2.beginPath();x2.moveTo(i*pxm,0);x2.lineTo(i*pxm,h);x2.stroke();}
+  x2.strokeStyle='rgba(255,255,255,.3)';x2.beginPath();x2.moveTo(0,cy);x2.lineTo(w,cy);x2.stroke();
+  x2.beginPath();x2.strokeStyle='#54c8ff';x2.lineWidth=2;
+  for(let px=0;px<=w;px++){const y=A*Math.sin(w0*t-k*px/pxm);px?x2.lineTo(px,cy-y*amp):x2.moveTo(px,cy-y*amp);}
+  x2.stroke();
+  const xM=1.2,xN=xM+MN,pM=xM*pxm,pN=xN*pxm;
+  const yM=A*Math.sin(w0*t-k*xM), yN=A*Math.sin(w0*t-k*xN);
+  // distance MN
+  const base=cy+amp+30;
+  x2.strokeStyle='#ffa851';x2.lineWidth=1.6;x2.setLineDash([6,4]);
+  x2.beginPath();x2.moveTo(pM,base);x2.lineTo(Math.min(pN,w-4),base);x2.stroke();x2.setLineDash([]);
+  x2.fillStyle='#ffa851';x2.font='bold 13px sans-serif';x2.textAlign='center';
+  x2.fillText('MN = '+MN.toFixed(2)+' m = '+(MN/L).toFixed(2)+' λ',Math.min((pM+Math.min(pN,w))/2,w-70),base+18);
+  // points
+  const pt=(px,py,col,lab)=>{
+    x2.strokeStyle=col+'66';x2.setLineDash([3,3]);
+    x2.beginPath();x2.moveTo(px,cy);x2.lineTo(px,py);x2.stroke();x2.setLineDash([]);
+    x2.fillStyle=col;x2.beginPath();x2.arc(px,py,7,0,7);x2.fill();
+    x2.fillStyle='#fff';x2.font='bold 14px sans-serif';x2.textAlign='center';x2.fillText(lab,px,py-14);
+  };
+  pt(pM,cy-yM*amp,'#ff5b5b','M');
+  if(pN<w-2) pt(pN,cy-yN*amp,'#5bffa8','N');
+  else{x2.fillStyle='#5bffa8';x2.textAlign='right';x2.font='12px sans-serif';x2.fillText('N →',w-6,cy-16);}
+  // valeurs instantanées
+  x2.textAlign='left';x2.font='12px sans-serif';
+  x2.fillStyle='#ff5b5b';x2.fillText('y'+'M'+' = '+yM.toFixed(3)+' m',12,20);
+  x2.fillStyle='#5bffa8';x2.fillText('y'+'N'+' = '+yN.toFixed(3)+' m',12,38);
+}
+
+/* ==========================================================
+   SIM 3 — Diffraction mécanique  (CONDITION CORRIGÉE)
+   Front transmis = construction de Huygens :
+   partie rectiligne de largeur a + arcs limités à sinθ = λ/a
+   ========================================================== */
+const c3=$('canvas3'), x3=c3.getContext('2d');
+function theta3(){                                   // demi-écart angulaire
+  const a=+$('slider_a3').value, L=+$('slider_L3').value;
+  return Math.asin(Math.min(1, L/a));
+}
+function updateSim3(){
+  const a=+$('slider_a3').value, L=+$('slider_L3').value, th=theta3(), r=L/a;
+  $('val_a3').textContent=a.toFixed(1); $('val_L3').textContent=L.toFixed(1);
+  $('res_a3').textContent=a.toFixed(1)+' cm';
+  $('res_L3').textContent=L.toFixed(1)+' cm';
+  $('res_ratio3').textContent=r.toFixed(2);
+  $('res_theta3').textContent = (L>=a)
+      ? tr('θ = 90° (maximal)','θ = 90° (أقصى قيمة)')
+      : (th*DEG).toFixed(1)+'°  ('+th.toFixed(3)+' rad)';
+  const st=$('status3');
+  if(L>=a){                                          // a ≤ λ  → diffraction totale
+    st.className='status st-ok';
+    st.textContent=tr('a ≤ λ  →  DIFFRACTION TOTALE : les fronts rectilignes deviennent circulaires',
+                      'a ≤ λ  ←  حيود كلي: جبهات الموجة المستقيمة تصبح دائرية');
+    $('res_cond3').textContent=tr('a ≤ λ : vérifiée','a ≤ λ : محقق');
+  }else if(r>=0.33){                                 // a ≲ 3λ → diffraction notable
+    st.className='status st-warn';
+    st.textContent=tr(`a ≈ λ  →  DIFFRACTION NOTABLE : θ = ${(th*DEG).toFixed(1)}°`,
+                      `a ≈ λ  ←  حيود ملحوظ: θ = ${(th*DEG).toFixed(1)}°`);
+    $('res_cond3').textContent=tr('a de l\'ordre de λ','a من رتبة λ');
+  }else{                                             // a ≫ λ → propagation rectiligne
+    st.className='status st-bad';
+    st.textContent=tr(`a ≫ λ  →  DIFFRACTION NÉGLIGEABLE : propagation rectiligne (θ = ${(th*DEG).toFixed(1)}°)`,
+                      `a ≫ λ  ←  الحيود مهمل: انتشار مستقيمي (θ = ${(th*DEG).toFixed(1)}°)`);
+    $('res_cond3').textContent=tr('a ≫ λ : non vérifiée','a ≫ λ : غير محقق');
+  }
+}
+$('btnNoDiff3').onclick=()=>{$('slider_a3').value=10;$('slider_L3').value=1;updateSim3();};
+$('btnDiff3').onclick  =()=>{$('slider_a3').value=1.2;$('slider_L3').value=2.4;updateSim3();};
+
+function drawSim3(t){
+  const w=c3.width,h=c3.height;
+  const a=+$('slider_a3').value, L=+$('slider_L3').value;
+  const sc=16;                                   // px / cm
+  const wallX=Math.round(w*0.33), cy=h/2;
+  const ha=Math.max(2,(a/2)*sc), lam=L*sc, th=theta3();
+  const T=1.1, ph=((t/T)%1)*lam;                 // avance temporelle des fronts
+  x3.fillStyle='#080c22'; x3.fillRect(0,0,w,h);
+
+  /* ---- enveloppe (zone atteinte par l'onde diffractée) ---- */
+  const Rmax=Math.hypot(w-wallX,Math.max(cy,h-cy))+lam;
+  const grd=x3.createRadialGradient(wallX,cy,10,wallX,cy,Rmax);
+  grd.addColorStop(0,'rgba(84,200,255,.22)'); grd.addColorStop(1,'rgba(84,200,255,0)');
+  x3.fillStyle=grd; x3.beginPath();
+  x3.arc(wallX,cy-ha,Rmax,-th,0); x3.lineTo(wallX+Rmax,cy+ha);
+  x3.arc(wallX,cy+ha,Rmax,0,th); x3.lineTo(wallX,cy+ha); x3.lineTo(wallX,cy-ha);
+  x3.closePath(); x3.fill();
+
+  /* ---- fronts d'onde incidents (rectilignes) ---- */
+  x3.lineWidth=2;
+  for(let m=0;;m++){
+    const X=wallX-ph-m*lam; if(X<-2) break;
+    x3.strokeStyle='rgba(84,200,255,'+(0.55-m*0.02).toFixed(3)+')';
+    if(0.55-m*0.02<=0.05) break;
+    x3.beginPath(); x3.moveTo(X,0); x3.lineTo(X,h); x3.stroke();
+  }
+  /* ---- fronts transmis : Huygens (droite + arcs limités à θ) ---- */
+  for(let r=ph; r<Rmax; r+=lam){
+    if(r<1) continue;
+    const al=clamp(0.62-0.055*(r/lam),0.07,0.62);
+    x3.strokeStyle='rgba(120,215,255,'+al.toFixed(3)+')';
+    x3.lineWidth=2;
+    x3.beginPath();
+    x3.arc(wallX,cy-ha,r,-th,0);                 // arc supérieur (bord haut de la fente)
+    x3.lineTo(wallX+r,cy+ha);                    // partie rectiligne (largeur a)
+    x3.arc(wallX,cy+ha,r,0,th);                  // arc inférieur (bord bas)
+    x3.stroke();
+  }
+  /* ---- obstacle + fente ---- */
+  x3.fillStyle='#46596b';
+  x3.fillRect(wallX-5,0,10,cy-ha);
+  x3.fillRect(wallX-5,cy+ha,10,h-cy-ha);
+  x3.fillStyle='#31414f';
+  x3.fillRect(wallX-5,0,10,4); x3.fillRect(wallX-5,h-4,10,4);
+  // cote a
+  x3.strokeStyle='#ffa851';x3.lineWidth=2;
+  x3.beginPath();x3.moveTo(wallX+14,cy-ha);x3.lineTo(wallX+14,cy+ha);x3.stroke();
+  x3.beginPath();x3.moveTo(wallX+9,cy-ha);x3.lineTo(wallX+19,cy-ha);
+  x3.moveTo(wallX+9,cy+ha);x3.lineTo(wallX+19,cy+ha);x3.stroke();
+  x3.fillStyle='#ffa851';x3.font='bold 13px sans-serif';x3.textAlign='left';
+  x3.fillText('a',wallX+23,cy+5);
+
+  /* ---- limites angulaires ± θ et repère d'angle ---- */
+  const Ld=Math.min(w-wallX-10,420);
+  x3.save(); x3.setLineDash([7,5]); x3.lineWidth=1.5; x3.strokeStyle='rgba(255,168,81,.85)';
+  x3.beginPath(); x3.moveTo(wallX,cy-ha); x3.lineTo(wallX+Ld*Math.cos(th),cy-ha-Ld*Math.sin(th)); x3.stroke();
+  x3.beginPath(); x3.moveTo(wallX,cy+ha); x3.lineTo(wallX+Ld*Math.cos(th),cy+ha+Ld*Math.sin(th)); x3.stroke();
+  x3.strokeStyle='rgba(255,255,255,.35)';
+  x3.beginPath(); x3.moveTo(wallX,cy); x3.lineTo(wallX+Ld,cy); x3.stroke();   // axe / propagation rectiligne
+  x3.restore();
+  if(th>0.06){
+    const R=105;
+    x3.strokeStyle='#ffa851';x3.lineWidth=1.6;
+    x3.beginPath();x3.arc(wallX,cy+ha,R,0,th);x3.stroke();
+    x3.fillStyle='#ffa851';x3.font='bold 13px sans-serif';x3.textAlign='left';
+    x3.fillText('θ',wallX+R*Math.cos(th/2)+8,cy+ha+R*Math.sin(th/2)+6);
+  }
+  /* ---- légendes + repère λ ---- */
+  x3.fillStyle='rgba(255,255,255,.75)';x3.font='13px sans-serif';x3.textAlign='center';
+  x3.fillText(tr('Onde incidente (fronts rectilignes)','الموجة الواردة (جبهات مستقيمة)'),wallX/2,24);
+  x3.fillText(tr(L>=a?'Onde diffractée (fronts circulaires)':'Onde transmise','الموجة المحيدة'),
+              wallX+(w-wallX)/2,24);
+  const ly=h-22, l1=wallX-ph-lam, l2=wallX-ph;
+  if(l1>8){
+    x3.save();x3.strokeStyle='#8affc1';x3.setLineDash([4,3]);x3.lineWidth=1.3;
+    x3.beginPath();x3.moveTo(l1,ly-9);x3.lineTo(l1,ly+9);x3.stroke();
+    x3.beginPath();x3.moveTo(l2,ly-9);x3.lineTo(l2,ly+9);x3.stroke();
+    x3.setLineDash([]);x3.beginPath();x3.moveTo(l1,ly);x3.lineTo(l2,ly);x3.stroke();x3.restore();
+    x3.fillStyle='#8affc1';x3.font='bold 12px sans-serif';x3.textAlign='center';
+    x3.fillText('λ',(l1+l2)/2,ly-13);
+  }
+  // rappel de la condition en haut à droite
+  x3.textAlign='right'; x3.font='bold 13px sans-serif';
+  x3.fillStyle = (L>=a)?'#7dffa8':(L/a>=.33?'#ffd479':'#ff8a80');
+  x3.fillText('sin θ = λ/a   →   θ = '+(th*DEG).toFixed(1)+'°', w-14, h-14);
+}
+
+/* ==========================================================
+   SIM 4 — Diffraction de la lumière
+   ========================================================== */
+const c4=$('canvas4'), x4=c4.getContext('2d');
+function updateSim4(){
+  const a=+$('slider_a4').value*1e-6, D=+$('slider_D4').value, l=+$('slider_L4').value*1e-9;
+  const th=l/a, Lt=2*l*D/a, nu=3e8/l;
+  $('val_a4').textContent=$('slider_a4').value;
+  $('val_D4').textContent=(+$('slider_D4').value).toFixed(2);
+  $('val_L4').textContent=$('slider_L4').value;
+  $('res_theta4').textContent=th.toFixed(4)+' rad  ('+(th*DEG).toFixed(2)+'°)';
+  $('res_Ltache4').textContent=(Lt*1000).toFixed(1)+' mm';
+  $('res_nu4').textContent=(nu/1e14).toFixed(2)+' × 10¹⁴ Hz';
+  const nm=+$('slider_L4').value, col=wl2rgb(nm);
+  $('res_color4').innerHTML=`<span style="color:${col.str}">■</span> ${colorName(nm)} (${nm} nm)`;
+  drawSim4();
+}
+function drawSim4(){
+  const w=c4.width,h=c4.height;
+  const aum=+$('slider_a4').value, D=+$('slider_D4').value, nm=+$('slider_L4').value;
+  const a=aum*1e-6, l=nm*1e-9, Lt=2*l*D/a, col=wl2rgb(nm);
+  const slitX=w*.22, scrX=w*.80, cy=h/2;
+  const halfL=clamp((Lt/2)*3000, 12, h*.44);       // échelle verticale dilatée
+  x4.fillStyle='#080c22';x4.fillRect(0,0,w,h);
+  // laser
+  x4.fillStyle=col.str;x4.fillRect(8,cy-4,slitX-30,8);
+  x4.fillStyle='rgba(255,255,255,.65)';x4.font='11px sans-serif';x4.textAlign='center';
+  x4.fillText(tr('LASER (λ)','ليزر (λ)'),52,cy-14);
+  // faisceau diffracté
+  x4.save();x4.globalAlpha=.18;x4.fillStyle=col.str;
+  x4.beginPath();x4.moveTo(slitX,cy-6);x4.lineTo(scrX,cy-halfL);x4.lineTo(scrX,cy+halfL);x4.lineTo(slitX,cy+6);
+  x4.closePath();x4.fill();x4.restore();
+  // fente
+  const sv=clamp(aum/4,2,26);
+  x4.fillStyle='#46596b';
+  x4.fillRect(slitX-4,0,8,cy-sv);x4.fillRect(slitX-4,cy+sv,8,h-cy-sv);
+  x4.fillStyle='#ffa851';x4.font='bold 12px sans-serif';x4.textAlign='center';
+  x4.fillText('a = '+aum+' μm',slitX,h-12);
+  // axe + angle θ
+  dashLine(x4,{x:slitX,y:cy},{x:scrX,y:cy},'rgba(255,255,255,.4)');
+  x4.strokeStyle='rgba(255,255,255,.55)';x4.lineWidth=1;
+  x4.beginPath();x4.moveTo(slitX,cy);x4.lineTo(scrX,cy-halfL);x4.stroke();
+  const thv=Math.atan2(halfL,scrX-slitX);
+  x4.strokeStyle='#ffa851';x4.lineWidth=1.6;
+  x4.beginPath();x4.arc(slitX,cy,58,-thv,0);x4.stroke();
+  x4.fillStyle='#ffa851';x4.textAlign='left';x4.font='bold 13px sans-serif';
+  x4.fillText('θ',slitX+62,cy-8);
+  // écran + figure de diffraction (sinc²)
+  x4.fillStyle='#1b2430';x4.fillRect(scrX,0,7,h);
+  const px0=scrX+7, pw=w-px0-46;
+  for(let py=0;py<h;py++){
+    const u=Math.PI*(py-cy)/halfL;
+    let I=Math.abs(u)<1e-4?1:Math.pow(Math.sin(u)/u,2);
+    I=Math.pow(I,.55);
+    x4.fillStyle=`rgba(${col.r},${col.g},${col.b},${I.toFixed(3)})`;
+    x4.fillRect(px0,py,pw,1);
+  }
+  // cote L (largeur de la tache centrale)
+  const bx=px0+pw+12;
+  x4.strokeStyle='#fff';x4.lineWidth=1.4;
+  x4.beginPath();x4.moveTo(bx,cy-halfL);x4.lineTo(bx,cy+halfL);x4.stroke();
+  x4.beginPath();x4.moveTo(bx-6,cy-halfL);x4.lineTo(bx+6,cy-halfL);
+  x4.moveTo(bx-6,cy+halfL);x4.lineTo(bx+6,cy+halfL);x4.stroke();
+  dashLine(x4,{x:scrX,y:cy-halfL},{x:bx,y:cy-halfL},'rgba(255,255,255,.5)');
+  dashLine(x4,{x:scrX,y:cy+halfL},{x:bx,y:cy+halfL},'rgba(255,255,255,.5)');
+  x4.fillStyle='#fff';x4.font='bold 12px sans-serif';x4.textAlign='center';
+  x4.save();x4.translate(bx+16,cy);x4.rotate(-Math.PI/2);x4.fillText('L = 2λD/a',0,0);x4.restore();
+  // cote D
+  dashLine(x4,{x:slitX,y:h-30},{x:scrX,y:h-30},'rgba(255,255,255,.35)');
+  x4.fillStyle='rgba(255,255,255,.7)';x4.font='12px sans-serif';x4.textAlign='center';
+  x4.fillText('D = '+D.toFixed(2)+' m',(slitX+scrX)/2,h-36);
+  x4.fillText(tr('Écran','الشاشة'),scrX,16);
+}
+
+/* ==========================================================
+   SIM 5 — PRISME : tracé de rayons complet (Snell-Descartes)
+   Contrôle total : A, i₁, λ et point d'incidence
+   ========================================================== */
+const c5=$('canvas5'), x5=c5.getContext('2d');
+let showSpec5=true, showAng5=true;
+
+/** Construit le prisme (sommet en haut, angle A) et ses 3 faces orientées */
+function prismGeom(Adeg){
+  const w=c5.width,h=c5.height, A=Adeg*RAD, H=196;
+  const apex={x:w*0.355, y:h*0.175};
+  const half=H*Math.tan(A/2);
+  const BL={x:apex.x-half,y:apex.y+H}, BR={x:apex.x+half,y:apex.y+H};
+  const G={x:(apex.x+BL.x+BR.x)/3, y:(apex.y+BL.y+BR.y)/3};
+  const face=(P,Q)=>{                       // normale extérieure
+    const e=vSub(Q,P); let n=vN({x:-e.y,y:e.x});
+    const mid=lerpP(P,Q,.5);
+    if(vDot(n,vSub(mid,G))<0) n=vNeg(n);
+    return {a:P,b:Q,n};
+  };
+  return {A,apex,BL,BR,G,half,
+          faces:[face(apex,BL), face(apex,BR), face(BL,BR)]};  // 0=gauche 1=droite 2=base
+}
+/** Propagation à l'intérieur du prisme (avec réflexions totales éventuelles) */
+function traceInside(P,d,n,g,maxB){
+  const segs=[]; let cur={p:vAdd(P,d,0.02),d:d}, exit=null, tirCount=0, exitFace=-1;
+  for(let b=0;b<maxB;b++){
+    let best=null;
+    g.faces.forEach((f,i)=>{ const t=raySeg(cur.p,cur.d,f.a,f.b);
+      if(t!==null && (!best||t<best.t)) best={t,f,i}; });
+    if(!best) break;
+    const hit=vAdd(cur.p,cur.d,best.t);
+    segs.push([cur.p,hit]);
+    const out=refract(cur.d,best.f.n,n);           // verre → air : eta = n
+    if(out){ exit={p:hit,d:out,dIn:cur.d,f:best.f}; exitFace=best.i; break; }
+    tirCount++;
+    cur={p:vAdd(hit,reflectV(cur.d,best.f.n),0.02), d:reflectV(cur.d,best.f.n)};
+  }
+  return {segs,exit,tirCount,exitFace};
+}
+/** Calcul complet pour une longueur d'onde donnée */
+function prismRay(lambda,g,P1,d1){
+  const n=cauchyN(lambda);
+  const dIn=refract(d1,g.faces[0].n,1/n);          // air → verre (jamais de RT)
+  const tr=traceInside(P1,dIn,n,g,6);
+  return {n,dIn,...tr};
+}
+function updateSim5(){
+  const Adeg=+$('slider_Ap5').value, i1d=+$('slider_i15').value,
+        nm=+$('slider_L5').value, pos=+$('slider_pos5').value/100;
+  $('val_Ap5').textContent=Adeg.toFixed(1);
+  $('val_i15').textContent=i1d.toFixed(1);
+  $('val_L5').textContent=nm;
+  $('val_pos5').textContent=Math.round(pos*100)+' %';
+
+  const g=prismGeom(Adeg), A=g.A, i1=i1d*RAD;
+  const P1=lerpP(g.apex,g.BL,pos);
+  const d1=Vc(A/2-i1);                              // direction du rayon incident
+  const R=prismRay(nm,g,P1,d1);
+  const n=R.n, V=3e8/n;
+  const r1=Math.asin(Math.sin(i1)/n), r2=A-r1;
+  const ilim=Math.asin(1/n);
+  const sinDm=n*Math.sin(A/2);
+  const Dm=(sinDm<=1)?(2*Math.asin(sinDm)-A):null;
+
+  $('res_n5').textContent=n.toFixed(4);
+  $('res_Vp5').textContent=(V/1e8).toFixed(3)+' × 10⁸ m·s⁻¹';
+  $('res_i15').textContent=i1d.toFixed(1)+'°';
+  $('res_r15').textContent=(r1*DEG).toFixed(1)+'°';
+  $('res_r25').textContent=(r2*DEG).toFixed(1)+'°';
+  $('res_ilim5').textContent=(ilim*DEG).toFixed(1)+'°';
+  $('res_Dm5').textContent=Dm!==null?(Dm*DEG).toFixed(1)+'°':'—';
+  const col=wl2rgb(nm);
+  $('res_color5').innerHTML=`<span style="color:${col.str}">■</span> ${colorName(nm)}`;
+
+  const st=$('status5');
+  if(R.exit && R.exitFace===1 && R.tirCount===0){
+    const i2=Math.acos(clamp(Math.abs(vDot(R.exit.d,R.exit.f.n)),-1,1));
+    const D=Math.acos(clamp(vDot(d1,R.exit.d),-1,1));
+    $('res_i25').textContent=(i2*DEG).toFixed(1)+'°';
+    $('res_D5').textContent=(D*DEG).toFixed(1)+'°';
+    const near = Dm!==null && Math.abs(D-Dm)*DEG<0.4;
+    st.className='status '+(near?'st-ok':'st-neutral');
+    st.textContent = near
+      ? tr(`Déviation MINIMALE : D = Dm = ${(D*DEG).toFixed(1)}°  (i₁ = i₂, r₁ = r₂ = A/2)`,
+           `الانحراف الأصغر: D = Dm = ${(D*DEG).toFixed(1)}°  (i₁ = i₂ ، r₁ = r₂ = A/2)`)
+      : tr(`Rayon émergent : r₂ = ${(r2*DEG).toFixed(1)}° < i_lim = ${(ilim*DEG).toFixed(1)}°  →  D = ${(D*DEG).toFixed(1)}°`,
+           `شعاع خارج: r₂ = ${(r2*DEG).toFixed(1)}° < i_lim = ${(ilim*DEG).toFixed(1)}°  →  D = ${(D*DEG).toFixed(1)}°`);
+  }else if(R.tirCount>0){
+    $('res_i25').textContent=tr('— (réflexion totale)','— (انعكاس كلي)');
+    $('res_D5').textContent='—';
+    st.className='status st-bad';
+    st.textContent=tr(`RÉFLEXION TOTALE sur la 2ᵉ face : r₂ = ${(r2*DEG).toFixed(1)}° > i_lim = ${(ilim*DEG).toFixed(1)}°`,
+                      `انعكاس كلي على الوجه الثاني: r₂ = ${(r2*DEG).toFixed(1)}° > i_lim = ${(ilim*DEG).toFixed(1)}°`);
+  }else{
+    const i2=R.exit?Math.acos(clamp(Math.abs(vDot(R.exit.d,R.exit.f.n)),-1,1)):0;
+    $('res_i25').textContent=R.exit?(i2*DEG).toFixed(1)+'°':'—';
+    $('res_D5').textContent='—';
+    st.className='status st-warn';
+    st.textContent=tr('Le rayon n\'émerge pas par la 2ᵉ face (modifier i₁, A ou le point d\'incidence).',
+                      'الشعاع لا يخرج من الوجه الثاني (غيّر i₁ أو A أو نقطة السقوط).');
+  }
+  drawSim5(g,P1,d1);
+}
+function drawSim5(g,P1,d1){
+  const w=c5.width,h=c5.height;
+  const nm=+$('slider_L5').value, Adeg=+$('slider_Ap5').value, i1d=+$('slider_i15').value;
+  x5.fillStyle='#080c22';x5.fillRect(0,0,w,h);
+  // sol optique (repère)
+  x5.strokeStyle='rgba(255,255,255,.05)';x5.lineWidth=1;
+  for(let i=0;i<w;i+=45){x5.beginPath();x5.moveTo(i,0);x5.lineTo(i,h);x5.stroke();}
+
+  /* ---- prisme ---- */
+  x5.beginPath();x5.moveTo(g.apex.x,g.apex.y);x5.lineTo(g.BL.x,g.BL.y);x5.lineTo(g.BR.x,g.BR.y);x5.closePath();
+  const gp=x5.createLinearGradient(g.BL.x,g.apex.y,g.BR.x,g.BR.y);
+  gp.addColorStop(0,'rgba(190,215,255,.16)');gp.addColorStop(1,'rgba(150,185,235,.07)');
+  x5.fillStyle=gp;x5.fill();
+  x5.strokeStyle='rgba(205,225,255,.65)';x5.lineWidth=2;x5.stroke();
+  // angle A
+  x5.strokeStyle='rgba(255,255,255,.6)';x5.lineWidth=1.3;
+  x5.beginPath();x5.arc(g.apex.x,g.apex.y,34,vAng(vSub(g.BL,g.apex)),vAng(vSub(g.BR,g.apex)));x5.stroke();
+  x5.fillStyle='#fff';x5.font='bold 13px sans-serif';x5.textAlign='center';
+  x5.fillText('A = '+Adeg.toFixed(1)+'°',g.apex.x,g.apex.y-12);
+
+  /* ---- rayon incident (lumière blanche) ---- */
+  const S=toBorder(P1,vNeg(d1),w,h,6);
+  x5.strokeStyle='#ffffff';x5.lineWidth=3;x5.shadowBlur=8;x5.shadowColor='#ffffff';
+  x5.beginPath();x5.moveTo(S.x,S.y);x5.lineTo(P1.x,P1.y);x5.stroke();x5.shadowBlur=0;
+  x5.fillStyle='#fff';x5.font='12px sans-serif';x5.textAlign='left';
+  x5.fillText(tr('Lumière blanche','ضوء أبيض'),S.x+8,S.y+(S.y<h/2?18:-10));
+  x5.fillStyle='#ffd479';x5.font='bold 13px sans-serif';
+  x5.fillText('I',P1.x-16,P1.y-8);
+
+  /* ---- faisceau dispersé (tout le spectre) ---- */
+  if(showSpec5){
+    for(let l=380;l<=780;l+=6){
+      const R=prismRay(l,g,P1,d1), col=wl2rgb(l);
+      x5.strokeStyle=`rgba(${col.r},${col.g},${col.b},.45)`;x5.lineWidth=1.4;
+      R.segs.forEach(s=>{x5.beginPath();x5.moveTo(s[0].x,s[0].y);x5.lineTo(s[1].x,s[1].y);x5.stroke();});
+      if(R.exit){
+        const E=toBorder(R.exit.p,R.exit.d,w,h,4);
+        x5.beginPath();x5.moveTo(R.exit.p.x,R.exit.p.y);x5.lineTo(E.x,E.y);x5.stroke();
+      }
+    }
+  }
+  /* ---- rayon sélectionné (mis en évidence) ---- */
+  const Rs=prismRay(nm,g,P1,d1), cs=wl2rgb(nm);
+  x5.strokeStyle=cs.str;x5.lineWidth=3.2;x5.shadowBlur=10;x5.shadowColor=cs.str;
+  Rs.segs.forEach(s=>{x5.beginPath();x5.moveTo(s[0].x,s[0].y);x5.lineTo(s[1].x,s[1].y);x5.stroke();});
+  let Eend=null;
+  if(Rs.exit){
+    Eend=toBorder(Rs.exit.p,Rs.exit.d,w,h,4);
+    x5.beginPath();x5.moveTo(Rs.exit.p.x,Rs.exit.p.y);x5.lineTo(Eend.x,Eend.y);x5.stroke();
+  }
+  x5.shadowBlur=0;
+
+  /* ---- annotation des angles i₁, r₁, r₂, i₂, D ---- */
+  if(showAng5){
+    const f0=g.faces[0], N0=f0.n;
+    dashLine(x5,vAdd(P1,N0,70),vAdd(P1,vNeg(N0),70),'rgba(255,255,255,.55)',[6,5]);
+    arcAngle(x5,P1,40,vAng(vNeg(d1)),vAng(N0),'#8affc1','i₁');
+    if(Rs.dIn) arcAngle(x5,P1,30,vAng(vNeg(N0)),vAng(Rs.dIn),'#ffd479','r₁');
+    if(Rs.exit){
+      const P2=Rs.exit.p, N2=Rs.exit.f.n;
+      dashLine(x5,vAdd(P2,N2,70),vAdd(P2,vNeg(N2),70),'rgba(255,255,255,.55)',[6,5]);
+      arcAngle(x5,P2,30,vAng(vNeg(N2)),vAng(vNeg(Rs.exit.dIn)),'#ffd479','r₂');
+      arcAngle(x5,P2,44,vAng(N2),vAng(Rs.exit.d),'#8affc1','i₂');
+      // angle de déviation D : intersection prolongement incident × rayon émergent
+      const den=vCr(d1,Rs.exit.d);
+      if(Math.abs(den)>1e-9){
+        const ap=vSub(P2,P1), tI=vCr(ap,Rs.exit.d)/den;
+        if(tI>0){
+          const K=vAdd(P1,d1,tI);
+          if(K.x>0&&K.x<w&&K.y>0&&K.y<h){
+            dashLine(x5,P1,K,'rgba(255,255,255,.4)',[7,6]);
+            const Dv=Math.acos(clamp(vDot(d1,Rs.exit.d),-1,1));
+            arcAngle(x5,K,46,vAng(d1),vAng(Rs.exit.d),'#ff8a80','D = '+(Dv*DEG).toFixed(1)+'°');
+          }
+        }
+      }
+    }
+  }
+  /* ---- étiquette du rayon sélectionné ---- */
+  if(Eend){
+    const n=cauchyN(nm);
+    x5.fillStyle=cs.str;x5.font='bold 12px sans-serif';
+    x5.textAlign = Eend.x>w-60 ? 'right':'left';
+    const ox = Eend.x>w-60 ? -6 : 6;
+    x5.fillText(`λ = ${nm} nm`,Eend.x+ox,Eend.y-16);
+    x5.fillText(`n = ${n.toFixed(4)}`,Eend.x+ox,Eend.y-2);
+    x5.fillText(`V = ${(3e8/n/1e8).toFixed(3)}·10⁸ m/s`,Eend.x+ox,Eend.y+12);
+  }
+  /* ---- barre spectrale (sélecteur de λ) ---- */
+  const bx=120,bw=w-240,by=h-34,bh=16;
+  for(let p=0;p<bw;p++){
+    const l=380+(p/bw)*400, c=wl2rgb(l);
+    x5.fillStyle=c.str;x5.fillRect(bx+p,by,1,bh);
+  }
+  x5.strokeStyle='rgba(255,255,255,.4)';x5.lineWidth=1;x5.strokeRect(bx,by,bw,bh);
+  const mx=bx+((nm-380)/400)*bw;
+  x5.strokeStyle='#fff';x5.lineWidth=2;
+  x5.beginPath();x5.moveTo(mx,by-6);x5.lineTo(mx,by+bh+6);x5.stroke();
+  x5.fillStyle='#fff';x5.font='11px sans-serif';x5.textAlign='center';
+  x5.fillText(nm+' nm',mx,by-9);
+  x5.fillStyle='rgba(255,255,255,.55)';
+  x5.textAlign='right';x5.fillText(tr('Violet 380','بنفسجي 380'),bx-8,by+12);
+  x5.textAlign='left'; x5.fillText(tr('780 Rouge','780 أحمر'),bx+bw+8,by+12);
+  x5.textAlign='center';
+  x5.fillText(tr('n(λ) = 1,500 + 0,00420/λ²  (λ en µm)','n(λ) = 1,500 + 0,00420/λ²  (λ بالميكرومتر)'),w/2,by+bh+14);
+}
+/* --- boutons du prisme --- */
+$('btnSpec5').onclick=()=>{
+  showSpec5=!showSpec5;
+  const b=$('btnSpec5');
+  b.setAttribute('data-fr','🌈 Spectre complet : '+(showSpec5?'ON':'OFF'));
+  b.setAttribute('data-ar','🌈 الطيف الكامل: '+(showSpec5?'مفعّل':'موقوف'));
+  b.textContent=b.getAttribute(isAr()?'data-ar':'data-fr');
+  updateSim5();
+};
+$('btnAngles5').onclick=()=>{
+  showAng5=!showAng5;
+  const b=$('btnAngles5');
+  b.setAttribute('data-fr','📐 Angles : '+(showAng5?'ON':'OFF'));
+  b.setAttribute('data-ar','📐 الزوايا: '+(showAng5?'مفعّلة':'موقوفة'));
+  b.textContent=b.getAttribute(isAr()?'data-ar':'data-fr');
+  updateSim5();
+};
+$('btnMin5').onclick=()=>{                   // i₁ tel que D = Dm  →  sin i₁ = n·sin(A/2)
+  const A=+$('slider_Ap5').value*RAD, n=cauchyN(+$('slider_L5').value);
+  const s=n*Math.sin(A/2);
+  if(s<=1){ $('slider_i15').value=(Math.asin(s)*DEG).toFixed(1); updateSim5(); }
+  else{
+    const st=$('status5'); st.className='status st-warn';
+    st.textContent=tr('Déviation minimale impossible : n·sin(A/2) > 1 (réflexion totale).',
+                      'الانحراف الأصغر غير ممكن: n·sin(A/2) > 1 (انعكاس كلي).');
+  }
+};
+
+/* ==========================================================
+   2. LIAISONS DES CURSEURS + BOUCLE D'ANIMATION
+   ========================================================== */
+['slider_T1','slider_L1','slider_A1'].forEach(id=>$(id).addEventListener('input',updateSim1));
+['slider_MN2','slider_L2'].forEach(id=>$(id).addEventListener('input',updateSim2));
+['slider_a3','slider_L3'].forEach(id=>$(id).addEventListener('input',updateSim3));
+['slider_a4','slider_D4','slider_L4'].forEach(id=>$(id).addEventListener('input',updateSim4));
+['slider_Ap5','slider_i15','slider_L5','slider_pos5'].forEach(id=>$(id).addEventListener('input',updateSim5));
+
+function refreshAll(){ updateSim1(); updateSim2(); updateSim3(); updateSim4(); updateSim5(); }
+
+let last=0;
+function loop(ts){
+  const dt=Math.min((ts-last)/1000,.05); last=ts;
+  if(playing[1]) tAnim[1]+=dt;
+  if(playing[2]) tAnim[2]+=dt;
+  if(playing[3]) tAnim[3]+=dt;
+  const act=document.querySelector('.sim-panel.active');
+  if(act){
+    if(act.id==='sim1') drawSim1(tAnim[1]);
+    else if(act.id==='sim2') drawSim2(tAnim[2]);
+    else if(act.id==='sim3') drawSim3(tAnim[3]);
+    // sim4 / sim5 : rendus statiques (redessinés à chaque changement de paramètre)
+  }
+  requestAnimationFrame(loop);
+}
+refreshAll();
+last=performance.now();
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
