@@ -24,6 +24,17 @@
   "questions_count": 34
     },
     {
+  "id": "2BACPC_MATH_SIGNES_BASES_2026",
+  "title": "Maths • Signes et trinômes : comprendre pas à pas",
+  "subject": "الرياضيات",
+  "level": "2BACPC",
+  "type": "practice",
+  "type_label": "تدريب المفاهيم الأساسية",
+  "duration": 50,
+  "path": "2BACPC/math/signes_bases_2026.json",
+  "questions_count": 30
+    },
+    {
       "id": "2BAC_PHYS_ONDES_DIAG_2026",
       "title": "تقويم المكتسبات والدعم: درس الموجات الميكانيكية المتوالية",
       "subject": "الفيزياء والكيمياء",
