@@ -46,6 +46,17 @@
   "questions_count": 24
     },
     {
+  "id": "2BACPC_MATH_LIMITES_2026",
+  "title": "Maths • Limites : comprendre avant de calculer",
+  "subject": "الرياضيات",
+  "level": "2BACPC",
+  "type": "practice",
+  "type_label": "تدريب المفاهيم الأساسية",
+  "duration": 60,
+  "path": "2BACPC/math/limites_2026.json",
+  "questions_count": 24
+    },
+    {
       "id": "2BAC_PHYS_ONDES_DIAG_2026",
       "title": "تقويم المكتسبات والدعم: درس الموجات الميكانيكية المتوالية",
       "subject": "الفيزياء والكيمياء",
