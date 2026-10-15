@@ -1,0 +1,2177 @@
+{
+  "id": "2BACPC_MATH_IDENTITES_DOMAINES_2026",
+  "title": "Maths • Identités et domaines : comprendre pas à pas",
+  "subject": "الرياضيات",
+  "level": "2BACPC",
+  "type": "practice",
+  "type_label": "تدريب المفاهيم الأساسية",
+  "duration": 55,
+  "version": "1.0",
+  "schema_version": 3,
+  "questions": [
+    {
+      "id": "A1",
+      "text": "Compléter $(x+3)^2=x^2+bx+c$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Développer et comprendre",
+      "skill": "b",
+      "gap": "À reprendre : Développer et comprendre",
+      "recommendation": "Écris (x+3)(x+3) puis développe les quatre produits.",
+      "image": "images/math_domains/aire_carre.png",
+      "explanation": "$(x+3)^2=x^2+2\\times x\\times3+3^2=x^2+6x+9$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A1_support",
+          "text": "Quel est le terme en x de $(x+4)^2$ ?",
+          "options": [
+            "$8x$",
+            "$4x$",
+            "$16x$"
+          ],
+          "correct": 0,
+          "correct_options": [
+            0
+          ],
+          "points": 1,
+          "domain": "Développer et comprendre",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "$2\\times x\\times4=8x$.",
+          "image": "",
+          "explanation": "$2\\times x\\times4=8x$.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Développer et comprendre",
+        "stage": "b",
+        "hints": [
+          "Le terme du milieu est 2ab, pas ab."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "b",
+            "options": [],
+            "accepted": [
+              "6"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "c",
+            "options": [],
+            "accepted": [
+              "9"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "b",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "c",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "text": "Compléter $(2x-1)^2=ax^2+bx+c$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Développer et comprendre",
+      "skill": "a",
+      "gap": "À reprendre : Développer et comprendre",
+      "recommendation": "Vérifie avec x=1 : le résultat doit valoir 1.",
+      "image": "",
+      "explanation": "$(2x)^2-2(2x)(1)+1^2=4x^2-4x+1$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A2_support",
+          "text": "Quel est le terme en x de $(x+4)^2$ ?",
+          "options": [
+            "$8x$",
+            "$4x$",
+            "$16x$"
+          ],
+          "correct": 0,
+          "correct_options": [
+            0
+          ],
+          "points": 1,
+          "domain": "Développer et comprendre",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "$2\\times x\\times4=8x$.",
+          "image": "",
+          "explanation": "$2\\times x\\times4=8x$.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Développer et comprendre",
+        "stage": "a",
+        "hints": [
+          "Mets aussi le coefficient 2 au carré."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "a",
+            "options": [],
+            "accepted": [
+              "4"
+            ],
+            "points": 0.16666666666666666
+          },
+          {
+            "id": "s2",
+            "label": "b",
+            "options": [],
+            "accepted": [
+              "-4"
+            ],
+            "points": 0.16666666666666666
+          },
+          {
+            "id": "s3",
+            "label": "c",
+            "options": [],
+            "accepted": [
+              "1"
+            ],
+            "points": 0.16666666666666666
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "a",
+          "points": 0.16666666666666666,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "b",
+          "points": 0.16666666666666666,
+          "automatic": true
+        },
+        {
+          "id": "s3",
+          "description": "c",
+          "points": 0.16666666666666666,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "text": "Compléter $(x-4)(x+4)=x^2+c$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Développer et comprendre",
+      "skill": "c",
+      "gap": "À reprendre : Développer et comprendre",
+      "recommendation": "Les termes +4x et −4x se compensent.",
+      "image": "",
+      "explanation": "$(x-4)(x+4)=x^2-4^2=x^2-16$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A3_support",
+          "text": "Quel est le terme en x de $(x+4)^2$ ?",
+          "options": [
+            "$8x$",
+            "$4x$",
+            "$16x$"
+          ],
+          "correct": 0,
+          "correct_options": [
+            0
+          ],
+          "points": 1,
+          "domain": "Développer et comprendre",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "$2\\times x\\times4=8x$.",
+          "image": "",
+          "explanation": "$2\\times x\\times4=8x$.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Développer et comprendre",
+        "stage": "c",
+        "hints": [
+          "Utilise (a−b)(a+b)=a²−b²."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "c",
+            "options": [],
+            "accepted": [
+              "-16"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "c",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "text": "Une élève écrit $(x+2)^2=x^2+4$. Identifier le terme oublié puis tester avec $x=1$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Développer et comprendre",
+      "skill": "Terme oublié",
+      "gap": "À reprendre : Développer et comprendre",
+      "recommendation": "Un contre-exemple suffit à réfuter cette égalité annoncée pour tout x.",
+      "image": "",
+      "explanation": "Le terme oublié est $2\\times x\\times2=4x$. Pour $x=1$, le vrai résultat est 9, et non 5.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A4_support",
+          "text": "Quel est le terme en x de $(x+4)^2$ ?",
+          "options": [
+            "$8x$",
+            "$4x$",
+            "$16x$"
+          ],
+          "correct": 0,
+          "correct_options": [
+            0
+          ],
+          "points": 1,
+          "domain": "Développer et comprendre",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "$2\\times x\\times4=8x$.",
+          "image": "",
+          "explanation": "$2\\times x\\times4=8x$.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Développer et comprendre",
+        "stage": "Terme oublié",
+        "hints": [
+          "Développe le produit (x+2)(x+2)."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Terme oublié",
+            "options": [
+              "$2x$",
+              "$4$",
+              "$4x$"
+            ],
+            "accepted": [
+              "$4x$"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Valeur exacte de (1+2)²",
+            "options": [],
+            "accepted": [
+              "9"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Terme oublié",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Valeur exacte de (1+2)²",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "text": "Compléter $(x+2)^3=x^3+ax^2+bx+c$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Développer et comprendre",
+      "skill": "a",
+      "gap": "À reprendre : Développer et comprendre",
+      "recommendation": "Attention : 3x×2² vaut 12x, pas 6x.",
+      "image": "",
+      "explanation": "$(x+2)^3=x^3+3x^2(2)+3x(2^2)+2^3=x^3+6x^2+12x+8$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A5_support",
+          "text": "Quel est le terme en x de $(x+4)^2$ ?",
+          "options": [
+            "$8x$",
+            "$4x$",
+            "$16x$"
+          ],
+          "correct": 0,
+          "correct_options": [
+            0
+          ],
+          "points": 1,
+          "domain": "Développer et comprendre",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "$2\\times x\\times4=8x$.",
+          "image": "",
+          "explanation": "$2\\times x\\times4=8x$.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Développer et comprendre",
+        "stage": "a",
+        "hints": [
+          "Les coefficients du cube sont 1, 3, 3, 1."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "a",
+            "options": [],
+            "accepted": [
+              "6"
+            ],
+            "points": 0.16666666666666666
+          },
+          {
+            "id": "s2",
+            "label": "b",
+            "options": [],
+            "accepted": [
+              "12"
+            ],
+            "points": 0.16666666666666666
+          },
+          {
+            "id": "s3",
+            "label": "c",
+            "options": [],
+            "accepted": [
+              "8"
+            ],
+            "points": 0.16666666666666666
+          }
+        ],
+        "transfer": {
+          "id": "A5_transfer",
+          "text": "Pour $(x+1)^3$, quel est le coefficient de $x^2$ ?",
+          "options": [],
+          "correct": -1,
+          "correct_options": [],
+          "points": 1,
+          "domain": "Développer et comprendre",
+          "skill": "Réinvestir sans aide",
+          "gap": "",
+          "recommendation": "Le développement est x³+3x²+3x+1.",
+          "image": "",
+          "explanation": "Le développement est x³+3x²+3x+1.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 3,
+            "unit": "sans unité",
+            "units": {
+              "sans unité": 1
+            },
+            "absoluteTolerance": 0,
+            "relativeTolerance": 0
+          },
+          "rubric": [
+            {
+              "id": "result",
+              "description": "Valeur exacte",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "a",
+          "points": 0.16666666666666666,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "b",
+          "points": 0.16666666666666666,
+          "automatic": true
+        },
+        {
+          "id": "s3",
+          "description": "c",
+          "points": 0.16666666666666666,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A6",
+      "text": "Compléter $(x-1)^3=x^3+ax^2+bx+c$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Développer et comprendre",
+      "skill": "a",
+      "gap": "À reprendre : Développer et comprendre",
+      "recommendation": "Vérifie à x=0 : on doit obtenir −1.",
+      "image": "",
+      "explanation": "$(x-1)^3=x^3-3x^2+3x-1$. Les signes alternent.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A6_support",
+          "text": "Quel est le terme en x de $(x+4)^2$ ?",
+          "options": [
+            "$8x$",
+            "$4x$",
+            "$16x$"
+          ],
+          "correct": 0,
+          "correct_options": [
+            0
+          ],
+          "points": 1,
+          "domain": "Développer et comprendre",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "$2\\times x\\times4=8x$.",
+          "image": "",
+          "explanation": "$2\\times x\\times4=8x$.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Développer et comprendre",
+        "stage": "a",
+        "hints": [
+          "Remplace b par 1 dans (a−b)³."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "a",
+            "options": [],
+            "accepted": [
+              "-3"
+            ],
+            "points": 0.16666666666666666
+          },
+          {
+            "id": "s2",
+            "label": "b",
+            "options": [],
+            "accepted": [
+              "3"
+            ],
+            "points": 0.16666666666666666
+          },
+          {
+            "id": "s3",
+            "label": "c",
+            "options": [],
+            "accepted": [
+              "-1"
+            ],
+            "points": 0.16666666666666666
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "a",
+          "points": 0.16666666666666666,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "b",
+          "points": 0.16666666666666666,
+          "automatic": true
+        },
+        {
+          "id": "s3",
+          "description": "c",
+          "points": 0.16666666666666666,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "text": "Factoriser $x^2-25$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Factoriser et vérifier",
+      "skill": "Forme factorisée",
+      "gap": "À reprendre : Factoriser et vérifier",
+      "recommendation": "Développe le produit choisi pour le contrôler.",
+      "image": "",
+      "explanation": "$25=5^2$, donc $x^2-25=(x-5)(x+5)$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B1_support",
+          "text": "Factoriser $x^2-1$.",
+          "options": [
+            "$(x-1)^2$",
+            "$(x-1)(x+1)$",
+            "$(x+1)^2$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Factoriser et vérifier",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Différence de deux carrés : (x−1)(x+1).",
+          "image": "",
+          "explanation": "Différence de deux carrés : (x−1)(x+1).",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Factoriser et vérifier",
+        "stage": "Forme factorisée",
+        "hints": [
+          "Reconnais une différence de deux carrés."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Forme factorisée",
+            "options": [
+              "$(x-25)(x+25)$",
+              "$(x-5)(x+5)$",
+              "$(x-5)^2$"
+            ],
+            "accepted": [
+              "$(x-5)(x+5)$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Forme factorisée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "text": "Factoriser $x^2-6x+9$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Factoriser et vérifier",
+      "skill": "Forme factorisée",
+      "gap": "À reprendre : Factoriser et vérifier",
+      "recommendation": "Compare avec A1 et A2 : vérifie les trois termes.",
+      "image": "",
+      "explanation": "$9=3^2$ et $-6x=-2\\times x\\times3$, donc $(x-3)^2$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B2_support",
+          "text": "Factoriser $x^2-1$.",
+          "options": [
+            "$(x-1)^2$",
+            "$(x-1)(x+1)$",
+            "$(x+1)^2$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Factoriser et vérifier",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Différence de deux carrés : (x−1)(x+1).",
+          "image": "",
+          "explanation": "Différence de deux carrés : (x−1)(x+1).",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Factoriser et vérifier",
+        "stage": "Forme factorisée",
+        "hints": [
+          "Le signe du terme en x détermine le signe dans la parenthèse."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Forme factorisée",
+            "options": [
+              "$(x-3)^2$",
+              "$(x+3)^2$",
+              "$(x-9)^2$"
+            ],
+            "accepted": [
+              "$(x-3)^2$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Forme factorisée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "text": "Compléter la factorisation $x^3-8=(x-2)(x^2+ax+b)$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Factoriser et vérifier",
+      "skill": "a",
+      "gap": "À reprendre : Factoriser et vérifier",
+      "recommendation": "Développe : les termes en x² et en x se compensent.",
+      "image": "",
+      "explanation": "$x^3-2^3=(x-2)(x^2+2x+4)$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B3_support",
+          "text": "Factoriser $x^2-1$.",
+          "options": [
+            "$(x-1)^2$",
+            "$(x-1)(x+1)$",
+            "$(x+1)^2$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Factoriser et vérifier",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Différence de deux carrés : (x−1)(x+1).",
+          "image": "",
+          "explanation": "Différence de deux carrés : (x−1)(x+1).",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Factoriser et vérifier",
+        "stage": "a",
+        "hints": [
+          "a³−b³=(a−b)(a²+ab+b²)."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "a",
+            "options": [],
+            "accepted": [
+              "2"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "b",
+            "options": [],
+            "accepted": [
+              "4"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "a",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "b",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "text": "Compléter $x^3+27=(x+3)(x^2+ax+b)$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Factoriser et vérifier",
+      "skill": "a",
+      "gap": "À reprendre : Factoriser et vérifier",
+      "recommendation": "Ne confonds pas x³+27 avec (x+3)³.",
+      "image": "",
+      "explanation": "$x^3+3^3=(x+3)(x^2-3x+9)$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B4_support",
+          "text": "Factoriser $x^2-1$.",
+          "options": [
+            "$(x-1)^2$",
+            "$(x-1)(x+1)$",
+            "$(x+1)^2$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Factoriser et vérifier",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Différence de deux carrés : (x−1)(x+1).",
+          "image": "",
+          "explanation": "Différence de deux carrés : (x−1)(x+1).",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Factoriser et vérifier",
+        "stage": "a",
+        "hints": [
+          "La somme de cubes utilise −ab dans le second facteur."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "a",
+            "options": [],
+            "accepted": [
+              "-3"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "b",
+            "options": [],
+            "accepted": [
+              "9"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "a",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "b",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B5",
+      "text": "Calculer $99^2$ avec $99=100-1$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Factoriser et vérifier",
+      "skill": "Terme −2×100×1",
+      "gap": "À reprendre : Factoriser et vérifier",
+      "recommendation": "Le dernier terme est +1, car (−1)²=1.",
+      "image": "",
+      "explanation": "$99^2=10000-200+1=9801$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B5_support",
+          "text": "Factoriser $x^2-1$.",
+          "options": [
+            "$(x-1)^2$",
+            "$(x-1)(x+1)$",
+            "$(x+1)^2$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Factoriser et vérifier",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Différence de deux carrés : (x−1)(x+1).",
+          "image": "",
+          "explanation": "Différence de deux carrés : (x−1)(x+1).",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Factoriser et vérifier",
+        "stage": "Terme −2×100×1",
+        "hints": [
+          "Développe (100−1)²."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Terme −2×100×1",
+            "options": [],
+            "accepted": [
+              "-200"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Valeur de 99²",
+            "options": [],
+            "accepted": [
+              "9801"
+            ],
+            "points": 0.5
+          }
+        ],
+        "transfer": {
+          "id": "B5_transfer",
+          "text": "Calculer $101^2$ avec une identité remarquable.",
+          "options": [],
+          "correct": -1,
+          "correct_options": [],
+          "points": 1,
+          "domain": "Factoriser et vérifier",
+          "skill": "Réinvestir sans aide",
+          "gap": "",
+          "recommendation": "(100+1)²=10000+200+1=10201.",
+          "image": "",
+          "explanation": "(100+1)²=10000+200+1=10201.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 10201,
+            "unit": "sans unité",
+            "units": {
+              "sans unité": 1
+            },
+            "absoluteTolerance": 0,
+            "relativeTolerance": 0
+          },
+          "rubric": [
+            {
+              "id": "result",
+              "description": "Valeur exacte",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Terme −2×100×1",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Valeur de 99²",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B6",
+      "text": "Pour $x\\ne2$, simplifier $\\frac{x^2-4}{x-2}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Factoriser et vérifier",
+      "skill": "Expression simplifiée",
+      "gap": "À reprendre : Factoriser et vérifier",
+      "recommendation": "Une forme simplifiée ne redéfinit pas automatiquement la fonction au point exclu.",
+      "image": "",
+      "explanation": "$x^2-4=(x-2)(x+2)$. On simplifie pour $x\\ne2$ seulement : l’expression initiale n’existe pas en 2.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B6_support",
+          "text": "Factoriser $x^2-1$.",
+          "options": [
+            "$(x-1)^2$",
+            "$(x-1)(x+1)$",
+            "$(x+1)^2$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Factoriser et vérifier",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Différence de deux carrés : (x−1)(x+1).",
+          "image": "",
+          "explanation": "Différence de deux carrés : (x−1)(x+1).",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Factoriser et vérifier",
+        "stage": "Expression simplifiée",
+        "hints": [
+          "On ne peut simplifier un facteur que lorsqu’il est non nul."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Expression simplifiée",
+            "options": [
+              "$x^2+2$",
+              "$x+2$",
+              "$x-2$"
+            ],
+            "accepted": [
+              "$x+2$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "La restriction x ≠ 2 reste-t-elle nécessaire ?",
+            "options": [
+              "Oui, dans l’expression de départ.",
+              "Non, la simplification autorise x = 2."
+            ],
+            "accepted": [
+              "Oui, dans l’expression de départ."
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Expression simplifiée",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "La restriction x ≠ 2 reste-t-elle nécessaire ?",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "text": "Trouver le domaine de $f(x)=3x^2-2x+5$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Trouver les conditions",
+      "skill": "Domaine",
+      "gap": "À reprendre : Trouver les conditions",
+      "recommendation": "Ne confonds pas domaine et signe : une valeur négative est autorisée pour un polynôme.",
+      "image": "",
+      "explanation": "Un polynôme se calcule pour tout réel : $D_f=\\mathbb{R}$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C1_support",
+          "text": "Domaine de $\\sqrt{x-5}$ ?",
+          "options": [
+            "$]5;+\\infty[$",
+            "$]-\\infty;5]$",
+            "$[5;+\\infty[$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Trouver les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "image": "",
+          "explanation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Trouver les conditions",
+        "stage": "Domaine",
+        "hints": [
+          "Y a-t-il un dénominateur ou une racine carrée ?"
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Domaine",
+            "options": [
+              "$[0;+\\infty[$",
+              "$\\mathbb{R}\\setminus\\{0\\}$",
+              "$\\mathbb{R}$"
+            ],
+            "accepted": [
+              "$\\mathbb{R}$"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Domaine",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "text": "Trouver le domaine de $g(x)=\\frac{2x+1}{x-3}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Trouver les conditions",
+      "skill": "Valeur interdite",
+      "gap": "À reprendre : Trouver les conditions",
+      "recommendation": "Teste x=0 : la fonction existe, même si x−3 est négatif.",
+      "image": "",
+      "explanation": "Le dénominateur doit être non nul : $x-3\\ne0$, donc $x\\ne3$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C2_support",
+          "text": "Domaine de $\\sqrt{x-5}$ ?",
+          "options": [
+            "$]5;+\\infty[$",
+            "$]-\\infty;5]$",
+            "$[5;+\\infty[$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Trouver les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "image": "",
+          "explanation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Trouver les conditions",
+        "stage": "Valeur interdite",
+        "hints": [
+          "Un dénominateur peut être négatif ; il ne peut pas être nul."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Valeur interdite",
+            "options": [],
+            "accepted": [
+              "3"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Domaine",
+            "options": [
+              "$[3;+\\infty[$",
+              "$\\mathbb{R}\\setminus\\{-3\\}$",
+              "$\\mathbb{R}\\setminus\\{3\\}$"
+            ],
+            "accepted": [
+              "$\\mathbb{R}\\setminus\\{3\\}$"
+            ],
+            "points": 0.5
+          }
+        ],
+        "transfer": {
+          "id": "C2_transfer",
+          "text": "Quelle valeur est interdite pour $1/(2x-8)$ ?",
+          "options": [],
+          "correct": -1,
+          "correct_options": [],
+          "points": 1,
+          "domain": "Trouver les conditions",
+          "skill": "Réinvestir sans aide",
+          "gap": "",
+          "recommendation": "2x−8=0 donne x=4.",
+          "image": "",
+          "explanation": "2x−8=0 donne x=4.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 4,
+            "unit": "sans unité",
+            "units": {
+              "sans unité": 1
+            },
+            "absoluteTolerance": 0,
+            "relativeTolerance": 0
+          },
+          "rubric": [
+            {
+              "id": "result",
+              "description": "Valeur exacte",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Valeur interdite",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Domaine",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "text": "Trouver le domaine de $h(x)=\\frac1{x^2-9}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Trouver les conditions",
+      "skill": "Deux valeurs interdites",
+      "gap": "À reprendre : Trouver les conditions",
+      "recommendation": "Résoudre x²=9 donne deux solutions : −3 et 3.",
+      "image": "",
+      "explanation": "$x^2-9=(x-3)(x+3)$. Les deux zéros du dénominateur sont exclus.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C3_support",
+          "text": "Domaine de $\\sqrt{x-5}$ ?",
+          "options": [
+            "$]5;+\\infty[$",
+            "$]-\\infty;5]$",
+            "$[5;+\\infty[$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Trouver les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "image": "",
+          "explanation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Trouver les conditions",
+        "stage": "Deux valeurs interdites",
+        "hints": [
+          "Réutilise la différence de carrés."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Deux valeurs interdites",
+            "options": [
+              "$3\\text{ seulement}$",
+              "$9\\text{ seulement}$",
+              "$-3\\text{ et }3$"
+            ],
+            "accepted": [
+              "$-3\\text{ et }3$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Domaine",
+            "options": [
+              "$\\mathbb{R}\\setminus\\{-3;3\\}$",
+              "$]-3;3[$",
+              "$\\mathbb{R}\\setminus\\{9\\}$"
+            ],
+            "accepted": [
+              "$\\mathbb{R}\\setminus\\{-3;3\\}$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Deux valeurs interdites",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Domaine",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "text": "Trouver le domaine de $u(x)=\\sqrt{x+2}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Trouver les conditions",
+      "skill": "Condition",
+      "gap": "À reprendre : Trouver les conditions",
+      "recommendation": "Calcule u(−2)=0 : cela justifie le crochet fermé.",
+      "image": "",
+      "explanation": "$x+2\\geq0$ équivaut à $x\\geq-2$. La racine de zéro existe : la borne −2 est incluse.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C4_support",
+          "text": "Domaine de $\\sqrt{x-5}$ ?",
+          "options": [
+            "$]5;+\\infty[$",
+            "$]-\\infty;5]$",
+            "$[5;+\\infty[$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Trouver les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "image": "",
+          "explanation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Trouver les conditions",
+        "stage": "Condition",
+        "hints": [
+          "Dans les réels, une racine carrée accepte zéro."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Condition",
+            "options": [
+              "$x+2\\ne0$",
+              "$x+2\\geq0$",
+              "$x+2>0$"
+            ],
+            "accepted": [
+              "$x+2\\geq0$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Domaine",
+            "options": [
+              "$[-2;+\\infty[$",
+              "$]-2;+\\infty[$",
+              "$]-\\infty;-2]$"
+            ],
+            "accepted": [
+              "$[-2;+\\infty[$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Condition",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Domaine",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "text": "Trouver le domaine de $v(x)=\\frac1{\\sqrt{x+2}}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Trouver les conditions",
+      "skill": "Condition",
+      "gap": "À reprendre : Trouver les conditions",
+      "recommendation": "Compare C4 et C5 : en −2, la racine existe mais la division par zéro est interdite.",
+      "image": "",
+      "explanation": "Il faut $x+2\\geq0$ et $\\sqrt{x+2}\\ne0$, donc $x+2>0$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C5_support",
+          "text": "Domaine de $\\sqrt{x-5}$ ?",
+          "options": [
+            "$]5;+\\infty[$",
+            "$]-\\infty;5]$",
+            "$[5;+\\infty[$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Trouver les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "image": "",
+          "explanation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Trouver les conditions",
+        "stage": "Condition",
+        "hints": [
+          "Le radical est aussi au dénominateur."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Condition",
+            "options": [
+              "$x+2\\geq0$",
+              "$x+2>0$",
+              "$x+2\\ne0$"
+            ],
+            "accepted": [
+              "$x+2>0$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Domaine",
+            "options": [
+              "$]-2;+\\infty[$",
+              "$[-2;+\\infty[$",
+              "$\\mathbb{R}\\setminus\\{-2\\}$"
+            ],
+            "accepted": [
+              "$]-2;+\\infty[$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Condition",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Domaine",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "text": "Trouver le domaine de $w(x)=\\sqrt{5-2x}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Trouver les conditions",
+      "skill": "Borne 5/2 en écriture décimale",
+      "gap": "À reprendre : Trouver les conditions",
+      "recommendation": "Teste x=0 : √5 existe ; le domaine doit contenir 0.",
+      "image": "",
+      "explanation": "$5-2x\\geq0\\iff-2x\\geq-5\\iff x\\leq5/2$. La division par −2 inverse le sens.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C6_support",
+          "text": "Domaine de $\\sqrt{x-5}$ ?",
+          "options": [
+            "$]5;+\\infty[$",
+            "$]-\\infty;5]$",
+            "$[5;+\\infty[$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Trouver les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "image": "",
+          "explanation": "x−5≥0 donne x≥5 ; la borne est incluse.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Trouver les conditions",
+        "stage": "Borne 5/2 en écriture décimale",
+        "hints": [
+          "Quand tu divises une inégalité par un négatif, inverse son sens."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Borne 5/2 en écriture décimale",
+            "options": [],
+            "accepted": [
+              "2.5"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Domaine",
+            "options": [
+              "$]-\\infty;\\frac52]$",
+              "$[\\frac52;+\\infty[$",
+              "$]-\\infty;\\frac52[$"
+            ],
+            "accepted": [
+              "$]-\\infty;\\frac52]$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Borne 5/2 en écriture décimale",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Domaine",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "text": "Trouver le domaine de $f(x)=\\frac{\\sqrt{x+1}}{x-2}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Croiser les conditions",
+      "skill": "Condition du radical",
+      "gap": "À reprendre : Croiser les conditions",
+      "recommendation": "−1 est permis : numérateur nul, dénominateur non nul.",
+      "image": "",
+      "explanation": "On impose simultanément $x\\geq-1$ et $x\\ne2$. On retire seulement 2 de $[-1;+\\infty[$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D1_support",
+          "text": "Domaine de $\\frac1{\\sqrt{x-5}}$ ?",
+          "options": [
+            "$[5;+\\infty[$",
+            "$]5;+\\infty[$",
+            "$\\mathbb{R}\\setminus\\{5\\}$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Croiser les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Le radical au dénominateur impose x−5>0.",
+          "image": "",
+          "explanation": "Le radical au dénominateur impose x−5>0.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Croiser les conditions",
+        "stage": "Condition du radical",
+        "hints": [
+          "Le mot « et » demande une intersection."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Condition du radical",
+            "options": [
+              "$x\\leq-1$",
+              "$x>-1$",
+              "$x\\geq-1$"
+            ],
+            "accepted": [
+              "$x\\geq-1$"
+            ],
+            "points": 0.3333333333333333
+          },
+          {
+            "id": "s2",
+            "label": "Condition du dénominateur",
+            "options": [
+              "$x\\ne-2$",
+              "$x>2$",
+              "$x\\ne2$"
+            ],
+            "accepted": [
+              "$x\\ne2$"
+            ],
+            "points": 0.3333333333333333
+          },
+          {
+            "id": "s3",
+            "label": "Domaine",
+            "options": [
+              "$[-1;+\\infty[$",
+              "$]2;+\\infty[$",
+              "$[-1;2[\\cup]2;+\\infty[$"
+            ],
+            "accepted": [
+              "$[-1;2[\\cup]2;+\\infty[$"
+            ],
+            "points": 0.3333333333333333
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Condition du radical",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Condition du dénominateur",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "s3",
+          "description": "Domaine",
+          "points": 0.3333333333333333,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "text": "Trouver le domaine de $g(x)=\\sqrt{(x-1)(x-3)}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Croiser les conditions",
+      "skill": "Zone où le produit est positif ou nul",
+      "gap": "À reprendre : Croiser les conditions",
+      "recommendation": "Il ne faut pas imposer séparément que chaque facteur soit positif : deux négatifs donnent aussi un produit positif.",
+      "image": "",
+      "explanation": "Le produit est positif à l’extérieur des racines 1 et 3, nul aux bornes, négatif entre elles. Les bornes sont permises.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D2_support",
+          "text": "Domaine de $\\frac1{\\sqrt{x-5}}$ ?",
+          "options": [
+            "$[5;+\\infty[$",
+            "$]5;+\\infty[$",
+            "$\\mathbb{R}\\setminus\\{5\\}$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Croiser les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Le radical au dénominateur impose x−5>0.",
+          "image": "",
+          "explanation": "Le radical au dénominateur impose x−5>0.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Croiser les conditions",
+        "stage": "Zone où le produit est positif ou nul",
+        "hints": [
+          "Réutilise le tableau de signes du premier parcours."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Zone où le produit est positif ou nul",
+            "options": [
+              "$]-\\infty;1[\\cup]3;+\\infty[$",
+              "$]-\\infty;1]\\cup[3;+\\infty[$",
+              "$[1;3]$"
+            ],
+            "accepted": [
+              "$]-\\infty;1]\\cup[3;+\\infty[$"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Zone où le produit est positif ou nul",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "text": "Trouver le domaine de $h(x)=\\sqrt{\\frac{x-1}{x+2}}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Croiser les conditions",
+      "skill": "Valeur interdite",
+      "gap": "À reprendre : Croiser les conditions",
+      "recommendation": "Le point −2 est exclu même si la racine carrée accepte zéro : ici le quotient ne se calcule pas.",
+      "image": "",
+      "explanation": "Le quotient doit être positif ou nul ET son dénominateur non nul. Il est positif sur $]-\\infty;-2[$ et $]1;+\\infty[$, nul en 1, et indéfini en −2.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D3_support",
+          "text": "Domaine de $\\frac1{\\sqrt{x-5}}$ ?",
+          "options": [
+            "$[5;+\\infty[$",
+            "$]5;+\\infty[$",
+            "$\\mathbb{R}\\setminus\\{5\\}$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Croiser les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Le radical au dénominateur impose x−5>0.",
+          "image": "",
+          "explanation": "Le radical au dénominateur impose x−5>0.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Croiser les conditions",
+        "stage": "Valeur interdite",
+        "hints": [
+          "Étudie les signes de x−1 et x+2 avant de diviser."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Valeur interdite",
+            "options": [],
+            "accepted": [
+              "-2"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Domaine",
+            "options": [
+              "$]-2;1]$",
+              "$]-\\infty;-2[\\cup[1;+\\infty[$",
+              "$]-\\infty;-2]\\cup[1;+\\infty[$"
+            ],
+            "accepted": [
+              "$]-\\infty;-2[\\cup[1;+\\infty[$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Valeur interdite",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Domaine",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "text": "Trouver le domaine de $k(x)=\\frac{\\sqrt{x-1}}{\\sqrt{4-x}}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Croiser les conditions",
+      "skill": "Conditions simultanées",
+      "gap": "À reprendre : Croiser les conditions",
+      "recommendation": "Teste les bornes : k(1)=0 existe, k(4) est une division par zéro.",
+      "image": "",
+      "explanation": "Au numérateur : $x-1\\geq0$. Au dénominateur : $4-x>0$. Leur intersection est $[1;4[$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D4_support",
+          "text": "Domaine de $\\frac1{\\sqrt{x-5}}$ ?",
+          "options": [
+            "$[5;+\\infty[$",
+            "$]5;+\\infty[$",
+            "$\\mathbb{R}\\setminus\\{5\\}$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Croiser les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Le radical au dénominateur impose x−5>0.",
+          "image": "",
+          "explanation": "Le radical au dénominateur impose x−5>0.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Croiser les conditions",
+        "stage": "Conditions simultanées",
+        "hints": [
+          "Traite les deux racines séparément selon leur position."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Conditions simultanées",
+            "options": [
+              "$x\\geq1\\text{ et }x<4$",
+              "$x>1\\text{ et }x\\leq4$",
+              "$x\\geq1\\text{ et }x\\leq4$"
+            ],
+            "accepted": [
+              "$x\\geq1\\text{ et }x<4$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Domaine",
+            "options": [
+              "$]1;4]$",
+              "$[1;4[$",
+              "$[1;4]$"
+            ],
+            "accepted": [
+              "$[1;4[$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Conditions simultanées",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Domaine",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "text": "Pour $F(x)=\\frac{x^2-4}{x-2}$, choisir le domaine de la fonction initiale et son comportement en $2$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Croiser les conditions",
+      "skill": "Domaine",
+      "gap": "À reprendre : Croiser les conditions",
+      "recommendation": "Un zéro du numérateur est permis sauf s’il annule aussi le dénominateur.",
+      "image": "",
+      "explanation": "Pour $x\\ne2$, $F(x)=x+2$. Mais en $2$, la formule initiale donne $0/0$, qui n’est pas défini. Définir une nouvelle valeur serait prolonger la fonction, pas simplifier son domaine.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D5_support",
+          "text": "Domaine de $\\frac1{\\sqrt{x-5}}$ ?",
+          "options": [
+            "$[5;+\\infty[$",
+            "$]5;+\\infty[$",
+            "$\\mathbb{R}\\setminus\\{5\\}$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Croiser les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Le radical au dénominateur impose x−5>0.",
+          "image": "",
+          "explanation": "Le radical au dénominateur impose x−5>0.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Croiser les conditions",
+        "stage": "Domaine",
+        "hints": [
+          "Reviens à l’expression AVANT simplification."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Domaine",
+            "options": [
+              "$\\mathbb{R}\\setminus\\{-2;2\\}$",
+              "$\\mathbb{R}$",
+              "$\\mathbb{R}\\setminus\\{2\\}$"
+            ],
+            "accepted": [
+              "$\\mathbb{R}\\setminus\\{2\\}$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "F(2)",
+            "options": [
+              "0",
+              "4",
+              "Non défini"
+            ],
+            "accepted": [
+              "Non défini"
+            ],
+            "points": 0.5
+          }
+        ],
+        "transfer": {
+          "id": "D5_transfer",
+          "text": "Quelle valeur reste interdite pour $(x^2-9)/(x-3)$ après simplification ?",
+          "options": [],
+          "correct": -1,
+          "correct_options": [],
+          "points": 1,
+          "domain": "Croiser les conditions",
+          "skill": "Réinvestir sans aide",
+          "gap": "",
+          "recommendation": "La formule initiale a un dénominateur nul en 3.",
+          "image": "",
+          "explanation": "La formule initiale a un dénominateur nul en 3.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 3,
+            "unit": "sans unité",
+            "units": {
+              "sans unité": 1
+            },
+            "absoluteTolerance": 0,
+            "relativeTolerance": 0
+          },
+          "rubric": [
+            {
+              "id": "result",
+              "description": "Valeur exacte",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Domaine",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "F(2)",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "text": "Défi final : trouver le domaine de $G(x)=\\frac{\\sqrt{x^2-4}}{x-2}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Croiser les conditions",
+      "skill": "Condition du radical",
+      "gap": "À reprendre : Croiser les conditions",
+      "recommendation": "Vérifie chaque borne dans la formule initiale ; elles n’ont pas le même rôle.",
+      "image": "",
+      "explanation": "$x^2-4\\geq0$ donne $x\\leq-2$ ou $x\\geq2$. On exclut ensuite 2, mais pas −2 : $G(-2)=0/(-4)=0$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D6_support",
+          "text": "Domaine de $\\frac1{\\sqrt{x-5}}$ ?",
+          "options": [
+            "$[5;+\\infty[$",
+            "$]5;+\\infty[$",
+            "$\\mathbb{R}\\setminus\\{5\\}$"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Croiser les conditions",
+          "skill": "Vérifier la règle sur un autre exemple",
+          "gap": "",
+          "recommendation": "Le radical au dénominateur impose x−5>0.",
+          "image": "",
+          "explanation": "Le radical au dénominateur impose x−5>0.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Croiser les conditions",
+        "stage": "Condition du radical",
+        "hints": [
+          "Commence par factoriser x²−4 puis utilise le tableau de signes."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Condition du radical",
+            "options": [
+              "$x\\ne-2\\text{ et }x\\ne2$",
+              "$x\\leq-2\\text{ ou }x\\geq2$",
+              "$-2\\leq x\\leq2$"
+            ],
+            "accepted": [
+              "$x\\leq-2\\text{ ou }x\\geq2$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Domaine final",
+            "options": [
+              "$]-\\infty;-2[\\cup]2;+\\infty[$",
+              "$]-\\infty;-2]\\cup[2;+\\infty[$",
+              "$]-\\infty;-2]\\cup]2;+\\infty[$"
+            ],
+            "accepted": [
+              "$]-\\infty;-2]\\cup]2;+\\infty[$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Condition du radical",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Domaine final",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    }
+  ]
+}
