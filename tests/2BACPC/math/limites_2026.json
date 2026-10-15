@@ -1,0 +1,2280 @@
+{
+  "id": "2BACPC_MATH_LIMITES_2026",
+  "title": "Maths • Limites : comprendre avant de calculer",
+  "subject": "الرياضيات",
+  "level": "2BACPC",
+  "type": "practice",
+  "type_label": "تدريب المفاهيم الأساسية",
+  "duration": 60,
+  "version": "1.0",
+  "schema_version": 3,
+  "questions": [
+    {
+      "id": "A1",
+      "text": "Comprendre $\\lim_{x\\to2}f(x)=5$. Choisir l’interprétation correcte.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Donner du sens à la limite",
+      "skill": "Cette écriture signifie…",
+      "gap": "À reprendre : Donner du sens à la limite",
+      "recommendation": "Lis x→2 comme « x se rapproche de 2 », pas comme « x est égal à 2 ».",
+      "image": "",
+      "explanation": "La limite décrit le comportement près de 2. Elle n’impose pas, à elle seule, que $f(2)$ existe ou soit égal à 5.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A1_support",
+          "text": "La limite de $x+1$ quand x tend vers 3 vaut…",
+          "options": [
+            "3",
+            "4",
+            "1"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Donner du sens à la limite",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "x+1→3+1=4.",
+          "image": "",
+          "explanation": "x+1→3+1=4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Donner du sens à la limite",
+        "stage": "Cette écriture signifie…",
+        "hints": [
+          "Distingue la valeur au point et les valeurs au voisinage."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Cette écriture signifie…",
+            "options": [
+              "x se rapproche de 5 et f(x) de 2.",
+              "f(2) vaut forcément 5.",
+              "Quand x se rapproche de 2, les valeurs f(x) se rapprochent de 5."
+            ],
+            "accepted": [
+              "Quand x se rapproche de 2, les valeurs f(x) se rapprochent de 5."
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Cette écriture signifie…",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "text": "Pour $x\\ne2$, $f(x)=\\frac{x^2-4}{x-2}=x+2$. Observer le graphique puis compléter.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Donner du sens à la limite",
+      "skill": "Limite quand x tend vers 2",
+      "gap": "À reprendre : Donner du sens à la limite",
+      "recommendation": "Une limite peut exister en un point où la fonction n’est pas définie.",
+      "image": "images/math_limits/limite_point_exclu.png",
+      "explanation": "Pour $x\\ne2$, $f(x)=x+2\\to4$. Mais l’expression initiale ne se calcule pas en 2. Le cercle vide représente ce point exclu.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A2_support",
+          "text": "La limite de $x+1$ quand x tend vers 3 vaut…",
+          "options": [
+            "3",
+            "4",
+            "1"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Donner du sens à la limite",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "x+1→3+1=4.",
+          "image": "",
+          "explanation": "x+1→3+1=4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Donner du sens à la limite",
+        "stage": "Limite quand x tend vers 2",
+        "hints": [
+          "La droite se rapproche du point (2 ; 4) des deux côtés."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite quand x tend vers 2",
+            "options": [],
+            "accepted": [
+              "4"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Valeur f(2)",
+            "options": [
+              "4",
+              "Non définie",
+              "0"
+            ],
+            "accepted": [
+              "Non définie"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite quand x tend vers 2",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Valeur f(2)",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "text": "Calculer $\\lim_{x\\to2}(x^2-3x+1)$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Donner du sens à la limite",
+      "skill": "Limite",
+      "gap": "À reprendre : Donner du sens à la limite",
+      "recommendation": "Calcule les puissances avant les additions : 4−6+1=−1.",
+      "image": "",
+      "explanation": "Un polynôme admet en 2 la limite obtenue par substitution : $2^2-3\\times2+1=-1$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A3_support",
+          "text": "La limite de $x+1$ quand x tend vers 3 vaut…",
+          "options": [
+            "3",
+            "4",
+            "1"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Donner du sens à la limite",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "x+1→3+1=4.",
+          "image": "",
+          "explanation": "x+1→3+1=4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Donner du sens à la limite",
+        "stage": "Limite",
+        "hints": [
+          "Remplace x par 2 dans chaque terme."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite",
+            "options": [],
+            "accepted": [
+              "-1"
+            ],
+            "points": 0.5
+          }
+        ],
+        "transfer": {
+          "id": "A3_transfer",
+          "text": "Calculer $\\lim_{x\\to-1}(x^2+2x+3)$.",
+          "options": [],
+          "correct": -1,
+          "correct_options": [],
+          "points": 1,
+          "domain": "Donner du sens à la limite",
+          "skill": "Réinvestir sans indice",
+          "gap": "",
+          "recommendation": "1−2+3=2.",
+          "image": "",
+          "explanation": "1−2+3=2.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 2,
+            "unit": "sans unité",
+            "units": {
+              "sans unité": 1
+            },
+            "absoluteTolerance": 0,
+            "relativeTolerance": 0
+          },
+          "rubric": [
+            {
+              "id": "result",
+              "description": "Valeur exacte",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "text": "Calculer $\\lim_{x\\to5}\\sqrt{x+4}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Donner du sens à la limite",
+      "skill": "Limite de x+4",
+      "gap": "À reprendre : Donner du sens à la limite",
+      "recommendation": "Ne confonds pas √9=3 avec 9²=81.",
+      "image": "",
+      "explanation": "$x+4\\to9$ et $\\sqrt{x+4}\\to\\sqrt9=3$. La fonction est définie au voisinage de 5.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A4_support",
+          "text": "La limite de $x+1$ quand x tend vers 3 vaut…",
+          "options": [
+            "3",
+            "4",
+            "1"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Donner du sens à la limite",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "x+1→3+1=4.",
+          "image": "",
+          "explanation": "x+1→3+1=4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Donner du sens à la limite",
+        "stage": "Limite de x+4",
+        "hints": [
+          "La racine carrée conserve ici le passage à la limite."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite de x+4",
+            "options": [],
+            "accepted": [
+              "9"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Limite de la racine",
+            "options": [],
+            "accepted": [
+              "3"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite de x+4",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite de la racine",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "text": "Compléter les limites des inverses à l’infini.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Donner du sens à la limite",
+      "skill": "Limite de 1/x quand x → +∞",
+      "gap": "À reprendre : Donner du sens à la limite",
+      "recommendation": "0⁺ et 0⁻ indiquent un côté d’approche, pas deux nombres limites différents.",
+      "image": "",
+      "explanation": "Quand $|x|$ augmente sans borne, $|1/x|$ se rapproche de 0. À gauche, les valeurs sont négatives mais leur limite reste 0.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A5_support",
+          "text": "La limite de $x+1$ quand x tend vers 3 vaut…",
+          "options": [
+            "3",
+            "4",
+            "1"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Donner du sens à la limite",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "x+1→3+1=4.",
+          "image": "",
+          "explanation": "x+1→3+1=4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Donner du sens à la limite",
+        "stage": "Limite de 1/x quand x → +∞",
+        "hints": [
+          "Teste x=100 puis 1000 ; ensuite x=−100 puis −1000."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite de 1/x quand x → +∞",
+            "options": [],
+            "accepted": [
+              "0"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Limite de 1/x quand x → −∞",
+            "options": [],
+            "accepted": [
+              "0"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite de 1/x quand x → +∞",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite de 1/x quand x → −∞",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A6",
+      "text": "Quand $x\\to-\\infty$, déterminer les limites suivantes.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Donner du sens à la limite",
+      "skill": "Limite de x²",
+      "gap": "À reprendre : Donner du sens à la limite",
+      "recommendation": "Repère la parité de la puissance avant de conclure sur le signe.",
+      "image": "",
+      "explanation": "Une puissance paire est positive ; une puissance impaire garde le signe de x. Ainsi $x^2\\to+\\infty$ et $x^3\\to-\\infty$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "A6_support",
+          "text": "La limite de $x+1$ quand x tend vers 3 vaut…",
+          "options": [
+            "3",
+            "4",
+            "1"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Donner du sens à la limite",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "x+1→3+1=4.",
+          "image": "",
+          "explanation": "x+1→3+1=4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "01 • Donner du sens à la limite",
+        "stage": "Limite de x²",
+        "hints": [
+          "Compare (−10)² et (−10)³."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite de x²",
+            "options": [
+              "$+\\infty$",
+              "$-\\infty$",
+              "$0$"
+            ],
+            "accepted": [
+              "$+\\infty$"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Limite de x³",
+            "options": [
+              "$+\\infty$",
+              "$-\\infty$",
+              "$0$"
+            ],
+            "accepted": [
+              "$-\\infty$"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite de x²",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite de x³",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "text": "Déterminer les limites de $1/x$ de chaque côté de zéro.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Limites usuelles et à l’infini",
+      "skill": "Quand x → 0⁺",
+      "gap": "À reprendre : Limites usuelles et à l’infini",
+      "recommendation": "Les deux limites latérales sont différentes : ne les remplace pas par une seule limite « ∞ ».",
+      "image": "",
+      "explanation": "Un dénominateur positif très petit donne un quotient positif très grand ; un dénominateur négatif très petit en valeur absolue donne un quotient négatif de très grande valeur absolue.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B1_support",
+          "text": "Quand $x\\to-\\infty$, $x^4$ tend vers…",
+          "options": [
+            "$-\\infty$",
+            "$0$",
+            "$+\\infty$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Limites usuelles et à l’infini",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "image": "",
+          "explanation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Limites usuelles et à l’infini",
+        "stage": "Quand x → 0⁺",
+        "hints": [
+          "Teste x=0,01 puis x=−0,01."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Quand x → 0⁺",
+            "options": [
+              "$0$",
+              "$+\\infty$",
+              "$-\\infty$"
+            ],
+            "accepted": [
+              "$+\\infty$"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Quand x → 0⁻",
+            "options": [
+              "$+\\infty$",
+              "$-\\infty$",
+              "$0$"
+            ],
+            "accepted": [
+              "$-\\infty$"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Quand x → 0⁺",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Quand x → 0⁻",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "text": "Calculer $\\lim_{x\\to0}\\frac1{x^2}$ en examinant les deux côtés.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 0.5,
+      "domain": "Limites usuelles et à l’infini",
+      "skill": "Signe de x² pour x ≠ 0",
+      "gap": "À reprendre : Limites usuelles et à l’infini",
+      "recommendation": "À la différence de 1/x, les deux limites latérales de 1/x² coïncident.",
+      "image": "",
+      "explanation": "$x^2\\to0$ par valeurs positives des deux côtés : $1/x^2\\to+\\infty$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B2_support",
+          "text": "Quand $x\\to-\\infty$, $x^4$ tend vers…",
+          "options": [
+            "$-\\infty$",
+            "$0$",
+            "$+\\infty$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Limites usuelles et à l’infini",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "image": "",
+          "explanation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Limites usuelles et à l’infini",
+        "stage": "Signe de x² pour x ≠ 0",
+        "hints": [
+          "Le carré efface le signe de x."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Signe de x² pour x ≠ 0",
+            "options": [
+              "Strictement positif",
+              "Strictement négatif",
+              "Nul"
+            ],
+            "accepted": [
+              "Strictement positif"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Limite",
+            "options": [
+              "$-\\infty$",
+              "$+\\infty$",
+              "$0$"
+            ],
+            "accepted": [
+              "$+\\infty$"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Signe de x² pour x ≠ 0",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "text": "On pose $P(x)=-2x^3+5x^2-1$. Déterminer ses limites à l’infini.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Limites usuelles et à l’infini",
+      "skill": "Terme dominant",
+      "gap": "À reprendre : Limites usuelles et à l’infini",
+      "recommendation": "Le terme dominant détermine la limite à l’infini, pas la valeur exacte du polynôme.",
+      "image": "",
+      "explanation": "Le terme de plus haut degré est $-2x^3$. En $+\\infty$, il tend vers $-\\infty$ ; en $-\\infty$, il tend vers $+\\infty$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B3_support",
+          "text": "Quand $x\\to-\\infty$, $x^4$ tend vers…",
+          "options": [
+            "$-\\infty$",
+            "$0$",
+            "$+\\infty$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Limites usuelles et à l’infini",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "image": "",
+          "explanation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Limites usuelles et à l’infini",
+        "stage": "Terme dominant",
+        "hints": [
+          "Garde le coefficient −2 avec le terme dominant."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Terme dominant",
+            "options": [
+              "$5x^2$",
+              "$-1$",
+              "$-2x^3$"
+            ],
+            "accepted": [
+              "$-2x^3$"
+            ],
+            "points": 0.3333333333333333
+          },
+          {
+            "id": "s2",
+            "label": "Limite en +∞",
+            "options": [
+              "$0$",
+              "$+\\infty$",
+              "$-\\infty$"
+            ],
+            "accepted": [
+              "$-\\infty$"
+            ],
+            "points": 0.3333333333333333
+          },
+          {
+            "id": "s3",
+            "label": "Limite en −∞",
+            "options": [
+              "$0$",
+              "$+\\infty$",
+              "$-\\infty$"
+            ],
+            "accepted": [
+              "$+\\infty$"
+            ],
+            "points": 0.3333333333333333
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Terme dominant",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite en +∞",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "s3",
+          "description": "Limite en −∞",
+          "points": 0.3333333333333333,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "text": "Calculer $\\lim_{x\\to+\\infty}\\frac{3x^2-x+1}{2x^2+5}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Limites usuelles et à l’infini",
+      "skill": "Rapport des coefficients dominants",
+      "gap": "À reprendre : Limites usuelles et à l’infini",
+      "recommendation": "Ne fais pas de calcul sur ∞/∞ : transforme d’abord l’expression.",
+      "image": "",
+      "explanation": "En divisant par $x^2$, on obtient $(3-1/x+1/x^2)/(2+5/x^2)\\to3/2$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B4_support",
+          "text": "Quand $x\\to-\\infty$, $x^4$ tend vers…",
+          "options": [
+            "$-\\infty$",
+            "$0$",
+            "$+\\infty$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Limites usuelles et à l’infini",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "image": "",
+          "explanation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Limites usuelles et à l’infini",
+        "stage": "Rapport des coefficients dominants",
+        "hints": [
+          "Numérateur et dénominateur ont le même degré."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Rapport des coefficients dominants",
+            "options": [
+              "$\\frac23$",
+              "$3$",
+              "$\\frac32$"
+            ],
+            "accepted": [
+              "$\\frac32$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite en écriture décimale",
+            "options": [],
+            "accepted": [
+              "1.5"
+            ],
+            "points": 0.5
+          }
+        ],
+        "transfer": {
+          "id": "B4_transfer",
+          "text": "Calculer $\\lim_{x\\to+\\infty}(5x^2+1)/(2x^2-3)$.",
+          "options": [],
+          "correct": -1,
+          "correct_options": [],
+          "points": 1,
+          "domain": "Limites usuelles et à l’infini",
+          "skill": "Réinvestir sans indice",
+          "gap": "",
+          "recommendation": "Après division par x², le quotient tend vers 5/2=2,5.",
+          "image": "",
+          "explanation": "Après division par x², le quotient tend vers 5/2=2,5.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 2.5,
+            "unit": "sans unité",
+            "units": {
+              "sans unité": 1
+            },
+            "absoluteTolerance": 0,
+            "relativeTolerance": 0
+          },
+          "rubric": [
+            {
+              "id": "result",
+              "description": "Valeur exacte",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Rapport des coefficients dominants",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite en écriture décimale",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B5",
+      "text": "Calculer $\\lim_{x\\to-\\infty}\\frac{2x+1}{x^2+3}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Limites usuelles et à l’infini",
+      "skill": "Degré le plus élevé",
+      "gap": "À reprendre : Limites usuelles et à l’infini",
+      "recommendation": "Le signe négatif près de −∞ ne signifie pas que la limite vaut −∞ : la valeur absolue tend vers zéro.",
+      "image": "",
+      "explanation": "En divisant par $x^2$, $(2/x+1/x^2)/(1+3/x^2)\\to0$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B5_support",
+          "text": "Quand $x\\to-\\infty$, $x^4$ tend vers…",
+          "options": [
+            "$-\\infty$",
+            "$0$",
+            "$+\\infty$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Limites usuelles et à l’infini",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "image": "",
+          "explanation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Limites usuelles et à l’infini",
+        "stage": "Degré le plus élevé",
+        "hints": [
+          "Le quotient des termes dominants est 2/x."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Degré le plus élevé",
+            "options": [
+              "Celui du dénominateur",
+              "Celui du numérateur",
+              "Ils sont égaux"
+            ],
+            "accepted": [
+              "Celui du dénominateur"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite",
+            "options": [],
+            "accepted": [
+              "0"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Degré le plus élevé",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B6",
+      "text": "Calculer $\\lim_{x\\to-\\infty}\\frac{x^3+1}{2x^2+1}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Limites usuelles et à l’infini",
+      "skill": "Quotient des termes dominants",
+      "gap": "À reprendre : Limites usuelles et à l’infini",
+      "recommendation": "Un numérateur de degré supérieur ne signifie pas toujours +∞ : le signe compte.",
+      "image": "",
+      "explanation": "Le quotient a le comportement de $x^3/(2x^2)=x/2$, qui tend vers $-\\infty$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "B6_support",
+          "text": "Quand $x\\to-\\infty$, $x^4$ tend vers…",
+          "options": [
+            "$-\\infty$",
+            "$0$",
+            "$+\\infty$"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Limites usuelles et à l’infini",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "image": "",
+          "explanation": "Une puissance paire est positive et augmente sans borne en valeur.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "02 • Limites usuelles et à l’infini",
+        "stage": "Quotient des termes dominants",
+        "hints": [
+          "Compare les degrés, puis le signe du quotient dominant."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Quotient des termes dominants",
+            "options": [
+              "$\\frac1{2x}$",
+              "$\\frac{x}{2}$",
+              "$2x$"
+            ],
+            "accepted": [
+              "$\\frac{x}{2}$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite",
+            "options": [
+              "$0$",
+              "$-\\infty$",
+              "$+\\infty$"
+            ],
+            "accepted": [
+              "$-\\infty$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Quotient des termes dominants",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "text": "Calculer $\\lim_{x\\to3}\\frac{x^2-9}{x-3}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Lever une indétermination",
+      "skill": "Forme avant transformation",
+      "gap": "À reprendre : Lever une indétermination",
+      "recommendation": "0/0 n’est pas une valeur de limite : c’est le signal qu’il faut transformer.",
+      "image": "",
+      "explanation": "$x^2-9=(x-3)(x+3)$. Pour $x\\ne3$, le quotient vaut $x+3$, donc la limite est 6.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C1_support",
+          "text": "Pour calculer $\\lim_{x\\to2}(x^2-4)/(x-2)$, on commence par…",
+          "options": [
+            "Conclure que 0/0 vaut 0",
+            "Factoriser x²−4",
+            "Déclarer que la limite n’existe pas"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Lever une indétermination",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "image": "",
+          "explanation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Lever une indétermination",
+        "stage": "Forme avant transformation",
+        "hints": [
+          "Réutilise la différence de deux carrés."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Forme avant transformation",
+            "options": [
+              "$1/0$",
+              "$0/1$",
+              "$0/0$"
+            ],
+            "accepted": [
+              "$0/0$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite après factorisation",
+            "options": [],
+            "accepted": [
+              "6"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Forme avant transformation",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite après factorisation",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "text": "Calculer $\\lim_{x\\to1}\\frac{x^3-1}{x-1}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Lever une indétermination",
+      "skill": "Expression après simplification",
+      "gap": "À reprendre : Lever une indétermination",
+      "recommendation": "La simplification est valable près de 1, sans exiger que le quotient initial existe en 1.",
+      "image": "",
+      "explanation": "$x^3-1=(x-1)(x^2+x+1)$. Pour $x\\ne1$, le quotient vaut $x^2+x+1\\to3$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C2_support",
+          "text": "Pour calculer $\\lim_{x\\to2}(x^2-4)/(x-2)$, on commence par…",
+          "options": [
+            "Conclure que 0/0 vaut 0",
+            "Factoriser x²−4",
+            "Déclarer que la limite n’existe pas"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Lever une indétermination",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "image": "",
+          "explanation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Lever une indétermination",
+        "stage": "Expression après simplification",
+        "hints": [
+          "Utilise la différence de deux cubes du parcours précédent."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Expression après simplification",
+            "options": [
+              "$x^2+x+1$",
+              "$x^2-1$",
+              "$x^2-x+1$"
+            ],
+            "accepted": [
+              "$x^2+x+1$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite",
+            "options": [],
+            "accepted": [
+              "3"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Expression après simplification",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "text": "Calculer $\\lim_{x\\to0}\\frac{\\sqrt{1+x}-1}{x}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Lever une indétermination",
+      "skill": "Expression après multiplication par la conjuguée",
+      "gap": "À reprendre : Lever une indétermination",
+      "recommendation": "Multiplie le numérateur ET le dénominateur par la même quantité.",
+      "image": "",
+      "explanation": "Pour $x\\ne0$, on multiplie en haut et en bas par $\\sqrt{1+x}+1$. Le numérateur devient x et le quotient devient $1/(\\sqrt{1+x}+1)\\to1/2$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C3_support",
+          "text": "Pour calculer $\\lim_{x\\to2}(x^2-4)/(x-2)$, on commence par…",
+          "options": [
+            "Conclure que 0/0 vaut 0",
+            "Factoriser x²−4",
+            "Déclarer que la limite n’existe pas"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Lever une indétermination",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "image": "",
+          "explanation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Lever une indétermination",
+        "stage": "Expression après multiplication par la conjuguée",
+        "hints": [
+          "(a−b)(a+b)=a²−b²."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Expression après multiplication par la conjuguée",
+            "options": [
+              "$\\frac1{\\sqrt{1+x}-1}$",
+              "$\\sqrt{1+x}+1$",
+              "$\\frac1{\\sqrt{1+x}+1}$"
+            ],
+            "accepted": [
+              "$\\frac1{\\sqrt{1+x}+1}$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite décimale",
+            "options": [],
+            "accepted": [
+              "0.5"
+            ],
+            "points": 0.5
+          }
+        ],
+        "transfer": {
+          "id": "C3_transfer",
+          "text": "Calculer $\\lim_{x\\to0}(\\sqrt{4+x}-2)/x$.",
+          "options": [],
+          "correct": -1,
+          "correct_options": [],
+          "points": 1,
+          "domain": "Lever une indétermination",
+          "skill": "Réinvestir sans indice",
+          "gap": "",
+          "recommendation": "La conjuguée donne 1/(√(4+x)+2)→1/4.",
+          "image": "",
+          "explanation": "La conjuguée donne 1/(√(4+x)+2)→1/4.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 0.25,
+            "unit": "sans unité",
+            "units": {
+              "sans unité": 1
+            },
+            "absoluteTolerance": 0,
+            "relativeTolerance": 0
+          },
+          "rubric": [
+            {
+              "id": "result",
+              "description": "Valeur exacte",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Expression après multiplication par la conjuguée",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite décimale",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "text": "Calculer $\\lim_{x\\to+\\infty}(\\sqrt{x^2+1}-x)$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Lever une indétermination",
+      "skill": "Expression équivalente pour le calcul",
+      "gap": "À reprendre : Lever une indétermination",
+      "recommendation": "Ne soustrais pas deux infinis comme deux nombres ordinaires.",
+      "image": "",
+      "explanation": "La forme $+\\infty-\\infty$ est indéterminée. La conjuguée donne $1/(\\sqrt{x^2+1}+x)$, dont le dénominateur tend vers $+\\infty$. La limite vaut 0.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C4_support",
+          "text": "Pour calculer $\\lim_{x\\to2}(x^2-4)/(x-2)$, on commence par…",
+          "options": [
+            "Conclure que 0/0 vaut 0",
+            "Factoriser x²−4",
+            "Déclarer que la limite n’existe pas"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Lever une indétermination",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "image": "",
+          "explanation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Lever une indétermination",
+        "stage": "Expression équivalente pour le calcul",
+        "hints": [
+          "Multiplie et divise par √(x²+1)+x."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Expression équivalente pour le calcul",
+            "options": [
+              "$1$",
+              "$\\frac1{\\sqrt{x^2+1}+x}$",
+              "$\\frac1{\\sqrt{x^2+1}-x}$"
+            ],
+            "accepted": [
+              "$\\frac1{\\sqrt{x^2+1}+x}$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite",
+            "options": [],
+            "accepted": [
+              "0"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Expression équivalente pour le calcul",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "text": "Calculer $\\lim_{x\\to-\\infty}\\frac{\\sqrt{x^2+1}}{x}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Lever une indétermination",
+      "skill": "Pour x < 0, √(x²) vaut…",
+      "gap": "À reprendre : Lever une indétermination",
+      "recommendation": "Le radical est positif, le dénominateur négatif : une limite +1 serait incohérente.",
+      "image": "",
+      "explanation": "$\\sqrt{x^2+1}=|x|\\sqrt{1+1/x^2}$. Pour $x<0$, $|x|=-x$ : le quotient vaut $-\\sqrt{1+1/x^2}\\to-1$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C5_support",
+          "text": "Pour calculer $\\lim_{x\\to2}(x^2-4)/(x-2)$, on commence par…",
+          "options": [
+            "Conclure que 0/0 vaut 0",
+            "Factoriser x²−4",
+            "Déclarer que la limite n’existe pas"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Lever une indétermination",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "image": "",
+          "explanation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Lever une indétermination",
+        "stage": "Pour x < 0, √(x²) vaut…",
+        "hints": [
+          "Toujours écrire √(x²)=|x| avant de discuter le signe."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Pour x < 0, √(x²) vaut…",
+            "options": [
+              "$x$",
+              "$-x$",
+              "$x^2$"
+            ],
+            "accepted": [
+              "$-x$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite",
+            "options": [],
+            "accepted": [
+              "-1"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Pour x < 0, √(x²) vaut…",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "text": "On pose $f(x)=|x|/x$ pour $x\\ne0$. Étudier la limite en zéro.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Lever une indétermination",
+      "skill": "Limite à gauche",
+      "gap": "À reprendre : Lever une indétermination",
+      "recommendation": "La moyenne des deux limites latérales n’est pas la limite de la fonction.",
+      "image": "",
+      "explanation": "Pour $x<0$, $|x|/x=-1$ ; pour $x>0$, il vaut 1. Les limites latérales sont différentes : il n’y a pas de limite bilatérale en zéro.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "C6_support",
+          "text": "Pour calculer $\\lim_{x\\to2}(x^2-4)/(x-2)$, on commence par…",
+          "options": [
+            "Conclure que 0/0 vaut 0",
+            "Factoriser x²−4",
+            "Déclarer que la limite n’existe pas"
+          ],
+          "correct": 1,
+          "correct_options": [
+            1
+          ],
+          "points": 1,
+          "domain": "Lever une indétermination",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "image": "",
+          "explanation": "Factoriser puis simplifier pour x≠2 donne x+2, de limite 4.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "03 • Lever une indétermination",
+        "stage": "Limite à gauche",
+        "hints": [
+          "Traite séparément les deux signes de x."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite à gauche",
+            "options": [],
+            "accepted": [
+              "-1"
+            ],
+            "points": 0.3333333333333333
+          },
+          {
+            "id": "s2",
+            "label": "Limite à droite",
+            "options": [],
+            "accepted": [
+              "1"
+            ],
+            "points": 0.3333333333333333
+          },
+          {
+            "id": "s3",
+            "label": "Limite bilatérale",
+            "options": [
+              "0",
+              "1",
+              "N’existe pas"
+            ],
+            "accepted": [
+              "N’existe pas"
+            ],
+            "points": 0.3333333333333333
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite à gauche",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite à droite",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "s3",
+          "description": "Limite bilatérale",
+          "points": 0.3333333333333333,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "text": "Étudier $f(x)=\\frac{x+1}{x-2}$ près de $2$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Signes, trigonométrie et comparaison",
+      "skill": "Limite quand x → 2⁻",
+      "gap": "À reprendre : Signes, trigonométrie et comparaison",
+      "recommendation": "« Division par zéro » ne donne pas une réponse unique : examine les côtés et les signes.",
+      "image": "",
+      "explanation": "Le numérateur tend vers 3 et reste positif près de 2. Le dénominateur tend vers $0^-$ à gauche et $0^+$ à droite. On obtient respectivement $-\\infty$ et $+\\infty$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D1_support",
+          "text": "En radians, $\\lim_{x\\to0}\\sin(5x)/x$ vaut…",
+          "options": [
+            "1",
+            "0",
+            "5"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Signes, trigonométrie et comparaison",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "image": "",
+          "explanation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Signes, trigonométrie et comparaison",
+        "stage": "Limite quand x → 2⁻",
+        "hints": [
+          "Le signe du dénominateur change au passage de 2."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite quand x → 2⁻",
+            "options": [
+              "$0$",
+              "$+\\infty$",
+              "$-\\infty$"
+            ],
+            "accepted": [
+              "$-\\infty$"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite quand x → 2⁺",
+            "options": [
+              "$0$",
+              "$-\\infty$",
+              "$+\\infty$"
+            ],
+            "accepted": [
+              "$+\\infty$"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite quand x → 2⁻",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite quand x → 2⁺",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "text": "Choisir, pour chaque forme, si les seules limites des facteurs permettent de conclure. Les notations avec ∞ décrivent des comportements, pas des opérations sur des nombres.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Signes, trigonométrie et comparaison",
+      "skill": "0 × (+∞)",
+      "gap": "À reprendre : Signes, trigonométrie et comparaison",
+      "recommendation": "Par exemple, quand x→+∞ : (1/x)×x=1, mais (1/x²)×x→0. La même forme peut donner des résultats différents.",
+      "image": "",
+      "explanation": "Les formes $0\\times\\infty$ et $\\infty-\\infty$ ne déterminent pas la limite. En revanche, un facteur tendant vers 2 multiplié par une quantité tendant vers $+\\infty$ donne $+\\infty$ ; un numérateur tendant vers 5 divisé par une quantité tendant vers $+\\infty$ donne 0.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D2_support",
+          "text": "En radians, $\\lim_{x\\to0}\\sin(5x)/x$ vaut…",
+          "options": [
+            "1",
+            "0",
+            "5"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Signes, trigonométrie et comparaison",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "image": "",
+          "explanation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Signes, trigonométrie et comparaison",
+        "stage": "0 × (+∞)",
+        "hints": [
+          "Une forme indéterminée appelle une transformation ou une comparaison."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "0 × (+∞)",
+            "options": [
+              "Vaut toujours +∞",
+              "Indéterminée",
+              "Vaut toujours 0"
+            ],
+            "accepted": [
+              "Indéterminée"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "(+∞) − (+∞)",
+            "options": [
+              "Vaut toujours +∞",
+              "Vaut toujours 0",
+              "Indéterminée"
+            ],
+            "accepted": [
+              "Indéterminée"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s3",
+            "label": "2 × (+∞)",
+            "options": [
+              "$-\\infty$",
+              "$+\\infty$",
+              "Indéterminée"
+            ],
+            "accepted": [
+              "$+\\infty$"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s4",
+            "label": "5 / (+∞)",
+            "options": [
+              "$0$",
+              "Indéterminée",
+              "$5$"
+            ],
+            "accepted": [
+              "$0$"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "0 × (+∞)",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "(+∞) − (+∞)",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s3",
+          "description": "2 × (+∞)",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s4",
+          "description": "5 / (+∞)",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "text": "Angles en radians. Calculer les limites quand $x\\to0$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Signes, trigonométrie et comparaison",
+      "skill": "Limite de sin(3x)/x",
+      "gap": "À reprendre : Signes, trigonométrie et comparaison",
+      "recommendation": "La formule usuelle exige des angles en radians et le même argument au numérateur et au dénominateur.",
+      "image": "",
+      "explanation": "$\\sin(3x)/x=3\\,\\sin(3x)/(3x)\\to3$. De même, $\\tan(2x)/x=2\\,\\tan(2x)/(2x)\\to2$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D3_support",
+          "text": "En radians, $\\lim_{x\\to0}\\sin(5x)/x$ vaut…",
+          "options": [
+            "1",
+            "0",
+            "5"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Signes, trigonométrie et comparaison",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "image": "",
+          "explanation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Signes, trigonométrie et comparaison",
+        "stage": "Limite de sin(3x)/x",
+        "hints": [
+          "Ramène chaque quotient à sin(u)/u ou tan(u)/u avec u→0."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite de sin(3x)/x",
+            "options": [],
+            "accepted": [
+              "3"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite de tan(2x)/x",
+            "options": [],
+            "accepted": [
+              "2"
+            ],
+            "points": 0.5
+          }
+        ],
+        "transfer": {
+          "id": "D3_transfer",
+          "text": "En radians, calculer $\\lim_{x\\to0}\\sin(4x)/(2x)$.",
+          "options": [],
+          "correct": -1,
+          "correct_options": [],
+          "points": 1,
+          "domain": "Signes, trigonométrie et comparaison",
+          "skill": "Réinvestir sans indice",
+          "gap": "",
+          "recommendation": "sin(4x)/(2x)=2×sin(4x)/(4x)→2.",
+          "image": "",
+          "explanation": "sin(4x)/(2x)=2×sin(4x)/(4x)→2.",
+          "support_path": "",
+          "practice": [],
+          "response_type": "numeric",
+          "numeric": {
+            "value": 2,
+            "unit": "sans unité",
+            "units": {
+              "sans unité": 1
+            },
+            "absoluteTolerance": 0,
+            "relativeTolerance": 0
+          },
+          "rubric": [
+            {
+              "id": "result",
+              "description": "Valeur exacte",
+              "points": 1,
+              "automatic": true
+            }
+          ]
+        }
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite de sin(3x)/x",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite de tan(2x)/x",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "text": "Angles en radians. Calculer $\\lim_{x\\to0}\\frac{1-\\cos(2x)}{x^2}$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Signes, trigonométrie et comparaison",
+      "skill": "Facteur pour faire apparaître (2x)² au dénominateur",
+      "gap": "À reprendre : Signes, trigonométrie et comparaison",
+      "recommendation": "Le facteur est 2²=4, pas 2.",
+      "image": "",
+      "explanation": "$\\frac{1-\\cos(2x)}{x^2}=4\\frac{1-\\cos(2x)}{(2x)^2}\\to4\\times\\frac12=2$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D4_support",
+          "text": "En radians, $\\lim_{x\\to0}\\sin(5x)/x$ vaut…",
+          "options": [
+            "1",
+            "0",
+            "5"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Signes, trigonométrie et comparaison",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "image": "",
+          "explanation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Signes, trigonométrie et comparaison",
+        "stage": "Facteur pour faire apparaître (2x)² au dénominateur",
+        "hints": [
+          "Utilise (1−cos u)/u²→1/2 avec u=2x."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Facteur pour faire apparaître (2x)² au dénominateur",
+            "options": [],
+            "accepted": [
+              "4"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s2",
+            "label": "Limite",
+            "options": [],
+            "accepted": [
+              "2"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Facteur pour faire apparaître (2x)² au dénominateur",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "text": "Pour $x>0$, $-1/x\\leq\\sin(x)/x\\leq1/x$. En déduire la limite quand $x\\to+\\infty$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Signes, trigonométrie et comparaison",
+      "skill": "Limite des deux bornes",
+      "gap": "À reprendre : Signes, trigonométrie et comparaison",
+      "recommendation": "La convergence du quotient ne nécessite pas que sin(x) ait lui-même une limite.",
+      "image": "images/math_limits/encadrement.png",
+      "explanation": "$-1\\leq\\sin x\\leq1$. Pour x positif, on divise sans changer le sens. Les deux bornes tendent vers 0, donc $\\sin x/x\\to0$, même si $\\sin x$ n’a pas de limite en $+\\infty$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D5_support",
+          "text": "En radians, $\\lim_{x\\to0}\\sin(5x)/x$ vaut…",
+          "options": [
+            "1",
+            "0",
+            "5"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Signes, trigonométrie et comparaison",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "image": "",
+          "explanation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Signes, trigonométrie et comparaison",
+        "stage": "Limite des deux bornes",
+        "hints": [
+          "Les oscillations sont enfermées entre deux bornes qui se rapprochent."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite des deux bornes",
+            "options": [],
+            "accepted": [
+              "0"
+            ],
+            "points": 0.3333333333333333
+          },
+          {
+            "id": "s2",
+            "label": "Limite de sin(x)/x",
+            "options": [],
+            "accepted": [
+              "0"
+            ],
+            "points": 0.3333333333333333
+          },
+          {
+            "id": "s3",
+            "label": "Justification",
+            "options": [
+              "sin(x) tend vers 0",
+              "Théorème des gendarmes",
+              "On remplace sin(x) par 1"
+            ],
+            "accepted": [
+              "Théorème des gendarmes"
+            ],
+            "points": 0.3333333333333333
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite des deux bornes",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite de sin(x)/x",
+          "points": 0.3333333333333333,
+          "automatic": true
+        },
+        {
+          "id": "s3",
+          "description": "Justification",
+          "points": 0.3333333333333333,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "text": "Dernier défi : pour $x>0$, $F(x)=\\sqrt{4+\\frac1x}+\\frac{2x+1}{x^2+1}$. Calculer sa limite en $+\\infty$.",
+      "options": [],
+      "correct": -1,
+      "correct_options": [],
+      "points": 1,
+      "domain": "Signes, trigonométrie et comparaison",
+      "skill": "Limite de 4+1/x",
+      "gap": "À reprendre : Signes, trigonométrie et comparaison",
+      "recommendation": "Vérifie que le radical est défini : pour x>0, 4+1/x>0.",
+      "image": "",
+      "explanation": "$1/x\\to0$, donc $\\sqrt{4+1/x}\\to2$. Le quotient rationnel tend vers 0 car le degré du dénominateur est supérieur. La somme tend vers $2+0=2$.",
+      "support_path": "",
+      "practice": [
+        {
+          "id": "D6_support",
+          "text": "En radians, $\\lim_{x\\to0}\\sin(5x)/x$ vaut…",
+          "options": [
+            "1",
+            "0",
+            "5"
+          ],
+          "correct": 2,
+          "correct_options": [
+            2
+          ],
+          "points": 1,
+          "domain": "Signes, trigonométrie et comparaison",
+          "skill": "Vérifier sur un autre exemple",
+          "gap": "",
+          "recommendation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "image": "",
+          "explanation": "sin(5x)/x=5×sin(5x)/(5x)→5.",
+          "support_path": "",
+          "practice": []
+        }
+      ],
+      "response_type": "slots",
+      "learning": {
+        "group": "04 • Signes, trigonométrie et comparaison",
+        "stage": "Limite de 4+1/x",
+        "hints": [
+          "Calcule séparément les deux limites puis additionne-les."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Limite de 4+1/x",
+            "options": [],
+            "accepted": [
+              "4"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Limite du radical",
+            "options": [],
+            "accepted": [
+              "2"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s3",
+            "label": "Limite du quotient",
+            "options": [],
+            "accepted": [
+              "0"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s4",
+            "label": "Limite de F",
+            "options": [],
+            "accepted": [
+              "2"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Limite de 4+1/x",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Limite du radical",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s3",
+          "description": "Limite du quotient",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s4",
+          "description": "Limite de F",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    }
+  ]
+}
