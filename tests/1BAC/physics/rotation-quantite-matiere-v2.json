@@ -1,0 +1,334 @@
+{
+  "id": "pc_rotation_quantite_matiere_v2",
+  "title": "Devoir 2 — Rotation et quantité de matière",
+  "subject": "physics",
+  "subject_label": "Physique-Chimie",
+  "level": "1BAC",
+  "type": "formative",
+  "type_label": "Évaluation formative",
+  "duration": 25,
+  "version": 1,
+  "questions_count": 20,
+  "questions": [
+    {
+      "id": "q01",
+      "text": "Un disque effectue 45 tours par minute. Sa fréquence est :",
+      "options": [
+        "0,75 Hz",
+        "1,33 Hz",
+        "45 Hz",
+        "2,0 Hz"
+      ],
+      "correct": 0,
+      "difficulty": "moyen",
+      "topic": "Rotation uniforme",
+      "gap": "Convertir les tours par minute en tours par seconde.",
+      "recommendation": "f=45/60=0,75 Hz.",
+      "explanation": "f=45/60=0,75 Hz."
+    },
+    {
+      "id": "q02",
+      "text": "Pour f=0,75 Hz, la période vaut :",
+      "options": [
+        "0,75 s",
+        "1,33 s",
+        "4,71 s",
+        "60 s"
+      ],
+      "correct": 1,
+      "difficulty": "moyen",
+      "topic": "Rotation uniforme",
+      "gap": "Utiliser T=1/f.",
+      "recommendation": "T=1/f≈1,33 s.",
+      "explanation": "T=1/f≈1,33 s."
+    },
+    {
+      "id": "q03",
+      "text": "Pour f=0,75 Hz, la vitesse angulaire vaut environ :",
+      "options": [
+        "0,75 rad·s⁻¹",
+        "1,50 rad·s⁻¹",
+        "4,71 rad·s⁻¹",
+        "9,42 rad·s⁻¹"
+      ],
+      "correct": 2,
+      "difficulty": "moyen",
+      "topic": "Rotation uniforme",
+      "gap": "Utiliser ω=2πf.",
+      "recommendation": "ω=2πf≈4,71 rad·s⁻¹.",
+      "explanation": "ω=2πf≈4,71 rad·s⁻¹."
+    },
+    {
+      "id": "q04",
+      "text": "Un point à r=0,12 m tourne avec ω=4,71 rad·s⁻¹. Sa vitesse est :",
+      "options": [
+        "0,39 m·s⁻¹",
+        "0,57 m·s⁻¹",
+        "4,71 m·s⁻¹",
+        "39,3 m·s⁻¹"
+      ],
+      "correct": 1,
+      "difficulty": "moyen",
+      "topic": "Rotation uniforme",
+      "gap": "Utiliser v=rω après conversion du rayon.",
+      "recommendation": "v=rω≈0,57 m·s⁻¹.",
+      "explanation": "v=rω≈0,57 m·s⁻¹."
+    },
+    {
+      "id": "q05",
+      "text": "En 10 s, un plateau à 0,75 Hz effectue :",
+      "options": [
+        "0,075 tour",
+        "0,75 tour",
+        "7,5 tours",
+        "75 tours"
+      ],
+      "correct": 2,
+      "difficulty": "moyen",
+      "topic": "Rotation uniforme",
+      "gap": "Multiplier la fréquence par la durée.",
+      "recommendation": "N=fΔt=7,5 tours.",
+      "explanation": "N=fΔt=7,5 tours."
+    },
+    {
+      "id": "q06",
+      "text": "L’angle augmente de 0,80 rad en 0,20 s. ω vaut :",
+      "options": [
+        "0,16",
+        "2,0",
+        "4,0",
+        "8,0 rad·s⁻¹"
+      ],
+      "correct": 2,
+      "difficulty": "difficile",
+      "topic": "Rotation uniforme",
+      "gap": "La pente de θ(t) est la vitesse angulaire.",
+      "recommendation": "ω=Δθ/Δt=4,0 rad·s⁻¹.",
+      "explanation": "ω=Δθ/Δt=4,0 rad·s⁻¹."
+    },
+    {
+      "id": "q07",
+      "text": "Si θ₀=0,30 rad et ω=4,0 rad·s⁻¹, θ(t) vaut :",
+      "options": [
+        "4t",
+        "0,30+4t",
+        "4+0,30t",
+        "0,30t+4"
+      ],
+      "correct": 1,
+      "difficulty": "difficile",
+      "topic": "Rotation uniforme",
+      "gap": "Repérer la valeur initiale et la pente.",
+      "recommendation": "θ(t)=θ₀+ωt=0,30+4t.",
+      "explanation": "θ(t)=θ₀+ωt=0,30+4t."
+    },
+    {
+      "id": "q08",
+      "text": "Pour θ₀=0,30 rad et ω=4,0 rad·s⁻¹, quand θ atteint 2π rad ?",
+      "options": [
+        "1,20 s",
+        "1,50 s",
+        "1,57 s",
+        "6,28 s"
+      ],
+      "correct": 1,
+      "difficulty": "difficile",
+      "topic": "Rotation uniforme",
+      "gap": "Résoudre 0,30+4t=2π.",
+      "recommendation": "t=(2π−0,30)/4≈1,50 s.",
+      "explanation": "t=(2π−0,30)/4≈1,50 s."
+    },
+    {
+      "id": "q09",
+      "text": "Pour r=0,15 m et ω=4,0 rad·s⁻¹, v vaut :",
+      "options": [
+        "0,0375",
+        "0,60",
+        "4,15",
+        "26,7 m·s⁻¹"
+      ],
+      "correct": 1,
+      "difficulty": "difficile",
+      "topic": "Rotation uniforme",
+      "gap": "Calculer le produit rω.",
+      "recommendation": "v=rω=0,60 m·s⁻¹.",
+      "explanation": "v=rω=0,60 m·s⁻¹."
+    },
+    {
+      "id": "q10",
+      "text": "À ω=4 rad·s⁻¹, quelle distance parcourt en 2 s un point à r=0,15 m ?",
+      "options": [
+        "0,30 m",
+        "0,60 m",
+        "1,20 m",
+        "8,0 m"
+      ],
+      "correct": 2,
+      "difficulty": "difficile",
+      "topic": "Rotation uniforme",
+      "gap": "Utiliser s=vt et v=rω.",
+      "recommendation": "s=rωt=1,20 m.",
+      "explanation": "s=rωt=1,20 m."
+    },
+    {
+      "id": "q11",
+      "text": "La masse molaire de C₂H₆O est : (C=12, H=1, O=16)",
+      "options": [
+        "30",
+        "44",
+        "46",
+        "48 g·mol⁻¹"
+      ],
+      "correct": 2,
+      "difficulty": "moyen",
+      "topic": "Quantité de matière",
+      "gap": "Additionner les masses molaires atomiques.",
+      "recommendation": "M=2×12+6×1+16=46 g·mol⁻¹.",
+      "explanation": "M=2×12+6×1+16=46 g·mol⁻¹."
+    },
+    {
+      "id": "q12",
+      "text": "ρ=0,79 g·mL⁻¹ et V=10,0 mL. La masse vaut :",
+      "options": [
+        "0,079 g",
+        "0,79 g",
+        "7,9 g",
+        "79 g"
+      ],
+      "correct": 2,
+      "difficulty": "moyen",
+      "topic": "Grandeurs physiques",
+      "gap": "Utiliser m=ρV.",
+      "recommendation": "m=ρV=7,9 g.",
+      "explanation": "m=ρV=7,9 g."
+    },
+    {
+      "id": "q13",
+      "text": "n pour 7,9 g d’éthanol (M=46 g·mol⁻¹) vaut environ :",
+      "options": [
+        "0,017 mol",
+        "0,172 mol",
+        "5,82 mol",
+        "364 mol"
+      ],
+      "correct": 1,
+      "difficulty": "moyen",
+      "topic": "Quantité de matière",
+      "gap": "Utiliser n=m/M.",
+      "recommendation": "n=m/M≈0,172 mol.",
+      "explanation": "n=m/M≈0,172 mol."
+    },
+    {
+      "id": "q14",
+      "text": "Le nombre de molécules dans 0,172 mol est environ : (Nₐ=6,02×10²³)",
+      "options": [
+        "1,03×10²²",
+        "1,03×10²³",
+        "3,50×10²³",
+        "6,02×10²³"
+      ],
+      "correct": 1,
+      "difficulty": "moyen",
+      "topic": "Quantité de matière",
+      "gap": "Multiplier n par la constante d’Avogadro.",
+      "recommendation": "N=nNₐ≈1,03×10²³.",
+      "explanation": "N=nNₐ≈1,03×10²³."
+    },
+    {
+      "id": "q15",
+      "text": "27 °C correspond à quelle température absolue ?",
+      "options": [
+        "27 K",
+        "246 K",
+        "300 K",
+        "310 K"
+      ],
+      "correct": 2,
+      "difficulty": "moyen",
+      "topic": "Grandeurs physiques",
+      "gap": "Ajouter 273 à la température Celsius.",
+      "recommendation": "T=θ+273=300 K.",
+      "explanation": "T=θ+273=300 K."
+    },
+    {
+      "id": "q16",
+      "text": "Avec R=8,314 en unités SI, les unités cohérentes de P, V, T sont :",
+      "options": [
+        "Pa, m³, K",
+        "bar, L, °C",
+        "Pa, L, °C",
+        "atm, mL, K"
+      ],
+      "correct": 0,
+      "difficulty": "difficile",
+      "topic": "Gaz parfait",
+      "gap": "Vérifier la cohérence avec R.",
+      "recommendation": "Employer Pa, m³ et K.",
+      "explanation": "Employer Pa, m³ et K."
+    },
+    {
+      "id": "q17",
+      "text": "P=1,50×10⁵ Pa, V=3,00 L et T=300 K. n vaut environ :",
+      "options": [
+        "0,0180 mol",
+        "0,180 mol",
+        "1,80 mol",
+        "18,0 mol"
+      ],
+      "correct": 1,
+      "difficulty": "difficile",
+      "topic": "Gaz parfait",
+      "gap": "Convertir le volume en m³.",
+      "recommendation": "n=PV/RT≈0,180 mol après conversion de V en m³.",
+      "explanation": "n=PV/RT≈0,180 mol après conversion de V en m³."
+    },
+    {
+      "id": "q18",
+      "text": "P₁=1,50×10⁵ Pa, V₁=3,00 L, V₂=1,00 L à T constante. P₂ vaut :",
+      "options": [
+        "5,00×10⁴",
+        "1,50×10⁵",
+        "4,50×10⁵",
+        "9,00×10⁵ Pa"
+      ],
+      "correct": 2,
+      "difficulty": "difficile",
+      "topic": "Transformation isotherme",
+      "gap": "Loi de Boyle-Mariotte.",
+      "recommendation": "P₁V₁=P₂V₂, donc P₂=4,50×10⁵ Pa.",
+      "explanation": "P₁V₁=P₂V₂, donc P₂=4,50×10⁵ Pa."
+    },
+    {
+      "id": "q19",
+      "text": "À volume constant, P₂=4,50×10⁵ Pa à 300 K. À 450 K, P₃ vaut :",
+      "options": [
+        "3,00×10⁵",
+        "4,50×10⁵",
+        "6,00×10⁵",
+        "6,75×10⁵ Pa"
+      ],
+      "correct": 3,
+      "difficulty": "difficile",
+      "topic": "Transformation à volume constant",
+      "gap": "La pression est proportionnelle à T en kelvins.",
+      "recommendation": "P/T constant : P₃=P₂×450/300=6,75×10⁵ Pa.",
+      "explanation": "P/T constant : P₃=P₂×450/300=6,75×10⁵ Pa."
+    },
+    {
+      "id": "q20",
+      "text": "Pour n=0,180 mol de CH₄ (M=16 g·mol⁻¹), la masse vaut :",
+      "options": [
+        "0,0113 g",
+        "2,88 g",
+        "16,0 g",
+        "88,9 g"
+      ],
+      "correct": 1,
+      "difficulty": "difficile",
+      "topic": "Quantité de matière",
+      "gap": "Calculer m=nM.",
+      "recommendation": "m=nM=2,88 g.",
+      "explanation": "m=nM=2,88 g."
+    }
+  ]
+}
