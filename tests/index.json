@@ -1,17 +1,17 @@
 {
-  "generated": "2026-11-16",
+  "generated": "2026-11-21",
   "tests": [
     {
-  "id": "2BACPC_NUCLEAIRE_CH4_CH5_2026",
-  "title": "Transformations nucléaires — Décroissance, masse et énergie",
-  "subject": "الفيزياء والكيمياء",
-  "level": "2BACPC",
-  "type": "practice",
-  "type_label": "تدريب وتقويم • التحولات النووية",
-  "duration": 90,
-  "path": "2BACPC/physics/nucleaire_ch4_ch5_2026.json",
-  "questions_count": 40
-},
+      "id": "2BACPC_NUCLEAIRE_CH4_CH5_2026",
+      "title": "Transformations nucléaires — Décroissance, masse et énergie",
+      "subject": "الفيزياء والكيمياء",
+      "level": "2BACPC",
+      "type": "practice",
+      "type_label": "تدريب وتقويم • التحولات النووية",
+      "duration": 90,
+      "path": "2BACPC/physics/nucleaire_ch4_ch5_2026.json",
+      "questions_count": 40
+    },
     {
       "id": "2BACPC_PC_DIAG_2025",
       "title": "الاختبار التشخيصي في مادة الفيزياء والكيمياء",
@@ -24,48 +24,48 @@
       "questions_count": 20
     },
     {
-  "id": "2BACPC_DM1_2026_MIXED",
-  "title": "Devoir maison 1 — Ondes, diffraction et cinétique (20 points)",
-  "subject": "الفيزياء والكيمياء",
-  "level": "2BAC",
-  "type": "practice",
-  "type_label": "فرض منزلي • أجوبة محررة",
-  "duration": 120,
-  "path": "2BACPC/physics/dm1_2026_mixed.json",
-  "questions_count": 34
+      "id": "2BACPC_DM1_2026_MIXED",
+      "title": "Devoir maison 1 — Ondes, diffraction et cinétique (20 points)",
+      "subject": "الفيزياء والكيمياء",
+      "level": "2BAC",
+      "type": "practice",
+      "type_label": "فرض منزلي • أجوبة محررة",
+      "duration": 120,
+      "path": "2BACPC/physics/dm1_2026_mixed.json",
+      "questions_count": 34
     },
     {
-  "id": "2BACPC_MATH_SIGNES_BASES_2026",
-  "title": "Maths • Signes et trinômes : comprendre pas à pas",
-  "subject": "الرياضيات",
-  "level": "2BAC",
-  "type": "practice",
-  "type_label": "تدريب المفاهيم الأساسية",
-  "duration": 50,
-  "path": "2BACPC/math/signes_bases_2026.json",
-  "questions_count": 30
+      "id": "2BACPC_MATH_SIGNES_BASES_2026",
+      "title": "Maths • Signes et trinômes : comprendre pas à pas",
+      "subject": "الرياضيات",
+      "level": "2BAC",
+      "type": "practice",
+      "type_label": "تدريب المفاهيم الأساسية",
+      "duration": 50,
+      "path": "2BACPC/math/signes_bases_2026.json",
+      "questions_count": 30
     },
     {
-  "id": "2BACPC_MATH_IDENTITES_DOMAINES_2026",
-  "title": "Maths • Identités et domaines : comprendre pas à pas",
-  "subject": "الرياضيات",
-  "level": "2BAC",
-  "type": "practice",
-  "type_label": "تدريب المفاهيم الأساسية",
-  "duration": 55,
-  "path": "2BACPC/math/identites_domaines_2026.json",
-  "questions_count": 24
+      "id": "2BACPC_MATH_IDENTITES_DOMAINES_2026",
+      "title": "Maths • Identités et domaines : comprendre pas à pas",
+      "subject": "الرياضيات",
+      "level": "2BAC",
+      "type": "practice",
+      "type_label": "تدريب المفاهيم الأساسية",
+      "duration": 55,
+      "path": "2BACPC/math/identites_domaines_2026.json",
+      "questions_count": 24
     },
     {
-  "id": "2BACPC_MATH_LIMITES_2026",
-  "title": "Maths • Limites : comprendre avant de calculer",
-  "subject": "الرياضيات",
-  "level": "2BAC",
-  "type": "practice",
-  "type_label": "تدريب المفاهيم الأساسية",
-  "duration": 60,
-  "path": "2BACPC/math/limites_2026.json",
-  "questions_count": 24
+      "id": "2BACPC_MATH_LIMITES_2026",
+      "title": "Maths • Limites : comprendre avant de calculer",
+      "subject": "الرياضيات",
+      "level": "2BAC",
+      "type": "practice",
+      "type_label": "تدريب المفاهيم الأساسية",
+      "duration": 60,
+      "path": "2BACPC/math/limites_2026.json",
+      "questions_count": 24
     },
     {
       "id": "2BAC_PHYS_ONDES_DIAG_2026",
@@ -123,15 +123,15 @@
       "questions_count": 5
     },
     {
-  "id": "pc_rotation_quantite_matiere_v2",
-  "title": "Devoir 2 — Rotation et quantité de matière",
-  "subject": "الفيزياء والكيمياء",
-  "level": "1BAC",
-  "type": "formative",
-  "type_label": "تشخيصي ودعم",
-  "duration": 90,
-  "path": "tests/1BAC/physics/rotation-quantite-matiere-v2.json",
-  "questions_count": 20
+      "id": "pc_rotation_quantite_matiere_v2",
+      "title": "Devoir 2 — Rotation et quantité de matière",
+      "subject": "الفيزياء والكيمياء",
+      "level": "1BAC",
+      "type": "formative",
+      "type_label": "تشخيصي ودعم",
+      "duration": 90,
+      "path": "1BAC/physics/rotation-quantite-matiere-v2.json",
+      "questions_count": 20
     },
     {
       "id": "1BAC_PC_DIAG_2025",
@@ -144,7 +144,7 @@
       "path": "1BAC/physics/diag_2025.json",
       "questions_count": 20
     },
-        {
+    {
       "id": "2BAC_PHYS_ROTATION_SOLIDE_2026",
       "title": "تقويم المكتسبات والدعم: حركة دوران جسم صلب حول محور ثابت",
       "subject": "الفيزياء والكيمياء",
@@ -155,7 +155,7 @@
       "path": "1BAC/physics/2BAC_PHYS_ROTATION_SOLIDE_2026.json",
       "questions_count": 5
     },
-            {
+    {
       "id": "2BAC_CHEM_GRANDEURS_PHYSIQUES_2026",
       "title": "تقويم المكتسبات والدعم: المقادير الفيزيائية المرتبطة بكمية المادة",
       "subject": "الفيزياء والكيمياء",
@@ -199,13 +199,13 @@
       "path": "TCS/physics/diag_2025.json",
       "questions_count": 20
     },
-        {
+    {
       "id": "TC_PHYS_GRAVITATION_UNIVERSELLE_2026",
       "title": "تقويم المكتسبات والدعم: درس الجاذبية الكونية",
       "subject": "الفيزياء والكيمياء",
       "level": "TCS",
       "type": "diagnostic",
-      "type_label": " تشخيصي ودعم",
+      "type_label": "تشخيصي ودعم",
       "duration": 20,
       "path": "TCS/physics/TC_PHYS_GRAVITATION_UNIVERSELLE_2026.json",
       "questions_count": 5
