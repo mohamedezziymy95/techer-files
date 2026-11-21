@@ -1,0 +1,1351 @@
+{
+  "id": "2BACPC_BILAN_PHYS_CHIM_NOV2026",
+  "title": "Bilan des acquis — Ondes, cinétique et transformations nucléaires",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BACPC",
+  "type": "diagnostic",
+  "type_label": "تقويم حصيلة المكتسبات • تقرير حسب المجالات",
+  "duration": 75,
+  "version": "1.0",
+  "schema_version": 3,
+  "questions": [
+    {
+      "id": "BIL01",
+      "text": "Une onde mécanique progressive de faible amplitude transporte, dans le modèle étudié :",
+      "domain": "Ondes mécaniques progressives",
+      "skill": "Nature d’une onde mécanique",
+      "points": 0.5,
+      "options": [
+        "de l’énergie sans transport global de matière.",
+        "uniquement des électrons.",
+        "de la matière de la source au récepteur."
+      ],
+      "correct": 0,
+      "response_type": "choice",
+      "explanation": "La perturbation et l’énergie se propagent ; les éléments du milieu oscillent autour de leur position d’équilibre.",
+      "gap": "À renforcer : Nature d’une onde mécanique",
+      "recommendation": "Distinguer le déplacement local du milieu et la propagation de la perturbation.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Distinguer le déplacement local du milieu et la propagation de la perturbation."
+        ],
+        "group": "Ondes mécaniques progressives",
+        "stage": "Nature d’une onde mécanique"
+      }
+    },
+    {
+      "id": "BIL02",
+      "text": "Une corde est perturbée verticalement ; la perturbation se propage horizontalement. L’onde est :",
+      "domain": "Ondes mécaniques progressives",
+      "skill": "Direction de la perturbation",
+      "points": 0.5,
+      "options": [
+        "longitudinale.",
+        "électromagnétique.",
+        "transversale."
+      ],
+      "correct": 2,
+      "response_type": "choice",
+      "explanation": "La perturbation est perpendiculaire à la propagation : onde transversale.",
+      "gap": "À renforcer : Direction de la perturbation",
+      "recommendation": "Comparer les deux directions.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Comparer les deux directions."
+        ],
+        "group": "Ondes mécaniques progressives",
+        "stage": "Direction de la perturbation"
+      }
+    },
+    {
+      "id": "BIL03",
+      "text": "Une perturbation parcourt 1,80 m en 0,12 s. Calculer sa célérité.",
+      "domain": "Ondes mécaniques progressives",
+      "skill": "Célérité",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "v=d/Δt=1,80/0,12=15 m/s.",
+      "gap": "À renforcer : Célérité",
+      "recommendation": "Diviser la distance par la durée.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Diviser la distance par la durée."
+        ],
+        "group": "Ondes mécaniques progressives",
+        "stage": "Célérité"
+      },
+      "numeric": {
+        "value": 15,
+        "unit": "m/s",
+        "units": {
+          "m/s": 1
+        },
+        "absoluteTolerance": 0.1,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL04",
+      "text": "Le son se propage à 340 m/s. Deux microphones alignés dans le sens de propagation sont séparés de 6,80 m. Déterminer le retard en secondes.",
+      "domain": "Ondes mécaniques progressives",
+      "skill": "Retard temporel",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "τ=d/v=6,80/340=0,020 s.",
+      "gap": "À renforcer : Retard temporel",
+      "recommendation": "Utiliser τ=d/v et vérifier les unités.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Utiliser τ=d/v et vérifier les unités."
+        ],
+        "group": "Ondes mécaniques progressives",
+        "stage": "Retard temporel"
+      },
+      "numeric": {
+        "value": 0.02,
+        "unit": "s",
+        "units": {
+          "s": 1
+        },
+        "absoluteTolerance": 0.0003,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL05",
+      "text": "Pourquoi le son ne se propage-t-il pas dans le vide ?",
+      "domain": "Ondes mécaniques progressives",
+      "skill": "Milieu de propagation",
+      "points": 0.5,
+      "options": [
+        "Sa vitesse y est infinie.",
+        "Sa fréquence y devient toujours nulle.",
+        "Il nécessite un milieu matériel."
+      ],
+      "correct": 2,
+      "response_type": "choice",
+      "explanation": "Le son est une onde mécanique : sa propagation nécessite un milieu matériel.",
+      "gap": "À renforcer : Milieu de propagation",
+      "recommendation": "Distinguer onde mécanique et onde électromagnétique.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Distinguer onde mécanique et onde électromagnétique."
+        ],
+        "group": "Ondes mécaniques progressives",
+        "stage": "Milieu de propagation"
+      }
+    },
+    {
+      "id": "BIL06",
+      "text": "Document A : le signal représente l’élongation d’un point du milieu au cours du temps. Lire la période en millisecondes.",
+      "domain": "Ondes mécaniques périodiques",
+      "skill": "Lecture de période",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "Deux maxima successifs se situent à 5 ms et 25 ms : T=20 ms.",
+      "gap": "À renforcer : Lecture de période",
+      "recommendation": "Mesurer l’intervalle entre deux états identiques successifs.",
+      "image": "images/bilan_2bac_2026/onde.png",
+      "learning": {
+        "hints": [
+          "Mesurer l’intervalle entre deux états identiques successifs."
+        ],
+        "group": "Ondes mécaniques périodiques",
+        "stage": "Lecture de période"
+      },
+      "numeric": {
+        "value": 20,
+        "unit": "ms",
+        "units": {
+          "ms": 1
+        },
+        "absoluteTolerance": 1,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL07",
+      "text": "Une onde a une période T=20 ms. Calculer sa fréquence en Hz.",
+      "domain": "Ondes mécaniques périodiques",
+      "skill": "Fréquence et conversion",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "T=0,020 s ; f=1/T=50 Hz.",
+      "gap": "À renforcer : Fréquence et conversion",
+      "recommendation": "Convertir les millisecondes en secondes avant de calculer.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Convertir les millisecondes en secondes avant de calculer."
+        ],
+        "group": "Ondes mécaniques périodiques",
+        "stage": "Fréquence et conversion"
+      },
+      "numeric": {
+        "value": 50,
+        "unit": "Hz",
+        "units": {
+          "Hz": 1
+        },
+        "absoluteTolerance": 0.3,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL08",
+      "text": "Une onde sinusoïdale se propage à 4,0 m/s avec une fréquence de 50 Hz. Calculer sa longueur d’onde en mètres.",
+      "domain": "Ondes mécaniques périodiques",
+      "skill": "Longueur d’onde",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "λ=v/f=4/50=0,080 m.",
+      "gap": "À renforcer : Longueur d’onde",
+      "recommendation": "Utiliser v=λf.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Utiliser v=λf."
+        ],
+        "group": "Ondes mécaniques périodiques",
+        "stage": "Longueur d’onde"
+      },
+      "numeric": {
+        "value": 0.08,
+        "unit": "m",
+        "units": {
+          "m": 1
+        },
+        "absoluteTolerance": 0.001,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL09",
+      "text": "Deux points distincts situés sur la direction de propagation d’une onde sinusoïdale vibrent en phase si leur distance vaut :",
+      "domain": "Ondes mécaniques périodiques",
+      "skill": "Phase de deux points",
+      "points": 0.5,
+      "options": [
+        "λ/4.",
+        "λ/2.",
+        "un multiple entier positif de λ."
+      ],
+      "correct": 2,
+      "response_type": "choice",
+      "explanation": "Deux points séparés par kλ vibrent en phase ; une séparation λ/2 correspond à l’opposition de phase.",
+      "gap": "À renforcer : Phase de deux points",
+      "recommendation": "Relier la répétition spatiale à la longueur d’onde.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Relier la répétition spatiale à la longueur d’onde."
+        ],
+        "group": "Ondes mécaniques périodiques",
+        "stage": "Phase de deux points"
+      }
+    },
+    {
+      "id": "BIL10",
+      "text": "Un milieu est dispersif lorsque :",
+      "domain": "Ondes mécaniques périodiques",
+      "skill": "Dispersion",
+      "points": 0.5,
+      "options": [
+        "la célérité dépend de la fréquence.",
+        "la célérité vaut toujours celle de la lumière.",
+        "la fréquence est nécessairement nulle."
+      ],
+      "correct": 0,
+      "response_type": "choice",
+      "explanation": "Dans un milieu dispersif, des ondes de fréquences différentes peuvent avoir des célérités différentes.",
+      "gap": "À renforcer : Dispersion",
+      "recommendation": "Identifier la grandeur dont dépend la célérité.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Identifier la grandeur dont dépend la célérité."
+        ],
+        "group": "Ondes mécaniques périodiques",
+        "stage": "Dispersion"
+      }
+    },
+    {
+      "id": "BIL11",
+      "text": "Une lumière monochromatique est caractérisée par :",
+      "domain": "Ondes lumineuses et diffraction",
+      "skill": "Nature de la lumière",
+      "points": 0.5,
+      "options": [
+        "la nécessité d’un milieu matériel.",
+        "une infinité de fréquences obligatoires.",
+        "une seule fréquence."
+      ],
+      "correct": 2,
+      "response_type": "choice",
+      "explanation": "Une lumière monochromatique correspond à une seule fréquence ; la lumière est une onde électromagnétique.",
+      "gap": "À renforcer : Nature de la lumière",
+      "recommendation": "Ne pas confondre monochromatique et polychromatique.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Ne pas confondre monochromatique et polychromatique."
+        ],
+        "group": "Ondes lumineuses et diffraction",
+        "stage": "Nature de la lumière"
+      }
+    },
+    {
+      "id": "BIL12",
+      "text": "Lorsqu’une onde lumineuse passe de l’air au verre, quelle grandeur reste inchangée ?",
+      "domain": "Ondes lumineuses et diffraction",
+      "skill": "Changement de milieu",
+      "points": 0.5,
+      "options": [
+        "La fréquence.",
+        "La célérité.",
+        "La longueur d’onde."
+      ],
+      "correct": 0,
+      "response_type": "choice",
+      "explanation": "La fréquence est imposée par la source. La célérité et la longueur d’onde changent.",
+      "gap": "À renforcer : Changement de milieu",
+      "recommendation": "Utiliser λ=v/f et distinguer source et milieu.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Utiliser λ=v/f et distinguer source et milieu."
+        ],
+        "group": "Ondes lumineuses et diffraction",
+        "stage": "Changement de milieu"
+      }
+    },
+    {
+      "id": "BIL13",
+      "text": "Dans un verre, la célérité de la lumière vaut 2,00×10⁸ m/s. Avec c=3,00×10⁸ m/s, déterminer l’indice n.",
+      "domain": "Ondes lumineuses et diffraction",
+      "skill": "Indice de réfraction",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "n=c/v=3,00/2,00=1,50, sans unité.",
+      "gap": "À renforcer : Indice de réfraction",
+      "recommendation": "Utiliser le rapport c/v.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Utiliser le rapport c/v."
+        ],
+        "group": "Ondes lumineuses et diffraction",
+        "stage": "Indice de réfraction"
+      },
+      "numeric": {
+        "value": 1.5,
+        "unit": "sans unité",
+        "units": {
+          "sans unité": 1
+        },
+        "absoluteTolerance": 0.01,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL14",
+      "text": "Diffraction par une fente : λ=600 nm, D=2,00 m, a=0,20 mm. Aux petits angles, L=2λD/a. Calculer la largeur de la tache centrale en mètres.",
+      "domain": "Ondes lumineuses et diffraction",
+      "skill": "Calcul de diffraction",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "λ=6,00×10⁻⁷ m ; a=2,00×10⁻⁴ m ; L=0,012 m=1,2 cm.",
+      "gap": "À renforcer : Calcul de diffraction",
+      "recommendation": "Convertir nm et mm en m avant le calcul.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Convertir nm et mm en m avant le calcul."
+        ],
+        "group": "Ondes lumineuses et diffraction",
+        "stage": "Calcul de diffraction"
+      },
+      "numeric": {
+        "value": 0.012,
+        "unit": "m",
+        "units": {
+          "m": 1
+        },
+        "absoluteTolerance": 0.0002,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL15",
+      "text": "Dans le même montage de diffraction, on divise la largeur de la fente par deux, à λ et D constants. La largeur de la tache centrale :",
+      "domain": "Ondes lumineuses et diffraction",
+      "skill": "Influence de la fente",
+      "points": 0.5,
+      "options": [
+        "reste constante.",
+        "est multipliée par deux.",
+        "est divisée par deux."
+      ],
+      "correct": 1,
+      "response_type": "choice",
+      "explanation": "L=2λD/a : L est inversement proportionnelle à a.",
+      "gap": "À renforcer : Influence de la fente",
+      "recommendation": "Comparer les grandeurs dans la relation de diffraction.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Comparer les grandeurs dans la relation de diffraction."
+        ],
+        "group": "Ondes lumineuses et diffraction",
+        "stage": "Influence de la fente"
+      }
+    },
+    {
+      "id": "BIL16",
+      "text": "On dissout 0,020 mol de soluté dans un volume final de 100 mL. Calculer la concentration molaire.",
+      "domain": "Prérequis chimiques : quantité et oxydoréduction",
+      "skill": "Concentration molaire",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "V=0,100 L ; C=n/V=0,020/0,100=0,200 mol/L.",
+      "gap": "À renforcer : Concentration molaire",
+      "recommendation": "Utiliser le volume final en litres.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Utiliser le volume final en litres."
+        ],
+        "group": "Prérequis chimiques : quantité et oxydoréduction",
+        "stage": "Concentration molaire"
+      },
+      "numeric": {
+        "value": 0.2,
+        "unit": "mol/L",
+        "units": {
+          "mol/L": 1
+        },
+        "absoluteTolerance": 0.002,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL17",
+      "text": "On prépare 100 mL de solution à 0,10 mol/L par dilution d’une solution à 0,50 mol/L. Quel volume de solution mère faut-il prélever, en mL ?",
+      "domain": "Prérequis chimiques : quantité et oxydoréduction",
+      "skill": "Dilution",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "CₘVₘ=C𝒇V𝒇 ; Vₘ=0,10×100/0,50=20 mL.",
+      "gap": "À renforcer : Dilution",
+      "recommendation": "La quantité de soluté se conserve lors de la dilution.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "La quantité de soluté se conserve lors de la dilution."
+        ],
+        "group": "Prérequis chimiques : quantité et oxydoréduction",
+        "stage": "Dilution"
+      },
+      "numeric": {
+        "value": 20,
+        "unit": "mL",
+        "units": {
+          "mL": 1
+        },
+        "absoluteTolerance": 0.2,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL18",
+      "text": "Un oxydant est une espèce capable :",
+      "domain": "Prérequis chimiques : quantité et oxydoréduction",
+      "skill": "Oxydant",
+      "points": 0.5,
+      "options": [
+        "de céder des électrons.",
+        "de créer des protons.",
+        "de capter des électrons."
+      ],
+      "correct": 2,
+      "response_type": "choice",
+      "explanation": "Un oxydant capte des électrons et subit une réduction.",
+      "gap": "À renforcer : Oxydant",
+      "recommendation": "Associer réduction à gain d’électrons.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Associer réduction à gain d’électrons."
+        ],
+        "group": "Prérequis chimiques : quantité et oxydoréduction",
+        "stage": "Oxydant"
+      }
+    },
+    {
+      "id": "BIL19",
+      "text": "Quelle demi-équation traduit la réduction de Fe³⁺ en Fe²⁺ ?",
+      "domain": "Prérequis chimiques : quantité et oxydoréduction",
+      "skill": "Demi-équation électronique",
+      "points": 0.5,
+      "options": [
+        "Fe²⁺ + e⁻ → Fe³⁺",
+        "Fe³⁺ + e⁻ → Fe²⁺",
+        "Fe³⁺ → Fe²⁺ + e⁻"
+      ],
+      "correct": 1,
+      "response_type": "choice",
+      "explanation": "La charge se conserve : +3−1=+2. Fe³⁺ gagne un électron.",
+      "gap": "À renforcer : Demi-équation électronique",
+      "recommendation": "Vérifier la conservation de la charge électrique.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Vérifier la conservation de la charge électrique."
+        ],
+        "group": "Prérequis chimiques : quantité et oxydoréduction",
+        "stage": "Demi-équation électronique"
+      }
+    },
+    {
+      "id": "BIL20",
+      "text": "Pour la réaction totale A+2B→C, on introduit n₀(A)=0,010 mol et n₀(B)=0,012 mol. Déterminer l’avancement maximal.",
+      "domain": "Prérequis chimiques : quantité et oxydoréduction",
+      "skill": "Réactif limitant et avancement",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "xₘₐₓ=min(0,010 ; 0,012/2)=0,006 mol. B est limitant.",
+      "gap": "À renforcer : Réactif limitant et avancement",
+      "recommendation": "Comparer n₀ de chaque réactif divisé par son coefficient stœchiométrique.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Comparer n₀ de chaque réactif divisé par son coefficient stœchiométrique."
+        ],
+        "group": "Prérequis chimiques : quantité et oxydoréduction",
+        "stage": "Réactif limitant et avancement"
+      },
+      "numeric": {
+        "value": 0.006,
+        "unit": "mol",
+        "units": {
+          "mol": 1
+        },
+        "absoluteTolerance": 5e-05,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL21",
+      "text": "Une transformation est qualifiée de rapide lorsque :",
+      "domain": "Transformations chimiques et facteurs cinétiques",
+      "skill": "Rapide ou lente",
+      "points": 0.5,
+      "options": [
+        "sa durée est trop courte pour suivre son évolution à l’œil nu dans les conditions considérées.",
+        "elle produit forcément un gaz.",
+        "elle est toujours totale."
+      ],
+      "correct": 0,
+      "response_type": "choice",
+      "explanation": "Rapide décrit une durée d’évolution, pas le caractère total ni la nature des produits.",
+      "gap": "À renforcer : Rapide ou lente",
+      "recommendation": "Distinguer vitesse et état final.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Distinguer vitesse et état final."
+        ],
+        "group": "Transformations chimiques et facteurs cinétiques",
+        "stage": "Rapide ou lente"
+      }
+    },
+    {
+      "id": "BIL22",
+      "text": "Un facteur cinétique est :",
+      "domain": "Transformations chimiques et facteurs cinétiques",
+      "skill": "Facteur cinétique",
+      "points": 0.5,
+      "options": [
+        "un paramètre qui influence la vitesse de transformation.",
+        "le nombre de protons d’un atome.",
+        "un synonyme de réactif limitant."
+      ],
+      "correct": 0,
+      "response_type": "choice",
+      "explanation": "La température ou la concentration de certains réactifs peuvent modifier la vitesse.",
+      "gap": "À renforcer : Facteur cinétique",
+      "recommendation": "Distinguer conditions cinétiques et bilan stœchiométrique.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Distinguer conditions cinétiques et bilan stœchiométrique."
+        ],
+        "group": "Transformations chimiques et facteurs cinétiques",
+        "stage": "Facteur cinétique"
+      }
+    },
+    {
+      "id": "BIL23",
+      "text": "Deux expériences ne diffèrent que par la température. On mesure t½=120 s à 20 °C et 45 s à 40 °C. Dans ces expériences, la transformation est plus rapide :",
+      "domain": "Transformations chimiques et facteurs cinétiques",
+      "skill": "Effet de la température",
+      "points": 0.5,
+      "options": [
+        "aux deux températures de façon identique.",
+        "à 20 °C.",
+        "à 40 °C."
+      ],
+      "correct": 2,
+      "response_type": "choice",
+      "explanation": "Un même avancement relatif est atteint plus tôt à 40 °C : la transformation y est plus rapide.",
+      "gap": "À renforcer : Effet de la température",
+      "recommendation": "Comparer les durées nécessaires pour atteindre le même état relatif.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Comparer les durées nécessaires pour atteindre le même état relatif."
+        ],
+        "group": "Transformations chimiques et facteurs cinétiques",
+        "stage": "Effet de la température"
+      }
+    },
+    {
+      "id": "BIL24",
+      "text": "Pour conserver les aliments, le réfrigérateur agit notamment en :",
+      "domain": "Transformations chimiques et facteurs cinétiques",
+      "skill": "Application d’un facteur cinétique",
+      "points": 0.5,
+      "options": [
+        "supprimant les électrons.",
+        "ralentissant certaines transformations de dégradation grâce à la baisse de température.",
+        "stoppant définitivement toute transformation."
+      ],
+      "correct": 1,
+      "response_type": "choice",
+      "explanation": "Le refroidissement ralentit de nombreuses transformations ; il ne les arrête pas toutes définitivement.",
+      "gap": "À renforcer : Application d’un facteur cinétique",
+      "recommendation": "Relier température et durée de conservation.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Relier température et durée de conservation."
+        ],
+        "group": "Transformations chimiques et facteurs cinétiques",
+        "stage": "Application d’un facteur cinétique"
+      }
+    },
+    {
+      "id": "BIL25",
+      "text": "Pour un système dont la réaction nécessite des collisions entre réactifs, un choc est efficace lorsqu’il :",
+      "domain": "Transformations chimiques et facteurs cinétiques",
+      "skill": "Interprétation microscopique",
+      "points": 0.5,
+      "options": [
+        "se produit sans aucune interaction.",
+        "conduit effectivement à la transformation des réactifs en produits.",
+        "modifie obligatoirement les noyaux atomiques."
+      ],
+      "correct": 1,
+      "response_type": "choice",
+      "explanation": "Toutes les collisions ne donnent pas une réaction. Une énergie suffisante et une configuration favorable peuvent être nécessaires.",
+      "gap": "À renforcer : Interprétation microscopique",
+      "recommendation": "Distinguer collision quelconque et collision conduisant à une réaction.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Distinguer collision quelconque et collision conduisant à une réaction."
+        ],
+        "group": "Transformations chimiques et facteurs cinétiques",
+        "stage": "Interprétation microscopique"
+      }
+    },
+    {
+      "id": "BIL26",
+      "text": "Pour suivre une transformation produisant un gaz dans une enceinte de volume constant, à température constante, on peut exploiter :",
+      "domain": "Suivi temporel et vitesse de réaction",
+      "skill": "Choisir une méthode de suivi",
+      "points": 0.5,
+      "options": [
+        "la pression, reliée à la quantité de gaz.",
+        "le nombre de neutrons du récipient.",
+        "la couleur extérieure du bouchon."
+      ],
+      "correct": 0,
+      "response_type": "choice",
+      "explanation": "À V et T constants, PV=nRT relie la pression à la quantité de gaz ; le bilan de réaction relie ensuite celle-ci à l’avancement.",
+      "gap": "À renforcer : Choisir une méthode de suivi",
+      "recommendation": "Choisir une grandeur mesurable liée à la composition du système.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Choisir une grandeur mesurable liée à la composition du système."
+        ],
+        "group": "Suivi temporel et vitesse de réaction",
+        "stage": "Choisir une méthode de suivi"
+      }
+    },
+    {
+      "id": "BIL27",
+      "text": "Document B : l’avancement final vaut 4,0 mmol. Lire le temps de demi-réaction en secondes.",
+      "domain": "Suivi temporel et vitesse de réaction",
+      "skill": "Lecture du temps de demi-réaction",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "x𝒇/2=2,0 mmol ; la courbe atteint cette valeur à t=40 s.",
+      "gap": "À renforcer : Lecture du temps de demi-réaction",
+      "recommendation": "Chercher la date correspondant à la moitié de l’avancement final.",
+      "image": "images/bilan_2bac_2026/cinetique.png",
+      "learning": {
+        "hints": [
+          "Chercher la date correspondant à la moitié de l’avancement final."
+        ],
+        "group": "Suivi temporel et vitesse de réaction",
+        "stage": "Lecture du temps de demi-réaction"
+      },
+      "numeric": {
+        "value": 40,
+        "unit": "s",
+        "units": {
+          "s": 1
+        },
+        "absoluteTolerance": 3,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL28",
+      "text": "Dans un volume constant V=0,200 L, la pente de la tangente à x(t) vaut 2,0×10⁻⁵ mol/s. Calculer la vitesse volumique.",
+      "domain": "Suivi temporel et vitesse de réaction",
+      "skill": "Vitesse volumique",
+      "points": 0.5,
+      "options": [],
+      "correct": -1,
+      "response_type": "numeric",
+      "explanation": "v=(1/V)dx/dt=(2,0×10⁻⁵)/0,200=1,0×10⁻⁴ mol·L⁻¹·s⁻¹.",
+      "gap": "À renforcer : Vitesse volumique",
+      "recommendation": "Diviser la pente de la tangente par le volume en litres.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Diviser la pente de la tangente par le volume en litres."
+        ],
+        "group": "Suivi temporel et vitesse de réaction",
+        "stage": "Vitesse volumique"
+      },
+      "numeric": {
+        "value": 0.0001,
+        "unit": "mol/(L·s)",
+        "units": {
+          "mol/(L·s)": 1
+        },
+        "absoluteTolerance": 2e-06,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL29",
+      "text": "Document B représente x(t)=4[1−exp(−ln(2)t/40)] en mmol. À volume constant, la vitesse volumique :",
+      "domain": "Suivi temporel et vitesse de réaction",
+      "skill": "Évolution de la vitesse",
+      "points": 0.5,
+      "options": [
+        "diminue vers zéro.",
+        "augmente avec le temps.",
+        "reste constante."
+      ],
+      "correct": 0,
+      "response_type": "choice",
+      "explanation": "La dérivée est proportionnelle à exp(−ln(2)t/40), qui décroît. Cette conclusion concerne le modèle donné.",
+      "gap": "À renforcer : Évolution de la vitesse",
+      "recommendation": "La vitesse dépend de la pente de la courbe x(t).",
+      "image": "",
+      "learning": {
+        "hints": [
+          "La vitesse dépend de la pente de la courbe x(t)."
+        ],
+        "group": "Suivi temporel et vitesse de réaction",
+        "stage": "Évolution de la vitesse"
+      }
+    },
+    {
+      "id": "BIL30",
+      "text": "Pour déterminer graphiquement la vitesse à une date t donnée, on utilise :",
+      "domain": "Suivi temporel et vitesse de réaction",
+      "skill": "Vitesse instantanée",
+      "points": 0.5,
+      "options": [
+        "la pente de la tangente à cette date, divisée par V.",
+        "le quotient x(t)/t divisé par V dans tous les cas.",
+        "uniquement l’ordonnée x(t)."
+      ],
+      "correct": 0,
+      "response_type": "choice",
+      "explanation": "La vitesse instantanée dépend de la dérivée, donc de la tangente. Une sécante correspond à une vitesse moyenne.",
+      "gap": "À renforcer : Vitesse instantanée",
+      "recommendation": "Distinguer pente de tangente et pente de sécante.",
+      "image": "",
+      "learning": {
+        "hints": [
+          "Distinguer pente de tangente et pente de sécante."
+        ],
+        "group": "Suivi temporel et vitesse de réaction",
+        "stage": "Vitesse instantanée"
+      }
+    },
+    {
+      "id": "BIL31",
+      "text": "Le noyau $^{238}_{92}\\mathrm{U}$ contient :",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Décroissance radioactive et datation",
+      "skill": "Composition du noyau",
+      "explanation": "Z=92 et N=A−Z=238−92=146.",
+      "image": "",
+      "gap": "À consolider : Composition du noyau",
+      "recommendation": "Le nombre de masse compte tous les nucléons ; Z compte les protons.",
+      "learning": {
+        "group": "Décroissance radioactive et datation",
+        "stage": "Composition du noyau",
+        "hints": [
+          "Le nombre de masse compte tous les nucléons ; Z compte les protons."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Protons",
+            "options": [
+              "92",
+              "146",
+              "238"
+            ],
+            "accepted": [
+              "92"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Neutrons",
+            "options": [
+              "92",
+              "146",
+              "238"
+            ],
+            "accepted": [
+              "146"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Protons",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Neutrons",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL32",
+      "text": "Compléter les nombres A et Z du noyau fils : $^{210}_{84}\\mathrm{Po}\\rightarrow{}^{A}_{Z}\\mathrm{Pb}+{}^{4}_{2}\\mathrm{He}$.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Décroissance radioactive et datation",
+      "skill": "Conservation en désintégration alpha",
+      "explanation": "A=210−4=206 ; Z=84−2=82.",
+      "image": "",
+      "gap": "À consolider : Conservation en désintégration alpha",
+      "recommendation": "Appliquez séparément la conservation de A et celle de Z.",
+      "learning": {
+        "group": "Décroissance radioactive et datation",
+        "stage": "Conservation en désintégration alpha",
+        "hints": [
+          "Appliquez séparément la conservation de A et celle de Z."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "A",
+            "options": [
+              "206",
+              "210",
+              "214"
+            ],
+            "accepted": [
+              "206"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Z",
+            "options": [
+              "82",
+              "84",
+              "86"
+            ],
+            "accepted": [
+              "82"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "A",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Z",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL33",
+      "text": "Un radionucléide a une demi-vie de 8,00 jours. Calculer λ en jour⁻¹. Utiliser ln(2)=0,693.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Décroissance radioactive et datation",
+      "skill": "Calculer la constante radioactive",
+      "explanation": "λ=ln(2)/t½=0,693/8=0,086625 jour⁻¹.",
+      "image": "",
+      "gap": "À consolider : Calculer la constante radioactive",
+      "recommendation": "Divisez ln(2) par la demi-vie exprimée en jours.",
+      "learning": {
+        "group": "Décroissance radioactive et datation",
+        "stage": "Calculer la constante radioactive",
+        "hints": [
+          "Divisez ln(2) par la demi-vie exprimée en jours."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.086625,
+        "unit": "j^-1",
+        "units": {
+          "j^-1": 1
+        },
+        "absoluteTolerance": 0.00015,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL34",
+      "text": "Un échantillon contient N=2,0×10¹² noyaux et λ=1,0×10⁻⁶ s⁻¹. Calculer son activité en Bq.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Décroissance radioactive et datation",
+      "skill": "Calculer une activité",
+      "explanation": "a=λN=10⁻⁶×2×10¹²=2×10⁶ Bq.",
+      "image": "",
+      "gap": "À consolider : Calculer une activité",
+      "recommendation": "Pour obtenir des Bq, utilisez λ en seconde⁻¹.",
+      "learning": {
+        "group": "Décroissance radioactive et datation",
+        "stage": "Calculer une activité",
+        "hints": [
+          "Pour obtenir des Bq, utilisez λ en seconde⁻¹."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 2000000.0,
+        "unit": "Bq",
+        "units": {
+          "Bq": 1,
+          "kBq": 1000,
+          "MBq": 1000000.0
+        },
+        "absoluteTolerance": 2000,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL35",
+      "text": "Datation au carbone 14 : après la mort, on suppose l’échantillon fermé et son activité initiale connue. À masse de carbone égale, a/a₀=0,25. Avec t½=5730 ans, déterminer son âge.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Décroissance radioactive et datation",
+      "skill": "Datation par deux demi-vies",
+      "explanation": "0,25=1/4=(1/2)² : deux demi-vies se sont écoulées. t=2×5730=11460 ans.",
+      "image": "",
+      "gap": "À consolider : Datation par deux demi-vies",
+      "recommendation": "Exprimez 0,25 comme une puissance de 1/2.",
+      "learning": {
+        "group": "Décroissance radioactive et datation",
+        "stage": "Datation par deux demi-vies",
+        "hints": [
+          "Exprimez 0,25 comme une puissance de 1/2."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 11460,
+        "unit": "ans",
+        "units": {
+          "ans": 1
+        },
+        "absoluteTolerance": 10,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL36",
+      "text": "Masses NUCLEAIRES : mₚ=1,00728 u ; mₙ=1,00866 u ; m(⁴₂He)=4,00151 u. Calculer le défaut de masse de ⁴₂He en u.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Noyaux, masse et énergie",
+      "skill": "Calculer un défaut de masse",
+      "explanation": "Δm=2×1,00728+2×1,00866−4,00151=0,03037 u.",
+      "image": "",
+      "gap": "À consolider : Calculer un défaut de masse",
+      "recommendation": "Le noyau ⁴₂He contient deux protons et deux neutrons.",
+      "learning": {
+        "group": "Noyaux, masse et énergie",
+        "stage": "Calculer un défaut de masse",
+        "hints": [
+          "Le noyau ⁴₂He contient deux protons et deux neutrons."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.03037,
+        "unit": "u",
+        "units": {
+          "u": 1
+        },
+        "absoluteTolerance": 3e-05,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL37",
+      "text": "Le noyau ⁴₂He possède une énergie de liaison de 28,29 MeV. Déterminer son énergie de liaison par nucléon.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Noyaux, masse et énergie",
+      "skill": "Calculer une énergie par nucléon",
+      "explanation": "ξ=Eₗ/A=28,29/4=7,0725 MeV/nucléon.",
+      "image": "",
+      "gap": "À consolider : Calculer une énergie par nucléon",
+      "recommendation": "Divisez par le nombre total de nucléons, pas par Z.",
+      "learning": {
+        "group": "Noyaux, masse et énergie",
+        "stage": "Calculer une énergie par nucléon",
+        "hints": [
+          "Divisez par le nombre total de nucléons, pas par Z."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 7.0725,
+        "unit": "MeV/nucléon",
+        "units": {
+          "MeV/nucléon": 1
+        },
+        "absoluteTolerance": 0.015,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL38",
+      "text": "Compléter le nombre k de neutrons : $^{235}_{92}\\mathrm{U}+{}^{1}_{0}n\\rightarrow{}^{94}_{38}\\mathrm{Sr}+{}^{140}_{54}\\mathrm{Xe}+k\\,{}^{1}_{0}n$.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Noyaux, masse et énergie",
+      "skill": "Équilibrer une fission",
+      "explanation": "A : 235+1=94+140+k, donc k=2. Z : 92=38+54.",
+      "image": "",
+      "gap": "À consolider : Équilibrer une fission",
+      "recommendation": "Conservez le nombre total de nucléons des deux côtés.",
+      "learning": {
+        "group": "Noyaux, masse et énergie",
+        "stage": "Équilibrer une fission",
+        "hints": [
+          "Conservez le nombre total de nucléons des deux côtés."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 2,
+        "unit": "sans unité",
+        "units": {
+          "sans unité": 1
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL39",
+      "text": "Fusion D–T : perte de masse mᵢ−m𝒇=0,01888 u. Avec 1 u·c²=931,5 MeV, calculer l’énergie libérée Q.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Noyaux, masse et énergie",
+      "skill": "Énergie libérée par fusion",
+      "explanation": "Q=(mᵢ−m𝒇)c²=0,01888×931,5=17,58672 MeV, soit 17,59 MeV.",
+      "image": "",
+      "gap": "À consolider : Énergie libérée par fusion",
+      "recommendation": "Q est positif pour une réaction qui libère de l’énergie.",
+      "learning": {
+        "group": "Noyaux, masse et énergie",
+        "stage": "Énergie libérée par fusion",
+        "hints": [
+          "Q est positif pour une réaction qui libère de l’énergie."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 17.58672,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1
+        },
+        "absoluteTolerance": 0.03,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "BIL40",
+      "text": "Dans une réaction de fusion conservant globalement les nombres de protons et neutrons, la somme des énergies de liaison des réactifs vaut 10,7 MeV et celle des produits 28,3 MeV. Calculer Q libérée.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "Noyaux, masse et énergie",
+      "skill": "Bilan à partir des énergies de liaison",
+      "explanation": "Q=ΣEₗ(produits)−ΣEₗ(réactifs)=28,3−10,7=17,6 MeV. Les produits sont plus fortement liés.",
+      "image": "",
+      "gap": "À consolider : Bilan à partir des énergies de liaison",
+      "recommendation": "Pour Q libérée, prenez liaison finale moins liaison initiale.",
+      "learning": {
+        "group": "Noyaux, masse et énergie",
+        "stage": "Bilan à partir des énergies de liaison",
+        "hints": [
+          "Pour Q libérée, prenez liaison finale moins liaison initiale."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 17.6,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1
+        },
+        "absoluteTolerance": 0.03,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    }
+  ]
+}
