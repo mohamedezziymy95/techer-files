@@ -241,7 +241,7 @@
           "domain": "الميكانيك",
           "skill": "تطبيق حساب التردد",
           "gap": "À revoir : التطبيق العددي للتردد",
-          "recommendation": "تطبيق العلاقة $f = \\frac{\\omega}{2\pi} = \\frac{10\pi}{2\pi} = 5\\text{ Hz}$.",
+          "recommendation": "تطبيق العلاقة $f = \\frac{\\omega}{2\\pi} = \\frac{10\\pi}{2\pi} = 5\\text{ Hz}$.",
           "explanation": "$f = \\frac{10\\pi}{2\\pi} = 5\\text{ Hz}$."
         }
       ]
