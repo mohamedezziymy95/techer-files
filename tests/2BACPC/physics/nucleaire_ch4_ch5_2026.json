@@ -1,0 +1,1510 @@
+{
+  "id": "2BACPC_NUCLEAIRE_CH4_CH5_2026",
+  "title": "Transformations nucléaires — Décroissance, masse et énergie",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BACPC",
+  "type": "practice",
+  "type_label": "تدريب وتقويم • التحولات النووية",
+  "duration": 90,
+  "version": "1.0",
+  "schema_version": 3,
+  "questions": [
+    {
+      "id": "NUC01",
+      "text": "Le noyau $^{238}_{92}\\mathrm{U}$ contient :",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Composition du noyau",
+      "explanation": "Z=92 et N=A−Z=238−92=146.",
+      "image": "",
+      "gap": "À consolider : Composition du noyau",
+      "recommendation": "Le nombre de masse compte tous les nucléons ; Z compte les protons.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Composition du noyau",
+        "hints": [
+          "Le nombre de masse compte tous les nucléons ; Z compte les protons."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Protons",
+            "options": [
+              "92",
+              "146",
+              "238"
+            ],
+            "accepted": [
+              "92"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Neutrons",
+            "options": [
+              "92",
+              "146",
+              "238"
+            ],
+            "accepted": [
+              "146"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Protons",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Neutrons",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC02",
+      "text": "Quel couple représente deux isotopes ?",
+      "options": [
+        "$^{14}_{6}\\mathrm{C}$ et $^{14}_{7}\\mathrm{N}$",
+        "$^{12}_{6}\\mathrm{C}$ et $^{14}_{6}\\mathrm{C}$",
+        "$^{12}_{6}\\mathrm{C}$ et $^{16}_{8}\\mathrm{O}$"
+      ],
+      "correct": 1,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Reconnaître des isotopes",
+      "explanation": "Même Z=6, mais A différent : les deux noyaux sont des isotopes du carbone.",
+      "image": "",
+      "gap": "À consolider : Reconnaître des isotopes",
+      "recommendation": "Comparez les numéros atomiques Z, puis les nombres de masse A.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Reconnaître des isotopes",
+        "hints": [
+          "Comparez les numéros atomiques Z, puis les nombres de masse A."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC03",
+      "text": "Pour un noyau radioactif isolé, peut-on prévoir exactement la date de sa désintégration ?",
+      "options": [
+        "Oui, elle est égale à sa demi-vie.",
+        "Oui, elle est égale à la constante de temps.",
+        "Non ; la désintégration individuelle est aléatoire."
+      ],
+      "correct": 2,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Caractère aléatoire",
+      "explanation": "La loi de décroissance décrit statistiquement une population. Elle ne fixe pas la date de désintégration d’un noyau particulier.",
+      "image": "",
+      "gap": "À consolider : Caractère aléatoire",
+      "recommendation": "Distinguez un noyau isolé d’un grand ensemble de noyaux.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Caractère aléatoire",
+        "hints": [
+          "Distinguez un noyau isolé d’un grand ensemble de noyaux."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC04",
+      "text": "Compléter les nombres A et Z du noyau fils : $^{210}_{84}\\mathrm{Po}\\rightarrow{}^{A}_{Z}\\mathrm{Pb}+{}^{4}_{2}\\mathrm{He}$.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Conservation en désintégration alpha",
+      "explanation": "A=210−4=206 ; Z=84−2=82.",
+      "image": "",
+      "gap": "À consolider : Conservation en désintégration alpha",
+      "recommendation": "Appliquez séparément la conservation de A et celle de Z.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Conservation en désintégration alpha",
+        "hints": [
+          "Appliquez séparément la conservation de A et celle de Z."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "A",
+            "options": [
+              "206",
+              "210",
+              "214"
+            ],
+            "accepted": [
+              "206"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Z",
+            "options": [
+              "82",
+              "84",
+              "86"
+            ],
+            "accepted": [
+              "82"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "A",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Z",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC05",
+      "text": "Dans $^{14}_{6}\\mathrm{C}\\rightarrow{}^{14}_{7}\\mathrm{N}+{}^{0}_{-1}e+\\bar\\nu_e$, quelle est la radioactivité ?",
+      "options": [
+        "Bêta plus",
+        "Gamma",
+        "Bêta moins",
+        "Alpha"
+      ],
+      "correct": 2,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Identifier bêta moins",
+      "explanation": "L’émission d’un électron caractérise β−. A reste constant et Z augmente de 1. L’antineutrino ne change pas les bilans de A et Z.",
+      "image": "",
+      "gap": "À consolider : Identifier bêta moins",
+      "recommendation": "Identifiez la particule chargée émise.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Identifier bêta moins",
+        "hints": [
+          "Identifiez la particule chargée émise."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC06",
+      "text": "Dans une désintégration β+ du phosphore 30, compléter le noyau fils : $^{30}_{15}\\mathrm{P}\\rightarrow{}^{A}_{Z}\\mathrm{Si}+{}^{0}_{+1}e+\\nu_e$.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Conservation en désintégration bêta plus",
+      "explanation": "A=30 et 15=Z+1, donc Z=14.",
+      "image": "",
+      "gap": "À consolider : Conservation en désintégration bêta plus",
+      "recommendation": "Le positron porte le nombre de charge +1 et aucun nucléon.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Conservation en désintégration bêta plus",
+        "hints": [
+          "Le positron porte le nombre de charge +1 et aucun nucléon."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "A",
+            "options": [
+              "29",
+              "30",
+              "31"
+            ],
+            "accepted": [
+              "30"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Z",
+            "options": [
+              "14",
+              "15",
+              "16"
+            ],
+            "accepted": [
+              "14"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "A",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Z",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC07",
+      "text": "Lors d’une émission γ, le noyau :",
+      "options": [
+        "perd un neutron.",
+        "se désexcite sans changer A ni Z.",
+        "augmente son nombre de masse.",
+        "perd deux protons."
+      ],
+      "correct": 1,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Décrire une désexcitation",
+      "explanation": "Un photon γ emporte de l’énergie. Les nombres A et Z ne changent pas.",
+      "image": "",
+      "gap": "À consolider : Décrire une désexcitation",
+      "recommendation": "Une émission γ est une transition entre niveaux d’énergie du même noyau.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Décrire une désexcitation",
+        "hints": [
+          "Une émission γ est une transition entre niveaux d’énergie du même noyau."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC08",
+      "text": "Diagramme de Segré : Z est en abscisse et N en ordonnée. Lors d’une émission β−, le point représentant le noyau se déplace :",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Déplacement dans Segré",
+      "explanation": "Un neutron devient un proton : ΔZ=+1, ΔN=−1 et ΔA=0.",
+      "image": "",
+      "gap": "À consolider : Déplacement dans Segré",
+      "recommendation": "Écrivez N=A−Z avant et après la transformation.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Déplacement dans Segré",
+        "hints": [
+          "Écrivez N=A−Z avant et après la transformation."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "Horizontalement",
+            "options": [
+              "vers la droite : Z augmente de 1",
+              "vers la gauche : Z diminue de 1"
+            ],
+            "accepted": [
+              "vers la droite : Z augmente de 1"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Verticalement",
+            "options": [
+              "vers le haut : N augmente de 1",
+              "vers le bas : N diminue de 1"
+            ],
+            "accepted": [
+              "vers le bas : N diminue de 1"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "Horizontalement",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Verticalement",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC09",
+      "text": "Une chaîne transforme $^{238}_{92}\\mathrm{U}$ en $^{206}_{82}\\mathrm{Pb}$ uniquement par émissions α et β−. Combien d’émissions α contient-elle ? Entrer un entier.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Chaîne radioactive : bilan de masse",
+      "explanation": "238−206=32 ; chaque α diminue A de 4, donc 32/4=8 émissions α.",
+      "image": "",
+      "gap": "À consolider : Chaîne radioactive : bilan de masse",
+      "recommendation": "Les émissions β− ne changent pas A.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Chaîne radioactive : bilan de masse",
+        "hints": [
+          "Les émissions β− ne changent pas A."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 8,
+        "unit": "sans unité",
+        "units": {
+          "sans unité": 1
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC10",
+      "text": "Une chaîne transforme $^{238}_{92}\\mathrm{U}$ en $^{206}_{82}\\mathrm{Pb}$ par 8 émissions α et des émissions β−. Combien d’émissions β− faut-il ? Entrer un entier.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "1. Noyaux et transformations radioactives",
+      "skill": "Chaîne radioactive : bilan de charge",
+      "explanation": "Après 8 α, Z=92−16=76. Chaque β− augmente Z de 1 : 82−76=6.",
+      "image": "",
+      "gap": "À consolider : Chaîne radioactive : bilan de charge",
+      "recommendation": "Écrivez 82=92−2×8+n.",
+      "learning": {
+        "group": "1. Noyaux et transformations radioactives",
+        "stage": "Chaîne radioactive : bilan de charge",
+        "hints": [
+          "Écrivez 82=92−2×8+n."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 6,
+        "unit": "sans unité",
+        "units": {
+          "sans unité": 1
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC11",
+      "text": "Document 1 : déterminer la demi-vie de l’échantillon en jours.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Lecture graphique de la demi-vie",
+      "explanation": "N₀=8×10¹² ; N₀/2=4×10¹². La courbe atteint cette valeur à t=8 jours.",
+      "image": "images/nucleaire_2026/decroissance.png",
+      "gap": "À consolider : Lecture graphique de la demi-vie",
+      "recommendation": "Lisez d’abord N₀, puis cherchez la date où N=N₀/2.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Lecture graphique de la demi-vie",
+        "hints": [
+          "Lisez d’abord N₀, puis cherchez la date où N=N₀/2."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 8,
+        "unit": "j",
+        "units": {
+          "j": 1,
+          "h": 0.041666666666666664,
+          "s": 1.1574074074074073e-05
+        },
+        "absoluteTolerance": 0.4,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC12",
+      "text": "Un radionucléide a une demi-vie de 8,00 jours. Calculer λ en jour⁻¹. Utiliser ln(2)=0,693.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Calculer la constante radioactive",
+      "explanation": "λ=ln(2)/t½=0,693/8=0,086625 jour⁻¹.",
+      "image": "",
+      "gap": "À consolider : Calculer la constante radioactive",
+      "recommendation": "Divisez ln(2) par la demi-vie exprimée en jours.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Calculer la constante radioactive",
+        "hints": [
+          "Divisez ln(2) par la demi-vie exprimée en jours."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.086625,
+        "unit": "j^-1",
+        "units": {
+          "j^-1": 1
+        },
+        "absoluteTolerance": 0.00015,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC13",
+      "text": "On donne λ=0,0866 jour⁻¹. Calculer la constante de temps τ en jours.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Calculer la constante de temps",
+      "explanation": "τ=1/λ=11,547… jours, soit environ 11,55 jours.",
+      "image": "",
+      "gap": "À consolider : Calculer la constante de temps",
+      "recommendation": "La constante de temps est l’inverse de λ.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Calculer la constante de temps",
+        "hints": [
+          "La constante de temps est l’inverse de λ."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 11.547344110854503,
+        "unit": "j",
+        "units": {
+          "j": 1
+        },
+        "absoluteTolerance": 0.04,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC14",
+      "text": "Document 1 : à t=24 jours, donner N dans l’unité « 10¹² noyaux » ; entrer 1 pour 10¹² noyaux.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Lire une population restante",
+      "explanation": "24 jours représentent trois demi-vies. N=N₀/8=10¹² noyaux.",
+      "image": "images/nucleaire_2026/decroissance.png",
+      "gap": "À consolider : Lire une population restante",
+      "recommendation": "Repérez l’ordonnée de la courbe à t=24 jours.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Lire une population restante",
+        "hints": [
+          "Repérez l’ordonnée de la courbe à t=24 jours."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 1,
+        "unit": "10^12 noyaux",
+        "units": {
+          "10^12 noyaux": 1
+        },
+        "absoluteTolerance": 0.1,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC15",
+      "text": "Après trois demi-vies, quel pourcentage des noyaux initialement présents s’est désintégré ?",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Distinguer restants et désintégrés",
+      "explanation": "Il reste 1/8=12,5 % ; la fraction désintégrée vaut 100−12,5=87,5 %.",
+      "image": "",
+      "gap": "À consolider : Distinguer restants et désintégrés",
+      "recommendation": "Calculez d’abord la fraction restante, puis son complément.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Distinguer restants et désintégrés",
+        "hints": [
+          "Calculez d’abord la fraction restante, puis son complément."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 87.5,
+        "unit": "%",
+        "units": {
+          "%": 1
+        },
+        "absoluteTolerance": 0.05,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC16",
+      "text": "Après dix demi-vies, la fraction théorique de noyaux non désintégrés vaut :",
+      "options": [
+        "10 %.",
+        "exactement zéro.",
+        "1/10.",
+        "1/1024, soit environ 0,098 %."
+      ],
+      "correct": 3,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Interpréter la loi exponentielle",
+      "explanation": "N/N₀=2⁻¹⁰=1/1024. Cette fraction est très faible mais non nulle.",
+      "image": "",
+      "gap": "À consolider : Interpréter la loi exponentielle",
+      "recommendation": "À chaque demi-vie, la population est divisée par deux.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Interpréter la loi exponentielle",
+        "hints": [
+          "À chaque demi-vie, la population est divisée par deux."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC17",
+      "text": "Un échantillon contient N=2,0×10¹² noyaux et λ=1,0×10⁻⁶ s⁻¹. Calculer son activité en Bq.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Calculer une activité",
+      "explanation": "a=λN=10⁻⁶×2×10¹²=2×10⁶ Bq.",
+      "image": "",
+      "gap": "À consolider : Calculer une activité",
+      "recommendation": "Pour obtenir des Bq, utilisez λ en seconde⁻¹.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Calculer une activité",
+        "hints": [
+          "Pour obtenir des Bq, utilisez λ en seconde⁻¹."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 2000000.0,
+        "unit": "Bq",
+        "units": {
+          "Bq": 1,
+          "kBq": 1000,
+          "MBq": 1000000.0
+        },
+        "absoluteTolerance": 2000,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC18",
+      "text": "Document 2 : déterminer la valeur positive de λ en jour⁻¹ à partir de la pente.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Exploiter une linéarisation",
+      "explanation": "La pente de ln(N/N₀)=−λt vaut −λ. Avec (0;0) et (16;−1,386), λ=1,386/16≈0,0866 jour⁻¹.",
+      "image": "images/nucleaire_2026/linearisation.png",
+      "gap": "À consolider : Exploiter une linéarisation",
+      "recommendation": "Calculez la pente Δy/Δt, puis changez son signe.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Exploiter une linéarisation",
+        "hints": [
+          "Calculez la pente Δy/Δt, puis changez son signe."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.08664339756999316,
+        "unit": "j^-1",
+        "units": {
+          "j^-1": 1
+        },
+        "absoluteTolerance": 0.003,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC19",
+      "text": "Remettre dans l’ordre les étapes permettant de déterminer l’âge t d’un échantillon par son activité. a₀ est l’activité de référence et a son activité actuelle.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Construire une méthode de datation",
+      "explanation": "La division, puis le logarithme, permettent d’isoler t ; comme a<a₀, ln(a₀/a)>0 et l’âge est positif.",
+      "image": "",
+      "gap": "À consolider : Construire une méthode de datation",
+      "recommendation": "Partez de la loi de décroissance, puis isolez l’exponentielle.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Construire une méthode de datation",
+        "hints": [
+          "Partez de la loi de décroissance, puis isolez l’exponentielle."
+        ],
+        "items": [
+          {
+            "id": "p2",
+            "text": "Prendre le logarithme : ln(a/a₀)=−λt."
+          },
+          {
+            "id": "p0",
+            "text": "Écrire a=a₀ exp(−λt)."
+          },
+          {
+            "id": "p3",
+            "text": "Isoler t : t=ln(a₀/a)/λ."
+          },
+          {
+            "id": "p1",
+            "text": "Diviser par a₀ : a/a₀=exp(−λt)."
+          }
+        ],
+        "correctOrder": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+        ]
+      },
+      "response_type": "order",
+      "rubric": [
+        {
+          "id": "order",
+          "description": "Ordre logique complet",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC20",
+      "text": "Datation au carbone 14 : après la mort, on suppose l’échantillon fermé et son activité initiale connue. À masse de carbone égale, a/a₀=0,25. Avec t½=5730 ans, déterminer son âge.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "2. Décroissance, activité et datation",
+      "skill": "Datation par deux demi-vies",
+      "explanation": "0,25=1/4=(1/2)² : deux demi-vies se sont écoulées. t=2×5730=11460 ans.",
+      "image": "",
+      "gap": "À consolider : Datation par deux demi-vies",
+      "recommendation": "Exprimez 0,25 comme une puissance de 1/2.",
+      "learning": {
+        "group": "2. Décroissance, activité et datation",
+        "stage": "Datation par deux demi-vies",
+        "hints": [
+          "Exprimez 0,25 comme une puissance de 1/2."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 11460,
+        "unit": "ans",
+        "units": {
+          "ans": 1
+        },
+        "absoluteTolerance": 10,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC21",
+      "text": "Quelle relation exprime l’énergie de masse au repos ?",
+      "options": [
+        "$E=mc$",
+        "$E=m^2c$",
+        "$E=m/c^2$",
+        "$E=mc^2$"
+      ],
+      "correct": 3,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Relation d’Einstein",
+      "explanation": "E=mc². En SI : m en kg, c en m/s et E en J.",
+      "image": "",
+      "gap": "À consolider : Relation d’Einstein",
+      "recommendation": "Vérifiez que la relation donne une énergie en joules.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Relation d’Einstein",
+        "hints": [
+          "Vérifiez que la relation donne une énergie en joules."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC22",
+      "text": "Convertir 3,0 MeV en joules. On donne 1 MeV=1,60×10⁻¹³ J.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Conversion MeV vers joules",
+      "explanation": "E=3×1,60×10⁻¹³=4,80×10⁻¹³ J.",
+      "image": "",
+      "gap": "À consolider : Conversion MeV vers joules",
+      "recommendation": "Multipliez la valeur en MeV par 1,60×10⁻¹³.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Conversion MeV vers joules",
+        "hints": [
+          "Multipliez la valeur en MeV par 1,60×10⁻¹³."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 4.8e-13,
+        "unit": "J",
+        "units": {
+          "J": 1
+        },
+        "absoluteTolerance": 1e-15,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC23",
+      "text": "Le défaut de masse d’un noyau lié de symbole $^{A}_{Z}X$ vaut :",
+      "options": [
+        "$\\Delta m=Zm_p+(A-Z)m_n-m(X)$",
+        "$\\Delta m=Am_p-m(X)$",
+        "$\\Delta m=m(X)-Zm_p-(A-Z)m_n$"
+      ],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Définir le défaut de masse",
+      "explanation": "On soustrait la masse du noyau à celle de ses nucléons séparés. Les neutrons sont au nombre de A−Z.",
+      "image": "",
+      "gap": "À consolider : Définir le défaut de masse",
+      "recommendation": "Les nucléons séparés ont une masse totale supérieure à celle du noyau lié.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Définir le défaut de masse",
+        "hints": [
+          "Les nucléons séparés ont une masse totale supérieure à celle du noyau lié."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC24",
+      "text": "Masses NUCLEAIRES : mₚ=1,00728 u ; mₙ=1,00866 u ; m(⁴₂He)=4,00151 u. Calculer le défaut de masse de ⁴₂He en u.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Calculer un défaut de masse",
+      "explanation": "Δm=2×1,00728+2×1,00866−4,00151=0,03037 u.",
+      "image": "",
+      "gap": "À consolider : Calculer un défaut de masse",
+      "recommendation": "Le noyau ⁴₂He contient deux protons et deux neutrons.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Calculer un défaut de masse",
+        "hints": [
+          "Le noyau ⁴₂He contient deux protons et deux neutrons."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.03037,
+        "unit": "u",
+        "units": {
+          "u": 1
+        },
+        "absoluteTolerance": 3e-05,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC25",
+      "text": "Pour ⁴₂He, Δm=0,03037 u. Avec 1 u·c²=931,5 MeV, calculer son énergie de liaison.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Calculer une énergie de liaison",
+      "explanation": "Eₗ=Δm c²=0,03037×931,5≈28,29 MeV.",
+      "image": "",
+      "gap": "À consolider : Calculer une énergie de liaison",
+      "recommendation": "Multipliez le défaut de masse en u par 931,5.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Calculer une énergie de liaison",
+        "hints": [
+          "Multipliez le défaut de masse en u par 931,5."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 28.289655,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1
+        },
+        "absoluteTolerance": 0.03,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC26",
+      "text": "Le noyau ⁴₂He possède une énergie de liaison de 28,29 MeV. Déterminer son énergie de liaison par nucléon.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Calculer une énergie par nucléon",
+      "explanation": "ξ=Eₗ/A=28,29/4=7,0725 MeV/nucléon.",
+      "image": "",
+      "gap": "À consolider : Calculer une énergie par nucléon",
+      "recommendation": "Divisez par le nombre total de nucléons, pas par Z.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Calculer une énergie par nucléon",
+        "hints": [
+          "Divisez par le nombre total de nucléons, pas par Z."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 7.0725,
+        "unit": "MeV/nucléon",
+        "units": {
+          "MeV/nucléon": 1
+        },
+        "absoluteTolerance": 0.015,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC27",
+      "text": "Deux noyaux X et Y ont respectivement Eₗ/A=7,1 et 8,6 MeV/nucléon. Selon ce critère, lequel est le plus fortement lié par nucléon ?",
+      "options": [
+        "Impossible : il faut comparer uniquement Eₗ total.",
+        "X",
+        "Y"
+      ],
+      "correct": 2,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Comparer la liaison par nucléon",
+      "explanation": "Y a une énergie de liaison par nucléon plus élevée : il est plus fortement lié selon ce critère. Ce seul indicateur ne suffit pas à garantir l’absence de toute radioactivité.",
+      "image": "",
+      "gap": "À consolider : Comparer la liaison par nucléon",
+      "recommendation": "Comparez les énergies par nucléon, non les énergies totales.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Comparer la liaison par nucléon",
+        "hints": [
+          "Comparez les énergies par nucléon, non les énergies totales."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC28",
+      "text": "Une courbe d’Aston représente −Eₗ/A en fonction de A. Un point plus bas correspond à :",
+      "options": [
+        "un nombre de neutrons nécessairement nul.",
+        "une énergie de liaison par nucléon plus petite.",
+        "une énergie de liaison par nucléon plus grande."
+      ],
+      "correct": 2,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Lire le signe sur la courbe d’Aston",
+      "explanation": "Si −Eₗ/A est plus négatif, Eₗ/A est plus grand.",
+      "image": "",
+      "gap": "À consolider : Lire le signe sur la courbe d’Aston",
+      "recommendation": "Attention au signe moins porté par l’axe vertical.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Lire le signe sur la courbe d’Aston",
+        "hints": [
+          "Attention au signe moins porté par l’axe vertical."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC29",
+      "text": "Quelle affirmation est scientifiquement correcte ?",
+      "options": [
+        "La courbe d’Aston indique des tendances énergétiques ; la stabilité radioactive dépend du nucléide.",
+        "Tous les noyaux de nombre de masse compris entre 20 et 190 sont stables.",
+        "Tous les noyaux légers sont radioactifs."
+      ],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Éviter une généralisation abusive",
+      "explanation": "Des noyaux légers comme ¹H et ⁴He sont stables ; des noyaux de masse intermédiaire comme ⁶⁰Co sont radioactifs. La stabilité dépend du nucléide, pas uniquement de A.",
+      "image": "",
+      "gap": "À consolider : Éviter une généralisation abusive",
+      "recommendation": "Ne confondez pas région énergétique favorable et stabilité de tous les nucléides.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Éviter une généralisation abusive",
+        "hints": [
+          "Ne confondez pas région énergétique favorable et stabilité de tous les nucléides."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC30",
+      "text": "Une fusion de noyaux légers peut libérer de l’énergie lorsque :",
+      "options": [
+        "le nombre total de nucléons augmente.",
+        "la masse totale des produits est supérieure à celle des réactifs.",
+        "la masse totale des produits est inférieure à celle des réactifs."
+      ],
+      "correct": 2,
+      "points": 0.5,
+      "domain": "3. Masse, énergie de liaison et stabilité",
+      "skill": "Relier masse et énergie libérée",
+      "explanation": "Q=(mᵢ−m𝒇)c²>0 lorsque mᵢ>m𝒇 ; les nucléons restent conservés.",
+      "image": "",
+      "gap": "À consolider : Relier masse et énergie libérée",
+      "recommendation": "Une diminution de masse au repos correspond à une énergie disponible.",
+      "learning": {
+        "group": "3. Masse, énergie de liaison et stabilité",
+        "stage": "Relier masse et énergie libérée",
+        "hints": [
+          "Une diminution de masse au repos correspond à une énergie disponible."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC31",
+      "text": "Compléter le nombre k de neutrons : $^{235}_{92}\\mathrm{U}+{}^{1}_{0}n\\rightarrow{}^{94}_{38}\\mathrm{Sr}+{}^{140}_{54}\\mathrm{Xe}+k\\,{}^{1}_{0}n$.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Équilibrer une fission",
+      "explanation": "A : 235+1=94+140+k, donc k=2. Z : 92=38+54.",
+      "image": "",
+      "gap": "À consolider : Équilibrer une fission",
+      "recommendation": "Conservez le nombre total de nucléons des deux côtés.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Équilibrer une fission",
+        "hints": [
+          "Conservez le nombre total de nucléons des deux côtés."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 2,
+        "unit": "sans unité",
+        "units": {
+          "sans unité": 1
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC32",
+      "text": "La réaction U-235 + neutron → Sr-94 + Xe-140 + 2 neutrons est :",
+      "options": [
+        "une fission induite.",
+        "une émission γ seule.",
+        "une fusion."
+      ],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Identifier une fission",
+      "explanation": "Un noyau lourd absorbe un neutron et se scinde en deux fragments plus légers : fission induite.",
+      "image": "",
+      "gap": "À consolider : Identifier une fission",
+      "recommendation": "Comparez la taille des noyaux réactifs et produits.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Identifier une fission",
+        "hints": [
+          "Comparez la taille des noyaux réactifs et produits."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "NUC33",
+      "text": "Compléter : $^{2}_{1}\\mathrm{H}+{}^{3}_{1}\\mathrm{H}\\rightarrow{}^{4}_{2}\\mathrm{He}+{}^{A}_{Z}X$.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Équilibrer une fusion",
+      "explanation": "A=2+3−4=1 et Z=1+1−2=0 : la particule X est un neutron.",
+      "image": "",
+      "gap": "À consolider : Équilibrer une fusion",
+      "recommendation": "Appliquez les deux conservations indépendamment.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Équilibrer une fusion",
+        "hints": [
+          "Appliquez les deux conservations indépendamment."
+        ],
+        "slots": [
+          {
+            "id": "s1",
+            "label": "A",
+            "options": [
+              "0",
+              "1",
+              "2"
+            ],
+            "accepted": [
+              "1"
+            ],
+            "points": 0.25
+          },
+          {
+            "id": "s2",
+            "label": "Z",
+            "options": [
+              "0",
+              "1",
+              "2"
+            ],
+            "accepted": [
+              "0"
+            ],
+            "points": 0.25
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "s1",
+          "description": "A",
+          "points": 0.25,
+          "automatic": true
+        },
+        {
+          "id": "s2",
+          "description": "Z",
+          "points": 0.25,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC34",
+      "text": "Fusion D–T : masses nucléaires m(D)=2,01355 u ; m(T)=3,01550 u ; m(He)=4,00151 u ; m(n)=1,00866 u. Calculer la perte de masse positive mᵢ−m𝒇 en u.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Bilan de masse d’une fusion",
+      "explanation": "mᵢ=5,02905 u ; m𝒇=5,01017 u ; mᵢ−m𝒇=0,01888 u.",
+      "image": "",
+      "gap": "À consolider : Bilan de masse d’une fusion",
+      "recommendation": "Additionnez toutes les masses de chaque côté avant de soustraire.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Bilan de masse d’une fusion",
+        "hints": [
+          "Additionnez toutes les masses de chaque côté avant de soustraire."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.01888,
+        "unit": "u",
+        "units": {
+          "u": 1
+        },
+        "absoluteTolerance": 3e-05,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC35",
+      "text": "Fusion D–T : perte de masse mᵢ−m𝒇=0,01888 u. Avec 1 u·c²=931,5 MeV, calculer l’énergie libérée Q.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Énergie libérée par fusion",
+      "explanation": "Q=(mᵢ−m𝒇)c²=0,01888×931,5=17,58672 MeV, soit 17,59 MeV.",
+      "image": "",
+      "gap": "À consolider : Énergie libérée par fusion",
+      "recommendation": "Q est positif pour une réaction qui libère de l’énergie.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Énergie libérée par fusion",
+        "hints": [
+          "Q est positif pour une réaction qui libère de l’énergie."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 17.58672,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1
+        },
+        "absoluteTolerance": 0.03,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC36",
+      "text": "Document 3 : avec la convention ΔE=E𝒇−Eᵢ, calculer ΔE en MeV.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Signe du bilan énergétique",
+      "explanation": "ΔE=12−30=−18 MeV. Le système libère 18 MeV.",
+      "image": "images/nucleaire_2026/energie.png",
+      "gap": "À consolider : Signe du bilan énergétique",
+      "recommendation": "Soustrayez le niveau initial du niveau final.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Signe du bilan énergétique",
+        "hints": [
+          "Soustrayez le niveau initial du niveau final."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": -18,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1
+        },
+        "absoluteTolerance": 0.1,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC37",
+      "text": "Document 3 : quelle énergie positive Q est libérée par la réaction ?",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Énergie libérée sur un diagramme",
+      "explanation": "Q=Eᵢ−E𝒇=30−12=18 MeV ; Q=−ΔE pour cette réaction exoénergétique.",
+      "image": "images/nucleaire_2026/energie.png",
+      "gap": "À consolider : Énergie libérée sur un diagramme",
+      "recommendation": "L’énergie libérée est la différence positive entre les deux niveaux.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Énergie libérée sur un diagramme",
+        "hints": [
+          "L’énergie libérée est la différence positive entre les deux niveaux."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 18,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1
+        },
+        "absoluteTolerance": 0.1,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC38",
+      "text": "Une fission libère 200 MeV. Quel nombre de joules est libéré par 1,00×10¹⁰ fissions ? Donnée : 1 MeV=1,60×10⁻¹³ J.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Passer du microscopique au macroscopique",
+      "explanation": "Par fission : 200×1,60×10⁻¹³=3,20×10⁻¹¹ J. Au total : 10¹⁰×3,20×10⁻¹¹=0,320 J.",
+      "image": "",
+      "gap": "À consolider : Passer du microscopique au macroscopique",
+      "recommendation": "Convertissez d’abord l’énergie d’une fission, puis multipliez par le nombre de fissions.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Passer du microscopique au macroscopique",
+        "hints": [
+          "Convertissez d’abord l’énergie d’une fission, puis multipliez par le nombre de fissions."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.32,
+        "unit": "J",
+        "units": {
+          "J": 1
+        },
+        "absoluteTolerance": 0.001,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC39",
+      "text": "Dans une réaction de fusion conservant globalement les nombres de protons et neutrons, la somme des énergies de liaison des réactifs vaut 10,7 MeV et celle des produits 28,3 MeV. Calculer Q libérée.",
+      "options": [],
+      "correct": -1,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Bilan à partir des énergies de liaison",
+      "explanation": "Q=ΣEₗ(produits)−ΣEₗ(réactifs)=28,3−10,7=17,6 MeV. Les produits sont plus fortement liés.",
+      "image": "",
+      "gap": "À consolider : Bilan à partir des énergies de liaison",
+      "recommendation": "Pour Q libérée, prenez liaison finale moins liaison initiale.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Bilan à partir des énergies de liaison",
+        "hints": [
+          "Pour Q libérée, prenez liaison finale moins liaison initiale."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 17.6,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1
+        },
+        "absoluteTolerance": 0.03,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat numérique dans l’unité demandée",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "NUC40",
+      "text": "Pourquoi une fission induite de U-235 peut-elle entretenir une réaction en chaîne ?",
+      "options": [
+        "Les neutrons émis peuvent provoquer d’autres fissions.",
+        "Les électrons émis fabriquent de nouveaux nucléons.",
+        "Les photons γ se transforment nécessairement en uranium."
+      ],
+      "correct": 0,
+      "points": 0.5,
+      "domain": "4. Fission, fusion et bilans énergétiques",
+      "skill": "Comprendre une réaction en chaîne",
+      "explanation": "Les neutrons produits peuvent être absorbés par d’autres noyaux fissiles et provoquer de nouvelles fissions.",
+      "image": "",
+      "gap": "À consolider : Comprendre une réaction en chaîne",
+      "recommendation": "Identifiez les particules produites capables de déclencher la même réaction.",
+      "learning": {
+        "group": "4. Fission, fusion et bilans énergétiques",
+        "stage": "Comprendre une réaction en chaîne",
+        "hints": [
+          "Identifiez les particules produites capables de déclencher la même réaction."
+        ]
+      },
+      "response_type": "choice"
+    }
+  ]
+}
