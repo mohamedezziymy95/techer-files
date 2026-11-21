@@ -12,7 +12,17 @@
   "path": "2BACPC/physics/nucleaire_ch4_ch5_2026.json",
   "questions_count": 40
 },
-
+    {
+      "id": "2BACPC_PC_DIAG_2025",
+      "title": "الاختبار التشخيصي في مادة الفيزياء والكيمياء",
+      "subject": "الفيزياء والكيمياء",
+      "level": "2BAC",
+      "type": "diagnostic",
+      "type_label": "تشخيصي",
+      "duration": 45,
+      "path": "2BACPC/physics/diag_2025.json",
+      "questions_count": 20
+    },
     {
   "id": "2BACPC_DM1_2026_MIXED",
   "title": "Devoir maison 1 — Ondes, diffraction et cinétique (20 points)",
@@ -117,7 +127,7 @@
   "title": "Devoir 2 — Rotation et quantité de matière",
   "subject": "الفيزياء والكيمياء",
   "level": "1BAC",
-  "type": "formative"
+  "type": "formative",
   "type_label": "تشخيصي ودعم",
   "duration": 90,
   "path": "tests/1BAC/physics/rotation-quantite-matiere-v2.json",
