@@ -2,6 +2,17 @@
   "generated": "2026-11-21",
   "tests": [
     {
+  "id": "2BACPC_SOUTIEN_NUCLEAIRE_2H_2026",
+  "title": "Soutien en physique nucléaire · Décroissance, masse et énergie",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BACPC",
+  "type": "practice",
+  "type_label": "حصة دعم • تشخيص وورشات وبطاقة خروج",
+  "duration": 120,
+  "path": "2BACPC/physics/soutien_nucleaire_2h_2026.json",
+  "questions_count": 24
+},
+    {
       "id": "2BACPC_NUCLEAIRE_CH4_CH5_2026",
       "title": "Transformations nucléaires — Décroissance, masse et énergie",
       "subject": "الفيزياء والكيمياء",
