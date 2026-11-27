@@ -1,0 +1,1680 @@
+{
+  "id": "2BACPC_SOUTIEN_NUCLEAIRE_2H_2026",
+  "title": "Soutien en physique nucléaire · Décroissance, masse et énergie",
+  "subject": "الفيزياء والكيمياء",
+  "level": "2BACPC",
+  "type": "practice",
+  "type_label": "حصة دعم • تشخيص وورشات وبطاقة خروج",
+  "duration": 120,
+  "version": "1.0",
+  "schema_version": 3,
+  "questions": [
+    {
+      "id": "I1",
+      "text": "Diagnostic individuel · 10 min pour quatre questions. Réponds seul avant la mise en commun. Un noyau de nombres A = 218 et Z = 84 émet une particule α (A = 4, Z = 2). Quels sont les deux nombres du noyau fils ?",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "C1 · Conserver A et Z",
+      "image": "",
+      "gap": "صعوبة في تحديد تركيب النواة أو تطبيق انحفاظ عددي الكتلة والشحنة.",
+      "recommendation": "كتب معادلة لعدد الكتلة ومعادلة ثانية للعدد الذري، ثم اطرح مساهمة جسيم ألفا.",
+      "explanation": "La conservation de A donne 218 − 4 = 214. La conservation de Z donne 84 − 2 = 82.",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Diagnostic 1 sur 4",
+        "hints": [],
+        "slots": [
+          {
+            "id": "a",
+            "label": "Nombre de masse du noyau fils",
+            "options": [],
+            "accepted": [
+              "214"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "z",
+            "label": "Numéro atomique du noyau fils",
+            "options": [],
+            "accepted": [
+              "82"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "a",
+          "description": "Nombre de masse du noyau fils",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "z",
+          "description": "Numéro atomique du noyau fils",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "I2",
+      "text": "L’activité d’un échantillon passe de 160 Bq à 80 Bq en 3 h. Détermine son temps de demi-vie et son activité à 6 h. Saisis les nombres dans les unités indiquées.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "C2 · Relier activité et demi-vie",
+      "image": "",
+      "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+      "recommendation": "حدّد شحال من مرة تقسم النشاط على جوج خلال المدة المطلوبة.",
+      "explanation": "L’activité est divisée par deux en 3 h. En 6 h, deux demi-vies se sont écoulées. Il reste 160/4 = 40 Bq.",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Diagnostic 2 sur 4",
+        "hints": [],
+        "slots": [
+          {
+            "id": "half",
+            "label": "Temps de demi-vie (h)",
+            "options": [],
+            "accepted": [
+              "3"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "activity",
+            "label": "Activité à 6 h (Bq)",
+            "options": [],
+            "accepted": [
+              "40"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "half",
+          "description": "Temps de demi-vie (h)",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "activity",
+          "description": "Activité à 6 h (Bq)",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "I3",
+      "text": "Un noyau modèle a une énergie de liaison de 60 MeV et un nombre de masse A = 10. Donne l’énergie de liaison par nucléon et choisis son unité.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "C3 · Calculer la liaison par nucléon",
+      "image": "",
+      "gap": "صعوبة في الانتقال من الكتلة إلى طاقة الربط لكل نوكليون.",
+      "recommendation": "باش تلقى طاقة الربط لكل نوكليون، قسم طاقة الربط الكلية على A.",
+      "explanation": "L’énergie par nucléon vaut 60/10 = 6 MeV/nucléon.",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Diagnostic 3 sur 4",
+        "hints": [],
+        "slots": [
+          {
+            "id": "val",
+            "label": "Valeur numérique",
+            "options": [],
+            "accepted": [
+              "6"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "unit",
+            "label": "Unité",
+            "options": [
+              "MeV",
+              "MeV/nucléon",
+              "u",
+              "Bq"
+            ],
+            "accepted": [
+              "MeV/nucléon"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "val",
+          "description": "Valeur numérique",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "unit",
+          "description": "Unité",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "I4",
+      "text": "Pour une réaction, ΔE = −2,4 MeV. Détermine le sens de l’échange et la quantité d’énergie échangée. Après ces quatre réponses, consacre 10 min à la mise en commun avec l’enseignant.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "C4 · Interpréter le bilan énergétique",
+      "image": "",
+      "gap": "صعوبة في تفسير إشارة تغير الطاقة أو في تحديد الطاقة المحررة في التفكك الواحد.",
+      "recommendation": "فسّر الإشارة أولاً، ومن بعد عبّر عن كمية الطاقة المحررة بقيمة موجبة.",
+      "explanation": "Le système libère de l’énergie puisque ΔE est négatif. La quantité libérée vaut |−2,4| = 2,4 MeV.",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Diagnostic 4 sur 4",
+        "hints": [],
+        "slots": [
+          {
+            "id": "sense",
+            "label": "La réaction…",
+            "options": [
+              "absorbe de l’énergie",
+              "libère de l’énergie"
+            ],
+            "accepted": [
+              "libère de l’énergie"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "amount",
+            "label": "Quantité d’énergie échangée (MeV)",
+            "options": [],
+            "accepted": [
+              "2,4"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "sense",
+          "description": "La réaction…",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "amount",
+          "description": "Quantité d’énergie échangée (MeV)",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A1",
+      "text": "Atelier A · 20 min en binôme. Lis le symbole du polonium ${}^{210}_{84}\\mathrm{Po}$. Combien son noyau contient-il de protons et de neutrons ?",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier A · Transformations nucléaires",
+      "skill": "C1 · Conserver A et Z",
+      "image": "",
+      "gap": "صعوبة في تحديد تركيب النواة أو تطبيق انحفاظ عددي الكتلة والشحنة.",
+      "recommendation": "رد بالك للموضع ديال A وZ فكتابة رمز النواة. عدد النيوترونات هو A − Z.",
+      "explanation": "Le numéro atomique donne 84 protons. Le nombre de neutrons vaut 210 − 84 = 126.",
+      "learning": {
+        "group": "Atelier A · Transformations nucléaires",
+        "stage": "Composition du noyau",
+        "hints": [
+          "Repère le nombre écrit en bas à gauche du symbole.",
+          "Le nombre du haut compte tous les nucléons. Retire les protons pour obtenir les neutrons."
+        ],
+        "slots": [
+          {
+            "id": "p",
+            "label": "Protons",
+            "options": [],
+            "accepted": [
+              "84"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "n",
+            "label": "Neutrons",
+            "options": [],
+            "accepted": [
+              "126"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "p",
+          "description": "Protons",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "n",
+          "description": "Neutrons",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "text": "Le polonium se désintègre selon ${}^{210}_{84}\\mathrm{Po}\\rightarrow{}^{a}_{b}\\mathrm{Pb}+{}^{4}_{2}\\mathrm{He}$. Calcule a et b. Sur ton brouillon, écris les deux égalités de conservation.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier A · Transformations nucléaires",
+      "skill": "C1 · Conserver A et Z",
+      "image": "",
+      "gap": "صعوبة في تحديد تركيب النواة أو تطبيق انحفاظ عددي الكتلة والشحنة.",
+      "recommendation": "تحقق من مجموع الأعداد الموجودة في الأعلى، ثم تحقق بالطريقة نفسها من أعداد الأسفل.",
+      "explanation": "Pour les nucléons, 210 = a + 4, donc a = 206. Pour la charge, 84 = b + 2, donc b = 82.",
+      "learning": {
+        "group": "Atelier A · Transformations nucléaires",
+        "stage": "Bilans de A et de Z",
+        "hints": [
+          "Vérifie d’abord les indices supérieurs de l’équation.",
+          "Fais ensuite le bilan des indices inférieurs en tenant compte du 2 de l’hélium."
+        ],
+        "slots": [
+          {
+            "id": "a",
+            "label": "a, nombre de masse du plomb",
+            "options": [],
+            "accepted": [
+              "206"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "b",
+            "label": "b, numéro atomique du plomb",
+            "options": [],
+            "accepted": [
+              "82"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "a",
+          "description": "a, nombre de masse du plomb",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "b",
+          "description": "b, numéro atomique du plomb",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "A2-P",
+          "text": "Une autre émission α a pour noyau père A = 212 et Z = 84. Quel couple (A, Z) décrit le noyau fils ?",
+          "options": [
+            "(212, 82)",
+            "(208, 84)",
+            "(208, 82)",
+            "(216, 86)"
+          ],
+          "correct": 2,
+          "response_type": "choice",
+          "points": 1,
+          "domain": "Atelier A · Transformations nucléaires",
+          "skill": "C1 · Conserver A et Z",
+          "gap": "صعوبة في تحديد تركيب النواة أو تطبيق انحفاظ عددي الكتلة والشحنة.",
+          "recommendation": "تحقق من مجموع الأعداد الموجودة في الأعلى، ثم تحقق بالطريقة نفسها من أعداد الأسفل.",
+          "explanation": "On retire 4 nucléons et 2 protons au noyau père. Le couple obtenu est (208, 82)."
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "text": "Lors de l’émission β⁻ du carbone ${}^{14}_{6}\\mathrm{C}$, le noyau fils est l’azote 14. Quelle explication respecte les bilans de charge et de nucléons ?",
+      "options": [
+        "Z = 5 et un proton devient un neutron.",
+        "Z = 7 et un neutron devient un proton.",
+        "Z = 7 et le noyau perd un nucléon.",
+        "Z = 6 et seul le nombre de neutrons change."
+      ],
+      "correct": 1,
+      "points": 1,
+      "domain": "Atelier A · Transformations nucléaires",
+      "skill": "C1 · Conserver A et Z",
+      "image": "",
+      "gap": "صعوبة في تحديد تركيب النواة أو تطبيق انحفاظ عددي الكتلة والشحنة.",
+      "recommendation": "استعمل شحنة الإلكترون المنبعث في حصيلة الشحنة، وتتبع شنو وقع للنيوترون داخل النواة.",
+      "explanation": "Le noyau fils a Z = 7 car 6 = 7 + (−1). Un neutron devient un proton. Le total des nucléons reste égal à 14.",
+      "learning": {
+        "group": "Atelier A · Transformations nucléaires",
+        "stage": "Transformation β⁻",
+        "hints": [
+          "L’électron émis porte le nombre de charge −1.",
+          "Écris 6 = Z du noyau fils + (−1)."
+        ]
+      },
+      "response_type": "choice",
+      "practice": [
+        {
+          "id": "A3-SEGRE",
+          "text": "Sur le diagramme de Segré, Z est horizontal et N vertical. Comment se déplace le point du carbone 14 à l’azote 14 ?",
+          "options": [
+            "Une case à gauche et une en haut.",
+            "Une case à droite et une en haut.",
+            "Deux cases à gauche.",
+            "Une case à droite et une en bas."
+          ],
+          "correct": 3,
+          "response_type": "choice",
+          "points": 1,
+          "domain": "Atelier A · Transformations nucléaires",
+          "skill": "C1 · Conserver A et Z",
+          "gap": "صعوبة في تحديد تركيب النواة أو تطبيق انحفاظ عددي الكتلة والشحنة.",
+          "recommendation": "استعمل شحنة الإلكترون المنبعث في حصيلة الشحنة، وتتبع شنو وقع للنيوترون داخل النواة.",
+          "explanation": "Le point passe de (6, 8) à (7, 7). La charge augmente d’une unité et le nombre de neutrons diminue d’une unité."
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "text": "Atelier B · 20 min. La courbe représente un échantillon simulé. L’axe horizontal donne le temps t en heures, l’axe vertical l’activité a en Bq. Utilise la courbe pour lire l’activité initiale et la demi-vie.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Décroissance radioactive",
+      "skill": "C2 · Relier activité et demi-vie",
+      "image": "",
+      "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+      "recommendation": "بدا من النشاط عند اللحظة صفر. خذ النصف ديالو فالمحور العمودي، ثم تبع المستوى حتى يلاقي المنحنى واقرأ الزمن.",
+      "explanation": "Le premier point est (0 h, 800 Bq). La moitié de 800 vaut 400 Bq. La courbe atteint 400 Bq à 2 h, d’où P₂ = (2 h, 400 Bq) et une demi-vie de 2 h.",
+      "learning": {
+        "group": "Atelier B · Décroissance radioactive",
+        "stage": "Lecture graphique de la demi-vie",
+        "hints": [
+          "Lis a₀ à l’intersection de la courbe et de l’axe vertical.",
+          "Prends la moitié de a₀ sur l’axe vertical. Rejoins la courbe à cette hauteur, puis lis le temps correspondant."
+        ],
+        "graph": {
+          "xMin": 0,
+          "xMax": 10,
+          "yMin": 0,
+          "yMax": 1000,
+          "xLabel": "t (h)",
+          "yLabel": "a (Bq)",
+          "curve": [
+            {
+              "x": 0.0,
+              "y": 800.0
+            },
+            {
+              "x": 0.1,
+              "y": 772.7491
+            },
+            {
+              "x": 0.2,
+              "y": 746.4264
+            },
+            {
+              "x": 0.3,
+              "y": 721.0004
+            },
+            {
+              "x": 0.4,
+              "y": 696.4405
+            },
+            {
+              "x": 0.5,
+              "y": 672.7171
+            },
+            {
+              "x": 0.6,
+              "y": 649.8019
+            },
+            {
+              "x": 0.7,
+              "y": 627.6673
+            },
+            {
+              "x": 0.8,
+              "y": 606.2866
+            },
+            {
+              "x": 0.9,
+              "y": 585.6343
+            },
+            {
+              "x": 1.0,
+              "y": 565.6854
+            },
+            {
+              "x": 1.1,
+              "y": 546.4161
+            },
+            {
+              "x": 1.2,
+              "y": 527.8032
+            },
+            {
+              "x": 1.3,
+              "y": 509.8243
+            },
+            {
+              "x": 1.4,
+              "y": 492.4578
+            },
+            {
+              "x": 1.5,
+              "y": 475.6828
+            },
+            {
+              "x": 1.6,
+              "y": 459.4793
+            },
+            {
+              "x": 1.7,
+              "y": 443.8278
+            },
+            {
+              "x": 1.8,
+              "y": 428.7094
+            },
+            {
+              "x": 1.9,
+              "y": 414.106
+            },
+            {
+              "x": 2.0,
+              "y": 400.0
+            },
+            {
+              "x": 2.1,
+              "y": 386.3745
+            },
+            {
+              "x": 2.2,
+              "y": 373.2132
+            },
+            {
+              "x": 2.3,
+              "y": 360.5002
+            },
+            {
+              "x": 2.4,
+              "y": 348.2202
+            },
+            {
+              "x": 2.5,
+              "y": 336.3586
+            },
+            {
+              "x": 2.6,
+              "y": 324.901
+            },
+            {
+              "x": 2.7,
+              "y": 313.8336
+            },
+            {
+              "x": 2.8,
+              "y": 303.1433
+            },
+            {
+              "x": 2.9,
+              "y": 292.8171
+            },
+            {
+              "x": 3.0,
+              "y": 282.8427
+            },
+            {
+              "x": 3.1,
+              "y": 273.2081
+            },
+            {
+              "x": 3.2,
+              "y": 263.9016
+            },
+            {
+              "x": 3.3,
+              "y": 254.9121
+            },
+            {
+              "x": 3.4,
+              "y": 246.2289
+            },
+            {
+              "x": 3.5,
+              "y": 237.8414
+            },
+            {
+              "x": 3.6,
+              "y": 229.7397
+            },
+            {
+              "x": 3.7,
+              "y": 221.9139
+            },
+            {
+              "x": 3.8,
+              "y": 214.3547
+            },
+            {
+              "x": 3.9,
+              "y": 207.053
+            },
+            {
+              "x": 4.0,
+              "y": 200.0
+            },
+            {
+              "x": 4.1,
+              "y": 193.1873
+            },
+            {
+              "x": 4.2,
+              "y": 186.6066
+            },
+            {
+              "x": 4.3,
+              "y": 180.2501
+            },
+            {
+              "x": 4.4,
+              "y": 174.1101
+            },
+            {
+              "x": 4.5,
+              "y": 168.1793
+            },
+            {
+              "x": 4.6,
+              "y": 162.4505
+            },
+            {
+              "x": 4.7,
+              "y": 156.9168
+            },
+            {
+              "x": 4.8,
+              "y": 151.5717
+            },
+            {
+              "x": 4.9,
+              "y": 146.4086
+            },
+            {
+              "x": 5.0,
+              "y": 141.4214
+            },
+            {
+              "x": 5.1,
+              "y": 136.604
+            },
+            {
+              "x": 5.2,
+              "y": 131.9508
+            },
+            {
+              "x": 5.3,
+              "y": 127.4561
+            },
+            {
+              "x": 5.4,
+              "y": 123.1144
+            },
+            {
+              "x": 5.5,
+              "y": 118.9207
+            },
+            {
+              "x": 5.6,
+              "y": 114.8698
+            },
+            {
+              "x": 5.7,
+              "y": 110.9569
+            },
+            {
+              "x": 5.8,
+              "y": 107.1773
+            },
+            {
+              "x": 5.9,
+              "y": 103.5265
+            },
+            {
+              "x": 6.0,
+              "y": 100.0
+            },
+            {
+              "x": 6.1,
+              "y": 96.5936
+            },
+            {
+              "x": 6.2,
+              "y": 93.3033
+            },
+            {
+              "x": 6.3,
+              "y": 90.125
+            },
+            {
+              "x": 6.4,
+              "y": 87.0551
+            },
+            {
+              "x": 6.5,
+              "y": 84.0896
+            },
+            {
+              "x": 6.6,
+              "y": 81.2252
+            },
+            {
+              "x": 6.7,
+              "y": 78.4584
+            },
+            {
+              "x": 6.8,
+              "y": 75.7858
+            },
+            {
+              "x": 6.9,
+              "y": 73.2043
+            },
+            {
+              "x": 7.0,
+              "y": 70.7107
+            },
+            {
+              "x": 7.1,
+              "y": 68.302
+            },
+            {
+              "x": 7.2,
+              "y": 65.9754
+            },
+            {
+              "x": 7.3,
+              "y": 63.728
+            },
+            {
+              "x": 7.4,
+              "y": 61.5572
+            },
+            {
+              "x": 7.5,
+              "y": 59.4604
+            },
+            {
+              "x": 7.6,
+              "y": 57.4349
+            },
+            {
+              "x": 7.7,
+              "y": 55.4785
+            },
+            {
+              "x": 7.8,
+              "y": 53.5887
+            },
+            {
+              "x": 7.9,
+              "y": 51.7632
+            },
+            {
+              "x": 8.0,
+              "y": 50.0
+            },
+            {
+              "x": 8.1,
+              "y": 48.2968
+            },
+            {
+              "x": 8.2,
+              "y": 46.6516
+            },
+            {
+              "x": 8.3,
+              "y": 45.0625
+            },
+            {
+              "x": 8.4,
+              "y": 43.5275
+            },
+            {
+              "x": 8.5,
+              "y": 42.0448
+            },
+            {
+              "x": 8.6,
+              "y": 40.6126
+            },
+            {
+              "x": 8.7,
+              "y": 39.2292
+            },
+            {
+              "x": 8.8,
+              "y": 37.8929
+            },
+            {
+              "x": 8.9,
+              "y": 36.6021
+            },
+            {
+              "x": 9.0,
+              "y": 35.3553
+            },
+            {
+              "x": 9.1,
+              "y": 34.151
+            },
+            {
+              "x": 9.2,
+              "y": 32.9877
+            },
+            {
+              "x": 9.3,
+              "y": 31.864
+            },
+            {
+              "x": 9.4,
+              "y": 30.7786
+            },
+            {
+              "x": 9.5,
+              "y": 29.7302
+            },
+            {
+              "x": 9.6,
+              "y": 28.7175
+            },
+            {
+              "x": 9.7,
+              "y": 27.7392
+            },
+            {
+              "x": 9.8,
+              "y": 26.7943
+            },
+            {
+              "x": 9.9,
+              "y": 25.8816
+            },
+            {
+              "x": 10.0,
+              "y": 25.0
+            }
+          ],
+          "targets": [
+            {
+              "x": 0,
+              "y": 800
+            },
+            {
+              "x": 2,
+              "y": 400
+            }
+          ],
+          "xTolerance": 0.2,
+          "yTolerance": 25,
+          "instruction": "Place dans l’ordre P₁ sur la courbe à t = 0, puis P₂ sur la courbe quand a = a₀/2. Tu peux aussi saisir leurs coordonnées. L’abscisse de P₂ donne le temps de demi-vie."
+        }
+      },
+      "response_type": "plot",
+      "rubric": [
+        {
+          "id": "p1",
+          "description": "Position de l’état initial",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "p2",
+          "description": "Position correspondant à la demi-vie",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "text": "L’activité initiale de l’échantillon du graphique est de 800 Bq et sa demi-vie vaut 2 h. Prévois son activité à 6 h, puis compare avec ta lecture sur la courbe.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Décroissance radioactive",
+      "skill": "C2 · Relier activité et demi-vie",
+      "image": "",
+      "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+      "recommendation": "قسم المدة على عمر النصف باش تعرف عدد المرات اللي خاصك تقسم فيها النشاط على جوج.",
+      "explanation": "En 6 h, trois demi-vies s’écoulent. L’activité passe de 800 à 400, puis à 200 et enfin à 100 Bq.",
+      "learning": {
+        "group": "Atelier B · Décroissance radioactive",
+        "stage": "Prévoir l’activité après trois demi-vies",
+        "hints": [
+          "Combien de périodes de 2 h y a-t-il dans 6 h ?",
+          "À chaque demi-vie, divise l’activité précédente par deux."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 100,
+        "unit": "Bq",
+        "units": {
+          "Bq": 1,
+          "kBq": 1000
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "B2-P",
+          "text": "Un échantillon a une activité initiale de 64 Bq. Quelle activité reste-t-il après trois demi-vies ?",
+          "options": [
+            "8 Bq",
+            "16 Bq",
+            "32 Bq",
+            "0 Bq"
+          ],
+          "correct": 0,
+          "response_type": "choice",
+          "points": 1,
+          "domain": "Atelier B · Décroissance radioactive",
+          "skill": "C2 · Relier activité et demi-vie",
+          "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+          "recommendation": "قسم المدة على عمر النصف باش تعرف عدد المرات اللي خاصك تقسم فيها النشاط على جوج.",
+          "explanation": "Les activités successives sont 64, 32, 16 puis 8 Bq."
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "text": "La demi-vie de l’échantillon vaut 2 h. Calcule la constante radioactive λ avec ln(2) ≈ 0,693. Choisis l’unité correspondant à ton calcul.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Décroissance radioactive",
+      "skill": "C2 · Relier activité et demi-vie",
+      "image": "",
+      "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+      "recommendation": "إلى استعملت الزمن بالساعات، وحدة ثابتة التفكك كتكون مقلوب الساعة.",
+      "explanation": "λ = ln(2)/2 ≈ 0,3466 h⁻¹. Dans l’unité SI, λ ≈ 0,3466/3 600 ≈ 9,63 × 10⁻⁵ s⁻¹.",
+      "learning": {
+        "group": "Atelier B · Décroissance radioactive",
+        "stage": "Relier λ et la demi-vie",
+        "hints": [
+          "Utilise λ = ln(2)/t½.",
+          "Pour convertir une valeur de h⁻¹ en s⁻¹, divise-la par 3 600."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.34657359027997264,
+        "unit": "h⁻¹",
+        "units": {
+          "h⁻¹": 1,
+          "s⁻¹": 3600
+        },
+        "absoluteTolerance": 0.005,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "B3-N0",
+          "text": "L’activité initiale est de 800 Bq et λ = 9,63 × 10⁻⁵ s⁻¹. Quel nombre initial de noyaux en déduis-tu ?",
+          "options": [
+            "7,70 × 10⁻²",
+            "2,31 × 10³",
+            "8,31 × 10⁶",
+            "8,31 × 10⁻⁶"
+          ],
+          "correct": 2,
+          "response_type": "choice",
+          "points": 1,
+          "domain": "Atelier B · Décroissance radioactive",
+          "skill": "C2 · Relier activité et demi-vie",
+          "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+          "recommendation": "إلى استعملت الزمن بالساعات، وحدة ثابتة التفكك كتكون مقلوب الساعة.",
+          "explanation": "Avec a₀ = λN₀ et λ en s⁻¹, N₀ = 800/(9,63 × 10⁻⁵) ≈ 8,31 × 10⁶ noyaux."
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "text": "Pour le même échantillon, $a_0=800\\,\\mathrm{Bq}$ et $\\lambda\\simeq0{,}3466\\,\\mathrm{h}^{-1}$. Calcule l’activité à 3 h avec $a(t)=a_0 e^{-\\lambda t}$. Arrondis au becquerel.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Décroissance radioactive",
+      "skill": "C2 · Relier activité et demi-vie",
+      "image": "",
+      "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+      "recommendation": "رد بالك للإشارة السالبة فالأس، واستعمل نفس وحدة الزمن اللي كتوافق λ.",
+      "explanation": "L’exposant vaut environ −0,3466 × 3 = −1,0398. On obtient 800 × exp(−1,0398) ≈ 283 Bq, entre les valeurs à 2 h et à 4 h.",
+      "learning": {
+        "group": "Atelier B · Décroissance radioactive",
+        "stage": "Appliquer la loi exponentielle",
+        "hints": [
+          "Ici, 3 h ne représente pas un nombre entier de demi-vies.",
+          "Saisis l’exposant entier entre parenthèses dans la calculatrice."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 282.842712474619,
+        "unit": "Bq",
+        "units": {
+          "Bq": 1,
+          "kBq": 1000
+        },
+        "absoluteTolerance": 1,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "B4-DATE",
+          "text": "À masse de carbone égale, un bois ancien possède un quart de l’activité qu’il avait à la mort de l’arbre. Quel âge lui attribues-tu, en demi-vies ?",
+          "options": [
+            "Une demi-vie",
+            "Deux demi-vies",
+            "Trois demi-vies",
+            "Quatre demi-vies"
+          ],
+          "correct": 1,
+          "response_type": "choice",
+          "points": 1,
+          "domain": "Atelier B · Décroissance radioactive",
+          "skill": "C2 · Relier activité et demi-vie",
+          "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+          "recommendation": "رد بالك للإشارة السالبة فالأس، واستعمل نفس وحدة الزمن اللي كتوافق λ.",
+          "explanation": "Une première demi-vie laisse la moitié de l’activité. Après la deuxième, il en reste un quart."
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "text": "Atelier C · 25 min. Pour le noyau ${}^{4}_{2}\\mathrm{He}$, on donne $m_p=1{,}00728\\,\\mathrm{u}$ et $m_n=1{,}00866\\,\\mathrm{u}$. Calcule la somme des masses de ses nucléons pris séparément. Garde cinq décimales.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Énergie de liaison",
+      "skill": "C3 · Calculer la liaison par nucléon",
+      "image": "",
+      "gap": "صعوبة في الانتقال من الكتلة إلى طاقة الربط لكل نوكليون.",
+      "recommendation": "حسب شحال من بروتون ومن نيوترون كاين فالنواة قبل ما تجمع الكتل.",
+      "explanation": "L’hélium 4 réunit deux protons et deux neutrons. Leur masse totale à l’état séparé vaut 2 × 1,00728 + 2 × 1,00866 = 4,03188 u.",
+      "learning": {
+        "group": "Atelier C · Énergie de liaison",
+        "stage": "Masse des nucléons séparés",
+        "hints": [
+          "Le nombre de neutrons vaut A − Z.",
+          "Multiplie chaque masse par le nombre de particules correspondantes."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 4.03188,
+        "unit": "u",
+        "units": {
+          "u": 1
+        },
+        "absoluteTolerance": 5e-06,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "text": "Pour l’hélium 4, les nucléons séparés ont une masse totale de 4,03188 u. La masse du noyau lié est 4,00150 u. Calcule le défaut de masse Δm en u. Garde cinq décimales.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Énergie de liaison",
+      "skill": "C3 · Calculer la liaison par nucléon",
+      "image": "",
+      "gap": "صعوبة في الانتقال من الكتلة إلى طاقة الربط لكل نوكليون.",
+      "recommendation": "نقص الكتلة ديال النواة كيتحسب بطرح كتلة النواة من مجموع كتل النوكليونات وهي متفرقة.",
+      "explanation": "Δm = masse des nucléons séparés − masse du noyau = 4,03188 − 4,00150 = 0,03038 u.",
+      "learning": {
+        "group": "Atelier C · Énergie de liaison",
+        "stage": "Défaut de masse de l’hélium",
+        "hints": [
+          "Écris d’abord les deux masses avec le même nombre de décimales.",
+          "Le défaut de masse d’un noyau lié est positif."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.03038,
+        "unit": "u",
+        "units": {
+          "u": 1
+        },
+        "absoluteTolerance": 5e-06,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "text": "L’hélium 4 présente un défaut de masse de 0,03038 u. Sachant que 1 u × c² = 931,5 MeV, calcule l’énergie de liaison de son noyau en MeV. Arrondis au centième.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Énergie de liaison",
+      "skill": "C3 · Calculer la liaison par nucléon",
+      "image": "",
+      "gap": "صعوبة في الانتقال من الكتلة إلى طاقة الربط لكل نوكليون.",
+      "recommendation": "ملي كتكون الكتلة بوحدة u، اضربها فـ 931,5 باش تلقى الطاقة بوحدة MeV.",
+      "explanation": "L’énergie de liaison est Eℓ = Δm c². En utilisant l’équivalence fournie, Eℓ = 0,03038 × 931,5 ≈ 28,30 MeV.",
+      "learning": {
+        "group": "Atelier C · Énergie de liaison",
+        "stage": "Énergie de liaison totale",
+        "hints": [
+          "Écris Eℓ = Δm c².",
+          "Avec 931,5 MeV par u, une seule multiplication suffit."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 28.29897,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1
+        },
+        "absoluteTolerance": 0.01,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "text": "Le noyau d’hélium 4 a une énergie de liaison totale d’environ 28,30 MeV. Calcule l’énergie de liaison moyenne par nucléon en gardant deux décimales.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Énergie de liaison",
+      "skill": "C3 · Calculer la liaison par nucléon",
+      "image": "",
+      "gap": "صعوبة في الانتقال من الكتلة إلى طاقة الربط لكل نوكليون.",
+      "recommendation": "قسم طاقة الربط الكلية على عدد النوكليونات كاملين، واحتافظ بأرقام الحساب حتى للآخر.",
+      "explanation": "En conservant les chiffres du calcul précédent, Eℓ/A = 28,29897/4 ≈ 7,07 MeV/nucléon. En partant de 28,30, le calcul donne 7,075, arrondi à 7,08. Les deux arrondis sont acceptés.",
+      "learning": {
+        "group": "Atelier C · Énergie de liaison",
+        "stage": "Énergie de liaison par nucléon",
+        "hints": [
+          "Le nombre de nucléons est le nombre de masse A.",
+          "Pour l’hélium 4, répartis l’énergie totale entre quatre nucléons."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 7.0747425,
+        "unit": "MeV/nucléon",
+        "units": {
+          "MeV/nucléon": 1,
+          "keV/nucléon": 0.001
+        },
+        "absoluteTolerance": 0.006,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "C4-P",
+          "text": "Un noyau modèle de nombre de masse 6 possède une énergie de liaison de 42 MeV. Quelle énergie de liaison moyenne correspond à un nucléon ?",
+          "options": [
+            "252 MeV/nucléon",
+            "42 MeV/nucléon",
+            "6 MeV/nucléon",
+            "7 MeV/nucléon"
+          ],
+          "correct": 3,
+          "response_type": "choice",
+          "points": 1,
+          "domain": "Atelier C · Énergie de liaison",
+          "skill": "C3 · Calculer la liaison par nucléon",
+          "gap": "صعوبة في الانتقال من الكتلة إلى طاقة الربط لكل نوكليون.",
+          "recommendation": "قسم طاقة الربط الكلية على عدد النوكليونات كاملين، واحتافظ بأرقام الحساب حتى للآخر.",
+          "explanation": "42/6 = 7 MeV/nucléon."
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "text": "Dans l’hélium 4, l’énergie de liaison est d’environ 7,07 MeV/nucléon. Dans le deutérium, elle vaut 1,11 MeV/nucléon. Quelle conclusion peux-tu justifier avec ces données ?",
+      "options": [
+        "Les nucléons du deutérium sont plus fortement liés en moyenne.",
+        "Les liaisons moyennes sont égales car les deux noyaux sont légers.",
+        "Les nucléons de l’hélium 4 sont plus fortement liés en moyenne."
+      ],
+      "correct": 2,
+      "points": 1,
+      "domain": "Atelier C · Énergie de liaison",
+      "skill": "C3 · Calculer la liaison par nucléon",
+      "image": "",
+      "gap": "صعوبة في الانتقال من الكتلة إلى طاقة الربط لكل نوكليون.",
+      "recommendation": "قارن طاقة الربط لكل نوكليون عند النواتين، باستعمال نفس الوحدة.",
+      "explanation": "Les nucléons de l’hélium 4 sont plus fortement liés en moyenne. Il faut fournir davantage d’énergie par nucléon pour séparer entièrement ce noyau.",
+      "learning": {
+        "group": "Atelier C · Énergie de liaison",
+        "stage": "Comparer deux noyaux",
+        "hints": [
+          "Compare les deux valeurs exprimées en MeV/nucléon.",
+          "Une énergie de liaison par nucléon plus grande traduit une liaison moyenne plus forte."
+        ]
+      },
+      "response_type": "choice",
+      "practice": [
+        {
+          "id": "C5-ASTON",
+          "text": "Sur une courbe d’Aston d’ordonnée −Eℓ/A, le point X est à −7,1 et le point Y à −8,5 MeV/nucléon. Quel noyau a l’énergie de liaison par nucléon la plus grande ?",
+          "options": [
+            "Y, car Eℓ/A vaut 8,5 MeV/nucléon.",
+            "X, car −7,1 est plus près de zéro.",
+            "X et Y possèdent la même énergie de liaison par nucléon."
+          ],
+          "correct": 0,
+          "response_type": "choice",
+          "points": 1,
+          "domain": "Atelier C · Énergie de liaison",
+          "skill": "C3 · Calculer la liaison par nucléon",
+          "gap": "صعوبة في الانتقال من الكتلة إلى طاقة الربط لكل نوكليون.",
+          "recommendation": "قارن طاقة الربط لكل نوكليون عند النواتين، باستعمال نفس الوحدة.",
+          "explanation": "L’ordonnée représente l’opposé de Eℓ/A. Les valeurs positives sont respectivement 7,1 et 8,5 MeV/nucléon."
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "text": "Atelier D · 15 min. On reprend le polonium de l’atelier A. Son activité initiale est de 640 Bq. Calcule l’activité après deux demi-vies.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Activité et énergie",
+      "skill": "C2 · Relier activité et demi-vie",
+      "image": "",
+      "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+      "recommendation": "من بعد كل عمر نصف كتقسم على جوج النشاط اللي وصلتي ليه.",
+      "explanation": "Après la première demi-vie, l’activité vaut 320 Bq. Après la deuxième, elle vaut 160 Bq, soit à cet instant 160 désintégrations par seconde en moyenne.",
+      "learning": {
+        "group": "Atelier D · Activité et énergie",
+        "stage": "Activité du polonium après deux demi-vies",
+        "hints": [
+          "Pars de 640 Bq et passe d’abord à une demi-vie.",
+          "Applique une deuxième fois la division par deux."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 160,
+        "unit": "Bq",
+        "units": {
+          "Bq": 1,
+          "kBq": 1000
+        },
+        "absoluteTolerance": 0,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "text": "Pour une désintégration du polonium, $m_f-m_i=-0{,}00580\\,\\mathrm{u}$ et $1\\,\\mathrm{u}\\,c^2=931{,}5\\,\\mathrm{MeV}$. Calcule la variation d’énergie $\\Delta E=(m_f-m_i)c^2$ en conservant son signe. Arrondis au centième de MeV.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Activité et énergie",
+      "skill": "C4 · Interpréter le bilan énergétique",
+      "image": "",
+      "gap": "صعوبة في تفسير إشارة تغير الطاقة أو في تحديد الطاقة المحررة في التفكك الواحد.",
+      "recommendation": "فحساب تغيّر الطاقة، خدم بكتلة النهاية ناقص كتلة البداية واحتافظ بالإشارة.",
+      "explanation": "La variation d’énergie du système vaut (−0,00580) × 931,5 = −5,4027 MeV, soit −5,40 MeV.",
+      "learning": {
+        "group": "Atelier D · Activité et énergie",
+        "stage": "Variation d’énergie d’une désintégration",
+        "hints": [
+          "La différence de masse fournie est déjà signée.",
+          "Multiplie-la par l’équivalent énergétique d’une unité de masse atomique."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": -5.402699999999999,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1
+        },
+        "absoluteTolerance": 0.01,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "D2-SIGNE",
+          "text": "Une réaction a une variation d’énergie de −1,8 MeV. Quel est le bilan ?",
+          "options": [
+            "Absorption de 1,8 MeV",
+            "Libération de 1,8 MeV",
+            "Libération de −1,8 MeV"
+          ],
+          "correct": 1,
+          "response_type": "choice",
+          "points": 1,
+          "domain": "Atelier D · Activité et énergie",
+          "skill": "C4 · Interpréter le bilan énergétique",
+          "gap": "صعوبة في تفسير إشارة تغير الطاقة أو في تحديد الطاقة المحررة في التفكك الواحد.",
+          "recommendation": "فحساب تغيّر الطاقة، خدم بكتلة النهاية ناقص كتلة البداية واحتافظ بالإشارة.",
+          "explanation": "ΔE < 0 correspond à une libération. La quantité libérée vaut +1,8 MeV."
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "text": "Pour la transformation précédente, l’énergie de masse du système varie de −5,40 MeV. Quelle quantité d’énergie est libérée par une désintégration ?",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Activité et énergie",
+      "skill": "C4 · Interpréter le bilan énergétique",
+      "image": "",
+      "gap": "صعوبة في تفسير إشارة تغير الطاقة أو في تحديد الطاقة المحررة في التفكك الواحد.",
+      "recommendation": "مني تكون ΔE سالبة، عبّر على الطاقة المحررة بالقيمة المطلقة ديال ΔE.",
+      "explanation": "La transformation est exoénergétique. L’énergie libérée est la valeur absolue de ΔE, soit 5,40 MeV par désintégration.",
+      "learning": {
+        "group": "Atelier D · Activité et énergie",
+        "stage": "Énergie libérée par désintégration",
+        "hints": [
+          "Quel signe porte une quantité d’énergie libérée ?",
+          "Pour une réaction exoénergétique, E libérée = |ΔE|."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 5.4,
+        "unit": "MeV",
+        "units": {
+          "MeV": 1,
+          "keV": 0.001
+        },
+        "absoluteTolerance": 0.01,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "result",
+          "description": "Résultat exprimé dans l’unité choisie",
+          "points": 1,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "text": "L’échantillon vieillit. On considère toujours la même transition α du polonium. Quelle proposition décrit l’activité et l’énergie libérée par un seul événement ?",
+      "options": [
+        "L’activité reste constante et l’énergie par événement diminue.",
+        "L’activité et l’énergie par événement sont toutes deux divisées par deux à chaque demi-vie.",
+        "Les deux grandeurs restent constantes.",
+        "L’activité diminue et l’énergie libérée par événement reste la même."
+      ],
+      "correct": 3,
+      "points": 1,
+      "domain": "Atelier D · Activité et énergie",
+      "skill": "C4 · Interpréter le bilan énergétique",
+      "image": "",
+      "gap": "صعوبة في تفسير إشارة تغير الطاقة أو في تحديد الطاقة المحررة في التفكك الواحد.",
+      "recommendation": "ميّز بين شحال من تفكك كيوقع فالثانية والطاقة المحررة فتفكك واحد.",
+      "explanation": "Il reste de moins en moins de noyaux pères. Le nombre moyen de désintégrations par seconde diminue. Pour la même transition, la différence de masse et l’énergie libérée par événement restent constantes.",
+      "learning": {
+        "group": "Atelier D · Activité et énergie",
+        "stage": "Distinguer l’échantillon et un noyau",
+        "hints": [
+          "L’activité s’exprime en Bq et compte des événements par seconde.",
+          "Pour la même transition, les masses du noyau père et des produits sont fixées."
+        ]
+      },
+      "response_type": "choice",
+      "practice": [
+        {
+          "id": "D4-REACTIONS",
+          "text": "Comment nomme-t-on la réunion de deux noyaux légers, puis la scission d’un noyau lourd en deux noyaux plus légers ?",
+          "options": [
+            "Fission puis fusion",
+            "Deux désintégrations β⁻",
+            "Fusion puis fission"
+          ],
+          "correct": 2,
+          "response_type": "choice",
+          "points": 1,
+          "domain": "Atelier D · Activité et énergie",
+          "skill": "C4 · Interpréter le bilan énergétique",
+          "gap": "صعوبة في تفسير إشارة تغير الطاقة أو في تحديد الطاقة المحررة في التفكك الواحد.",
+          "recommendation": "ميّز بين شحال من تفكك كيوقع فالثانية والطاقة المحررة فتفكك واحد.",
+          "explanation": "La réunion des noyaux légers est une fusion. La scission du noyau lourd est une fission."
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "text": "Ticket de sortie · 15 min en individuel, calculatrice autorisée. Le radium ${}^{226}_{88}\\mathrm{Ra}$ émet une particule ${}^{4}_{2}\\mathrm{He}$. Détermine les nombres A et Z du noyau fils.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "C1 · Conserver A et Z",
+      "image": "",
+      "gap": "صعوبة في تحديد تركيب النواة أو تطبيق انحفاظ عددي الكتلة والشحنة.",
+      "recommendation": "عاود كتابة حصيلة A وحصيلة Z فسطريْن، وتأكد من تساوي المجموع فكل جهة.",
+      "explanation": "A = 226 − 4 = 222 et Z = 88 − 2 = 86. Il se forme un noyau de radon 222.",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Ticket de sortie 1 sur 4",
+        "hints": [],
+        "slots": [
+          {
+            "id": "a",
+            "label": "A du noyau fils",
+            "options": [],
+            "accepted": [
+              "222"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "z",
+            "label": "Z du noyau fils",
+            "options": [],
+            "accepted": [
+              "86"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "a",
+          "description": "A du noyau fils",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "z",
+          "description": "Z du noyau fils",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "text": "Une activité de 480 Bq à 0 h tombe à 240 Bq à 5 h. Détermine la demi-vie, puis l’activité à 15 h.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "C2 · Relier activité et demi-vie",
+      "image": "",
+      "gap": "صعوبة في ربط النشاط الإشعاعي بعمر النصف والزمن المنقضي.",
+      "recommendation": "قارن النشاط مع القيمة الأولى، ثم حسب عدد أعمار النصف اللي دازو فـ 15 ساعة.",
+      "explanation": "L’activité initiale est divisée par deux en 5 h. En 15 h, trois demi-vies s’écoulent. L’activité vaut donc 480/8 = 60 Bq.",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Ticket de sortie 2 sur 4",
+        "hints": [],
+        "slots": [
+          {
+            "id": "half",
+            "label": "Demi-vie (h)",
+            "options": [],
+            "accepted": [
+              "5"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "activity",
+            "label": "Activité à 15 h (Bq)",
+            "options": [],
+            "accepted": [
+              "60"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "half",
+          "description": "Demi-vie (h)",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "activity",
+          "description": "Activité à 15 h (Bq)",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "text": "Pour l’hélium 3 (A = 3), les nucléons séparés ont une masse totale de 3,02322 u et le noyau une masse de 3,01493 u. Avec 1 u × c² = 931,5 MeV, calcule Δm à cinq décimales puis Eℓ/A au centième. Saisis uniquement les valeurs.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "C3 · Calculer la liaison par nucléon",
+      "image": "",
+      "gap": "صعوبة في الانتقال من الكتلة إلى طاقة الربط لكل نوكليون.",
+      "recommendation": "بدا بنقص الكتلة، حوّلو لطاقة، ومن بعد قسم الطاقة الكلية على ثلاثة.",
+      "explanation": "Δm = 3,02322 − 3,01493 = 0,00829 u. L’énergie de liaison totale vaut 7,722135 MeV. On obtient 7,722135/3 ≈ 2,57 MeV/nucléon.",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Ticket de sortie 3 sur 4",
+        "hints": [],
+        "slots": [
+          {
+            "id": "dm",
+            "label": "Défaut de masse (u)",
+            "options": [],
+            "accepted": [
+              "0,00829"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "per",
+            "label": "Énergie de liaison par nucléon (MeV/nucléon)",
+            "options": [],
+            "accepted": [
+              "2,57",
+              "2,574",
+              "2,5740",
+              "2,57404",
+              "2,57405",
+              "2,574045"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "dm",
+          "description": "Défaut de masse (u)",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "per",
+          "description": "Énergie de liaison par nucléon (MeV/nucléon)",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "text": "Une réaction présente $m_f-m_i$ = −0,00400 u. Utilise 1 u × c² = 931,5 MeV. Calcule la variation d’énergie du système et l’énergie libérée par réaction, toutes deux au centième de MeV.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "C4 · Interpréter le bilan énergétique",
+      "image": "",
+      "gap": "صعوبة في تفسير إشارة تغير الطاقة أو في تحديد الطاقة المحررة في التفكك الواحد.",
+      "recommendation": "سَمِّ الكميتين قبل التعويض العددي. احتافظ بإشارة ΔE، ثم أعطِ الطاقة المحررة كقيمة موجبة.",
+      "explanation": "ΔE = (−0,00400) × 931,5 = −3,726 MeV, soit −3,73 MeV. L’énergie libérée vaut +3,73 MeV par réaction. Après remise du ticket, prends 5 min pour revoir une étape avec l’enseignant.",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Ticket de sortie 4 sur 4",
+        "hints": [],
+        "slots": [
+          {
+            "id": "change",
+            "label": "Variation d’énergie ΔE (MeV)",
+            "options": [],
+            "accepted": [
+              "-3,73",
+              "-3,726"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "released",
+            "label": "Énergie libérée (MeV)",
+            "options": [],
+            "accepted": [
+              "3,73",
+              "3,726"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "change",
+          "description": "Variation d’énergie ΔE (MeV)",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "released",
+          "description": "Énergie libérée (MeV)",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    }
+  ]
+}
