@@ -189,6 +189,28 @@
       "questions_count": 5
     },
     {
+  "id": "1BAC_SOUTIEN_TRAVAIL_ENERGIE_CINETIQUE_2H_2026",
+  "title": "Soutien en physique · Travail et énergie cinétique",
+  "subject": "الفيزياء والكيمياء",
+  "level": "1BAC",
+  "type": "practice",
+  "type_label": "حصة دعم • تشخيص وورشات وبطاقة خروج",
+  "duration": 120,
+  "path": "1BAC/physics/soutien_travail_energie_cinetique_2h_2026.json",
+  "questions_count": 24
+},
+    {
+  "id": "1BAC_SOUTIEN_ELECTROLYTES_CONCENTRATIONS_2H_2026",
+  "title": "Soutien en chimie · Solutions électrolytiques et concentrations",
+  "subject": "الفيزياء والكيمياء",
+  "level": "1BAC",
+  "type": "practice",
+  "type_label": "حصة دعم • تشخيص وورشات وبطاقة خروج",
+  "duration": 120,
+  "path": "1BAC/physics/soutien_electrolytes_concentrations_2h_2026.json",
+  "questions_count": 24
+},
+    {
       "id": "1BAC_PC_DIAG_ELEC_2026",
       "title": "الاختبار التشخيصي في مادة الفيزياء - جزء الكهرباء والمغناطيسية",
       "subject": "الفيزياء والكيمياء",
