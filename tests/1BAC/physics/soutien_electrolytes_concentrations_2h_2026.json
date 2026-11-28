@@ -1,0 +1,1328 @@
+{
+  "id": "1BAC_SOUTIEN_ELECTROLYTES_CONCENTRATIONS_2H_2026",
+  "title": "Soutien en chimie · Solutions électrolytiques et concentrations",
+  "subject": "الفيزياء والكيمياء",
+  "level": "1BAC",
+  "type": "practice",
+  "type_label": "حصة دعم • تشخيص وورشات وبطاقة خروج",
+  "duration": 120,
+  "version": "1.0",
+  "schema_version": 3,
+  "questions": [
+    {
+      "id": "I1",
+      "text": "Diagnostic individuel · 10 min pour quatre questions. Un solide associe les ions Na⁺ et Cl⁻. Choisis sa formule et la charge totale, en unités de charge élémentaire, d’une unité de formule.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "K1 · Électroneutralité du solide",
+      "explanation": "Une charge +1 compense une charge −1. Une unité de formule NaCl a une charge totale nulle.",
+      "image": "",
+      "gap": "صعوبة في ربط شحنات الأيونات بصيغة الصلب الأيوني.",
+      "recommendation": "جمع الشحنات ديال الأيونات مع العدد ديال كل نوع، وتأكد أن المجموع كيساوي صفر.",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Composer un solide neutre",
+        "hints": [],
+        "slots": [
+          {
+            "id": "form",
+            "label": "Formule",
+            "options": [
+              "Na₂Cl",
+              "NaCl",
+              "NaCl₂"
+            ],
+            "accepted": [
+              "NaCl"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "charge",
+            "label": "Charge totale (en unités e)",
+            "options": [],
+            "accepted": [
+              "0"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "form",
+          "description": "Formule",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "charge",
+          "description": "Charge totale (en unités e)",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "I2",
+      "text": "Dans HCl, le chlore attire le doublet de liaison plus fortement que l’hydrogène. Quelle charge partielle porte Cl ? La molécule HCl est-elle polaire ou apolaire ?",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "K2 · Polarité et hydratation",
+      "explanation": "Le doublet se trouve davantage du côté du chlore. Cl porte δ−, H porte δ+ et la molécule diatomique est polaire.",
+      "image": "",
+      "gap": "صعوبة في ربط قطبية الروابط بشكل الجزيء أو باتجاه الماء حول الأيون.",
+      "recommendation": "الذرة اللي كتجذب إلكترونات الرابطة أكثر كتكون عندها شحنة جزئية سالبة.",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Repérer la polarité",
+        "hints": [],
+        "slots": [
+          {
+            "id": "cl",
+            "label": "Charge partielle de Cl",
+            "options": [
+              "δ+",
+              "δ−"
+            ],
+            "accepted": [
+              "δ−"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "mol",
+            "label": "HCl est…",
+            "options": [
+              "polaire",
+              "apolaire"
+            ],
+            "accepted": [
+              "polaire"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "cl",
+          "description": "Charge partielle de Cl",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "mol",
+          "description": "HCl est…",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "I3",
+      "text": "On dissout KBr(s) dans l’eau. Choisis l’écriture des produits avec leurs états, puis identifie les porteurs qui assurent le courant dans cette solution.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "K3 · Dissolution et conduction",
+      "explanation": "KBr(s) → K⁺(aq) + Br⁻(aq). Dans le liquide, les cations et les anions mobiles transportent la charge.",
+      "image": "",
+      "gap": "صعوبة في تمثيل ما يحدث عند الإذابة أو تفسير التوصيل بالأيونات المتحركة.",
+      "recommendation": "بعد الذوبان استعمل الرمز (aq) للأيونات المميهة، وتتبّع انتقال الشحنة داخل المحلول.",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Dissoudre le bromure de potassium",
+        "hints": [],
+        "slots": [
+          {
+            "id": "prod",
+            "label": "Produits de dissolution",
+            "options": [
+              "K⁺(s) + Br⁻(s)",
+              "K(s) + Br(aq)",
+              "K⁺(aq) + Br⁻(aq)"
+            ],
+            "accepted": [
+              "K⁺(aq) + Br⁻(aq)"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "move",
+            "label": "Porteurs du courant dans le liquide",
+            "options": [
+              "les molécules d’eau neutres",
+              "les cations et les anions mobiles",
+              "les électrons libres du métal"
+            ],
+            "accepted": [
+              "les cations et les anions mobiles"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "prod",
+          "description": "Produits de dissolution",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "move",
+          "description": "Porteurs du courant dans le liquide",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "I4",
+      "text": "On dissout entièrement 0,010 mol de CaCl₂ dans un volume final de 200 mL. Chaque unité fournit deux ions Cl⁻. Calcule la concentration C en soluté apporté et la concentration [Cl⁻].",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "K4 · Concentrations molaires",
+      "explanation": "200 mL = 0,200 L. C = 0,010/0,200 = 0,050 mol·L⁻¹. Comme chaque unité fournit deux chlorures, [Cl⁻] = 2C = 0,100 mol·L⁻¹.",
+      "image": "",
+      "gap": "صعوبة في ربط التركيز المولي بالتركيز الفعلي لكل أيون.",
+      "recommendation": "حوّل الحجم النهائي للتر أولا. من بعد طبّق المعامل ديال أيون الكلورور.",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Calculer deux concentrations",
+        "hints": [],
+        "slots": [
+          {
+            "id": "c",
+            "label": "C (mol·L⁻¹)",
+            "options": [],
+            "accepted": [
+              "0,050"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "cl",
+            "label": "[Cl⁻] (mol·L⁻¹)",
+            "options": [],
+            "accepted": [
+              "0,100"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "c",
+          "description": "C (mol·L⁻¹)",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "cl",
+          "description": "[Cl⁻] (mol·L⁻¹)",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A1",
+      "text": "Atelier A · 15 min. Observe la coupe schématique du cristal de NaCl. Identifie le cation et l’anion figurant sur le modèle.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier A · Solide ionique",
+      "skill": "K1 · Électroneutralité du solide",
+      "explanation": "Le cation est l’ion sodium Na⁺. L’anion est l’ion chlorure Cl⁻.",
+      "image": "images/soutien_electrolytes_1bac/cristal_nacl.png",
+      "gap": "صعوبة في ربط شحنات الأيونات بصيغة الصلب الأيوني.",
+      "recommendation": "سمِّ الأيون الموجب كاتيون، والأيون السالب أنيون. انتبه للاسم كلورور.",
+      "learning": {
+        "group": "Atelier A · Solide ionique",
+        "stage": "Identifier les ions",
+        "hints": [
+          "Le signe de la charge distingue cation et anion."
+        ],
+        "slots": [
+          {
+            "id": "cat",
+            "label": "Cation",
+            "options": [
+              "Cl⁻",
+              "Na⁺"
+            ],
+            "accepted": [
+              "Na⁺"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "an",
+            "label": "Anion",
+            "options": [
+              "Cl⁻",
+              "Na⁺"
+            ],
+            "accepted": [
+              "Cl⁻"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "cat",
+          "description": "Cation",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "an",
+          "description": "Anion",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "text": "Dans le cristal de NaCl, l’alternance des ions se poursuit au-delà de la coupe. Quelle interaction attractive contribue à maintenir le réseau ?",
+      "options": [
+        "L’attraction électrostatique entre un cation et un anion.",
+        "L’attraction entre deux ions chlorure de même charge.",
+        "Une liaison covalente entre chaque Na⁺ et chaque Cl⁻."
+      ],
+      "correct": 0,
+      "points": 1,
+      "domain": "Atelier A · Solide ionique",
+      "skill": "K1 · Électroneutralité du solide",
+      "explanation": "Les ions de signes opposés s’attirent par interaction électrostatique. Cette attraction participe à la cohésion du réseau ionique.",
+      "image": "images/soutien_electrolytes_1bac/cristal_nacl.png",
+      "gap": "صعوبة في ربط شحنات الأيونات بصيغة الصلب الأيوني.",
+      "recommendation": "تتبّع شحنة جوج أيونات متجاورة واستعمل قاعدة التجاذب الكهربائي.",
+      "learning": {
+        "group": "Atelier A · Solide ionique",
+        "stage": "Expliquer la cohésion",
+        "hints": [
+          "Compare les signes des charges de deux voisins."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "A3",
+      "text": "Un cristal contient Ca²⁺ et Cl⁻. Pour un ion calcium, quel est le plus petit nombre d’ions chlorure nécessaire ? Choisis ensuite la formule du solide.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier A · Solide ionique",
+      "skill": "K1 · Électroneutralité du solide",
+      "explanation": "Un ion Ca²⁺ apporte +2. Deux ions Cl⁻ apportent −2. Le plus petit rapport est 1 pour 2 et la formule est CaCl₂.",
+      "image": "",
+      "gap": "صعوبة في ربط شحنات الأيونات بصيغة الصلب الأيوني.",
+      "recommendation": "بدّل عدد الأيونات حتى تحصل على مجموع الشحنات صفر، وكتب أصغر نسبة صحيحة.",
+      "learning": {
+        "group": "Atelier A · Solide ionique",
+        "stage": "Construire la formule de CaCl₂",
+        "hints": [
+          "Un ion Ca²⁺ porte deux charges positives.",
+          "Ajoute des ions Cl⁻ jusqu’à obtenir une charge totale nulle."
+        ],
+        "slots": [
+          {
+            "id": "count",
+            "label": "Nombre de Cl⁻ pour un Ca²⁺",
+            "options": [],
+            "accepted": [
+              "2"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "form",
+            "label": "Formule",
+            "options": [
+              "CaCl",
+              "Ca₂Cl",
+              "CaCl₂"
+            ],
+            "accepted": [
+              "CaCl₂"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "count",
+          "description": "Nombre de Cl⁻ pour un Ca²⁺",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "form",
+          "description": "Formule",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "A3-FORM",
+          "text": "Un cristal contient Al³⁺ et Cl⁻. Quelle formule traduit le plus petit rapport d’ions assurant la neutralité ?",
+          "response_type": "choice",
+          "options": [
+            "Al₃Cl",
+            "AlCl₃",
+            "AlCl"
+          ],
+          "correct": 1,
+          "domain": "Atelier A · Solide ionique",
+          "skill": "K1 · Électroneutralité du solide",
+          "points": 1,
+          "explanation": "Une charge +3 est compensée par trois charges −1. La formule est AlCl₃.",
+          "gap": "صعوبة في ربط شحنات الأيونات بصيغة الصلب الأيوني.",
+          "recommendation": "بدّل عدد الأيونات حتى تحصل على مجموع الشحنات صفر، وكتب أصغر نسبة صحيحة."
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "text": "Atelier B · 20 min. Dans H₂O, l’oxygène est plus électronégatif que l’hydrogène. Indique le signe de la charge partielle de l’oxygène et de chaque hydrogène.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Polarité et hydratation",
+      "skill": "K2 · Polarité et hydratation",
+      "explanation": "Les doublets de liaison sont attirés vers O. Le côté O est partiellement négatif, tandis que chacun des deux H est partiellement positif.",
+      "image": "images/soutien_electrolytes_1bac/geometrie.png",
+      "gap": "صعوبة في ربط قطبية الروابط بشكل الجزيء أو باتجاه الماء حول الأيون.",
+      "recommendation": "ركّز على الجهة اللي كيتجذب ليها الزوج الإلكتروني ديال كل رابطة.",
+      "learning": {
+        "group": "Atelier B · Polarité et hydratation",
+        "stage": "Placer les charges partielles",
+        "hints": [
+          "Un déplacement de densité électronique vers un atome lui donne une charge partielle négative."
+        ],
+        "slots": [
+          {
+            "id": "oxygen",
+            "label": "O porte…",
+            "options": [
+              "δ−",
+              "δ+"
+            ],
+            "accepted": [
+              "δ−"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "hydro",
+            "label": "Chaque H porte…",
+            "options": [
+              "δ−",
+              "δ+"
+            ],
+            "accepted": [
+              "δ+"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "oxygen",
+          "description": "O porte…",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "hydro",
+          "description": "Chaque H porte…",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "text": "H₂O est coudée. CO₂ est linéaire et symétrique. Les liaisons O–H et C=O sont polarisées. Quelle proposition tient compte de ces géométries ?",
+      "options": [
+        "Les deux molécules sont polaires parce que leurs liaisons le sont.",
+        "H₂O est apolaire et CO₂ est polaire.",
+        "H₂O est polaire et CO₂ est apolaire car les deux effets de liaison se compensent dans CO₂."
+      ],
+      "correct": 2,
+      "points": 1,
+      "domain": "Atelier B · Polarité et hydratation",
+      "skill": "K2 · Polarité et hydratation",
+      "explanation": "Dans H₂O, les deux effets de liaison ne se compensent pas. La molécule est polaire. Dans CO₂, les deux effets, égaux et opposés, se compensent. CO₂ est apolaire.",
+      "image": "images/soutien_electrolytes_1bac/geometrie.png",
+      "gap": "صعوبة في ربط قطبية الروابط بشكل الجزيء أو باتجاه الماء حول الأيون.",
+      "recommendation": "شوف الشكل ديال الجزيء قبل الحكم على القطبية ديالو، وواش تأثير الرابطتين كيتعادل.",
+      "learning": {
+        "group": "Atelier B · Polarité et hydratation",
+        "stage": "Combiner polarité et géométrie",
+        "hints": [
+          "Dans CO₂, les deux liaisons identiques sont alignées de part et d’autre du carbone."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "B3",
+      "text": "On hydrate un ion Na⁺ puis un ion Cl⁻. Pour chaque ion, quel côté des molécules d’eau voisines s’oriente préférentiellement vers lui ?",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Polarité et hydratation",
+      "skill": "K2 · Polarité et hydratation",
+      "explanation": "Le côté O, partiellement négatif, se dirige vers Na⁺. Le côté H, partiellement positif, se dirige vers Cl⁻.",
+      "image": "",
+      "gap": "صعوبة في ربط قطبية الروابط بشكل الجزيء أو باتجاه الماء حول الأيون.",
+      "recommendation": "حدّد إشارة الأيون، ومن بعد قرّب منو الطرف ديال الماء اللي عندو الشحنة الجزئية المخالفة.",
+      "learning": {
+        "group": "Atelier B · Polarité et hydratation",
+        "stage": "Orienter l’eau autour des ions",
+        "hints": [
+          "Le côté O porte δ−. Les H portent δ+.",
+          "Un ion attire les charges de signe opposé."
+        ],
+        "slots": [
+          {
+            "id": "na",
+            "label": "Vers Na⁺",
+            "options": [
+              "côté des H",
+              "côté O"
+            ],
+            "accepted": [
+              "côté O"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "cl",
+            "label": "Vers Cl⁻",
+            "options": [
+              "côté des H",
+              "côté O"
+            ],
+            "accepted": [
+              "côté des H"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "na",
+          "description": "Vers Na⁺",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "cl",
+          "description": "Vers Cl⁻",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "text": "Replace les trois étapes du modèle de dissolution d’un cristal ionique dans l’eau, depuis la séparation des ions du réseau jusqu’à leur répartition dans le liquide.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Polarité et hydratation",
+      "skill": "K2 · Polarité et hydratation",
+      "explanation": "Dans le modèle du cours, les ions se séparent du réseau (dissociation), s’entourent d’eau (hydratation), puis se répartissent dans la solution (dispersion).",
+      "image": "",
+      "gap": "صعوبة في ربط قطبية الروابط بشكل الجزيء أو باتجاه الماء حول الأيون.",
+      "recommendation": "ربط كل تسمية باللي واقع للأيونات: كتفارق الشبكة، كيحيط بها الماء، وكتنتاشر فالمحلول.",
+      "learning": {
+        "group": "Atelier B · Polarité et hydratation",
+        "stage": "Décrire la dissolution d’un cristal",
+        "hints": [
+          "Quelle étape décrit l’arrachement au cristal ?",
+          "La répartition à travers toute la solution correspond à la dispersion."
+        ],
+        "items": [
+          {
+            "id": "spread",
+            "text": "Dispersion"
+          },
+          {
+            "id": "split",
+            "text": "Dissociation"
+          },
+          {
+            "id": "water",
+            "text": "Hydratation"
+          }
+        ],
+        "correctOrder": [
+          "split",
+          "water",
+          "spread"
+        ]
+      },
+      "response_type": "order",
+      "rubric": [
+        {
+          "id": "sequence",
+          "description": "Ordre des trois étapes du modèle",
+          "points": 1,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "B4-O2",
+          "text": "Les deux atomes de O₂ ont la même électronégativité. Comment se répartit le doublet de liaison et quelle est la polarité de O₂ ?",
+          "response_type": "choice",
+          "options": [
+            "Le doublet est attiré vers le premier O et O₂ est polaire.",
+            "Les deux atomes deviennent des ions opposés.",
+            "La répartition est symétrique et O₂ est apolaire."
+          ],
+          "correct": 2,
+          "domain": "Atelier B · Polarité et hydratation",
+          "skill": "K2 · Polarité et hydratation",
+          "points": 1,
+          "explanation": "Deux atomes identiques attirent de la même façon les électrons de la liaison. O₂ n’a pas de dipôle permanent.",
+          "gap": "صعوبة في ربط قطبية الروابط بشكل الجزيء أو باتجاه الماء حول الأيون.",
+          "recommendation": "ربط كل تسمية باللي واقع للأيونات: كتفارق الشبكة، كيحيط بها الماء، وكتنتاشر فالمحلول."
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "text": "Atelier C · 20 min. Avec le même dispositif et à la même température, le signal est très faible pour l’eau distillée et l’eau sucrée, et nettement plus intense pour l’eau salée. Quelle interprétation convient ?",
+      "options": [
+        "Le sucre fournit des électrons libres dans l’eau.",
+        "Le sel apporte des ions mobiles, le saccharose se disperse en molécules neutres.",
+        "Tout soluté dissous apporte la même quantité d’ions."
+      ],
+      "correct": 1,
+      "points": 1,
+      "domain": "Atelier C · Dissolution et conduction",
+      "skill": "K3 · Dissolution et conduction",
+      "explanation": "Le sel dissous apporte des ions mobiles. Le saccharose se dissout essentiellement sous forme de molécules neutres, d’où un signal proche de celui de l’eau distillée.",
+      "image": "",
+      "gap": "صعوبة في تمثيل ما يحدث عند الإذابة أو تفسير التوصيل بالأيونات المتحركة.",
+      "recommendation": "الذوبان بوحدو ما كافيش باش نفسرو التوصيل. حدّد نوع الجسيمات اللي زادها المذاب للماء.",
+      "learning": {
+        "group": "Atelier C · Dissolution et conduction",
+        "stage": "Comparer trois solutions",
+        "hints": [
+          "Compare le signal de chaque solution à celui de l’eau distillée.",
+          "Quel soluté apporte des porteurs chargés mobiles ?"
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "C2",
+      "text": "Complète CaCl₂(s) → … Ca²⁺(aq) + … Cl⁻(aq). Indique les deux coefficients, en écrivant aussi le coefficient 1.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Dissolution et conduction",
+      "skill": "K3 · Dissolution et conduction",
+      "explanation": "CaCl₂(s) → Ca²⁺(aq) + 2 Cl⁻(aq). Un calcium et deux chlores sont conservés. La charge des produits vaut +2 − 2 = 0.",
+      "image": "",
+      "gap": "صعوبة في تمثيل ما يحدث عند الإذابة أو تفسير التوصيل بالأيونات المتحركة.",
+      "recommendation": "عدّ ذرات كل عنصر فالصيغة ثم تحقق من مجموع الشحنات فالطرف الآخر.",
+      "learning": {
+        "group": "Atelier C · Dissolution et conduction",
+        "stage": "Dissoudre le chlorure de calcium",
+        "hints": [
+          "Dans CaCl₂, l’indice 2 porte sur Cl.",
+          "Le bilan doit conserver à la fois les atomes et la charge."
+        ],
+        "slots": [
+          {
+            "id": "ca",
+            "label": "Coefficient de Ca²⁺(aq)",
+            "options": [],
+            "accepted": [
+              "1"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "cl",
+            "label": "Coefficient de Cl⁻(aq)",
+            "options": [],
+            "accepted": [
+              "2"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "ca",
+          "description": "Coefficient de Ca²⁺(aq)",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "cl",
+          "description": "Coefficient de Cl⁻(aq)",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "text": "On modélise la dissolution complète du sulfate d’aluminium. Complète Al₂(SO₄)₃(s) → … Al³⁺(aq) + … SO₄²⁻(aq).",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Dissolution et conduction",
+      "skill": "K3 · Dissolution et conduction",
+      "explanation": "Al₂(SO₄)₃(s) → 2 Al³⁺(aq) + 3 SO₄²⁻(aq). Les trois groupes sulfate restent des ions polyatomiques. Le bilan des charges vaut +6 − 6 = 0.",
+      "image": "",
+      "gap": "صعوبة في تمثيل ما يحدث عند الإذابة أو تفسير التوصيل بالأيونات المتحركة.",
+      "recommendation": "قرا الرقم اللي خارج القوس كمضاعف للمجموعة SO₄ كلها.",
+      "learning": {
+        "group": "Atelier C · Dissolution et conduction",
+        "stage": "Conserver l’ion sulfate",
+        "hints": [
+          "L’indice placé après la parenthèse multiplie le groupe sulfate entier."
+        ],
+        "slots": [
+          {
+            "id": "al",
+            "label": "Coefficient de Al³⁺(aq)",
+            "options": [],
+            "accepted": [
+              "2"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "s",
+            "label": "Coefficient de SO₄²⁻(aq)",
+            "options": [],
+            "accepted": [
+              "3"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "al",
+          "description": "Coefficient de Al³⁺(aq)",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "s",
+          "description": "Coefficient de SO₄²⁻(aq)",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "text": "Le chlorure d’hydrogène HCl(g) est moléculaire. Quelle équation fait apparaître la molécule d’eau qui reçoit un proton ?",
+      "options": [
+        "HCl(g) + H₂O(l) → H₃O⁺(aq) + Cl⁻(aq)",
+        "HCl(g) + H₂O(l) → OH⁻(aq) + Cl⁻(aq)",
+        "HCl(g) + H₂O(l) → H₃O⁻(aq) + Cl⁺(aq)"
+      ],
+      "correct": 0,
+      "points": 1,
+      "domain": "Atelier C · Dissolution et conduction",
+      "skill": "K3 · Dissolution et conduction",
+      "explanation": "HCl(g) + H₂O(l) → H₃O⁺(aq) + Cl⁻(aq). L’eau reçoit un proton et devient H₃O⁺. H⁺(aq) est une écriture abrégée du proton hydraté.",
+      "image": "",
+      "gap": "صعوبة في تمثيل ما يحدث عند الإذابة أو تفسير التوصيل بالأيونات المتحركة.",
+      "recommendation": "تبع البروتون من HCl نحو جزيء الماء، وتأكد من عدد ذرات الهيدروجين والشحنة.",
+      "learning": {
+        "group": "Atelier C · Dissolution et conduction",
+        "stage": "Ionisation du chlorure d’hydrogène",
+        "hints": [
+          "Quand H₂O reçoit un proton, quel ion se forme ?"
+        ]
+      },
+      "response_type": "choice",
+      "practice": [
+        {
+          "id": "C4-SAT",
+          "text": "À température constante et après agitation prolongée, un excès de sel reste au fond à l’équilibre. Comment qualifier la solution vis-à-vis de ce sel ?",
+          "response_type": "choice",
+          "options": [
+            "Elle est saturée.",
+            "Elle ne contient aucun ion.",
+            "Elle ne contient aucun solvant."
+          ],
+          "correct": 0,
+          "domain": "Atelier C · Dissolution et conduction",
+          "skill": "K3 · Dissolution et conduction",
+          "points": 1,
+          "explanation": "À cette température, la solution à l’équilibre avec le solide restant contient la quantité maximale de ce sel qui peut s’y dissoudre.",
+          "gap": "صعوبة في تمثيل ما يحدث عند الإذابة أو تفسير التوصيل بالأيونات المتحركة.",
+          "recommendation": "تبع البروتون من HCl نحو جزيء الماء، وتأكد من عدد ذرات الهيدروجين والشحنة."
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "text": "Atelier D · 25 min. On dissout entièrement 0,0100 mol de Al₂(SO₄)₃ pour obtenir 250 mL de solution. Dans le modèle de dissociation totale, on néglige les réactions secondaires. Que représente n₀ dans C = n₀/V ? Que vaut V en litres ?",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Concentrations",
+      "skill": "K4 · Concentrations molaires",
+      "explanation": "n₀ est la quantité de sulfate d’aluminium introduite et totalement dissoute. V est le volume final de solution, soit 250/1 000 = 0,250 L.",
+      "image": "",
+      "gap": "صعوبة في ربط التركيز المولي بالتركيز الفعلي لكل أيون.",
+      "recommendation": "فـ C = n₀/V، كناخدو كمية المذاب المدخل والحجم النهائي ديال المحلول باللتر.",
+      "learning": {
+        "group": "Atelier D · Concentrations",
+        "stage": "Choisir les bonnes grandeurs",
+        "hints": [
+          "Le numérateur compte les moles de soluté apporté.",
+          "Un litre correspond à 1 000 mL."
+        ],
+        "slots": [
+          {
+            "id": "n",
+            "label": "n₀ désigne la quantité…",
+            "options": [
+              "d’eau versée",
+              "de tous les ions réunis",
+              "de soluté apporté"
+            ],
+            "accepted": [
+              "de soluté apporté"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "v",
+            "label": "Volume final (L)",
+            "options": [],
+            "accepted": [
+              "0,250"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "n",
+          "description": "n₀ désigne la quantité…",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "v",
+          "description": "Volume final (L)",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "text": "On a introduit 0,0100 mol de sulfate d’aluminium et obtenu 250 mL de solution. Calcule la concentration molaire C en soluté apporté.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Concentrations",
+      "skill": "K4 · Concentrations molaires",
+      "explanation": "C = n₀/V = 0,0100/0,250 = 0,0400 mol·L⁻¹, soit 40,0 mmol·L⁻¹.",
+      "image": "",
+      "gap": "صعوبة في ربط التركيز المولي بالتركيز الفعلي لكل أيون.",
+      "recommendation": "كتب العلاقة، عوّض بالحجم باللتر ثم أضف الوحدة ديال التركيز.",
+      "learning": {
+        "group": "Atelier D · Concentrations",
+        "stage": "Calculer la concentration apportée",
+        "hints": [
+          "Écris le volume final en litres avant de diviser."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.04,
+        "unit": "mol·L⁻¹",
+        "units": {
+          "mol·L⁻¹": 1,
+          "mmol·L⁻¹": 0.001
+        },
+        "absoluteTolerance": 5e-05,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "val",
+          "description": "Valeur et unité du résultat",
+          "points": 1,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "text": "Chaque unité de Al₂(SO₄)₃ donne deux ions Al³⁺ et trois ions SO₄²⁻. Pour 0,0100 mol de soluté entièrement dissous, quelles quantités de ces deux ions obtient-on ?",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Concentrations",
+      "skill": "K4 · Concentrations molaires",
+      "explanation": "n(Al³⁺) = 2n₀ = 0,0200 mol et n(SO₄²⁻) = 3n₀ = 0,0300 mol. Ce sont les coefficients de dissolution qui multiplient n₀.",
+      "image": "",
+      "gap": "صعوبة في ربط التركيز المولي بالتركيز الفعلي لكل أيون.",
+      "recommendation": "ضرب كمية المذاب فالمعامل اللي قدّام الأيون فمعادلة الذوبان.",
+      "learning": {
+        "group": "Atelier D · Concentrations",
+        "stage": "Passer aux quantités d’ions",
+        "hints": [
+          "Pour chaque mole de soluté, combien de moles de chaque ion se forment ?"
+        ],
+        "slots": [
+          {
+            "id": "al",
+            "label": "n(Al³⁺) en mol",
+            "options": [],
+            "accepted": [
+              "0,0200"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "su",
+            "label": "n(SO₄²⁻) en mol",
+            "options": [],
+            "accepted": [
+              "0,0300"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "al",
+          "description": "n(Al³⁺) en mol",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "su",
+          "description": "n(SO₄²⁻) en mol",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "text": "Dans la solution de sulfate d’aluminium, C = 0,0400 mol·L⁻¹. La dissolution totale produit deux ions Al³⁺ et trois ions SO₄²⁻ par unité de formule. Calcule les concentrations effectives.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Concentrations",
+      "skill": "K4 · Concentrations molaires",
+      "explanation": "[Al³⁺] = 2C = 0,0800 mol·L⁻¹ et [SO₄²⁻] = 3C = 0,120 mol·L⁻¹. On obtient aussi ces valeurs en divisant chaque quantité d’ions par le volume final de 0,250 L.",
+      "image": "",
+      "gap": "صعوبة في ربط التركيز المولي بالتركيز الفعلي لكل أيون.",
+      "recommendation": "ميّز بين معامل الأيون فالمعادلة والشحنة اللي مكتوبة فوق الرمز.",
+      "learning": {
+        "group": "Atelier D · Concentrations",
+        "stage": "Calculer les concentrations effectives",
+        "hints": [
+          "Les deux espèces occupent le même volume de solution.",
+          "Pour chaque ion, multiplie C par son coefficient dans l’équation."
+        ],
+        "slots": [
+          {
+            "id": "al",
+            "label": "[Al³⁺] (mol·L⁻¹)",
+            "options": [],
+            "accepted": [
+              "0,0800"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "su",
+            "label": "[SO₄²⁻] (mol·L⁻¹)",
+            "options": [],
+            "accepted": [
+              "0,120"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "al",
+          "description": "[Al³⁺] (mol·L⁻¹)",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "su",
+          "description": "[SO₄²⁻] (mol·L⁻¹)",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "text": "La solution contient essentiellement Al³⁺ à 0,0800 mol·L⁻¹ et SO₄²⁻ à 0,120 mol·L⁻¹. Choisis la relation d’électroneutralité, puis calcule la valeur commune à ses deux membres.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Concentrations",
+      "skill": "K4 · Concentrations molaires",
+      "explanation": "3[Al³⁺] = 2[SO₄²⁻]. On trouve 3 × 0,0800 = 2 × 0,120 = 0,240 mol·L⁻¹. Les quantités de charges positives et négatives se compensent.",
+      "image": "",
+      "gap": "صعوبة في ربط التركيز المولي بالتركيز الفعلي لكل أيون.",
+      "recommendation": "للتحقق من التعادل اضرب تركيز كل أيون فالقيمة المطلقة لشحنته.",
+      "learning": {
+        "group": "Atelier D · Concentrations",
+        "stage": "Vérifier la neutralité de la solution",
+        "hints": [
+          "Compte trois charges positives par ion Al³⁺ et deux charges négatives par ion SO₄²⁻."
+        ],
+        "slots": [
+          {
+            "id": "rel",
+            "label": "Relation",
+            "options": [
+              "[Al³⁺] = [SO₄²⁻]",
+              "3[Al³⁺] = 2[SO₄²⁻]",
+              "2[Al³⁺] = 3[SO₄²⁻]"
+            ],
+            "accepted": [
+              "3[Al³⁺] = 2[SO₄²⁻]"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "total",
+            "label": "Valeur commune (mol·L⁻¹)",
+            "options": [],
+            "accepted": [
+              "0,240"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "rel",
+          "description": "Relation",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "total",
+          "description": "Valeur commune (mol·L⁻¹)",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "D5-INV",
+          "text": "Une autre solution est préparée par dissolution complète de CaCl₂. Si [Cl⁻] = 0,150 mol·L⁻¹, quelle est la concentration C apportée ?",
+          "response_type": "choice",
+          "options": [
+            "0,300 mol·L⁻¹",
+            "0,0750 mol·L⁻¹",
+            "0,150 mol·L⁻¹"
+          ],
+          "correct": 1,
+          "domain": "Atelier D · Concentrations",
+          "skill": "K4 · Concentrations molaires",
+          "points": 1,
+          "explanation": "Chaque unité libère deux chlorures. [Cl⁻] = 2C, donc C = [Cl⁻]/2 = 0,0750 mol·L⁻¹.",
+          "gap": "صعوبة في ربط التركيز المولي بالتركيز الفعلي لكل أيون.",
+          "recommendation": "للتحقق من التعادل اضرب تركيز كل أيون فالقيمة المطلقة لشحنته."
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "text": "Ticket de sortie · 15 min en individuel. Pour un solide composé de Al³⁺ et O²⁻, choisis la formule donnant le plus petit rapport entier et le bilan de charge correspondant.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "K1 · Électroneutralité du solide",
+      "explanation": "Deux ions Al³⁺ portent au total +6 et trois ions O²⁻ portent −6. La formule du solide est Al₂O₃.",
+      "image": "",
+      "gap": "صعوبة في ربط شحنات الأيونات بصيغة الصلب الأيوني.",
+      "recommendation": "قلب على أصغر مجموع شحنات موجبة يقدر يساوي مجموع الشحنات السالبة بالقيمة المطلقة.",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Transférer la règle de neutralité",
+        "hints": [],
+        "slots": [
+          {
+            "id": "form",
+            "label": "Formule",
+            "options": [
+              "AlO",
+              "Al₃O₂",
+              "Al₂O₃"
+            ],
+            "accepted": [
+              "Al₂O₃"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "balance",
+            "label": "Bilan des charges",
+            "options": [
+              "3 × (+3) + 2 × (−2)",
+              "2 × (+3) + 3 × (−2)",
+              "(+3) + (−2)"
+            ],
+            "accepted": [
+              "2 × (+3) + 3 × (−2)"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "form",
+          "description": "Formule",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "balance",
+          "description": "Bilan des charges",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "text": "La molécule NH₃ a une géométrie pyramidale et N est plus électronégatif que H. Indique le signe de la charge partielle de N et choisis la conclusion justifiée sur la polarité de NH₃.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "K2 · Polarité et hydratation",
+      "explanation": "N attire davantage les doublets et porte δ−. Dans la géométrie pyramidale, les effets des trois liaisons ne se compensent pas. NH₃ est polaire.",
+      "image": "",
+      "gap": "صعوبة في ربط قطبية الروابط بشكل الجزيء أو باتجاه الماء حول الأيون.",
+      "recommendation": "حدّد اتجاه جذب الإلكترونات، ومن بعد فكّر واش تأثير الروابط كيتعادل فالشكل الهرمي.",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Transférer à NH₃",
+        "hints": [],
+        "slots": [
+          {
+            "id": "n",
+            "label": "Signe sur N",
+            "options": [
+              "δ+",
+              "δ−"
+            ],
+            "accepted": [
+              "δ−"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "pol",
+            "label": "Polarité et justification",
+            "options": [
+              "Apolaire car la molécule est neutre.",
+              "Polaire car les effets des liaisons ne se compensent pas.",
+              "Apolaire car les trois H sont identiques."
+            ],
+            "accepted": [
+              "Polaire car les effets des liaisons ne se compensent pas."
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "n",
+          "description": "Signe sur N",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "pol",
+          "description": "Polarité et justification",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "text": "Du sulfate de potassium K₂SO₄(s) est entièrement dissous dans l’eau. Choisis les produits de dissolution, puis la raison pour laquelle la solution conduit le courant.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "K3 · Dissolution et conduction",
+      "explanation": "K₂SO₄(s) → 2 K⁺(aq) + SO₄²⁻(aq). Les cations K⁺ et les anions SO₄²⁻ mobiles assurent le transport de la charge.",
+      "image": "",
+      "gap": "صعوبة في تمثيل ما يحدث عند الإذابة أو تفسير التوصيل بالأيونات المتحركة.",
+      "recommendation": "حافظ على مجموعة الكبريتات، وما تنساش الحالة (aq) وحركة الكاتيونات والأنيونات.",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Écrire la dissolution et expliquer le courant",
+        "hints": [],
+        "slots": [
+          {
+            "id": "prod",
+            "label": "Produits",
+            "options": [
+              "2 K⁺(aq) + SO₄²⁻(aq)",
+              "K²⁺(aq) + SO₄²⁻(aq)",
+              "2 K⁺(s) + SO₄²⁻(s)"
+            ],
+            "accepted": [
+              "2 K⁺(aq) + SO₄²⁻(aq)"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "why",
+            "label": "Origine de la conduction",
+            "options": [
+              "déplacement des molécules neutres",
+              "présence de cristaux immobiles",
+              "déplacement des ions hydratés"
+            ],
+            "accepted": [
+              "déplacement des ions hydratés"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "prod",
+          "description": "Produits",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "why",
+          "description": "Origine de la conduction",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "text": "On dissout entièrement 0,00900 mol de Na₂SO₄ pour obtenir 300 mL de solution. Une unité donne deux ions Na⁺. Calcule C et [Na⁺].",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "K4 · Concentrations molaires",
+      "explanation": "V = 0,300 L. C = 0,00900/0,300 = 0,0300 mol·L⁻¹. [Na⁺] = 2C = 0,0600 mol·L⁻¹.",
+      "image": "",
+      "gap": "صعوبة في ربط التركيز المولي بالتركيز الفعلي لكل أيون.",
+      "recommendation": "حوّل الحجم النهائي للتر، حسب C، ثم طبّق معامل الصوديوم.",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Transférer le calcul de concentration",
+        "hints": [],
+        "slots": [
+          {
+            "id": "c",
+            "label": "C (mol·L⁻¹)",
+            "options": [],
+            "accepted": [
+              "0,0300"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "na",
+            "label": "[Na⁺] (mol·L⁻¹)",
+            "options": [],
+            "accepted": [
+              "0,0600"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "c",
+          "description": "C (mol·L⁻¹)",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "na",
+          "description": "[Na⁺] (mol·L⁻¹)",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1293 @@
+{
+  "id": "1BAC_SOUTIEN_TRAVAIL_ENERGIE_CINETIQUE_2H_2026",
+  "title": "Soutien en physique · Travail et énergie cinétique",
+  "subject": "الفيزياء والكيمياء",
+  "level": "1BAC",
+  "type": "practice",
+  "type_label": "حصة دعم • تشخيص وورشات وبطاقة خروج",
+  "duration": 120,
+  "version": "1.0",
+  "schema_version": 3,
+  "questions": [
+    {
+      "id": "I1",
+      "text": "Diagnostic individuel · 10 min pour les quatre questions. Un mobile de 500 g est en translation à 4,0 m·s⁻¹ par rapport au sol. Convertis sa masse en kg et calcule son énergie cinétique en J.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "K1 · Énergie en translation",
+      "explanation": "$m=0{,}500\\ \\mathrm{kg}$ et $E_c=\\frac12mv^2=\\frac12\\times0{,}500\\times4^2=4{,}0\\ \\mathrm{J}$.",
+      "gap": "صعوبة في تمييز نوع الحركة أو تحويل المعطيات وحساب الطاقة في الانتقال.",
+      "recommendation": "حوّل الكتلة للكيلوغرام، وربّع السرعة قبل ما تضرب.",
+      "image": "",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Convertir la masse et calculer une énergie",
+        "hints": [],
+        "slots": [
+          {
+            "id": "mass",
+            "label": "Masse en kg",
+            "options": [],
+            "accepted": [
+              "0,500"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "ec",
+            "label": "Énergie cinétique en J",
+            "options": [],
+            "accepted": [
+              "4"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "mass",
+          "description": "Masse en kg",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "ec",
+          "description": "Énergie cinétique en J",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "I2",
+      "text": "Un volant tourne autour d’un axe fixe. Son moment d’inertie J(Δ) est 0,20 kg·m² et sa vitesse angulaire est 10 rad·s⁻¹. Choisis l’expression de son énergie cinétique puis calcule sa valeur.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "K2 · Énergie en rotation",
+      "explanation": "$E_c=\\frac12J_\\Delta\\omega^2=\\frac12\\times0{,}20\\times10^2=10\\ \\mathrm{J}$.",
+      "gap": "صعوبة في اختيار عزم القصور أو استعمال السرعة الزاوية في طاقة الدوران.",
+      "recommendation": "فالدوران حول محور ثابت، استعمل عزم القصور بالنسبة لهاد المحور والسرعة الزاوية.",
+      "image": "",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Choisir la relation en rotation",
+        "hints": [],
+        "slots": [
+          {
+            "id": "form",
+            "label": "Expression de l’énergie",
+            "options": [
+              "½ × m × v²",
+              "½ × J(Δ) × ω²",
+              "J(Δ) × ω"
+            ],
+            "accepted": [
+              "½ × J(Δ) × ω²"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "ec",
+            "label": "Énergie cinétique en J",
+            "options": [],
+            "accepted": [
+              "10"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "form",
+          "description": "Expression de l’énergie",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "ec",
+          "description": "Énergie cinétique en J",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "I3",
+      "text": "Sur une trajectoire rectiligne, deux points successifs sont enregistrés toutes les 20 ms. La distance G₀G₂ vaut 4,0 cm. Donne la durée entre G₀ et G₂ en secondes, puis estime la vitesse instantanée en G₁.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "K3 · Exploitation d’un enregistrement",
+      "explanation": "$2\\tau=0{,}040\\ \\mathrm{s}$. La vitesse centrée est $v_1\\simeq G_0G_2/(2\\tau)=0{,}040/0{,}040=1{,}0\\ \\mathrm{m\\,s^{-1}}$.",
+      "gap": "صعوبة في استثمار المواضع المتعاقبة لحساب السرعة وتغير الطاقة.",
+      "recommendation": "من G₀ حتى G₂ كاينين جوج فواصل زمنية. حوّل المسافة للمتر والمدة للثانية.",
+      "image": "",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Lire la durée entre deux positions encadrantes",
+        "hints": [],
+        "slots": [
+          {
+            "id": "time",
+            "label": "Durée en s",
+            "options": [],
+            "accepted": [
+              "0,040"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "v",
+            "label": "Vitesse estimée en m·s⁻¹",
+            "options": [],
+            "accepted": [
+              "1"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "time",
+          "description": "Durée en s",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "v",
+          "description": "Vitesse estimée en m·s⁻¹",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "I4",
+      "text": "Dans le référentiel terrestre supposé galiléen, un chariot de masse constante est en translation. Sur le même trajet, les travaux extérieurs valent +6 J et −2 J, tous les autres sont nuls. Calcule la variation de son énergie cinétique et indique comment évolue sa vitesse entre les deux positions.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Diagnostic initial",
+      "skill": "K4 · Théorème de l’énergie cinétique",
+      "explanation": "$\\Delta E_c=\\sum W_{\\mathrm{ext}}=6-2=+4\\ \\mathrm{J}$. À masse constante la vitesse finale est supérieure à la vitesse initiale.",
+      "gap": "صعوبة في حساب الشغل الجبري وربطه بتغير الطاقة الحركية.",
+      "recommendation": "جمع الأشغال بالإشارات ديالها. إشارة تغيّر الطاقة كتبيّن واش السرعة النهائية كبرات ولا نقصات.",
+      "image": "",
+      "learning": {
+        "group": "Diagnostic initial",
+        "stage": "Relier le travail total à la vitesse",
+        "hints": [],
+        "slots": [
+          {
+            "id": "delta",
+            "label": "Variation d’énergie en J",
+            "options": [],
+            "accepted": [
+              "4"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "speed",
+            "label": "Entre les deux positions, la valeur de la vitesse…",
+            "options": [
+              "augmente",
+              "diminue",
+              "reste identique"
+            ],
+            "accepted": [
+              "augmente"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "delta",
+          "description": "Variation d’énergie en J",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "speed",
+          "description": "Entre les deux positions, la valeur de la vitesse…",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A1",
+      "text": "Atelier A · 20 min. La nacelle d’une grande roue reste verticale pendant que son point de suspension décrit un cercle. À droite, le rayon OB est solidaire de la roue qui tourne autour de O. Décris le mouvement de chacun par rapport au sol.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier A · Translation",
+      "skill": "K1 · Énergie en translation",
+      "explanation": "Dans la nacelle, un segment joignant deux points garde sa direction et son sens. Tous ses points décrivent des cercles de même rayon et de centres différents. Il s’agit d’une translation circulaire. Le rayon marqué change d’orientation et participe à la rotation de la roue autour de son axe fixe.",
+      "gap": "صعوبة في تمييز نوع الحركة أو تحويل المعطيات وحساب الطاقة في الانتقال.",
+      "recommendation": "تبع اتجاه قطعة بين جوج نقط من الجسم. قارن الاتجاه فالوضعيتين.",
+      "image": "images/soutien_cinetique_1bac/mouvements.png",
+      "learning": {
+        "group": "Atelier A · Translation",
+        "stage": "Reconnaître la translation circulaire",
+        "hints": [
+          "Compare l’orientation du plancher de la nacelle à ses deux positions, puis celle du rayon."
+        ],
+        "slots": [
+          {
+            "id": "nacelle",
+            "label": "Nacelle",
+            "options": [
+              "rotation autour d’un axe fixe",
+              "translation circulaire",
+              "translation rectiligne"
+            ],
+            "accepted": [
+              "translation circulaire"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "rayon",
+            "label": "Rayon marqué",
+            "options": [
+              "translation rectiligne",
+              "translation circulaire",
+              "rotation autour d’un axe fixe"
+            ],
+            "accepted": [
+              "rotation autour d’un axe fixe"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "nacelle",
+          "description": "Nacelle",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "rayon",
+          "description": "Rayon marqué",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "text": "Un solide de 2,0 kg se déplace en translation à 108 km·h⁻¹. Convertis la vitesse en m·s⁻¹, puis calcule son énergie cinétique dans le référentiel terrestre.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier A · Translation",
+      "skill": "K1 · Énergie en translation",
+      "explanation": "$v=108/3{,}6=30\\ \\mathrm{m\\,s^{-1}}$ et $E_c=\\frac12\\times2{,}0\\times30^2=900\\ \\mathrm{J}$.",
+      "gap": "صعوبة في تمييز نوع الحركة أو تحويل المعطيات وحساب الطاقة في الانتقال.",
+      "recommendation": "قسم السرعة بالكيلومتر فالساعة على 3,6 قبل استعمالها فالعلاقة.",
+      "image": "",
+      "learning": {
+        "group": "Atelier A · Translation",
+        "stage": "Passer des km/h aux unités SI",
+        "hints": [
+          "Un kilomètre vaut 1 000 m et une heure vaut 3 600 s.",
+          "Dans le système international, on utilise le mètre par seconde."
+        ],
+        "slots": [
+          {
+            "id": "v",
+            "label": "Vitesse en m·s⁻¹",
+            "options": [],
+            "accepted": [
+              "30"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "ec",
+            "label": "Énergie en J",
+            "options": [],
+            "accepted": [
+              "900"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "v",
+          "description": "Vitesse en m·s⁻¹",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "ec",
+          "description": "Énergie en J",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "text": "À masse constante, la valeur de la vitesse de translation double dans le même référentiel. Que devient l’énergie cinétique ?",
+      "options": [
+        "Elle est doublée.",
+        "Elle est multipliée par quatre.",
+        "Elle est divisée par quatre."
+      ],
+      "correct": 1,
+      "points": 1,
+      "domain": "Atelier A · Translation",
+      "skill": "K1 · Énergie en translation",
+      "explanation": "$E_c(2v)=\\frac12m(2v)^2=4E_c(v)$.",
+      "gap": "صعوبة في تمييز نوع الحركة أو تحويل المعطيات وحساب الطاقة في الانتقال.",
+      "recommendation": "طبّق التغيير على السرعة قبل ما تربّعها.",
+      "image": "",
+      "learning": {
+        "group": "Atelier A · Translation",
+        "stage": "Comprendre le carré de la vitesse",
+        "hints": [
+          "Remplace v par 2v dans la relation de l’énergie."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "A4",
+      "text": "Dans une autre situation, l’énergie cinétique du solide de 2,0 kg vaut 1,70 kJ. Retrouve la valeur de sa vitesse. Si tu utilises le mètre par seconde, arrondis au dixième.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier A · Translation",
+      "skill": "K1 · Énergie en translation",
+      "explanation": "$v=\\sqrt{2E_c/m}=\\sqrt{2\\times1700/2{,}0}\\simeq41{,}2\\ \\mathrm{m\\,s^{-1}}$, soit environ $148{,}4\\ \\mathrm{km\\,h^{-1}}$.",
+      "gap": "صعوبة في تمييز نوع الحركة أو تحويل المعطيات وحساب الطاقة في الانتقال.",
+      "recommendation": "حوّل الكيلوجول للجول، وعزل مربع السرعة عاد خذ الجذر الموجب.",
+      "image": "",
+      "learning": {
+        "group": "Atelier A · Translation",
+        "stage": "Retrouver la vitesse à partir de l’énergie",
+        "hints": [
+          "Un kilojoule vaut 1 000 joules.",
+          "Isole le carré de la vitesse avant de prendre la racine carrée."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 41.23105625617661,
+        "unit": "m·s⁻¹",
+        "units": {
+          "m·s⁻¹": 1,
+          "km·h⁻¹": 0.2777777777777778
+        },
+        "absoluteTolerance": 0.051,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "quantity",
+          "description": "Valeur et unité",
+          "points": 1,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "A4-REF",
+          "text": "Un passager de 60 kg est assis dans un train en translation à 10 m·s⁻¹ par rapport au quai. Quelles énergies lui attribue-t-on dans le référentiel du train puis dans celui du quai ?",
+          "response_type": "choice",
+          "options": [
+            "3 000 J puis 0 J.",
+            "3 000 J dans les deux référentiels.",
+            "0 J puis 3 000 J."
+          ],
+          "correct": 2,
+          "points": 1,
+          "domain": "Atelier A · Translation",
+          "skill": "K1 · Énergie en translation",
+          "explanation": "La vitesse dans le train est nulle. Par rapport au quai, ½ × 60 × 10² = 3 000 J.",
+          "gap": "صعوبة في تمييز نوع الحركة أو تحويل المعطيات وحساب الطاقة في الانتقال.",
+          "recommendation": "حوّل الكيلوجول للجول، وعزل مربع السرعة عاد خذ الجذر الموجب."
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "text": "Atelier B · 20 min. Un disque plein homogène de masse 1,5 kg et de rayon 20 cm tourne autour de son axe central perpendiculaire au disque. Pour cet axe, le disque a pour moment d’inertie ½mR² et l’anneau mince mR². Donne le rayon en mètres et sélectionne la formule du disque.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Rotation",
+      "skill": "K2 · Énergie en rotation",
+      "explanation": "$R=0{,}20\\ \\mathrm{m}$ et, pour ce disque et cet axe, $J_\\Delta=\\frac12mR^2$.",
+      "gap": "صعوبة في اختيار عزم القصور أو استعمال السرعة الزاوية في طاقة الدوران.",
+      "recommendation": "حدّد شكل الجسم والمحور، وحوّل نصف القطر للمتر قبل التربيع.",
+      "image": "",
+      "learning": {
+        "group": "Atelier B · Rotation",
+        "stage": "Choisir un moment d’inertie",
+        "hints": [
+          "Divise la valeur en centimètres par 100."
+        ],
+        "slots": [
+          {
+            "id": "r",
+            "label": "Rayon en m",
+            "options": [],
+            "accepted": [
+              "0,20"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "form",
+            "label": "Moment d’inertie du disque",
+            "options": [
+              "mR²",
+              "½mR²",
+              "½mR"
+            ],
+            "accepted": [
+              "½mR²"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "r",
+          "description": "Rayon en m",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "form",
+          "description": "Moment d’inertie du disque",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "text": "Le disque plein a $m=1{,}5\\ \\mathrm{kg}$ et $R=0{,}20\\ \\mathrm{m}$. Calcule son moment d’inertie $J_\\Delta=\\frac12mR^2$.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Rotation",
+      "skill": "K2 · Énergie en rotation",
+      "explanation": "$J_\\Delta=\\frac12\\times1{,}5\\times(0{,}20)^2=0{,}030\\ \\mathrm{kg\\,m^2}$.",
+      "gap": "صعوبة في اختيار عزم القصور أو استعمال السرعة الزاوية في طاقة الدوران.",
+      "recommendation": "ربّع نصف القطر من بعد التحويل، ومن بعد ضرب فنصف الكتلة.",
+      "image": "",
+      "learning": {
+        "group": "Atelier B · Rotation",
+        "stage": "Calculer le moment d’inertie du disque",
+        "hints": [
+          "Calcule d’abord le carré de 0,20."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.03,
+        "unit": "kg·m²",
+        "units": {
+          "kg·m²": 1,
+          "kg·cm²": 0.0001
+        },
+        "absoluteTolerance": 5e-05,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "quantity",
+          "description": "Valeur et unité",
+          "points": 1,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "text": "Le moment d’inertie du disque vaut 0,030 kg·m² et sa vitesse angulaire vaut 30 rad·s⁻¹. Calcule son énergie cinétique.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier B · Rotation",
+      "skill": "K2 · Énergie en rotation",
+      "explanation": "$E_c=\\frac12J_\\Delta\\omega^2=\\frac12\\times0{,}030\\times30^2=13{,}5\\ \\mathrm{J}$.",
+      "gap": "صعوبة في اختيار عزم القصور أو استعمال السرعة الزاوية في طاقة الدوران.",
+      "recommendation": "عزم القصور معطى جاهز. عوّض به مرة واحدة فعلاقة الطاقة.",
+      "image": "",
+      "learning": {
+        "group": "Atelier B · Rotation",
+        "stage": "Calculer l’énergie du disque",
+        "hints": [
+          "Le carré de 30 vaut 900.",
+          "Multiplie le moment d’inertie par 900, puis divise le produit par deux."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 13.5,
+        "unit": "J",
+        "units": {
+          "J": 1,
+          "kJ": 1000
+        },
+        "absoluteTolerance": 0.01,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "quantity",
+          "description": "Valeur et unité",
+          "points": 1,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "text": "On remplace le disque par un anneau mince de même masse et de même rayon, tournant à la même vitesse angulaire autour du même axe central. Pour l’anneau, $J_\\Delta=mR^2$. Si l’énergie du disque vaut 13,5 J, combien vaut celle de l’anneau ?",
+      "options": [
+        "6,75 J",
+        "13,5 J",
+        "27,0 J"
+      ],
+      "correct": 2,
+      "points": 1,
+      "domain": "Atelier B · Rotation",
+      "skill": "K2 · Énergie en rotation",
+      "explanation": "La masse du cerceau est plus éloignée de l’axe. Son moment d’inertie est le double de celui du disque. À vitesse angulaire identique, son énergie est donc 2 × 13,5 = 27,0 J.",
+      "gap": "صعوبة في اختيار عزم القصور أو استعمال السرعة الزاوية في طاقة الدوران.",
+      "recommendation": "قارن عزمي القصور. ملي كتبقى السرعة الزاوية نفسها، الطاقة كتتبدّل بنفس النسبة.",
+      "image": "",
+      "learning": {
+        "group": "Atelier B · Rotation",
+        "stage": "Comparer le disque et un anneau",
+        "hints": [
+          "À vitesse angulaire constante, l’énergie cinétique est proportionnelle au moment d’inertie."
+        ]
+      },
+      "response_type": "choice",
+      "practice": [
+        {
+          "id": "B4-TOURS",
+          "text": "Une roue effectue 300 tours par minute. Un tour correspond à 2π radians. Quelle est sa vitesse angulaire ?",
+          "response_type": "choice",
+          "options": [
+            "10π rad·s⁻¹",
+            "300π rad·s⁻¹",
+            "5 rad·s⁻¹"
+          ],
+          "correct": 0,
+          "points": 1,
+          "domain": "Atelier B · Rotation",
+          "skill": "K2 · Énergie en rotation",
+          "explanation": "La roue effectue 300/60 = 5 tours en une seconde. Sa vitesse angulaire vaut 5 × 2π = 10π rad·s⁻¹.",
+          "gap": "صعوبة في اختيار عزم القصور أو استعمال السرعة الزاوية في طاقة الدوران.",
+          "recommendation": "قارن عزمي القصور. ملي كتبقى السرعة الزاوية نفسها، الطاقة كتتبدّل بنفس النسبة."
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "text": "Atelier C · 20 min. Les points G₀ à G₅ sont enregistrés dans l’ordre à intervalles de 50 ms sur une droite. Pour estimer une vitesse par la méthode centrée, choisis la distance à utiliser en G₁ puis en G₃.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Chronophotographie",
+      "skill": "K3 · Exploitation d’un enregistrement",
+      "explanation": "$v_1\\simeq G_0G_2/(2\\tau)$ et $v_3\\simeq G_2G_4/(2\\tau)$. Le point étudié se trouve entre les deux dates utilisées.",
+      "gap": "صعوبة في استثمار المواضع المتعاقبة لحساب السرعة وتغير الطاقة.",
+      "recommendation": "اختار الموضع المسجل قبل اللحظة المطلوبة والموضع المسجل من بعدها.",
+      "image": "images/soutien_cinetique_1bac/chronophotographie.png",
+      "learning": {
+        "group": "Atelier C · Chronophotographie",
+        "stage": "Choisir les points encadrants",
+        "hints": [
+          "Pour la date de G₁, prends la date immédiatement précédente et la date immédiatement suivante."
+        ],
+        "slots": [
+          {
+            "id": "g1",
+            "label": "Pour la vitesse en G₁",
+            "options": [
+              "G₀G₁",
+              "G₀G₂",
+              "G₁G₃"
+            ],
+            "accepted": [
+              "G₀G₂"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "g3",
+            "label": "Pour la vitesse en G₃",
+            "options": [
+              "G₃G₄",
+              "G₁G₃",
+              "G₂G₄"
+            ],
+            "accepted": [
+              "G₂G₄"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "g1",
+          "description": "Pour la vitesse en G₁",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "g3",
+          "description": "Pour la vitesse en G₃",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "text": "On mesure G₀G₂ = 1,3 cm et G₂G₄ = 3,8 cm. Deux positions successives sont séparées de 50 ms. Estime les vitesses en G₁ et G₃.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Chronophotographie",
+      "skill": "K3 · Exploitation d’un enregistrement",
+      "explanation": "$2\\tau=0{,}100\\ \\mathrm{s}$. On obtient $v_1\\simeq0{,}013/0{,}100=0{,}13\\ \\mathrm{m\\,s^{-1}}$ et $v_3\\simeq0{,}038/0{,}100=0{,}38\\ \\mathrm{m\\,s^{-1}}$.",
+      "gap": "صعوبة في استثمار المواضع المتعاقبة لحساب السرعة وتغير الطاقة.",
+      "recommendation": "الزمن بين النقطتين المؤطرتين هو 2τ. حوّل المسافتين للمتر.",
+      "image": "images/soutien_cinetique_1bac/chronophotographie.png",
+      "learning": {
+        "group": "Atelier C · Chronophotographie",
+        "stage": "Calculer deux vitesses centrées",
+        "hints": [
+          "Deux intervalles de 50 ms représentent 0,100 s."
+        ],
+        "slots": [
+          {
+            "id": "v1",
+            "label": "Vitesse en G₁ en m·s⁻¹",
+            "options": [],
+            "accepted": [
+              "0,13"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "v3",
+            "label": "Vitesse en G₃ en m·s⁻¹",
+            "options": [],
+            "accepted": [
+              "0,38"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "v1",
+          "description": "Vitesse en G₁ en m·s⁻¹",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "v3",
+          "description": "Vitesse en G₃ en m·s⁻¹",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "text": "L’autoporteur en translation a une masse de 0,650 kg. Les vitesses estimées sont 0,13 m·s⁻¹ en G₁ et 0,38 m·s⁻¹ en G₃. Calcule les deux énergies. Donne chaque valeur en millijoules, arrondie au dixième de mJ.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Chronophotographie",
+      "skill": "K3 · Exploitation d’un enregistrement",
+      "explanation": "$E_{c1}=0{,}0054925\\ \\mathrm{J}\\simeq5{,}5\\ \\mathrm{mJ}$ et $E_{c3}=0{,}04693\\ \\mathrm{J}\\simeq46{,}9\\ \\mathrm{mJ}$.",
+      "gap": "صعوبة في استثمار المواضع المتعاقبة لحساب السرعة وتغير الطاقة.",
+      "recommendation": "خدم بالجول ثم حوّل للميليجول. احتفظ بالقيم الكاملة للحساب الموالي.",
+      "image": "",
+      "learning": {
+        "group": "Atelier C · Chronophotographie",
+        "stage": "Calculer les énergies aux deux dates",
+        "hints": [
+          "Un joule correspond à 1 000 millijoules."
+        ],
+        "slots": [
+          {
+            "id": "e1",
+            "label": "Énergie en G₁ en mJ au dixième",
+            "options": [],
+            "accepted": [
+              "5,5"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "e3",
+            "label": "Énergie en G₃ en mJ au dixième",
+            "options": [],
+            "accepted": [
+              "46,9"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "e1",
+          "description": "Énergie en G₁ en mJ au dixième",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "e3",
+          "description": "Énergie en G₃ en mJ au dixième",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "text": "Pour le trajet de G₁ à G₃, les énergies cinétiques mesurées sont 5,49 mJ au départ et 46,93 mJ à l’arrivée. Calcule la variation algébrique de l’énergie cinétique. Donne le résultat en J ou en mJ.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier C · Chronophotographie",
+      "skill": "K3 · Exploitation d’un enregistrement",
+      "explanation": "$\\Delta E_c=E_{c3}-E_{c1}\\simeq46{,}93-5{,}49=+41{,}44\\ \\mathrm{mJ}\\simeq+0{,}0414\\ \\mathrm{J}$.",
+      "gap": "صعوبة في استثمار المواضع المتعاقبة لحساب السرعة وتغير الطاقة.",
+      "recommendation": "بدا بطاقة الوصول، ونقص منها طاقة الانطلاق، واحتفظ بالإشارة.",
+      "image": "",
+      "learning": {
+        "group": "Atelier C · Chronophotographie",
+        "stage": "Former la variation entre deux dates",
+        "hints": [
+          "Écris d’abord la soustraction avec les deux valeurs dans la même unité."
+        ]
+      },
+      "response_type": "numeric",
+      "numeric": {
+        "value": 0.0414375,
+        "unit": "J",
+        "units": {
+          "J": 1,
+          "mJ": 0.001
+        },
+        "absoluteTolerance": 0.0005,
+        "relativeTolerance": 0
+      },
+      "rubric": [
+        {
+          "id": "quantity",
+          "description": "Valeur et unité",
+          "points": 1,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "C4-G4",
+          "text": "Sur le même enregistrement, G₃G₅ = 5,1 cm et τ = 50 ms. Avec m = 0,650 kg et v₃ = 0,38 m·s⁻¹, quel couple estime v₄ et la variation d’énergie de G₃ à G₄ ?",
+          "response_type": "choice",
+          "options": [
+            "0,51 m·s⁻¹ et +0,0376 J.",
+            "1,02 m·s⁻¹ et +0,0376 J.",
+            "0,51 m·s⁻¹ et −0,0376 J."
+          ],
+          "correct": 0,
+          "points": 1,
+          "domain": "Atelier C · Chronophotographie",
+          "skill": "K3 · Exploitation d’un enregistrement",
+          "explanation": "v₄ ≃ 0,051/0,100 = 0,51 m·s⁻¹. La variation vaut ½ × 0,650 × (0,51² − 0,38²) ≃ +0,0376 J.",
+          "gap": "صعوبة في استثمار المواضع المتعاقبة لحساب السرعة وتغير الطاقة.",
+          "recommendation": "بدا بطاقة الوصول، ونقص منها طاقة الانطلاق، واحتفظ بالإشارة."
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "text": "Atelier D · 20 min. Dans le référentiel du sol supposé galiléen, l’autoporteur descend le plan incliné de G₁ à G₃. Les frottements et l’action de l’air hors sustentation sont négligés. Choisis le bilan des forces dans le modèle du cours, puis le travail de la réaction normale.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Travail des forces",
+      "skill": "K4 · Théorème de l’énergie cinétique",
+      "explanation": "Le poids est vertical vers le bas. La réaction normale du support est perpendiculaire au déplacement sur le plan, donc son travail est nul.",
+      "gap": "صعوبة في حساب الشغل الجبري وربطه بتغير الطاقة الحركية.",
+      "recommendation": "عيّن النظام والاتجاه ديال الانتقال. شوف الزاوية بين رد الفعل العمودي والانتقال.",
+      "image": "images/soutien_cinetique_1bac/plan_incline.png",
+      "learning": {
+        "group": "Atelier D · Travail des forces",
+        "stage": "Dresser le bilan sur le plan incliné",
+        "hints": [
+          "Le système étudié est l’autoporteur.",
+          "Quelle est la direction de la réaction normale par rapport à la pente ?"
+        ],
+        "slots": [
+          {
+            "id": "forces",
+            "label": "Forces extérieures",
+            "options": [
+              "poids et réaction normale",
+              "poids seul",
+              "réaction normale et vitesse"
+            ],
+            "accepted": [
+              "poids et réaction normale"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "normal",
+            "label": "Travail de la réaction normale",
+            "options": [
+              "positif",
+              "nul",
+              "négatif"
+            ],
+            "accepted": [
+              "nul"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "forces",
+          "description": "Forces extérieures",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "normal",
+          "description": "Travail de la réaction normale",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "text": "La pente fait un angle de 15° avec l’horizontale. L’autoporteur descend de G₁ à G₃ sur d = 2,5 cm, avec m = 0,650 kg et g = 9,81 m·s⁻². Choisis la relation du travail du poids et donne sa valeur en mJ arrondie au dixième. Utilise le mode degrés.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Travail des forces",
+      "skill": "K4 · Théorème de l’énergie cinétique",
+      "explanation": "$h=d\\sin15^\\circ$. À la descente, $W(P)=+mgd\\sin15^\\circ=0{,}650\\times9{,}81\\times0{,}025\\times\\sin15^\\circ\\simeq+41{,}3\\ \\mathrm{mJ}$.",
+      "gap": "صعوبة في حساب الشغل الجبري وربطه بتغير الطاقة الحركية.",
+      "recommendation": "فالهبوط شغل الوزن موجب. حوّل المسافة للمتر واستعمل sin ديال الزاوية مع الأفقي.",
+      "image": "images/soutien_cinetique_1bac/plan_incline.png",
+      "learning": {
+        "group": "Atelier D · Travail des forces",
+        "stage": "Mesurer le travail du poids",
+        "hints": [
+          "La dénivellation verticale vaut d × sin(15°).",
+          "Un joule correspond à 1 000 millijoules."
+        ],
+        "slots": [
+          {
+            "id": "w",
+            "label": "Relation à la descente",
+            "options": [
+              "−mgd sin(15°)",
+              "+mgd cos(15°)",
+              "+mgd sin(15°)"
+            ],
+            "accepted": [
+              "+mgd sin(15°)"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "val",
+            "label": "Travail en mJ au dixième",
+            "options": [],
+            "accepted": [
+              "41,3"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "w",
+          "description": "Relation à la descente",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "val",
+          "description": "Travail en mJ au dixième",
+          "points": 0.5,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "text": "Pour G₁ → G₃, les vitesses donnent $\\Delta E_c \\simeq +41{,}4\\ \\mathrm{mJ}$. Le bilan des forces donne un travail total de +41,3 mJ. Quelle interprétation convient ?",
+      "options": [
+        "L’énergie finale vaut toujours le travail du poids.",
+        "La variation d’énergie est compatible avec la somme algébrique des travaux extérieurs.",
+        "Les deux valeurs doivent être opposées car le poids est dirigé vers le bas."
+      ],
+      "correct": 1,
+      "points": 1,
+      "domain": "Atelier D · Travail des forces",
+      "skill": "K4 · Théorème de l’énergie cinétique",
+      "explanation": "Pour un solide indéformable dans un référentiel galiléen, $\\Delta E_c=\\sum W_{\\mathrm{ext}}$. Les deux estimations sont compatibles à la précision des mesures.",
+      "gap": "صعوبة في حساب الشغل الجبري وربطه بتغير الطاقة الحركية.",
+      "recommendation": "قارن القيمتين بنفس الوحدة وخذ بعين الاعتبار دقة قياس المسافات والتقريب.",
+      "image": "",
+      "learning": {
+        "group": "Atelier D · Travail des forces",
+        "stage": "Confronter mesure et théorème",
+        "hints": [
+          "Calcule l’écart et compare-le à la précision des distances mesurées."
+        ]
+      },
+      "response_type": "choice"
+    },
+    {
+      "id": "D4",
+      "text": "Un autre chariot de 2,0 kg avance horizontalement en translation à 4,0 m·s⁻¹ en A. Jusqu’en B, la traction fournit +10 J, le frottement −6 J, le poids et la réaction normale ont un travail nul. Calcule l’énergie cinétique en B puis la vitesse en B arrondie au centième.",
+      "options": [],
+      "correct": -1,
+      "points": 1,
+      "domain": "Atelier D · Travail des forces",
+      "skill": "K4 · Théorème de l’énergie cinétique",
+      "explanation": "$E_{cA}=16\\ \\mathrm{J}$ et $\\sum W=10-6=+4\\ \\mathrm{J}$. Ainsi $E_{cB}=16+4=20\\ \\mathrm{J}$ et $v_B=\\sqrt{2E_{cB}/m}=\\sqrt{20}\\simeq4{,}47\\ \\mathrm{m\\,s^{-1}}$.",
+      "gap": "صعوبة في حساب الشغل الجبري وربطه بتغير الطاقة الحركية.",
+      "recommendation": "حسب طاقة البداية وزيد ليها المجموع الجبري للأشغال، ومن الطاقة النهائية استخرج السرعة.",
+      "image": "",
+      "learning": {
+        "group": "Atelier D · Travail des forces",
+        "stage": "Prévoir la vitesse finale",
+        "hints": [
+          "Commence par l’énergie initiale.",
+          "Ajoute le travail total pour obtenir l’énergie finale, puis isole la vitesse."
+        ],
+        "slots": [
+          {
+            "id": "ec",
+            "label": "Énergie finale en J",
+            "options": [],
+            "accepted": [
+              "20"
+            ],
+            "points": 0.5
+          },
+          {
+            "id": "v",
+            "label": "Vitesse finale en m·s⁻¹ au centième",
+            "options": [],
+            "accepted": [
+              "4,47"
+            ],
+            "points": 0.5
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "ec",
+          "description": "Énergie finale en J",
+          "points": 0.5,
+          "automatic": true
+        },
+        {
+          "id": "v",
+          "description": "Vitesse finale en m·s⁻¹ au centième",
+          "points": 0.5,
+          "automatic": true
+        }
+      ],
+      "practice": [
+        {
+          "id": "D4-ARRET",
+          "text": "Un chariot d’énergie initiale 3,0 J s’arrête sur un rail horizontal. Seul un frottement constant de valeur 1,5 N travaille, dans le sens opposé au déplacement. Quelle distance parcourt-il avant l’arrêt ?",
+          "response_type": "choice",
+          "options": [
+            "4,5 m",
+            "2,0 m",
+            "0,50 m"
+          ],
+          "correct": 1,
+          "points": 1,
+          "domain": "Atelier D · Travail des forces",
+          "skill": "K4 · Théorème de l’énergie cinétique",
+          "explanation": "À l’arrêt, $\\Delta E_c=0-3{,}0=-3{,}0\\ \\mathrm{J}$. Comme $W(f)=-1{,}5d$, la distance vaut 3,0/1,5 = 2,0 m.",
+          "gap": "صعوبة في حساب الشغل الجبري وربطه بتغير الطاقة الحركية.",
+          "recommendation": "حسب طاقة البداية وزيد ليها المجموع الجبري للأشغال، ومن الطاقة النهائية استخرج السرعة."
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "text": "Ticket de sortie · 15 min, en individuel. Un chariot de 750 g avance en translation à 2,0 m·s⁻¹ par rapport au sol. Convertis sa masse en kg et calcule son énergie cinétique.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "K1 · Énergie en translation",
+      "explanation": "$m=0{,}750\\ \\mathrm{kg}$ et $E_c=\\frac12\\times0{,}750\\times2^2=1{,}50\\ \\mathrm{J}$.",
+      "gap": "صعوبة في تمييز نوع الحركة أو تحويل المعطيات وحساب الطاقة في الانتقال.",
+      "recommendation": "حوّل الغرام للكيلوغرام ثم طبّق علاقة الطاقة ديال الحركة الانتقالية.",
+      "image": "",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Transférer le calcul en translation",
+        "hints": [],
+        "slots": [
+          {
+            "id": "mass",
+            "label": "Masse en kg",
+            "options": [],
+            "accepted": [
+              "0,750"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "ec",
+            "label": "Énergie en J",
+            "options": [],
+            "accepted": [
+              "1,5"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "mass",
+          "description": "Masse en kg",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "ec",
+          "description": "Énergie en J",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "text": "Une roue tourne autour d’un axe fixe. Son moment d’inertie J(Δ) vaut 0,040 kg·m² et sa vitesse angulaire 20 rad·s⁻¹. Choisis l’expression de son énergie cinétique, puis calcule sa valeur.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "K2 · Énergie en rotation",
+      "explanation": "$E_c=\\frac12 J_\\Delta\\omega^2=\\frac12\\times0{,}040\\times20^2=8{,}0\\ \\mathrm{J}$.",
+      "gap": "صعوبة في اختيار عزم القصور أو استعمال السرعة الزاوية في طاقة الدوران.",
+      "recommendation": "خدم بعزم القصور ديال هاد المحور وربّع السرعة الزاوية.",
+      "image": "",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Transférer le calcul en rotation",
+        "hints": [],
+        "slots": [
+          {
+            "id": "form",
+            "label": "Expression de l’énergie",
+            "options": [
+              "J(Δ) × ω",
+              "½ × m × v²",
+              "½ × J(Δ) × ω²"
+            ],
+            "accepted": [
+              "½ × J(Δ) × ω²"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "ec",
+            "label": "Énergie en J",
+            "options": [],
+            "accepted": [
+              "8"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "form",
+          "description": "Expression de l’énergie",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "ec",
+          "description": "Énergie en J",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "text": "Sur une nouvelle trajectoire rectiligne, τ = 25 ms et M₁M₃ = 7,5 cm. Détermine la durée de M₁ à M₃ en secondes, puis estime la vitesse en M₂.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "K3 · Exploitation d’un enregistrement",
+      "explanation": "$2\\tau=0{,}050\\ \\mathrm{s}$ et $v_2\\simeq0{,}075/0{,}050=1{,}50\\ \\mathrm{m\\,s^{-1}}$.",
+      "gap": "صعوبة في استثمار المواضع المتعاقبة لحساب السرعة وتغير الطاقة.",
+      "recommendation": "حسب عدد الفواصل الزمنية بين M₁ وM₃ وحوّل المسافة للمتر.",
+      "image": "",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Estimer une vitesse sur un autre enregistrement",
+        "hints": [],
+        "slots": [
+          {
+            "id": "time",
+            "label": "Durée en s",
+            "options": [],
+            "accepted": [
+              "0,050"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "v",
+            "label": "Vitesse estimée en m·s⁻¹",
+            "options": [],
+            "accepted": [
+              "1,50"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "time",
+          "description": "Durée en s",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "v",
+          "description": "Vitesse estimée en m·s⁻¹",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "text": "Dans un référentiel galiléen, un chariot en translation de masse constante reçoit deux travaux extérieurs sur le même trajet, +2,0 J et −5,0 J. Les autres travaux sont nuls. Calcule la variation de son énergie cinétique puis compare les valeurs de sa vitesse à l’arrivée et au départ.",
+      "options": [],
+      "correct": -1,
+      "points": 2,
+      "domain": "Ticket de sortie",
+      "skill": "K4 · Théorème de l’énergie cinétique",
+      "explanation": "$\\Delta E_c=2{,}0-5{,}0=-3{,}0\\ \\mathrm{J}$. La vitesse finale est inférieure à la vitesse initiale.",
+      "gap": "صعوبة في حساب الشغل الجبري وربطه بتغير الطاقة الحركية.",
+      "recommendation": "جمع الأشغال بإشاراتها، ثم اربط إشارة التغيّر بقيمة السرعة عند الوصول.",
+      "image": "",
+      "learning": {
+        "group": "Ticket de sortie",
+        "stage": "Interpréter une somme de travaux négative",
+        "hints": [],
+        "slots": [
+          {
+            "id": "delta",
+            "label": "Variation d’énergie en J",
+            "options": [],
+            "accepted": [
+              "−3"
+            ],
+            "points": 1.0
+          },
+          {
+            "id": "speed",
+            "label": "Entre les deux positions, la valeur de la vitesse…",
+            "options": [
+              "reste identique",
+              "augmente",
+              "diminue"
+            ],
+            "accepted": [
+              "diminue"
+            ],
+            "points": 1.0
+          }
+        ]
+      },
+      "response_type": "slots",
+      "rubric": [
+        {
+          "id": "delta",
+          "description": "Variation d’énergie en J",
+          "points": 1.0,
+          "automatic": true
+        },
+        {
+          "id": "speed",
+          "description": "Entre les deux positions, la valeur de la vitesse…",
+          "points": 1.0,
+          "automatic": true
+        }
+      ]
+    }
+  ]
+}
